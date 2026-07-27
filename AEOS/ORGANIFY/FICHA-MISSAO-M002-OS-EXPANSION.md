@@ -72,7 +72,7 @@ Se essa hipótese estiver certa, o centro do produto é **o trabalho e quem o ex
 
 O terceiro é o que gera valor real numa agência. Os dois primeiros são infraestrutura para ele.
 
-> **Nota de arquitetura, ainda como hipótese:** no Organify é Laravel + Livewire, com round-trip ao servidor a cada interação (605–1424 ms medidos). Essa escolha **impede** o item 1 acima de forma natural. Um produto cujo requisito declarado é estado ao vivo não pode nascer desse padrão — o que já é, por si, um achado de benchmark: o limite do Organify é arquitetural, não de esforço.
+> **Nota de arquitetura, ainda como hipótese:** o Organify é Laravel + Livewire, com round-trip ao servidor a cada interação (605–1424 ms medidos). Essa escolha **impede** o item 1 acima de forma natural. Um produto cujo requisito declarado é estado ao vivo não pode nascer desse padrão — o que já é, por si, um achado de benchmark: o limite do Organify é arquitetural, não de esforço.
 
 ## 6. RESTRIÇÕES A CONFIRMAR COM O DONO
 
