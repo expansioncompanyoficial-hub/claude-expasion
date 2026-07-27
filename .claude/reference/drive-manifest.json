@@ -23,7 +23,8 @@
     { "path": "AEOS/VOL-XII-FORGE-MANUAL-DE-OPERACAO.md", "id": "1Q1YzKLazH8lqZAvb-irp3pOsFyfDF0j2", "bytes": 32197, "status": "pendente" },
     { "path": "AEOS/_FONTE-ORIGINAL.md", "id": "1ma6GyDQ5K1DHpmtwrtMsSYNa_2WNpeI6", "bytes": 27090, "status": "pendente" },
     { "path": "AEOS/ORGANIFY/FICHA-MISSAO-M002-OS-EXPANSION.md", "id": "1Wo3ns2dNL6oPo640laL8ERNtjrOF-KL2", "bytes": 8265, "status": "pendente" },
-    { "path": "AEOS/ORGANIFY/DIGITAL-TWIN-ORGANIFY-2026-07-27.md", "id": "1NVqhkp4jKdjE0jtibRFX5GuArxZLYZMV", "bytes": 18292, "status": "pendente" },
+    { "path": "AEOS/ORGANIFY/DIGITAL-TWIN-ORGANIFY-2026-07-27.md", "id": "1NVqhkp4jKdjE0jtibRFX5GuArxZLYZMV", "bytes": 18293, "bytesDrive": 18292, "status": "ok",
+      "nota": "Unico arquivo cujo tamanho nao bateu com o metadado do Drive: 18293 obtidos contra 18292 reportados. Duas decodificacoes independentes do mesmo base64 produziram arquivos identicos (sha256 0dd2c780b8f4092490875c3c77e5100e2eff321e3b867e719a50a01467ba19ac), o conteudo e UTF-8 valido ja em NFC, sem marcas combinantes, e esta completo do primeiro titulo ate a nota de acesso final. Conclusao: o metadado do Drive esta um byte defasado, nao o conteudo." },
 
     { "path": "AUDITORIA-DRIVE-EXPANSION-2026-07-26.md", "id": "1UDhytZA1IRmbf6Rdcvz6M33_I_fyuD0s", "bytes": 35860, "status": "pendente" },
     { "path": "OPERACAO-REAL-EXPANSION-2026-07-26.md", "id": "1Xk8DIl80ZG370lj1ECTBs30TTtTZbKJc", "bytes": 21390, "status": "pendente" },
