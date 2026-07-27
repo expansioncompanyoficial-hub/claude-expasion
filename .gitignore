@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Claude Code — estado local de sessão (não versionar)
+# .claude/settings.json É versionado de propósito: é o que sincroniza as máquinas.
+.claude/settings.local.json
+.claude/sessions/
+.claude/projects/
+.claude/shell-snapshots/
+.claude/backups/
+.claude/todos/
+.claude/statsig/
+.claude/.last-cleanup
+
+# Scratch / temporários
+scratchpad/
+*.tmp
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/

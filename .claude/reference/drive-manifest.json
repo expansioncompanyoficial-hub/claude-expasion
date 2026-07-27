@@ -1,0 +1,54 @@
+{
+  "$comment": "Manifesto da pasta 'NICOLAS - CLAUDE' no Google Drive, origem da migração do Mac para este repositório. Usado para rastrear o que já foi trazido. 'ok' = já está no repo e conferido por tamanho.",
+  "driveFolder": "158vF0tdct5xhGKpN1uljUNFZk-9ipvR2",
+  "driveFolderName": "NICOLAS - CLAUDE",
+  "levantadoEm": "2026-07-27",
+  "totalArquivos": 38,
+  "totalBytes": 2216344,
+  "arquivos": [
+    { "path": "AEOS/README.md", "id": "1KG9fkN2qKWWDT2daxzG3F1VD-2HsfoJQ", "bytes": 7865, "status": "ok" },
+    { "path": ".claude/reference/settings.local.mac.json", "id": "1oJbF2w-I8Xg4i8cHtVAHTrKgsC2DrjTB", "bytes": 5214, "status": "ok" },
+
+    { "path": "AEOS/VOL-I-GENESIS-CONSTITUICAO.md", "id": "1-HMpH8LENLwJBe--NR61opUOE8i5C4Kz", "bytes": 30271, "status": "pendente" },
+    { "path": "AEOS/VOL-II-SENATE-GOVERNANCA.md", "id": "1eGXKsnf4mARlcDxPeG7gfh9UhLeNXV96", "bytes": 28924, "status": "pendente" },
+    { "path": "AEOS/VOL-III-PROMETHEUS-DESCOBERTA.md", "id": "1i2b4pdj7qyv7l1vJEBO4h8ARQ8ext1Hb", "bytes": 22825, "status": "pendente" },
+    { "path": "AEOS/VOL-IV-ATLAS-ARQUITETURA.md", "id": "1mM00QSABFG7l9C5TaXm0ZZYsZggZV-TH", "bytes": 29104, "status": "pendente" },
+    { "path": "AEOS/VOL-V-ODIN-EXECUCAO.md", "id": "1jjuR2M9YGiuW0MxVdqEihGwuyZkmwt_p", "bytes": 24046, "status": "pendente" },
+    { "path": "AEOS/VOL-VI-NEXUS-MALHA.md", "id": "1P6BSkO0Fre322qTCCooEU6iE44ksHE-2", "bytes": 24325, "status": "pendente" },
+    { "path": "AEOS/VOL-VII-PSYCHE-PSICOLOGIA.md", "id": "12khv_6pV0zhBaRC1OeAlYFXUOVn9Qgqn", "bytes": 23693, "status": "pendente" },
+    { "path": "AEOS/VOL-VIII-ORACLE-PRODUTO.md", "id": "1bdTqynzEQ4B4uGHfHb-hbvQXR4lKDD4O", "bytes": 26412, "status": "pendente" },
+    { "path": "AEOS/VOL-IX-DAEMON-IA.md", "id": "1mXcbvhYA4jsiS4uwlF-vFKx41nXnPPGs", "bytes": 21828, "status": "pendente" },
+    { "path": "AEOS/VOL-X-AEGIS-SEGURANCA-AUDITORIA.md", "id": "1CO44PnnzxglwvvC6pUaUifaQ8W2alOdq", "bytes": 25324, "status": "pendente" },
+    { "path": "AEOS/VOL-XI-PHOENIX-REINVENCAO.md", "id": "1z1ZmSbfBC_ceHFPjcw7w83mwKE4XAYSa", "bytes": 24206, "status": "pendente" },
+    { "path": "AEOS/VOL-XII-FORGE-MANUAL-DE-OPERACAO.md", "id": "1Q1YzKLazH8lqZAvb-irp3pOsFyfDF0j2", "bytes": 32197, "status": "pendente" },
+    { "path": "AEOS/_FONTE-ORIGINAL.md", "id": "1ma6GyDQ5K1DHpmtwrtMsSYNa_2WNpeI6", "bytes": 27090, "status": "pendente" },
+    { "path": "AEOS/ORGANIFY/FICHA-MISSAO-M002-OS-EXPANSION.md", "id": "1Wo3ns2dNL6oPo640laL8ERNtjrOF-KL2", "bytes": 8265, "status": "pendente" },
+    { "path": "AEOS/ORGANIFY/DIGITAL-TWIN-ORGANIFY-2026-07-27.md", "id": "1NVqhkp4jKdjE0jtibRFX5GuArxZLYZMV", "bytes": 18292, "status": "pendente" },
+
+    { "path": "AUDITORIA-DRIVE-EXPANSION-2026-07-26.md", "id": "1UDhytZA1IRmbf6Rdcvz6M33_I_fyuD0s", "bytes": 35860, "status": "pendente" },
+    { "path": "OPERACAO-REAL-EXPANSION-2026-07-26.md", "id": "1Xk8DIl80ZG370lj1ECTBs30TTtTZbKJc", "bytes": 21390, "status": "pendente" },
+    { "path": "EXPANSION-360-2026-07-26.md", "id": "1qUHdnnCuFPTmTGAYwB0zS2gXR1g-OGPz", "bytes": 16523, "status": "pendente" },
+    { "path": "CONSELHO-EXPANSION-2026-07-13.md", "id": "1K5V9jMJDV6LO9vKgpn_qRwXnD1nmCtPQ", "bytes": 34790, "status": "pendente" },
+    { "path": "CONSELHO-EXPANSION-ANEXOS-2026-07-13.md", "id": "1FIXkLY8eHu-4DITsxASGg18UvcCMcuD6", "bytes": 92633, "status": "pendente" },
+
+    { "path": "PLATAFORMA-WEBLUXURY-2026-07-13.md", "id": "1Uv2WnEWylA-M1X7nA7IlMwHfyutIlsha", "bytes": 30436, "status": "pendente" },
+    { "path": "PLATAFORMA-WEBLUXURY-MAPA-MENTAL-2026-07-13.md", "id": "1BO3j5kdwAk0fj5N0nPz4FOo-jWK1LiNe", "bytes": 10279, "status": "pendente" },
+    { "path": "PLATAFORMA-WEBLUXURY-PROMPT-NOTEBOOKLM-2026-07-13.md", "id": "1sHOn1-ILXfsd3ghDaDoqSyJaiBN6mTCw", "bytes": 8774, "status": "pendente" },
+    { "path": "PLATAFORMA-WEBLUXURY-ANEXOS-2026-07-13.md", "id": "1Tiq2G5Enx96y8HoPY3rnbgv1zn2M9ESZ", "bytes": 178872, "status": "pendente" },
+    { "path": "PLATAFORMA-WEBLUXURY-PARECER-ACOES-2026-07-24.md", "id": "1xXtfLW_QbqRn1EOpNVeyQyyck6x5lNj8", "bytes": 31529, "status": "pendente" },
+    { "path": "PLATAFORMA-WEBLUXURY-ANEXOS-RODADA2-2026-07-24.md", "id": "1I8Rup93AEYmrtPGtM5en-jkO9OomzUJK", "bytes": 219248, "status": "pendente" },
+    { "path": "PLATAFORMA-WEBLUXURY-PARECER-MODELO-2026-07-25.md", "id": "15uD8DrL3UxsOkyCDVxe_P2ohFEAOP1Zw", "bytes": 34647, "status": "pendente" },
+    { "path": "PLATAFORMA-WEBLUXURY-ANEXOS-RODADA3-2026-07-25.md", "id": "1-Tv0iqWrzOLyUrxt_NOZaQ_W0vNHSFi_", "bytes": 130772, "status": "pendente" },
+    { "path": "PLATAFORMA-WEBLUXURY-PARECER-RODADA4-2026-07-25.md", "id": "1wDZUBNHgldoLLdpA5GzYnGDuLb-_UtoP", "bytes": 40230, "status": "pendente" },
+    { "path": "PLATAFORMA-WEBLUXURY-ANEXOS-RODADA4-2026-07-25.md", "id": "1sJdUqtnuVFs1nw5sQvD4gO-VZe4FkNvn", "bytes": 329263, "status": "pendente" },
+    { "path": "PLATAFORMA-WEBLUXURY-ACOES-SOCIOS.md", "id": "1bAkUhAFAHqIcH1RI_WRSKcc92nTB6lHR", "bytes": 20826, "status": "pendente" },
+
+    { "path": "POSICIONAMENTO-CONTEUDO-NICOLAS-2026-07-17.md", "id": "1gOfBJsbsfP8E72QjtChew5qtpTgjDTuZ", "bytes": 59382, "status": "pendente" },
+    { "path": "POSICIONAMENTO-CONTEUDO-NICOLAS-2026-07-17.pdf", "id": "1bunLzzPnjjx1H18JTkAGg1hCtlc1m--w", "bytes": 467149, "status": "pendente", "binario": true },
+    { "path": "POP-SOCIAL-MEDIA-v0.1.md", "id": "1BWGRlgevdDo34_PkFBsFRbjJdB6XKMvu", "bytes": 6814, "status": "pendente" },
+
+    { "path": "_audios/transcricoes-audios-whatsapp-2026-07-26.md", "id": "1Pd9r-6WYp6ib2nzBWabicHP_fh8MEgyW", "bytes": 11080, "status": "pendente" },
+    { "path": "_audios/transcricao-360-expansion-2026-07-26.txt", "id": "1I1XeYT6W2-mxaBQVHl3Xbx8aFYEwcdG3", "bytes": 28829, "status": "pendente" },
+    { "path": "_audios/transcricao-360-expansion-2026-07-26-corrido.txt", "id": "1UAvmAStXo4C0Gzycshkfls1diyn4OcNS", "bytes": 27137, "status": "pendente" }
+  ]
+}
