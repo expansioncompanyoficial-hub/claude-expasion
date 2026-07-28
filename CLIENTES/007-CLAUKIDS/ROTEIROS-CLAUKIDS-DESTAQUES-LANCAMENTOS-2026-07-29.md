@@ -22,6 +22,22 @@ Capas com a identidade (laranja + verde-lima, kit já no Drive).
 Os 12 roteiros completos estão no doc do Drive; este arquivo é o registro
 interno da entrega (fonte da verdade do conteúdo = doc do Drive).
 
+## Guia de INSTRUÇÕES (primeira guia do doc)
+
+Documento único enviado à Clau e ao filmmaker. Cobre:
+
+- **Regra 1** — gravar os 12 roteiros; gravado é considerado feito, com
+  checklist para marcar no dia.
+- **Regra 2** — extra que a Clau quiser gravar está autorizado, e estender
+  o horário para terminar também.
+- **Regra 3** — banco de fotos como entrega, não como sobra: espaço,
+  roupas e a Clau, transmitindo elegância, aconchego e variedade.
+- Preparação antes da câmera ligar (endereço, link do grupo, prints de
+  clientes, peças separadas) e a decisão dela sobre citar ou não o auxílio
+  emergencial no Destaque 02.
+- Upload no mesmo dia em `Brutos › 2026-07-29 Gravação presencial`, com
+  vídeos nomeados por roteiro.
+
 Fontes dos lançamentos:
 - `Brutos › Lançamento verão hrradinhos 25/7/26` — Coleção Deserto: tons
   terrosos, linho, "leveza que floresce", camiseta com patch + bermuda de
