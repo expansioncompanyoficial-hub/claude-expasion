@@ -1,47 +1,72 @@
-# ClauKids — Roteiros Destaques & Lançamentos
+# ClauKids — Roteiros Gravação Presencial 29/07/2026
 
-Gravação presencial 29/07/2026 · 10 roteiros de destaque (stories) + 2 reels de lançamento.
-Padrão TACO(H) adaptado a story (30–40s). Mesmo conteúdo publicado no Drive
-("Roteiros - ClauKids (Destaques & Lançamentos 29-07)").
+Treze roteiros para a gravação presencial: 7 de destaque e 6 de feed.
+Documento no Drive: "Roteiros - ClauKids (Gravação 29-07) - DESTAQUES + REELS".
+Fonte da verdade do conteúdo = doc do Drive. Este arquivo é o registro interno.
 
-## Arquitetura dos destaques
+## Estrutura dos destaques do perfil
 
-| Ordem | Destaque (capa) | Roteiros dentro |
-|---|---|---|
-| 1 | COMECE AQUI | D1, D2, D3 |
-| 2 | A LOJA | D4 |
-| 3 | COMO COMPRAR | D5, D8 |
-| 4 | O QUE TEM | D6, D7 |
-| 5 | CLIENTES | D9 |
-| 6 | GRUPO VIP | D10 |
+| Destaque | Roteiros |
+|---|---|
+| QUEM SOMOS | 01 · 02 · 03 |
+| COMO COMPRAR | 04 · 05 |
+| MENINOS | 06 |
+| MENINAS | 07 |
+| FEEDBACKS | fotos e prints — sem gravação |
 
-Lógica: destaque é o menu do perfil. Quem entra pela primeira vez percorre:
-quem é ela → onde ela está → como compra → o que tem → prova → canal VIP.
-Capas com a identidade (laranja + verde-lima, kit já no Drive).
+FEEDBACKS não é roteiro: alimenta-se de print de cliente e foto que mãe
+manda. O que precisa acontecer no dia é a Clau separar os melhores prints,
+com autorização e nome borrado.
 
-Os 12 roteiros completos estão no doc do Drive; este arquivo é o registro
-interno da entrega (fonte da verdade do conteúdo = doc do Drive).
+Os roteiros de destaque são atemporais — sem data, sem "essa semana", sem
+"chegou hoje". Ficam fixos no perfil por muito tempo. Podem também ser
+postados no feed, mas o destino principal é o destaque.
 
-## Guia de INSTRUÇÕES (primeira guia do doc)
+## Roteiros
+
+**Destaque (7)**
+
+1. Oi, eu sou a Clau — apresentação
+2. Começou no quarto do meu filho — trajetória
+3. Nossa logo não é uma árvore — propósito da marca
+4. Como funciona comprar comigo — o processo por direct
+5. As quatro perguntas — o método de curadoria
+6. Vestir menino — o lado do menino tratado com o mesmo cuidado
+7. Vestir menina — a peça que agrada mãe e filha
+
+**Reel (6)**
+
+8. Entra comigo — tour da loja
+9. Seu filho tem 9 anos e não cabe mais — o nicho do tamanho grande
+10. Eu não vendo pra todo mundo — curadoria consultiva
+11. O grupo onde tudo chega primeiro — canal próprio
+12. Lançamento Coleção Deserto
+13. Lançamento Pula Bula
+
+## Guia de instruções (primeira guia do doc)
 
 Documento único enviado à Clau e ao filmmaker. Cobre:
 
-- **Regra 1** — gravar os 12 roteiros; gravado é considerado feito, com
-  checklist para marcar no dia.
+- Diferença entre roteiro de destaque e roteiro de feed, e a regra extra
+  dos destaques: nada que marque data.
+- **Regra 1** — gravar os treze roteiros; gravado é considerado feito,
+  com checklist separado por tipo.
 - **Regra 2** — extra que a Clau quiser gravar está autorizado, e estender
   o horário para terminar também.
 - **Regra 3** — banco de fotos como entrega, não como sobra: espaço,
-  roupas e a Clau, transmitindo elegância, aconchego e variedade.
-- Preparação antes da câmera ligar (endereço, link do grupo, prints de
-  clientes, peças separadas) e a decisão dela sobre citar ou não o auxílio
-  emergencial no Destaque 02.
-- Upload no mesmo dia em `Brutos › 2026-07-29 Gravação presencial`, com
-  vídeos nomeados por roteiro.
+  roupas e a Clau, transmitindo elegância, aconchego e variedade. Inclui
+  sequências separadas do lado dos meninos e do lado das meninas, que
+  servem de capa e recheio dos destaques.
+- Preparação antes da câmera ligar e a decisão dela sobre citar ou não o
+  auxílio emergencial no Roteiro 02.
+- Upload no mesmo dia em `Brutos › 2026-07-29 Gravação presencial`, em
+  três subpastas: Destaques, Reels e Fotos.
 
-Fontes dos lançamentos:
+## Fontes dos lançamentos
+
 - `Brutos › Lançamento verão hrradinhos 25/7/26` — Coleção Deserto: tons
-  terrosos, linho, "leveza que floresce", camiseta com patch + bermuda de
-  moletinho de linho com bolso, saia em malha com correntinha e strass,
-  conjuntos para meninos, primavera-verão.
+  terrosos, linho, "leveza que floresce", camiseta com patch e bermuda de
+  moletinho de linho com bolso, saia em malha correntinha com strass.
 - `Brutos › Lançamento pula bula 26/7/26` — ~37 fotos de catálogo, sem
-  conceito escrito (falas da Clau ficam em colchetes para preencher na hora).
+  conceito escrito. As falas da Clau ficam em colchetes, para preencher na
+  hora da gravação.
