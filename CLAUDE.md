@@ -22,12 +22,26 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 ```
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
+CLIENTES/             Contexto consolidado por cliente (uma pasta por cliente)
+  007-CLAUKIDS/       Clau Kids — moda infantil
 _audios/              Transcrições de áudios e reuniões
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
   settings.json       Permissões versionadas — sincroniza entre máquinas
   reference/          Originais preservados da migração
 ```
+
+## CLIENTES — como usar
+
+Cada cliente tem uma pasta `CLIENTES/NNN-NOME/`, numerada como no Drive. O
+ponto de entrada é sempre o `CONTEXTO-NOME.md`: documento **vivo**, sem data,
+que consolida onboarding, marca, números, operação e pendências. Entregas e
+análises são arquivos novos datados ao lado dele — nunca edição destrutiva.
+
+Ver [`CLIENTES/README.md`](CLIENTES/README.md) para a convenção completa.
+
+**Credenciais nunca entram no repositório.** Os docs de `Acessos` ficam no
+Drive. Aqui se registra qual acesso existe e qual está pendente, nunca o valor.
 
 ## AEOS — como usar
 
