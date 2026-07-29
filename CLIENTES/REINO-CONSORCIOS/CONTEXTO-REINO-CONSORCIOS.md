@@ -85,11 +85,20 @@ O que a Expansion se comprometeu a entregar (conforme onboarding):
 4. **Linguagem técnica acessível** — empresário entende sem ser especialista
 5. **Funil de captação** — seguidor → lead → cliente
 
-🔴 **Buraco no onboarding:** a seção **"PLANOS OFERTADOS"** do documento oficial
-está literalmente com *"⚠️ Pacote mínimo — a ser definido com o time. As
-condições comerciais dos planos ainda não foram formalizadas."* — e nunca foi
-preenchida. **Não há registro escrito do escopo comercial contratado.** Ver
-perguntas abertas (§9).
+**Escopo contratado: social orgânico + tráfego pago** (confirmado por Nicolas
+em 29/07/2026). É consistente com o registro: em 16/06 Kaua escreve *"vamos
+alinhar com o Nicolas de fazer uma assim pra tráfego"*, e o roteiro de gravação
+do Vídeo 1 fecha com *"a gente edita, sobe a campanha e acompanha as métricas
+para evoluir os próximos vídeos"*.
+
+🔴 **Mas nada disso está escrito.** A seção **"PLANOS OFERTADOS"** do onboarding
+segue com *"⚠️ Pacote mínimo — a ser definido com o time. As condições
+comerciais dos planos ainda não foram formalizadas."* Falta registrar valor,
+verba de anúncio, quem gere a campanha e o que é entregável mínimo por mês.
+**Pendência a resolver antes da renovação** — ver §9.
+
+🔴 **E em 73 dias não há uma única menção a resultado de campanha no grupo.**
+Se existe tráfego pago rodando, o cliente nunca viu um relatório dele.
 
 ---
 
@@ -158,6 +167,11 @@ número concreto (3 consórcios / R$ 450 mil no mês) para sustentar.
 Isso não é um cliente desengajado. É um cliente que fecha negócio e que
 apresentou uma hipótese de formato diferente da que o projeto está executando.
 
+✅ **O pedido foi acatado** (confirmado por Nicolas em 29/07): o time mudou o
+formato. A publicação de 25/07 é estática (`/p/`), não Reels — e os 6 carrosséis
+criados em 23/07 são exatamente essa virada. A mudança levou ~25 dias para
+aparecer no feed, com o hiato de 30 dias no meio.
+
 **Contexto interno da Expansion:** em `OPERACAO-REAL-EXPANSION-2026-07-26.md`
 a Reino está classificada como **"fluxo esporádico"**. O outro cliente de
 consórcio da carteira, **Vitor Gomes**, foi encerrado em 15/06.
@@ -202,22 +216,30 @@ logo vetorizado nem paleta definida. Todo material novo depende de recriar isso.
 
 ---
 
-## 9. Perguntas abertas
+## 9. Perguntas — respondidas e em aberto
 
-Nenhuma destas é respondível pelo acervo. Todas mudam o próximo passo.
+### Respondidas por Nicolas em 29/07/2026
 
-1. **Contrato.** É trimestral, iniciado ~15/05 → vence **~15/08/2026**.
-   Já foi renovado, está em negociação, ou ninguém tocou no assunto?
-2. **A decisão de 29/06.** O time acatou o pedido do Thairony (imagem + tabela)
-   ou continuou insistindo em vídeo? O que foi publicado em 17/07 e 25/07?
-3. **Escopo comercial.** O que exatamente a Expansion vende para a Reino —
-   só social orgânico, ou inclui tráfego pago? Qual o valor? Nada disso está
-   escrito em lugar nenhum.
+| Pergunta | Resposta |
+|---|---|
+| Status do contrato trimestral (vence ~15/08) | **Em negociação** |
+| O pedido de formato do Thairony (29/06) foi acatado? | **Sim** — o time mudou o formato |
+| Escopo comercial | **Orgânico + tráfego pago** |
+| Existem métricas do perfil? | **Sim, em outro lugar** — falta localizar |
+
+### Ainda em aberto
+
+1. **Onde estão as métricas** e por que nunca chegaram ao cliente. O grupo
+   prometeu relatório três vezes (19/05, 26/05) e não entregou um número em
+   73 dias.
+2. **O tráfego pago está rodando?** Qual a verba, quem gere, qual o resultado?
+   Não há uma menção a campanha no grupo em todo o período.
+3. **Termos comerciais por escrito** — valor, verba, entregável mínimo mensal.
+   A seção "Planos ofertados" do onboarding segue vazia.
 4. **A reunião do Ralph (01/06)** aconteceu fora do grupo? O que ficou decidido?
 5. **O boleto de 17/06** foi resolvido? Há inadimplência em aberto?
-6. **Métricas.** Existe algum dado de performance do @reinoconsorcios —
-   alcance, seguidores, leads gerados? O grupo prometeu relatório três vezes
-   (19/05, 26/05) e nunca entregou um número.
+6. **Identidade visual** — quem vai refazer logo e paleta, e até quando.
+   É o que trava os 6 carrosséis prontos desde 23/07.
 
 ---
 
