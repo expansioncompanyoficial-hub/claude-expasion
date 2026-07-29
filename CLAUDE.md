@@ -11,7 +11,7 @@ usada a partir do Claude Code na web sem depender de uma máquina específica.
 
 Não é um projeto de software: é um **acervo de documentos de estratégia,
 governança e operação**, mais o AEOS, que é um sistema normativo de
-engenharia de produto.
+engenharia de produto, mais o **contexto de cada cliente** da agência.
 
 ## Idioma
 
@@ -22,6 +22,8 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 ```
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
+CLIENTES/             Um diretório por cliente da agência
+  ALBANOS/            Ecossistema Albanos (4 empresas, nicho autismo)
 _audios/              Transcrições de áudios e reuniões
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
@@ -53,6 +55,17 @@ Três portões travam entrega de propósito:
 de análise* — um conjunto fixo de perguntas obrigatórias e um poder de veto.
 Nunca personas com biografia ou anos de experiência. Um papel só existe no
 AEOS se consegue reprovar alguma coisa.
+
+## CLIENTES — como usar
+
+Cada cliente da agência tem uma pasta em `CLIENTES/`. **Antes de produzir
+qualquer coisa para um cliente, ler o `<CLIENTE>-CONTEXTO.md` dele** — é o
+documento vivo com produtos, público e as regras editoriais que a conta não
+aceita quebrar. `CLIENTES/README.md` traz a estrutura padrão da pasta.
+
+**Credencial não entra neste repositório.** Nem em transcrição de WhatsApp, nem
+em documento de contexto. Senha que aparecer em export é redigida antes do
+commit; o documento pode dizer *onde* a credencial vive, nunca *qual* é.
 
 ## Convenções
 

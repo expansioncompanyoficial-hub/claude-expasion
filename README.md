@@ -12,6 +12,7 @@ de nenhuma máquina em particular.
 |---|---|
 | [`AEOS/`](AEOS/) | APEX Engineering Operating System — constituição de engenharia de produto, 12 volumes, 140 artigos |
 | [`AEOS/ORGANIFY/`](AEOS/ORGANIFY/) | Missões M001 (Digital Twin do app.organifybr.com) e M002 (OS interno da Expansion) |
+| [`CLIENTES/`](CLIENTES/) | Contexto de cada cliente da agência — quem é, regras editoriais, como a conta roda |
 | `PLATAFORMA-WEBLUXURY-*` | Análise da plataforma WebLuxury — pareceres, anexos e rodadas de revisão |
 | `CONSELHO-EXPANSION-*` | Conselho da Expansion e anexos |
 | `EXPANSION-360`, `OPERACAO-REAL`, `AUDITORIA-DRIVE` | Diagnóstico e operação real da agência |
@@ -20,6 +21,10 @@ de nenhuma máquina em particular.
 | [`_audios/`](_audios/) | Transcrições de áudios e reuniões |
 
 ## Por onde começar
+
+Para trabalhar numa conta de cliente, abra o `CONTEXTO` dela em
+[`CLIENTES/`](CLIENTES/) — ex.:
+[`CLIENTES/ALBANOS/ALBANOS-CONTEXTO.md`](CLIENTES/ALBANOS/ALBANOS-CONTEXTO.md).
 
 Para usar o AEOS numa missão nova, abra
 [`AEOS/VOL-XII-FORGE-MANUAL-DE-OPERACAO.md`](AEOS/VOL-XII-FORGE-MANUAL-DE-OPERACAO.md).
