@@ -22,12 +22,35 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 ```
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
+CLIENTES/             Um diretório por cliente da Expansion
+  PRIME/              Prime Assessoria (crédito imobiliário)
 _audios/              Transcrições de áudios e reuniões
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
   settings.json       Permissões versionadas — sincroniza entre máquinas
   reference/          Originais preservados da migração
 ```
+
+## CLIENTES — como usar
+
+Cada cliente da Expansion tem um diretório em `CLIENTES/<CLIENTE>/`. A ideia é que
+uma sessão do Claude Code possa ser aberta para um cliente só e ter contexto completo
+sem depender do que ficou na cabeça de alguém.
+
+**Ponto de entrada de cada cliente: `CONTEXTO-<CLIENTE>.md`.** É documento vivo — quem
+é o cliente, quem é quem dos dois lados, contrato, linha do tempo, números, pendências
+de parte a parte e riscos abertos. Os demais arquivos são as fontes:
+
+| Padrão | O que é |
+|---|---|
+| `CONTEXTO-<CLIENTE>.md` | Dossiê mestre. Documento vivo, sem data no nome |
+| `<CLIENTE>-ALINHAMENTO-AAAA-MM-DD.md` | Reunião: notas de decisão + transcrição integral |
+| `<CLIENTE>-WHATSAPP-<CANAL>-AAAA-MM-DD.md` | Transcrição exportada do WhatsApp |
+| `<CLIENTE>-DRIVE-INVENTARIO-AAAA-MM-DD.md` | Mapa da pasta do cliente no Drive |
+
+**Regra de credencial:** senha nunca entra neste repositório. Ao trazer transcrição de
+WhatsApp, substituir por `[SENHA REDIGIDA]` e apontar para o documento de acessos no
+Drive. Códigos 2FA já expirados podem ficar — fazem parte do registro operacional.
 
 ## AEOS — como usar
 
