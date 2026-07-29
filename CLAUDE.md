@@ -22,12 +22,28 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 ```
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
+CLIENTES/             Uma pasta por cliente — contexto, diagnóstico, acervo
+  DICASTRO/           BBM, missão empresarial Macedônia e Bulgária
 _audios/              Transcrições de áudios e reuniões
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
   settings.json       Permissões versionadas — sincroniza entre máquinas
   reference/          Originais preservados da migração
 ```
+
+## CLIENTES — contexto por conta
+
+Cada cliente tem uma pasta em `CLIENTES/<NOME>/` com tudo que é preciso saber
+para trabalhar naquela conta sem depender do Drive nem da memória de ninguém.
+`CLIENTES/README.md` traz o padrão de arquivos e as regras.
+
+Duas coisas para ter na cabeça antes de escrever em qualquer pasta de cliente:
+
+1. **`CONTEXTO-<CLIENTE>.md` é documento vivo** — sem data, atualizado no lugar.
+   Diagnóstico é datado e não se edita: rodada nova é arquivo novo.
+2. **O repositório está público.** Não entram credenciais, links de
+   compartilhamento do Drive nem dado pessoal de terceiro (nome/telefone de
+   lead). Transcrição de WhatsApp entra redigida.
 
 ## AEOS — como usar
 
