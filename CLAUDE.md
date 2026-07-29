@@ -22,12 +22,28 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 ```
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
+CLIENTES/             Um dossiê de contexto por cliente da agência
 _audios/              Transcrições de áudios e reuniões
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
   settings.json       Permissões versionadas — sincroniza entre máquinas
   reference/          Originais preservados da migração
 ```
+
+## CLIENTES — como usar
+
+`CLIENTES/` guarda o contexto de cada cliente da agência: quem é, o que quer, o que
+já foi prometido, o que está travado. Cada cliente tem um grupo de WhatsApp, uma pasta
+no Drive e uma sessão do Claude; esta pasta é onde isso vira memória entre sessões.
+
+**Antes de trabalhar num cliente, ler o dossiê dele.** Antes de montar um cliente
+novo, ler `CLIENTES/README.md` — traz a estrutura, o passo a passo e as três regras
+não negociáveis (credencial nunca é versionada; dado de terceiro só com autorização;
+fala da cliente vai entre aspas, com data).
+
+Fontes de um cliente: **Fathom** (call de onboarding — ler a transcrição inteira, não
+só o resumo), **Google Drive** (pasta do cliente) e **export de WhatsApp** do privado
+e do grupo.
 
 ## AEOS — como usar
 
