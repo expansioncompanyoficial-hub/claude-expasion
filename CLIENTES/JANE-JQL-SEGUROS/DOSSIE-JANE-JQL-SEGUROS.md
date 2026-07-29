@@ -20,7 +20,8 @@
 | **Perfil fora de escopo agora** | `@JQL Seguros` (institucional) — decisão registrada no doc de onboarding |
 | **Entrada na Expansion** | Grupo criado por Kauã Catini em **24/07/2026** |
 | **Onboarding** | 25/07/2026, 13h30, 56 min — [Fathom](https://fathom.video/calls/760724003) |
-| **Modelo contratado** | "Mês de teste" (termo usado por Nicolas na call) |
+| **Modelo contratado** | **Plano teste — primeiro mês Expansion** |
+| **Valor** | **R$1.300** (assessoria) **+ 2 diárias de videomaker × R$350** = **R$2.000** |
 | **Canal oficial** | Grupo WhatsApp "JQL SEGUROS and EXPANSION ®️" |
 | **Drive** | [Pasta da Jane](https://drive.google.com/drive/folders/1QQMwLfPDFa4H_sZHTjkMVDdUiAae_R5L) |
 
@@ -211,6 +212,22 @@ Resposta dela: relacionamento e pessoa. **Por isso a marca é a Jane, não a JQL
 **Estratégia da Expansion (Nicolas, na call):** posicionar a **pessoa Jane Queiroz como centro de um ecossistema**. A audiência é construída em torno dela; a JQL Seguros e o que vier depois (podcast, YouTube, palestras) são alimentados por essa audiência.
 > *"Se você se posicionar, já era — você vai construir audiência, as pessoas vão gostar tanto de você que, de cliente, quantas indicações vão sair dele."*
 
+**Comercial** — plano teste do primeiro mês:
+
+| Item | Valor |
+|---|---|
+| Assessoria | R$1.300 |
+| 2 diárias de videomaker × R$350 | R$700 |
+| **Total** | **R$2.000** |
+
+As duas diárias contratadas **já foram consumidas em 29 e 30/07** (Agrotools São Paulo
+e São José dos Campos). Qualquer gravação nova neste ciclo é custo adicional — vale
+alinhar com a Jane antes de agendar a terceira.
+
+⏳ **Lista de entregáveis totais do plano: pendente** (Nicolas vai enviar). Sem ela,
+não dá para responder com precisão a pergunta que a cliente fez em 28/07 — e é ela que
+fecha a pendência #1.
+
 **Fases**
 | Fase | Objetivo |
 |---|---|
@@ -258,7 +275,8 @@ Não há segundo motivo. É esse.
 | 1 | **Resumo do primeiro mês** — Jane pediu, Nicolas prometeu *"hoje"* | Nicolas | 28/07 | 🔴 |
 | 2 | **5 roteiros para aprovação** — compromisso explícito da call | Expansion | 25/07 | 🔴 |
 | 3 | **Senha em texto puro no WhatsApp** — ver §12 | Nicolas | 27/07 | 🔴 |
-| 4 | **Tráfego pago: faz ou não?** Pergunta sem resposta em texto | Jane | 25/07 | 🟡 |
+| 4 | **Tráfego pago: faz ou não?** Confirmado em 29/07 que **segue em aberto** — não foi decidido nem nos áudios | Nicolas + Jane | 25/07 | 🟡 |
+| 4b | **Lista de entregáveis do plano teste** — Nicolas vai enviar. Sem ela a pendência #1 não fecha | Nicolas | 29/07 | 🔴 |
 | 5 | **Acesso ao Instagram** — veio só a senha do Facebook | Jane / Amanda | 25/07 | 🟡 |
 | 6 | **Cronograma de postagem** prometido na call | Expansion | 25/07 | 🟡 |
 | 7 | **Definição do @ do perfil** — Jane chegou a cogitar renomear | Nicolas + Jane | 25/07 | 🟡 |
@@ -321,6 +339,10 @@ Dois templates estão lá em branco desde 26/07: o **briefing de cliente** e o *
 
 **Lacunas conhecidas** — o que **não** está coberto e só a Jane ou o Nicolas resolvem:
 - Todos os áudios do WhatsApp (o export omite; há ~15 áudios, incluindo os de 27/07 e 29/07)
-- Valor do contrato, forma de pagamento e duração formal do "mês de teste"
-- O que exatamente está incluso no escopo — ela mesma disse: *"eu não sei o que está incluso, Nicolas"*
+- **Lista de entregáveis do plano teste** — o valor está fechado (§9), o conteúdo do pacote não
+- Forma de pagamento e data de renovação do plano teste
 - O @ atual do Instagram e o número de seguidores
+
+**Confirmado por Nicolas em 29/07/2026:** valor do plano teste (R$2.000, discriminado
+em §9) e que a decisão sobre tráfego pago **segue em aberto** — não foi resolvida nos
+áudios do WhatsApp.
