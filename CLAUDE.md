@@ -20,6 +20,8 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 ## Estrutura
 
 ```
+CLIENTES/             Um acervo por cliente (contexto, Drive, conversas)
+  REINO-CONSORCIOS/   Consórcio e estruturação de crédito
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
 _audios/              Transcrições de áudios e reuniões
@@ -28,6 +30,19 @@ _audios/              Transcrições de áudios e reuniões
   settings.json       Permissões versionadas — sincroniza entre máquinas
   reference/          Originais preservados da migração
 ```
+
+## CLIENTES — como usar
+
+Cada cliente tem uma pasta. O ponto de entrada é sempre o
+`CONTEXTO-<CLIENTE>.md` — documento vivo com quem é, o que vende, público,
+estado da operação e perguntas em aberto. O `INVENTARIO-DRIVE-*.md` traz os IDs
+dos arquivos no Drive para não ter que garimpar de novo.
+
+Convenções e passo a passo para abrir um cliente novo em
+[`CLIENTES/README.md`](CLIENTES/README.md).
+
+🔒 **Credencial de cliente não entra neste repositório** — nem em transcrição
+de WhatsApp. Redigir na hora e apontar para o documento de acessos no Drive.
 
 ## AEOS — como usar
 
