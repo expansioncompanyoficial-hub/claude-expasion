@@ -10,6 +10,7 @@ de nenhuma máquina em particular.
 
 | Pasta / arquivo | O que é |
 |---|---|
+| [`CLIENTES/`](CLIENTES/) | Um dossiê por cliente da Expansion — contexto, linha do tempo, pareceres e conversas |
 | [`AEOS/`](AEOS/) | APEX Engineering Operating System — constituição de engenharia de produto, 12 volumes, 140 artigos |
 | [`AEOS/ORGANIFY/`](AEOS/ORGANIFY/) | Missões M001 (Digital Twin do app.organifybr.com) e M002 (OS interno da Expansion) |
 | `PLATAFORMA-WEBLUXURY-*` | Análise da plataforma WebLuxury — pareceres, anexos e rodadas de revisão |
@@ -20,6 +21,10 @@ de nenhuma máquina em particular.
 | [`_audios/`](_audios/) | Transcrições de áudios e reuniões |
 
 ## Por onde começar
+
+Para trabalhar num cliente, abra o dossiê dele em [`CLIENTES/`](CLIENTES/).
+A pasta do cliente deve bastar — sem depender de rolar o WhatsApp nem caçar
+arquivo no Drive.
 
 Para usar o AEOS numa missão nova, abra
 [`AEOS/VOL-XII-FORGE-MANUAL-DE-OPERACAO.md`](AEOS/VOL-XII-FORGE-MANUAL-DE-OPERACAO.md).

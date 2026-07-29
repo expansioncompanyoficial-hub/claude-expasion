@@ -20,6 +20,8 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 ## Estrutura
 
 ```
+CLIENTES/             Um dossiê por cliente da Expansion
+  CIES-BRAND/         Moda feminina, confecção própria — ativo desde 26/05/2026
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
 _audios/              Transcrições de áudios e reuniões
@@ -28,6 +30,23 @@ _audios/              Transcrições de áudios e reuniões
   settings.json       Permissões versionadas — sincroniza entre máquinas
   reference/          Originais preservados da migração
 ```
+
+## CLIENTES — como trabalhar
+
+Cada cliente tem uma pasta em `CLIENTES/` com o mesmo esqueleto: dossiê vivo,
+onboarding, linha do tempo, parecer, mapa do Drive e a exportação do grupo de
+WhatsApp. **Abrir a pasta do cliente deve bastar para trabalhar nele.**
+
+`CLIENTES/README.md` traz a convenção completa. Os três pontos que não podem ser
+violados:
+
+1. **Fato e leitura em arquivos separados.** Linha do tempo só carrega fato e
+   citação com data. Diagnóstico e recomendação moram no parecer.
+2. **Marcar o que não foi apurado.** Áudio e imagem não vêm na exportação do
+   WhatsApp. Conclusão apoiada em trecho ausente é inferência e precisa estar
+   sinalizada. Todo parecer termina com uma seção de lacunas.
+3. **Nunca versionar credencial.** Senha, código 2FA e token saem do arquivo
+   antes do commit, substituídos por `[REMOVIDO NO ARQUIVAMENTO]`.
 
 ## AEOS — como usar
 
