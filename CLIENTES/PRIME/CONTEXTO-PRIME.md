@@ -4,7 +4,8 @@ Documento vivo. É o ponto de entrada do cliente **Prime** dentro deste reposit�
 Quem chegar aqui sem contexto nenhum lê este arquivo e sabe operar a conta.
 
 **Última atualização:** 29/07/2026, a partir da pasta do Drive, da reunião de
-alinhamento de 27/07 (Fathom) e das duas transcrições de WhatsApp.
+alinhamento de 27/07 (gravação do Fathom **e** as notas do Nicolas feitas na reunião)
+e das duas transcrições de WhatsApp.
 
 ---
 
@@ -190,6 +191,15 @@ Narrativa de **troca de dívida**, no molde do último vídeo da Mayara: *"se vo
 com a dívida cara e quer trocar a sua dívida"*. Público: empresários, autônomos,
 gente no cheque especial. **Não conflita com o corretor** — foi a condição da Laura.
 
+### As quatro frentes de tráfego pago
+
+**Cliente Final · Reconhecimento de Marca · Empresário · Corretor.**
+
+Reconhecimento de marca **segue sendo frente paga**, não só orgânica — a verba divide em
+quatro. E vale a ressalva da Laura sobre a frente de corretor: *"o que gera mais conversão
+para os corretores são os eventos presenciais."* A campanha de corretor existe para
+**levar gente ao presencial**, não para converter sozinha no digital.
+
 ### Ritmo e produção acordados
 
 - **3 publicações por semana:** Reels na segunda · Carrossel na quarta · Reels na sexta
@@ -208,6 +218,11 @@ gente no cheque especial. **Não conflita com o corretor** — foi a condição 
 3. **InfoPrime** — boletim semanal do mercado imobiliário que **a própria Laura produz**.
    Fonte de pauta toda semana, sempre de notícia da semana corrente.
 
+**A arquitetura pretendida** (das notas do Nicolas): tabelas de taxas e InfoPrime não são
+só insumo de roteiro — entram no **"cérebro"** da Expansion, a base de conhecimento do
+cliente, e o **carrossel semanal deve sair dela automatizado**. Modelar o InfoPrime como
+formato de entrada é parte do trabalho. **Status: aprovado para teste.**
+
 ---
 
 ## 7. Frentes abertas
@@ -220,6 +235,8 @@ gente no cheque especial. **Não conflita com o corretor** — foi a condição 
 - Sem stand. Foco **local** — é o escritório de Alphaville que patrocina
 - **Objetivo:** fortalecer a imagem do patrocínio, captar depoimentos de parceiros,
   gravar roteiros dentro do ambiente
+- **Transmitir ao vivo no Instagram**, com três ângulos definidos: por que ser parceiro
+  da Prime · os corretores parceiros presentes · por que os corretores escolhem a Prime
 - **Possível lançamento no evento:** campanha de bonificação para corretores —
   R$ 1 milhão em financiamento = iPhone; R$ 5 milhões = bolsa de marca; escalando até
   viagem internacional. **Não é sorteio, é meritocrático.** Inspirado no modelo da Cash Me.
@@ -227,7 +244,8 @@ gente no cheque especial. **Não conflita com o corretor** — foi a condição 
 
 ### Evento 10/08 — PRÊMIO A TRINCA (Espaço Unimed, SP)
 
-- Portões às 16h30. **Flávio Augusto, Joel Jota e César.** Gravação de podcast no local
+- Portões às 16h30. **Flávio Augusto, Joel Jota e Caio Carneiro** — a Trinca. Gravação
+  de podcast do Joel Jota no local
 - Primeira edição da premiação. **Indicação por pesquisa de mercado — a Prime não pagou nada**
 - **A Prime está em 1º lugar** na categoria de empresa de crédito imobiliário
   (22º no ranking geral; o 2º da categoria está em 45º geral). Votação até 06/08.
@@ -237,7 +255,11 @@ gente no cheque especial. **Não conflita com o corretor** — foi a condição 
 - **Formato pedido:** equipe completa — filmmaker dedicado às unidades, fotógrafo,
   after movie / mini-documentário, social media dedicada em real time, microfone com a
   marca Prime para formato "jornal" com as unidades, roteiros genéricos pré-prontos para
-  quem nunca gravou, **iluminação própria** (exigência explícita da Laura)
+  as ~10 unidades, **iluminação própria** (exigência explícita da Laura)
+- **Entrega final:** material em **pendrive dentro de caixa personalizada da Prime** —
+  item de custo **e de lead time de gráfica/brinde**. Tem que entrar no orçamento
+- **Pasta organizada no Drive**, com um **log/responsável** pela organização
+- Movimento no Instagram para **premiar seguidores com ingresso** e levá-los junto com a Prime
 - **Prime Elas** — ver abaixo
 
 > 🔴 **A pendência mais urgente da conta.** A Laura pediu o orçamento *"até o fim da
@@ -252,6 +274,8 @@ imobiliário. Já rodou um projeto de 21 dias no início do ano, com plataforma 
 A Laura quer **lançar ao mercado no evento de 10/08**. O que ela pede: roteiros de
 mulheres contando a **trajetória delas dentro do crédito imobiliário** e como o crédito
 transformou a vida delas — para publicar em collab com o perfil do Prime Elas.
+As notas do Nicolas registram o verbo como **"estruturar o PrimeElas"** — não é só
+produzir peça, é montar a frente.
 
 ### Convenção Prime — Uberlândia (data a definir)
 
@@ -266,6 +290,18 @@ A Prime tem **CRM proprietário, código-fonte próprio, com API liberável**. M
 WhatsApp e o comercial é forte no presencial (ligação e reunião). O Nicolas quer analisar
 as conversas de WhatsApp para achar o furo do atendimento. A Laura concordou com o
 mérito, mas precisa desenhar o fluxo interno antes. **Está em aberto.**
+
+**O objetivo declarado:** estratégia de acompanhamento comercial — CRM, análise de
+atendimento **e relatórios** — para *acompanhar a chegada dos leads → verificar o
+atendimento → aumentar a conversão*. É o mesmo relatório cuja ausência quase custou o
+cliente em 16/07: ele deixa de ser prestação de contas e passa a ser o produto.
+
+### Landing page da Prime Alphaville
+
+**A unidade não tem site próprio** — só existe o geral da Prime. A Laura cobrou isso do
+Kaio já em 05/05 e repetiu na call de 27/07. O que ela quer: fotos do escritório,
+apresentação geral dos serviços e mais texto — *"muita gente gosta de ler."*
+É entregável de produção, não de conteúdo, e está aberto desde maio.
 
 ---
 
@@ -310,18 +346,23 @@ Do documento de onboarding, e confirmado pelo histórico:
 
 | # | Pendência | Prazo |
 |---|---|---|
-| 1 | **Orçamento da cobertura do Prêmio Trinca (10/08)** | 🔴 **Vencido** — era "fim da semana" de 27/07 |
-| 2 | Roteiros extraídos da apresentação de corretores (17 pág.) | Esta semana |
-| 3 | Campanha de tráfego: palestra de mentalidade (corretor) | Desenhar |
-| 4 | Campanha de tráfego: troca de dívida (cliente final) | Desenhar |
-| 5 | Cronograma com datas de postagem e de gravação | Definir |
-| 6 | Portal de aprovação em produção (Laura aprovou testar) | Em teste |
-| 7 | Ativar ManyChat de boas-vindas para novos seguidores | Pedido em 17/06, **nunca feito** |
-| 8 | Roteiros do **Prime Elas** para o dia 10/08 | Antes de 10/08 |
-| 9 | Roteiros genéricos pré-prontos para as unidades no evento | Antes de 10/08 |
-| 10 | Retomar o **relatório semanal** | Causa do quase-cancelamento |
-| 11 | Carrossel de apresentação de serviços + fotos do escritório no perfil | Pedido em 27/07 |
-| 12 | Mais stories e mais carrosséis (queixa explícita da call) | Contínuo |
+| 1 | **Orçamento da cobertura do Prêmio Trinca (10/08)** — incluindo pendrive + caixa personalizada | 🔴 **Vencido** — era "fim da semana" de 27/07 |
+| 2 | **Transmissão ao vivo no Instagram** do Elevare Day | 🔴 **30/07 — amanhã** |
+| 3 | Roteiros extraídos da apresentação de corretores (17 pág.) | Esta semana |
+| 4 | Roteiros pré-prontos para as **~10 unidades** no evento | Antes de 10/08 |
+| 5 | Estruturar o **PrimeElas** e os roteiros das mulheres | Antes de 10/08 |
+| 6 | Definir **pendrive + caixa personalizada** (lead time de gráfica) | Antes de 10/08 |
+| 7 | **Log/responsável pela organização da pasta no Drive** | Antes de 10/08 |
+| 8 | Campanha de tráfego: palestra de mentalidade (corretor) | Desenhar |
+| 9 | Campanha de tráfego: troca de dívida (cliente final) | Desenhar |
+| 10 | Dividir verba nas **4 frentes**: cliente final · marca · empresário · corretor | Desenhar |
+| 11 | Cronograma com datas de postagem e de gravação | Definir |
+| 12 | Portal de aprovação em produção (Laura aprovou testar) | Em teste |
+| 13 | **Modelar o InfoPrime** como entrada do "cérebro" + carrossel automatizado | Aprovado para teste |
+| 14 | **Landing page da Prime Alphaville** | Aberto desde 05/05 |
+| 15 | Ativar **ManyChat** de saudação a novo seguidor | Pedido em 17/06, **nunca feito** |
+| 16 | Retomar o **relatório semanal** | Causa do quase-cancelamento |
+| 17 | Mais stories e mais carrosséis (queixa explícita da call) | Contínuo |
 
 ### Prime → Expansion
 
@@ -355,7 +396,8 @@ Do documento de onboarding, e confirmado pelo histórico:
 
 | Fonte | Onde |
 |---|---|
-| Reunião de alinhamento, 27/07/2026 | [fathom.video/calls/762581532](https://fathom.video/calls/762581532) · notas em `PRIME-ALINHAMENTO-2026-07-27.md` |
+| Reunião de alinhamento, 27/07/2026 — gravação | [fathom.video/calls/762581532](https://fathom.video/calls/762581532) · notas de decisão + transcrição em `PRIME-ALINHAMENTO-2026-07-27.md` |
+| Reunião de alinhamento, 27/07/2026 — notas do Nicolas | `PRIME-ALINHAMENTO-2026-07-27-NOTAS-NICOLAS.md` — traz 7 decisões que a gravação perdeu |
 | WhatsApp — grupo (07/04 a 29/07) | `PRIME-WHATSAPP-GRUPO-2026-07-29.md` |
 | WhatsApp — privado com a Laura (07/04 a 27/07) | `PRIME-WHATSAPP-LAURA-2026-07-27.md` |
 | Pasta do cliente no Drive | `PRIME-DRIVE-INVENTARIO-2026-07-29.md` |

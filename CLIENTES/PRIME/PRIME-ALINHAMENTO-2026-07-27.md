@@ -10,6 +10,10 @@ você sobre nossa entrega. Quero demais melhorar."*
 
 A transcrição integral está ao final deste arquivo.
 
+> 📎 **Segunda fonte:** as anotações que o Nicolas fez durante a reunião estão em
+> `PRIME-ALINHAMENTO-2026-07-27-NOTAS-NICOLAS.md`. Elas registram **sete decisões que a
+> transcrição automática perdeu** — todas já incorporadas abaixo e marcadas com 📎.
+
 ---
 
 ## O que ficou decidido
@@ -74,6 +78,12 @@ Mais duas fontes que ela se comprometeu a mandar:
   com notícia da semana corrente. *"Tem coisas que eu fiz lá no Instagram da Prime que
   tem influencer falando agora, coisa que eu fiz mês atrás."*
 
+📎 **A arquitetura pretendida:** as tabelas de taxas e o InfoPrime não são só insumo de
+roteiro — entram no **"cérebro"** da Expansion (base de conhecimento do cliente), e o
+carrossel semanal deve sair dela de forma automatizada: *"IA que cria carrossel"*.
+Modelar o InfoPrime como formato de entrada é parte do trabalho.
+**Status: aprovado para teste.**
+
 ### 6. As duas rotas de conversão
 
 **Corretor — replicar o que já funciona no presencial.**
@@ -94,6 +104,13 @@ inteligência emocional gratuito → cadastro → a Prime leva a palestra → fe
 Molde: o último vídeo da Mayara. Público: empresário, autônomo, quem está no cheque
 especial. *"É bem específico e vai trazer ali a base. E não conflita com o corretor."*
 — [46:55](https://fathom.video/calls/762581532?timestamp=2815)
+
+📎 **As quatro frentes de tráfego pago** (as notas do Nicolas listam explicitamente):
+**Cliente Final · Reconhecimento de Marca · Empresário · Corretor.**
+Reconhecimento de marca **segue sendo frente paga**, não só orgânica — isso divide a verba
+em quatro, não em duas. E a ressalva da Laura vale para a frente de corretor:
+*"o que gera mais conversão para os corretores são os eventos presenciais"* — logo, a
+campanha de corretor existe para **levar gente ao presencial**, não para converter sozinha.
 
 ⚠️ **Regra de separação de públicos.** Ela usou os dois vídeos da Mayara para explicar:
 o primeiro (*"você, correspondente bancário…"*) é **parceria**; o último é **cliente
@@ -116,12 +133,21 @@ Nicolas propôs analisar as conversas de WhatsApp para achar o furo do atendimen
 Laura concordou com o mérito, mas quer desenhar o fluxo interno antes. **Em aberto.**
 — [38:01](https://fathom.video/calls/762581532?timestamp=2281)
 
+📎 **O objetivo, como o Nicolas o formulou na reunião:** montar uma *estratégia de
+acompanhamento comercial* — CRM, análise de atendimento **e relatórios** — para
+**acompanhar a chegada dos leads → verificar o atendimento → aumentar a conversão**.
+Isso amarra com o **relatório semanal**, cuja ausência quase custou o cliente em 16/07:
+o relatório deixa de ser prestação de contas e passa a ser o produto.
+
 ### 9. O que ela apontou como faltando no perfil
 
 - Poucos **stories** e poucos **carrosséis**
-- **ManyChat** de boas-vindas para novos seguidores: pedido, nunca ativado
-- Falta uma **apresentação dos serviços** — *"muita gente gosta de ler"*
-- Faltam **fotos do escritório**
+- **ManyChat** de boas-vindas para novos seguidores: pedido em 17/06, **nunca ativado**
+- 📎 **Landing page da Prime Alphaville** — ajustar/criar, com fotos do escritório,
+  apresentação geral e mais texto. Na call ela falou de *"uma página onde manda para ler
+  sobre os serviços"*; as notas nomeiam o entregável. **A unidade não tem site próprio** —
+  ela já havia cobrado isso do Kaio em 05/05: *"site de Alphaville não temos, temos o
+  geral da Prime."* É entregável de produção, não de conteúdo.
 
 ---
 
@@ -136,6 +162,10 @@ Sem stand. Foco local. Também presente: Sandra Canella.
 Objetivo no Instagram: **fortalecer a imagem do patrocínio**, captar depoimentos de
 parceiros no ambiente, gravar roteiros ali dentro.
 
+📎 **Transmitir ao vivo no Instagram**, com três ângulos definidos:
+por que ser parceiro da Prime · os corretores parceiros da Prime presentes ·
+por que os corretores escolhem a Prime.
+
 **Possível lançamento no evento** — campanha de bonificação para corretores, se der tempo:
 R$ 1 milhão em financiamento = iPhone · R$ 5 milhões = bolsa de marca · escalando até
 viagem internacional. **Não é sorteio — é por desempenho.** Modelo inspirado na Cash Me,
@@ -144,7 +174,7 @@ que foi como a própria Prime ganhou a viagem para a Copa.
 ### 10/08 — Prêmio A Trinca (Espaço Unimed, SP)
 
 **O que é.** Primeira edição de uma premiação criada por **Flávio Augusto, Joel Jota e
-César** — os formadores de opinião do mercado imobiliário. Categorias por segmento
+Caio Carneiro** — os formadores de opinião do mercado imobiliário. Categorias por segmento
 (melhor corretor, corretor mais influente, empresa de crédito imobiliário…). A entrada
 da Prime foi por **pesquisa de mercado e indicação — sem pagar nada**.
 
@@ -164,10 +194,12 @@ Joel Jota no local.
 - Social media dedicada, postagem em **real time**
 - **Microfone com a marca Prime** para formato "jornal" com as unidades — ideia do Nicolas:
   *"quem não foi ao evento, a Prime mostra pra você"*
-- **Roteiros genéricos pré-prontos** para quem nunca gravou vídeo
+- **Roteiros genéricos pré-prontos** para quem nunca gravou vídeo — para as ~10 unidades
 - **Iluminação própria** — exigência explícita: *"levem iluminação, viu, dia 10, pelo amor
   de Deus, porque vai que é escuro"*
-- Ideia adicional: movimento no Instagram para **premiar um seguidor** com ingresso
+- Movimento no Instagram para **premiar seguidores com ingresso**, para irem junto com a Prime
+- 📎 **Entrega final do material em pendrive, dentro de caixa personalizada da Prime**
+- 📎 **Pasta organizada no Drive, com um log/responsável pela organização**
 
 **Prime Elas.** Ela quer usar o evento para lançar ao mercado o movimento de
 posicionamento das mulheres da Prime no crédito imobiliário. Já rodou um projeto de
@@ -198,12 +230,18 @@ coisa."* Ordem dela: **só depois do dia 10.**
 ## Próximos passos declarados na call
 
 **Expansion**
-1. 🔴 Orçamento da cobertura do dia 10/08 — até o fim da semana
+1. 🔴 Orçamento da cobertura do dia 10/08 — até o fim da semana.
+   📎 Precisa incluir **pendrive + caixa personalizada** e a **transmissão ao vivo do dia 30**
 2. Roteiros a partir da apresentação de corretores
 3. Campanha de tráfego para os eventos de corretor (palestra de mentalidade)
 4. Campanha de tráfego de troca de dívida para cliente final
 5. Colocar o portal de aprovação em teste
 6. Cronograma de postagem e de gravação com datas
+7. 📎 **Landing page da Prime Alphaville**
+8. 📎 **Modelar o InfoPrime** como entrada do "cérebro" + automação do carrossel semanal
+9. 📎 **Ativar o ManyChat** de saudação a novo seguidor
+10. 📎 Definir o **log/responsável pela organização da pasta no Drive**
+11. 📎 Roteiros pré-prontos para as **~10 unidades** e estruturação do **PrimeElas**
 
 **Prime (Laura)**
 1. Base de clientes para qualificação de público
@@ -223,6 +261,12 @@ da própria Expansion**) e um trecho por volta de [16:00] que o serviço traduzi
 indevidamente para o inglês. Os dois interlocutores da Expansion aparecem fundidos sob
 o rótulo **"Expansion Company"**, então falas do Nicolas e do Kaua estão misturadas no
 mesmo bloco. **As citações usadas acima foram conferidas contra o áudio-texto original.**
+
+Um erro merece destaque: em [09:12] a transcrição diz que a Trinca é *"Flávio Augusto,
+Joel Jota e o César"*. **O terceiro é Caio Carneiro** — corrigido acima conforme as notas
+do Nicolas. Há um **"César"** citado à parte em [37:20], como quem soltou uma notícia que
+a Laura quer ancorar; se é o Caio com o nome trocado ou uma quarta pessoa do ecossistema
+da Trinca **segue em aberto — confirmar antes de citar nome em peça**.
 
 ---
 
