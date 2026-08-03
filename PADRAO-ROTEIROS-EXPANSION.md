@@ -94,3 +94,13 @@ limite do conteúdo.
 - **03/08/2026** — padrão definido a partir de `Roteiros — Ecossistema Albanos`.
   Um modelo anterior (`MOD_ ROTEIRO SEMANAL.docx`, baseado em tabelas e no
   laranja `#E69138`) foi descartado pelo Nicolas: **não é o padrão da casa**.
+
+## 7. Skill
+
+O padrão está empacotado na skill de conta **`roteiro-expansion`** — invocada
+automaticamente quando o pedido é de roteiro, ou pelo nome. Ela carrega a
+anatomia, a paleta e os três scripts geradores.
+
+Cópia versionada em `.claude/skills-backup/roteiro-expansion/` (a skill em si
+sincroniza pela conta Claude, não pelo repositório — o backup existe para o caso
+de precisar reinstalar).
