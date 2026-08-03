@@ -77,6 +77,104 @@ Nada da recuperação depende da data do evento:
 
 ---
 
+# 0-B. AS FASES — EVENTO EM 22/08 (19 dias)
+
+**Decisão travada em 03/08:** evento no sábado **22/08**. 15 dias de aviso à base — acima da régua de duas semanas da Sabrina.
+
+| Fase | Dias | Objetivo | Quem carrega |
+|---|---|---|---|
+| **0 · Montagem** | 04–05/08 | Oferta fechada e material gravado | Expansion + Sabrina |
+| **1 · Dia dos Pais + Captação** | 06–09/08 | **Vender look de almoço** e montar a lista de convidadas | Orgânico + base |
+| **2 · Aquecimento** | 10–15/08 | Instalar o evento na cabeça delas, abrir confirmação | Orgânico + verba leve |
+| **3 · Conversão** | 16–20/08 | Encher a agenda de horários | **Grosso da verba** |
+| **4 · Urgência** | 21–22/08 | Véspera e o dia | Verba de pico + loja |
+| **5 · Remarketing** | 24–26/08 | Colher quem confirmou e faltou | Verba residual |
+
+## Fase 0 — Montagem (04–05/08)
+
+| Dia | Ação | Dono |
+|---|---|---|
+| 04/08 ter | Estratégia por escrito no grupo **até 12h** | Nicolas |
+| 04/08 | **Reunião com Sabrina e Kauan** — fecha oferta, preço, brinde, slots | Nicolas |
+| 04/08 | Roteiros prontos e enviados ao time | Nicolas |
+| 04/08 | Matheus monta públicos, campanhas criadas e pausadas | Matheus |
+| **05/08 qua** | **DIA DE GRAVAÇÃO** | Daniel + Sabrina |
+
+**A gravação de 05/08 grava o conteúdo do Dia dos Pais, que não depende da oferta do evento.** É o que permite marcar a gravação antes de a oferta estar 100% fechada. O conteúdo de conversão do evento sai numa **pegada leve em 13/08, no celular, cru** — que é o formato que mais converte e não precisa do filmmaker.
+
+**A folga que o dia 22 comprou:** se a gravação escorregar para 06 ou 07/08, encurta a Fase 1 mas **não mata o evento.** No dia 15 isso derrubava o plano inteiro.
+
+## Fase 1 — Dia dos Pais + Captação (06–09/08)
+
+Narrativa: **"Domingo é dele. Mas quem vai estar em todas as fotos é você."**
+
+| Dia | Ação | Canal |
+|---|---|---|
+| 06/08 qui | Reels "look pro almoço de domingo" no ar | Orgânico |
+| 06/08 | **Convites 1:1 lote 1 (50)** — mensagem faz papel duplo: vende look **e** já convida pro dia 22 | Sabrina |
+| 07/08 sex | Reels/Stories peça em uso real + provador | Orgânico + R$ 15 teste |
+| 07/08 | Convites 1:1 lote 2 (50) | Sabrina |
+| 08/08 sáb | Último dia útil de compra. Loja aberta e stories o dia todo | Orgânico + R$ 15 |
+| 09/08 dom | **Post de homenagem. Zero venda.** | Orgânico |
+
+> **A jogada de eficiência:** a mensagem 1:1 do Dia dos Pais **já carrega o convite do dia 22.** Uma conversa, dois trabalhos. E o convite chega 15 dias antes, cumprindo a régua dela.
+
+**Teste de leilão:** R$ 15/dia nos dias 07 e 08 só para medir o CPM real do público feminino de moda durante o pico do Dia dos Pais. Se não inflacionou, antecipa verba. **Custa R$ 30 saber.**
+
+## Fase 2 — Aquecimento (10–15/08)
+
+| Dia | Ação |
+|---|---|
+| **10/08 seg** | **Relatório #1 às 10h** + anúncio oficial do Sábado Delas |
+| 11/08 ter | Post da mecânica da amiga · **abrem as confirmações** |
+| 12/08 qua | Convites 1:1 lote 3 (50) · Stories bastidor |
+| **13/08 qui** | **Pegada leve de vídeo (celular, cru)** — conteúdo de conversão do evento |
+| 14/08 sex | Post do Cantinho do Giro com os preços |
+| 15/08 sáb | Reels do convite pessoal da Sabrina · convites lote 4 |
+
+Verba: **R$ 120** no total da fase.
+
+## Fase 3 — Conversão (16–20/08)
+
+| Dia | Ação |
+|---|---|
+| 16/08 dom | Stories: as peças que estarão no evento |
+| **17/08 seg** | **Relatório #2 às 10h** · escada de volume no ar |
+| 18/08 ter | Retargeting entra (quem viu 50% de vídeo ou engajou) |
+| 19/08 qua | Prova social / depoimento |
+| 20/08 qui | **Fechamento das confirmações com escolha de horário** |
+
+Verba: **R$ 300** — CPM já caiu, proximidade converte.
+
+## Fase 4 — Urgência (21–22/08)
+
+| Dia | Ação |
+|---|---|
+| 21/08 sex | "Amanhã" · **lembrete individual em 100% das confirmadas** · Sabrina separa peças por tamanho |
+| **22/08 sáb** | **SÁBADO DELAS** · cobertura ao vivo · reforço de braço às 15h · contagem ao fim do dia |
+
+Verba: **R$ 180** de pico.
+
+## Fase 5 — Remarketing (24–26/08)
+
+| Dia | Ação |
+|---|---|
+| **24/08 seg** | **Relatório #3 com o resultado completo** |
+| 24–26/08 | "Perdeu? O Giro fica até quarta" para quem confirmou e faltou |
+
+Recupera tipicamente 15–25% dos ausentes.
+
+## Verba total revisada — R$ 645
+
+| Fase | Verba |
+|---|---:|
+| 1 · Dia dos Pais (teste) | R$ 45 |
+| 2 · Aquecimento | R$ 120 |
+| 3 · Conversão | R$ 300 |
+| 4 · Urgência | R$ 180 |
+
+---
+
 # 1. A PERGUNTA DIRETA: 11 DIAS DÃO RESULTADO?
 
 **Sim — com uma condição inegociável e uma correção de rota.**
