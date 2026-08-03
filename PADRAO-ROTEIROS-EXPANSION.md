@@ -14,29 +14,30 @@ extraída dele, não escrita de memória.
 
 ## 1. Como produzir (o caminho, não o texto)
 
-O padrão **não é copiado à mão**: existe um gerador que emite o `.docx` já
-formatado, reaproveitando o esqueleto do arquivo de referência
-(`styles.xml`, tema, fontes). Só o `word/document.xml` é reescrito — por isso a
-fidelidade é exata.
+O padrão **não é copiado à mão**: os scripts emitem o formato pronto.
+A entrega é **Google Docs nativo na pasta do cliente no Drive**.
 
 ```bash
-# 1. roteiros em markdown  →  JSON estruturado
+# 1. (opcional) roteiros em markdown  →  JSON estruturado
 python3 .claude/scripts/md-para-roteiros-json.py ROTEIROS-X.md saida
 
-# 2. JSON  →  .docx no padrão
-python3 .claude/scripts/gerar-roteiros-docx.py saida-perfil.json ROTEIROS-PERFIL.docx
+# 2. JSON  →  HTML no padrão
+python3 .claude/scripts/gerar-roteiros-html.py saida-perfil.json ROTEIROS-PERFIL.html
 
-# 3. .docx  →  Drive, na pasta do cliente
+# 3. HTML  →  Google Docs, na pasta do cliente
 #    conector Google Drive · create_file
-#    contentMimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
-#    disableConversionToGoogleType: TRUE   ← obrigatório
+#    contentMimeType: text/html
+#    textContent: <conteúdo do .html>
 ```
 
-> ⚠️ **O `disableConversionToGoogleType: true` não é opcional.** Sem ele o
-> conector responde `Invalid conversion requested` e nada sobe. Com ele, o
-> arquivo entra como `.docx` no Drive — e o Google Docs abre nativamente,
-> preservando cor, borda e fundo. Converter para Google Doc nativo **perde a
-> formatação**; não fazer.
+O Drive converte HTML → Google Docs preservando cor, fundo e barra lateral.
+
+> ⚠️ **Não subir `.docx` para o Drive.** Ele entra como **anexo**, não como
+> documento, e não abre direto — testado e confirmado em 03/08. O `.docx` só
+> serve quando o cliente pedir Word explicitamente; aí use
+> `gerar-roteiros-docx.py` (que reaproveita o esqueleto do arquivo de
+> referência, fidelidade exata) e suba com `disableConversionToGoogleType: true`
+> — sem essa flag o conector responde `Invalid conversion requested`.
 
 **Um documento por perfil.** Não empilhar perfis diferentes no mesmo arquivo.
 
