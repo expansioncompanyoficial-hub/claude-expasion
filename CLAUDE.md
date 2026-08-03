@@ -91,6 +91,33 @@ temos documentados aqui.
 como lançamento: fases de aquecimento, conversão e urgência, com funil calculado
 de trás para frente a partir da meta de faturamento.
 
+### Antecipação — obrigatório, sem eu pedir
+
+`CLIENTES-CONTEXTO.md` é a ficha das contas. **Carregue antes de qualquer
+análise, campanha, roteiro ou mensagem de cliente.** Se a conta não estiver lá,
+crie a ficha antes de começar — não depois. Nunca me pergunte o que já está na
+ficha (o que a loja vende, quem decide, qual o gargalo).
+
+Em toda campanha ou evento, rode esta checagem **antes** de apresentar o plano:
+
+1. **O que mais cai nessa janela?** Feriado, data comemorativa, pagamento,
+   volta às aulas, fim de estação, eleição. Liste tudo entre hoje e a data.
+2. **Para cada evento encontrado, responda três perguntas — nunca só a primeira:**
+   - *Atrapalha?* (carteira, atenção, leilão de mídia, agenda do cliente)
+   - *Ajuda?* **Sempre procure o ângulo indireto.** Data de público masculino
+     pode ter compradora feminina; data infantil tem mãe comprando. Quem paga
+     nem sempre é quem usa.
+   - *Dá para usar como degrau?* A data anterior pode virar a fase de aquisição
+     da data seguinte, e a narrativa de uma pode preparar a outra.
+3. **Concorrência de leilão:** janela cara trabalha no orgânico, janela barata
+   recebe a verba. Nunca distribua verba linearmente pelo calendário.
+4. **Arquitetura de preço contra o momento de caixa do cliente final.** Semana
+   pós-gasto pede ticket baixo e parcelamento, não peça cara.
+5. **Teste em vez de assumir.** Se a premissa de custo é suposição, gaste pouco
+   por dois dias, meça, e só então escale.
+
+Errar por não ter olhado o calendário é erro meu, não lacuna de briefing.
+
 ## Convenções
 
 - Nomes de arquivo em CAIXA-ALTA com hífen, sufixados com a data:

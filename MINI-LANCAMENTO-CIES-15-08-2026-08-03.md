@@ -408,6 +408,76 @@ O evento não é a única coisa acontecendo. As frentes abaixo são da recupera�
 
 **Mudança em relação à v1:** saíram R$ 40 da janela cara e entraram na barata. Mesma verba, alcance maior.
 
+## 9-B.1-bis O DIA DOS PAIS ATRAPALHA UMA LOJA FEMININA? — a análise completa
+
+**Resposta curta: atrapalha em um ponto, ajuda em dois, e o saldo é positivo — desde que a gente use a data em vez de esperar ela passar.**
+
+### O que atrapalha (real, e tem que ser dimensionado)
+
+**A carteira da cliente.** A mulher brasileira gasta em média **R$ 196** no presente de Dia dos Pais (ticket médio nacional R$ 231; R$ 266 entre homens, R$ 196 entre mulheres). Isso são **seis dias antes do evento** e equivale a mais da metade de um Vestido Eduarda. É o principal risco da data, e é o que mais pesa contra o faturamento do dia 15.
+
+**O leilão de mídia**, já tratado em §9-B.1.
+
+### O que ajuda — e é o que eu tinha deixado passar
+
+**1. Quem compra presente de Dia dos Pais é majoritariamente mulher.**
+
+| Intenção de presentear | Mulheres | Homens |
+|---|---:|---:|
+| Região Centro | **63,4%** | 48,1% |
+| Paraná | **60,5%** | 46,3% |
+
+A data "tem como âncora produtos masculinos, mas com um público-alvo que envolve fortemente mulheres que realizarão a compra". Traduzindo para a Ciés: **a cliente dela passa a semana de 03 a 09/08 em modo de compra, circulando e com o cartão na mão.** É o público certo, quente, na rua — e o plano v1 mandava ficar quieto justamente nessa semana.
+
+**2. O almoço de domingo é um evento social com foto — e ela precisa de look.**
+
+Os supermercados vão bem na data porque as famílias fazem almoço em casa. Ou seja: **existe um encontro familiar no domingo 09/08 onde a cliente da Ciés vai aparecer e ser fotografada.** Isso é necessidade de moda feminina pura — a Ciés pode vender na semana do Dia dos Pais **sem vender um único produto masculino.** O vestuário mantém fluxo positivo (+2,9%) na data.
+
+**3. O movimento total é maior que o do ano passado.** A data deve movimentar **R$ 9 bilhões** em 2026, com intenção de presentear subindo de 42% para 44%.
+
+### A saída: a semana do Dia dos Pais vira a fase de aquisição do evento
+
+Em vez de duas campanhas desconectadas — uma que espera e outra que vende — **um arco narrativo só**, em que a primeira data monta a segunda:
+
+| Janela | Mensagem | Objetivo | Canal |
+|---|---|---|---|
+| **04–08/08** | *"Domingo é dele. Mas quem vai estar em todas as fotos é você."* | Vender look de almoço + **capturar a lista** | Orgânico (Reels/Stories) + base própria. Verba mínima |
+| **09/08** | Post de homenagem. **Zero venda** | Coerência. Vender no domingo queima a marca | Orgânico |
+| **10–14/08** | *"Você cuidou de todo mundo. Sábado, dia 15, é sua vez."* | Converter para o evento | Pago entra forte (CPM já caiu) |
+| **15/08** | **SÁBADO DELAS** | Faturar | Loja |
+
+**Por que isso é melhor do que só esperar a data passar:**
+
+- **A frase do dia 10 só é verdadeira se a gente estiver lá no dia 5.** "Você cuidou de todo mundo" é retórica se ninguém viu; é constatação se a marca passou a semana inteira ajudando ela a cuidar dos outros. **O Dia dos Pais não é obstáculo — é o setup.**
+- **Gera caixa numa semana que o plano v1 dava de perdida.** Look de almoço é venda de coleção atual, com margem cheia, sem desconto.
+- **Constrói a lista de convidadas com quem já comprou** — e cliente recente é a que mais volta.
+- **Custa quase nada:** roda no orgânico e na base, que é onde a janela cara não dói.
+
+### O ajuste de preço que a data exige
+
+A cliente gastou ~R$ 196 no presente. **Ela não compra um vestido de R$ 349 seis dias depois — mas compra uma peça de R$ 99 a R$ 149 para si.**
+
+O Cantinho do Giro (R$ 99 · R$ 149 · R$ 199) casa exatamente com o momento de caixa dela. Isso deixa de ser coincidência e vira desenho:
+
+- **Comunicar o preço de entrada cedo** — a barreira mental da semana pós-gasto é "acabei de gastar", e R$ 99 desarma isso.
+- **Parcelamento no cartão importa mais que o normal nesta janela.** Confirmar com a Sabrina o que ela aceita e comunicar junto do preço.
+- **A coleção nova sem desconto continua valendo** — mas ela é o produto da *semana do Dia dos Pais* (look de almoço, margem cheia), não do dia 15.
+
+**Isso separa as duas semanas por produto e por margem:** margem cheia de 04 a 08, giro de estoque no dia 15. Uma não canibaliza a outra.
+
+### Sobre a data de pagamento
+
+O 5º dia útil de agosto cai em **07/08 (sexta)** — salário na conta *antes* do Dia dos Pais, que é o que faz a data funcionar comercialmente. O dia 15 é sábado e coincide com a data de adiantamento/vale de boa parte das empresas, o que ajuda a repor a carteira.
+*Inferência de média confiança* — depende do regime de pagamento das clientes dela e não foi verificado.
+
+### Ainda vale manter o dia 15?
+
+**Sim.** Mover para 22/08 daria mais folga de carteira e cumpriria a régua de duas semanas da Sabrina, mas **quebra o arco narrativo** — "é a sua vez" perde a força longe do Dia dos Pais — e atrasa a prova de entrega, que é o objetivo número um agora. Mantém 15/08. O 22/08 fica como plano B se a gravação escorregar (§8).
+
+### O teste que substitui a suposição
+
+Em vez de assumir que o CPM sobe para o público feminino de moda, **rodar R$ 15/dia nos dias 05 e 06 e medir.** O leilão do Dia dos Pais está concentrado em presente masculino — é plausível que o público feminino de moda inflacione bem menos. Se o CPM vier normal, antecipa-se a verba. **Testar custa R$ 30; supor custa a campanha.**
+
 ## 9-B.2 Placement: Reels e Stories custam metade do Feed
 
 CPM médio no Brasil em 2026: **Feed R$ 15–35 · Stories/Reels R$ 8–20.**
@@ -491,7 +561,7 @@ Isso transforma a limitação em decisão explicada — e é verdade, porque a b
 
 ### Fontes
 
-- [Dia dos Pais 2026 — data](https://www.buskando.com.br/blog/quando-e-o-dia-dos-pais-2026) · [Calendário comercial 2026 — TOTVS](https://www.totvs.com/blog/gestao-varejista/calendario-comercial/) · [Calendário agosto 2026 — EmpresaPro](https://www.empresapro.com.br/blog/04-marketing/calendario-agosto-2026/)
+- [Dia dos Pais 2026 — data](https://www.buskando.com.br/blog/quando-e-o-dia-dos-pais-2026) · [Dia dos Pais deve movimentar R$ 9 bi — Abecs/Datafolha](https://centraldovarejo.com.br/dia-dos-pais-deve-movimentar-r-9-bilhoes-aponta-abecs-datafolha/) · [Intenção de compra por gênero e ticket médio — Sebrae/PR](https://pr.agenciasebrae.com.br/dados/intencao-de-compra-para-o-dia-dos-pais-cresce-no-parana/) · [Projeções e estratégias do varejo no Dia dos Pais 2026](https://f360.com.br/blog/empreendedorismo/dia-dos-pais-projecoes-consumo-estrategias-varejo) · [Calendário comercial 2026 — TOTVS](https://www.totvs.com/blog/gestao-varejista/calendario-comercial/) · [Calendário agosto 2026 — EmpresaPro](https://www.empresapro.com.br/blog/04-marketing/calendario-agosto-2026/)
 - [Meta Ads 12,15% mais caro no Brasil em 2026](https://gotraktor.com/post-pt/anuncios-da-meta-ficam-mais-caros-o-que-muda-e-como-se-adaptar) · [Benchmarks de CPM Brasil 2026 — Trafius](https://trafius.com.br/blog/cpm-medio-facebook-ads-brasil-2026) · [Estatísticas de custo Meta Ads Brasil 2026](https://viniensina.com.br/estatisticas-meta-ads-brasil-2026/)
 - [Tendências Instagram 2026 — CartaCapital](https://www.cartacapital.com.br/do-micro-ao-macro/8-tendencias-que-devem-redefinir-conteudo-anuncios-e-vendas-para-o-instagram-em-2026/) · [Tendências e estratégias para Reels em 2026](https://rafaelterra.com.br/como-viralizar-reels-em-2026/) · [10 tendências do Instagram para 2026 — Atratis](https://atratis.com.br/blog/10-tendencias-do-instagram-para-2026-o-que-muda-e-como-as-marcas-devem-se-adaptar/)
 - [Estudo do melhor e pior mês do varejo brasileiro — E-Commerce Brasil](https://www.ecommercebrasil.com.br/noticias/estudo-revela-o-melhor-e-o-pior-mes-ano-para-o-varejo-brasileiro-nos-ultimos-14-anos) · [Expectativa do varejo paulista para agosto — Fecomercio](https://www.fecomercio.com.br/noticia/varejo-paulista-espera-alta-timida-de-0-7-em-agosto-com-vendas-do-dia-dos-pais)
