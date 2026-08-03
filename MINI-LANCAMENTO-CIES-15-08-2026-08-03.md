@@ -381,6 +381,123 @@ O evento não é a única coisa acontecendo. As frentes abaixo são da recupera�
 
 ---
 
+# 9-B. PESQUISA DE CONTEXTO — o que os dados de mercado mudam no plano
+
+*Levantado em 03/08/2026. Fontes ao final da seção.*
+
+## 9-B.1 O Dia dos Pais cai dentro da janela — e isso muda a verba
+
+**Dia dos Pais 2026 é domingo, 09/08** — segundo domingo de agosto, exatamente no meio da campanha. É a **4ª maior data do varejo brasileiro**, atrás só de Natal, Dia das Mães e Dia dos Namorados, e movimentou **R$ 7,84 bilhões em 2025** — o melhor resultado em onze anos.
+
+**O que isso significa na prática:**
+
+| Janela | Situação do leilão | Ação |
+|---|---|---|
+| **04–09/08** | Todo o varejo brasileiro disputando o mesmo inventário. **CPM no pico.** | **Verba mínima.** Não brigar por leilão caro |
+| **10–14/08** | Anunciantes de Dia dos Pais saem. **CPM despenca.** Nenhuma data até setembro | **O grosso da verba aqui** |
+
+**A Ciés não vende para o Dia dos Pais** (moda feminina), então a data é pura concorrência: encarece a mídia e leva a carteira da cliente. **Brigar contra ela é queimar verba.** Deixar passar e atacar a semana seguinte é a jogada certa — e é exatamente onde o evento já está.
+
+### Verba revisada — R$ 600
+
+| Campanha | Período | Verba | Diária | Racional |
+|---|---|---:|---:|---|
+| C1 — Aquecimento | 06–09/08 | **R$ 60** | R$ 15 | Janela cara. Só manter presença |
+| C2 — Conversas | 10–12/08 | **R$ 240** | R$ 80 | CPM já caiu, campanha entra forte |
+| C3 — Pico + retargeting | 13–14/08 | **R$ 300** | R$ 150 | Mídia barata + proximidade da data |
+
+**Mudança em relação à v1:** saíram R$ 40 da janela cara e entraram na barata. Mesma verba, alcance maior.
+
+## 9-B.2 Placement: Reels e Stories custam metade do Feed
+
+CPM médio no Brasil em 2026: **Feed R$ 15–35 · Stories/Reels R$ 8–20.**
+
+**Para uma verba de R$ 600, forçar placement em Reels/Stories pode quase dobrar o alcance.** Não deixar em automático — é dinheiro na mesa. Item direto para o Matheus.
+
+## 9-B.3 O Meta ficou 12,15% mais caro em 2026 — e nosso número já sabe disso
+
+Desde janeiro de 2026 os anúncios da Meta subiram ~12,15% no Brasil por repasse tributário (PIS/Cofins e ISS). **Isso não é um risco futuro: o R$ 3,85 por conversa foi medido entre 31/07 e 02/08, já dentro do novo custo.** Ou seja, o modelo do §2 está calibrado no preço real de hoje, não em benchmark velho.
+
+## 9-B.4 "Agosto é o mês do desgosto" — a desculpa mais cara do varejo
+
+Só **36% das pequenas e médias empresas** esperam vender mais em agosto. A diferença entre o que o mês entrega e o que o lojista acredita que ele entrega é, na prática, dinheiro trocando de mão: **sai de quem não se preparou e entra em quem se preparou.**
+
+**Uso duplo deste dado:**
+- **Na conversa com a Sabrina** — é o argumento de por que fazer o evento agora, e não em setembro.
+- **Na narrativa da campanha** — vira o gancho criativo (§9-B.5).
+
+## 9-B.5 A NARRATIVA — três camadas
+
+O evento precisa de um motivo emocional (por que ir), um motivo racional (por que o preço) e um motivo social (por que trazer alguém). As três camadas abaixo são **verdadeiras** — nenhuma é urgência fabricada.
+
+### Conceito: **SÁBADO DELAS**
+
+Nome curto, tipograficamente limpo (importa: a Sabrina é exigente com imagem), plural — já carrega a mecânica da amiga — e **repetível**. Se funcionar, vira instituição mensal em vez de campanha isolada. Isso é pensar em produto, não em peça.
+
+**Camada 1 — Emocional: "Você cuidou de todo mundo. Sábado é seu."**
+
+A cliente da Ciés é mulher de 30 a 50 anos — exatamente quem compra o presente do pai, do marido, do sogro no dia 09. Uma semana depois, ela é a única da casa que não ganhou nada. **O evento é a vez dela.**
+
+É preciso no timing, verdadeiro na vida real do público, e resolve a maior objeção de compra da semana pós-Dia dos Pais — a culpa de gastar — transformando em permissão. Não é manipulação: é reconhecer um fato que ela mesma sente.
+
+**Camada 2 — Racional: queima de inverno de verdade**
+
+Agosto é o fim do inverno; a primavera começa em 22/09. As peças flaneladas — o Conjunto Raquel é "flanelado por dentro" — **têm que sair agora ou dormem um ano.** Isso justifica o Cantinho do Giro sem cheiro de desespero: não é liquidação por dificuldade, é troca de estação. O motivo é real e a cliente entende na hora.
+
+**Camada 3 — Social: "vem com quem você chamaria pra um café"**
+
+Reposiciona o convite: não é "traga uma cliente", é um programa de sábado. Tira o peso comercial do convite, que é o que trava a indicação.
+
+### Como as camadas se distribuem no cronograma
+
+| Fase | Camada dominante | Mensagem |
+|---|---|---|
+| Aquecimento (06–09/08) | Curiosidade | "Sábado dia 15 tem coisa nova aqui" |
+| Conversão (10–12/08) | **Emocional + Social** | "Você cuidou de todo mundo. Sábado é seu — e traz quem você chamaria pra um café" |
+| Urgência (13–14/08) | **Racional + escassez real** | "Inverno saindo. Horários acabando" |
+
+## 9-B.6 O conflito dos filtros tem solução estrutural
+
+Dado de 2026: **Reels é o formato de maior alcance orgânico**, o algoritmo o usa para entregar a perfis que ainda não seguem a marca, e os formatos que mais convertem em moda são **produto em uso real** e **antes e depois**. E o conteúdo que mais retém une técnica com **autenticidade** — não perfeição.
+
+Isso resolve estruturalmente a briga de 16/07 sobre filtros e "insta clean", que hoje trava a produção:
+
+| Superfície | Padrão | Quem decide |
+|---|---|---|
+| **Feed** | Curado, clean, tratado — o cartão de visita da marca | **Sabrina** manda. É o acervo dela |
+| **Reels e Stories** | Real, cru, rápido — é o que alcança e o que converte | **Expansion** produz e publica sem trava |
+
+**A Sabrina ganha o insta clean que ela quer e a produção deixa de travar.** Ela não está errada em querer padrão — está aplicando o padrão do feed a uma superfície onde ele custa alcance. Separar as duas coisas dá razão a ela e destrava vocês.
+
+> ⚠️ **Não usar este dado para desqualificar a exigência dela.** A queixa de qualidade é legítima e está documentada. O argumento é "vamos aplicar o seu padrão onde ele rende, e velocidade onde ela rende" — não "você está sendo perfeccionista".
+
+## 9-B.7 O Direct virou o canal de conversão
+
+Em 2026 o **Direct do Instagram é o principal canal de conversão** das redes. Confirma de fora o que os dados de vocês já diziam: **o dinheiro da Ciés está na conversa, não no post.** As 52 conversas não respondidas em junho não foram um detalhe operacional — foram o produto principal, jogado fora.
+
+Reforça a frente de atendimento do §6 como o item de maior impacto do plano.
+
+## 9-B.8 O ponto honesto sobre a régua da Sabrina
+
+Ela disse, no áudio de 03/08: *"a gente tem que avisar com pelo menos duas semanas para as clientes conseguirem se programar."*
+
+**Do dia 05/08 ao evento são 10 dias. Estamos 4 dias abaixo da régua dela.**
+
+**Nomeie isso antes que ela nomeie.** Se ela perceber sozinha, vira "de novo em cima da hora" — a repetição exata da queixa. Dito por vocês primeiro, vira cuidado:
+
+> "Sabrina, sua régua é duas semanas e a gente vai ter 10 dias de aviso. Está abaixo do que você pediu. Por isso o convite pra sua base começa **quarta**, antes de qualquer anúncio — quem já é sua cliente vai saber primeiro e com mais tempo. O tráfego entra depois, só pra completar."
+
+Isso transforma a limitação em decisão explicada — e é verdade, porque a base própria realmente entra primeiro no cronograma.
+
+### Fontes
+
+- [Dia dos Pais 2026 — data](https://www.buskando.com.br/blog/quando-e-o-dia-dos-pais-2026) · [Calendário comercial 2026 — TOTVS](https://www.totvs.com/blog/gestao-varejista/calendario-comercial/) · [Calendário agosto 2026 — EmpresaPro](https://www.empresapro.com.br/blog/04-marketing/calendario-agosto-2026/)
+- [Meta Ads 12,15% mais caro no Brasil em 2026](https://gotraktor.com/post-pt/anuncios-da-meta-ficam-mais-caros-o-que-muda-e-como-se-adaptar) · [Benchmarks de CPM Brasil 2026 — Trafius](https://trafius.com.br/blog/cpm-medio-facebook-ads-brasil-2026) · [Estatísticas de custo Meta Ads Brasil 2026](https://viniensina.com.br/estatisticas-meta-ads-brasil-2026/)
+- [Tendências Instagram 2026 — CartaCapital](https://www.cartacapital.com.br/do-micro-ao-macro/8-tendencias-que-devem-redefinir-conteudo-anuncios-e-vendas-para-o-instagram-em-2026/) · [Tendências e estratégias para Reels em 2026](https://rafaelterra.com.br/como-viralizar-reels-em-2026/) · [10 tendências do Instagram para 2026 — Atratis](https://atratis.com.br/blog/10-tendencias-do-instagram-para-2026-o-que-muda-e-como-as-marcas-devem-se-adaptar/)
+- [Estudo do melhor e pior mês do varejo brasileiro — E-Commerce Brasil](https://www.ecommercebrasil.com.br/noticias/estudo-revela-o-melhor-e-o-pior-mes-ano-para-o-varejo-brasileiro-nos-ultimos-14-anos) · [Expectativa do varejo paulista para agosto — Fecomercio](https://www.fecomercio.com.br/noticia/varejo-paulista-espera-alta-timida-de-0-7-em-agosto-com-vendas-do-dia-dos-pais)
+
+---
+
 # 10. RESUMO EXECUTIVO EM 10 LINHAS
 
 1. **11 dias dão resultado**, com uma condição: gravação até quarta 05/08. Se escorregar, adiar para 22/08 e avisar — nunca em silêncio.

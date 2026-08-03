@@ -743,7 +743,7 @@ Critérios objetivos, definidos **agora**, para decidir sem emoção depois:
 >
 > Eu dei um prazo hoje e não cumpri, e a estratégia do evento deveria estar com vocês há dias. Não vou explicar o porquê agora, porque explicação não resolve o que vocês estão sentindo.
 >
-> Amanhã até meio-dia você recebe a estratégia do dia 8 por escrito: público, peças, o que sai em cada dia e o que precisa de vocês.
+> Amanhã até meio-dia você recebe a estratégia do dia 15 por escrito: público, peças, o que sai em cada dia e o que precisa de vocês.
 >
 > E queria marcar uma conversa com você e a Sabrina, ainda esta semana, para eu ouvir dela diretamente e apresentar como vou corrigir a operação da conta. Amanhã ou quarta, no horário que for melhor para ela.
 >
@@ -763,13 +763,13 @@ Critérios objetivos, definidos **agora**, para decidir sem emoção depois:
 >
 > **O que é verdade e é nossa falha:**
 > — Eu dei o prazo das 18h e não entreguei, e não avisei antes. Isso é o pior de tudo.
-> — A estratégia do evento do dia 8 deveria estar com vocês na semana passada.
+> — A estratégia do evento do dia 15 deveria estar com vocês na semana passada.
 > — O cronograma que combinamos não virou rotina. Ficou num rascunho e morreu ali.
 > — A Sabrina fez edição e capa. Isso é nosso, eu já tinha dito que não aceitava e voltou a acontecer.
 > — Fora o relatório de tráfego do Matheus, vocês nunca receberam um acompanhamento de estratégia. Isso é obrigação nossa e não foi feito.
 >
 > **O que eu vou fazer, com data:**
-> 1. Amanhã (04/08) até 12h — estratégia do dia 8 por escrito.
+> 1. Amanhã (04/08) até 12h — estratégia do dia 15 por escrito.
 > 2. Até 05/08 — reunião com você e a Sabrina, para eu ouvir dela e apresentar o plano.
 > 3. A partir de segunda — um dono da conta, com nome, que responde por prazo e por entrega. Não vai mais passar tudo por mim.
 > 4. Toda segunda, 10h — um resumo do que saiu, do que vem e do que trava. Mesmo em semana parada.
@@ -806,7 +806,7 @@ Perguntas calibradas, uma de cada vez:
 > "Eu trouxe o que foi feito e o que não foi, porque quero que a gente decida olhando a mesma coisa. Tem uma parte aqui que eu não soube te mostrar antes: no mês passado chegaram 35 conversas em três dias. Isso é o topo funcionando. Só que boa parte não foi respondida — e é aí que o dinheiro está vazando. Não é cobrança sua, é falha minha de não ter trazido isso e não ter proposto solução."
 
 **Solução (5 min)**
-> "Meu plano é de 21 dias e cabe numa folha. Dono com nome, entrega com data, relatório toda segunda, e o evento do dia 8 entregue amanhã."
+> "Meu plano é de 21 dias e cabe numa folha. Dono com nome, entrega com data, relatório toda segunda, e o evento do dia 15 entregue amanhã."
 
 **Restituição de controle**
 > "O que precisa acontecer nesses 21 dias pra você olhar e falar 'agora virou'?"
@@ -919,10 +919,10 @@ Perguntas calibradas, uma de cada vez:
 | *"Quer que eu devolva parte do valor?"* | **Ninguém pediu.** Introduz o tema, cria precedente e reprecifica a relação para baixo | Nada. Não mencione dinheiro |
 | *"Posso dar um mês grátis"* | Desconto prematuro em quem se ofereceu para pagar mais | *"Vou estender o prazo pelos dias que a gente perdeu."* |
 | *"Me desculpa mesmo, foi falha minha, desculpa"* (sem plano) | Desculpa sem solução já foi dada em 16/07 e o problema se repetiu em 21h. Desculpa repetida vira ruído | Uma frase de reconhecimento + uma data. Nunca desculpa sem data |
-| *"Preciso que você me responda hoje"* | Pressão sobre quem já se sente desrespeitado | *"Me responde quando puder, mas o do dia 8 eu já vou tocando."* |
+| *"Preciso que você me responda hoje"* | Pressão sobre quem já se sente desrespeitado | *"Me responde quando puder, mas o do dia 15 eu já vou tocando."* |
 | *"Eu te considero irmão, isso não é só negócio"* | Usa a relação pessoal para amortecer falha comercial. É o núcleo do problema, não o remédio | *"Independente da nossa amizade, vocês são clientes e merecem o padrão."* |
 | Mandar **áudio longo** agora | 141 áudios já. Ele pediu "mais profissional". Áudio é o formato que gerou a ambiguidade | Texto, curto, com datas |
-| Mandar um texto que pareça de modelo | Ele percebe. *"Até eu imaginava melhor"* mostra que ele avalia forma | Escrever citando os fatos específicos dele: 18h, evento do dia 8, filtros, o Matheus |
+| Mandar um texto que pareça de modelo | Ele percebe. *"Até eu imaginava melhor"* mostra que ele avalia forma | Escrever citando os fatos específicos dele: 18h, evento do dia 15, filtros, o Matheus |
 | Falar de contrato **hoje** | Responder reclamação de entrega com assunto de contrato lê como manobra | Corrigir internamente hoje; apresentar até 12/08 como iniciativa própria |
 
 ---
@@ -946,7 +946,7 @@ Cada técnica com objetivo, aplicação, exemplo real do caso, risco e momento d
 | **Ancoragem responsável** | Preparar a reprecificação | Mostrar horas e funções reais da conta antes de falar em preço | *"Cinco funções por R$ 2.000/mês — foi eu que precifiquei errado."* | Vira chantagem se apresentada como "vocês pagam pouco" | Antes de 26/08 |
 | **Efeito pico-fim** | Fazer o fim do ciclo ser a memória | Última semana de agosto com relatório + apresentação + resultado | — | Se o pico for artificial, o cliente percebe | — |
 | **Prova concreta de mudança** | Substituir promessa por evidência | Nome do dono da conta, no primeiro dia, com telefone | — | Se o dono não durar, o dano dobra | Se não houver quem sustentar |
-| **Pequenos ganhos iniciais** | Restaurar sensação de movimento | Entregar o evento do dia 8 bem feito | — | Ganho pequeno vendido como grande vira exagero | — |
+| **Pequenos ganhos iniciais** | Restaurar sensação de movimento | Entregar o evento do dia 15 bem feito | — | Ganho pequeno vendido como grande vira exagero | — |
 | **Redução de incerteza** | Atacar a queixa central | Cadência fixa: segunda, 10h, sempre | — | Prometer cadência e furar é pior que não ter | Se não houver disciplina |
 
 **Nunca usar neste caso:** urgência artificial ("só até amanhã"), escassez fabricada, culpa afetiva ("depois de tudo que fiz por vocês"), reciprocidade instrumentalizada (cobrar favores pessoais), reenquadramento que negue a experiência dele, ou qualquer promessa sem capacidade real de execução.
