@@ -69,12 +69,25 @@ commit; o documento pode dizer *onde* a credencial vive, nunca *qual* é.
 
 ## Roteiros — padrão obrigatório
 
-**Todo roteiro produzido sai no padrão da empresa**, definido em
-`PADRAO-ROTEIROS-EXPANSION.md` (estrutura, anatomia GANCHO/CONTEXTO/
-ARGUMENTO/CTA com tempos, tipografia e forma de entrega). A referência
-visual canônica é o Google Doc `10J8lOt-ys19yzTb3Ti1A3lE43Wz5vMF0YwA0rCrnNLM`
-(pasta ALBANOS ECOSSISTEMA). O padrão é a forma; as regras editoriais de cada
-cliente (no `<CLIENTE>-CONTEXTO.md`) continuam mandando no conteúdo.
+**Todo roteiro produzido sai no padrão da empresa** — sempre `.docx`, sempre no
+Drive, na pasta do cliente. Nunca em markdown solto, nunca em Google Doc
+convertido (a conversão perde a formatação).
+
+O padrão está em `PADRAO-ROTEIROS-EXPANSION.md`; o arquivo de referência é
+`.claude/reference/PADRAO-ROTEIROS-ECOSSISTEMA.docx`. Não recriar o visual à
+mão — usar os dois scripts:
+
+```bash
+python3 .claude/scripts/md-para-roteiros-json.py ROTEIROS-X.md saida
+python3 .claude/scripts/gerar-roteiros-docx.py saida-perfil.json SAIDA.docx
+```
+
+Subir com o conector do Drive (`create_file`), com
+`contentMimeType` de docx e **`disableConversionToGoogleType: true`** — sem essa
+flag o upload falha. Um documento por perfil.
+
+O padrão é a forma; as regras editoriais de cada cliente
+(no `<CLIENTE>-CONTEXTO.md`) continuam mandando no conteúdo.
 
 ## Convenções
 
