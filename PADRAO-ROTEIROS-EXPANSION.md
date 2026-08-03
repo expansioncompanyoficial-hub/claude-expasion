@@ -41,11 +41,21 @@ O Drive converte HTML → Google Docs preservando cor, fundo e barra lateral.
 
 **Um documento por perfil**, nomeado **só com o nome do perfil** — `Clínica
 Albanos`, `Albanos Academy`, `Fórum TEIA`, `Cristiane Albano`. Sem data, sem
-prefixo. É esse nome que vira o rótulo da guia dentro do Google Docs.
+prefixo.
 
-**Formato sem páginas** — passo manual, uma vez por documento, assim que sobe:
-**Formatar → Mudar para o formato sem páginas → OK**. Não há API para isso no
-conector; avisar o usuário em toda entrega.
+### Os dois ajustes manuais
+
+O conector expõe a API do **Drive**, não a do **Docs**. Isso significa que duas
+coisas do padrão **não sobem prontas** e precisam de ajuste na mão, uma vez por
+documento:
+
+| Ajuste | Onde | Por que não automatiza |
+|---|---|---|
+| **Renomear a guia** com o nome do perfil | Painel de guias → ⋮ → Renomear | Guia é conceito do Docs; nasce como "Guia 1". O nome do arquivo **não** vira o nome da guia. |
+| **Formato sem páginas** | Formatar → Mudar para o formato sem páginas | Propriedade de layout do Docs, não exposta na criação |
+
+**Avisar o usuário dos dois em toda entrega.** Com o conector do Chrome (app
+desktop) dá para fazer os dois automaticamente, dirigindo a interface.
 
 ## 2. Paleta
 

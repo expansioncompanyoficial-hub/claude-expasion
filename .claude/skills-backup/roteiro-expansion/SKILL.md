@@ -120,17 +120,22 @@ O Drive converte HTML → Google Docs preservando cor, fundo e barra lateral.
 
 > 📛 **O documento nasce com o nome do perfil, e só ele.** `Clínica Albanos`,
 > `Albanos Academy`, `Fórum TEIA`, `Cristiane Albano`. Sem data no título, sem
-> prefixo "Roteiros —", sem sufixo. É esse nome que vira o rótulo da guia dentro
-> do Google Docs, e é assim que a equipe encontra o material.
+> prefixo "Roteiros —", sem sufixo.
 
-**4. Formato sem páginas** — passo manual obrigatório, feito uma vez por
-documento assim que ele sobe:
+**4. Dois ajustes manuais no Google Docs** — o conector expõe só a API do
+Drive, não a do Docs, então **nenhum dos dois dá para automatizar**. São
+segundos cada, feitos uma vez por documento assim que ele sobe:
 
-> No Google Docs: **Formatar → Mudar para o formato sem páginas → OK**
+| Ajuste | Onde |
+|---|---|
+| **Renomear a guia** com o nome do perfil | Painel de guias à esquerda → ⋮ na guia → **Renomear**. Ela nasce como "Guia 1" — o nome do arquivo **não** vira o nome da guia. |
+| **Formato sem páginas** | **Formatar → Mudar para o formato sem páginas → OK** |
 
-Não existe API para isso no conector; é um ajuste de duas ações. **Avise o
-usuário em toda entrega** que esse passo precisa ser feito, listando os
-documentos criados.
+⚠️ **Avise o usuário dos dois em toda entrega**, listando os documentos
+criados. Não prometa que subiram prontos: eles não sobem.
+
+Se a sessão tiver o **conector do Chrome** (app desktop), aí sim dá para fazer
+os dois automaticamente, dirigindo a interface do Google Docs.
 
 > ⚠️ **Não subir `.docx` para o Drive.** Ele entra como anexo, não como
 > documento, e não abre direto. O `.docx` só serve quando o cliente pedir Word
