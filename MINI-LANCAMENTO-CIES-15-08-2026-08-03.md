@@ -7,6 +7,76 @@
 
 ---
 
+# 0. DECISÃO DE DATA — REVISÃO DE 03/08, À NOITE
+
+> **Recomendação revisada: mover o evento para sábado, 22/08/2026.**
+> Esta seção substitui a recomendação de manter o dia 15 feita na v1 deste plano.
+> O restante do documento continua válido — muda a data-âncora e o cronograma ganha 7 dias.
+
+## 0.1 O que me fez mudar de posição
+
+**A régua é dela, está gravada, e o dia 15 não a cumpre.**
+
+Sabrina, no áudio de 03/08, recusando o dia 08:
+
+> *"não funciona evento assim de última hora, a gente tem que avisar com **pelo menos duas semanas** para as clientes realmente conseguirem se programar e vir, porque **a gente já tentou fazer eventos assim meio que em cima e não deu certo** — ainda mais se tratando de um evento de giros, então eu preciso que essas clientes tragam outras clientes."*
+
+Duas coisas nessa fala:
+
+1. **Ela não está opinando, está relatando experiência.** Já tentou, já deu errado.
+2. **Duas semanas a partir de hoje é 17/08.** O dia 15 dá **10 dias** de aviso à base (convites começam 05/08). **Está 4 dias abaixo da régua que ela acabou de enunciar.**
+
+**Aceitar o dia 15 em silêncio é aceitar entregar abaixo do padrão declarado da cliente, na primeira entrega depois de ela dizer que o problema de vocês é justamente prazo e cuidado.** Se o evento vier fraco, a Expansion não terá defesa — e ela terá razão pela terceira vez.
+
+## 0.2 Por que adiar É a jogada de recuperação, não uma fuga
+
+A queixa registrada em 03/08 é: *"está faltando cuidado de botar o prazo, cumprir e entregar"*.
+
+Um fornecedor que chega e diz *"eu fiz a conta dos dias, o dia 15 não cumpre a sua régua, e eu não vou montar um evento pra depois te explicar por que veio pouca gente"* **é a demonstração mais direta possível do padrão que ela está cobrando.** Custa 7 dias. Compra a tese inteira da recuperação.
+
+O risco oposto — parecer que a Expansion está empurrando com a barriga — se resolve com uma coisa só: **não esperar o dia 22 para começar a vender.** A campanha da semana do Dia dos Pais entra dia 04/08 do mesmo jeito. **O cliente vê mais entrega, não menos.**
+
+## 0.3 As contas — 15/08 versus 22/08
+
+| | **15/08 (12 dias)** | **22/08 (19 dias)** |
+|---|---:|---:|
+| Dias de aviso à base | 10 ❌ *abaixo da régua* | **17 ✅** |
+| Contatos que a Sabrina consegue convidar 1:1 | 200 | **300** |
+| Dias úteis de tráfego otimizado | 5 | **12** |
+| Folga para a gravação escorregar | **zero** | 2–3 dias |
+| Carteira da cliente pós-Dia dos Pais | gastou há 6 dias | recomposta + adiantamento do dia 20 |
+| Presenças estimadas | ~49 | **~70** |
+| Ticket médio estimado | R$ 480 | R$ 520 |
+| **Faturamento estimado (cenário base)** | **~R$ 9,4 mil** | **~R$ 14,5 mil** |
+| Risco de evento fraco | **Alto** | Baixo |
+
+**~50% mais faturamento por 7 dias de espera** — e, mais importante que a média, **muito menos variância.** No dia 15, se a gravação escorregar um dia, o plano desaba para o cenário conservador (~R$ 3,4 mil). No dia 22, ele absorve o tropeço.
+
+*Números modelados sobre as premissas do §2.2. O dado medido é o R$ 3,85 por conversa.*
+
+## 0.4 A única coisa que faria eu manter o dia 15
+
+**Se a Sabrina já comunicou a data para clientes, ou se ela tem motivo de negócio para o dia 15** — chegada de coleção, compromisso de fornecedor, viagem no dia 22, aniversário da loja.
+
+Se ela já falou a data para alguém, **mantém o dia 15 sem discussão** — remarcar duas vezes custa mais credibilidade do que os 7 dias valem. Nesse caso o plano roda como está na v1, com um ajuste obrigatório: **os convites 1:1 da base começam amanhã, 04/08**, não no dia 05, para arranhar os 11 dias de aviso.
+
+**Esta é a primeira pergunta da reunião.** Não decidir por ela: a data é dela.
+
+## 0.5 O que não muda em nenhum cenário
+
+Nada da recuperação depende da data do evento:
+
+- Mensagem ao Kauan **hoje**
+- Estratégia por escrito **amanhã até 12h**
+- Reunião com a Sabrina **até quarta**
+- Campanha de Dia dos Pais no ar **dia 04/08**
+- Relatório toda segunda às 10h, começando **10/08**
+- Contrato corrigido, R$ 500 pagos, dono da conta nomeado
+
+**O evento nunca foi a primeira prova de entrega — é a quarta.** Foi erro meu na v1 tratá-lo como se fosse, e foi isso que me fez recomendar velocidade onde cabia precisão.
+
+---
+
 # 1. A PERGUNTA DIRETA: 11 DIAS DÃO RESULTADO?
 
 **Sim — com uma condição inegociável e uma correção de rota.**
