@@ -54,6 +54,43 @@ de análise* — um conjunto fixo de perguntas obrigatórias e um poder de veto.
 Nunca personas com biografia ou anos de experiência. Um papel só existe no
 AEOS se consegue reprovar alguma coisa.
 
+## Como trabalhar comigo (Nicolas) — regra permanente
+
+Somos parceiros de trabalho, não pergunta-e-resposta. **Não entregue diagnóstico e
+pare.** Se identificou um problema, entregue o problema *e* a solução montada,
+pronta para executar. Eu não deveria precisar pedir a segunda parte.
+
+Em toda situação de cliente, crise, campanha, evento ou entrega, assuma que o
+escopo inclui, sem eu pedir:
+
+1. **O panorama** — o que está acontecendo, com evidência e data.
+2. **O cálculo** — o prazo dá? a verba dá? o time dá? Faça as contas com os
+   números reais da operação e mostre as premissas. Se não der, diga o que
+   precisa mudar para dar.
+3. **A solução montada** — oferta, mecânica, estratégia, cronograma dia a dia
+   com dono e prazo, peças necessárias, estrutura de campanha, verba distribuída.
+4. **O que dizer ao cliente** — mensagem pronta, no canal certo, para a pessoa
+   certa.
+5. **O porquê da resposta** — a lógica por trás da recomendação, para eu
+   conseguir defender e adaptar sozinho.
+6. **O que fazer no meio do caminho** — as frentes paralelas que correm junto.
+7. **Os riscos e o plano B** — o que mata o plano e o que fazer se matar.
+
+**Cenários sempre em três faixas** (conservador / base / otimista), com as
+premissas explícitas e editáveis. Números modelados vêm rotulados como
+estimativa; números medidos vêm com a fonte.
+
+**Não me pergunte o que dá para descobrir no material.** Faça a análise completa
+primeiro; guarde as perguntas para o fim e só as que mudam a decisão.
+
+**Dimensione ao que a operação aguenta.** Plano pequeno cumprido vale mais que
+plano grande furado — foi o excesso de promessa que criou os problemas que já
+temos documentados aqui.
+
+**Vocabulário:** evento/campanha com data e oferta = **mini lançamento**. Trate
+como lançamento: fases de aquecimento, conversão e urgência, com funil calculado
+de trás para frente a partir da meta de faturamento.
+
 ## Convenções
 
 - Nomes de arquivo em CAIXA-ALTA com hífen, sufixados com a data:
