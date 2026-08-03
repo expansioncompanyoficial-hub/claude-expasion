@@ -110,13 +110,27 @@ python3 scripts/gerar-roteiros-html.py roteiros.json saida.html
 
 ```
 create_file
-  title: "Roteiros — <Perfil> (DD-MM)"
+  title: "<NOME DO PERFIL>"          ← só o nome do perfil, nada mais
   parentId: <pasta do cliente no Drive>
   contentMimeType: "text/html"
   textContent: <conteúdo do saida.html>
 ```
 
 O Drive converte HTML → Google Docs preservando cor, fundo e barra lateral.
+
+> 📛 **O documento nasce com o nome do perfil, e só ele.** `Clínica Albanos`,
+> `Albanos Academy`, `Fórum TEIA`, `Cristiane Albano`. Sem data no título, sem
+> prefixo "Roteiros —", sem sufixo. É esse nome que vira o rótulo da guia dentro
+> do Google Docs, e é assim que a equipe encontra o material.
+
+**4. Formato sem páginas** — passo manual obrigatório, feito uma vez por
+documento assim que ele sobe:
+
+> No Google Docs: **Formatar → Mudar para o formato sem páginas → OK**
+
+Não existe API para isso no conector; é um ajuste de duas ações. **Avise o
+usuário em toda entrega** que esse passo precisa ser feito, listando os
+documentos criados.
 
 > ⚠️ **Não subir `.docx` para o Drive.** Ele entra como anexo, não como
 > documento, e não abre direto. O `.docx` só serve quando o cliente pedir Word
@@ -145,6 +159,8 @@ Gera um JSON por guia (`# GUIA N — Nome (@handle)`).
 - [ ] Toda fala está entre aspas e soa natural falada
 - [ ] Hashtags coerentes com o perfil (5 a 8)
 - [ ] Um documento por perfil, na pasta certa do Drive
+- [ ] **Documento nomeado só com o nome do perfil**
+- [ ] **Usuário avisado do passo "formato sem páginas"**
 - [ ] Datas comemorativas com folga para aprovação e programação
 
 ## Depois de entregar

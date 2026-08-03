@@ -39,7 +39,13 @@ O Drive converte HTML → Google Docs preservando cor, fundo e barra lateral.
 > referência, fidelidade exata) e suba com `disableConversionToGoogleType: true`
 > — sem essa flag o conector responde `Invalid conversion requested`.
 
-**Um documento por perfil.** Não empilhar perfis diferentes no mesmo arquivo.
+**Um documento por perfil**, nomeado **só com o nome do perfil** — `Clínica
+Albanos`, `Albanos Academy`, `Fórum TEIA`, `Cristiane Albano`. Sem data, sem
+prefixo. É esse nome que vira o rótulo da guia dentro do Google Docs.
+
+**Formato sem páginas** — passo manual, uma vez por documento, assim que sobe:
+**Formatar → Mudar para o formato sem páginas → OK**. Não há API para isso no
+conector; avisar o usuário em toda entrega.
 
 ## 2. Paleta
 
