@@ -67,6 +67,15 @@ aceita quebrar. `CLIENTES/README.md` traz a estrutura padrão da pasta.
 em documento de contexto. Senha que aparecer em export é redigida antes do
 commit; o documento pode dizer *onde* a credencial vive, nunca *qual* é.
 
+## Roteiros — padrão obrigatório
+
+**Todo roteiro produzido sai no padrão da empresa**, definido em
+`PADRAO-ROTEIROS-EXPANSION.md` (estrutura, anatomia GANCHO/CONTEXTO/
+ARGUMENTO/CTA com tempos, tipografia e forma de entrega). A referência
+visual canônica é o Google Doc `10J8lOt-ys19yzTb3Ti1A3lE43Wz5vMF0YwA0rCrnNLM`
+(pasta ALBANOS ECOSSISTEMA). O padrão é a forma; as regras editoriais de cada
+cliente (no `<CLIENTE>-CONTEXTO.md`) continuam mandando no conteúdo.
+
 ## Convenções
 
 - Nomes de arquivo em CAIXA-ALTA com hífen, sufixados com a data:

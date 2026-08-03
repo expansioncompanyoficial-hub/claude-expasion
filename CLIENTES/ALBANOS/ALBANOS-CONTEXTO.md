@@ -288,6 +288,7 @@ ALBANOS ECOSSISTEMA/
 | **ALBANOS — Criativos p/ Tráfego Pago (Gravação 08-07)** | `1g97dC3VfVaQ82qAXubGnpJRlBguXootPjKtE_F8oSOg` | 16 roteiros com falas prontas + direção de produção (cenário, motion, música, legenda) e nota de compliance por roteiro. |
 | **Vídeos & Legendas p/aprovações - ALBANOs** | `133b8xxnR4eOIo2KongrPt32aGHcOcL4uCNtH_fhXixE` | Legendas por semana de julho, com link do vídeo. Semanas 3 e 4 ficaram vazias. |
 | **Acessos_ClinicaAlbanos** | `1bjBuq609gA0L7sjW8meicBDcdm8vtJwCy9AtDDd3k-k` | 🔒 **Credenciais em texto claro.** Não replicar aqui. Ver achado G4-1. |
+| **ROTEIROS NOVOS 03-08** | `10J8lOt-ys19yzTb3Ti1A3lE43Wz5vMF0YwA0rCrnNLM` | Rodada de 03/08 (44 roteiros, uma seção por guia) e **referência visual canônica do padrão de roteiros da Expansion** — ver `PADRAO-ROTEIROS-EXPANSION.md` na raiz. |
 
 > ⚠️ O documento de acessos tem rodapé **"EXPANSION — Assessoria de Crédito"** —
 > template errado, herdado de outro cliente. Corrigir.
