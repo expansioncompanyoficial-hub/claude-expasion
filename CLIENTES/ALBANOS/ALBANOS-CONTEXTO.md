@@ -16,7 +16,9 @@ Ver [`ALBANOS-OPERACAO-2026-07-29.md`](ALBANOS-OPERACAO-2026-07-29.md).
 | **Serviço da Expansion** | Social media, roteiro, captação, edição, design e (previsto) tráfego pago nos 4 perfis |
 | **Início da conta** | Grupo de WhatsApp criado em **27/05/2026**; onboarding em **02/06/2026** |
 | **CNPJ do contrato** | Albanos Academy — `58.620.299/0001-67` (é o CNPJ que abre o portal de aprovações) |
+| **CNPJ da Clínica** | `29.344.656/0001-03` (rodapé do cronograma oficial da clínica) |
 | **Unidade base** | Av. Washington Luís, 1930 — Santo Amaro — São Paulo/SP — CEP 04662-002 |
+| **Contatos da clínica** | (11) 95991-2802 · (11) 97127-8778 · `albanos@clinicaalbanos.com.br` |
 
 ---
 
@@ -82,11 +84,25 @@ Maior fórum de autismo de São Paulo. O produto é o **ingresso do evento**.
 ### 2.2 · Clínica Albanos — `@clinicaalbanos`
 
 Atendimento multidisciplinar presencial: fonoaudiologia, psicologia, terapia
-ocupacional, psiquiatria, fisioterapia. Opera em **mais de uma unidade**.
+ocupacional, psiquiatria, fisioterapia. Opera em **mais de uma unidade** — e em
+**duas frentes com públicos diferentes**:
 
-- **Público:** famílias que seguem e pacientes.
-- **Conteúdo:** curiosidades e informação sobre os transtornos, como criar hábitos em casa, orientação de dia a dia.
-- **Produto de conversão: CLUB ALBANOS.**
+| Frente | Público | Conteúdo |
+|---|---|---|
+| **Unidade TEA / universo TEIA** | Famílias de crianças com autismo e transtornos do neurodesenvolvimento | Curiosidades sobre os transtornos, hábitos em casa, orientação de dia a dia. Conversão: Club Albanos. |
+| **Unidade Convencional** | Público geral — crianças, adolescentes, adultos e **idosos** | Apresentação das especialidades + saúde mental em tom mais leve (pedido da Ana, 31/07). **Sem linguagem TEA, sem Club.** |
+
+**Especialidades da Unidade Convencional** (fonte: `Roteiros_para_o_convencional.docx`, da Ana):
+Fonoaudiologia (terapias + cabine audiométrica + exames audiológicos) ·
+Psicologia (TCC e Psicanálise; ansiedade, depressão, transtornos alimentares,
+conflitos familiares, estresse, autoestima) · Terapia Ocupacional (AVDs,
+coordenação, autonomia em todas as idades) · Avaliação Neuropsicológica
+(atenção, memória, linguagem, raciocínio — todas as idades).
+
+Roteiros da convencional: [`ROTEIROS-UNIDADE-CONVENCIONAL-2026-08-03.md`](ROTEIROS-UNIDADE-CONVENCIONAL-2026-08-03.md).
+
+- **Público (perfil como um todo):** famílias que seguem e pacientes.
+- **Produto de conversão (frente TEA): CLUB ALBANOS.**
 
 > **Club Albanos** — clube anual. Internamente: o paciente entra por **menos de
 > R$ 50/mês** e passa a ter **50% de desconto nas terapias**. Existe porque hoje
@@ -282,7 +298,13 @@ ALBANOS ECOSSISTEMA/
 |---|---|
 | `ALBANOS-CONTEXTO.md` | Este arquivo — documento vivo |
 | [`ALBANOS-OPERACAO-2026-07-29.md`](ALBANOS-OPERACAO-2026-07-29.md) | Leitura da operação real e achados, com evidência datada |
+| [`ROTEIROS-UNIDADE-CONVENCIONAL-2026-08-03.md`](ROTEIROS-UNIDADE-CONVENCIONAL-2026-08-03.md) | 14 roteiros da Unidade Convencional (4 da Ana formatados + 10 novos) |
 | [`_whatsapp/ALBANOS-WHATSAPP-2026-05-27-a-2026-07-29.md`](_whatsapp/ALBANOS-WHATSAPP-2026-05-27-a-2026-07-29.md) | Transcrição do grupo, 590 mensagens, senhas redigidas |
+
+O `Cronograma_MKT_Albanos_Expansion.pdf` (enviado pela Ana em 09/06) traz as
+datas comemorativas de jun–ago e as listas de **temas possíveis** por perfil
+(@clinicaalbanos, @academy, @forum.teia) — é a pauta de referência para roteiro
+novo. O rodapé dele é a fonte do CNPJ e dos contatos da clínica acima.
 
 ### Contexto da agência que cruza com esta conta
 
