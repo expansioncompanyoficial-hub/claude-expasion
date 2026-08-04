@@ -307,6 +307,17 @@ Não há segundo motivo. É esse.
 
 Situação em **04/08/2026**, a **20 dias** da reunião que fecha o ciclo (24/08).
 
+### 📦 Entregue em 04/08
+
+| Entregável | Onde |
+|---|---|
+| **Plano de 30 dias** — posicionamento, perfil, grade e cronograma, em documento visual para a cliente | [`entregaveis/PLANO-30-DIAS-JANE.html`](entregaveis/PLANO-30-DIAS-JANE.html) |
+| **Cronograma de agosto** — 12 posts sobre o material de 29 e 30/07 | [`CRONOGRAMA-2026-08.md`](CRONOGRAMA-2026-08.md) |
+| **9 roteiros novos** (06–14), padrão TACO(H) | [Google Doc "Jane Queiroz"](https://docs.google.com/document/d/1CRbq0PYHba0ZUNGuZpRz8OSy2_keGNz3MqTtx_BFzow/edit) na pasta dela |
+
+Isso responde à pergunta que ela fez em 28/07 — *"podem me passar o resumo do que terei
+neste primeiro mês?"*. **Falta enviar.**
+
 ### ✅ Fechadas desde a última rodada
 
 | Pendência | Como fechou |
