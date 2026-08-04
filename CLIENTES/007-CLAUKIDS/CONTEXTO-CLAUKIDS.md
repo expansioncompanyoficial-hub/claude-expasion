@@ -370,7 +370,7 @@ redondo/quadrado/preto/branco + `Logomarca e Submarcas.ai`) e um
 1. **Nunca proponha desconto.** É o dealbreaker número um. Se a mecânica precisa
    de incentivo, use **brinde, exclusividade ou tempo** — nunca preço.
 2. **Storytelling antes de produto.** A jornada da Clau (auxílio emergencial →
-   quarto do filho como estoque → duas lojas) é o ativo mais forte que ela tem.
+   quarto do filho como estoque → loja física própria) é o ativo mais forte que ela tem.
 3. **O diferencial é a curadoria, não o acervo.** Toda peça de comunicação
    deveria conseguir responder: *por que essa peça, para essa criança, nesse
    momento?*
@@ -450,3 +450,54 @@ transcritos: o ambiente não tem ffmpeg/whisper e o proxy bloqueia tanto
 09:43**, logo após a pergunta dela sobre o planejamento do mês, é o mais
 provável portador da estratégia que ela propôs. **Pendente de transcrição
 por outro caminho.**
+
+---
+
+## 15. Regras editoriais — checagem obrigatória antes de escrever
+
+Resumo operacional para quem for produzir roteiro. Quebrar qualquer uma
+derruba o material na aprovação.
+
+| # | Regra | Por quê |
+|---|---|---|
+| 1 | **Zero desconto, porcentagem ou promoção** | Dealbreaker declarado. Incentivo só por brinde, exclusividade ou **tempo** |
+| 2 | **Uma loja, não duas** | Fechou a segunda há 2 anos (correção dela, 28/07) |
+| 3 | **CTA sempre direct ou grupo de WhatsApp** | A venda dela é conversa. Nunca "link na bio" |
+| 4 | **Curadoria antes de produto** | Todo roteiro responde: por que essa peça, para essa criança, nesse momento |
+| 5 | **Primeira pessoa, sempre ela** | Não tem vendedora. Quem escolhe, embala e atende é ela |
+| 6 | **Fecha com 💛** | Assinatura da marca |
+| 7 | **Roteiro de destaque não marca data** | Fica fixo no perfil por meses |
+
+### Marcas e produtos — o que já deu erro
+
+**Pula Bula** *(correção da Clau, áudio de 29/07)* — é o **nome da marca**, não
+da coleção; a coleção tem outro nome. **Não é roupa de brincar nem de dia a
+dia.** É linha **sofisticada, nada básica**, para **ocasião** — nas palavras
+dela, *"uma peça para ir no bosque, ou uma peça para ir a um casamento"*.
+Atende o **"between" / menina grande**, com **numeração até 18** — é o
+tamanho grande, o mesmo nicho do "Tim". Ela pediu ênfase na numeração 18.
+
+> O primeiro roteiro de Pula Bula partiu do nome e supôs roupa de correria e
+> parquinho. Estava errado do gancho ao argumento, e ela reescreveu na hora da
+> gravação. **Nunca inferir posicionamento de produto pelo nome da marca —
+> perguntar antes.**
+
+**Coleção Deserto** (marca hrradinhos) — chegou 31/07. Tons de areia e terra,
+linho, tecido natural. Camiseta com patch, bermuda de moletinho de linho com
+bolso, saia em malha correntinha com strass. Conceito da marca: desacelerar,
+leveza, "pequenos exploradores". Casa com o fio condutor da Clau Kids, que é
+natureza.
+
+### A estratégia que a própria cliente criou
+
+**Teaser de ampulheta** *(áudio de 03/08)*: *"Fiz um post ontem usando a
+ampulheta ali pra gerar essa questão de tempo, do Deserto, e gerar uma
+expectativa. Não sei se está correto."*
+
+Está correto e é a solução certa: **escassez por tempo, não por preço** — a
+única urgência que o posicionamento anti-desconto permite. O que faltava era
+o arco em volta: teaser → revelação → curadoria → objeção → última chamada.
+
+### Praça
+
+**Marília / SP** (DDD 14).
