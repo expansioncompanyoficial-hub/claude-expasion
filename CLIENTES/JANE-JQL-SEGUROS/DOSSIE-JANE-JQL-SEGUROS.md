@@ -1,7 +1,10 @@
 # DOSSIÊ — JANE QUEIROZ · JQL SEGUROS
 
 **Documento vivo.** Atualizar aqui; rodadas de análise viram arquivos novos.
-Última consolidação: 29/07/2026 · Fontes na seção 14.
+Última consolidação: **04/08/2026** · Fontes na seção 14.
+
+> ⏱️ **Ciclo em curso:** pagamento 24/07 → entrega desde 25/07 → **fecha 24/08 com
+> reunião de alinhamento.** Faltam **20 dias** para a decisão de renovação.
 
 ---
 
@@ -22,7 +25,8 @@
 | **Onboarding** | 25/07/2026, 13h30, 56 min — [Fathom](https://fathom.video/calls/760724003) |
 | **Modelo contratado** | **Plano teste — primeiro mês Expansion** |
 | **Valor** | **R$1.300** (assessoria) **+ 2 diárias de videomaker × R$350** = **R$2.000** |
-| **Canal oficial** | Grupo WhatsApp "JQL SEGUROS and EXPANSION ®️" |
+| **Canal oficial** | Grupo WhatsApp — renomeado em 03/08 para **"JANE SEGUROS and EXPANSION ®️"** (era "JQL SEGUROS…"; a decisão de marca saiu do papel) |
+| **Primeiro post** | 29/07/2026 23:03 — [Reels](https://www.instagram.com/reel/DbZkF_EMyzG/), gravação na Agrotools |
 | **Drive** | [Pasta da Jane](https://drive.google.com/drive/folders/1QQMwLfPDFa4H_sZHTjkMVDdUiAae_R5L) |
 
 ---
@@ -43,8 +47,23 @@
 | **28/07 16:44** | **Jane pede o resumo do que terá no primeiro mês e quais redes.** Nicolas: *"te envio hoje um resumo"*. Jane: *"Não tem urgência."* |
 | **28/07 22:51** | Jane passa endereço e logística da gravação de 29/07 |
 | **29/07 09:30** | **Gravação 1** — Agrotools, Rua Hungria 888, 9º andar cj 92, São Paulo. Campanha de vacinação: **25 pessoas, 30 doses**. Filmmaker Jeferson Daniel chega atrasado; Jane cobra às 09:43. |
-| **29/07 14:00** | **Gravação 2** — Rua Paraibuna 811, 12º andar, São José dos Campos |
+| **29/07 14:00** | **Gravação 2** — Rua Paraibuna 811, 12º andar, São José dos Campos *(mesma diária do dia 29)* |
 | **29/07 15:15** | Pasta `Brutos › Campanha 29-07` criada no Drive (Fotos, Takes, criativos) |
+| **29/07 19:42** | ✅ **Roteiros entregues** para aprovação ([doc](https://docs.google.com/document/d/1XUKwKTlqTP_zhgLp4-so1kMDl4Rt46-DWy6OgDBzHJo/edit)) |
+| **29/07 19:52** | Jane solicita **autorização formal de imagem à Agrotools** por iniciativa própria |
+| **29/07 22:18** | Primeiro vídeo editado entregue — ~12 h depois da gravação |
+| **29/07 22:44** | ✅ **Primeira aprovação:** *"Amei"* · *"Gostei muito do vídeo"* |
+| **29/07 23:03** | 📱 **Primeiro Reels publicado** — `instagram.com/reel/DbZkF_EMyzG/` |
+| **29/07 23:07** | Ressalvas dela: *"achei a entrada meio escura"* · *"só tem estas [fotos]?"* |
+| **30/07 08:41** | 🔴 **Jane aponta erro no vídeo já publicado:** nome da empresa errado, precisa ser Agrotools |
+| **30/07 12:18** | **Gravação 3** — Hortolândia, escritório dela *(2ª e última diária contratada)* |
+| **30/07 19:07** | Jane manda o **próprio banco de imagens** ([pasta](https://drive.google.com/drive/folders/1y72d2PsqTJqB5yEPYZCFVPF8sC1GT90y)) |
+| **31/07 15:46** | Áudio da Jane — único contato do dia |
+| **01/08 12:35** | Nicolas: *"não consegui ouvir ainda"* — **21 h de silêncio**. Reforça centralizar no grupo |
+| **03/08 12:03** | Nicolas promete *"hoje"* o projeto completo e o cronograma — **2ª promessa do mesmo pedido de 28/07** |
+| **03/08 12:03** | Grupo renomeado: `JQL SEGUROS…` → **`JANE SEGUROS and EXPANSION ®️`** |
+| **03/08 14:56** | Jane pergunta sobre **competência do pagamento** |
+| **03/08 17:32** | Nicolas define o ciclo: pagamento 24/07 · entrega desde 25/07 · **alinhamento em 24/08** |
 
 ---
 
@@ -220,9 +239,15 @@ Resposta dela: relacionamento e pessoa. **Por isso a marca é a Jane, não a JQL
 | 2 diárias de videomaker × R$350 | R$700 |
 | **Total** | **R$2.000** |
 
-As duas diárias contratadas **já foram consumidas em 29 e 30/07** (Agrotools São Paulo
-e São José dos Campos). Qualquer gravação nova neste ciclo é custo adicional — vale
-alinhar com a Jane antes de agendar a terceira.
+**Ciclo** (definido por Nicolas em 03/08): pagamento em **24/07** → entrega começa em
+**25/07** → **24/08 fecha os 30 dias e tem reunião de alinhamento.** É a data de
+decisão de renovação.
+
+As duas diárias contratadas **já foram consumidas**: 29/07 (Agrotools São Paulo de
+manhã + São José dos Campos à tarde — mesma diária) e 30/07 (escritório dela, em
+Hortolândia). Gravação nova neste ciclo é custo adicional. Ela já perguntou se pode
+gravar com o próprio iPhone — vale ter uma resposta pronta, porque é a saída natural
+quando a diária acaba.
 
 ⏳ **Lista de entregáveis totais do plano: pendente** (Nicolas vai enviar). Sem ela,
 não dá para responder com precisão a pergunta que a cliente fez em 28/07 — e é ela que
@@ -260,45 +285,94 @@ Não há segundo motivo. É esse.
 |---|---|
 | **Nicolas Nascimento** | Estratégia, relacionamento, aprovação |
 | **Kauã Catini** | Comercial — agendou o onboarding e criou o grupo |
+| **Dani** | Social media — subiu o primeiro Reels em 29/07 |
 | Adryel Silva | Editor |
+| **Matheus Felipi** | Tráfego — contato enviado à Jane em 27/07, junto com o pedido de acesso à BM |
 | Bernardo + 2 | No grupo |
-| **Jeferson Daniel** | Filmmaker — gravações de 29/07 |
+| **Jeferson Daniel** | Filmmaker — diárias de 29 e 30/07 |
 
-**Canal oficial:** grupo `JQL SEGUROS and EXPANSION ®️`. Combinado em 27/07 e aceito pela Jane. O privado com o Nicolas continua ativo na prática (logística e urgência).
+**Canal oficial:** grupo `JANE SEGUROS and EXPANSION ®️`. Combinado em 27/07, reforçado em 01/08 (*"pode centralizar todas as comunicações no grupo"*). Na prática **não funcionou**: o grupo tem 12 mensagens em 11 dias e toda a operação real — entrega, aprovação, correção, pagamento — acontece no privado com o Nicolas.
+
+> ⚠️ Isso concentra o cliente numa pessoa só. Se o Nicolas sai de circulação, a conta para — e o histórico de decisão fica invisível para o time.
 
 ---
 
 ## 11. PENDÊNCIAS E RISCOS
 
-| # | Pendência | Dono | Aberta desde | Risco |
+Situação em **04/08/2026**, a **20 dias** da reunião que fecha o ciclo (24/08).
+
+### ✅ Fechadas desde a última rodada
+
+| Pendência | Como fechou |
+|---|---|
+| **Roteiros para aprovação** | Entregues em 29/07 19:42, em Google Doc |
+| **Autorização de uso de imagem da Agrotools** | A **própria Jane** pediu formalmente por escrito em 29/07. Guardar o documento. |
+| **Definição do perfil / marca** | Resolvida na prática: grupo renomeado para `JANE SEGUROS…` em 03/08. Pessoa acima da empresa. |
+| **Banco de imagens** | A Jane mandou o dela em 30/07 |
+
+### 🔴 Abertas — vermelhas
+
+| # | Pendência | Dono | Desde | Por quê |
 |---|---|---|---|---|
-| 1 | **Resumo do primeiro mês** — Jane pediu, Nicolas prometeu *"hoje"* | Nicolas | 28/07 | 🔴 |
-| 2 | **5 roteiros para aprovação** — compromisso explícito da call | Expansion | 25/07 | 🔴 |
-| 3 | **Senha em texto puro no WhatsApp** — ver §12 | Nicolas | 27/07 | 🔴 |
-| 4 | **Tráfego pago: faz ou não?** Confirmado em 29/07 que **segue em aberto** — não foi decidido nem nos áudios | Nicolas + Jane | 25/07 | 🟡 |
-| 4b | **Lista de entregáveis do plano teste** — Nicolas vai enviar. Sem ela a pendência #1 não fecha | Nicolas | 29/07 | 🔴 |
-| 5 | **Acesso ao Instagram** — veio só a senha do Facebook | Jane / Amanda | 25/07 | 🟡 |
-| 6 | **Cronograma de postagem** prometido na call | Expansion | 25/07 | 🟡 |
-| 7 | **Definição do @ do perfil** — Jane chegou a cogitar renomear | Nicolas + Jane | 25/07 | 🟡 |
-| 8 | **Depoimentos e prints do Google 5★ não coletados** — prova pronta, parada | Expansion | — | 🟡 |
-| 9 | **Números de autoridade não auditados** (+5.000 vidas, desde 2012) | Jane | — | 🟡 |
-| 10 | **Amanda no grupo** | Jane | 25/07 | 🟢 |
+| 1 | **Resumo / projeto / cronograma** | Nicolas | 28/07 | **7 dias e duas promessas de "hoje"** — 28/07 e 03/08. Ver abaixo. |
+| 2 | **Lista de entregáveis do plano** | Nicolas | 29/07 | É o que falta para a #1 poder ser respondida com precisão |
+| 3 | **Senha do Facebook em texto puro** | Nicolas | 27/07 | Continua sem troca. Ver §12 |
+| 4 | **Erro de nome de empresa em vídeo publicado** | Expansion | 30/07 | Corrigido? Não há confirmação no chat. Ver abaixo. |
+| 5 | **Dúvida de competência do pagamento** | Nicolas | 03/08 | A resposta pode não ter respondido a pergunta. Ver abaixo. |
 
-### Por que a pendência 1 é vermelha
+### 🟡 Abertas — amarelas
 
-O histórico da própria casa está em [`OPERACAO-REAL-EXPANSION-2026-07-26.md`](../../OPERACAO-REAL-EXPANSION-2026-07-26.md): o maior cliente quase cancelou **por ausência de relatório, não por qualidade de conteúdo**. E o item 5 dos erros que mais voltam para o Nicolas, no [`POP-SOCIAL-MEDIA-v0.1.md`](../../POP-SOCIAL-MEDIA-v0.1.md), é falta de rotina nos grupos.
+| # | Pendência | Dono | Desde |
+|---|---|---|---|
+| 6 | **Tráfego pago: decisão formal** — segue em aberto | Nicolas + Jane | 25/07 |
+| 7 | **Acesso ao Instagram** — veio só a senha do Facebook | Jane / Amanda | 25/07 |
+| 8 | **Falta material com a Jane em cena** — *"só tem estas?"*; as 2 diárias acabaram | Expansion | 29/07 |
+| 9 | **Ela pode gravar com o próprio iPhone?** Pergunta sem resposta clara | Nicolas | 29/07 |
+| 10 | **Iluminação** — *"achei a entrada meio escura"* | Filmmaker | 29/07 |
+| 11 | **Depoimentos e prints do Google 5★** — prova pronta, parada | Expansion | — |
+| 12 | **Números de autoridade não auditados** (+5.000 vidas, desde 2012) | Jane | — |
+| 13 | **Amanda no grupo** | Jane | 25/07 |
+| 14 | **Comunicação não migrou para o grupo** — ver §10 | Expansion | 27/07 |
 
-Aqui: a cliente pediu, foi prometido para o mesmo dia, não foi entregue, e ela respondeu *"não tem urgência"* — que é exatamente o que um cliente educado diz antes de parar de perguntar. Somado a um critério de aceite subjetivo (§9), o risco não é ela reclamar. É ela **não se reconhecer e não saber dizer o porquê**.
+---
+
+### A leitura do ciclo até aqui
+
+**A entrega funcionou.** Gravação em 29/07 de manhã, vídeo editado às 22:18 do mesmo dia, aprovação às 22:44, publicado às 23:03. Cerca de 12 horas do bruto ao ar. E a reação dela foi a melhor que existe dentro do critério declarado em §9:
+
+> *"Amei."* · *"Gostei muito do vídeo."*
+
+Isso é a primeira leitura direta de que a essência dela apareceu. **É o ativo mais valioso do ciclo e não deve ser desperdiçado** — é ele que deve abrir a conversa de 24/08.
+
+**O que está minando isso é administrativo, não criativo.** Três coisas:
+
+**1 · O resumo que não chega.** Pedido em 28/07, prometido para o mesmo dia. Prometido de novo em 03/08 — *"já te encaminho hoje todo o projeto e o que iremos fazer, e também o cronograma do perfil"*. Não chegou nas duas vezes. A cliente já tinha dito na call *"eu não sei o que está incluso"*, e respondeu *"não tem urgência"* quando a promessa furou. Cliente educado diz isso pouco antes de parar de perguntar.
+
+O histórico da casa está em [`OPERACAO-REAL-EXPANSION-2026-07-26.md`](../../OPERACAO-REAL-EXPANSION-2026-07-26.md): o maior cliente quase cancelou **por ausência de relatório, não por qualidade de conteúdo**. Com um critério de aceite subjetivo (§9), o risco não é ela reclamar — é ela não conseguir dizer o que recebeu quando chegar 24/08.
+
+**2 · O erro que a cliente pegou.** O primeiro Reels foi ao ar em 29/07 23:03 com o nome da empresa errado, e quem viu foi a Jane, 9h30 depois — num vídeo que marcava a Agrotools, o maior cliente dela. É o erro nº 1 da lista do [`POP-SOCIAL-MEDIA-v0.1.md`](../../POP-SOCIAL-MEDIA-v0.1.md). Ela avisou com um 💜 no fim, o que suaviza mas não anula: **a conferência antes de postar não aconteceu.** E não há no chat confirmação de que foi corrigido.
+
+**3 · O silêncio de 21 horas.** Áudio dela em 31/07 15:46, resposta em 01/08 12:35 — e a resposta é *"não consegui ouvir ainda"*. Foi o único contato dos dois dias. Em seguida, 31/07 e 01 e 02/08 sem entrega registrada.
+
+### A dúvida de pagamento
+
+Ela perguntou em 03/08: *"Pagamento que eu fiz deste mês refere-se a qual competência? Mês 08? Paga-se antecipado?"* A resposta falou do pagamento de **24/07**. *"Deste mês"* é agosto. Se houve um segundo pagamento, a pergunta segue sem resposta.
+
+**Confirmar antes de 24/08.** Dúvida de cobrança pendurada na véspera de uma renovação é o tipo de coisa que transforma "não renovo agora" numa decisão fácil.
 
 ### O ponto cego do tráfego
 
-Ela já roda anúncio sozinha e o funil traz o oposto do ICP (§5). Isso significa que a decisão sobre tráfego não é "faz ou não faz" — é **assumir o que já está rodando e desqualificando a audiência dela**. As pastas `Editados › TRÁFEGO` e `Brutos › Campanha 29-07 › criativos` já existem no Drive, o que sugere que a operação está se preparando para tráfego sem a decisão fechada com a cliente.
+Ela já roda anúncio sozinha e o funil traz o oposto do ICP (§5). O contato do **Matheus Felipi (tráfego)** foi enviado a ela em 27/07, junto com o pedido de acesso à BM — ou seja, a operação **já começou a montar tráfego** enquanto a decisão formal segue em aberto desde 25/07. As pastas `Editados › TRÁFEGO` e `Brutos › Campanha 29-07 › criativos` existem no Drive desde julho.
+
+A conversa certa não é "faz ou não faz". É: **a conta de anúncio que já está rodando está trazendo lead de R$1.000 para um produto de R$5.000** — e isso ou entra no escopo, ou é desligado.
 
 ---
 
 ## 12. CONTEÚDO SENSÍVEL — não publicar
 
-- 🔐 **A senha do Facebook da Jane trafegou em texto puro no grupo do WhatsApp em 27/07 e está no ZIP exportado.** Ela **não foi replicada neste repositório**. Ação: trocar a senha, migrar para cofre (1Password/Bitwarden) e, no futuro, pedir acesso por **Meta Business Suite com convite por e-mail** — nunca por login e senha.
+- 🔐 **A senha do Facebook da Jane trafegou em texto puro no WhatsApp em 27/07 e está nos ZIPs exportados.** **Não replicada neste repositório.** Ação: trocar a senha, migrar para cofre (1Password/Bitwarden) e pedir acesso por **Meta Business Suite com convite por e-mail** — nunca por login e senha.
+- 🔐 **CPF de terceiro em texto puro** (29/07 20:11, provavelmente liberação de acesso a prédio) e **telefone celular** de membro do time. **Não replicados aqui.** Dado pessoal de terceiro não circula em grupo de cliente — para acesso a prédio, mandar direto ao contato da portaria.
+- 📄 **A autorização de imagem da Agrotools** foi solicitada pela Jane em 29/07. **Guardar o documento assinado** — é o que libera usar o material dessa gravação. Sem ele em mãos, o Reels de 29/07 está publicado sem lastro documental do lado da Expansion.
 - **Caso "Dr. Pedro"** (médico, fraude apurada por operadora): citado na call. **Não usar em nenhum formato**, nem anonimizado — a cadeia de identificação é curta demais.
 - **Nomes de clientes** só entram em conteúdo com **autorização por escrito**. Vale para Agrotools, FW, Medi, Ana Vitória, Thiago York e todos os demais.
 - **Valores de sinistro e reembolso** ligados a pessoa identificável são dado de saúde. Nos cases (§7), despersonalizar: *"um cliente de 95 anos"*, não *"o pai do Francisco, da FW"* — a menos que o Francisco autorize.
@@ -330,19 +404,22 @@ Dois templates estão lá em branco desde 26/07: o **briefing de cliente** e o *
 | Fonte | Cobertura |
 |---|---|
 | Call de onboarding — [Fathom 760724003](https://fathom.video/calls/760724003) | 25/07/2026, 56 min. **Transcrição lida na íntegra** (125 blocos de fala) + resumo automático |
-| WhatsApp — privado Jane ↔ Nicolas | 27/05 a 29/07/2026 · 126 mensagens. Áudios e imagens não vieram no export |
-| WhatsApp — grupo JQL × Expansion | 24/07 a 28/07/2026 · 17 mensagens |
+| WhatsApp — privado Jane ↔ Nicolas | **27/05 a 03/08/2026 · 236 mensagens** (2º export). Anexos: [29/07](ANEXOS-WHATSAPP-2026-07-29.md) e [03/08](ANEXOS-WHATSAPP-2026-08-03.md) |
+| WhatsApp — grupo Jane × Expansion | **24/07 a 03/08/2026 · 26 mensagens** |
+| Áudios do WhatsApp | 7 arquivos `.opus` (30/07 a 03/08) — **catalogados, não transcritos** |
 | Google Drive — pasta da Jane | Doc de onboarding lido na íntegra; estrutura de pastas mapeada |
 | Repositório | `OPERACAO-REAL-EXPANSION-2026-07-26.md`, `POP-SOCIAL-MEDIA-v0.1.md` |
 
 **Ressalva de transcrição.** A transcrição do Fathom tem erros de reconhecimento de fala e trechos onde a legenda vira inglês. Nomes normalizados aqui a partir do contexto e do doc do Drive: *"Mil Black"* → **Amil Black**; *"Agrotus"* → **Agrotools**; *"INS"/"NRS"* → **ANS**; *"RN1"* → **NR-1**; *"CPI"* → **UTI**; *"Trasorb"* → **Atrasorb**; *"Dilemo"* → **Lemo**; *"Cauã"* → **Kauã**. Onde a normalização não foi segura, está marcado com ⚠️.
 
 **Lacunas conhecidas** — o que **não** está coberto e só a Jane ou o Nicolas resolvem:
-- Todos os áudios do WhatsApp (o export omite; há ~15 áudios, incluindo os de 27/07 e 29/07)
-- **Lista de entregáveis do plano teste** — o valor está fechado (§9), o conteúdo do pacote não
-- Forma de pagamento e data de renovação do plano teste
+- **Os 7 áudios.** A transcrição automática exigiria baixar modelo de `huggingface.co` ou `openaipublic.azureedge.net`, e **os dois estão bloqueados pela política de egress desta sessão** (403 no CONNECT). Estão catalogados com data, autor, duração e contexto no [anexo de 03/08](ANEXOS-WHATSAPP-2026-08-03.md#d--catálogo-dos-áudios). Os dois que importam: **31/07 15:46** e **03/08 14:56**. O próprio WhatsApp transcreve (segurar o áudio → transcrever).
+- Os áudios de 27/07 e 29/07 — nenhum dos dois exports os trouxe
+- **Lista de entregáveis do plano teste** — o valor e o ciclo estão fechados (§9), o conteúdo do pacote não
 - O @ atual do Instagram e o número de seguidores
+- Se o erro de nome de empresa no primeiro Reels foi corrigido
+- Se houve um segundo pagamento em agosto (§11)
 
-**Confirmado por Nicolas em 29/07/2026:** valor do plano teste (R$2.000, discriminado
-em §9) e que a decisão sobre tráfego pago **segue em aberto** — não foi resolvida nos
-áudios do WhatsApp.
+**Confirmado por Nicolas:** valor do plano teste — R$2.000 (29/07) · ciclo 24/07 a
+24/08 com reunião de alinhamento (03/08) · decisão sobre tráfego pago **segue em
+aberto**, não foi resolvida nos áudios (29/07).
