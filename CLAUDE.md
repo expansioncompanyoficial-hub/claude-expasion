@@ -91,6 +91,24 @@ temos documentados aqui.
 como lançamento: fases de aquecimento, conversão e urgência, com funil calculado
 de trás para frente a partir da meta de faturamento.
 
+### Minha voz nas mensagens — não reescreva no seu tom
+
+Toda mensagem que eu vou enviar sai **na minha escrita**, não na sua. Sem
+travessão, sem negrito, sem lista com marcador, sem palavra que eu não uso.
+Se não soar como eu, o cliente percebe que alguém escreveu por mim.
+
+Eu escrevo diferente conforme a pessoa:
+
+- **Com sócio, parceiro, interlocutor próximo (ex.: Kauan):** "irmão", "mano",
+  "saca?", "tá", "to", "pra", negativa dupla ("não vai esperar não"), linha
+  curta, mensagem picada em várias.
+- **Com o dono do negócio / cliente (ex.: Sabrina):** apelido curto quando já
+  existe ("Sa"), palavra inteira — "para", "você", "está" —, reticências "…",
+  frase mais corrida, sem gíria.
+
+Em momento sério eu continuo informal, só corto "kkkk", figurinha e emoji.
+Virar corporativo é tão errado quanto ficar de brincadeira.
+
 ### Antecipação — obrigatório, sem eu pedir
 
 `CLIENTES-CONTEXTO.md` é a ficha das contas. **Carregue antes de qualquer
