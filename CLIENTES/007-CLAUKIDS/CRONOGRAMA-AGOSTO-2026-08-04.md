@@ -13,7 +13,7 @@ de decisões, começa com as duas pendências abertas hoje) e
 
 | Pool | Doc | Status | Conteúdo |
 |---|---|---|---|
-| **A** | [Gravação 29-07 — Destaques + Reels](https://docs.google.com/document/d/1X6oxZaWuKq4Dlwwd2agAVBYEJs1CosuD7dqSr22Lb6E/edit) | **Gravado, vídeos ainda não entregues pela Bianca (6 dias de atraso)** | 7 destaques (A01–A07) + 6 reels (A08–A13) |
+| **A** | [Gravação 29-07 — Destaques + Reels](https://docs.google.com/document/d/1X6oxZaWuKq4Dlwwd2agAVBYEJs1CosuD7dqSr22Lb6E/edit) | **Gravado e organizado por roteiro no Drive da Bianca (04/08). Falta só a transferência interna pro Drive da Expansion** | 7 destaques (A01–A07) + 6 reels (A08–A13) |
 | **B** | [Clau Kids](https://docs.google.com/document/d/114WypsBc71zUM4L_gkE_htZfoxUgRdzJy0R4pzUEvEA/edit) | Escrito, não gravado | Roteiros 14–20: arco Deserto + Pula Bula corrigido |
 | **C** | [Clau Kids — Reels, Carrosséis e Tráfego](https://docs.google.com/document/d/1y8r7-C7Lxg7l2TflOHCCr3JHqnCKrWMQdxPIYpee6_Y/edit) | Escrito, não gravado | Roteiros 21–23 + Tráfego 04 + 4 carrosséis (eixo lagarto do deserto) |
 
@@ -21,9 +21,15 @@ de decisões, começa com as duas pendências abertas hoje) e
 
 ## ⚠️ Riscos críticos — ler antes do resto
 
-1. **Bianca está 6 dias atrasada, sem data de entrega confirmada.** Boa parte da
-   Semana 1 e 2 depende diretamente dela, sem plano B formalizado até hoje.
-   Isso muda agora — ver Fase 0 e "Modo Arquivo" abaixo.
+1. ~~Bianca está 6 dias atrasada, sem data de entrega confirmada.~~
+   **Atualizado 04/08:** o material existe e está organizado — 12 pastas por
+   roteiro no Drive dela, cobrindo A05–A13 individualmente e A01–A04 juntos
+   numa pasta "Destaques", mais 2 pastas extras de apoio (fachada, detalhes
+   de produto). **O risco agora é só logístico**, não de produção: falta
+   transferir pro Drive interno da Expansion (Nicolas está organizando) e
+   depois rodar o checklist de divergência (item 3 da Fase 0) em cada
+   roteiro antes de publicar — em especial A02 e A13, que já tinham erro
+   conhecido no texto escrito.
 2. **Duplicidade de handle nunca resolvida:** `@claukidstore` ou
    `@claukidistory`? Enquanto isso não for decidido, existe risco real de
    programar tráfego pago ou direcionar seguidores pro perfil errado.
@@ -50,8 +56,10 @@ Pré-requisitos, em ordem. Alguns dependem uns dos outros — a ordem importa.
 1. **Registrar agora** no Diário de Bordo as duas pendências em aberto (handle
    duplicado, confirmação do lagarto) — não deixar se perder como aconteceu
    com a correção "uma loja" de 28/07, que nunca chegou ao documento.
-2. **Cobrar a Bianca hoje.** Já está em D+6 sem checkpoint — pedir data de
-   entrega real, hoje, sem mais.
+2. ~~Cobrar a Bianca hoje.~~ **Resolvido 04/08:** o material foi localizado,
+   organizado por roteiro no Drive dela. Agora é só transferir pro Drive
+   interno da Expansion (Nicolas está organizando) — deixa de ser risco de
+   produção.
 3. **Aplicar o checklist de divergência nos 13 roteiros do Pool A antes de
    publicar qualquer um.** A auditoria encontrou dois erros reais que passaram
    despercebidos:
@@ -96,27 +104,23 @@ Pré-requisitos, em ordem. Alguns dependem uns dos outros — a ordem importa.
 
 -----
 
-## Semana 1 (04–10/08) — Fundação, ponte contra o atraso da Bianca
+## Semana 1 (04–10/08) — Fundação
 
 | Data | Peça | Fonte | Observação |
 |---|---|---|---|
 | Ter 04 | Atualização do post da mecânica lagarto | Débora/Adryel (já em andamento) | **Só publicar após Fase 0, item 5** |
-| Qua 05 | C21 — "Eu queria dar uma ampulheta, não coube" | Pool C, gravado pela Clau no celular | Não depende de Bianca |
+| Qua 05 | C21 — "Eu queria dar uma ampulheta, não coube" | Pool C, gravado pela Clau no celular | Independe da transferência da Bianca |
 | Qui 06 | Carrossel 03 — "Entra na loja comigo" | Pool C, fotos do VM já prontas | Zero produção nova |
 | Sex 07 | Primeiro "Sexta de Bastidor" (ver Sistema recorrente) | Recorte dos stories da semana | Arranca o sistema novo |
 | — | Story "Diário da Reforma #1" | Ela conta o sonho da reforma, sem roteiro fixo | Planta a semente, sem cadência obrigatória |
-| Ao longo da semana | **SE Bianca confirmar entrega:** montar os Destaques A01–A07 no perfil | Pool A | Prioridade máxima sobre qualquer post novo — estrutura a página pra sempre |
-| Ao longo da semana | **SE Bianca NÃO confirmar até sexta:** acionar Modo Arquivo | Acervo de ~45 vídeos + depoimento em vídeo | Mantém ritmo sem esperar mais |
+| Ao longo da semana | Transferir o material da Bianca (12 pastas por roteiro) pro Drive interno da Expansion, aplicar o checklist de divergência (Fase 0, item 3), e montar os Destaques A01–A07 no perfil | Pool A | Prioridade máxima sobre qualquer post novo — estrutura a página pra sempre |
 | 06–07/08 | Peças da Pula Bula devem chegar | — | **Capturar em fotos simples no celular assim que chegarem** — não precisa ser produção, só não perder a janela |
 
 ## Semana 2 (11–17/08)
 
-Condicional ao que aconteceu na Semana 1 com a Bianca.
-
 | Data | Peça | Fonte | Observação |
 |---|---|---|---|
-| Ter 11 | **Se Bianca entregou:** A12 — Lançamento Coleção Deserto | Pool A (já filmado + unboxing 31/07) | **Marcar B15 como aposentado/superado por A12 neste momento** — é o mesmo roteiro, não conteúdo novo |
-| Ter 11 | **Se Bianca não entregou:** seguir no Modo Arquivo | — | Considerar escalar/trocar fornecedor — SLA já estourado |
+| Ter 11 | A12 — Lançamento Coleção Deserto | Pool A (já filmado + unboxing 31/07) | **Marcar B15 como aposentado/superado por A12 neste momento** — é o mesmo roteiro, não conteúdo novo |
 | Qua 12 | C22 — "Se seu filho não para as mãos, assiste isso" | Pool C, ela grava sozinha | Alcance amplo, fora da base de moda |
 | Qui 13 | Tráfego 04 no ar | Pool C | **Depois** de revisar números de julho com o Matheus (7 perguntas na ESTRATEGIA-CONTEUDO-AGOSTO) |
 | Sex 14 | Carrossel 01 — "7 peças, um verão inteiro resolvido" | Pool C | Capsule wardrobe da Deserto |
