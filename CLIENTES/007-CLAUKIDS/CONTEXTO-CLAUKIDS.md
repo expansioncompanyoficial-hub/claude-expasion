@@ -21,7 +21,8 @@
 | **Fundadora** | Ana Cláudia — chamada de "Cláudia" / "Clau", 35 anos |
 | **Instagram** | [@claukidistory](https://www.instagram.com/claukidistory) |
 | **Nicho** | Moda infantil (baby até "Tim"), calçados, enxoval |
-| **Formato** | 2 lojas físicas + venda por WhatsApp/Instagram |
+| **Formato** | **1 loja física** + venda por WhatsApp/Instagram — ver §1 |
+| **Instagram (2º handle)** | @claukidstore — confirmar qual está ativo |
 | **Slogan** | *"Vestir é investir em personalidade"* |
 | **Palavra-síntese** | **SUPERAÇÃO** |
 | **Status** | Ativo |
@@ -71,6 +72,15 @@ ser feito sem passar por aqui.
 | Dia **23** | 4 anos da 1ª loja física |
 | Dia **29** | 3 anos da 2ª loja |
 | — | Considera "4 anos de marca" no geral |
+
+> ⚠️ **CORREÇÃO — 28/07/2026, pela própria Clau (WhatsApp).**
+> Ao ler o roteiro que falava em "duas lojas", ela avisou:
+> *"não estou com 2, fechei a outra a 2 anos."*
+> **Hoje ela opera UMA loja física.** O onboarding de 10/07 registrou a
+> abertura das duas, mas não o fechamento. Qualquer roteiro, legenda ou
+> peça de comunicação deve falar em **uma loja**. A narrativa de trajetória
+> pode ir até "abri a segunda", mas não pode afirmar que as duas seguem
+> abertas. Nicolas confirmou que atualizaria o briefing.
 
 ### O que ela quer virar
 Recebe contato **quase diário** de pessoas que se inspiram na jornada dela.
@@ -376,3 +386,67 @@ redondo/quadrado/preto/branco + `Logomarca e Submarcas.ai`) e um
 
 *Documento vivo — atualizar sempre que houver call, mudança de estratégia ou
 número novo. Rodadas de análise viram arquivos novos ao lado deste.*
+
+---
+
+## 14. Atualização — WhatsApp 15/07 a 03/08/2026
+
+Extraído dos exports de conversa (direto com a Clau e grupo Clau Kids ×
+Expansion). Complementa o onboarding de 10/07.
+
+### Correções de fato
+- **Uma loja, não duas** (28/07) — ver aviso na §1.
+- **Contrato:** R$ 5 mil **no total pelos 3 meses**, não mensal. R$ 3.500
+  pagos em 3x, R$ 1.500 restantes para 09/08 (15–16/07).
+
+### Resultado do primeiro tráfego
+- Investimento inicial: **R$ 137** (pago 27/07), 2 anúncios, até 30/07.
+- **7 conversas iniciadas em menos de 24h** (Matheus, 28/07).
+- As mensagens que chegaram eram sobre **o brinquedo da ação** e sobre
+  **roupas e calçados**. Demanda real registrada, serve de pauta.
+
+### O que a Clau fez por conta própria — postura, não passividade
+- **30/07:** subiu pasta de calçados baby que chegou e **fez post no feed
+  sozinha** — *"se não puder retiro"*.
+- **31/07:** o roteiro 3 não voltou da edição a tempo e ela **publicou com
+  um vídeo do próprio acervo** para não furar o calendário:
+  *"não é exatamente como vcs fazem, porém sei que estão com alta demanda
+  hj... Feito é melhor que perfeito."*
+- **29/07:** subiu feedbacks de clientes, fotos da loja organizada e um
+  **depoimento em vídeo de cliente**.
+- Faz **stories todo dia** por conta própria.
+- Aplicou **método Pomodoro** depois do contato com a Expansion (16/07).
+- **03/08:** pediu ativamente o plano — *"Qual planejamento com estratégias
+  para esta semana/mês?"*
+
+> **Leitura:** ela virou operadora ativa de conteúdo, não cliente passiva.
+> O gargalo deixou de ser ela e passou a ser a esteira da agência. Qualquer
+> planejamento novo tem que ter uma trilha que ela executa sozinha, sem
+> depender de edição.
+
+### Objetivo novo declarado (27/07)
+**Reforma / mudança da loja física.** *"Aí é vender muitooooo p seguir para
+mudança/reforma física."* Mandou imagens de referência. É o próximo destino
+do dinheiro — e um arco de conteúdo em potencial ("a loja que eu quero
+construir").
+
+### Operação e pendências
+- **Bloqueios recorrentes do WhatsApp Business** (20/07, 21/07) — resolvido
+  no fim de julho, mas sem causa-raiz identificada.
+- Suporte do sistema confirmou: **não dá para exportar a lista de contatos**
+  e o sistema usa o WhatsApp dela de qualquer forma. O CRM segue em aberto.
+- **Instagram verificado** — sugerido por Nicolas em 27/07, sem desfecho.
+- **Débora (social)** assumiria a organização do perfil e dos destaques.
+- **Bianca** — filmmaker da gravação de 29/07; material entregue no Drive no
+  mesmo dia. Clau: *"Que profissional heim"*.
+- **Link do grupo VIP** foi enviado como imagem de texto digitado, não como
+  link clicável.
+- Aprovação de vídeos roda no portal Organify.
+
+### Áudios não transcritos
+Os exports trazem **8 áudios** (29/07 e 03/08) que não puderam ser
+transcritos: o ambiente não tem ffmpeg/whisper e o proxy bloqueia tanto
+`huggingface.co` quanto o CDN de modelos da OpenAI. O áudio de **03/08
+09:43**, logo após a pergunta dela sobre o planejamento do mês, é o mais
+provável portador da estratégia que ela propôs. **Pendente de transcrição
+por outro caminho.**
