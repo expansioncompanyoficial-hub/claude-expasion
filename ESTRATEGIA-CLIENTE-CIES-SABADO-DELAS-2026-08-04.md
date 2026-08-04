@@ -165,20 +165,20 @@ O bloco das 15h é o maior porque **15h é o horário de pico medido** nas campa
 
 ---
 
-## 7. O ATENDIMENTO — o que a Expansion assume
+## 7. O ATENDIMENTO — da loja, estruturado por nós
 
-As campanhas da loja geraram **52 conversas em 3 dias** com R$ 200 investidos, a um custo de **R$ 3,85 por conversa**. É um número bom. Mas volume de conversa só vira venda se alguém responde, e esse volume é mais do que uma pessoa sozinha consegue absorver enquanto atende a loja.
+As campanhas da loja geraram **52 conversas em 3 dias** com R$ 200 investidos, a um custo de **R$ 3,85 por conversa**. É um número bom. Mas volume de conversa só vira venda se alguém responde no tempo certo.
 
-**Então, de 6 a 21 de agosto, quem responde as conversas do evento somos nós.**
+**Quem responde a cliente é a Ciés** — é a sua marca, o seu estoque e o seu tamanho na ponta da conversa. Resposta nossa sairia pior.
 
-- Resposta em até 2 horas no horário comercial
-- Script padronizado, com confirmação de presença, escolha de horário e o tamanho da cliente
-- Planilha compartilhada: quem chamou, quem confirmou, qual horário, quem compareceu
-- **Meta: zero conversa sem resposta**
+**O que a Expansion entrega para isso funcionar:**
 
-**Você recebe a cliente já confirmada, com horário marcado e peça separada no tamanho.**
+- **Script pronto** de resposta e de convite, para não travar na hora de escrever
+- **Planilha de confirmação e horários** — quem chamou, quem confirmou, qual horário, qual tamanho
+- **Volume de conversa calibrado** para caber no seu dia, em vez de anúncio 24/7 no automático jogando mensagem que não tem quem responda
+- **Medição semanal:** conversas geradas × respondidas × confirmadas
 
----
+**Meta combinada: zero conversa sem resposta.**
 
 ## 8. A META E COMO MEDIMOS
 
@@ -211,7 +211,7 @@ Conversas geradas · conversas respondidas · confirmações · comparecimento �
 2. **A Sabrina não edita mais nada.** Nem filtro, nem capa, nem legenda. Isso é nosso
 3. **Um dono da conta com nome**, que responde por prazo e entrega
 4. **Relatório toda segunda às 10h**
-5. **O atendimento das conversas do evento**, de 6 a 21/08
+5. **Script, planilha e calibragem do volume de conversa** para o atendimento da loja
 6. Estratégia, roteiros, gravação, edição, campanhas e acompanhamento no dia
 
 ### Sobre o padrão visual
