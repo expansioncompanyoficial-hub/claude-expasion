@@ -25,10 +25,9 @@
 | **Cliente** | Clau Kids (grafias no Drive: `CLAUKIDS`, `Clau Kids`, `ClauKids`) |
 | **Número interno** | 007 (Drive atual) · proposto `24` na estrutura ideal da auditoria |
 | **Fundadora** | Ana Cláudia — chamada de "Cláudia" / "Clau", 35 anos |
-| **Instagram** | [@claukidistory](https://www.instagram.com/claukidistory) |
+| **Instagram** | [@claukidstore](https://www.instagram.com/claukidstore) — confirmado por Nicolas em 04/08. `@claukidistory` é handle antigo/histórico, não usar |
 | **Nicho** | Moda infantil (baby até "Tim"), calçados, enxoval |
 | **Formato** | **1 loja física** + venda por WhatsApp/Instagram — ver §1 |
-| **Instagram (2º handle)** | @claukidstore — confirmar qual está ativo |
 | **Slogan** | *"Vestir é investir em personalidade"* |
 | **Palavra-síntese** | **SUPERAÇÃO** |
 | **Status** | Ativo |

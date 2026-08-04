@@ -16,6 +16,7 @@ de decisões, começa com as duas pendências abertas hoje) e
 | **A** | [Gravação 29-07 — Destaques + Reels](https://docs.google.com/document/d/1X6oxZaWuKq4Dlwwd2agAVBYEJs1CosuD7dqSr22Lb6E/edit) | **Gravado e organizado por roteiro no Drive da Bianca (04/08). Falta só a transferência interna pro Drive da Expansion** | 7 destaques (A01–A07) + 6 reels (A08–A13) |
 | **B** | [Clau Kids](https://docs.google.com/document/d/114WypsBc71zUM4L_gkE_htZfoxUgRdzJy0R4pzUEvEA/edit) | Escrito, não gravado | Roteiros 14–20: arco Deserto + Pula Bula corrigido |
 | **C** | [Clau Kids — Reels, Carrosséis e Tráfego](https://docs.google.com/document/d/1y8r7-C7Lxg7l2TflOHCCr3JHqnCKrWMQdxPIYpee6_Y/edit) | Escrito, não gravado | Roteiros 21–23 + Tráfego 04 + 4 carrosséis (eixo lagarto do deserto) |
+| **Envio** | [Clau Kids — Roteiros de Agosto](https://docs.google.com/document/d/1AlJ4ktPgx2IeBm3kpYgjUpuDd8ur1POzHJC4EcQMsrg/edit) | **Consolidado pronto pra enviar à cliente (04/08)** | B16–B20 + C21–23 + Tráfego 04 + 4 carrosséis — exclui B14 (aposentado) e B15 (duplicado de A12) |
 
 -----
 
@@ -30,15 +31,14 @@ de decisões, começa com as duas pendências abertas hoje) e
    depois rodar o checklist de divergência (item 3 da Fase 0) em cada
    roteiro antes de publicar — em especial A02 e A13, que já tinham erro
    conhecido no texto escrito.
-2. **Duplicidade de handle nunca resolvida:** `@claukidstore` ou
-   `@claukidistory`? Enquanto isso não for decidido, existe risco real de
-   programar tráfego pago ou direcionar seguidores pro perfil errado.
-   **Bloqueia o cronograma inteiro até ser resolvido.**
-3. **O brinde "lagarto do deserto" não tem confirmação por escrito.** Nicolas
-   perguntou às 11h36 de hoje no grupo e não teve resposta, mesmo com o vídeo
-   do lagarto pronto já enviado. Várias peças do mês dependem dessa decisão.
-4. **R$ 1.500 do contrato vencem em 09/08** — não é pauta de conteúdo, mas é
-   checkpoint comercial da semana que ninguém tinha sinalizado.
+2. ~~Duplicidade de handle nunca resolvida.~~ **Resolvido 04/08:** o handle é
+   **@claukidstore**. `@claukidistory` é histórico, não usar.
+3. ~~O brinde "lagarto do deserto" não tem confirmação por escrito.~~
+   **Resolvido 04/08:** Nicolas confirmou — o lagarto é a resposta oficial,
+   já incorporada no doc de estratégia. O arquivo/asset formal do brinde
+   ainda vem, será enviado no grupo.
+4. **R$ 1.500 do contrato vencem em 09/08** — sinalizado; Nicolas vai avisar
+   o financeiro interno.
 5. **Ela opera sozinha** (vende, atende, embala). O volume deste cronograma
    mais as ideias novas pode ultrapassar o que ela consegue produzir sem
    prejudicar o atendimento — por isso este documento define um **limite
@@ -72,17 +72,13 @@ Pré-requisitos, em ordem. Alguns dependem uns dos outros — a ordem importa.
      pro posicionamento certo (ocasião especial, numeração até 18) — mas o
      texto escrito no doc nunca foi atualizado. Risco real do editor legendar
      errado. **Decisão sobre o destino do A13 abaixo, item 8.**
-4. **Resolver a duplicidade de handle** antes de programar qualquer coisa
-   nova. Bloqueio crítico — sem isso, não dá pra saber onde o mês inteiro vai
-   ao ar.
-5. **Não publicar a atualização do post da mecânica do lagarto até ter a
-   confirmação dela.** Se não vier resposta escrita até amanhã (05/08),
-   registrar explicitamente no Diário de Bordo que o vídeo do lagarto já
-   enviado é tratado como confirmação suficiente — mas como decisão
-   documentada, não como suposição silenciosa.
+4. ~~Resolver a duplicidade de handle.~~ **Resolvido:** @claukidstore.
+5. ~~Não publicar a mecânica do lagarto sem confirmação.~~ **Resolvido:**
+   Nicolas confirmou o lagarto como resposta oficial — pode publicar.
 6. **Responder à pergunta da Clau** (03/08): brutos dela sobem na mesma pasta
    dos da Bianca, por roteiro.
-7. **Sinalizar internamente** o vencimento de R$ 1.500 em 09/08.
+7. ~~Sinalizar internamente o vencimento de R$ 1.500 em 09/08.~~
+   **Feito** — Nicolas vai avisar o financeiro interno.
 8. **Decidir o destino do A13 (Pula Bula, Pool A):** publicar como *teaser*
    "chegando" — sem peça em mãos, ela já grava contando que a marca está a
    caminho — **antes** de B19/B20 (Pool B, corrigidos, com peça em mãos)
