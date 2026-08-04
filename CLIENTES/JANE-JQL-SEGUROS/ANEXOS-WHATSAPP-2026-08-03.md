@@ -11,12 +11,9 @@ Segundo export, mais completo que o de 29/07. Cobre até **03/08/2026 17:32**.
 > celular trafegaram em texto puro e **não foram versionados** — estão como
 > `[CPF REMOVIDO]` e `[TELEFONE REMOVIDO]`.
 
-> 🎧 **Os 7 áudios não foram transcritos.** A transcrição automática exigiria baixar
-> modelo de `huggingface.co` ou `openaipublic.azureedge.net`, e **os dois estão
-> bloqueados pela política de egress desta sessão** (403 no CONNECT). Estão
-> catalogados na seção D com data, hora, autor, duração estimada e o contexto da
-> conversa em volta — dá para saber sobre o que cada um é. Para transcrever: o próprio
-> WhatsApp faz isso hoje (segurar o áudio → transcrever).
+> 🎧 **Os 7 áudios foram transcritos** — seção D. Whisper `medium` rodando local via
+> sherpa-onnx. Transcrição automática: nomes próprios saem errados e estão normalizados
+> entre colchetes.
 
 ---
 
@@ -225,20 +222,100 @@ Os ZIPs originais **não foram versionados** — contêm credencial, CPF e telef
 
 ---
 
-## D · CATÁLOGO DOS ÁUDIOS
+## D · TRANSCRIÇÃO DOS ÁUDIOS
 
-Não transcritos (ver aviso no topo). O contexto em volta indica o assunto de cada um.
+Whisper `medium` local (sherpa-onnx, ONNX int8, `language=pt`). Transcrição automática:
+nomes próprios saem errados. Normalizados entre `[colchetes]`; onde não deu para
+recuperar com segurança, está marcado `[inaudível]`.
 
-| # | Data e hora | Autor | Dur. aprox. | Assunto provável, pelo que vem antes e depois |
-|---|---|---|---|---|
-| 1 | 30/07 17:16 | Jane | ~27 s | Durante a gravação em Hortolândia, logo após as 10 fotos de *"Começamos"*. Nicolas responde *"Que legaaaalll!!!!"* — provável relato animado da gravação |
-| 2 | 30/07 17:17 | Jane | ~41 s | Sequência do anterior — o mais longo do conjunto |
-| 3 | 30/07 17:43 | Nicolas | ~10 s | Resposta dele aos dois áudios dela |
-| 4 | 30/07 17:45 | Jane | ~15 s | Réplica |
-| 5 | 30/07 18:07 | Jane | ~23 s | Fecha a conversa da gravação; ele responde *"Hahahahah siiimmmm · Belezeraaaaaa"* |
-| 6 | **31/07 15:46** | Jane | ~7 s | ⚠️ **Único contato do dia.** Ficou 21 h sem resposta; Nicolas: *"não consegui ouvir ainda"*. **Ouvir este primeiro.** |
-| 7 | **03/08 14:56** | Jane | ~12 s | ⚠️ Vem colado à pergunta sobre competência de pagamento — provavelmente a mesma dúvida falada. **Ouvir junto com o item 6.** |
+Os áudios de **27/07 e 29/07** citados no export anterior continuam fora — este export
+só trouxe mídia de 30/07 em diante.
 
-Duração estimada pelo tamanho do arquivo (Opus do WhatsApp, ~2 KB/s). Os áudios de
-27/07 e 29/07 citados no export anterior **continuam fora** — este export só trouxe
-mídia de 30/07 em diante.
+---
+
+### 1 · 30/07 17:16 · Jane · 22 s — 🔴 o pedido de *colaborador*, não de marcação
+
+> "Tudo bem, vamos lá. Uma coisa que eu não vi no Instagram, mas precisa colocar:
+> colocar a [Agrotools] como colaboradora do vídeo, e a JQL Seguros. **Você marcou, mas
+> você não colocou como colaborador.** Porque quando você coloca como colaborador — e
+> você sabe muito mais do que eu — **aparece no feed da empresa**, né? Quando você
+> marca… lembra?"
+
+> Em 29/07 22:51 ela já tinha escrito *"posta e marca a Agrotools / quem sabe eles
+> aceitam o convite né"*. **"Aceitam o convite" é Collab, não marcação** — e o time
+> entendeu como marcação. Ela levou um dia para conferir e corrigir.
+
+### 2 · 30/07 17:17 · Jane · 32 s — ⭐ a segunda aprovação, e forte
+
+> "Ô [Nicolas], eu não sei o de ontem, mas olha: **o Emmanuell está de parabéns.** Ele
+> fez uns vídeos da hora que, gente, ficou linda. Tudo ajudou, né? O local, as pessoas
+> eram mais receptivas, tava sol. **Nossa, [Nicolas], você vai amar.** Ficou muito,
+> muito legal, gente. **Tô muito feliz. Fiquei muito empolgada.** As fotos ficaram
+> lindas, os vídeos ficaram lindos. Ó, parabéns pro Emmanuell, viu? Ele tá aqui do meu
+> lado — **mas ele não está pondo a arma na minha cabeça, tá? Eu estou falando
+> mesmo.**"
+
+> Ela mesma antecipa a desconfiança de que o elogio seria por educação, e a desarma.
+> Junto com o *"Amei"* de 29/07, é a segunda leitura direta de que o critério de §9 do
+> dossiê está sendo atendido. **É o argumento de renovação.**
+
+### 3 · 30/07 17:43 · Nicolas · 9 s — a correção do Collab
+
+> "Ô Jane, a gente colocou como colaborador. Tem que aceitar mesmo — **aí tem que
+> aceitar no perfil da JQL.** Aí hoje [inaudível] quer legenda também pra gente pôr."
+
+### 4 · 30/07 17:45 · Jane · 12 s — ela vai tentar aceitar
+
+> "Eu não entendi, eu achei que você tinha só marcado. Então tá bom — **depois eu vou
+> entrar lá no JQ[L] e vou ver se consigo liberar. Eu te aviso.** Porque eu pensei que
+> você tinha só marcado. [inaudível] Não, beleza então."
+
+> ⚠️ **Não existe confirmação no chat de que o convite foi aceito.** Se não foi, o
+> primeiro Reels nunca apareceu no feed da Agrotools — que era o ponto da estratégia dela.
+
+### 5 · 30/07 18:07 · Jane · 18 s — 💡 pauta nova, criada por ela
+
+> "Ô [Nicolas], eu estou conversando aqui com o Emmanuell e **a gente está tendo uma
+> ideia legal**. A gente depois faz — agora talvez não, mas mais para frente: como foi
+> o dia da campanha de vacinação na [Agrotools]. **Erros de gravação.** Acho que vai ter
+> uns conteúdos bem legais para fazer. A gente, eu e a **Aline**, por exemplo — a gente
+> deu muita risada hoje."
+
+> Duas coisas: a pauta de **bastidor / erros de gravação** nasceu dela, e aparece a
+> **Aline**, contato na Agrotools. É quase certo que seja a mesma Aline do caso do
+> aplicativo do Bradesco na call de onboarding (*"aí eu falei, Aline, tá agora até
+> comprovado"*, empresa de 300 vidas).
+
+### 6 · 31/07 15:46 · Jane · 6 s — era só um alô
+
+> "Ei, Nicolas, tudo bem? Espero que esteja tudo bem com você. **Depois você me dá um
+> alô aqui.**"
+
+> Baixa gravidade — não era cobrança. Mas ficou **21 h sem resposta**, e a resposta foi
+> *"não consegui ouvir ainda"*. Um áudio de 6 segundos.
+
+### 7 · 03/08 14:56 · Jane · 9 s — a dúvida de pagamento, falada
+
+> "[Nico], **esses pagamentos que eu fiz para vocês**, ele é o mês de 8 vigente, como
+> que é? Depois você pode me explicar, por favor, **para não ter problema**?"
+
+> ⚠️ **"Esses pagamentos", no plural.** Reforça a leitura da seção B: pode haver mais de
+> um pagamento, e a resposta de 03/08 17:32 falou só do de 24/07. E o *"para não ter
+> problema"* diz o tamanho: ela quer isso resolvido, não é curiosidade.
+
+---
+
+**Como as transcrições foram feitas** — `huggingface.co` e `openaipublic.azureedge.net`
+estão bloqueados pela política de egress desta sessão (403 no CONNECT), então o caminho
+usual do Whisper não funciona. O que funciona: **PyPI e GitHub releases são liberados**.
+
+```
+pip3 install sherpa-onnx faster-whisper
+curl -L -o m.tar.bz2 https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-medium.tar.bz2
+tar xjf m.tar.bz2
+# decodifica o .opus com faster_whisper.audio.decode_audio (PyAV traz o ffmpeg no wheel)
+# reconhece com sherpa_onnx.OfflineRecognizer.from_whisper(language="pt", task="transcribe")
+```
+
+Whisper processa janelas de 30 s — áudio maior precisa ser fatiado (aqui: 28 s com 2 s
+de sobreposição). O script está em `scratchpad/asr/run_med.py`, fora do repositório.

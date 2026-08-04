@@ -56,9 +56,13 @@
 | **29/07 23:03** | 📱 **Primeiro Reels publicado** — `instagram.com/reel/DbZkF_EMyzG/` |
 | **29/07 23:07** | Ressalvas dela: *"achei a entrada meio escura"* · *"só tem estas [fotos]?"* |
 | **30/07 08:41** | 🔴 **Jane aponta erro no vídeo já publicado:** nome da empresa errado, precisa ser Agrotools |
-| **30/07 12:18** | **Gravação 3** — Hortolândia, escritório dela *(2ª e última diária contratada)* |
+| **30/07 12:18** | **Gravação 3** — Hortolândia, escritório dela, com o filmmaker **Emmanuell** *(2ª e última diária contratada)* |
+| **30/07 17:16** | 🔴 Jane cobra: a Agrotools foi **marcada, não posta como colaboradora** — *"aparece no feed da empresa"* |
+| **30/07 17:17** | ⭐ **Segunda aprovação, e forte:** *"você vai amar"* · *"as fotos ficaram lindas, os vídeos ficaram lindos"* · *"ele não está pondo a arma na minha cabeça, eu estou falando mesmo"* |
+| **30/07 17:43** | Collab corrigido; falta a Jane **aceitar pelo perfil da JQL** — sem confirmação de que aceitou |
+| **30/07 18:07** | 💡 Jane propõe pauta nova: **bastidor / erros de gravação** da campanha de vacinação |
 | **30/07 19:07** | Jane manda o **próprio banco de imagens** ([pasta](https://drive.google.com/drive/folders/1y72d2PsqTJqB5yEPYZCFVPF8sC1GT90y)) |
-| **31/07 15:46** | Áudio da Jane — único contato do dia |
+| **31/07 15:46** | Áudio da Jane — único contato do dia. Era só *"depois você me dá um alô aqui"* |
 | **01/08 12:35** | Nicolas: *"não consegui ouvir ainda"* — **21 h de silêncio**. Reforça centralizar no grupo |
 | **03/08 12:03** | Nicolas promete *"hoje"* o projeto completo e o cronograma — **2ª promessa do mesmo pedido de 28/07** |
 | **03/08 12:03** | Grupo renomeado: `JQL SEGUROS…` → **`JANE SEGUROS and EXPANSION ®️`** |
@@ -278,6 +282,7 @@ Não há segundo motivo. É esse.
 | **Amanda** | Assistente — tem a agenda e guarda as senhas. **Deve ser adicionada ao grupo** (combinado na call) |
 | Gabi | Equipe — estava de férias em 25/07 |
 | Sabrina | Quem repassou a senha do Facebook em 27/07 |
+| **Aline** | Contato na **Agrotools** — participou da gravação de 30/07. Quase certamente a mesma Aline do caso do app do Bradesco na call (empresa de 300 vidas) |
 | Consultoria financeira | Nova; a corretora está migrando do Simples para o Lucro Real |
 
 **Lado Expansion**
@@ -289,7 +294,8 @@ Não há segundo motivo. É esse.
 | Adryel Silva | Editor |
 | **Matheus Felipi** | Tráfego — contato enviado à Jane em 27/07, junto com o pedido de acesso à BM |
 | Bernardo + 2 | No grupo |
-| **Jeferson Daniel** | Filmmaker — diárias de 29 e 30/07 |
+| **Jeferson Daniel** | Filmmaker — diária de 29/07 (Agrotools SP + SJC) |
+| **Emmanuell Oliveira** | Filmmaker — diária de 30/07 (Hortolândia). **Elogiado nominalmente pela cliente** |
 
 **Canal oficial:** grupo `JANE SEGUROS and EXPANSION ®️`. Combinado em 27/07, reforçado em 01/08 (*"pode centralizar todas as comunicações no grupo"*). Na prática **não funcionou**: o grupo tem 12 mensagens em 11 dias e toda a operação real — entrega, aprovação, correção, pagamento — acontece no privado com o Nicolas.
 
@@ -318,7 +324,8 @@ Situação em **04/08/2026**, a **20 dias** da reunião que fecha o ciclo (24/08
 | 2 | **Lista de entregáveis do plano** | Nicolas | 29/07 | É o que falta para a #1 poder ser respondida com precisão |
 | 3 | **Senha do Facebook em texto puro** | Nicolas | 27/07 | Continua sem troca. Ver §12 |
 | 4 | **Erro de nome de empresa em vídeo publicado** | Expansion | 30/07 | Corrigido? Não há confirmação no chat. Ver abaixo. |
-| 5 | **Dúvida de competência do pagamento** | Nicolas | 03/08 | A resposta pode não ter respondido a pergunta. Ver abaixo. |
+| 5 | **Dúvida de competência do pagamento** | Nicolas | 03/08 | Ela falou *"esses pagamentos"*, no plural, e *"para não ter problema"*. Ver abaixo. |
+| 6 | **Convite de Collab da Agrotools foi aceito?** | Jane + Expansion | 30/07 | Ela disse *"vou ver se consigo liberar, eu te aviso"* e **nunca avisou**. Sem aceite, o Reels não entrou no feed da Agrotools — que era o objetivo. Ver abaixo. |
 
 ### 🟡 Abertas — amarelas
 
@@ -338,13 +345,15 @@ Situação em **04/08/2026**, a **20 dias** da reunião que fecha o ciclo (24/08
 
 ### A leitura do ciclo até aqui
 
-**A entrega funcionou.** Gravação em 29/07 de manhã, vídeo editado às 22:18 do mesmo dia, aprovação às 22:44, publicado às 23:03. Cerca de 12 horas do bruto ao ar. E a reação dela foi a melhor que existe dentro do critério declarado em §9:
+**A entrega funcionou, e a cliente disse isso duas vezes.** Gravação em 29/07 de manhã, vídeo editado às 22:18 do mesmo dia, aprovação às 22:44, publicado às 23:03 — cerca de 12 horas do bruto ao ar.
 
-> *"Amei."* · *"Gostei muito do vídeo."*
+> **29/07 22:44** — *"Amei."* · *"Gostei muito do vídeo."*
+>
+> **30/07 17:17** — *"O Emmanuell está de parabéns. (…) Nossa, Nicolas, você vai amar. Ficou muito, muito legal. Tô muito feliz. Fiquei muito empolgada. As fotos ficaram lindas, os vídeos ficaram lindos. (…) Ele tá aqui do meu lado, **mas ele não está pondo a arma na minha cabeça, tá? Eu estou falando mesmo.**"*
 
-Isso é a primeira leitura direta de que a essência dela apareceu. **É o ativo mais valioso do ciclo e não deve ser desperdiçado** — é ele que deve abrir a conversa de 24/08.
+A segunda é mais forte que a primeira, e ela própria antecipa e desarma a leitura de que seria elogio por educação. Dentro do critério declarado em §9 — *"conseguir me ver na rede social"* — **isso é o resultado.** É o ativo mais valioso do ciclo e é ele que deve abrir a conversa de 24/08.
 
-**O que está minando isso é administrativo, não criativo.** Três coisas:
+**O que está minando isso é administrativo, não criativo.** Quatro coisas:
 
 **1 · O resumo que não chega.** Pedido em 28/07, prometido para o mesmo dia. Prometido de novo em 03/08 — *"já te encaminho hoje todo o projeto e o que iremos fazer, e também o cronograma do perfil"*. Não chegou nas duas vezes. A cliente já tinha dito na call *"eu não sei o que está incluso"*, e respondeu *"não tem urgência"* quando a promessa furou. Cliente educado diz isso pouco antes de parar de perguntar.
 
@@ -352,13 +361,21 @@ O histórico da casa está em [`OPERACAO-REAL-EXPANSION-2026-07-26.md`](../../OP
 
 **2 · O erro que a cliente pegou.** O primeiro Reels foi ao ar em 29/07 23:03 com o nome da empresa errado, e quem viu foi a Jane, 9h30 depois — num vídeo que marcava a Agrotools, o maior cliente dela. É o erro nº 1 da lista do [`POP-SOCIAL-MEDIA-v0.1.md`](../../POP-SOCIAL-MEDIA-v0.1.md). Ela avisou com um 💜 no fim, o que suaviza mas não anula: **a conferência antes de postar não aconteceu.** E não há no chat confirmação de que foi corrigido.
 
-**3 · O silêncio de 21 horas.** Áudio dela em 31/07 15:46, resposta em 01/08 12:35 — e a resposta é *"não consegui ouvir ainda"*. Foi o único contato dos dois dias. Em seguida, 31/07 e 01 e 02/08 sem entrega registrada.
+**3 · O silêncio de 21 horas.** Áudio dela em 31/07 15:46, resposta em 01/08 12:35 — e a resposta é *"não consegui ouvir ainda"*. O áudio tinha **6 segundos** e dizia só *"tudo bem? depois você me dá um alô aqui"*. Não era cobrança — o que torna a demora mais difícil de justificar, não menos. Foi o único contato de 31/07, 01 e 02/08, sem entrega registrada nesses três dias.
+
+**4 · O Collab que talvez nunca tenha sido aceito.** Em 29/07 ela escreveu *"posta e marca a Agrotools, quem sabe eles aceitam o convite"*. **"Aceitam o convite" é Collab do Instagram, não marcação** — e o time só marcou. Ela conferiu no dia seguinte e explicou: *"quando você coloca como colaborador, aparece no feed da empresa"*. O Collab foi então adicionado, mas depende de aceite pelo perfil da JQL; ela disse *"vou ver se consigo liberar, eu te aviso"* e **não avisou**.
+
+Se não foi aceito, o primeiro post da conta **nunca chegou ao feed do maior cliente dela** — que era o ponto todo. Verificar leva um minuto.
 
 ### A dúvida de pagamento
 
-Ela perguntou em 03/08: *"Pagamento que eu fiz deste mês refere-se a qual competência? Mês 08? Paga-se antecipado?"* A resposta falou do pagamento de **24/07**. *"Deste mês"* é agosto. Se houve um segundo pagamento, a pergunta segue sem resposta.
+Em 03/08 ela perguntou por escrito e por áudio. O áudio é mais claro que o texto:
 
-**Confirmar antes de 24/08.** Dúvida de cobrança pendurada na véspera de uma renovação é o tipo de coisa que transforma "não renovo agora" numa decisão fácil.
+> *"Esses pagamentos que eu fiz para vocês, ele é o mês de 8 vigente, como que é? Depois você pode me explicar, por favor, **para não ter problema**?"*
+
+**"Esses pagamentos", no plural.** A resposta de 17:32 falou apenas do pagamento de 24/07. Se houve um segundo em agosto, a pergunta segue aberta.
+
+**Resolver antes de 24/08.** Dúvida de cobrança pendurada na véspera da renovação transforma "não renovo agora" numa decisão fácil — e o *"para não ter problema"* mostra que ela já está tratando isso como coisa a evitar.
 
 ### O ponto cego do tráfego
 
@@ -406,15 +423,15 @@ Dois templates estão lá em branco desde 26/07: o **briefing de cliente** e o *
 | Call de onboarding — [Fathom 760724003](https://fathom.video/calls/760724003) | 25/07/2026, 56 min. **Transcrição lida na íntegra** (125 blocos de fala) + resumo automático |
 | WhatsApp — privado Jane ↔ Nicolas | **27/05 a 03/08/2026 · 236 mensagens** (2º export). Anexos: [29/07](ANEXOS-WHATSAPP-2026-07-29.md) e [03/08](ANEXOS-WHATSAPP-2026-08-03.md) |
 | WhatsApp — grupo Jane × Expansion | **24/07 a 03/08/2026 · 26 mensagens** |
-| Áudios do WhatsApp | 7 arquivos `.opus` (30/07 a 03/08) — **catalogados, não transcritos** |
+| Áudios do WhatsApp | 7 arquivos `.opus` (30/07 a 03/08) — **transcritos** com Whisper `medium` local (sherpa-onnx). Íntegra no [anexo de 03/08](ANEXOS-WHATSAPP-2026-08-03.md#d--transcrição-dos-áudios) |
 | Google Drive — pasta da Jane | Doc de onboarding lido na íntegra; estrutura de pastas mapeada |
 | Repositório | `OPERACAO-REAL-EXPANSION-2026-07-26.md`, `POP-SOCIAL-MEDIA-v0.1.md` |
 
 **Ressalva de transcrição.** A transcrição do Fathom tem erros de reconhecimento de fala e trechos onde a legenda vira inglês. Nomes normalizados aqui a partir do contexto e do doc do Drive: *"Mil Black"* → **Amil Black**; *"Agrotus"* → **Agrotools**; *"INS"/"NRS"* → **ANS**; *"RN1"* → **NR-1**; *"CPI"* → **UTI**; *"Trasorb"* → **Atrasorb**; *"Dilemo"* → **Lemo**; *"Cauã"* → **Kauã**. Onde a normalização não foi segura, está marcado com ⚠️.
 
 **Lacunas conhecidas** — o que **não** está coberto e só a Jane ou o Nicolas resolvem:
-- **Os 7 áudios.** A transcrição automática exigiria baixar modelo de `huggingface.co` ou `openaipublic.azureedge.net`, e **os dois estão bloqueados pela política de egress desta sessão** (403 no CONNECT). Estão catalogados com data, autor, duração e contexto no [anexo de 03/08](ANEXOS-WHATSAPP-2026-08-03.md#d--catálogo-dos-áudios). Os dois que importam: **31/07 15:46** e **03/08 14:56**. O próprio WhatsApp transcreve (segurar o áudio → transcrever).
-- Os áudios de 27/07 e 29/07 — nenhum dos dois exports os trouxe
+- Os áudios de **27/07 e 29/07** — nenhum dos dois exports os trouxe. São ~10 mensagens, incluindo a conversa sobre acessos (27/07) e a ligação de 6 minutos de 29/07
+- Se o **convite de Collab da Agrotools** foi aceito
 - **Lista de entregáveis do plano teste** — o valor e o ciclo estão fechados (§9), o conteúdo do pacote não
 - O @ atual do Instagram e o número de seguidores
 - Se o erro de nome de empresa no primeiro Reels foi corrigido

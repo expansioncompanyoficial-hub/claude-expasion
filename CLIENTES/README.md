@@ -39,6 +39,40 @@ vira arquivo novo, nunca sobrescreve o anterior. O histórico é o valor.
 5. **Registrar as pendências com dono e data.** É a seção que envelhece e é a que
    mais vale.
 
+## Transcrever os áudios do WhatsApp
+
+**Exportar sempre "com mídia".** O export sem mídia descarta os áudios, e é neles que
+mora a instrução operacional: no caso da Jane, o pedido de Collab, o elogio mais forte
+do ciclo e uma pauta nova só existiam em áudio.
+
+Nesta sessão, `huggingface.co` e `openaipublic.azureedge.net` estão bloqueados pela
+política de egress, então o caminho normal do Whisper não roda. **PyPI e GitHub
+releases passam** — dá para montar assim:
+
+```bash
+pip3 install sherpa-onnx faster-whisper
+curl -L -o m.tar.bz2 https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-medium.tar.bz2
+tar xjf m.tar.bz2
+```
+
+```python
+from faster_whisper.audio import decode_audio   # PyAV traz o ffmpeg no wheel
+import sherpa_onnx
+rec = sherpa_onnx.OfflineRecognizer.from_whisper(
+    encoder="sherpa-onnx-whisper-medium/medium-encoder.int8.onnx",
+    decoder="sherpa-onnx-whisper-medium/medium-decoder.int8.onnx",
+    tokens="sherpa-onnx-whisper-medium/medium-tokens.txt",
+    language="pt", task="transcribe")
+s = rec.create_stream(); s.accept_waveform(16000, decode_audio(f, sampling_rate=16000))
+rec.decode_stream(s); print(s.result.text)
+```
+
+Whisper só enxerga janelas de 30 s — áudio maior tem que ser fatiado (28 s com 2 s de
+sobreposição funciona). `medium` acerta bem mais nome próprio que `small`; ainda assim,
+**normalizar nomes de empresa e pessoa à mão** e marcar `[inaudível]` onde não der.
+
+O modelo tem ~1,8 GB. **Baixar sempre para fora do repositório.**
+
 ## Regras não negociáveis
 
 🔐 **Credencial nunca entra no repositório.** Senha, token, chave de API ou login que

@@ -105,6 +105,28 @@ Jane manda o link → roteiro no mesmo dia.
 | **Família** | Esposa de sírio, cristã, brinca com os filhos |
 | **Saúde** | Pedala, academia — *"toda hora eu estou de roupa de ginástica"*. Nicolas já propôs gravar pedalando |
 | **Mineira** | Família humilde, simplicidade sofisticada — a ponte entre as duas classes |
+| 💡 **Bastidor da campanha de vacinação** | **Pauta criada por ela**, em áudio de 30/07: *"como foi o dia da campanha de vacinação na Agrotools. Erros de gravação. Acho que vai ter uns conteúdos bem legais para fazer. A gente, eu e a Aline, deu muita risada hoje."* Material já gravado. |
+
+> ⚠️ Sobre os **erros de gravação**: isso não conflita com o *"não gosto de piada,
+> engraçadinho"* de §3 do dossiê. O que ela recusa é humor construído — piada de
+> roteiro, gíria, palhaçada. O que ela está pedindo é **bastidor espontâneo**, que é a
+> própria definição de *leveza*, a palavra que ela escolheu. A linha: rir **do dia**,
+> não fazer piada **para** a câmera.
+
+---
+
+## COLLAB, NÃO MARCAÇÃO — regra operacional
+
+Quando o post envolver uma empresa cliente dela, **postar como colaborador do
+Instagram**, não apenas marcar. A regra é dela, em áudio de 30/07:
+
+> *"Você marcou, mas você não colocou como colaborador. Porque quando você coloca como
+> colaborador, **aparece no feed da empresa**."*
+
+O Collab põe o post nos dois perfis e leva o conteúdo dela para a audiência do cliente
+— que é, por definição, mais gente do perfil dela. **Depende de aceite pelo outro
+perfil**, então o fluxo tem que incluir: postar → enviar convite → confirmar o aceite.
+No primeiro Reels isso ficou pela metade (ver §11 do dossiê).
 
 ---
 
