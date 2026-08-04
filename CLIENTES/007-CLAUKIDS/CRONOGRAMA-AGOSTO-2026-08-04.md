@@ -129,8 +129,9 @@ Pré-requisitos, em ordem. Alguns dependem uns dos outros — a ordem importa.
 | Ter 18 | B16 — "O que eu deixei pra trás nessa coleção" | Pool B | Curadoria de compra |
 | Qua 19 | C23 — "Todo mundo espera desconto, eu vou fazer o contrário" | Pool C | Compre e ganhe vs. desconto |
 | Qui 20 | Carrossel 02 — "O que as mães falam" | Pool C, feedbacks já no Drive | **Usar também o depoimento em vídeo**, não só os prints (estava parado) |
+| Sáb 22 | A08 — "Entra comigo" (tour) | Pool A (já filmado) | **Corrigindo a omissão da auditoria — não estava em nenhuma semana.** Fim de semana, família planejando passeio/compra |
 | Sex 21 | A09 — "Seu filho tem 9 anos e não cabe mais" | Pool A (já filmado) | Início do funil sequencial — ver abaixo |
-| — | A08 — "Entra comigo" (tour) | Pool A (já filmado) | **Corrigindo a omissão da auditoria — não estava em nenhuma semana** |
+| Seg 24 | A13 — Lançamento Pula Bula (teaser "chegando") | Pool A (já filmado, sem peça em mãos) | Fecha a semana anunciando o que vem — no dia seguinte sai o B19 com a peça em mãos |
 
 **Funil sequencial "Cresceu, mas não perdeu a ocasião":** quem reagir,
 comentar ou salvar o A09 é candidato a reabordagem direta no grupo VIP quando
@@ -146,8 +147,9 @@ mensagem genérica.
 | Qua 26 | Carrossel 04 — "Guia do vestido pra menina grande" | Pool C | Depende das peças (chegaram semana 1) |
 | Qui 27 | B17 — "Roupa clarinha em criança? Eu também achava" | Pool B | Quebra de objeção |
 | Sex 28 | A11 — "O grupo onde tudo chega primeiro" | Pool A (já filmado) | Fecha o mês puxando pro canal direto |
+| Sáb 30 | A10 — "Eu não vendo pra todo mundo" | Pool A (já filmado) | Fecha o mês reforçando a curadoria — diferencial antes de virar setembro |
 | Gatilho, não data fixa | B18 — "A areia escorreu" | Pool B | **Publicar quando o estoque da Deserto realmente começar a esvaziar** — nunca antecipar escassez que não existe |
-| Reserva | A10, B20, Resgate do Acervo | — | Pra qualquer semana que render menos |
+| Reserva | B20, Resgate do Acervo | — | Pra qualquer semana que render menos |
 
 -----
 
