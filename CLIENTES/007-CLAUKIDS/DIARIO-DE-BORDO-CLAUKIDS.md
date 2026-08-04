@@ -19,3 +19,5 @@ novo.
 | 04/08 | Brinde definitivo é o "lagarto do deserto"? | **Em aberto.** Perguntado às 11h36 no grupo, sem resposta escrita. Vídeo do lagarto pronto já foi enviado por ela | — |
 | 04/08 | Verificado do Instagram — sugerido em 27/07 | **Em aberto desde então, sem decisão.** | — |
 | — | Vencimento de R$ 1.500 do contrato | 09/08/2026 | — |
+| 04/08 | Localizada a pasta pessoal da Bianca no Drive dela (`Captação 29.07.26`, com subpastas Vídeos/Fotos/Backup, criada 29/07, compartilhada "qualquer um com o link") | **As três subpastas aparecem vazias** (0 arquivos, confirmado por duas consultas). Conteúdo real ainda não localizado — Nicolas está baixando de outra fonte e vai subir no Drive da Expansion | Nicolas |
+| 04/08 | Nicolas relatou que a Clau já atualizou "o doc das lojas" (correção duas→uma loja) | **Não confirmado.** Releitura do doc de gravação (1X6ox...) em 04/08 à tarde mostra o Roteiro 2 ainda com "Hoje são duas lojas" — sem alteração. Correção pode ter sido feita em outro lugar; falta identificar onde | — |
