@@ -55,7 +55,7 @@ Duas consequências práticas para a Ciés:
 | Dia | O que acontece | Quem |
 |---|---|---|
 | **Ter 04** | Call de alinhamento 18h10. Fecha oferta, preços, brinde e horários | Todos |
-| **Qua 05** | **Diária de gravação.** Sai o material do Dia dos Pais e do evento | Daniel + Sabrina |
+| **Qua 05** | **Sessão de gravação 1** — Dia dos Pais. Sabrina grava no celular, com roteiro e direção da Expansion | Sabrina |
 
 ### Fase 1 — Dia dos Pais
 
@@ -75,7 +75,7 @@ Duas consequências práticas para a Ciés:
 | **Seg 10** | **Relatório da semana, 10h** + anúncio oficial do Sábado Delas | Expansion |
 | **Ter 11** | Post da mecânica "venha com uma amiga" · **abrem as confirmações** | Expansion |
 | **Qua 12** | Convite pessoal, lote 3 · stories de bastidor | Sabrina |
-| **Qui 13** | Captação leve de vídeo, no celular, formato cru | Expansion |
+| **Qui 13** | **Sessão de gravação 2** — Sábado Delas, no celular | Sabrina |
 | **Sex 14** | Post do Cantinho do Giro com os preços | Expansion |
 | **Sáb 15** | Reels do convite da Sabrina · convite pessoal, lote 4 | Ambos |
 
@@ -231,7 +231,9 @@ Reels é o formato que mais alcança quem ainda não segue a loja, e o que mais 
 
 **Esta semana, uma coisa só:**
 
-> **A diária de gravação na quarta, 05/08.** Se quarta estiver corrida, fazemos enxuto em 2 horas.
+> **Duas sessões curtas de gravação no celular, com roteiro e direção prontos.** A primeira, do Dia dos Pais, leva uns 40 minutos e é a mais urgente porque começa a rodar quinta. A segunda, do evento, leva uns 30 minutos e fica para quinta dia 13, depois de a gente fechar preço e brinde.
+>
+> **A diária do videomaker fica guardada para o dia 22**, para cobrir o evento ao vivo — é onde a câmera profissional rende mais e já deixa material pronto para o mês seguinte.
 
 **Ao longo do lançamento:**
 
@@ -240,6 +242,7 @@ Reels é o formato que mais alcança quem ainda não segue a loja, e o que mais 
 | Decisão de preços, brindes e horários | Na call de terça |
 | A lista de clientes, se for exportável | Até quinta 06/08 |
 | Convite pessoal, 50 clientes por dia, com script pronto que a gente entrega | 6, 7, 12 e 15/08 |
+| Duas sessões de gravação no celular, 40 min e 30 min | 05/08 e 13/08 |
 | Separar as peças das confirmadas por tamanho | Sexta 21/08 |
 | Loja montada e araras sinalizadas | Sábado 22/08, 8h30 |
 
@@ -251,7 +254,7 @@ Reels é o formato que mais alcança quem ainda não segue a loja, e o que mais 
 |---|---|
 | **Nicolas** | Estratégia e relacionamento |
 | **Matheus** | Tráfego, públicos, campanhas e dados |
-| **Daniel** | Captação e edição |
+| **Daniel** | Edição e cobertura do evento no dia 22 |
 | **Débora** | Social media, publicação e legendas |
 | **[a definir na call]** | **Dono da conta** — responde por prazo e entrega |
 
@@ -262,6 +265,7 @@ Reels é o formato que mais alcança quem ainda não segue a loja, e o que mais 
 | Risco | O que fazemos |
 |---|---|
 | Gravação não sair na quarta | Fazemos quinta. O dia 22 foi escolhido com essa folga |
+| Material gravado não ficar do jeito que a Sabrina quer | Ela manda tudo, inclusive o que achou ruim, e a gente escolhe e trata na edição. Se ainda assim não servir, regravamos o clipe específico no mesmo dia |
 | Lista de clientes não existir | Usamos o histórico de conversas do WhatsApp da loja. Meta cai e a gente fala com número real |
 | Loja lotar em um horário só | Por isso o agendamento por faixa |
 | Conta de anúncio restringir | Impulsionamento pelo perfil como contingência. **Sabrina, precisamos ativar a verificação em duas etapas da sua conta** |
