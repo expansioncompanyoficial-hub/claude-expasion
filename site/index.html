@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Expansion Assessoria — Documentos</title>
+<style>
+  :root {
+    --paper:#F1F3EF; --paper-2:#E7EBE5; --ink:#22282A; --ink-soft:#4C5754;
+    --stone:#6B7671; --rule:#CBD3C9; --brass:#9C6B33; --brass-soft:#C09A62;
+    --deep:#26362E; --on-deep:#EBEFE8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:#171C1A; --paper-2:#1F2624; --ink:#E8EDE7; --ink-soft:#B6C0BA;
+      --stone:#8E9A94; --rule:#333D39; --brass:#D0A468; --brass-soft:#8A6537;
+      --deep:#0F1613; --on-deep:#E8EDE7;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:#171C1A; --paper-2:#1F2624; --ink:#E8EDE7; --ink-soft:#B6C0BA;
+    --stone:#8E9A94; --rule:#333D39; --brass:#D0A468; --brass-soft:#8A6537;
+    --deep:#0F1613; --on-deep:#E8EDE7;
+  }
+  :root[data-theme="light"] {
+    --paper:#F1F3EF; --paper-2:#E7EBE5; --ink:#22282A; --ink-soft:#4C5754;
+    --stone:#6B7671; --rule:#CBD3C9; --brass:#9C6B33; --brass-soft:#C09A62;
+    --deep:#26362E; --on-deep:#EBEFE8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
+    min-height:100vh; display:flex; flex-direction:column;
+  }
+  .serif { font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif; }
+  .wrap { max-width:44rem; margin:0 auto; padding:0 1.5rem; width:100%; }
+  header {
+    background:var(--deep); color:var(--on-deep);
+    padding:clamp(3rem,8vw,5rem) 0 clamp(2.4rem,5vw,3.4rem);
+    border-bottom:3px solid var(--brass);
+  }
+  header .eyebrow {
+    font-size:.7rem; letter-spacing:.19em; text-transform:uppercase;
+    color:var(--brass-soft); margin:0 0 1.3rem;
+  }
+  header h1 {
+    font-size:clamp(2rem,5.5vw,3rem); font-weight:400; line-height:1.1;
+    margin:0 0 1rem; letter-spacing:-.01em;
+  }
+  header p { margin:0; opacity:.8; max-width:30rem; }
+  main { flex:1; padding:clamp(2.4rem,6vw,4rem) 0; }
+  h2 {
+    font-size:.72rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--brass); margin:0 0 1.1rem; font-weight:600;
+  }
+  h2 + ul { margin-top:0; }
+  ul { list-style:none; margin:0 0 2.6rem; padding:0;
+       display:grid; gap:1px; background:var(--rule);
+       border:1px solid var(--rule); border-radius:2px; }
+  li { background:var(--paper); }
+  li a {
+    display:grid; grid-template-columns:1fr auto; gap:.3rem 1rem;
+    align-items:baseline; padding:1.05rem 1.25rem;
+    color:inherit; text-decoration:none;
+  }
+  li a:hover, li a:focus-visible { background:var(--paper-2); }
+  li a:focus-visible { outline:2px solid var(--brass); outline-offset:-2px; }
+  li .titulo { font-weight:600; font-size:1.02rem; }
+  li .data {
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    font-size:.78rem; color:var(--stone); font-variant-numeric:tabular-nums;
+    white-space:nowrap;
+  }
+  li .sub { grid-column:1/-1; font-size:.88rem; color:var(--ink-soft); }
+  footer {
+    border-top:1px solid var(--rule); padding:2rem 0;
+    font-size:.83rem; color:var(--stone);
+  }
+  footer p { margin:0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Expansion Assessoria</p>
+    <h1 class="serif">Documentos</h1>
+    <p>Planos, cronogramas e relatórios entregues aos clientes da casa.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h2>Jane Queiroz · JQL Seguros</h2>
+    <ul>
+      <li>
+        <a href="jane/plano-30-dias.html">
+          <span class="titulo">O plano dos próximos 30 dias</span>
+          <span class="data">04/08/2026</span>
+          <span class="sub">Posicionamento, estrutura do perfil, grade de conteúdo e cronograma de agosto</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>expansionassessoria.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
