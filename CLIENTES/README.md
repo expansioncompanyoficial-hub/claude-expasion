@@ -9,9 +9,9 @@ travado.
 
 ## Clientes
 
-| Cliente | Nicho | Entrada | Dossiê |
+| Cliente | Nicho | Entrada | Documentos |
 |---|---|---|---|
-| **Jane Queiroz · JQL Seguros** | Seguros · plano de saúde empresarial | 24/07/2026 | [`JANE-JQL-SEGUROS/`](JANE-JQL-SEGUROS/DOSSIE-JANE-JQL-SEGUROS.md) |
+| **Jane Queiroz · JQL Seguros** | Seguros · plano de saúde empresarial | 24/07/2026 | [dossiê](JANE-JQL-SEGUROS/DOSSIE-JANE-JQL-SEGUROS.md) · [estratégia](JANE-JQL-SEGUROS/ESTRATEGIA-PERFIL-JANE.md) · [banco de conteúdo](JANE-JQL-SEGUROS/BANCO-DE-CONTEUDO-JANE.md) |
 
 ## Estrutura de cada cliente
 
@@ -19,11 +19,12 @@ travado.
 NOME-CLIENTE/
 ├── DOSSIE-NOME-CLIENTE.md          documento vivo — o contexto consolidado
 ├── BANCO-DE-CONTEUDO-NOME.md       documento vivo — pauta bruta para roteiro
+├── ESTRATEGIA-PERFIL-NOME.md       documento vivo — identidade, grade, KPI, produção
 ├── ANEXOS-ONBOARDING-AAAA-MM-DD.md evidência crua: call + doc de onboarding
 └── ANEXOS-WHATSAPP-AAAA-MM-DD.md   evidência crua: transcrição dos grupos
 ```
 
-**Dossiê e banco de conteúdo são vivos** — atualiza no lugar, sem data no nome.
+**Dossiê, estratégia e banco de conteúdo são vivos** — atualiza no lugar, sem data no nome.
 **Anexos são congelados** — levam a data e não se editam. Export novo de WhatsApp
 vira arquivo novo, nunca sobrescreve o anterior. O histórico é o valor.
 
