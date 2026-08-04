@@ -9,6 +9,12 @@
 > ([link](https://drive.google.com/drive/folders/13KU2Bsl3rUGW-PPvY21FaCM8ggAJavIV)),
 > mais as menções à Clau Kids em `OPERACAO-REAL-EXPANSION-2026-07-26.md`,
 > `AUDITORIA-DRIVE-EXPANSION-2026-07-26.md` e `_audios/`.
+>
+> Ver também: [`CRONOGRAMA-AGOSTO-2026-08-04.md`](CRONOGRAMA-AGOSTO-2026-08-04.md)
+> (cronograma de conteúdo do mês, integrando tudo já produzido) e
+> [`DIARIO-DE-BORDO-CLAUKIDS.md`](DIARIO-DE-BORDO-CLAUKIDS.md) (log de
+> decisões e pendências — consultar antes de assumir qualquer fato como
+> resolvido).
 
 ---
 
