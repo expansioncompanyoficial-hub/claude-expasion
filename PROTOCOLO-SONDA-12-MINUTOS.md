@@ -143,20 +143,27 @@ Duas perguntas, 60 segundos cada.
 > *"Você tem 3 horas livres por semana pelos próximos 6 meses, e essas 3 horas
 > precisam gerar receita. O que você faz nelas?"*
 >
-> *"E o que as pessoas te pedem de graça, sempre?"*
+> *"E o que as pessoas te pedem de graça, sempre? E as três últimas pessoas que te
+> pagaram: quanto cada uma pagou?"*
 
-**Colhe:** o núcleo da escada de produtos (primeira) e a isca (segunda).
+**Colhe:** o núcleo da escada de produtos (primeira) e a isca + a âncora de preço
+(segunda).
 **Por que funciona:** perguntar "que produto você criaria?" produz fantasia de
 catálogo. A restrição dura de 3 horas força a pessoa a escolher o que ela
 acredita que **paga melhor por hora dela** — que é a definição operacional de
 núcleo. O resto da escada se deriva depois, sem ela presente.
+
+**Regra de montagem da escada:** núcleo é o que **alguém treinado por ela** entrega
+e que mais de uma pessoa já pagou. Se só ela entrega, aquilo é o degrau Alto — e a
+escada ainda não tem núcleo. Degrau sem comprador nomeado ou sem preço real sai
+rotulado **HIPÓTESE**, nunca como produto.
 
 ---
 
 ### Bloco 6 — A Decisão Cara · **90 segundos**
 
 > *"Me conta uma decisão que você tomou que ninguém entendeu, e que te custou
-> caro."*
+> caro. Quanto custou, quando foi, e o que você escolheu no lugar?"*
 
 **Colhe:** o lema — por inferência, nunca por pergunta direta.
 **Por que funciona:** perguntar "quais são suas prioridades?" é a pergunta mais
@@ -164,6 +171,9 @@ contaminada por desejabilidade social que existe; todo mundo responde a ordem
 que soa bem. Uma decisão cara **revela** a ordem verdadeira, porque prioridade só
 existe onde houve renúncia. O lema se lê no que ela abriu mão, não no que ela
 declara.
+
+**Trava:** sem valor, data e o que foi perdido, o lema sai rotulado como rascunho —
+nunca como assinatura fixa de vídeo.
 
 ---
 
@@ -189,9 +199,17 @@ silenciosa produz esse sinal.
 
 ---
 
-**Fecho da Sonda — 30 segundos.** *"Última coisa: me diz três clientes reais em
-que você resolveu isso."* É o Portão 0, e ele vem no fim de propósito — no
-começo, soa como desconfiança e contamina a sessão inteira.
+**Fecho da Sonda — 45 segundos.** *"Última coisa: me diz três clientes reais em
+que você resolveu isso — nome, quando, e quanto pagaram. E dos seus últimos 10
+clientes, por qual canal cada um chegou?"*
+
+É o Portão 0 mais o censo de canal, e vêm no fim de propósito: no começo, soam como
+desconfiança e contaminam a sessão inteira. **O censo decide a forma da saída** —
+canal público (banco de ganchos, manifesto, vídeo de perfil) ou canal relacional
+(banco de respostas a objeção, página única enviada antes da reunião, carta "como
+eu trabalho"). Sem ele, monta-se por padrão a saída do caso de origem, que é
+Instagram — e para quem vende em sala fechada, com sigilo, isso é entrega de
+gaveta.
 
 **Total: 12 minutos.** Quatro deles são a pessoa lendo ou marcando, não falando.
 
@@ -282,7 +300,27 @@ Modelos genéricos, para adaptar:
 
 ---
 
-## 7. O que a compressão custa — honestamente
+## 7. O que fica fora
+
+A Sonda colhe queda, erro e terceiros em 12 minutos — mais rápido do que a pessoa
+consegue avaliar o que quer tornar público. Três regras, e nenhuma delas custa
+tempo de sessão:
+
+1. **Marque FORA** o que envolver saúde, vício, infração ou terceiro identificável
+   em papel negativo. FORA é o padrão, não é veto: sobe a público só por decisão
+   escrita dela, sobre o texto final já redigido. Fé não entra na lista — no
+   método, fé é peça (o Lema).
+2. **Terceiro em papel negativo nunca é nomeado nem identificável** — vira "um
+   sócio", "uma pessoa do time". Se a história só funciona com o nome, ela não vai.
+3. **Nada publica sem aprovação item a item**, e ela retira qualquer item quando
+   quiser, sem justificar, inclusive depois de publicado.
+
+Dito à pessoa na abertura, em uma frase. Declarar a finalidade não derruba a
+parede — o que fica escondido é o mapa de derivação, não o destino do material.
+
+---
+
+## 8. O que a compressão custa — honestamente
 
 Três perdas reais, e o que fazer com cada uma:
 
@@ -300,7 +338,7 @@ ativo, e comprimir destrói o que se veio buscar.
 
 ---
 
-## 8. Origem
+## 9. Origem
 
 - `PROTOCOLO-ESCAVACAO-POSICIONAMENTO.md` — a versão longa, 53 perguntas. A Sonda
   é a compressão dela, não a substituição: quando um bloco falha, o conserto é
