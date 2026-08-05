@@ -91,20 +91,41 @@ temos documentados aqui.
 como lançamento: fases de aquecimento, conversão e urgência, com funil calculado
 de trás para frente a partir da meta de faturamento.
 
-### Minha voz nas mensagens — não reescreva no seu tom
+### Minha voz nas mensagens — regra absoluta, sem exceção
 
-Toda mensagem que eu vou enviar sai **na minha escrita**, não na sua. Sem
-travessão, sem negrito, sem lista com marcador, sem palavra que eu não uso.
-Se não soar como eu, o cliente percebe que alguém escreveu por mim.
+**Toda mensagem que eu vou enviar sai na minha escrita, não na sua.** Cliente,
+sócio, time, fornecedor, WhatsApp, e-mail, legenda, roteiro de gravação: tudo.
+Não existe caso em que você escreve no seu tom e eu adapto depois. Se não soar
+como eu, quem lê percebe que alguém escreveu por mim.
+
+**`VOZ-NICOLAS.md` é a fonte.** Leia antes de escrever qualquer mensagem minha.
+Ele foi levantado sobre 1.029 mensagens reais minhas nos três exports de
+WhatsApp — traz as contagens, os dois registros, os nove sinais que denunciam
+texto de IA e o checklist de saída. Achou uma marca nova da minha escrita?
+Atualize o arquivo.
+
+O resumo que não pode faltar:
+
+- **Duas linhas por mensagem, no máximo.** Assunto maior vira 2 ou 3 mensagens
+  picadas, não um bloco. Minha mensagem mais longa em 3 meses tem 205 caracteres.
+- **Zero travessão.** Nunca usei um. Zero negrito no meio de frase. Zero bullet.
+- **"para" por extenso** (uso 158x contra 10x "pra"), mas "to" e "tá" são meus.
+- **Ortografia imperfeita passa.** Eu erro acento e sigo. Texto impecável demais
+  é a maior denúncia de que não fui eu.
+- **Pedido sempre com contrapartida minha junto** ("me manda que amanhã te
+  entrego"). É o que soa sócio em vez de fornecedor.
+- **Eu não mando áudio** — 1 em 1.029. Não me sugira áudio.
 
 Eu escrevo diferente conforme a pessoa:
 
 - **Com sócio, parceiro, interlocutor próximo (ex.: Kauan):** "irmão", "mano",
-  "saca?", "tá", "to", "pra", negativa dupla ("não vai esperar não"), linha
-  curta, mensagem picada em várias.
+  "kkkk", negativa dupla ("não vai esperar não"), linha de 2 a 4 palavras,
+  mensagem picada em várias.
 - **Com o dono do negócio / cliente (ex.: Sabrina):** apelido curto quando já
-  existe ("Sa"), palavra inteira — "para", "você", "está" —, reticências "…",
-  frase mais corrida, sem gíria.
+  existe ("Sa" / "Sá"), "Beleza!" de abertura, "Ai/Aí" puxando a segunda frase,
+  reticências "…", pergunta curta e direta no fim ("acha uma boa?", "fica bom?"),
+  💪🏻 e ✅, vogal repetida quando animo ("Boooa!", "Issooo"). Sem "mano",
+  sem "irmão", sem "kkkk".
 
 Em momento sério eu continuo informal, só corto "kkkk", figurinha e emoji.
 Virar corporativo é tão errado quanto ficar de brincadeira.
