@@ -302,6 +302,32 @@ Isso tem consequência de segunda ordem direta sobre a capacidade: uma equipe pa
 
 ---
 
+## 7.5 Correção de 05/08/2026 — o custo financeiro que faltava
+
+Nicolas informou que o contrato Albanos foi **antecipado integralmente**: ancorado em R$ 26.000, fechado em R$ 24.000, **caixa recebido R$ 21.000**.
+
+```
+Desconto comercial   (26.000 → 24.000)  =  7,69%  →  R$ 2.000
+Taxa financeira      (24.000 → 21.000)  = 12,50%  →  R$ 3.000
+Perda total          (26.000 → 21.000)  = 19,23%  →  R$ 5.000
+
+Custo efetivo: R$ 3.000 para antecipar R$ 16.000 por 1,5 mês médio
+  = 18,75% no período  →  12,14% ao mês  →  295% ao ano
+```
+
+**Impacto na margem de contribuição:**
+
+```
+MC antes                                     R$ 6.133,33   (39,6%)
+Custo financeiro Albanos (3.000 ÷ 3 meses)  −R$ 1.000,00
+                                             ───────────
+MC corrigida                                 R$ 5.133,33   (33,2%)
+```
+
+**Erosão de 16,3% da MC por uma linha de custo que não existia em nenhum documento.** Albanos por perfil, líquido de caixa: **R$ 1.750/mês** — menos que o Dr. Fred. Análise completa em `13` §8.
+
+---
+
 ## 8. O que falta para este documento sair de `PROVISÓRIO`
 
 | # | Falta | Bloqueia |
