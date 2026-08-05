@@ -12,7 +12,7 @@ Fonte principal: `OPERACAO-REAL-EXPANSION-2026-07-26.md` e os pareceres por cont
 
 | Campo | Dado |
 |---|---|
-| **O que é** | **Loja de moda FEMININA.** Não vende masculino, não vende infantil |
+| **O que é** | **Confecção própria de moda FEMININA com ponto de venda.** A mãe da Sabrina costura. Não é revenda. Não vende masculino, não vende infantil |
 | Razão social | Sabrina de Souza Garbin de Freitas — MEI · CNPJ 49.070.414/0001-86 |
 | Onde | Rua Manoel Vitor Diniz 100, Jardim Bom Retiro (Nova Veneza), Sumaré/SP |
 | **Decisora** | **Sabrina** — dona, rosto da marca, assina e paga. Exigente com imagem |
@@ -20,11 +20,20 @@ Fonte principal: `OPERACAO-REAL-EXPANSION-2026-07-26.md` e os pareceres por cont
 | Quem fala de MKT | Sabrina (definido por eles em 26/05) |
 | Contrato | R$ 6.000 por 3 meses (R$ 2.000/mês). Início 26/05/2026. ⚠️ Instrumento com partes invertidas — ver parecer |
 | Verba de mídia | ~R$ 1.000/mês nominal, na prática recargas avulsas |
-| Ticket de produto | ~R$ 350 (Vestido Eduarda R$ 349,90) |
+| Ticket de produto | ~R$ 350 de tabela (Vestido Eduarda R$ 349,90) |
+| **Ticket médio medido** | **R$ 260** (julho — Sabrina, na call de 04/08). É esta a base de projeção, não os R$ 350 |
 | Faturamento | R$ 3,2 mil na 1ª quinzena de julho |
-| **Gargalo real** | **ATENDIMENTO.** 52 conversas não respondidas em junho; 35 em 3 dias em julho sem braço |
+| **Capacidade produtiva** | **~40 peças/mês** (~2/dia). Teto duro de qualquer promessa de crescimento |
+| **Estoque parado** | **150 peças** = 3,7 meses de produção acumulada. É capital, não arara |
+| **Capacidade da loja** | **~30 pessoas confortável.** Já teve evento com fila do lado de fora |
+| **Gargalo real** | **ATENDIMENTO, e quem atende é a Sabrina** — a Expansion não assume. 52 conversas não respondidas em junho; 35 em 3 dias em julho. Ela dá conta no fim de semana; na semana está no CLT |
 | Custo por conversa | **R$ 3,85** (medido 31/07–02/08) |
-| Público | Mulheres 30–50, raio de Sumaré/Nova Veneza. Pico às 15h |
+| Público | Mulheres 30–50, raio de Sumaré/Nova Veneza. Pico às 15h — **horário em que ela está no CLT** |
+| **Canal que mais converte** | **Perfil pessoal da Sabrina**, não o da marca. Produto mais vendido de julho saiu 100% orgânico dali. TikTok ~10 mil seguidores, um vídeo com ~500 mil views. Ativo validado e ocioso |
+| **Setembro** | Aniversário da loja + coleção nova + evento de lançamento. **Está fora do contrato**, que vence 26/08 |
+| Histórico | **2 agências antes.** Da segunda: *"não deu resultado nenhum"*, *"vendem sonho mas não têm estrutura"*. Quase 1 ano sem tráfego antes da Expansion |
+| Objetivo pessoal dela | Sair do CLT e migrar para atacado |
+| Business Manager | ⚠️ Ainda no nome do gestor anterior. Equipe entra pelo login da Sabrina. Risco ativo |
 | Sazonalidade | Agosto = **fim do inverno**. Peça flanelada tem que girar antes da primavera (22/09) |
 | Régua da cliente | **Avisar as clientes com pelo menos 2 semanas** de antecedência para evento |
 | Ponto sensível | Filtros, tratamento de cor e "insta clean". Já gerou conflito em 16/07 |
@@ -34,7 +43,11 @@ Fonte principal: `OPERACAO-REAL-EXPANSION-2026-07-26.md` e os pareceres por cont
 **Implicações que valem para toda campanha desta conta:**
 - **Data comemorativa masculina não é venda direta — mas a compradora é mulher.** Ver §Dia dos Pais no `MINI-LANCAMENTO-CIES-15-08-2026-08-03.md`.
 - Conteúdo de feed é território da Sabrina. Reels e Stories são da Expansion.
-- Volume de conversa sem braço de atendimento = dinheiro perdido, não resultado.
+- **Verba alta piora o resultado nesta conta.** O gargalo é atendimento, não tráfego. Teto de segurança: **15 conversas novas por dia** (~R$ 58/dia). Acima disso vira conversa não respondida, que é o problema já documentado.
+- **Confecção própria é o maior diferencial da marca e não está comunicado nem precificado.** Uma coordenadora comparou a qualidade com uma loja conhecida de Campinas e disse que o preço está baixo. Subir posicionamento não custa uma peça a mais nem um real de mídia.
+- Projeção de faturamento sai de **R$ 260**, não dos R$ 350 de tabela.
+
+Recálculo do evento de 22/08 com estes dados: `MINI-LANCAMENTO-CIES-22-08-RECALCULO-2026-08-05.md`.
 
 ---
 
