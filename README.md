@@ -17,6 +17,7 @@ de nenhuma máquina em particular.
 | `EXPANSION-360`, `OPERACAO-REAL`, `AUDITORIA-DRIVE` | Diagnóstico e operação real da agência |
 | `POSICIONAMENTO-CONTEUDO-NICOLAS-*` | Posicionamento e estratégia de conteúdo |
 | `POP-SOCIAL-MEDIA-v0.1.md` | POP de social media |
+| [`business-model/`](business-model/) | Estruturação, custeio e precificação da Expansion — fonte única da verdade econômica |
 | [`_audios/`](_audios/) | Transcrições de áudios e reuniões |
 
 ## Por onde começar
