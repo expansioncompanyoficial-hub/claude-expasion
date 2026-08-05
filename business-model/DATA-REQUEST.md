@@ -150,9 +150,9 @@ Registrada aqui para não se perder e para não sobrecarregar a direção agora.
 
 | Pergunta | Respondida em | Resposta | Documento atualizado |
 |---|---|---|---|
-| R1.1 — parecer do conselho de 13/07 | | | |
-| R1.2 — proposta Trinca | | | |
-| R1.3 — contratos vivos hoje | | | |
+| R1.1 — parecer do conselho de 13/07 | 2026-08-05 | **Não lembra.** Estava em imersão; assume as rédeas agora. Não foi rejeitado — **nunca chegou a virar decisão consciente** | `01` §4.5, `10`, `DECISION-LOG` D-000 |
+| R1.2 — proposta Trinca | 2026-08-05 | **Não aprovada.** Cliente pediu orçamento menor; **em negociação agora**; evento em 10/08 | `06` §Piso de evento |
+| R1.3 — contratos vivos hoje | 2026-08-05 | Não tem o dado; pode levantar | Pendente — reclassificado como **não bloqueante para produto/preço**, bloqueante para renovação |
 | R1.4 — Clau Kids e Fórum TEIA | | | |
 | R1.5 — dia útil ou corrido | | | |
 | R1.6 — mix de publicações | | | |

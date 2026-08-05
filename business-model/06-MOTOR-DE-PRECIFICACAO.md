@@ -63,9 +63,82 @@ Receita por cabeça (8 pessoas): 40.000 ÷ 8        = R$  5.000,00 / mês
 Piso do conselho                                  = R$ 12.000,00 / mês  ← ainda 41,7%
 ```
 
-> **Resultado preliminar que precisa ser dito:** o piso de R$ 5.000/perfil **viabiliza a folha a preço de mercado**, mas **não** atinge o próprio indicador de receita por cabeça que o mesmo conselho fixou. Os dois números do conselho são internamente inconsistentes com a estrutura de 8 pessoas para 8 perfis.
+> **Resultado preliminar:** o piso de R$ 5.000/perfil **viabiliza a folha a preço de mercado**, mas **não** atinge o indicador de receita por cabeça que o mesmo conselho fixou. **`ESTIMATIVA` — não usar como preço.**
+
+### Por que os dois números não fecham — e onde está a alavanca real
+
+Os dois números do conselho **são consistentes entre si**. O que não fecha é a razão contas-por-pessoa da Expansion.
+
+O modelo de célula do próprio conselho (`CONSELHO-ANEXOS` §1): **3,5 pessoas** (1 atendimento/CS + 1 social/roteirista + 1 editor + ½ tráfego) atendendo **9–10 clientes**.
+
+```
+Célula do conselho:  9,5 contas ÷ 3,5 pessoas   = 2,71 contas por cabeça
+Expansion hoje:      8 perfis  ÷ 8 pessoas      = 1,00 conta por cabeça
+                                                   ─────────────────────
+Produtividade relativa                                        36,9%
+
+Receita por cabeça na célula, a R$ 5.000/conta:
+  9,5 × 5.000 ÷ 3,5                              = R$ 13.571  ✓ acima do piso
+Receita por cabeça na célula, a R$ 3.000/conta:
+  9,5 × 3.000 ÷ 3,5                              = R$  8.143  ✗ abaixo
+```
+
+> **A conta que decide tudo é esta:** `receita por cabeça = preço por conta × contas por cabeça`.
 >
-> Isso não invalida o piso — indica que **ou o piso é maior, ou a razão perfis-por-pessoa precisa subir**. É exatamente a pergunta de capacidade do GATE 2, e é onde a tese do CEO de escalar a social media e o benchmark de 20–25 contas por profissional voltam a importar. **`ESTIMATIVA` — não usar como preço.**
+> A Expansion está errada nos **dois** fatores ao mesmo tempo — preço 61% abaixo do piso **e** ratio 63% abaixo do modelo. Não é um problema de precificação com um problema de operação ao lado. **É um produto multiplicado.** Subir só o preço, mantendo 1 conta por cabeça, exigiria R$ 12.000 por perfil para bater o indicador. Subir só o ratio, mantendo R$ 1.935, exigiria 6,2 contas por cabeça.
+>
+> **Consequência de projeto de produto:** o que faz o ratio subir não é vender mais — é **padronizar**. Escopo idêntico entre contas é o que permite a mesma pessoa carregar 3 em vez de 1. Por isso a arquitetura de produtos (GATE 4) precede a tabela de preços, e não o contrário.
+
+---
+
+## 🔥 PISO DE NEGOCIAÇÃO — evento Trinca/Clau, 10/08/2026
+
+**Status em 05/08:** proposta de R$ 12.000 **não aprovada**; cliente pediu orçamento menor; **negociação aberta**; evento em 5 dias.
+
+Não há custo levantado, então o que se entrega aqui é uma **regra de decisão**, não um preço. Ela funciona com um único número que só Nicolas tem: **quanto se paga de diária**.
+
+### A regra
+
+```
+preço_mínimo = custo_direto_total ÷ [1 − (%imposto + %margem_alvo)]
+
+com imposto estimado de 15,58% (Anexo V, a validar) e margem-alvo de 25%:
+  divisor = 1 − 0,4058 = 0,5942
+  preço_mínimo = custo_direto × 1,683
+```
+
+**Cobre 1,68 vez o custo direto. Abaixo disso, o evento consome caixa em vez de gerar.**
+
+### A tabela — encontre sua linha
+
+Custo direto = `8 diárias` + `pós-produção estimada em R$ 2.000` (15 vídeos × R$ 50 = R$ 750 · aftermovie documental ≈ R$ 800 · tratamento de 50+ fotos ≈ R$ 450).
+
+| Diária média paga | Custo direto | **Piso — não descer daqui** | Preço-alvo (margem 35%) |
+|---:|---:|---:|---:|
+| R$ 250 | R$ 4.000 | **R$ 6.732** | R$ 8.094 |
+| R$ 300 | R$ 4.400 | **R$ 7.405** | R$ 8.903 |
+| R$ 400 | R$ 5.200 | **R$ 8.752** | R$ 10.522 |
+| R$ 500 | R$ 6.000 | **R$ 10.098** | R$ 12.141 |
+
+*Piso = custo ÷ 0,5942 (imposto 15,58% + margem 25%). Preço-alvo = custo ÷ 0,4942 (imposto 15,58% + margem 35%).*
+
+`ESTIMATIVA` — a linha de pós-produção é derivada, não medida. Se o aftermovie documental passar de 16 h de edição, o piso sobe.
+
+### Como conceder sem destruir a margem
+
+O desconto pedido pelo cliente precisa vir com contrapartida (`08`). Em ordem de preferência:
+
+| Concessão | Efeito no custo | Quanto libera |
+|---|---|---|
+| Reduzir de 8 para 6 profissionais | −2 diárias | R$ 500 a R$ 1.000 de custo |
+| Cortar o aftermovie documental para aftermovie simples | −6 a 10 h de edição | ~R$ 500 |
+| Reduzir de 50 para 30 fotos | −tratamento | ~R$ 180 |
+| Entregar em 7 dias em vez de tempo real | tira o custo de cobertura ao vivo | a medir |
+| **Baixar o preço mantendo o escopo** | **zero** | **proibido** |
+
+> **A frase para a mesa:** *"Consigo chegar nesse valor — ajustando o time de 8 para 6 e o aftermovie para a versão simples. O que você prefere manter?"* Isso devolve a escolha ao cliente e preserva o piso. Desconto sem contrapartida cria precedente que se paga em todos os eventos seguintes.
+
+**Referência de sanidade:** o OTI PRO entregou 2 dias, equipe, tempo real e **2** aftermovies por R$ 5.800 financeiros. A Trinca é 1 dia com 8 pessoas, 1 aftermovie documental, 50 fotos e 15 vídeos. Se a Trinca fechar abaixo de ~R$ 7.000, ela terá sido vendida mais barata que o OTI PRO por dia de operação — sem que ninguém saiba se o OTI PRO deu lucro.
 
 ## As quatro referências obrigatórias por produto
 
