@@ -180,14 +180,60 @@ Obrigatório antes de aprovar qualquer método (Prompt-mestre §8).
 
 ---
 
-## 9. Reconciliação com o material do Alfredo Soares — **pendente**
+## 9. Reconciliação com o material do Alfredo Soares — **CONCLUÍDA em 05/08/2026**
 
-Reservado para quando a transcrição chegar. A ser preenchido:
+Transcrição recebida e analisada. Estudo completo em **`12-ESTUDO-ALFREDO-SOARES.md`**.
 
-- [ ] Quais blocos de custo ele usa e com que percentuais
-- [ ] De onde ele parte: lucro desejado, receita-alvo ou retirada do sócio
-- [ ] Como ele trata imposto — dentro ou fora do teto
-- [ ] Como ele trata o custo do sócio que também executa
-- [ ] Qual o teto de folha que ele defende para agência
-- [ ] O que ele diz sobre número de clientes por pessoa
-- [ ] **Onde ele diverge deste documento** — e quem tem razão, com o dado da Expansion na mesa
+### O que se confirmou
+
+O método está certo. Citação dele: *"Você define a tua margem e cria o orçamento… Você inverte a ordem, você não fatura para ver o quanto sobra."* **Ele entra pelo lucro; eu entrei pelos tetos.** Mesma equação, lados opostos — e a entrada dele é melhor, porque começa pela pergunta que só o dono responde.
+
+### O que se corrigiu — a margem-alvo estava tímida
+
+Regra dele: **lucro acima de 30%** para negócio de serviço. Eu usei 21,42%.
+
+```
+Receita                                    100,00%
+  − Lucro (decidido PRIMEIRO)             −30,00%
+  Orçamento disponível                      70,00%
+      − Impostos (Anexo V)                −15,58%
+      − Ferramentas + estrutura            −8,00%
+      − Comercial                         −10,00%
+      − Reserva                            −5,00%
+                                          ────────
+  = TETO DE FOLHA                          31,42%   (era 40,00%)
+```
+
+| Cenário de folha | Receita mínima (teto 40%) | **Receita mínima (regra 30% de lucro)** |
+|---|---:|---:|
+| R$ 9.350 — hoje, subpago | R$ 23.375 | **R$ 29.758** |
+| R$ 10.800 — piso júnior de mercado | R$ 27.000 | **R$ 34.373** |
+| R$ 15.600 — faixa recomendada pelo conselho | R$ 39.000 | **R$ 49.650** |
+| R$ 17.500 — célula completa de mercado | R$ 43.750 | **R$ 55.697** |
+
+### 🎯 A triangulação que fecha a questão do preço
+
+| Fonte | Método | Piso por conta |
+|---|---|---:|
+| **Conselho Expansion**, 13/07/2026 | Julgamento de 6 conselheiros sobre o ticket | **R$ 5.000 – 6.000** |
+| **Regra do Alfredo**, aplicada aos nossos números | Lucro de 30% decidido primeiro, folha a preço de mercado, 8 perfis | **R$ 6.206** |
+
+**Duas fontes independentes, métodos completamente diferentes, mesma faixa.** Uma por julgamento de mercado, outra por aritmética de margem. Quando isso acontece, o número deixa de ser opinião.
+
+**Recomendação:** preço-alvo **R$ 6.000/perfil**, piso bloqueado em **R$ 5.000**. Aguarda decisão (`F4` do doc 12).
+
+### A alavanca fiscal, recalculada sob a regra dos 30%
+
+```
+Anexo V  (15,58%) → teto de folha 31,42% → preço/perfil  R$ 6.206,24
+Anexo III (6,16%) → teto de folha 40,84% → preço/perfil  R$ 4.774,73
+                                            diferença    R$ 1.431,51   (23,1%)
+```
+
+> **Resolver o regime tributário vale R$ 1.431 por perfil no preço mínimo.** É a diferença entre precisar cobrar R$ 6.206 e poder cobrar R$ 4.775 pela mesma margem — sem mudar nada na operação.
+
+### A falha F1 tem resposta — e eu a declarei sem saída
+
+No §7 registrei como falha principal que *"o top-down define o preço que a empresa PRECISA, não o que o mercado PAGA"*. A resposta dele: *"Não é sobre conseguir ser mais caro, é conseguir **melhorar o teu valor**. É você identificar o resultado que você gera e conseguir cobrar algo que o teu cliente sinta confortável."*
+
+**A ponte entre o preço necessário e o preço pago é o resultado mensurado** — não retórica de valor. Ver `12` §C1, e a armadilha específica da Expansion em `12` §D3.

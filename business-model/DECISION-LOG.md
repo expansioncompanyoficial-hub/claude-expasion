@@ -26,6 +26,10 @@ Registradas porque cada uma delas trava um gate. Nenhuma é técnica; todas são
 | A-004 | **Clientes fora do nicho de moda**: caixa que financia a transição ou âncora que impede o nicho? Hoje 4 dos 6 contratos são de outros nichos e Albanos sozinho é 51,67% da receita | GATE 4 e GATE 8 | 26/07/2026 |
 | A-005 | **Escala da social media**: 50 clientes (tese do CEO) × 20–25 por profissional (proposto pelo gestor de tráfego em 09/06 e alinhado a benchmark) | GATE 2 e todo o modelo de capacidade | 09/06/2026 |
 | A-006 | **Abrir CNPJ e definir regime.** Teto do MEI estourado; Fator R ≈ 0% empurra para o Anexo V (~15,58% × ~6,16%) | GATE 5 — nenhum preço final sem alíquota | 26/07/2026 |
+| A-008 | **Lucro-alvo: 30% (regra do Alfredo Soares) ou outro número?** Define o teto de folha e, com ele, o preço de tudo | GATE 5 | 05/08/2026 |
+| A-009 | **Preço-alvo R$ 6.000/perfil com piso travado em R$ 5.000** — ponto onde conselho e Alfredo convergem | GATE 5 e 7 | 05/08/2026 |
+| A-010 | **Houve desconto por antecipação (Ciés, Albanos)?** Se sim, é custo financeiro nunca contabilizado | GATE 1 | 05/08/2026 |
+| A-011 | **Vender a camada de gestão** (cuidar dos fornecedores do cliente), além de serviço? | GATE 4 | 05/08/2026 |
 | A-007 | **Pró-labore dos sócios.** Hoje R$ 0. Além de ser a remuneração deles, é a alavanca do Fator R | GATE 1 (visão econômica normalizada) e A-006 | — |
 
 > **A-002 e A-005 estão abertas há mais de 50 dias.** Não decidir também é uma decisão — e nos dois casos ela vem sendo tomada por omissão, no pior sentido: o CRM é entregue de graça e a social media segue sem número de capacidade.

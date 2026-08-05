@@ -30,6 +30,7 @@
 | `09-PLANO-DE-TRANSICAO-DE-CONTRATOS.md` | O que fazer com cada contrato atual | 🔒 GATE 8 |
 | `10-GOVERNANCA-E-RITUAIS.md` | Como isso não volta a ser intuição | 🔒 GATE 9 |
 | `11-ORCAMENTO-DE-CIMA-PARA-BAIXO.md` | Quanto a operação inteira **pode** custar, partindo do resultado desejado | **v1.0 — entregue, `ESTIMADO`** |
+| `12-ESTUDO-ALFREDO-SOARES.md` | O que o advisor do G4 traz que se aplica aqui — e onde não se aplica | **v1.0 — entregue** |
 | `DECISION-LOG.md` | Toda decisão, com dono, data e consequência | vivo |
 | `DATA-REQUEST.md` | O que falta e de quem | **v1.0 — aguardando direção** |
 | `CHANGELOG.md` | O que mudou a cada rodada | vivo |
