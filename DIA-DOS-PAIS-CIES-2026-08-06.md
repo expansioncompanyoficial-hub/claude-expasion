@@ -157,6 +157,43 @@ a peça.**
 > **Kauan registra, não vende.** No minuto em que ele opinar sobre caimento ou
 > tamanho, a mecânica quebra e vira a conversa que ninguém queria.
 
+### O buraco que ele achou: visibilidade de estoque
+
+Kauan, 11h32: *"como eu vou ter visibilidade no estoque"*. **Pergunta certa** —
+ele está no CLT, longe da loja, e não tem como saber o que tem em cada tamanho.
+
+**A resposta desarma o problema inteiro: ele não está separando peça, está
+anotando pedido.**
+
+| Etapa | Quem | Quando |
+|---|---|---|
+| Cliente manda *"look 2, M"* | — | Sexta, a qualquer hora |
+| **Anota na planilha** (nome, look, tamanho) | **Kauan** | Na hora |
+| **Separa a peça e põe o nome** | **Sabrina** | **Sábado de manhã, antes de abrir** |
+
+Ele nunca precisa saber onde a peça está. Só precisa saber **se aquele tamanho
+existe** — e isso cabe em três linhas.
+
+**Dependência nova, e é de hoje:** a Sabrina manda a lista dos 3 looks com os
+tamanhos disponíveis de cada um. Exemplo:
+
+> Look 1 — P, M, G
+> Look 2 — M, G
+> Look 3 — P, M, G, GG
+
+Com isso na mão ele resolve quase tudo sozinho. Tamanho fora da lista, passa
+para ela.
+
+### E a resposta muda de palavra
+
+Como quem separa é a Sabrina no sábado, **"separado ✅" promete uma coisa que
+ainda não aconteceu.** O certo:
+
+> **"Anotado! Vai estar separado pra você sábado ✅"**
+
+Mesma leveza, uma palavra a mais, e descreve o que de fato vai acontecer.
+Ninguém chega no sábado achando que a peça já estava reservada desde sexta.
+
 ### A resposta automática da sexta — texto fechado
 
 Matheus propôs (11h12) usar mensagem automática da Meta na sexta, dizendo que
