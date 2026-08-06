@@ -105,6 +105,62 @@ Existe uma fatia do atendimento que a Expansion pode **controlar inteiramente, m
 2. **A promessa de cada nível é limitada ao que a Expansion controla.** N1 não promete conversão; promete método e revisão. N2 promete a janela. N3 promete o resultado.
 3. **N1 precisa de obrigação recorrente da Expansion**, não só de biblioteca. Playbook entregue uma vez é infoproduto com nome de assinatura — exatamente o que o Alfredo alertou (`12`). A revisão semanal das conversas reais é o que o torna serviço.
 
+### 🎯 O PLACAR COMPARTILHADO — o mecanismo que resolve o N2
+
+Nicolas trouxe em 05/08 a intuição que fecha o desenho:
+
+> *"Se a gente joga tráfego, lead bom pra essa pessoa e ela não sabe converter no atendimento porque está na correria da loja, meio que culpa a gente. A gente tinha que ter uma assertividade de enxergar que ele está no mesmo atendimento e conscientizar. Eu queria ver um modo de trazer essa consciência, pra ver que é de duas partes."*
+
+**Isso é a solução, não uma preocupação.** O problema de "responsabilidade sem controle" não se resolve fugindo do N2 — resolve-se **tornando a responsabilidade do cliente visível e medida**. É o que a literatura de serviços chama de acordo de nível de serviço bidirecional, e quase nenhuma assessoria brasileira usa.
+
+#### As duas colunas
+
+| **O que a Expansion entrega** | **O que o cliente responde** |
+|---|---|
+| conversas geradas | **tempo de primeira resposta** (mediana) |
+| custo por conversa | **taxa de resposta** (% de conversas respondidas) |
+| criativos entregues no prazo | conversas **sem resposta em 24h** |
+| posts publicados no prazo | tempo até fechamento |
+| | **Compartilhado:** conversas → vendas |
+
+Todas essas métricas **já existem** no WhatsApp e no CRM. Não precisam ser criadas — precisam ser contratadas.
+
+#### A cláusula que muda tudo
+
+```
+SLA DE DUAS VIAS
+
+  A Expansion se compromete a: gerar N conversas/mês, entregar criativo em
+  até X dias, publicar no prazo, e reportar semanalmente.
+
+  O cliente se compromete a: responder ao menos Y% das conversas em até
+  Z minutos no horário acordado.
+
+  Se o cliente ficar abaixo do seu compromisso por 2 semanas consecutivas,
+  a meta de RESULTADO fica suspensa — e a Expansion não responde pelo número
+  naquele período.
+```
+
+> **Sem essa cláusula, o N2 é uma armadilha. Com ela, o N2 é o produto mais defensável da casa** — porque cria uma conversa que nenhum concorrente está tendo com esse cliente.
+
+#### Sobre o "aval" — a resposta de Nicolas está certa e incompleta
+
+Ele respondeu que o relatório diário da IA no grupo seria o aval. **Está certo na direção, incompleto no mecanismo.** Relatório só é defesa se tiver as três coisas:
+
+| | Sem isso, vira | Evidência na própria casa |
+|---|---|---|
+| **1. Cláusula contratual** | opinião do fornecedor | — |
+| **2. Métrica acordada ANTES** | discussão sobre o que contava | — |
+| **3. Consequência definida** | ruído que o cliente ignora | **A Prime quase cancelou por falta de relatório — mas relatório sozinho também não a teria segurado.** O que segura é o relatório que muda uma decisão |
+
+**Relatório sem consequência é o mesmo diagnóstico sem ação que torna o N2 frágil.** O placar precisa terminar numa cláusula, não num print no grupo.
+
+#### E o efeito comercial de segunda ordem
+
+Um cliente que vê o próprio número de tempo de resposta toda semana **começa a querer melhorá-lo**. Quando ele não consegue — porque está na correria da loja, exatamente como Nicolas descreveu — **ele mesmo pede a solução.**
+
+> **O placar do N2 é o melhor argumento de venda do N3 que existe.** Não é a Expansion dizendo "você atende mal". É o cliente vendo, no próprio dado, que perde venda por não conseguir responder — e perguntando quanto custa resolver.
+
 ### Custo variável — o único da casa
 
 O WhatsApp oficial **cobra por conversa** (`F13`). Em N2 e N3, esse custo **escala com o sucesso**. Precisa estar no preço desde o primeiro contrato, com faixa de volume e gatilho de reajuste. Um mês viral sem teto vira uma fatura que o cliente não paga.

@@ -81,6 +81,77 @@ Para bater R$ 12 mil/cabeça com as 8 pessoas de hoje, a receita precisaria ser 
 
 ---
 
+## 🎯 ALBANOS COMO CLIENTE ESTRATÉGICO — a tese, e o que ela custa
+
+Nicolas declarou em 05/08 a tese que sustenta manter o Albanos fora do nicho:
+
+> *"É um caixa muito grande. Minha visão é fazer um projeto de sociedade mais pra frente — a gente tomando tanto a parte desse marketing que vira um braço que eles vão precisar. Prefiro manter eles, são bons clientes, do que — mesmo com a assessoria inchada — deixar de ter esse caixa, e ir pegando de fora a loja de moda pra validar mais o método."*
+
+**A tese é coerente e a estratégia de portfólio é legítima:** cliente-âncora financia a transição enquanto o nicho é validado em paralelo. Não é apego disfarçado de estratégia.
+
+**Mas o Prompt-mestre §7 GATE 6 exige quatro elementos, e a tese hoje tem um.** O próprio Nicolas reconhece: *"só preciso amarrar isso de forma clara ainda."*
+
+| Elemento | Situação |
+|---|---|
+| **Tese explícita** | ✅ braço de marketing do ecossistema, com sociedade futura |
+| **Limite financeiro** | ❌ quanto de receita não cobrada você aceita pagar por essa opção? |
+| **Prazo** | ❌ até quando a conversa de sociedade precisa estar na mesa? |
+| **Critério de saída** | ❌ o que faz você desistir da tese? |
+
+### O preço da opção — o número que torna a decisão decidível
+
+```
+Hoje:  4 perfis × R$ 2.000 = R$ 8.000/mês
+
+Se o preço fosse...        Receita/mês      Não cobrado vs hoje
+  R$ 3.000/perfil          R$ 12.000        R$  4.000/mês  =  R$  48.000/ano
+  R$ 4.000/perfil          R$ 16.000        R$  8.000/mês  =  R$  96.000/ano
+  R$ 5.000/perfil (piso)   R$ 20.000        R$ 12.000/mês  =  R$ 144.000/ano
+  R$ 6.000/perfil (alvo)   R$ 24.000        R$ 16.000/mês  =  R$ 192.000/ano
+```
+
+> **Manter o preço atual custa entre R$ 48 mil e R$ 192 mil por ano em receita não cobrada.** Esse é o preço da opção de sociedade.
+>
+> A pergunta deixa de ser *"vale a pena manter o Albanos?"* — vale, ele é o maior contribuidor absoluto da carteira. Passa a ser: **"a opção de sociedade vale R$ X mil por ano? E por quantos anos você paga por ela antes de considerar que não vai acontecer?"**
+
+### A contribuição real do Albanos — ele não é deficitário
+
+| | Albanos | Prime |
+|---|---:|---:|
+| Receita/mês | R$ 8.000 (R$ 7.000 líquido de caixa) | R$ 3.000 |
+| Entregas/mês | 52 | 13 |
+| **Receita por entrega** | **R$ 153,85** | **R$ 230,77** |
+| Custo edição+design (mix 50/50) | R$ 1.976,00 | R$ 546,08 |
+| **MC parcial** | **R$ 6.024 (75,3%)** | **R$ 2.454 (81,8%)** |
+
+**O Albanos tem a menor margem percentual e a maior contribuição absoluta.** Manter é economicamente defensável. O que não é defensável é manter **no preço atual** sem prazo nem critério.
+
+### ⚠️ O argumento contraintuitivo — querer sociedade é razão para reprecificar, não contra
+
+Três mecanismos, todos contra a intenção:
+
+**1. Subprecificar destrói a moeda de troca.** Numa conversa de sociedade, a Expansion entra com o ativo "operação de marketing". Quanto vale esse ativo? **Vale o que ele fatura.** Uma operação que cobra R$ 8.000/mês do próprio futuro sócio vale uma fração de uma que cobra R$ 20.000. Você está desvalorizando exatamente aquilo que pretende colocar na mesa.
+
+**2. O preço vira âncora de avaliação.** Quando a conversa de equity chegar, eles vão precificar a contribuição da Expansion pelo que ela cobrava. Três anos a R$ 2.000/perfil estabelecem um teto que nenhuma apresentação desfaz.
+
+**3. Sociedade se faz entre partes fortes.** Uma Expansion com caixa negativo em agosto e folha subpaga não negocia participação — pede. `13` §5 mostra que sem reprecificar não há cenário em que a empresa chegue forte a essa mesa.
+
+> **Não estou dizendo para cobrar o piso do Albanos.** Estou dizendo que o desconto precisa ser **uma decisão com número, prazo e saída** — e não o preço de partida de uma negociação de sociedade que ainda não começou.
+
+**Formulação sugerida, para a direção fechar:**
+
+```
+TESE:            o ecossistema Albanos é a âncora de caixa e o caminho para
+                 uma sociedade no braço de marketing do grupo.
+LIMITE:          aceito não cobrar até R$ ______/mês vs o piso, como custo
+                 dessa opção.
+PRAZO:           a conversa de sociedade precisa estar formalizada até ____.
+CRITÉRIO DE SAÍDA: se até lá não houver proposta escrita na mesa, o preço vai
+                 ao piso na renovação seguinte — ou o contrato encerra.
+```
+
+---
+
 ## O que o GATE 6 vai exigir por cliente
 
 Receita normalizada · escopo contratado × escopo real (**o trabalho invisível**) · horas por função, planejado × realizado · custos diretos e indiretos sem dupla contagem · MC em R$ e % · resultado e margem operacional · **horas do gargalo consumidas e % da capacidade** · risco (qualidade, prazo, caixa, concentração, relacionamento) · diagnóstico · decisão proposta · plano de ação com dono, data e condição de sucesso.

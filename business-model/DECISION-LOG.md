@@ -23,7 +23,7 @@ Registradas porque cada uma delas trava um gate. Nenhuma é técnica; todas são
 | A-001 | **Proposta Trinca (R$ 12.000, evento em 10/08)**: enviar, renegociar ou recusar sem custo calculado? | Risco econômico imediato | — |
 | A-002 | **Vender ou não o produto de CRM/atendimento.** Enquete "VENDEMOS × OVERDELIVERY" do Kauã em 13/07/2026 teve **zero votos** e nunca foi decidida | GATE 4 (arquitetura de produtos) | 13/07/2026 |
 | A-003 | **WhatsApp oficial (cobra por conversa) × não-oficial (menos seguro)** | Precede qualquer produto de atendimento — é o único custo variável real identificado | 17/07/2026 |
-| A-004 | **Clientes fora do nicho de moda**: caixa que financia a transição ou âncora que impede o nicho? Hoje 4 dos 6 contratos são de outros nichos e Albanos sozinho é 51,67% da receita | GATE 4 e GATE 8 | 26/07/2026 |
+| A-004 | ~~Clientes fora do nicho: caixa ou âncora?~~ **RESPONDIDA 05/08:** tese de cliente estratégico com sociedade futura no braço de marketing do grupo Albanos; moda entra em paralelo para validar o método. **Falta amarrar limite financeiro, prazo e critério de saída** — ver `07` | GATE 6 e 8 | 26/07/2026 |
 | A-005 | **Escala da social media**: 50 clientes (tese do CEO) × 20–25 por profissional (proposto pelo gestor de tráfego em 09/06 e alinhado a benchmark) | GATE 2 e todo o modelo de capacidade | 09/06/2026 |
 | A-006 | **Abrir CNPJ e definir regime.** Teto do MEI estourado; Fator R ≈ 0% empurra para o Anexo V (~15,58% × ~6,16%) | GATE 5 — nenhum preço final sem alíquota | 26/07/2026 |
 | A-007 | **Pró-labore dos sócios.** Hoje R$ 0. Além de ser a remuneração deles, é a alavanca do Fator R | GATE 1 (visão econômica normalizada) e A-006 | — |
@@ -38,5 +38,8 @@ Registradas porque cada uma delas trava um gate. Nenhuma é técnica; todas são
 | A-016 | **Albanos: renovação anual + estrutura ecossistema + lançamento destacado.** Reestruturar em vez de reajustar — pedir +150% no mesmo escopo perde o cliente | GATE 8 · **janela aberta agora** | 05/08/2026 |
 | A-017 | **Quem opera o WhatsApp de um cliente?** Ninguém tem folga; o editor está a 168,9%. Sem resposta, o Eixo 2 é slide | GATE 4 | 05/08/2026 |
 | A-018 | **Vender atendimento isolado, para quem não é cliente de conteúdo?** Mercado ~10× maior, motion de venda novo | GATE 4 | 05/08/2026 |
+
+| A-019 | **Limite, prazo e critério de saída da tese de sociedade com o Albanos.** Manter o preço atual custa de R$ 48 mil a R$ 192 mil/ano em receita não cobrada — é o preço da opção | GATE 6 e 8 | 05/08/2026 |
+| A-020 | **Adotar o SLA de duas vias e o Placar Compartilhado** em todo contrato com tráfego | GATE 7 | 05/08/2026 |
 
 > **A-002 e A-005 estão abertas há mais de 50 dias.** Não decidir também é uma decisão — e nos dois casos ela vem sendo tomada por omissão, no pior sentido: o CRM é entregue de graça e a social media segue sem número de capacidade.
