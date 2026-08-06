@@ -105,12 +105,57 @@ comprar.
 
 | Dia | Conteúdo | Verba | Quem |
 |---|---|---|---|
-| **Qui 06/08** | **Grava hoje** (Sessão 1 do guia). Stories: "domingo você vai estar em todas as fotos". Reels dos looks numerados | R$ 10 · impulsionar o reels **para os seguidores** | Sabrina grava · Expansion edita e sobe |
-| **Sex 07/08** | Reels do provador. **Abre a reserva** nos stories, com o pedido de número + tamanho | R$ 20 · **retargeting** — quem viu o vídeo, quem interagiu, seguidores | Expansion |
-| **Sáb 08/08** | **O dia da venda.** Loja aberta, stories o dia todo, "últimas horas para garantir o look de domingo". Ela atende | **R$ 30 · raio de 5 km, "aberto hoje", com endereço** | Sabrina na loja |
+| **Qui 06/08** | **Grava hoje** (Sessão 1 do guia). Stories: "domingo você vai estar em todas as fotos". Reels dos looks numerados | **R$ 20** · impulsionar o reels **para os seguidores** | Sabrina grava · Expansion edita e sobe |
+| **Sex 07/08** | Reels do provador. **Abre a reserva** nos stories, com o pedido de número + tamanho | **R$ 20 a 40 · decidir sexta de manhã, com o CPM de quinta na mão** · retargeting | Expansion · **Kauan registra as reservas** |
+| **Sáb 08/08** | **O dia da venda.** Loja aberta, stories o dia todo, "últimas horas para garantir o look de domingo". Ela atende | **R$ 40 · raio de 5 km, "aberto hoje", com endereço** | Sabrina na loja |
 | **Dom 09/08** | Não vende. Bastidor e almoço. **Pede para as clientes marcarem a loja na foto** | **R$ 0** | Sabrina |
 
-**Total de verba: R$ 60.**
+**Total de verba: R$ 80 a R$ 100.**
+
+### Revisão de 06/08, 11h — proposta do Matheus, aceita com uma trava
+
+Matheus, 10h54 e 10h55, propôs duas coisas juntas:
+
+1. **Alguém atendendo na sexta** — *"aumentaria o número de oportunidades, é só
+   um dia, aí no sábado a Sabrina dá conta do whatsapp e da loja física"*
+2. **Verba maior** — 20 hoje, 30 ou 40 amanhã, 40 sábado
+
+**As duas propostas são uma só, e ele está certo:** verba maior sem braço de
+atendimento é a receita do problema de junho. Ele aplicou a trava sozinho.
+
+| Item | Decisão | Por quê |
+|---|---|---|
+| **R$ 20 hoje** | **Aceito** | A razão dele é boa: sobe depois do almoço, menos horas rodando. E a verba de hoje tem uma segunda função — **constrói o público de retargeting de sexta.** Pool maior hoje, campanha melhor amanhã |
+| **R$ 30–40 sexta** | **Decide sexta de manhã** | É o único ponto em que eu seguro. **Não dá para pré-comprometer verba de sexta sem o CPM de quinta.** O teste existe justamente para medir. CPM barato, vai a 40. CPM caro, fica em 20 |
+| **R$ 40 sábado** | **Aceito, e é o melhor real da janela** | Ela está na loja, o anúncio carrega o endereço, a conversão é visita. Frio é seguro aqui |
+| **Atendimento na sexta** | **Aceito o princípio, mudo quem** | Ver abaixo |
+
+### Quem atende na sexta: Kauan, não a Expansion
+
+**Não pode ser a Expansion.** Essa decisão foi fechada e **comunicada por escrito
+à Sabrina em 04/08**: *"quem conhece a peça e o tamanho da cliente é você."*
+Reabrir dois dias depois custa credibilidade e recria o escopo que não cabe em
+R$ 2.000/mês. É exatamente o padrão que gerou a crise.
+
+**Kauan é o nome certo**, e por quatro motivos:
+
+- Assinatura do WhatsApp dele é **"ADM Ciés Brand"**. É função dele
+- **Está disponível de dia** — respondeu 10h35, 10h50 e 10h57 numa quinta
+- Está engajado: leu o arquivo, fez três perguntas seguidas, disse "começa hoje"
+- **Custo zero** e nenhum escopo novo para a Expansion
+
+### O corte exato do que ele faz
+
+A reserva funciona porque a resposta é de uma palavra. **Isso não exige conhecer
+a peça.**
+
+| Chega no WhatsApp | Quem responde |
+|---|---|
+| *"look 2, M"* | **Kauan.** Responde "separado ✅" e anota na planilha |
+| *"tem GG?"*, *"esse tecido é grosso?"*, *"serve pra 1,60?"* | **Sabrina**, nas três janelas dela. Kauan responde "já te confirmo" e passa |
+
+> **Kauan registra, não vende.** No minuto em que ele opinar sobre caimento ou
+> tamanho, a mecânica quebra e vira a conversa que ninguém queria.
 
 ### A regra que decide onde a verba entra: quente x frio
 
