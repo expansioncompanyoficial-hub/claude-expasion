@@ -31,12 +31,10 @@ Registradas porque cada uma delas trava um gate. Nenhuma é técnica; todas são
 | A-009 | **Preço-alvo R$ 6.000/perfil com piso travado em R$ 5.000** — ponto onde conselho e Alfredo convergem | GATE 5 e 7 | 05/08/2026 |
 | A-010 | **Houve desconto por antecipação (Ciés, Albanos)?** Se sim, é custo financeiro nunca contabilizado | GATE 1 | 05/08/2026 |
 | A-011 | **Vender a camada de gestão** (cuidar dos fornecedores do cliente), além de serviço? | GATE 4 | 05/08/2026 |
-
 | A-012 | **Migrar contratos para 12 meses na renovação.** Benchmark de mercado: 56 meses de duração média em fee recorrente; a Expansion opera com 1–3 meses. Vale mais que o preço | GATE 8 | 05/08/2026 |
 | A-013 | **Arquitetura de 3 níveis** (Método / Operação / Performance) em vez de preço único | GATE 4 e 5 | 05/08/2026 |
 | A-014 | **Piloto de remuneração variável em 1 cliente** (candidato: Ciés) sobre conversa atendida | GATE 5 | 05/08/2026 |
 | A-015 | **Entrar ou não na operação de venda conversacional** — metade das vendas de moda no Brasil passa por WhatsApp e nenhuma agência opera esse canal | GATE 4 | 05/08/2026 |
-
 | A-016 | **Albanos: renovação anual + estrutura ecossistema + lançamento destacado.** Reestruturar em vez de reajustar — pedir +150% no mesmo escopo perde o cliente | GATE 8 · **janela aberta agora** | 05/08/2026 |
 | A-017 | **Quem opera o WhatsApp de um cliente?** Ninguém tem folga; o editor está a 168,9%. Sem resposta, o Eixo 2 é slide | GATE 4 | 05/08/2026 |
 | A-018 | **Vender atendimento isolado, para quem não é cliente de conteúdo?** Mercado ~10× maior, motion de venda novo | GATE 4 | 05/08/2026 |

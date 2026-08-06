@@ -132,7 +132,7 @@ Organify · CRM (WeSales ou Kommo — **qual?**) · Captions · CapCut Pro · Ch
 
 ---
 
-## RODADA 2 — já mapeada, **não perguntar ainda**
+## BACKLOG DE PERGUNTAS — mapeado, **não perguntar ainda**
 
 Registrada aqui para não se perder e para não sobrecarregar a direção agora.
 
@@ -146,7 +146,7 @@ Registrada aqui para não se perder e para não sobrecarregar a direção agora.
 
 ---
 
-## RODADA 2 — respondida em 05/08/2026
+## RODADA 2 (perguntas G) — respondida em 05/08/2026
 
 | Pergunta | Resposta |
 |---|---|
