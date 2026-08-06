@@ -157,6 +157,50 @@ a peça.**
 > **Kauan registra, não vende.** No minuto em que ele opinar sobre caimento ou
 > tamanho, a mecânica quebra e vira a conversa que ninguém queria.
 
+### A resposta automática da sexta — texto fechado
+
+Matheus propôs (11h12) usar mensagem automática da Meta na sexta, dizendo que
+*"o pedido dela está anotado"*.
+
+**A ideia é certa, o texto não pode ser esse.** Automática que afirma que o
+pedido foi anotado promete uma execução que ninguém fez ainda — se a peça não
+for separada, fica pior do que não ter respondido.
+
+A automática é **recibo, não resposta.** Texto:
+
+> Oi! Recebi 💛
+>
+> Se você já me mandou o número do look e o seu tamanho, tá reservado e eu te
+> confirmo até o fim do dia.
+>
+> Se ainda não mandou, é só me mandar os dois que eu separo e deixo aqui no
+> provador com o seu nome, pra você provar no sábado.
+
+Faz três trabalhos: **confirma na hora**, **puxa a informação que faltou** e
+**não promete nada que ainda não foi feito.**
+
+**Pegadinha da automática:** ela dispara no primeiro contato. Se a cliente manda
+"oi" e depois "look 2, M", a automática responde ao "oi" e a informação real
+chega sem resposta. Por isso o criativo tem que pedir **as duas informações em
+uma mensagem só.**
+
+### Estrutura de campanha da sexta — a trava de orçamento
+
+**Com R$ 20 não dá para dividir em duas campanhas.** R$ 10 por conjunto não sai
+da fase de aprendizado.
+
+| Verba de sexta | Estrutura |
+|---|---|
+| **R$ 20** | **Uma campanha só: mensagem.** É a que gera reserva, e reserva é o que estamos testando para o dia 22 |
+| **R$ 40** | Divide: visita ao perfil + mensagem |
+
+> O CPM de quinta decide **as duas coisas de uma vez**: quanto investir e se divide ou
+> não. Uma medição, duas decisões.
+
+**E em qualquer uma das opções, o criativo carrega a chamada para sábado.** Se o
+anúncio já diz que o dia é sábado, resposta às 18h não frustra ninguém — a
+expectativa foi definida na peça, não no tempo de resposta.
+
 ### A regra que decide onde a verba entra: quente x frio
 
 Esta é a parte que engana. **A reserva de uma linha só funciona em público
