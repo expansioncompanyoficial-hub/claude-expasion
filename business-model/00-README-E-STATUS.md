@@ -16,8 +16,11 @@
 
 ## Como ler este acervo
 
+**Se você tem 10 minutos, leia só o `14`.** Os outros treze são a memória de cálculo que o sustenta.
+
 | Arquivo | O que responde | Status |
 |---|---|---|
+| **`14-PLANO-DE-PRODUTOS-E-PRECOS.md`** | **👉 COMECE AQUI.** Os 3 produtos, os preços, a margem e o que decidir | **v1.0 — para validação** |
 | `00-README-E-STATUS.md` | Onde estamos e o que já é decidido | vivo |
 | `01-FATOS-PREMISSAS-LACUNAS.md` | O que é fato, o que é hipótese, o que se contradiz | **v1.0 — entregue** |
 | `02-DICIONARIO-DE-DADOS.md` | O que cada palavra e cada fórmula significa | **v1.0 — entregue** |
@@ -32,6 +35,7 @@
 | `11-ORCAMENTO-DE-CIMA-PARA-BAIXO.md` | Quanto a operação inteira **pode** custar, partindo do resultado desejado | **v1.0 — entregue, `ESTIMADO`** |
 | `12-ESTUDO-ALFREDO-SOARES.md` | O que o advisor do G4 traz que se aplica aqui — e onde não se aplica | **v1.0 — entregue** |
 | `13-MERCADO-DE-AGENCIAS-E-OCEANO-AZUL.md` | Onde a Expansion está contra o mercado, os pontos cegos e a brecha | **v1.0 — entregue** |
+| `14-PLANO-DE-PRODUTOS-E-PRECOS.md` | A síntese executiva — leva para a mesa | **v1.0 — para validação** |
 | `DECISION-LOG.md` | Toda decisão, com dono, data e consequência | vivo |
 | `DATA-REQUEST.md` | O que falta e de quem | **v1.0 — aguardando direção** |
 | `CHANGELOG.md` | O que mudou a cada rodada | vivo |
