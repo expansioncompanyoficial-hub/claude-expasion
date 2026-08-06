@@ -38,7 +38,6 @@ Registradas porque cada uma delas trava um gate. Nenhuma é técnica; todas são
 | A-016 | **Albanos: renovação anual + estrutura ecossistema + lançamento destacado.** Reestruturar em vez de reajustar — pedir +150% no mesmo escopo perde o cliente | GATE 8 · **janela aberta agora** | 05/08/2026 |
 | A-017 | **Quem opera o WhatsApp de um cliente?** Ninguém tem folga; o editor está a 168,9%. Sem resposta, o Eixo 2 é slide | GATE 4 | 05/08/2026 |
 | A-018 | **Vender atendimento isolado, para quem não é cliente de conteúdo?** Mercado ~10× maior, motion de venda novo | GATE 4 | 05/08/2026 |
-
 | A-019 | **Limite, prazo e critério de saída da tese de sociedade com o Albanos.** Manter o preço atual custa de R$ 48 mil a R$ 192 mil/ano em receita não cobrada — é o preço da opção | GATE 6 e 8 | 05/08/2026 |
 | A-020 | **Adotar o SLA de duas vias e o Placar Compartilhado** em todo contrato com tráfego | GATE 7 | 05/08/2026 |
 
