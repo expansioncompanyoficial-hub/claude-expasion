@@ -22,6 +22,7 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 ```
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
+BRANDSDECODED/        Acervo de produto da BrandsDecoded (prompts, skills, guias)
 _audios/              Transcrições de áudios e reuniões
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
@@ -53,6 +54,20 @@ Três portões travam entrega de propósito:
 de análise* — um conjunto fixo de perguntas obrigatórias e um poder de veto.
 Nunca personas com biografia ou anos de experiência. Um papel só existe no
 AEOS se consegue reprovar alguma coisa.
+
+## BRANDSDECODED — como usar
+
+Acervo de produto de terceiro (BrandsDecoded), recebido em 2026-08-06. **Ponto de
+entrada: `BRANDSDECODED/README.md`**, que mapeia tudo e registra as lacunas conhecidas.
+
+Duas regras próprias desta pasta, que sobrepõem as convenções gerais abaixo:
+
+- **`originais/` é imutável.** PDFs e ZIPs como chegaram — fonte da verdade para
+  conferir qualquer transcrição.
+- **Os `.md` de `CONTENT-MACHINE/prompts/` e de `SKILLS/` não são editáveis nem
+  renomeáveis.** São arquivos de produto, em minúsculas, que a FAQ nomeia um a um e
+  que precisam subir com o nome exato. Melhoria vira arquivo novo ao lado, nunca
+  edição no original.
 
 ## Convenções
 
