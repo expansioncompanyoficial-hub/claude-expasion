@@ -105,14 +105,31 @@ comprar.
 
 | Dia | Conteúdo | Verba | Quem |
 |---|---|---|---|
-| **Qui 06/08** | **Grava hoje** (Sessão 1 do guia). Stories: "domingo você vai estar em todas as fotos". Reels dos looks numerados | R$ 15 · alcance | Sabrina grava · Expansion edita e sobe |
-| **Sex 07/08** | Reels do provador. **Abre a reserva** nos stories, com o pedido de número + tamanho | R$ 15 · alcance | Expansion |
-| **Sáb 08/08** | **O dia da venda.** Loja aberta, stories o dia todo, "últimas horas para garantir o look de domingo". Ela atende | **R$ 30 · raio de 5 km, "aberto hoje"** | Sabrina na loja |
-| **Dom 09/08** | Não vende. Bastidor e almoço. **Pede para as clientes marcarem a loja na foto** | R$ 0 | Sabrina |
+| **Qui 06/08** | **Grava hoje** (Sessão 1 do guia). Stories: "domingo você vai estar em todas as fotos". Reels dos looks numerados | R$ 10 · impulsionar o reels **para os seguidores** | Sabrina grava · Expansion edita e sobe |
+| **Sex 07/08** | Reels do provador. **Abre a reserva** nos stories, com o pedido de número + tamanho | R$ 20 · **retargeting** — quem viu o vídeo, quem interagiu, seguidores | Expansion |
+| **Sáb 08/08** | **O dia da venda.** Loja aberta, stories o dia todo, "últimas horas para garantir o look de domingo". Ela atende | **R$ 30 · raio de 5 km, "aberto hoje", com endereço** | Sabrina na loja |
+| **Dom 09/08** | Não vende. Bastidor e almoço. **Pede para as clientes marcarem a loja na foto** | **R$ 0** | Sabrina |
 
 **Total de verba: R$ 60.**
 
-### Duas notas de calendário
+### A regra que decide onde a verba entra: quente x frio
+
+Esta é a parte que engana. **A reserva de uma linha só funciona em público
+quente.**
+
+| Público | O que ele manda no WhatsApp | Ela consegue responder na semana? |
+|---|---|---|
+| **Quente** — seguidora, cliente antiga, quem já viu o vídeo | *"look 2, M"* | **Sim.** É uma palavra de resposta |
+| **Frio** — prospecção paga, nunca ouviu falar da loja | *"quanto custa?"*, *"tem GG?"*, *"onde fica?"*, *"vocês entregam?"* | **Não.** Isso é conversa, e conversa na quinta e sexta ela não tem como atender |
+
+> **Por isso quinta e sexta levam só quente**: impulsionamento para seguidores e
+> retargeting. **Prospecção fria fica para sábado**, quando ela está na loja, o
+> anúncio já carrega o endereço e a conversão é **visita, não conversa.**
+
+Soltar frio na quinta e na sexta é recriar, de propósito, o problema das 52
+conversas não respondidas de junho.
+
+### Três notas de calendário
 
 **Sexta 07/08 é o 5º dia útil — o salário cai.** A abertura da reserva pega
 carteira cheia, e é de propósito.
@@ -123,8 +140,14 @@ produto mais vendido de julho saiu 100% orgânico do perfil pessoal dela). Os
 R$ 60 servem mais para **medir o CPM real do público feminino de moda nesta
 janela** do que para gerar volume. Esse número serve para setembro também.
 
+**Domingo não leva verba.** A janela de compra do look fecha no sábado — a
+cliente precisa da peça **antes** do almoço, não durante. Com a loja fechada no
+domingo, verba nesse dia compra alcance para uma oferta que já não pode ser
+atendida. **Única exceção:** se a loja abrir no domingo de manhã, entram R$ 15
+em raio curto até as 11h, e só.
+
 **O gasto de sábado é o mais valioso dos três:** raio curto, "aberto hoje",
-intenção alta e conversão no mesmo dia.
+endereço no anúncio, intenção alta e conversão no mesmo dia.
 
 ---
 
