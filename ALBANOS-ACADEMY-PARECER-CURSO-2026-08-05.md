@@ -5,6 +5,10 @@
 **Decisão pedida pelo Nicolas:** arquitetura do curso · preço para a Cris ·
 preço para o editor · resposta à pergunta do editor · rota de expansão.
 
+> **Continua em [`ALBANOS-ACADEMY-PARECER-CURSO-RODADA2-2026-08-05.md`](ALBANOS-ACADEMY-PARECER-CURSO-RODADA2-2026-08-05.md)** —
+> de onde sai a temática (ela nunca disse) e o que muda quando a Expansion grava
+> em vez de só editar. A rodada 2 atualiza a precificação desta.
+
 ---
 
 ## RESPOSTA DE UMA LINHA (para mandar hoje)
