@@ -3,7 +3,7 @@
 
 Sa, esse substitui o que mandei na terça. **Mudou pouca coisa e é tudo na Sessão 1**, que é a que você grava hoje. O resto do guia continua igual.
 
-O que mudou: **agora os looks vão numerados** e o final pede o número e o tamanho, em vez de pedir para a cliente chamar. Explico o porquê no fim.
+O que mudou: **agora os looks vão numerados e com o preço falado**, e o final pede o número e o tamanho, em vez de pedir para a cliente chamar. Explico o porquê de cada um no lugar.
 
 É tudo no celular e é mais simples do que parece. **Você não precisa acertar de primeira e não precisa editar nada.** Grava, manda tudo, inclusive o que você achou que ficou ruim, e a edição é com a gente.
 
@@ -61,16 +61,20 @@ Fala olhando para a câmera, do seu jeito, não precisa decorar:
 
 ### Clipes 2, 3 e 4 · Os três looks, 15 segundos cada
 
-Um clipe para cada look. **Em cada um, começa falando o número.**
+Um clipe para cada look. **Em cada um, começa falando o número e o preço.**
 
-> "Look um." · "Look dois." · "Look três."
+> "Look um, [valor]." · "Look dois, [valor]." · "Look três, [valor]."
 
-Depois do número:
+Depois disso:
 - Você entra no quadro já vestida
 - Dá uma volta devagar
 - Um detalhe de perto no fim: o tecido, o caimento, o bolso
 
-**O número é o que faz a mecânica funcionar.** Sem ele a cliente não consegue pedir.
+**O número é o que faz a reserva funcionar.** Sem ele a cliente não consegue pedir.
+
+**E o preço vai no vídeo de propósito.** Sei que o normal em moda é segurar o valor para a cliente chamar no direct. Aqui é o contrário, e por um motivo prático: se ela precisar perguntar o preço, isso vira conversa — e conversa na quinta e na sexta você não tem como responder.
+
+Com o valor no vídeo, quem manda *"look 2, M"* **já aceitou o preço.** Você não gasta o seu intervalo respondendo "quanto custa", e ninguém chega na loja no sábado e se assusta.
 
 ### Clipe 5 · Provador, 15 segundos
 
@@ -141,6 +145,6 @@ E a diária do videomaker fica guardada para o **dia 22**, para cobrir o evento 
 | **Sessão 1 · Dia dos Pais** | **Hoje, quinta 06** | 40 min | 6 |
 | **Sessão 2 · Sábado Delas** | Roteiro chega sexta | 30 min | 7 |
 
-As duas únicas coisas novas: **fala o número do look** nos clipes 2, 3 e 4, e **o final pede número e tamanho**.
+As duas únicas coisas novas: **fala o número do look e o preço** nos clipes 2, 3 e 4, e **o final pede número e tamanho**.
 
 Qualquer dúvida na hora de gravar, me chama que eu te respondo na hora.
