@@ -4,6 +4,10 @@
 **Gatilho:** o Nicolas perguntou qual é a temática do curso, para estruturar e
 para acionar um videomaker.
 
+> **Continua em [`ALBANOS-ACADEMY-PARECER-CURSO-RODADA3-2026-08-05.md`](ALBANOS-ACADEMY-PARECER-CURSO-RODADA3-2026-08-05.md)** —
+> os três planos (Método · Produção · Estúdio), a estratégia da vaga da mentoria
+> e a correção de rota depois do áudio já enviado à Cris.
+
 Esta rodada resolve duas coisas que a rodada 1 deixou em aberto: **de onde sai o
 tema** e **o que muda quando a Expansion grava, em vez de só editar**.
 
