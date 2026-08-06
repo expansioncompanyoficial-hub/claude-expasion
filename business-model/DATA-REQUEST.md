@@ -146,6 +146,16 @@ Registrada aqui para não se perder e para não sobrecarregar a direção agora.
 
 ---
 
+## RODADA 2 — respondida em 05/08/2026
+
+| Pergunta | Resposta |
+|---|---|
+| G1 — Ciés teve desconto/taxa? | **Não.** Pagou à vista, dinheiro cheio. O problema de antecipação é exclusivo do Albanos |
+| G2 — Migrar para contrato anual? | **Sim.** Albanos é o caminho mais curto — renovação em montagem, lançamento na mesa, alta receptividade |
+| G5 — Acesso aos números de venda? | **Sim**, de Clau Kids e Ciés |
+| G3 — Piloto na Ciés? | não respondida diretamente |
+| **G4 — Quem opera o WhatsApp?** | **NÃO RESPONDIDA — é a que decide se o produto existe** |
+
 ## Registro de respostas
 
 | Pergunta | Respondida em | Resposta | Documento atualizado |

@@ -37,4 +37,8 @@ Registradas porque cada uma delas trava um gate. Nenhuma é técnica; todas são
 | A-014 | **Piloto de remuneração variável em 1 cliente** (candidato: Ciés) sobre conversa atendida | GATE 5 | 05/08/2026 |
 | A-015 | **Entrar ou não na operação de venda conversacional** — metade das vendas de moda no Brasil passa por WhatsApp e nenhuma agência opera esse canal | GATE 4 | 05/08/2026 |
 
+| A-016 | **Albanos: renovação anual + estrutura ecossistema + lançamento destacado.** Reestruturar em vez de reajustar — pedir +150% no mesmo escopo perde o cliente | GATE 8 · **janela aberta agora** | 05/08/2026 |
+| A-017 | **Quem opera o WhatsApp de um cliente?** Ninguém tem folga; o editor está a 168,9%. Sem resposta, o Eixo 2 é slide | GATE 4 | 05/08/2026 |
+| A-018 | **Vender atendimento isolado, para quem não é cliente de conteúdo?** Mercado ~10× maior, motion de venda novo | GATE 4 | 05/08/2026 |
+
 > **A-002 e A-005 estão abertas há mais de 50 dias.** Não decidir também é uma decisão — e nos dois casos ela vem sendo tomada por omissão, no pior sentido: o CRM é entregue de graça e a social media segue sem número de capacidade.
