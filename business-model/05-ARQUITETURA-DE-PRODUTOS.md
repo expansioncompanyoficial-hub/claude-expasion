@@ -247,6 +247,45 @@ PROPOSTA DE ESTRUTURA  (faixas, a calcular com a calibração)
 
 ---
 
+## 5.5 QUEM OPERA — respondido em 05/08/2026
+
+Perguntei três vezes. A resposta:
+
+> *"Não tem quem me opera o WhatsApp. Só se eu contratar alguém. Eu consigo contratar um social selling, um SDR — tenho bastante contato, tenho essa estrutura comercial inteira. Não sei se seria interessante pôr num pacote porque é muito específico."*
+
+**Isso destrava o Eixo 2.** A restrição nunca foi acesso a gente — é caixa. E caixa é exatamente o que a renegociação do Albanos resolve.
+
+### O perfil certo não é social media. É social selling / SDR
+
+E isso não é acaso: **a habilidade de converter conversa em venda é a mesma nos dois casos.** Um SDR qualifica e converte conversa; é literalmente o trabalho do N2 e do N3. A Expansion já tem acesso a esse mercado de talento — Nicolas confirmou a rede.
+
+**Implicação de organograma:** o Eixo 2 não pertence à área de conteúdo. Pertence a uma célula própria, mais próxima do comercial que da produção. Isso também protege a capacidade de entrega, que já está estourada (`03` §4).
+
+### A sequência que fecha o ciclo
+
+```
+1. Renegociar Albanos          →  +R$ 7.000/mês de caixa
+2. Contratar o operador        →  financiado pelo passo 1
+3. Piloto na Ciés              →  90 dias, com placar compartilhado
+4. Case documentado            →  vira argumento de venda
+5. Vender N2/N3 para a base    →  e depois para fora dela
+```
+
+> **A reprecificação não é só a correção de um erro — é o que financia o produto novo.** Mais uma razão para o preço vir antes do produto, e não o contrário.
+
+### ⚠️ "É muito específico" é o argumento a favor, não contra
+
+Nicolas hesitou em empacotar por ser específico demais. **O dado de mercado diz o oposto:**
+
+| | Receita por FTE | Margem líquida |
+|---|---:|---:|
+| Agência generalista | alvo US$ 180 mil | 15–20% |
+| **Agência especialista** | **alvo US$ 250 mil+** | **30–40%** |
+
+**Especificidade é o que separa margem de commodity.** Um produto genérico compete por preço; um específico compete por competência. A Expansion está tentando sair de um mercado onde o ticket médio brasileiro é R$ 3–6 mil — e a saída é para cima, por especialização, não por escopo mais largo.
+
+---
+
 ## 6. O que ainda bloqueia o GATE 4
 
 | # | Bloqueio | Onde se resolve |

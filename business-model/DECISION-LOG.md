@@ -36,9 +36,11 @@ Registradas porque cada uma delas trava um gate. Nenhuma é técnica; todas são
 | A-014 | **Piloto de remuneração variável em 1 cliente** (candidato: Ciés) sobre conversa atendida | GATE 5 | 05/08/2026 |
 | A-015 | **Entrar ou não na operação de venda conversacional** — metade das vendas de moda no Brasil passa por WhatsApp e nenhuma agência opera esse canal | GATE 4 | 05/08/2026 |
 | A-016 | **Albanos: renovação anual + estrutura ecossistema + lançamento destacado.** Reestruturar em vez de reajustar — pedir +150% no mesmo escopo perde o cliente | GATE 8 · **janela aberta agora** | 05/08/2026 |
-| A-017 | **Quem opera o WhatsApp de um cliente?** Ninguém tem folga; o editor está a 168,9%. Sem resposta, o Eixo 2 é slide | GATE 4 | 05/08/2026 |
+| A-017 | ~~Quem opera o WhatsApp?~~ **RESPONDIDA 05/08:** ninguém hoje; exige contratar. Nicolas tem rede para social selling/SDR. **Restrição é caixa, não acesso** — financiada pela renegociação do Albanos (+R$ 7.000/mês) | GATE 4 | 05/08/2026 |
 | A-018 | **Vender atendimento isolado, para quem não é cliente de conteúdo?** Mercado ~10× maior, motion de venda novo | GATE 4 | 05/08/2026 |
-| A-019 | **Limite, prazo e critério de saída da tese de sociedade com o Albanos.** Manter o preço atual custa de R$ 48 mil a R$ 192 mil/ano em receita não cobrada — é o preço da opção | GATE 6 e 8 | 05/08/2026 |
+| A-019 | **Limite da tese de sociedade: RESPONDIDO 05/08** — 1 perfil cortesia = R$ 5.000/mês = R$ 60.000/ano. **Faltam prazo e critério de saída.** E a sociedade nunca foi conversada com a cliente — ver `09` §1.3 | GATE 6 e 8 | 05/08/2026 |
+| A-021 | **Abrir a conversa de sociedade com o Albanos NA renovação**, em vez de subsidiar em silêncio. Risco zero, custo de uma conversa, testa a tese em 30 min em vez de 12 meses | **janela aberta agora** | 05/08/2026 |
+| A-022 | **Contratar o operador do Eixo 2** (social selling/SDR), financiado pela renegociação do Albanos | GATE 4 | 05/08/2026 |
 | A-020 | **Adotar o SLA de duas vias e o Placar Compartilhado** em todo contrato com tráfego | GATE 7 | 05/08/2026 |
 
 > **A-002 e A-005 estão abertas há mais de 50 dias.** Não decidir também é uma decisão — e nos dois casos ela vem sendo tomada por omissão, no pior sentido: o CRM é entregue de graça e a social media segue sem número de capacidade.
