@@ -16,7 +16,7 @@
 
 ## Como ler este acervo
 
-**Se você tem 10 minutos, leia só o `14`.** Os outros treze são a memória de cálculo que o sustenta.
+**Se você tem 10 minutos, leia o `14` e depois o `15`** — o `15` corrige duas seções do `14`. Os outros treze são a memória de cálculo que o sustenta.
 
 | Arquivo | O que responde | Status |
 |---|---|---|
@@ -35,7 +35,8 @@
 | `11-ORCAMENTO-DE-CIMA-PARA-BAIXO.md` | Quanto a operação inteira **pode** custar, partindo do resultado desejado | **v1.0 — entregue, `ESTIMADO`** |
 | `12-ESTUDO-ALFREDO-SOARES.md` | O que o advisor do G4 traz que se aplica aqui — e onde não se aplica | **v1.0 — entregue** |
 | `13-MERCADO-DE-AGENCIAS-E-OCEANO-AZUL.md` | Onde a Expansion está contra o mercado, os pontos cegos e a brecha | **v1.0 — entregue** |
-| `14-PLANO-DE-PRODUTOS-E-PRECOS.md` | A síntese executiva — leva para a mesa | **v1.0 — para validação** |
+| `14-PLANO-DE-PRODUTOS-E-PRECOS.md` | A síntese executiva — leva para a mesa | **v1.0 — §4 e §6 corrigidos pelo `15`** |
+| `15-ECONOMIA-DO-CLIENTE-E-CORRECOES.md` | Quanto a loja consegue pagar, e três correções ao que eu afirmei | **v1.0 — entregue** |
 | `DECISION-LOG.md` | Toda decisão, com dono, data e consequência | vivo |
 | `DATA-REQUEST.md` | O que falta e de quem | **v1.0 — aguardando direção** |
 | `CHANGELOG.md` | O que mudou a cada rodada | vivo |
