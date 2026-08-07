@@ -277,6 +277,80 @@ endereço no anúncio, intenção alta e conversão no mesmo dia.
 
 ---
 
+## 5-B. REVISÃO DE SEXTA 07/08, 11h30 — a quinta não aconteceu
+
+**O que houve:** a Sabrina chegou tarde e só viu o roteiro de madrugada, faltou
+um take, e o vídeo só subiu **sexta às 11h30**. A verba de quinta não rodou.
+
+### O que se perdeu, e o que não se perdeu
+
+| | Situação |
+|---|---|
+| **Perdeu** | Um dia inteiro de aquecimento. A janela de reserva caiu de ~2 dias para **~10 horas** |
+| **Perdeu** | O público de *video view* que a quinta ia construir para o retargeting de sexta |
+| **Não perdeu** | **Seguidores e quem interagiu com o perfil nos últimos 365 dias.** Esse público o Instagram já tem, independe da quinta |
+| **Não perdeu** | O sábado inteiro, que sempre foi o dia da venda |
+| **Não perdeu** | A base de clientes de 3 anos no WhatsApp, que nunca foi usada |
+
+> **O público quente não sumiu, mudou de fonte.** Em vez de "quem viu o vídeo",
+> segmenta "seguidores + quem interagiu com o perfil em 365 dias". Está
+> disponível agora, sem precisar de aquecimento.
+
+### A verba: R$ 40 hoje, **R$ 60 sábado**
+
+Os R$ 20 da quinta não se perdem, mas **não vão para hoje. Vão para sábado.**
+
+| Dia | Verba | Por quê |
+|---|---|---|
+| **Sex 07** | **R$ 40** | Restam ~10 horas úteis. Mais dinheiro em menos hora, no mesmo público pequeno, só aumenta frequência e cansa a peça |
+| **Sáb 08** | **R$ 60** | **O sábado passou a carregar mais peso.** Com menos aquecimento, menos gente chega com reserva feita — logo, mais venda tem que vir de quem entra pela porta, que é exatamente o que o raio de 5 km compra |
+
+Total continua **R$ 100**. Mesma verba, melhor colocada.
+
+### O criativo de sábado muda de verbo
+
+Sexta o pedido é **reservar**. Sábado não dá mais tempo de reservar para um dia
+que já está acontecendo:
+
+> Sábado a peça fala **"a loja tá aberta hoje até [hora], vem provar"**, com o
+> endereço no anúncio. É convite de visita, não de mensagem.
+
+### A jogada que compensa a quinta inteira, e custa R$ 0
+
+**A base de clientes de 3 anos no WhatsApp.** Nunca foi ativada, e é o canal mais
+quente que a loja tem.
+
+Sexta à noite o Kauan não fica só esperando mensagem chegar — **ele manda.**
+
+> Oi [nome]! Separei uns looks pro almoço de domingo, e amanhã eu tô na loja o
+> dia todo. Quer que eu separe algum no seu tamanho?
+
+Copiar, trocar o nome, WhatsApp Web. **40 mensagens em uns 15 minutos.**
+
+E é o encaixe perfeito do dia: sexta é justamente quando a Sabrina não responde,
+e o Kauan já está de plantão. Ele deixa de ser só receptor e vira o canal ativo.
+
+| Fonte de reserva | Custo | Estimativa base |
+|---|---|---|
+| Anúncio de sexta (público quente) | R$ 40 | 6 |
+| **Disparo 1:1 na base** | **R$ 0** | **4** |
+| | | **10 reservas** |
+
+Contra 12 do plano original. **A quinta perdida custa cerca de 2 reservas e
+~R$ 300 de faturamento — se o disparo na base acontecer.** Sem ele, custa o
+dobro.
+
+### O take que faltou: não regrava produzido
+
+Ela pode gravar o que falta, mas **o melhor conteúdo disponível agora não é
+esse.** É story ao vivo, sábado de manhã, na loja: as peças separadas na arara,
+o coffee break sendo montado, o provador pronto.
+
+Conteúdo cru e urgente converte mais em dia de venda do que peça produzida. E
+ela não precisa de roteiro nenhum para fazer.
+
+---
+
 ## 6. OS TRÊS CENÁRIOS
 
 | | Conservador | **Base** | Otimista |
