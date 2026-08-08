@@ -15,6 +15,9 @@ Regra: **preferência não é fato.** Se não há dono, critério e consequênci
 | D-008 | 2026-08-05 | **Subir o ICP**, com duas faixas: R$ 25–50 mil e R$ 50 mil+ | Nicolas | Loja pequena não sustenta o preço | **A faixa inferior não tem produto que caiba nela a nenhum preço da tabela.** Corrigir para P0 em R$ 40–100k · P3 híbrido em R$ 60–150k · P2 em R$ 140k+ | 🔶 **SOB CONTESTAÇÃO** — ver `15` §2 e §3 |
 | D-009 | 2026-08-05 | **Contratos de 6 ou 12 meses. Elimina o de 3 meses** | Nicolas | 3 meses não gera resultado; e é exatamente a janela onde ~43% do churn B2B acontece | Muda a estrutura de toda proposta | ✅ **DECIDIDO** |
 | D-010 | 2026-08-05 | **Arquitetura de 3 produtos** (P1 Método · P2 Operação · P3 Performance) | Nicolas | Níveis de responsabilidade, não de volume | Substitui o preço único por escada | ✅ **DECIDIDO** |
+| D-011 | 2026-08-05 | **Três pacotes que se COMBINAM, não uma escada**: BASE R$ 1.800 · MARCA R$ 5.500 · VENDA R$ 3.500 | Análise, para validação de Nicolas + Kauã | Cada um resolve um problema diferente; somam-se em vez de substituir | Carteira de 14 clientes fecha 38% de lucro contra ~0% hoje | ⏳ **Validar até sexta** |
+| D-012 | 2026-08-05 | **VENDA redesenhado**: cobertura de janela morta (20h/cliente), não operação integral (55h) | Análise | A 55h e R$ 3.500 a folha vira 66,9% da receita — estoura o teto | Torna o produto vendável a R$ 3.500 com folha de 24,3% | ⏳ **Validar** |
+| D-013 | 2026-08-05 | **Trava comercial: cada R$ 1 de fee exige R$ 3 de venda nova.** Não vender se não acreditar que a loja atinge | Análise | CMV de 54,6% (IBGE/PAC) → margem de contribuição ~35% | Substitui toda régua de % da receita | ⏳ **Validar** |
 | D-005 | 2026-08-05 | Adotar **21 dias úteis**, **4,333 semanas** e **30,44 dias corridos** por mês como base de conversão | Análise | Auditabilidade — qualquer pessoa reproduz | Toda demanda mensal deste acervo usa essas constantes | ✅ Vigente |
 
 ---

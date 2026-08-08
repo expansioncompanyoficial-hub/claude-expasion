@@ -16,11 +16,12 @@
 
 ## Como ler este acervo
 
-**Se você tem 10 minutos, leia o `14` e depois o `15`** — o `15` corrige duas seções do `14`. Os outros treze são a memória de cálculo que o sustenta.
+**Para vender: `16`. Para entender: `14` e `15`** — o `15` corrige duas seções do `14`. Os outros treze são a memória de cálculo que o sustenta.
 
 | Arquivo | O que responde | Status |
 |---|---|---|
-| **`14-PLANO-DE-PRODUTOS-E-PRECOS.md`** | **👉 COMECE AQUI.** Os 3 produtos, os preços, a margem e o que decidir | **v1.0 — para validação** |
+| **`16-PACOTES-PARA-VENDER.md`** | **👉 COMECE AQUI.** Os 3 pacotes com entregáveis, preços, roteiro de qualificação e argumento de venda | **v1.0 — pronto para 10/08** |
+| `14-PLANO-DE-PRODUTOS-E-PRECOS.md` | A lógica por trás dos preços | **v1.0 — §4 e §6 corrigidos pelo `15`** |
 | `00-README-E-STATUS.md` | Onde estamos e o que já é decidido | vivo |
 | `01-FATOS-PREMISSAS-LACUNAS.md` | O que é fato, o que é hipótese, o que se contradiz | **v1.0 — entregue** |
 | `02-DICIONARIO-DE-DADOS.md` | O que cada palavra e cada fórmula significa | **v1.0 — entregue** |
@@ -37,6 +38,7 @@
 | `13-MERCADO-DE-AGENCIAS-E-OCEANO-AZUL.md` | Onde a Expansion está contra o mercado, os pontos cegos e a brecha | **v1.0 — entregue** |
 | `14-PLANO-DE-PRODUTOS-E-PRECOS.md` | A síntese executiva — leva para a mesa | **v1.0 — §4 e §6 corrigidos pelo `15`** |
 | `15-ECONOMIA-DO-CLIENTE-E-CORRECOES.md` | Quanto a loja consegue pagar, e três correções ao que eu afirmei | **v1.0 — entregue** |
+| `16-PACOTES-PARA-VENDER.md` | Os pacotes prontos para a mesa | **v1.0 — pronto para 10/08** |
 | `DECISION-LOG.md` | Toda decisão, com dono, data e consequência | vivo |
 | `DATA-REQUEST.md` | O que falta e de quem | **v1.0 — aguardando direção** |
 | `CHANGELOG.md` | O que mudou a cada rodada | vivo |
