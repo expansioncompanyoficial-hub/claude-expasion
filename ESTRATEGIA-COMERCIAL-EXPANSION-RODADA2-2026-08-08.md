@@ -4,6 +4,8 @@
 **Data:** 08/08/2026 · **Dono:** Nicolas Nascimento
 **Substitui as Partes II e III de** `ESTRATEGIA-COMERCIAL-EXPANSION-2026-08-08.md` (rodada 1, escrita sem acesso ao material do projeto)
 
+**Versão web deste documento:** https://claude.ai/code/artifact/e95bb8ba-7168-4554-a309-3a2ada96aa0d
+
 ---
 
 ## NOTA DE ESCOPO — o que li e o que estou acrescentando
