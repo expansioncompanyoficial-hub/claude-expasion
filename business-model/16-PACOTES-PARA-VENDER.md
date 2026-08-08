@@ -1,5 +1,7 @@
 # 16 — OS PACOTES, E COMO MONTAR QUALQUER OUTRO
 
+> **Nomenclatura final: EX1 · EX2 · EX3.** A conta por trás de cada número está em `17-COMO-A-CONTA-FUNCIONA.md`.
+
 | | |
 |---|---|
 | **Versão** | 2.0 — **nomenclatura unificada** |
@@ -15,15 +17,15 @@ Eu troquei os nomes no meio do caminho e isso é culpa minha. O histórico:
 
 | Onde | O que eu chamei | Problema |
 |---|---|---|
-| `14` | P1 Método · P2 Operação · P3 Performance | Conceito bom, produtos errados para este nicho |
-| `15` | a pesquisa derrubou o P1 Método e revelou o produto que faltava | correto, mas mudou tudo |
+| `14` | EX1 Método · P2 Operação · P3 Performance | Conceito bom, produtos errados para este nicho |
+| `15` | a pesquisa derrubou o EX1 Método e revelou o produto que faltava | correto, mas mudou tudo |
 | `16 v1` | BASE · MARCA · VENDA | nomes novos sem ligar com P1/P2/P3 |
 
 **A partir daqui existe uma nomenclatura só.** P1, P2 e P3 continuam, com nome comercial dentro de cada um.
 
-### E por que o "P1 Método" morreu
+### E por que o "EX1 Método" morreu
 
-Eu tinha desenhado o P1 como *"eu te ensino a fazer"*. A pesquisa matou isso com um argumento que não tem volta:
+Eu tinha desenhado o EX1 como *"eu te ensino a fazer"*. A pesquisa matou isso com um argumento que não tem volta:
 
 > **A lojista não tem escassez de conhecimento. Tem escassez de tempo.** A dor nº 3 do Kauã — *"o dono faz tudo"* — diz exatamente isso.
 >
@@ -65,7 +67,7 @@ custo-hora da equipe a preço de mercado    R$ 2.600 ÷ 110h  =  R$  23,64
 
 ## 2. OS TRÊS PRODUTOS
 
-| | **P1 — BASE** | **P2 — VENDA** | **P3 — MARCA** |
+| | **EX1 — BASE** | **EX2 — VENDA** | **EX3 — MARCA** |
 |---|---|---|---|
 | **A frase de venda** | *sua base volta a comprar* | *você para de perder venda no WhatsApp* | *gente nova te descobre* |
 | **O problema** | 77% dos clientes dela estão dormindo | ela não dá conta de responder | não entra cliente novo |
@@ -80,7 +82,7 @@ custo-hora da equipe a preço de mercado    R$ 2.600 ÷ 110h  =  R$  23,64
 
 **O produto que você mais sabe fazer é o de pior margem.**
 
-O P3 MARCA — conteúdo e tráfego, o que a Expansion faz hoje — está **4% acima do piso**. Qualquer estouro de horas o joga no prejuízo. O P1 BASE está **122% acima**, com quase o dobro do lucro.
+O EX3 MARCA — conteúdo e tráfego, o que a Expansion faz hoje — está **4% acima do piso**. Qualquer estouro de horas o joga no prejuízo. O EX1 BASE está **122% acima**, com quase o dobro do lucro.
 
 Isso não é acidente: **conteúdo é intensivo em mão de obra e a IA quase não ajuda na arte.** Reativação de base é intensiva em processo, e processo escala.
 
@@ -88,7 +90,7 @@ Isso não é acidente: **conteúdo é intensivo em mão de obra e a IA quase nã
 
 ---
 
-## 3. P1 — BASE · R$ 1.800/mês
+## 3. EX1 — BASE · R$ 1.800/mês
 
 > **"Sua base já comprou de você uma vez. Vou fazer ela comprar de novo."**
 
@@ -129,7 +131,7 @@ E tem o efeito de segunda ordem que vale mais que a venda: **rodando a campanha,
 
 ---
 
-## 4. P2 — VENDA · R$ 3.500/mês
+## 4. EX2 — VENDA · R$ 3.500/mês
 
 > **"Mais de 80% das vendas de moda pelo Instagram terminam no WhatsApp. É lá que você está perdendo dinheiro."**
 
@@ -152,7 +154,7 @@ E tem o efeito de segunda ordem que vale mais que a venda: **rodando a campanha,
 
 ---
 
-## 5. P3 — MARCA · R$ 5.500/mês por perfil
+## 5. EX3 — MARCA · R$ 5.500/mês por perfil
 
 > **"Sua loja vira referência, e gente nova te descobre toda semana."**
 
@@ -174,7 +176,7 @@ E tem o efeito de segunda ordem que vale mais que a venda: **rodando a campanha,
 
 ### 🔴 Limites que não são detalhe — são a margem inteira
 
-Com **4% de folga sobre o piso**, o P3 não sobrevive a escopo aberto:
+Com **4% de folga sobre o piso**, o EX3 não sobrevive a escopo aberto:
 
 - **1 rodada de revisão por peça.** A segunda é cobrada
 - **1 diária de gravação/mês.** Extra é cobrado
@@ -190,11 +192,11 @@ Com **4% de folga sobre o piso**, o P3 não sobrevive a escopo aberto:
 
 | Combinação | Preço/mês | Lucro | Loja de | Precisa gerar de venda nova só para empatar |
 |---|---:|---:|---|---:|
-| **P1** | R$ 1.800 | 47,2% | R$ 40–100k | R$ 5.143 |
-| **P2** | R$ 3.500 | 37,1% | R$ 100k+ | R$ 10.000 |
-| **P1 + P2** | R$ 5.300 | 40,5% | R$ 100–150k | R$ 15.143 |
-| **P3** | R$ 5.500 | 31,3% | R$ 140k+ | R$ 15.714 |
-| **P2 + P3** | R$ 9.000 | 33,5% | R$ 200k+ | R$ 25.714 |
+| **EX1** | R$ 1.800 | 47,2% | R$ 40–100k | R$ 5.143 |
+| **EX2** | R$ 3.500 | 37,1% | R$ 100k+ | R$ 10.000 |
+| **EX1 + EX2** | R$ 5.300 | 40,5% | R$ 100–150k | R$ 15.143 |
+| **EX3** | R$ 5.500 | 31,3% | R$ 140k+ | R$ 15.714 |
+| **EX2 + EX3** | R$ 9.000 | 33,5% | R$ 200k+ | R$ 25.714 |
 | **COMPLETO** | R$ 10.800 | 35,8% | R$ 250k+ | R$ 30.857 |
 
 **Desconto por prazo:** 12 meses = −8%. 6 meses = preço cheio. Nada abaixo de 6 meses.
@@ -232,7 +234,7 @@ E o argumento de calendário, que tem prazo de validade:
 >
 > Um contrato de 6 meses fechado hoje **termina em fevereiro** — no fundo do poço, com a loja sem caixa e sem paciência. **É a pior data possível para renovar.**
 >
-> E o P1 é **mais valioso** em janeiro e fevereiro, quando não entra ninguém na loja e a única receita possível vem de quem já comprou. **Isso vende o contrato de 12 meses sozinho.**
+> E o EX1 é **mais valioso** em janeiro e fevereiro, quando não entra ninguém na loja e a única receita possível vem de quem já comprou. **Isso vende o contrato de 12 meses sozinho.**
 
 ---
 
@@ -243,15 +245,15 @@ E o argumento de calendário, que tem prazo de validade:
 | Faturamento | Teto de fee | Oferecer |
 |---|---:|---|
 | até R$ 40k | R$ 700–1.200 | **ainda não é cliente** — nutrir |
-| R$ 40–100k | R$ 1.500–2.500 | **P1** |
-| R$ 100–200k | R$ 3.000–5.000 | **P1 + P2** |
-| R$ 200k+ | R$ 5.000–9.000 | **P2 + P3** |
+| R$ 40–100k | R$ 1.500–2.500 | **EX1** |
+| R$ 100–200k | R$ 3.000–5.000 | **EX1 + EX2** |
+| R$ 200k+ | R$ 5.000–9.000 | **EX2 + EX3** |
 
 **2. "É loja de rua ou de shopping?"**
 
 Ocupação é **8–12% da receita na rua** contra **15–22% em shopping** — diferença maior que a margem líquida inteira. **Uma loja de R$ 75 mil em shopping pode ter lucro econômico zero**, e aí nenhum pacote cabe.
 
-**3ª, se ela abrir:** *"Quantos contatos você tem no WhatsApp?"* Abaixo de 800, o P1 não tem matéria-prima.
+**3ª, se ela abrir:** *"Quantos contatos você tem no WhatsApp?"* Abaixo de 800, o EX1 não tem matéria-prima.
 
 ---
 
@@ -260,8 +262,8 @@ Ocupação é **8–12% da receita na rua** contra **15–22% em shopping** — 
 | Cenário | Carteira | Receita/mês | Pessoas | Folha | **Lucro** |
 |---|---|---:|---:|---:|---:|
 | **Hoje** | 8 perfis | R$ 15.483 | 8 | 60,4% | **~0%** |
-| **Conservador** | 8×P1 · 3×P2 · 3×P3 | **R$ 41.400** | 3,7 | 23,1% | **38,3% = R$ 15.855** |
-| **Base** | 10×P1 · 5×P2 · 4×P3 | **R$ 57.500** | 5,2 | 23,4% | **38,0% = R$ 21.872** |
+| **Conservador** | 8×EX1 · 3×EX2 · 3×EX3 | **R$ 41.400** | 3,7 | 23,1% | **38,3% = R$ 15.855** |
+| **Base** | 10×EX1 · 5×EX2 · 4×EX3 | **R$ 57.500** | 5,2 | 23,4% | **38,0% = R$ 21.872** |
 
 > **14 clientes já entregam 38% de lucro.** Receita por cabeça sai de R$ 1.935 para **R$ 11.244**.
 >
@@ -273,13 +275,13 @@ Ocupação é **8–12% da receita na rua** contra **15–22% em shopping** — 
 
 Tudo acima depende de **horas por cliente por mês**, e esse número é **estimativa minha**:
 
-| Se o P3 custar... | Folha vira | Lucro cai para |
+| Se o EX3 custar... | Folha vira | Lucro cai para |
 |---|---:|---:|
 | 39h (minha estimativa) | 30,2% | 31,3% |
 | 45h | 34,9% | 26,7% |
 | **55h** | **42,6%** | **18,9%** |
 
-**O P3 tem 4% de folga. Ele é o único que quebra se eu estiver errado por pouco.** O P1 e o P2 aguentam.
+**O EX3 tem 4% de folga. Ele é o único que quebra se eu estiver errado por pouco.** O EX1 e o EX2 aguentam.
 
 **Valide as horas com quem executa antes de sexta.** É a única coisa que pode derrubar este plano.
 
@@ -289,9 +291,9 @@ Tudo acima depende de **horas por cliente por mês**, e esse número é **estima
 
 | # | O quê | Quando |
 |---|---|---|
-| **1** | **Rodar a campanha de reativação da Clau Kids.** Sem número próprio, a taxa de resposta do P1 é chute — e é a promessa do produto de entrada | **quinta** |
+| **1** | **Rodar a campanha de reativação da Clau Kids.** Sem número próprio, a taxa de resposta do EX1 é chute — e é a promessa do produto de entrada | **quinta** |
 | 2 | Validar as horas (6 / 20 / 39) com Débora, Adryel e Matheus | quinta |
-| 3 | Escrever a régua de atendimento do P2 — não existe ainda | quinta/sexta |
+| 3 | Escrever a régua de atendimento do EX2 — não existe ainda | quinta/sexta |
 | 4 | Fechar a grade de conteúdo de um arquétipo de moda feminina | sexta |
 | 5 | Validar preços com o Kauã | sexta |
 | 6 | Montar a lista de prospecção **por faixa de faturamento**, não por logo | sexta |
