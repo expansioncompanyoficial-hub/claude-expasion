@@ -1,0 +1,676 @@
+<title>Radar — Moda Feminina BR · 08/2026 → 02/2027</title>
+<style>
+/* ---------- tokens: light is the base, dark redefined twice ---------- */
+:root{
+  color-scheme: light;
+  --ground:#FFFFFF;
+  --surface:#F5F3F8;
+  --surface-2:#EDEAF3;
+  --line:#DDD8E6;
+  --line-strong:#C4BCD6;
+  --ink:#191420;
+  --ink-2:#4E465C;
+  --ink-3:#7A7189;
+  --accent:#D6004F;
+  --accent-soft:#FDE7EF;
+  --warn:#A65200;
+  --warn-soft:#FBEEDD;
+  --s1:#2a78d6;   /* regulatório / custo */
+  --s2:#eb6834;   /* mídia / eleição */
+  --s3:#1baf7a;   /* comercial / sazonal */
+  --shadow:0 1px 2px rgba(25,20,32,.06), 0 8px 24px -12px rgba(25,20,32,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#141019;
+    --surface:#1D1925;
+    --surface-2:#262031;
+    --line:#302939;
+    --line-strong:#453C52;
+    --ink:#F0ECF5;
+    --ink-2:#B0A7BE;
+    --ink-3:#847A93;
+    --accent:#FF3D78;
+    --accent-soft:#3A1122;
+    --warn:#E0922F;
+    --warn-soft:#33240F;
+    --s1:#3987e5;
+    --s2:#d95926;
+    --s3:#199e70;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#141019;
+  --surface:#1D1925;
+  --surface-2:#262031;
+  --line:#302939;
+  --line-strong:#453C52;
+  --ink:#F0ECF5;
+  --ink-2:#B0A7BE;
+  --ink-3:#847A93;
+  --accent:#FF3D78;
+  --accent-soft:#3A1122;
+  --warn:#E0922F;
+  --warn-soft:#33240F;
+  --s1:#3987e5;
+  --s2:#d95926;
+  --s3:#199e70;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+}
+
+/* ---------- type ---------- */
+:root{
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.narrow{max-width:660px}
+
+/* ---------- masthead ---------- */
+.mast{border-bottom:1px solid var(--line);padding:44px 0 30px;margin-bottom:42px}
+.kicker{
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:20px;
+}
+.kicker span:not(:first-child){color:var(--ink-3)}
+h1{
+  font-family:var(--mono);font-weight:600;font-size:clamp(30px,5.4vw,50px);
+  line-height:1.06;letter-spacing:-.03em;margin:0 0 20px;text-wrap:balance;
+}
+h1 em{font-style:normal;color:var(--accent)}
+.dek{font-size:clamp(17px,2.1vw,20px);color:var(--ink-2);max-width:62ch;margin:0}
+.dek strong{color:var(--ink);font-weight:600}
+
+/* ---------- sections ---------- */
+section{margin:0 0 64px}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-3);display:flex;align-items:center;gap:12px;margin:0 0 18px;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+h2{
+  font-family:var(--mono);font-weight:600;font-size:clamp(21px,3vw,28px);
+  letter-spacing:-.02em;line-height:1.2;margin:0 0 16px;text-wrap:balance;
+}
+h3{font-family:var(--mono);font-weight:600;font-size:16px;letter-spacing:-.01em;margin:0 0 8px}
+p{margin:0 0 16px;max-width:66ch}
+p:last-child{margin-bottom:0}
+a{color:var(--accent);text-underline-offset:3px}
+strong{font-weight:600}
+.lede{font-size:19px;color:var(--ink-2)}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- timeline ---------- */
+.tl-shell{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:0;overflow:hidden}
+.tl-head{
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;
+  padding:16px 20px;border-bottom:1px solid var(--line);
+}
+.tl-title{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:12px;color:var(--ink-2)}
+.legend b{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:baseline}
+.tl-scroll{overflow-x:auto;padding:26px 20px 14px}
+.tl-svg{display:block;min-width:1680px}
+.tl-hint{font-family:var(--sans);font-size:11.5px;color:var(--ink-3);padding:0 20px 14px;margin:0}
+
+/* ---------- event cards ---------- */
+.events{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;margin-top:20px}
+.ev{
+  display:grid;grid-template-columns:88px 92px 1fr auto;gap:16px;align-items:center;
+  background:var(--ground);padding:13px 18px;
+}
+.ev.past{opacity:.44}
+.ev-d{font-family:var(--mono);font-size:13px;color:var(--ink-2);white-space:nowrap}
+.ev-c{
+  font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.02em;
+  padding:3px 0;white-space:nowrap;border-left:3px solid;padding-left:10px;
+}
+.ev-l{font-family:var(--sans);font-size:14.5px;line-height:1.4}
+.ev-l b{font-weight:600}
+.ev-tag{
+  font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 8px;border-radius:2px;white-space:nowrap;
+}
+.tag-act{background:var(--accent);color:#fff}
+.tag-bin{background:var(--warn-soft);color:var(--warn);border:1px solid var(--warn)}
+@media(max-width:720px){
+  .ev{grid-template-columns:1fr auto;gap:6px 12px}
+  .ev-d{grid-column:1}
+  .ev-tag{grid-column:2;grid-row:1}
+  .ev-c{grid-column:1/-1;border-left:none;padding-left:0}
+  .ev-c::before{content:"";display:inline-block;width:9px;height:9px;border-radius:2px;background:currentColor;margin-right:7px}
+  .ev-l{grid-column:1/-1}
+}
+
+/* ---------- stat tiles ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.stat{background:var(--ground);padding:22px 20px;display:flex;flex-direction:column;gap:7px}
+.stat-l{font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);line-height:1.35}
+.stat-v{font-family:var(--mono);font-size:clamp(28px,4vw,38px);font-weight:600;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.stat-v.hot{color:var(--accent)}
+.stat-n{font-family:var(--sans);font-size:12.5px;color:var(--ink-2);line-height:1.45}
+.bar{height:5px;background:var(--surface-2);border-radius:3px;overflow:hidden;margin-top:2px}
+.bar i{display:block;height:100%;border-radius:3px}
+
+/* ---------- pull quote ---------- */
+.pull{
+  border-left:3px solid var(--accent);padding:4px 0 4px 22px;margin:26px 0;
+  font-size:20px;line-height:1.5;color:var(--ink);max-width:60ch;
+}
+.pull small{display:block;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.5}
+
+/* ---------- radar table ---------- */
+.radar{border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.rblock-h{
+  background:var(--surface-2);padding:11px 18px;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-2);
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);
+}
+.rblock-h em{font-style:normal;color:var(--ink-3);letter-spacing:.06em;text-transform:none;font-size:11.5px}
+.rrow{display:grid;grid-template-columns:1.35fr 1.25fr 96px 1.5fr;gap:18px;padding:15px 18px;border-bottom:1px solid var(--line);align-items:start}
+.rrow:last-child{border-bottom:none}
+.rrow.head{
+  background:var(--surface);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);padding-top:9px;padding-bottom:9px;
+}
+.r-name{font-family:var(--sans);font-size:14.5px;font-weight:600;line-height:1.35}
+.r-name i{display:block;font-style:normal;font-weight:400;font-size:12.5px;color:var(--ink-3);margin-top:3px}
+.r-lim{font-family:var(--sans);font-size:13.5px;color:var(--ink-2);line-height:1.4}
+.r-act{font-family:var(--sans);font-size:13.5px;color:var(--ink-2);line-height:1.4}
+input.r-in{
+  width:100%;font-family:var(--mono);font-size:14px;font-variant-numeric:tabular-nums;
+  padding:7px 9px;border:1px solid var(--line-strong);border-radius:3px;
+  background:var(--ground);color:var(--ink);
+}
+input.r-in:focus-visible{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+input.r-in.breach{border-color:var(--accent);background:var(--accent-soft);color:var(--ink);font-weight:600}
+input.r-in.ok{border-color:var(--line-strong)}
+.r-flag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-top:5px;display:none}
+.r-flag.on{display:block}
+@media(max-width:800px){
+  .rrow{grid-template-columns:1fr 1fr;gap:10px 14px}
+  .rrow.head{display:none}
+  .r-name{grid-column:1/-1}
+  .r-act{grid-column:1/-1;padding-top:2px;border-top:1px dashed var(--line);margin-top:4px}
+}
+
+/* ---------- plays ---------- */
+.plays{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.play{background:var(--ground);padding:22px 22px;display:grid;grid-template-columns:56px 1fr;gap:20px}
+.play-n{
+  font-family:var(--mono);font-size:26px;font-weight:600;color:var(--accent);
+  letter-spacing:-.04em;line-height:1;padding-top:2px;font-variant-numeric:tabular-nums;
+}
+.play-h{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:9px}
+.play-t{font-family:var(--mono);font-size:16.5px;font-weight:600;letter-spacing:-.015em;line-height:1.3}
+.play-d{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+.play-d.urgent{color:var(--accent);font-weight:600}
+.play p{font-size:15px;line-height:1.55;color:var(--ink-2);max-width:70ch;margin-bottom:10px}
+.play p strong{color:var(--ink)}
+.crit{font-family:var(--sans);font-size:12.5px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:9px;margin-top:12px}
+.crit b{color:var(--ink-2);font-weight:600}
+@media(max-width:640px){.play{grid-template-columns:1fr;gap:8px}.play-n{font-size:20px}}
+
+/* ---------- force cards ---------- */
+.forces{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.force{background:var(--ground);padding:22px 20px}
+.force h3{margin-bottom:10px}
+.force p{font-family:var(--sans);font-size:14px;line-height:1.55;color:var(--ink-2);margin-bottom:10px}
+.force .stat-v{font-size:26px;margin-bottom:4px}
+
+/* ---------- falsifiers ---------- */
+.fals{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:14px}
+.fals th{
+  text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:400;padding:9px 14px;background:var(--surface);border:1px solid var(--line);
+}
+.fals td{padding:13px 14px;border:1px solid var(--line);vertical-align:top;line-height:1.45;color:var(--ink-2)}
+.fals td:first-child{color:var(--ink);font-weight:600;width:30%}
+.fals-wrap{overflow-x:auto;border-radius:4px}
+.fals-wrap table{min-width:620px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:30px 0 60px;margin-top:20px;font-family:var(--sans);font-size:13px;color:var(--ink-3);line-height:1.6}
+footer p{max-width:70ch}
+footer code{font-family:var(--mono);font-size:12.5px;background:var(--surface-2);padding:1px 5px;border-radius:2px;color:var(--ink-2)}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker">
+    <span>Radar de antecipação</span>
+    <span>Expansion · nicho moda feminina</span>
+    <span id="stamp">Leitura de 08/08/2026</span>
+  </div>
+  <h1>O mercado não cresce em peças.<br>Cresce em <em>preço</em>.</h1>
+  <p class="dek">E nos próximos seis meses o custo de <strong>gerar</strong> uma conversa sobe por motivo eleitoral, o custo de <strong>responder</strong> deixa de ser zero em 01/10, e a contabilidade de todo mundo muda em 01/01. Este painel existe para você ler isso toda segunda-feira.</p>
+</header>
+
+<section>
+  <div class="eyebrow">A tese em quatro números</div>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-l">Peças vendidas · outono-inverno 2026</div>
+      <div class="stat-v num">+0,65%</div>
+      <div class="bar"><i style="width:8%;background:var(--ink-3)"></i></div>
+      <div class="stat-n">1,85 bilhão de peças. Volume praticamente parado — IEMI/ABIT.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-l">Faturamento · mesma temporada</div>
+      <div class="stat-v num">+4,2%</div>
+      <div class="bar"><i style="width:52%;background:var(--s1)"></i></div>
+      <div class="stat-n">R$ 63,34 bi. Todo o crescimento é preço, não unidade.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-l">Conversão perdida após 5 min sem resposta</div>
+      <div class="stat-v hot num">−80%</div>
+      <div class="bar"><i style="width:80%;background:var(--accent)"></i></div>
+      <div class="stat-n">Resposta em até 2 min converte 21× mais. 40% desistem em 10 min.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-l">CPM Facebook em 2022, 15 dias após abrir a campanha</div>
+      <div class="stat-v hot num">19×</div>
+      <div class="bar"><i style="width:100%;background:var(--accent)"></i></div>
+      <div class="stat-n">De R$ 5,03 para R$ 96,71. A próxima janela abre em 16/08/2026.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">O cruzamento</div>
+  <div class="narrow">
+    <h2>Três curvas que se encontram em outubro</h2>
+    <p class="lede">Isoladas, são notícia. Cruzadas, quebram o modelo de "gerar muitas conversas e responder algumas".</p>
+    <p><strong>Gerar ficou mais caro.</strong> A Meta passou a repassar tributos em 01/01/2026: anúncios no Brasil subiram 12,15%. Na prática, R$ 1.000 de verba viram R$ 878,50 de mídia. De 16/08 a 25/10 entram 26 estados e milhares de candidatos no mesmo leilão.</p>
+    <p><strong>Não responder sempre custou venda.</strong> Acima de cinco minutos a probabilidade de fechar cai 80%. Vinte e quatro por cento das desistências de compra no Brasil são por atendimento lento — atrás só de preço.</p>
+    <p><strong>Responder passa a custar dinheiro em 01/10/2026.</strong> A Meta começa a cobrar por toda mensagem de serviço: qualquer resposta, humana ou de IA de terceiro, dentro da janela de 24 horas. A tarifa brasileira sai até 01/09.</p>
+    <p>E não há volume novo para diluir nada disso, porque o mercado não cresce em unidades.</p>
+
+    <div class="pull">
+      “35 conversas em 3 dias na Ciés. Se deixar 24/7 rodando anúncio, vai ter muita mensagem e ela não vai ter braço pra responder.”
+      <small>Matheus Felipi, grupo de tráfego, 20/07/2026. Verba da Ciés: R$ 1.000/mês, paga pela metade. Aplicando ticket médio de R$ 271 e conversão conservadora de 15%, as 52 conversas ignoradas em junho valiam cerca de <b>R$ 2.100</b> — quatro vezes a verba efetivamente paga.</small>
+    </div>
+
+    <p>Até 30/09 esse diagnóstico é uma boa ideia comercial. A partir de 01/10 ele vira uma fatura que o lojista recebe. Dor com preço na etiqueta vende; dor abstrata, não.</p>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Calendário forçado · 08/08/2026 → 09/02/2027</div>
+  <h2>Quatorze datas que acontecem independentemente do que você fizer</h2>
+
+  <div class="tl-shell">
+    <div class="tl-head">
+      <div class="tl-title">Linha do tempo · 185 dias</div>
+      <div class="legend">
+        <span><b style="background:var(--s1)"></b>Regulatório e custo</span>
+        <span><b style="background:var(--s2)"></b>Mídia e eleição</span>
+        <span><b style="background:var(--s3)"></b>Comercial e sazonal</span>
+        <span><b style="background:var(--accent)"></b>Hoje</span>
+      </div>
+    </div>
+    <div class="tl-scroll"><svg class="tl-svg" id="tl" viewBox="0 0 960 190" role="img" aria-label="Linha do tempo de eventos entre agosto de 2026 e fevereiro de 2027"></svg></div>
+    <p class="tl-hint">Arraste na horizontal para percorrer a linha. A lista abaixo traz os mesmos eventos com a contagem regressiva atualizada.</p>
+  </div>
+
+  <div class="events" id="evlist"></div>
+</section>
+
+<section>
+  <div class="eyebrow">Instrumento</div>
+  <h2>Radar operacional</h2>
+  <p class="lede" style="max-width:66ch">Quinze leituras. Cada uma tem limiar e ação — indicador sem ação é enfeite. Digite o número da semana e o campo acusa quando o limiar for rompido. As leituras ficam salvas neste navegador.</p>
+
+  <div class="radar" id="radar"></div>
+</section>
+
+<section>
+  <div class="eyebrow">Sete jogadas · ordenadas por prazo</div>
+  <h2>O que fazer, com data de expiração</h2>
+  <div class="plays" id="plays"></div>
+</section>
+
+<section>
+  <div class="eyebrow">Forças estruturais</div>
+  <h2>O que se move por baixo do calendário</h2>
+  <div class="forces">
+    <div class="force">
+      <h3>A reforma bate mais na agência que na loja</h3>
+      <div class="stat-v num" style="color:var(--accent)">90,5%</div>
+      <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px">dos seus clientes-alvo estão no Simples</p>
+      <p>Prestador de serviço com folha alta e poucos insumos é o perfil que mais sofre no IVA dual de 26,5%–28%: pouco a creditar, alíquota muito acima do ISS de hoje. Pior: cliente no Simples não aproveita crédito integral, então o aumento não é repassável como "você credita" — para ele é custo puro.</p>
+      <p><strong>O teto do Simples (R$ 4,8 mi/ano) não é marco de crescimento. É precipício de margem — e fica exatamente no caminho de "a maior assessoria de moda do Brasil".</strong></p>
+    </div>
+    <div class="force">
+      <h3>A taxa das blusinhas voltou a ser incerta</h3>
+      <div class="stat-v num" style="color:var(--warn)">~30 dias</div>
+      <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px">para o Congresso decidir</p>
+      <p>A MP 1.357/2026 zerou o Imposto de Importação de 20% sobre compras até US$ 50 em 13/05. Caduca em setembro se não for votada — as fontes divergem entre 08/09 e 22/09, e isso precisa ser confirmado no portal do Congresso. O ICMS estadual de 17% a 20% continua nos dois cenários.</p>
+      <p>Contrapeso: a Shein já tira <strong>55% da receita brasileira de lojistas nacionais</strong> que vendem na plataforma dela, com 336 fábricas parceiras. Ela deixou de ser só concorrente — virou canal.</p>
+    </div>
+    <div class="force">
+      <h3>O verão de 2027 encurta 8 dias</h3>
+      <div class="stat-v num" style="color:var(--s3)">09/02</div>
+      <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px">Carnaval 2027 · em 2026 foi 17/02</p>
+      <p>A janela de venda de verão vai do Natal ao Carnaval. Oito dias a menos numa janela de sete semanas é quase 15% da temporada evaporando. A liquidação de janeiro precisa começar antes e ser mais agressiva; quem comprar estoque de verão em novembro com a régua de 2026 carrega peça em março.</p>
+      <p><strong>É a única tendência de moda deste painel — e é de calendário, não de estética, porque é a única que mexe em capital de giro.</strong></p>
+    </div>
+    <div class="force">
+      <h3>A descoberta está saindo do feed</h3>
+      <div class="stat-v num" style="color:var(--s1)">76%</div>
+      <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px">dos brasileiros pretendem comprar via agente de IA</p>
+      <p>Metade já usou IA para auxiliar compras. A primeira transação agêntica do país foi em 11/03/2026; em 29/04 o programa da Visa reuniu BB, Bradesco, Santander, Dock e XP. A Renner testa a "Rê" com parte da base.</p>
+      <p>Um agente não navega em carrossel bonito — lê dado estruturado. <strong>Uma loja que só existe como perfil no Instagram é invisível para ele.</strong> Não é urgente em seis meses; estruturar catálogo leva seis meses. Por isso está aqui.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Honestidade intelectual</div>
+  <h2>O que me provaria errado</h2>
+  <p class="lede" style="max-width:66ch">Se algum destes aparecer, o ponto correspondente perde validade e precisa de rodada nova. Uma tese sem condição de derrota é opinião com gráfico.</p>
+  <div class="fals-wrap">
+    <table class="fals">
+      <thead><tr><th>Tese</th><th>O que a derruba</th><th>Onde ver</th></tr></thead>
+      <tbody>
+        <tr><td>Mercado estagnado em unidades</td><td>Temporada primavera-verão 2026/27 vier com <span class="num">+3%</span> ou mais em peças</td><td>IEMI/ABIT, ~out/2026</td></tr>
+        <tr><td>CPM eleitoral explode</td><td>CPM médio da carteira subir menos de <span class="num">25%</span> entre 15/08 e 04/10</td><td>Gerenciador Meta, semanal</td></tr>
+        <tr><td>Cobrança de mensagem vira dor real</td><td>Tarifa brasileira vier abaixo de <span class="num">R$ 0,02</span> por mensagem</td><td>Anúncio Meta, até 01/09/2026</td></tr>
+        <tr><td>Atendimento é o gargalo</td><td>Cliente com resposta abaixo de 5 min <em>não</em> aumentar conversão em ao menos 50%</td><td>Piloto próprio, 60 dias</td></tr>
+        <tr><td>Comércio agêntico chega ao varejo pequeno</td><td>Nenhuma plataforma popular no Brasil expor catálogo a agentes até meados de 2027</td><td>Revisão trimestral</td></tr>
+        <tr><td>Simples é precipício, não marco</td><td>Regulamentação criar transição que preserve a carga do prestador acima do teto</td><td>Acompanhamento legislativo</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <p><strong style="color:var(--ink-2)">Método.</strong> Dados coletados em 08/08/2026 de fontes primárias (TSE, Banco Central, Senado) e imprensa especializada (IEMI/ABIT, CNC, Sebrae, BCG, E-Commerce Brasil, Meio &amp; Mensagem). O estudo completo, com as fontes item a item, os graus de confiança e as divergências não resolvidas, está em <code>MERCADO-MODA-FEMININA-RADAR-2026-08-08.md</code>.</p>
+  <p><strong style="color:var(--ink-2)">Ponto em aberto.</strong> A data de caducidade da MP 1.357/2026 divergiu entre fontes (08/09 vs. 22/09). Não foi possível fechar com fonte primária — está marcada como item de radar, não como análise.</p>
+  <p><strong style="color:var(--ink-2)">Validade.</strong> Este painel expira em 26/10/2026, quando o custo real da janela eleitoral estiver fechado. A rodada seguinte é arquivo novo, não edição deste.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- dados ---------------- */
+  var T0 = Date.UTC(2026,7,8), T1 = Date.UTC(2027,1,9);
+  var DAY = 86400000;
+
+  var EV = [
+    {y:2026,m:7, d:9,  t:"com", l:"Dia dos Pais", n:"Ponto de decisão já passou. Hoje é a última janela de mídia barata."},
+    {y:2026,m:7, d:16, t:"mid", l:"Propaganda eleitoral liberada na internet", n:"Abre o leilão disputado. Comprar audiência antes — Jogada 1.", act:true},
+    {y:2026,m:7, d:28, t:"mid", l:"Horário eleitoral em rádio e TV", n:"Pico de atenção política; conteúdo de marca perde espaço."},
+    {y:2026,m:8, d:1,  t:"reg", l:"Meta publica a tarifa brasileira de mensagem de serviço", n:"Recalcular o custo de atendimento de cada cliente.", act:true},
+    {y:2026,m:8, d:8,  t:"reg", l:"MP 1.357/2026 caduca se não for votada", n:"Taxa das blusinhas de 20% pode voltar. Data em disputa: 08 ou 22/09.", bin:true},
+    {y:2026,m:8, d:15, t:"com", l:"Dia do Cliente", n:"Data de base fiel, não de aquisição — o CPM está caro."},
+    {y:2026,m:9, d:1,  t:"reg", l:"WhatsApp começa a cobrar mensagem de serviço", n:"Toda resposta na janela de 24h passa a ter preço. A virada do modelo.", act:true},
+    {y:2026,m:9, d:4,  t:"mid", l:"Eleições · 1º turno", n:"Pico de CPM."},
+    {y:2026,m:9, d:12, t:"com", l:"Dia das Crianças", n:"Relevante para Clau Kids — e cai dentro da janela cara."},
+    {y:2026,m:9, d:25, t:"mid", l:"Eleições · 2º turno", n:"Fim da inflação eleitoral. Retomar prospecção fria.", act:true},
+    {y:2026,m:10,d:27, t:"com", l:"Black Friday", n:"Projeção de R$ 8 bi no e-commerce brasileiro.", act:true},
+    {y:2026,m:11,d:25, t:"com", l:"Natal", n:""},
+    {y:2027,m:0, d:1,  t:"reg", l:"CBS 8,8% · fim de PIS/COFINS · split payment", n:"Muda a contabilidade de todo cliente. Preparar em novembro.", act:true},
+    {y:2027,m:1, d:9,  t:"com", l:"Carnaval", n:"Oito dias mais cedo que em 2026. O verão encurta 15%.", act:true}
+  ];
+
+  var TYPE = {
+    reg:{c:"var(--s1)", n:"Regulatório"},
+    mid:{c:"var(--s2)", n:"Mídia"},
+    com:{c:"var(--s3)", n:"Comercial"}
+  };
+
+  var MES = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+  function ts(e){ return Date.UTC(e.y, e.m, e.d); }
+  function fmt(e){ return String(e.d).padStart(2,"0") + " " + MES[e.m]; }
+  function today(){ var n=new Date(); return Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()); }
+
+  /* ---------------- linha do tempo ---------------- */
+  var W=1680, PADL=34, PADR=34;
+  var LANES=6, LANE_H=34, LANE_0=40;          // faixa 0 = mais perto do eixo
+  var AXIS = 30 + LANE_0 + (LANES-1)*LANE_H;  // topo reservado para o rótulo da faixa eleitoral
+  var H = AXIS + 34;
+  var svg = document.getElementById("tl");
+  svg.setAttribute("viewBox","0 0 " + W + " " + H);
+  var NS = "http://www.w3.org/2000/svg";
+  function el(t,a){ var n=document.createElementNS(NS,t); for(var k in a) n.setAttribute(k,a[k]); return n; }
+  function x(t){ return PADL + (t - T0)/(T1 - T0) * (W - PADL - PADR); }
+
+  var tn = today();
+
+  // faixa eleitoral, ao fundo
+  var e0 = Date.UTC(2026,7,16), e1 = Date.UTC(2026,9,25);
+  svg.appendChild(el("rect",{x:x(e0),y:14,width:x(e1)-x(e0),height:AXIS-14,fill:"var(--s2)","fill-opacity":.085}));
+  var eb = el("text",{x:(x(e0)+x(e1))/2,y:12,"text-anchor":"middle","font-family":"var(--mono)","font-size":10.5,"font-weight":600,"letter-spacing":"0.16em",fill:"var(--s2)"});
+  eb.textContent = "71 DIAS DE CPM INFLADO PELA ELEIÇÃO";
+  svg.appendChild(eb);
+
+  // eixo e marcas de mês
+  svg.appendChild(el("line",{x1:PADL,y1:AXIS,x2:W-PADR,y2:AXIS,stroke:"var(--line-strong)","stroke-width":1}));
+  for(var mi=0; mi<7; mi++){
+    var my = 2026 + (mi>=5?1:0), mm = (7+mi)%12;
+    var mt = Date.UTC(my, mm, 1);
+    if(mt < T0 || mt > T1) continue;
+    svg.appendChild(el("line",{x1:x(mt),y1:AXIS,x2:x(mt),y2:AXIS+7,stroke:"var(--line-strong)","stroke-width":1}));
+    var ml = el("text",{x:x(mt),y:AXIS+23,"text-anchor":"middle","font-family":"var(--mono)","font-size":10,"letter-spacing":"0.12em",fill:"var(--ink-3)"});
+    ml.textContent = MES[mm].toUpperCase() + (mm===0? " ’27" : "");
+    svg.appendChild(ml);
+  }
+
+  // alocação de faixas: cada evento cai na faixa livre mais baixa
+  var occupied = []; for(var L=0; L<LANES; L++) occupied.push([]);
+  var placed = EV.map(function(e){
+    var px = x(ts(e));
+    var label = e.l.length > 34 ? e.l.slice(0,32).replace(/[ ·—]+$/,"") + "…" : e.l;
+    var w = Math.max(fmt(e).length * 7.2, label.length * 5.45);
+    var anchor = "middle", x0 = px - w/2, x1v = px + w/2;
+    if(x0 < PADL){ anchor = "start"; x0 = px; x1v = px + w; }
+    if(x1v > W - PADR){ anchor = "end"; x1v = px; x0 = px - w; }
+    var lane = 0;
+    for(; lane < LANES-1; lane++){
+      var clash = occupied[lane].some(function(iv){ return !(x1v + 12 < iv[0] || x0 - 12 > iv[1]); });
+      if(!clash) break;
+    }
+    occupied[lane].push([x0, x1v]);
+    return {e:e, px:px, lane:lane, anchor:anchor, label:label};
+  });
+
+  placed.forEach(function(o){
+    var col = TYPE[o.e.t].c, past = ts(o.e) < tn;
+    var y = AXIS - (LANE_0 + o.lane * LANE_H);
+    var g = el("g",{opacity: past ? .45 : 1});
+    g.appendChild(el("line",{x1:o.px,y1:AXIS,x2:o.px,y2:y,stroke:col,"stroke-width":2,"stroke-opacity":.5}));
+    g.appendChild(el("circle",{cx:o.px,cy:y,r:o.e.act?5:3.5,fill:col,stroke:"var(--surface)","stroke-width":2}));
+    var d1 = el("text",{x:o.px,y:y-17,"text-anchor":o.anchor,"font-family":"var(--mono)","font-size":11.5,"font-weight":600,fill:"var(--ink)"});
+    d1.textContent = fmt(o.e);
+    g.appendChild(d1);
+    var d2 = el("text",{x:o.px,y:y-4,"text-anchor":o.anchor,"font-family":"var(--sans)","font-size":11,fill:"var(--ink-2)"});
+    d2.textContent = o.label;
+    g.appendChild(d2);
+    var ttl = el("title"); ttl.textContent = fmt(o.e) + " — " + o.e.l + (o.e.n ? " · " + o.e.n : "");
+    g.appendChild(ttl);
+    svg.appendChild(g);
+  });
+
+  // marcador de hoje, por cima de tudo
+  if(tn >= T0 && tn <= T1){
+    var hx = x(tn);
+    svg.appendChild(el("line",{x1:hx,y1:18,x2:hx,y2:AXIS+5,stroke:"var(--accent)","stroke-width":2}));
+    svg.appendChild(el("circle",{cx:hx,cy:AXIS+5,r:4,fill:"var(--accent)"}));
+    var ht = el("text",{x:hx+8,y:26,"font-family":"var(--mono)","font-size":10.5,"font-weight":600,"letter-spacing":"0.14em",fill:"var(--accent)"});
+    ht.textContent = "HOJE";
+    svg.appendChild(ht);
+  }
+
+  /* ---------------- lista de eventos ---------------- */
+  var list = document.getElementById("evlist");
+  EV.forEach(function(e){
+    var t = ts(e), dd = Math.round((t - tn)/DAY), past = dd < 0;
+    var row = document.createElement("div");
+    row.className = "ev" + (past ? " past" : "");
+    var cd = past ? "passou" : (dd === 0 ? "hoje" : "D−" + dd);
+    row.innerHTML =
+      '<div class="ev-d num">' + fmt(e) + (e.y===2027 ? " ’27" : "") + '</div>' +
+      '<div class="ev-c" style="color:' + TYPE[e.t].c + ';border-color:' + TYPE[e.t].c + '">' + cd + '</div>' +
+      '<div class="ev-l"><b>' + e.l + '</b>' + (e.n ? ' — ' + e.n : '') + '</div>' +
+      '<div>' + (e.bin ? '<span class="ev-tag tag-bin">binário</span>' : (e.act && !past ? '<span class="ev-tag tag-act">ação</span>' : '')) + '</div>';
+    list.appendChild(row);
+  });
+
+  /* ---------------- radar ---------------- */
+  var BLOCKS = [
+    {h:"Bloco A — custo de aquisição", c:"Toda segunda · Gerenciador Meta", rows:[
+      {id:"a1", n:"CPM médio da carteira de moda", u:"Baseline de julho/2026 como referência", lim:"Acima de +40% vs. julho", cmp:"gt", v:null, unit:"R$", act:"Cortar prospecção fria; manter só remarketing e semelhante quente."},
+      {id:"a2", n:"Custo por conversa iniciada", u:"Por cliente, média da semana", lim:"Acima de R$ 12", cmp:"gt", v:12, unit:"R$", act:"Trocar a oferta antes de mexer na verba. Criativo cansado sobe o custo antes do leilão."},
+      {id:"a3", n:"Verba efetiva", u:"Quanto da verba vira mídia, líquido de tributo", lim:"Abaixo de 85%", cmp:"lt", v:85, unit:"%", act:"Repactuar verba com o cliente. Desde 01/01/2026 são 12,15% que somem antes do leilão."}
+    ]},
+    {h:"Bloco B — conversão da conversa", c:"Toda segunda · CRM e WhatsApp · o coração do radar", rows:[
+      {id:"b1", n:"Tempo mediano de 1ª resposta", u:"Mediana, não média — a média esconde o pior caso", lim:"Acima de 5 minutos", cmp:"gt", v:5, unit:"min", act:"Vermelho imediato. Acima de 5 min a conversão cai 80%. Nenhuma verba compensa isso."},
+      {id:"b2", n:"Conversas respondidas em 24h", u:"Sobre o total de conversas iniciadas", lim:"Abaixo de 90%", cmp:"lt", v:90, unit:"%", act:"O problema não é tráfego. Parar de otimizar campanha e abrir a conversa da Jogada 2."},
+      {id:"b3", n:"Conversa respondida → venda", u:"Só sobre as que foram respondidas", lim:"Abaixo de 10%", cmp:"lt", v:10, unit:"%", act:"O gargalo saiu do atendimento e foi para oferta ou preço. Revisar mix, não mídia."},
+      {id:"b4", n:"Índice de Vazamento", u:"Não respondidas × ticket médio × conversão do próprio cliente", lim:"Maior que a verba mensal", cmp:"gt", v:null, unit:"R$", act:"É o número do relatório de segunda e o argumento de upsell — escrito pelo dado do próprio cliente."}
+    ]},
+    {h:"Bloco C — saúde do cliente", c:"Mensal · com o lojista, na frente da planilha dele", rows:[
+      {id:"c1", n:"Ticket médio", u:"Referência: R$ 271 no e-commerce de moda BR", lim:"Abaixo de R$ 271", cmp:"lt", v:271, unit:"R$", act:"Abaixo da referência não é erro — é posicionamento de entrada. Confirmar se é escolha ou deriva."},
+      {id:"c2", n:"Taxa de devolução", u:"Referência do setor: 25% a 40% em moda online", lim:"Acima de 30%", cmp:"gt", v:30, unit:"%", act:"Grade e caimento, não marketing. Provador virtual reduz devolução em até 78%."},
+      {id:"c3", n:"Dias de estoque", u:"Estoque parado é capital preso — e o split payment aperta o giro em 2027", lim:"Acima de 90 dias", cmp:"gt", v:90, unit:"dias", act:"Gatilho da Jogada 4: vender giro de SKU encalhado, não postagem."},
+      {id:"c4", n:"Venda parcelada", u:"Sobre o total faturado no mês", lim:"Acima de 60% e subindo", cmp:"gt", v:60, unit:"%", act:"Consumidora apertada. Peça de entrada e parcela cabível vendem; o meio-termo morre."}
+    ]},
+    {h:"Bloco D — macro e gatilhos", c:"Mensal ou por evento · fonte externa", rows:[
+      {id:"d1", n:"MP 1.357/2026", u:"Votada, caducada ou pendente — confirmar no portal do Congresso", lim:"Caducou", cmp:"txt", v:null, unit:"", act:"Se caducar, os 20% voltam e abre janela de preço relativo. Confirmar a data (08 ou 22/09)."},
+      {id:"d2", n:"Tarifa WhatsApp de serviço no Brasil", u:"Meta publica até 01/09/2026", lim:"Acima de R$ 0,02 por mensagem", cmp:"gt", v:0.02, unit:"R$", act:"Recalcular a Jogada 2. Abaixo disso, a tese do custo de atendimento enfraquece."},
+      {id:"d3", n:"Endividamento das famílias", u:"CNC, mensal — julho/2026 marcou 82%, recorde", lim:"Acima de 82%", cmp:"gt", v:82, unit:"%", act:"Empurrar mix para peça de entrada e ampliar parcelamento antes da Black Friday."},
+      {id:"d4", n:"Peças vendidas na temporada", u:"IEMI/ABIT, duas vezes por ano — última leitura: +0,65%", lim:"Acima de +3%", cmp:"gt", v:3, unit:"%", act:"Se romper para cima, a tese de mercado estagnado cai e o radar precisa de rodada nova."}
+    ]}
+  ];
+
+  var store = {};
+  try { store = JSON.parse(localStorage.getItem("radar-moda-2026") || "{}"); } catch(err) { store = {}; }
+  function save(){ try { localStorage.setItem("radar-moda-2026", JSON.stringify(store)); } catch(err){} }
+
+  var radar = document.getElementById("radar");
+  BLOCKS.forEach(function(b){
+    var bh = document.createElement("div");
+    bh.className = "rblock-h";
+    bh.innerHTML = "<span>" + b.h + "</span><em>" + b.c + "</em>";
+    radar.appendChild(bh);
+
+    var head = document.createElement("div");
+    head.className = "rrow head";
+    head.innerHTML = "<div>Leitura</div><div>Limiar</div><div>Semana</div><div>Ação quando romper</div>";
+    radar.appendChild(head);
+
+    b.rows.forEach(function(r){
+      var row = document.createElement("div");
+      row.className = "rrow";
+      row.innerHTML =
+        '<div class="r-name">' + r.n + '<i>' + r.u + '</i></div>' +
+        '<div class="r-lim">' + r.lim + '</div>' +
+        '<div><input class="r-in" id="in-' + r.id + '" inputmode="decimal" autocomplete="off" ' +
+          'aria-label="Leitura da semana para ' + r.n.replace(/"/g,"") + '" placeholder="' + (r.unit || "—") + '">' +
+          '<div class="r-flag" id="fl-' + r.id + '">rompeu</div></div>' +
+        '<div class="r-act">' + r.act + '</div>';
+      radar.appendChild(row);
+
+      var input = row.querySelector("input");
+      var flag = row.querySelector(".r-flag");
+      if(store[r.id] != null) input.value = store[r.id];
+
+      function evaluate(){
+        var raw = input.value.trim();
+        store[r.id] = raw; save();
+        input.classList.remove("breach","ok");
+        flag.classList.remove("on");
+        if(!raw) return;
+        var num = parseFloat(raw.replace(/\./g,"").replace(",","."));
+        var breach = false;
+        if(r.cmp === "txt"){
+          breach = /caduc/i.test(raw);
+        } else if(!isNaN(num) && r.v != null){
+          breach = r.cmp === "gt" ? num > r.v : num < r.v;
+        }
+        input.classList.add(breach ? "breach" : "ok");
+        if(breach) flag.classList.add("on");
+      }
+      input.addEventListener("input", evaluate);
+      evaluate();
+    });
+  });
+
+  /* ---------------- jogadas ---------------- */
+  var PLAYS = [
+    {due:Date.UTC(2026,7,15), t:"Comprar audiência antes de 16/08", d:"até 15/08/2026",
+     p:["De 16/08 a 25/10 o leilão do Meta ganha 26 estados e milhares de candidatos. Em 2022 o CPM saiu de R$ 5,03 para R$ 96,71 em quinze dias.",
+        "<strong>Esta semana:</strong> subir campanha de captação de lista com toda a verba de prospecção fria disponível. O objetivo não é vender — é capturar contato antes de o preço subir. <strong>De 16/08 a 25/10:</strong> só remarketing e semelhante quente. <strong>A partir de 26/10:</strong> retomar o frio a tempo de aquecer para a Black Friday."],
+     c:"CPM médio da carteira em novembro igual ou abaixo do de julho, e base de contatos ao menos 40% maior em 26/10 do que em 15/08."},
+    {due:Date.UTC(2026,8,30), t:"Trocar a unidade de venda: de conversa gerada para conversa respondida", d:"oferta pronta até 30/09/2026",
+     p:["Hoje a Expansion vende conteúdo e tráfego e entrega conversas. O cliente não responde, não vende, e conclui que tráfego não funciona.",
+        "<strong>A proposta: a Expansion assume o balcão.</strong> Não implanta CRM — opera o atendimento. Em 01/10 o cliente passa a receber fatura por responder; a dor sai do abstrato e ganha preço. Precificar como fixo baixo de operação mais variável sobre venda atribuída — o que resolve a enquete “VENDEMOS × OVERDELIVERY” de 13/07 que ficou com zero votos e nunca foi decidida."],
+     c:"Tempo mediano de primeira resposta abaixo de 5 minutos em 90% das conversas, medido, com relatório semanal."},
+    {due:Date.UTC(2026,8,7), t:"O Índice de Vazamento", d:"primeira versão em 30 dias",
+     p:["Um número por cliente, por mês: <em>conversas não respondidas em 24h × ticket médio × a taxa de conversão das conversas que ele mesmo respondeu.</em> Tudo com dado que já existe.",
+        "É a peça mais barata e mais valiosa deste painel. Resolve o problema de retenção que quase custou a Prime — em 16/07 o registro é literal: “a gente tá muitas semanas sem mandar nenhum relatório”. É o argumento de upsell da Jogada 2, escrito pelo dado do próprio cliente. E é defensável: não promete resultado, mede perda."],
+     c:"Um número, todo cliente, toda segunda-feira, sem exceção por quatro semanas seguidas."},
+    {due:Date.UTC(2026,10,30), t:"Vender giro de estoque, não postagem", d:"piloto até 30/11/2026",
+     p:["O contrato de R$ X por N posts é o formato mais frágil que existe: comparável, cortável, e sem relação com o problema da lojista. O problema dela é peça parada — num mercado com volume estagnado e capital de giro que o split payment vai comprimir.",
+        "A lojista aponta os SKUs encalhados; a Expansion é remunerada por girar aquilo. Alinha incentivo, fica imune à comparação com social media de R$ 800, e cai bem no Carnaval antecipado de 09/02, quando o verão precisa sair mais cedo."],
+     c:"Um cliente, um lote de SKUs, giro medido contra o mês anterior."},
+    {due:Date.UTC(2026,11,31), t:"O Painel do Nicho — o ativo que vira instituição", d:"coletar desde já",
+     p:["Não se torna a maior assessoria de moda do Brasil tendo mais clientes que a Cerberus — eles já declaram 207 lojas e 30+ especialistas. Corrida de tamanho contra quem tem cem vezes o seu número é corrida perdida.",
+        "<strong>Torna-se referência sendo quem publica o número que o mercado cita.</strong> Com 10, 20, 50 lojas operando dentro da Expansion, você tem o benchmark operacional real da pequena loja de roupa feminina brasileira: CPM por região, conversa→venda por categoria, ticket real contra os R$ 271, tempo de resposta mediano do setor. Publicar trimestralmente, de graça, com metodologia aberta.",
+        "Herança do AEOS: um papel só existe se consegue reprovar alguma coisa. Um benchmark só existe se consegue dizer “você está abaixo da mediana” — com número, por escrito, para um cliente pagante. Se nunca reprovar ninguém, é peça de marketing, não instrumento."],
+     c:"Primeira edição publicada com dez lojas ou mais e metodologia aberta."},
+    {due:Date.UTC(2026,10,1), t:"“Prontidão 2027” como entrada comercial", d:"material pronto em 01/11/2026",
+     p:["Em 01/01/2027 todo lojista tem um problema novo, e o risco imediato não é a alíquota — é produto mal cadastrado travando emissão de nota.",
+        "Não é serviço de agência de marketing, e é exatamente por isso que funciona. Um checklist de uma página distribuído em novembro é a conversa mais bem-vinda que um lojista recebe naquele mês — com CPM já normalizado pós-eleição, no período em que ele fecha o ano e revê fornecedores. Não é para vender contabilidade. É para ser a agência que avisou."],
+     c:"Lista qualificada de lojistas de moda captada em novembro-dezembro, a custo de mídia próximo de zero."},
+    {due:Date.UTC(2027,2,31), t:"Dado estruturado de produto", d:"piloto no 1º trimestre de 2027",
+     p:["Estruturar catálogo — nome canônico, categoria, tamanho, cor, material, preço, disponibilidade, schema markup — é trabalho chato, barato e lento. Chato e lento é bom: quem começar em 2026 chega em 2028 com dois anos de vantagem sobre quem começar quando virar assunto.",
+        "E se paga antes do comércio agêntico chegar: catálogo estruturado é pré-requisito para etiquetar produto em live do Instagram e para vender em marketplace — inclusive na Shein, onde 55% da receita brasileira já vem de lojistas nacionais."],
+     c:"Um cliente com catálogo completo e legível por máquina."}
+  ];
+
+  var pw = document.getElementById("plays");
+  PLAYS.forEach(function(pl,i){
+    var dd = Math.round((pl.due - tn)/DAY);
+    var urgent = dd >= 0 && dd <= 21;
+    var when = dd < 0 ? "prazo vencido · " + pl.d : (urgent ? "D−" + dd + " · " + pl.d : pl.d);
+    var div = document.createElement("div");
+    div.className = "play";
+    div.innerHTML =
+      '<div class="play-n num">' + String(i+1).padStart(2,"0") + '</div>' +
+      '<div><div class="play-h"><div class="play-t">' + pl.t + '</div>' +
+      '<div class="play-d' + (urgent||dd<0 ? " urgent" : "") + '">' + when + '</div></div>' +
+      pl.p.map(function(x){ return "<p>" + x + "</p>"; }).join("") +
+      '<div class="crit"><b>Critério de sucesso:</b> ' + pl.c + '</div></div>';
+    pw.appendChild(div);
+  });
+
+  /* ---------------- carimbo ---------------- */
+  var n = new Date();
+  document.getElementById("stamp").textContent =
+    "Estudo de 08/08/2026 · aberto em " + String(n.getDate()).padStart(2,"0") + "/" +
+    String(n.getMonth()+1).padStart(2,"0") + "/" + n.getFullYear();
+})();
+</script>
