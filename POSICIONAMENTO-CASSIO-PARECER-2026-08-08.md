@@ -353,9 +353,11 @@ R$ 150k–1M+         Mid Falconi (projeto, ICP R$4,8M–300M)
 
 ### ✅ RECOMENDAÇÃO
 
-> ## Bandeira: **C — O INSTALADOR**, com o **Diagnóstico de Causa pago** como porta de entrada.
-> ## Empresa familiar (A) entra como o **primeiro recorte a testar dentro de C** — hipótese, não bandeira.
-> ## Búzios é **motor de caixa e de intimidade**. As raposinhas são **linha editorial**, não produto.
+> **Bandeira: C — O INSTALADOR**, com o **Diagnóstico de Causa pago** como porta de entrada.
+>
+> **Empresa familiar (A) entra como o primeiro recorte a testar dentro de C** — hipótese, não bandeira.
+>
+> **Búzios é motor de caixa e de intimidade.** As raposinhas são **linha editorial**, não produto.
 
 **Por que C e não A**, contrariando a leitura inicial da pesquisa: a Opção A tem a maior defensabilidade no papel, mas **ele nunca falou de família empresária em 1h27** — e o que ele descreveu fazendo, do começo ao fim, foi **entrar e instalar**: mapear operação, achar gargalo, realocar gente, montar RH, "entro como treinador". Posicionar alguém no que ele nunca mencionou é repetir o erro da própria reunião (o extrator projetando o próprio molde). **A é uma hipótese excelente e barata de testar dentro de C** — se 20 empresas familiares nomeadas responderem melhor que 20 egressos de imersão, vira bandeira em 90 dias, com evidência.
 
