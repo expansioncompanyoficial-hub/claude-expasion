@@ -17,21 +17,21 @@ Eu troquei os nomes no meio do caminho e isso é culpa minha. O histórico:
 
 | Onde | O que eu chamei | Problema |
 |---|---|---|
-| `14` | EX1 Método · P2 Operação · P3 Performance | Conceito bom, produtos errados para este nicho |
-| `15` | a pesquisa derrubou o EX1 Método e revelou o produto que faltava | correto, mas mudou tudo |
-| `16 v1` | BASE · MARCA · VENDA | nomes novos sem ligar com P1/P2/P3 |
+| `14` | P1 Método · P2 Operação · P3 Performance | Conceito bom, produtos errados para este nicho |
+| `15` | a pesquisa derrubou o "P1 Método" e revelou o produto que faltava | correto, mas mudou tudo |
+| `16 v1` | BASE · MARCA · VENDA | nomes novos, sem ligação com a numeração |
 
-**A partir daqui existe uma nomenclatura só.** P1, P2 e P3 continuam, com nome comercial dentro de cada um.
+**A partir daqui existe uma nomenclatura só: `EX1` · `EX2` · `EX3`**, com nome comercial dentro de cada uma.
 
-### E por que o "EX1 Método" morreu
+### E por que o antigo "Método" morreu
 
-Eu tinha desenhado o EX1 como *"eu te ensino a fazer"*. A pesquisa matou isso com um argumento que não tem volta:
+Eu tinha desenhado o primeiro produto como *"eu te ensino a fazer"*. A pesquisa matou isso com um argumento que não tem volta:
 
 > **A lojista não tem escassez de conhecimento. Tem escassez de tempo.** A dor nº 3 do Kauã — *"o dono faz tudo"* — diz exatamente isso.
 >
 > E tem a parte pior: para uma loja de R$ 35 mil ter 20% de margem, a folha precisa ficar abaixo de 9% da receita — **praticamente sem funcionário**. Ela não contrata porque contratar destrói o lucro dela. **Vender método para quem não tem quem execute é vender uma tarefa a mais.**
 
-O que entrou no lugar dele é o produto que a pesquisa achou e que você já provou uma vez com a Clau.
+No lugar dele entrou o **EX1 BASE** — o produto que a pesquisa achou e que você já provou uma vez com a Clau.
 
 ---
 
