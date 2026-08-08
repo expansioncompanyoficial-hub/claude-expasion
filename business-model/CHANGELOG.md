@@ -73,3 +73,44 @@ SLA), `A-028` (dono da grade), `A-029` (validar os tempos).
 ### O que **não** mudou
 Nenhum preço foi aprovado. Todos seguem `NÃO APROVADO` por `D-001` e `A-006`.
 Os tempos de 6h / 20h / 39h continuam `ESTIMADO` — `A-029` é o que os fecha.
+
+---
+
+## Rodada 08/08/2026 (2) — Playbook comercial e infraestrutura
+
+**Entregue:** `19-PLAYBOOK-COMERCIAL-KAUA.md` e `20-INFRAESTRUTURA-E-DADOS.md`,
+mais a versão visual do playbook
+(https://claude.ai/code/artifact/27ca8840-062e-4a53-aafd-7a16aeee37e1).
+
+### Achados desta rodada
+
+| # | Achado | Onde |
+|---|---|---|
+| 1 | **Cada R$ 100 de desconto tira R$ 61,42 do lucro** — a folha é fixa em reais e não cai junto. Para recompor R$ 100 é preciso vender R$ 163 | `19` §1 |
+| 2 | **O EX3 tem 4% de folga; o EX1 tem 55%.** Daí a regra operacional: **o desconto sai do EX1, nunca do EX3** | `19` §2 |
+| 3 | **Desconto permanente de 15% custa 5,4× mais que dar dois meses de EX1** (R$ 11.940 contra R$ 2.211 num contrato de 12 meses do pacote) | `19` §3 |
+| 4 | **`ALERTA-06` — o custo de mensagem não está em nenhum preço.** É o único custo variável real do EX1 e cresce com a base do cliente. Acima de ~800 conversas/mês o produto fura os 30% | `20` §3 |
+| 5 | **O EX1 comporta 13,3h no mês 1** — sobram 7,3h para extração da base antes de a folha estourar o teto. Acima disso, taxa de implantação | `19` §9 |
+| 6 | **A cláusula de dados no contrato é o item urgente, não o CRM.** Sem previsão de uso agregado e anonimizado, o dado acumulado não pode alimentar plataforma nem IA — e não há conserto retroativo | `20` §5 |
+| 7 | **A tese de plataforma própria tem dois ativos com prazos diferentes:** benchmark de setor existe com n=14 lojas (mês 1); modelo treinável exige ~50 lojas | `20` §7 |
+
+### Mapa de objeções do EX1
+Catorze objeções em cinco grupos, com tratamento. Duas mudam a conversa:
+`B1` (medo de bloqueio do número) é legítima e exige resposta honesta sobre a
+forma do disparo; `E1` (*"não tenho tempo de responder"*) **não é objeção — é a
+venda do EX2 acontecendo**.
+
+### Escada de extração da base
+Cinco cenários, do ERP ao "não existe registro nenhum". O Nível 4 (só WhatsApp
+Business) é o mais provável e o caminho passa pela agenda do celular, não pelo
+aplicativo — `A-030` exige testar na prática antes de virar promessa comercial.
+
+### Decisões registradas
+`A-030` a `A-033`. A `A-033` responde à pergunta direta do Nicolas: **construir CRM
+próprio, não agora** — alugar ferramenta, ser dono do padrão de dados, com quatro
+gatilhos objetivos para reavaliar.
+
+### O que **não** mudou
+Nenhum preço aprovado. `A-003` (WhatsApp oficial × não-oficial), aberta desde
+17/07, passa de "importante" a **bloqueante**: o entregável 1.2 do EX1 não existe
+sem essa decisão.

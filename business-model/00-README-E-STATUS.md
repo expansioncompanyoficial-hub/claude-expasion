@@ -43,6 +43,8 @@
 | `16-PACOTES-PARA-VENDER.md` | Os pacotes prontos para a mesa — EX1 · EX2 · EX3 | **v2.0 — pronto para 10/08** |
 | **`17-COMO-A-CONTA-FUNCIONA.md`** | **De onde vem cada número, passo a passo. Hora por hora de cada entregável, e a campanha de reativação** | **v1.0 — documento de ensino** |
 | **`18-ENTREGAVEIS-DESTRINCHADOS.md`** | **O manual de entrega.** O que é cada entregável, como se executa, o que o cliente recebe. Traz o `ALERTA-05` (grupo de WhatsApp) e o efeito da saída do designer | **v1.0 — manual operacional** |
+| **`19-PLAYBOOK-COMERCIAL-KAUA.md`** | **O manual de negociação.** Piso e folga de cada produto, moedas de troca, linhas vermelhas, a promessa e 14 objeções do EX1 com tratamento | **v1.0 — para o Kauã** |
+| **`20-INFRAESTRUTURA-E-DADOS.md`** | **Em que a régua roda, e a resposta sobre o CRM próprio.** Traz o `ALERTA-06` (custo de mensagem) e o padrão de dados | **v1.0 — decisão de arquitetura** |
 | `DECISION-LOG.md` | Toda decisão, com dono, data e consequência | vivo |
 | `DATA-REQUEST.md` | O que falta e de quem | **v1.0 — aguardando direção** |
 | `CHANGELOG.md` | O que mudou a cada rodada | vivo |
