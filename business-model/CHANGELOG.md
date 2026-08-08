@@ -150,3 +150,33 @@ Novas em aberto: `A-034` (a ferramenta de R$ 297 é por conta ou por número?) e
 
 ### Lembrete agendado
 Cláusula de dados no contrato — `A-031` — agendada para 10/08/2026.
+
+---
+
+## Rodada 08/08/2026 (4) — O runbook
+
+**Entregue:** `22-EX1-NA-PRATICA.md`, o template
+`templates/BASE-CLIENTE-TEMPLATE-v1.xlsx` e a versão visual
+(https://claude.ai/code/artifact/b322015e-73e6-4cda-b94a-1c817425add5).
+
+Responde à pergunta operacional: **como se entrega o EX1 sem CRM, começando
+segunda-feira.**
+
+### Achados desta rodada
+
+| # | Achado | Onde |
+|---|---|---|
+| 1 | **O EX1 fecha 39,4% de lucro operado 100% na mão no mês 1**, e 45,3% nos meses seguintes. A ferramenta é ganho de margem, **não condição de viabilidade**. Ponto de ruptura em 13,3 h | `22` §1 |
+| 2 | **Nada no EX1 é tempo real, e nada precisa ser.** O cockpit em tempo real é ambição de gestão do `360`, não requisito do produto. Confundir os dois é o que faz parecer impossível | `22` §2 |
+| 3 | **A pilha mínima tem três camadas e no mês 1 duas são de graça.** Planilha no padrão + WhatsApp Business do próprio cliente + a Débora. CRM não aparece em nenhuma delas | `22` §3 |
+| 4 | **A automação vale 1,5 h por cliente/mês** — com 15 clientes, 22,5 h/mês devolvidas. Construir custa 4–6 h, uma vez, e serve para todos | `22` §7 |
+| 5 | **`ALERTA-07` — o tempo do sócio no EX1 não está em nenhuma folha.** 11 h/mês só de reunião com 15 clientes. Terceiro custo invisível encontrado no mesmo padrão | `22` §6 · `A-036` |
+
+### Entregue como artefato usável
+`templates/BASE-CLIENTE-TEMPLATE-v1.xlsx` — cinco abas (`CONTATOS`, `AUDITORIA`,
+`CAMPANHAS`, `EVENTOS`, `PLACAR`) com os cálculos prontos. A aba `AUDITORIA`
+calcula sozinha a partir de `CONTATOS` e é a página que fecha a venda. **Materializa
+o padrão de dados de `20` §4 — deixa de ser documento e vira ferramenta.**
+
+### Decisões registradas
+`A-036`. Nenhum preço mudou.

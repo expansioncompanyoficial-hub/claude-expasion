@@ -16,11 +16,12 @@
 
 ## Como ler este acervo
 
-**Para a VISÃO: `21`. Para vender: `16` e `19`. Para ENTREGAR: `18`. Para ENTENDER a conta: `17`.** Depois `14` e `15` — o `15` corrige duas seções do `14`. Os outros treze são a memória de cálculo que o sustenta.
+**Para a VISÃO: `21`. Para OPERAR: `22`. Para vender: `16` e `19`. Para ENTREGAR: `18`. Para ENTENDER a conta: `17`.** Depois `14` e `15` — o `15` corrige duas seções do `14`. Os outros treze são a memória de cálculo que o sustenta.
 
 | Arquivo | O que responde | Status |
 |---|---|---|
 | **`21-TESE-DA-EXPANSION.md`** | **👉 COMECE AQUI se quer a visão.** Como as três esferas se ligam, o portão da plataforma e a escada até ele | **v1.0 — tese** |
+| **`22-EX1-NA-PRATICA.md`** | **👉 COMECE AQUI se quer saber como se opera.** Dia a dia do EX1, sem CRM, com template de planilha pronto | **v1.0 — runbook** |
 | **`18-ENTREGAVEIS-DESTRINCHADOS.md`** | **👉 COMECE AQUI se quer saber o que é cada entrega.** Passo a passo de execução de cada entregável, quem faz, quanto tempo leva | **v1.0 — e traz o `ALERTA-05`** |
 | **`17-COMO-A-CONTA-FUNCIONA.md`** | **👉 COMECE AQUI se quer entender.** De onde vem cada número | **v1.0** |
 | **`16-PACOTES-PARA-VENDER.md`** | **👉 COMECE AQUI se quer vender.** Os 3 pacotes com entregáveis e preços | **v2.0 — pronto para 10/08** |
@@ -47,6 +48,8 @@
 | **`19-PLAYBOOK-COMERCIAL-KAUA.md`** | **O manual de negociação.** Piso e folga de cada produto, moedas de troca, linhas vermelhas, a promessa e 14 objeções do EX1 com tratamento | **v1.0 — para o Kauã** |
 | **`20-INFRAESTRUTURA-E-DADOS.md`** | **Em que a régua roda, e a resposta sobre o CRM próprio.** Traz o `ALERTA-06` (custo de mensagem) e o padrão de dados | **v1.0 — decisão de arquitetura** |
 | **`21-TESE-DA-EXPANSION.md`** | **A síntese das três esferas.** O portão do conselho, a escada até ele, as quatro camadas e os cinco riscos | **v1.0 — tese** |
+| **`22-EX1-NA-PRATICA.md`** | **O runbook.** D+0 a D+30 do EX1, quem faz o quê, a pilha mínima e o `ALERTA-07` | **v1.0 — operacional** |
+| `templates/BASE-CLIENTE-TEMPLATE-v1.xlsx` | O padrão de dados, pronto para usar — 5 abas, cálculos prontos | **v1.0** |
 | `DECISION-LOG.md` | Toda decisão, com dono, data e consequência | vivo |
 | `DATA-REQUEST.md` | O que falta e de quem | **v1.0 — aguardando direção** |
 | `CHANGELOG.md` | O que mudou a cada rodada | vivo |
