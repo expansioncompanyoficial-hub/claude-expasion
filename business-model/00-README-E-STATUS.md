@@ -16,10 +16,11 @@
 
 ## Como ler este acervo
 
-**Para vender: `16`. Para ENTENDER a conta: `17`.** Depois `14` e `15` — o `15` corrige duas seções do `14`. Os outros treze são a memória de cálculo que o sustenta.
+**Para vender: `16`. Para ENTREGAR: `18`. Para ENTENDER a conta: `17`.** Depois `14` e `15` — o `15` corrige duas seções do `14`. Os outros treze são a memória de cálculo que o sustenta.
 
 | Arquivo | O que responde | Status |
 |---|---|---|
+| **`18-ENTREGAVEIS-DESTRINCHADOS.md`** | **👉 COMECE AQUI se quer saber o que é cada entrega.** Passo a passo de execução de cada entregável, quem faz, quanto tempo leva | **v1.0 — e traz o `ALERTA-05`** |
 | **`17-COMO-A-CONTA-FUNCIONA.md`** | **👉 COMECE AQUI se quer entender.** De onde vem cada número | **v1.0** |
 | **`16-PACOTES-PARA-VENDER.md`** | **👉 COMECE AQUI se quer vender.** Os 3 pacotes com entregáveis e preços | **v2.0 — pronto para 10/08** |
 | `14-PLANO-DE-PRODUTOS-E-PRECOS.md` | A lógica por trás dos preços | **v1.0 — §4 e §6 corrigidos pelo `15`** |
@@ -41,6 +42,7 @@
 | `15-ECONOMIA-DO-CLIENTE-E-CORRECOES.md` | Quanto a loja consegue pagar, e três correções ao que eu afirmei | **v1.0 — entregue** |
 | `16-PACOTES-PARA-VENDER.md` | Os pacotes prontos para a mesa — EX1 · EX2 · EX3 | **v2.0 — pronto para 10/08** |
 | **`17-COMO-A-CONTA-FUNCIONA.md`** | **De onde vem cada número, passo a passo. Hora por hora de cada entregável, e a campanha de reativação** | **v1.0 — documento de ensino** |
+| **`18-ENTREGAVEIS-DESTRINCHADOS.md`** | **O manual de entrega.** O que é cada entregável, como se executa, o que o cliente recebe. Traz o `ALERTA-05` (grupo de WhatsApp) e o efeito da saída do designer | **v1.0 — manual operacional** |
 | `DECISION-LOG.md` | Toda decisão, com dono, data e consequência | vivo |
 | `DATA-REQUEST.md` | O que falta e de quem | **v1.0 — aguardando direção** |
 | `CHANGELOG.md` | O que mudou a cada rodada | vivo |

@@ -45,3 +45,31 @@ Convenção do acervo (`CLAUDE.md` da raiz): rodadas de análise viram **arquivo
 
 ### Fontes indisponíveis
 Extrato bancário · contratos assinados · notas fiscais · faturas de ferramentas · apontamento de horas · custos do OTI PRO. Google Drive bloqueado por política de egress neste ambiente.
+
+---
+
+## Rodada 08/08/2026 — Manual de entrega
+
+**Entregue:** `18-ENTREGAVEIS-DESTRINCHADOS.md` + versão visual publicada
+(https://claude.ai/code/artifact/4f3e74f8-2915-4aa3-8d17-764675ee98b0).
+
+Os 15 entregáveis dos três produtos, destrinchados um a um: o que é, o passo a
+passo de execução, quem faz, quanto tempo leva e o que o cliente recebe.
+
+### Fatos novos incorporados (fonte: Nicolas, operação própria)
+
+| # | Fato | Efeito |
+|---|---|---|
+| 1 | **Ciés reativou a base e vendeu +R$ 5.000 em menos de um dia** | EX1 sai de hipótese para produto validado (`D-017`). Uma campanha cobre 97% da mensalidade pelo lucro de contribuição da lojista |
+| 2 | **O contato no grupo de WhatsApp "demandava muito tempo" e não está em nenhuma hora precificada** | `ALERTA-05` — 30 min/dia derruba o EX3 de **31,3% para 23,5%** de lucro. Piso correto sobe de R$ 5.281 para R$ 6.635. Vira `A-027` |
+| 3 | **O designer não será renovado**; trabalho migra para IA + Canva, com automação de carrossel em construção | `D-016`. Folha R$ 9.350 → R$ 8.700; EX3 → 37,2h e 32,6% de lucro. **Mas a grade de conteúdo perde dono** → `A-028` |
+| 4 | **A operação tem 6 pessoas nomeadas** — Débora (social media), Matheus Felipe (tráfego), Daniel, Bernardo e Adryel (edição), designer (saindo) | Permite alocar cada entregável a uma pessoa com nome |
+| 5 | **O que se vendia era 2 vídeos + 1 carrossel/semana + tráfego + grupo** | Confirma que o "360" antigo é o EX3 com o grupo dentro — e explica por que a margem nunca fechava |
+
+### Decisões registradas
+`D-016`, `D-017`. Três decisões novas em aberto: `A-027` (grupo no preço ou no
+SLA), `A-028` (dono da grade), `A-029` (validar os tempos).
+
+### O que **não** mudou
+Nenhum preço foi aprovado. Todos seguem `NÃO APROVADO` por `D-001` e `A-006`.
+Os tempos de 6h / 20h / 39h continuam `ESTIMADO` — `A-029` é o que os fecha.

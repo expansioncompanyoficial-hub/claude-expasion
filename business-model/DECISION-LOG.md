@@ -21,6 +21,8 @@ Regra: **preferência não é fato.** Se não há dono, critério e consequênci
 | D-012 | 2026-08-05 | **VENDA redesenhado**: cobertura de janela morta (20h/cliente), não operação integral (55h) | Análise | A 55h e R$ 3.500 a folha vira 66,9% da receita — estoura o teto | Torna o produto vendável a R$ 3.500 com folha de 24,3% | ⏳ **Validar** |
 | D-013 | 2026-08-05 | **Trava comercial: cada R$ 1 de fee exige R$ 3 de venda nova.** Não vender se não acreditar que a loja atinge | Análise | CMV de 54,6% (IBGE/PAC) → margem de contribuição ~35% | Substitui toda régua de % da receita | ⏳ **Validar** |
 | D-005 | 2026-08-05 | Adotar **21 dias úteis**, **4,333 semanas** e **30,44 dias corridos** por mês como base de conversão | Análise | Auditabilidade — qualquer pessoa reproduz | Toda demanda mensal deste acervo usa essas constantes | ✅ Vigente |
+| D-016 | 2026-08-08 | **Não renovar o contrato do designer.** Trabalho migra para IA + Canva, com automação de carrossel em construção | Nicolas | O que ele fazia já é coberto por IA no padrão que os clientes atuais pedem | Folha cai de R$ 9.350 para R$ 8.700. Se a automação entregar, o EX3 vai de 39h para 37,2h e o lucro de 31,3% para 32,6%. **Abre A-028** — a grade de conteúdo perde dono | ✅ **DECIDIDO** — ver `18` §5 |
+| D-017 | 2026-08-08 | **O EX1 sai de `hipótese` para `produto validado`** | Análise, sobre fato reportado por Nicolas | Ciés reativou a base e vendeu **mais de R$ 5.000 em menos de um dia** — operação própria, não benchmark | Uma campanha cobre 97% da mensalidade de R$ 1.800 pelo lucro de contribuição da lojista. Vira a prova central da proposta | ✅ Vigente — **1 caso não é taxa**, apresentar como *"foi assim com a Ciés"*, nunca como promessa |
 
 ---
 
@@ -57,5 +59,8 @@ Registradas porque cada uma delas trava um gate. Nenhuma é técnica; todas são
 | A-024 | **Reestruturar o P3: fixo de R$ 3.000 + variável**, em vez de fixo de R$ 8.000. O variável deve derrubar o fixo, não somar a ele | GATE 5 | 05/08/2026 |
 | A-025 | **Pedir DRE simplificada de 5–10 prospects** em call de diagnóstico. Resolve a maior lacuna de dado do setor e vira ativo comercial | GATE 1 | 05/08/2026 |
 | A-026 | **Incluir "rua ou shopping" no roteiro de qualificação.** Ocupação de 8–12% na rua contra 15–22% em shopping move o teto de fee em ~50% | GATE 7 | 05/08/2026 |
+| **A-027** | **ALERTA-05 — o grupo de WhatsApp não está no preço.** 30 min/dia = 10h/mês → EX3 vai de 39h para 49h e o **lucro cai de 31,3% para 23,5%**. Duas saídas: **(A)** EX3 a R$ 7.000 com o grupo no escopo, lucro volta a 31,6%; **(B)** manter R$ 5.500 e transformar o grupo em SLA (4h úteis, 1 reunião/mês, sem decisão por áudio às 23h). **Recomendação: B, com A na manga** | GATE 5 e 7 — **é o produto inteiro saindo do alvo de 30%** | 08/08/2026 |
+| **A-028** | **Quem fica dono da grade de conteúdo** depois da saída do designer (D-016). A IA cobre edição simples; **não cobre grade fechada, direção de arte nem foto de produto real** — e a grade é o que segura a margem do EX3 | GATE 4 — sem dono, o retrabalho devolve o ganho de R$ 650 em dois meses | 08/08/2026 |
+| **A-029** | **Validar os tempos 6h / 20h / 39h** com Débora, Adryel e Matheus — 2 semanas de apontamento real | **É a premissa única que sustenta todos os preços.** Se ela cair, cai a tabela inteira | 08/08/2026 |
 
 > **A-002 e A-005 estão abertas há mais de 50 dias.** Não decidir também é uma decisão — e nos dois casos ela vem sendo tomada por omissão, no pior sentido: o CRM é entregue de graça e a social media segue sem número de capacidade.
