@@ -1,6 +1,8 @@
 # ESTRATÉGIA COMERCIAL — EXPANSION COMPANY
 **Data:** 08/08/2026 · **Dono:** Nicolas Nascimento · **Escopo:** posicionamento, arquitetura de produtos, precificação e máquina de venda
 
+**Versão web deste documento:** https://claude.ai/code/artifact/19b99606-6a61-4ffe-a281-d1b556bf4870
+
 ---
 
 ## NOTA DE ESCOPO — leia antes de tudo
