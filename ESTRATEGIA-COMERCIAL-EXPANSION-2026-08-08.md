@@ -3,6 +3,12 @@
 
 **Versão web deste documento:** https://claude.ai/code/artifact/19b99606-6a61-4ffe-a281-d1b556bf4870
 
+> ⚠️ **RODADA 1 — parcialmente superada.** Este documento foi escrito sem acesso ao projeto
+> EXPANSION COMPANY (produtos EX1/EX2/EX3, custeio e estudo de mercado). As Partes II
+> (arquitetura de produtos) e III (máquina comercial) foram refeitas em
+> **`ESTRATEGIA-COMERCIAL-EXPANSION-RODADA2-2026-08-08.md`**, sobre os produtos reais.
+> O diagnóstico das Partes I e IV continua válido.
+
 ---
 
 ## NOTA DE ESCOPO — leia antes de tudo
