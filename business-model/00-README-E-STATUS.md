@@ -49,6 +49,7 @@
 | **`20-INFRAESTRUTURA-E-DADOS.md`** | **Em que a régua roda, e a resposta sobre o CRM próprio.** Traz o `ALERTA-06` (custo de mensagem) e o padrão de dados | **v1.0 — decisão de arquitetura** |
 | **`21-TESE-DA-EXPANSION.md`** | **A síntese das três esferas.** O portão do conselho, a escada até ele, as quatro camadas e os cinco riscos | **v1.0 — tese** |
 | **`22-EX1-NA-PRATICA.md`** | **O runbook manual.** D+0 a D+30 do EX1, quem faz o quê, a pilha mínima e o `ALERTA-07` | **v1.0 — operacional** |
+| **`24-RESPOSTAS-E-O-POS-ENTREGA.md`** | **O que cai na mão do Nicolas depois da venda** — mais PDV/ERP explicados, o disparo, as 12 cláusulas de dados e a cessão de IP | **v1.0 — respostas** |
 | **`23-OPERACAO-SEM-OPERADOR.md`** | **A operação automatizada.** Os dois fluxos, o módulo BASE no Expansion OS, e as DIVERGÊNCIAS DO COMITÊ. **Corrige `A-033`** | **v1.0 — arquitetura** |
 | `sql/0001-modulo-base-consumidor.sql` | O módulo BASE — 4 tabelas + 2 views, nas convenções do OS | **PROPOSTA, não aplicada** |
 | `templates/BASE-CLIENTE-TEMPLATE-v1.xlsx` | O padrão de dados, pronto para usar — 5 abas, cálculos prontos | **v1.0** |

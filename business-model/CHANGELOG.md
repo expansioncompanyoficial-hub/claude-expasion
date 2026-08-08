@@ -224,3 +224,45 @@ a represa de novo) e `A-038` (aplicar no staging com a base da Ciés).
 
 ### O que **não** foi feito
 **Nenhuma migração aplicada.** A leitura de `expansion-os-prod` foi somente consulta.
+
+---
+
+## Rodada 08/08/2026 (6) — Respostas diretas e o pós-entrega
+
+**Entregue:** `24-RESPOSTAS-E-O-POS-ENTREGA.md` e a versão visual
+(https://claude.ai/code/artifact/15543f52-4ef1-48d6-b33e-df5b7b65d0c9).
+
+### `A-039` — a repreensão pedida, e é bloqueante
+
+O desenvolvedor que constrói o Expansion OS está **em permuta, com "possível
+sociedade" não escrita**. Sem cessão de propriedade intelectual assinada, a
+Expansion **não é dona do ativo da tese**. É o espelho WebLuxury invertido — e a
+regra *"cessão de IP ou nada"* **já está escrita por Nicolas**, aplicada ao sistema
+do Cleber, no parecer de 13/07. Conserto: uma página e uma conversa.
+
+### Onde Nicolas estava certo
+
+O conselho avaliou "software próprio" **num contexto que não existe mais** — sem OS,
+sem dev parceiro, sem a aceleração de nuvem com IA. A proibição mirava CAPEX às
+cegas, não uma extensão de 34–48 h num sistema que já roda. **`D-024` responde
+`A-037`: quem constrói é o dev parceiro** — nem o CEO (represa) nem freela a peso de
+caixa (CAPEX) — **condicionada a `A-039`**.
+
+### Achados desta rodada
+
+| # | Achado | Onde |
+|---|---|---|
+| 1 | **A auditoria da base substitui o diagnóstico no funil.** Mesma call, mesma pessoa, mesmo tempo — e sai número em vez de pergunta genérica. **Custo incremental do sócio: zero** (`D-025`) | `24` §6.1 |
+| 2 | **O que sobra para o Nicolas no regime:** a call de venda que ele já faz + 45 min/mês por cliente **até o décimo**. Depois, zero recorrente | `24` §6.3 |
+| 3 | **A reunião mensal é o que retém — não automatizar.** Mas o dono muda no 10º cliente (`A-040`): até 10 é o Nicolas, do 11º é Débora ou CS. **Aos 15 vira 11h/mês e o CEO virou executor de novo** | `24` §6.2 |
+| 4 | **"Por conta × por número" são 15× de diferença.** Por conta: R$ 19,80/cliente e 46,1% de lucro. Por número: R$ 297/cliente e **30,7%** | `24` §3 |
+| 5 | **Os 12 controles de dados** para o advogado, em três blocos. O bloco B (uso agregado + titularidade do derivado) é o que faz o projeto valer alguma coisa em 18 meses | `24` §5 |
+| 6 | **Ciés e Clau Kids não são o mesmo teste** (`A-041`). A Ciés é o piloto (única com campanha medida); a Clau Kids está **abaixo do ICP** e testa a máquina, não o preço. **Nenhuma reprecificada durante o piloto** | `24` §7 |
+
+### Também explicado sem jargão
+PDV, ERP e loja virtual · como o disparo funciona passo a passo (quem manda, o que
+faz sair, o ritmo de 50–100/h, o que acontece na resposta) · o que exatamente são as
+34–48 horas.
+
+### Decisões registradas
+`D-024`, `D-025`. Novas em aberto: `A-039` (**bloqueante**), `A-040`, `A-041`.
