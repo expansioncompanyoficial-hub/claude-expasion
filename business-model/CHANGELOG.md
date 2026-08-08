@@ -180,3 +180,47 @@ o padrão de dados de `20` §4 — deixa de ser documento e vira ferramenta.**
 
 ### Decisões registradas
 `A-036`. Nenhum preço mudou.
+
+---
+
+## Rodada 08/08/2026 (5) — A operação sem operador, e uma correção
+
+**Entregue:** `23-OPERACAO-SEM-OPERADOR.md`, `sql/0001-modulo-base-consumidor.sql`
+(proposta, não aplicada) e a versão visual
+(https://claude.ai/code/artifact/a5f2f8d6-06df-4040-b0cb-953a91ee96a0).
+
+### CORREÇÃO — o Expansion OS já existe e este acervo não sabia
+
+Leitura de infraestrutura em 08/08 encontrou **`expansion-os-prod`** (29/07,
+18 tabelas, RLS em todas, `evento` append-only com UPDATE barrado por gatilho,
+`modulo` com roadmap declarado, `pulso` com 453 linhas de telemetria) e
+**`os-expansion-staging`** (05/08).
+
+| O que este acervo afirmou | Correção |
+|---|---|
+| *"Construir leva um trimestre"* | **Errado neste contexto.** Com o OS pronto é um módulo de **34–48 h** |
+| *"Não construir CRM agora"* (`A-033`) | **Revisada, não revogada** (`D-021`). Segue proibido freela de dev, aplicação para o cliente e customização por cliente. Não vale para estender o OS |
+| A escada de fases de `21` §9 | **Corrigida.** Nicolas estava certo: *"começar construindo, não construir pra começar"* |
+
+### Achados desta rodada
+
+| # | Achado | Onde |
+|---|---|---|
+| 1 | **São dois fluxos, não um.** Régua = todo dia 9h, para o **consumidor final**, pelo número da loja. Placar = toda segunda 8h, para o **lojista**, no grupo. Zero pessoas nos dois | `23` §2 |
+| 2 | **O lojista não preenche nada, nunca.** Três níveis de atualização — integração de PDV, marcação na conversa, ou só o dado de campanha. Ele participa 20 min, uma vez na vida | `23` §3 |
+| 3 | **A Débora sai da operação: fica com ~35 min/cliente/mês** (copy e arte). Nem um disparo. Pôr disparo manual nela era erro deste acervo | `23` §4 |
+| 4 | **O efeito grande não é margem, é capacidade.** A 1,33 h/cliente as 204 h deixam de ser o limite. **O novo teto é a reunião mensal do sócio: ~40 clientes = R$ 72 mil de MRR**, acima do portão do conselho com o time de hoje | `23` §4 |
+| 5 | **O módulo que falta não é o "CRM" do roadmap.** O CRM do OS é o funil comercial da Expansion; o EX1 precisa do consumidor final da loja. Chamado **BASE** (`D-022`) | `23` §1 |
+| 6 | **Regra de automação (`D-023`):** só se automatiza o que já rodou na mão uma vez. Ordem régua → placar → campanha — **automatiza-se o que erra barato primeiro** | `23` §7 |
+
+### DIVERGÊNCIAS DO COMITÊ
+Seis cadeiras, três contra e três a favor de construir agora. Convergem em: banco
+próprio + ferramenta alugada + zero código de aplicação · cláusula antes do dado ·
+nada de customização por cliente. `D-023` resolve a divergência real.
+
+### Decisões registradas
+`D-021`, `D-022`, `D-023`. Novas em aberto: `A-037` (quem constrói — se for o CEO, é
+a represa de novo) e `A-038` (aplicar no staging com a base da Ciés).
+
+### O que **não** foi feito
+**Nenhuma migração aplicada.** A leitura de `expansion-os-prod` foi somente consulta.

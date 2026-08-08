@@ -16,7 +16,7 @@
 
 ## Como ler este acervo
 
-**Para a VISÃO: `21`. Para OPERAR: `22`. Para vender: `16` e `19`. Para ENTREGAR: `18`. Para ENTENDER a conta: `17`.** Depois `14` e `15` — o `15` corrige duas seções do `14`. Os outros treze são a memória de cálculo que o sustenta.
+**Para a VISÃO: `21`. Para OPERAR: `22` e `23`. Para vender: `16` e `19`. Para ENTREGAR: `18`. Para ENTENDER a conta: `17`.** Depois `14` e `15` — o `15` corrige duas seções do `14`. Os outros treze são a memória de cálculo que o sustenta.
 
 | Arquivo | O que responde | Status |
 |---|---|---|
@@ -48,7 +48,9 @@
 | **`19-PLAYBOOK-COMERCIAL-KAUA.md`** | **O manual de negociação.** Piso e folga de cada produto, moedas de troca, linhas vermelhas, a promessa e 14 objeções do EX1 com tratamento | **v1.0 — para o Kauã** |
 | **`20-INFRAESTRUTURA-E-DADOS.md`** | **Em que a régua roda, e a resposta sobre o CRM próprio.** Traz o `ALERTA-06` (custo de mensagem) e o padrão de dados | **v1.0 — decisão de arquitetura** |
 | **`21-TESE-DA-EXPANSION.md`** | **A síntese das três esferas.** O portão do conselho, a escada até ele, as quatro camadas e os cinco riscos | **v1.0 — tese** |
-| **`22-EX1-NA-PRATICA.md`** | **O runbook.** D+0 a D+30 do EX1, quem faz o quê, a pilha mínima e o `ALERTA-07` | **v1.0 — operacional** |
+| **`22-EX1-NA-PRATICA.md`** | **O runbook manual.** D+0 a D+30 do EX1, quem faz o quê, a pilha mínima e o `ALERTA-07` | **v1.0 — operacional** |
+| **`23-OPERACAO-SEM-OPERADOR.md`** | **A operação automatizada.** Os dois fluxos, o módulo BASE no Expansion OS, e as DIVERGÊNCIAS DO COMITÊ. **Corrige `A-033`** | **v1.0 — arquitetura** |
+| `sql/0001-modulo-base-consumidor.sql` | O módulo BASE — 4 tabelas + 2 views, nas convenções do OS | **PROPOSTA, não aplicada** |
 | `templates/BASE-CLIENTE-TEMPLATE-v1.xlsx` | O padrão de dados, pronto para usar — 5 abas, cálculos prontos | **v1.0** |
 | `DECISION-LOG.md` | Toda decisão, com dono, data e consequência | vivo |
 | `DATA-REQUEST.md` | O que falta e de quem | **v1.0 — aguardando direção** |
