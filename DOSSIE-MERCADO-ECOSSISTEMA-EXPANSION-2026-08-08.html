@@ -1,0 +1,380 @@
+<title>Dossiê Expansion — mercado, setor e ecossistema</title>
+<style>
+:root{
+  color-scheme: light;
+  --ground:#FFFFFF; --surface:#F5F3F8; --surface-2:#EDEAF3;
+  --line:#DDD8E6; --line-strong:#C4BCD6;
+  --ink:#191420; --ink-2:#4E465C; --ink-3:#7A7189;
+  --accent:#D6004F; --accent-soft:#FDE7EF;
+  --warn:#A65200; --warn-soft:#FBEEDD;
+  --ok:#0F7A52; --ok-soft:#E3F5EC;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#141019; --surface:#1D1925; --surface-2:#262031;
+    --line:#302939; --line-strong:#453C52;
+    --ink:#F0ECF5; --ink-2:#B0A7BE; --ink-3:#847A93;
+    --accent:#FF3D78; --accent-soft:#3A1122;
+    --warn:#E0922F; --warn-soft:#33240F;
+    --ok:#3DD68C; --ok-soft:#0E2A1E;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#141019; --surface:#1D1925; --surface-2:#262031;
+  --line:#302939; --line-strong:#453C52;
+  --ink:#F0ECF5; --ink-2:#B0A7BE; --ink-3:#847A93;
+  --accent:#FF3D78; --accent-soft:#3A1122;
+  --warn:#E0922F; --warn-soft:#33240F;
+  --ok:#3DD68C; --ok-soft:#0E2A1E;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+}
+:root{
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.num{font-variant-numeric:tabular-nums}
+.mast{border-bottom:1px solid var(--line);padding:46px 0 32px;margin-bottom:44px}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.kicker span:not(:first-child){color:var(--ink-3)}
+h1{font-family:var(--mono);font-weight:600;font-size:clamp(28px,4.8vw,44px);line-height:1.08;letter-spacing:-.03em;margin:0 0 20px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.dek{font-size:clamp(17px,2.1vw,20px);color:var(--ink-2);max-width:64ch;margin:0}
+.dek strong{color:var(--ink);font-weight:600}
+section{margin:0 0 64px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:12px;margin:0 0 18px}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+h2{font-family:var(--mono);font-weight:600;font-size:clamp(21px,3vw,28px);letter-spacing:-.02em;line-height:1.2;margin:0 0 16px;text-wrap:balance}
+h3{font-family:var(--mono);font-weight:600;font-size:16px;margin:0 0 9px}
+p{margin:0 0 16px;max-width:66ch}
+p:last-child{margin-bottom:0}
+.lede{font-size:19px;color:var(--ink-2)}
+strong{font-weight:600}
+code{font-family:var(--mono);font-size:.9em;background:var(--surface-2);padding:1px 5px;border-radius:2px}
+.tw{overflow-x:auto;border-radius:4px}
+table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:13.5px;min-width:660px}
+th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;padding:10px 13px;background:var(--surface);border:1px solid var(--line)}
+td{padding:11px 13px;border:1px solid var(--line);vertical-align:top;line-height:1.45;color:var(--ink-2)}
+td:first-child{color:var(--ink);font-weight:600}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+tr.hl td{background:var(--accent-soft)}
+tr.okrow td{background:var(--ok-soft)}
+/* teses */
+.theses{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.th-row{background:var(--ground);padding:18px 20px;display:grid;grid-template-columns:38px 1fr;gap:16px}
+.th-row.new{background:var(--accent-soft)}
+.th-n{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent);line-height:1.1;font-variant-numeric:tabular-nums}
+.th-t{font-family:var(--mono);font-size:15.5px;font-weight:600;letter-spacing:-.01em;line-height:1.35;margin-bottom:5px}
+.th-d{font-family:var(--sans);font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+/* camadas */
+.layers{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.lay{background:var(--ground);padding:17px 20px;display:grid;grid-template-columns:30px 1fr 178px;gap:16px;align-items:start}
+.lay-n{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink-3);padding-top:3px;font-variant-numeric:tabular-nums}
+.lay-t{font-family:var(--mono);font-size:14.5px;font-weight:600;margin-bottom:4px}
+.lay-d{font-family:var(--sans);font-size:13px;line-height:1.5;color:var(--ink-2)}
+.lay-d b{color:var(--ink);font-weight:600}
+.lay-r{font-family:var(--sans);font-size:12.5px;line-height:1.45;color:var(--ink-3);border-left:2px solid var(--line-strong);padding-left:12px}
+.lay-r b{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+@media(max-width:820px){.lay{grid-template-columns:26px 1fr}.lay-r{grid-column:1/-1;border-left:none;border-top:1px dashed var(--line);padding-left:0;padding-top:8px;margin-top:2px}}
+/* alavancas */
+.lev{background:var(--ground);border:1px solid var(--line);border-radius:4px;padding:22px;margin-bottom:1px}
+.levs{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.levs .lev{border:none;border-radius:0;margin:0}
+.lev-h{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px}
+.lev-n{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.lev-t{font-family:var(--mono);font-size:16.5px;font-weight:600;letter-spacing:-.015em;flex:1;min-width:220px;line-height:1.3}
+.lev-m{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:2px;white-space:nowrap;background:var(--accent);color:#fff}
+.lev-m.soft{background:var(--surface-2);color:var(--ink-2)}
+.lev p{font-family:var(--sans);font-size:14px;line-height:1.58;color:var(--ink-2);max-width:72ch;margin-bottom:10px}
+.lev p strong{color:var(--ink)}
+.formula{font-family:var(--mono);font-size:13px;background:var(--surface);border-left:3px solid var(--accent);padding:12px 15px;margin:12px 0;border-radius:0 3px 3px 0;overflow-x:auto;white-space:pre;line-height:1.6;color:var(--ink)}
+.pull{border-left:3px solid var(--accent);padding:4px 0 4px 22px;margin:26px 0;font-size:19px;line-height:1.5;max-width:60ch}
+.pull small{display:block;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.5}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:16px 18px;font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.note b{color:var(--ink)}
+.note.hot{border-color:var(--accent);background:var(--accent-soft)}
+.note.warn{border-color:var(--warn)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.card{background:var(--ground);padding:20px}
+.big{font-family:var(--mono);font-size:clamp(24px,3.2vw,30px);font-weight:600;letter-spacing:-.035em;line-height:1.05;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.card .kl{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);line-height:1.35;margin-bottom:7px}
+.card p{font-family:var(--sans);font-size:13px;line-height:1.5;color:var(--ink-2);margin:6px 0 0}
+footer{border-top:1px solid var(--line);padding:30px 0 60px;margin-top:20px;font-family:var(--sans);font-size:13px;color:var(--ink-3);line-height:1.6}
+footer p{max-width:70ch}
+footer b{color:var(--ink-2)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker"><span>Dossiê de mercado e ecossistema</span><span>Expansion</span><span>08/08/2026</span></div>
+  <h1>O produto que vocês construíram<br>não é <em>de moda</em>.</h1>
+  <p class="dek">O EX1 reativa base de clientes. Isso funciona em pet, ótica, salão, joalheria, farmácia — em qualquer varejo de recompra. <strong>O nicho de moda é o campo de provas, não o teto.</strong> Este dossiê consolida tudo que foi levantado, mapeia as nove camadas de empresas que vendem para a mesma lojista, e aponta as sete alavancas que mudam o tamanho do mercado — mais o risco jurídico que ninguém tratou.</p>
+</header>
+
+<section>
+  <div class="eyebrow">Sumário executivo</div>
+  <h2>Sete conclusões — as quatro últimas são novas</h2>
+  <div class="theses">
+    <div class="th-row"><div class="th-n num">1</div><div>
+      <div class="th-t">O mercado do cliente não cresce em unidades</div>
+      <div class="th-d">R$ 314,9 bi em 2025, +6,8% nominal — mas <strong>+0,65% em peças</strong>. Em unidades é soma zero: toda venda é roubada de outra loja.</div>
+    </div></div>
+    <div class="th-row"><div class="th-n num">2</div><div>
+      <div class="th-t">O mercado da Expansion é pequeno, e isso é bom</div>
+      <div class="th-d">~6.500 lojas de moda feminina e infantil no ICP, ~R$ 360 mi/ano. Um mercado que <strong>cabe numa lista nominal</strong>. Chegar ao teto do Simples exige 2,2% dele.</div>
+    </div></div>
+    <div class="th-row"><div class="th-n num">3</div><div>
+      <div class="th-t">O EX1 é o melhor negócio da casa</div>
+      <div class="th-d">R$ 142 de lucro por hora contra R$ 44 do EX3 — <strong>3,2×</strong> — e com o maior público dos três.</div>
+    </div></div>
+    <div class="th-row new"><div class="th-n num">4</div><div>
+      <div class="th-t">O EX1 não é um produto de moda. É um produto de varejo.</div>
+      <div class="th-d">Reativação de base funciona em qualquer varejo de recompra. <strong>Isso multiplica o TAM por 10 a 30×</strong> e não exige produto novo — exige reposicionamento.</div>
+    </div></div>
+    <div class="th-row new"><div class="th-n num">5</div><div>
+      <div class="th-t">A maior alavanca é parar de vender no varejo</div>
+      <div class="th-d">Licenciar o EX1 white-label para outras agências transforma a Expansion de prestadora em <strong>fornecedora de infraestrutura</strong>. Rompe o teto de nicho e o de capacidade ao mesmo tempo.</div>
+    </div></div>
+    <div class="th-row new"><div class="th-n num">6</div><div>
+      <div class="th-t">O EX1 é uma operação de tratamento de dados pessoais</div>
+      <div class="th-d">A ANPD já aplicou <strong>R$ 18 milhões em multas</strong> por uso indevido de dados em WhatsApp, e colocou varejo e marketing no radar para 2026–2027. Maior risco não mapeado da casa — e o fosso mais difícil de copiar, se resolvido primeiro.</div>
+    </div></div>
+    <div class="th-row new"><div class="th-n num">7</div><div>
+      <div class="th-t">Nove camadas de empresas vendem para a mesma lojista</div>
+      <div class="th-d">Plataformas com 2,5 milhões de lojistas, franqueadores com R$ 30,8 bi, atacadistas com milhares de compradores cadastrados. <strong>Cada uma é um canal pronto</strong> — e a Expansion não conversa com nenhuma.</div>
+    </div></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Parte I · o que já sabemos</div>
+  <h2>Os números que sustentam tudo</h2>
+  <div class="cards">
+    <div class="card"><div class="kl">Varejo de vestuário BR</div><div class="big">R$ 315 bi</div><p>2025, 6,4 bi de peças. Mas só +0,65% em volume na última temporada.</p></div>
+    <div class="card"><div class="kl">Lojas com CNAE 4781 ativas</div><div class="big">1,01 mi</div><p>84% microempresa. Só ~15 mil são EPP — a faixa onde o ICP vive.</p></div>
+    <div class="card"><div class="kl">Mercado endereçável real</div><div class="big">R$ 360 mi</div><p>~6.500 lojas de moda feminina e infantil nos ICPs dos produtos EX.</p></div>
+    <div class="card"><div class="kl">Maior concorrente conhecido</div><div class="big">0,6%</div><p>Cerberus, 207 lojas. Não existe líder neste mercado.</p></div>
+  </div>
+
+  <div class="tw" style="margin-top:22px">
+    <table>
+      <thead><tr><th>Produto</th><th>Preço</th><th>Horas</th><th>Margem</th><th>Lucro/hora</th><th>ICP da loja</th><th>Universo</th></tr></thead>
+      <tbody>
+        <tr class="okrow"><td>EX1 · BASE</td><td class="n">R$ 1.800</td><td class="n">6</td><td class="n">47,2%</td><td class="n">R$ 142</td><td>R$ 40–100 mil/mês</td><td class="n">6.480</td></tr>
+        <tr><td>EX2 · VENDA</td><td class="n">R$ 3.500</td><td class="n">20</td><td class="n">37,1%</td><td class="n">R$ 65</td><td>R$ 100 mil+</td><td class="n">2.700</td></tr>
+        <tr><td>EX3 · MARCA</td><td class="n">R$ 5.500</td><td class="n">39</td><td class="n">31,3%</td><td class="n">R$ 44</td><td>R$ 140 mil+</td><td class="n">1.620</td></tr>
+        <tr><td>360 · os três</td><td class="n">R$ 10.800</td><td class="n">65</td><td class="n">35,8%</td><td class="n">R$ 59</td><td>R$ 250 mil+</td><td class="n">540</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:16px"><b>Prova de campo.</b> A Ciés reativou a base e vendeu <b>R$ 5.000 em menos de um dia</b> com o EX1. Uma campanha pagou 97% da mensalidade. É o único produto da casa com prova de resultado documentada — e é o de maior margem.</div>
+</section>
+
+<section>
+  <div class="eyebrow">Parte II · o mapa do setor</div>
+  <h2>Nove camadas que já têm a lista que vocês estão construindo</h2>
+  <p class="lede" style="max-width:66ch">A Expansion olha o mercado como "lojas de roupa". Em volta de cada loja existem nove indústrias disputando o mesmo orçamento — e todas já têm o cadastro do lojista.</p>
+
+  <div class="layers" style="margin-top:22px">
+    <div class="lay"><div class="lay-n num">1</div><div>
+      <div class="lay-t">Plataformas de e-commerce</div>
+      <div class="lay-d"><b>Loja Integrada: 2,5 milhões de lojistas. Nuvemshop: 180 mil, ~46% moda ≈ 83 mil lojas.</b> Tray, Yampi, Shopify, Bagy. Vendem software; não vendem serviço.</div>
+    </div><div class="lay-r"><b>Por que topariam</b>Churn de plataforma dispara quando o lojista não vende. Quem faz vender reduz o churn deles.</div></div>
+
+    <div class="lay"><div class="lay-n num">2</div><div>
+      <div class="lay-t">ERPs, PDVs e sistemas de gestão</div>
+      <div class="lay-d">Bling, Tiny, Omie, VHSYS no PME; Linx, Totvs, Millennium no médio; Audaces na confecção.</div>
+    </div><div class="lay-r"><b>Janela com data</b>01/01/2027: todo ERP vai precisar de braço para arrumar cadastro de produto antes da reforma.</div></div>
+
+    <div class="lay"><div class="lay-n num">3</div><div>
+      <div class="lay-t">Marketplaces e canais</div>
+      <div class="lay-d">Shein com ~20 mil sellers brasileiros e <b>55% da receita BR vinda de lojistas nacionais</b>. TikTok Shop cresceu <b>102× em 12 meses</b>, com vestuário feminino em 2º.</div>
+    </div><div class="lay-r"><b>Implicação</b>Quem só opera Instagram vira fornecedor parcial. O EX2 já é canal-agnóstico.</div></div>
+
+    <div class="lay"><div class="lay-n num">4</div><div>
+      <div class="lay-t">Franqueadores de moda</div>
+      <div class="lay-d"><b>R$ 30,8 bi em 2025</b>, 4º maior setor do franchising. Marketing decidido centralmente e cobrado via fundo de propaganda.</div>
+    </div><div class="lay-r"><b>Alavanca</b>Uma rede de 80 unidades não são 80 vendas. É uma.</div></div>
+
+    <div class="lay"><div class="lay-n num">5</div><div>
+      <div class="lay-t">Atacadistas e polos</div>
+      <div class="lay-d">Brás e Bom Retiro, Goiânia, Fortaleza, Caruaru e Toritama, Blumenau e Brusque, Divinópolis, Cianorte, Nova Friburgo.</div>
+    </div><div class="lay-r"><b>O que têm</b>Cadastro de milhares de lojistas compradores — e ganham se o lojista vender mais e voltar.</div></div>
+
+    <div class="lay"><div class="lay-n num">6</div><div>
+      <div class="lay-t">Feiras do setor</div>
+      <div class="lay-d">FENIM, Couromoda, Francal. <b>Calcemoda: 19–21/01/2027, Curitiba. Tecnomoda: 17–18/02/2027, Ribeirão Preto.</b></div>
+    </div><div class="lay-r"><b>Timing</b>Milhares de lojistas ICP em 4 dias, sem leilão de mídia — e caem na retomada pós-eleição.</div></div>
+
+    <div class="lay"><div class="lay-n num">7</div><div>
+      <div class="lay-t">Associações e sistema S</div>
+      <div class="lay-d">CDL e CNDL, Sindilojas, Fecomercio, Sebrae, ABIT, ABVTEX, Abrasce, ABF.</div>
+    </div><div class="lay-r"><b>Formato</b>Convênio de benefício ao associado, ou o Painel do Nicho publicado em parceria.</div></div>
+
+    <div class="lay"><div class="lay-n num">8</div><div>
+      <div class="lay-t">Pagamentos e crédito</div>
+      <div class="lay-d">Stone, PagBank, Mercado Pago, Cielo, InfinitePay, Ton.</div>
+    </div><div class="lay-r"><b>O dado único</b>A maquininha sabe o faturamento real da loja — o filtro de porte que o Meta não dá.</div></div>
+
+    <div class="lay"><div class="lay-n num">9</div><div>
+      <div class="lay-t">Contabilidade e software fiscal</div>
+      <div class="lay-d">Contabilizei, Conta Azul, contadores locais.</div>
+    </div><div class="lay-r"><b>Janela</b>Nov/26 a mar/27 é o canal mais bem posicionado do país — e ninguém do marketing olha para ele.</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Parte III · as sete alavancas</div>
+  <h2>O que muda o tamanho do mercado</h2>
+  <div class="levs">
+    <div class="lev">
+      <div class="lev-h"><span class="lev-n num">1</span><span class="lev-t">O EX1 não é um produto de moda</span><span class="lev-m">TAM × 10 a 30</span></div>
+      <p>Auditar base, montar régua por gatilho, disparar campanha segmentada, medir no placar — <strong>nada disso é específico de roupa</strong>. Funciona em pet shop (recompra mensal), ótica (bienal com data conhecida), salão (3 a 6 semanas), joalheria (datas comemorativas), farmácia de manipulação, calçados, material de construção.</p>
+      <p><strong>O contra-argumento honesto:</strong> nichar foi certo e continua sendo. Sair cedo destrói a autoridade em construção. A ordem é <strong>dominar moda → publicar o resultado → abrir vertical por vertical com o case na mão.</strong> Reconhecer que o produto é horizontal não é sair do nicho — é saber onde fica o teto.</p>
+    </div>
+
+    <div class="lev">
+      <div class="lev-h"><span class="lev-n num">2</span><span class="lev-t">Licenciar o EX1 white-label para outras agências</span><span class="lev-m">rompe os dois tetos</span></div>
+      <p>A AWS não vende sites: vende a infraestrutura para quem vende sites. O mercado brasileiro de marketing digital movimenta <strong>mais de R$ 45 bi/ano</strong> e é pulverizado em milhares de agências pequenas. Todas com o mesmo problema — o cliente não vê venda. Nenhuma sabe fazer reativação de base, e não vai aprender: exige processo, não talento.</p>
+      <div class="formula">Direto:       6.480 lojas × R$ 1.800   →  teto de R$ 140 mi/ano
+White-label:  50 agências × 10 clientes × R$ 900  →  R$ 450 mil/mês</div>
+      <p><strong>E o gargalo de atendimento desaparece</strong>, porque a agência parceira faz o relacionamento e a Expansion faz a operação de 6 horas. Isso só é possível porque o EX1 já é processo escrito, com runbook, template e SQL. <strong>Produto documentado é licenciável; talento não é.</strong></p>
+      <p><strong>Risco:</strong> canibalização e diluição de marca. Mitigação: white-label só fora do nicho de moda, ou fora da praça, nos primeiros 12 meses.</p>
+    </div>
+
+    <div class="lev">
+      <div class="lev-h"><span class="lev-n num">3</span><span class="lev-t">Vender para o franqueador, não para a loja</span><span class="lev-m">CAC ÷ 50 a 200</span></div>
+      <p>Numa rede de franquia o marketing é central. Uma rede de 100 unidades é <strong>uma</strong> venda, não cem.</p>
+      <div class="formula">Unitário:  100 lojas × R$ 1.500 de CAC = R$ 150.000 + 12 meses
+Via rede:  1 contrato com franqueador de 100 unidades</div>
+      <p><strong>O que o franqueador ganha e não tem:</strong> hoje ele enxerga sell-in — o que vendeu para o franqueado. O EX1 entrega <strong>sell-out com nome e recorrência</strong>. É dado estratégico, não relatório de agência.</p>
+    </div>
+
+    <div class="lev">
+      <div class="lev-h"><span class="lev-n num">4</span><span class="lev-t">O atacadista como canal</span><span class="lev-m soft">CAC quase zero</span></div>
+      <p>Um atacadista do Brás ou de Goiânia tem cadastro de milhares de lojistas compradores — nome, telefone, o que compra, com que frequência. <strong>É exatamente a lista que vocês querem construir, e ele já tem.</strong> E o incentivo está alinhado: ele ganha quando o lojista vende e volta a comprar. Custo de teste: uma conversa.</p>
+    </div>
+
+    <div class="lev">
+      <div class="lev-h"><span class="lev-n num">5</span><span class="lev-t">Feira como aquisição concentrada</span><span class="lev-m soft">jan e fev/27</span></div>
+      <p>De 16/08 a 25/10 o CPM está tomado pela eleição. Uma feira concentra milhares de lojistas ICP em quatro dias, num raio de 200 metros, sem leilão. <strong>Calcemoda (19–21/01) e Tecnomoda (17–18/02) caem na janela de retomada.</strong> A conta estande contra mídia inflacionada nunca foi feita.</p>
+    </div>
+
+    <div class="lev">
+      <div class="lev-h"><span class="lev-n num">6</span><span class="lev-t">O ativo de dados que o EX1 deposita</span><span class="lev-m">vira ecossistema</span></div>
+      <p>Cada cliente entrega base, data e valor da última compra, frequência, ticket, resposta por gatilho, conversão por segmento. Vezes dezenas de lojas, isso é <strong>o único painel de comportamento de recompra do pequeno varejo de moda brasileiro</strong>. O IEMI vende consumo agregado; ninguém tem recompra individual da loja pequena.</p>
+      <p>Três produtos do mesmo dado: <strong>Painel do Nicho</strong> publicado (autoridade e entrada), <strong>benchmark individual</strong> vendido ao cliente, e <strong>dado agregado</strong> para franqueador, atacadista ou indústria — que hoje decide coleção sem enxergar sell-out.</p>
+    </div>
+
+    <div class="lev">
+      <div class="lev-h"><span class="lev-n num">7</span><span class="lev-t">A janela tributária de 2027</span><span class="lev-m soft">nov/26 a mar/27</span></div>
+      <p>O risco imediato do lojista não é a alíquota — é produto mal cadastrado travando emissão. Não é serviço de agência, e é por isso que abre porta.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Parte IV · o que ninguém está vendo</div>
+  <h2 style="color:var(--accent)">O EX1 é, juridicamente, tratamento de dados pessoais</h2>
+  <p class="lede" style="max-width:66ch">Este é o achado mais importante do dossiê, e é um risco — até ser resolvido.</p>
+
+  <div class="cards" style="margin-top:20px">
+    <div class="card"><div class="kl">Já aplicado pela ANPD</div><div class="big" style="color:var(--accent)">R$ 18 mi</div><p>em multas por uso indevido de dados em comunicações por WhatsApp.</p></div>
+    <div class="card"><div class="kl">Teto de sanção</div><div class="big" style="color:var(--accent)">2%</div><p>do faturamento, limite de R$ 50 mi — mais suspensão do banco de dados.</p></div>
+    <div class="card"><div class="kl">No radar da ANPD</div><div class="big" style="color:var(--accent)">2026–27</div><p>varejo e marketing digital, explicitamente.</p></div>
+  </div>
+
+  <div class="pull">
+    O runbook do EX1 manda buscar a base "na ordem: sistema/PDV → planilha → contatos do WhatsApp → <strong>caderno de anotação</strong>".
+    <small>Um caderno de anotação não tem base legal, não tem opt-in, não tem prova de consentimento e não tem opt-out. Com um cliente é risco pequeno. <strong>Com 144, a Expansion passa a tratar centenas de milhares de registros pessoais de terceiros como atividade-fim</strong> — e, como operadora, responde solidariamente quando descumpre a lei ou as instruções do controlador.</small>
+  </div>
+
+  <div class="tw" style="margin-top:20px">
+    <table>
+      <thead><tr><th>O que fazer</th><th>Custo</th><th>Onde entra</th></tr></thead>
+      <tbody>
+        <tr><td>Contrato de operador com cláusula de LGPD em todo EX1</td><td class="n">jurídico, 1×</td><td>modelo de contrato</td></tr>
+        <tr><td>Base legal declarada por campanha — legítimo interesse só para quem já comprou</td><td class="n">R$ 0</td><td>briefing da campanha</td></tr>
+        <tr><td>Opt-out em toda mensagem, processado em 48h</td><td class="n">R$ 0</td><td>linha do runbook</td></tr>
+        <tr><td>API Oficial sempre — nunca número pessoal ou ferramenta não-oficial</td><td class="n">já previsto</td><td>setup</td></tr>
+        <tr><td>Registro de origem da base: de onde veio, quando, com que consentimento</td><td class="n">R$ 0</td><td>auditoria de base</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note hot" style="margin-top:20px"><b>E aqui o risco vira fosso.</b> Ser a única assessoria de moda do Brasil que faz reativação de base <b>em conformidade documentada</b> é uma barreira que ninguém copia rápido, porque exige processo e contrato — não criatividade. Quando a ANPD autuar a primeira loja de moda por disparo, e vai, quem tiver essa camada pronta ganha o mercado numa semana.</div>
+
+  <h3 style="margin-top:38px">Mais quatro pontos cegos</h3>
+  <div class="tw" style="margin-top:14px">
+    <table>
+      <thead><tr><th>Ponto cego</th><th>Por quê</th></tr></thead>
+      <tbody>
+        <tr><td>O ativo prioritário está errado</td><td>Carteira gira — 17 nomes em 90 dias. Processo e dado não giram. O <code>business-model/</code> com 24 documentos e runbook é mais defensável que qualquer contrato</td></tr>
+        <tr><td>A janela do EX3 está fechando</td><td>Conteúdo e tráfego é o que a IA comoditiza mais rápido — vocês mesmos já automatizaram o carrossel. <strong>18 a 24 meses</strong> antes de virar commodity de R$ 2.000. Não construir crescimento em cima dele</td></tr>
+        <tr><td>A dependência migrou, não sumiu</td><td>O gargalo era o designer; virou <strong>quem é dono da grade de conteúdo</strong>. Sem nome definido, em dois meses cada cliente tem seis estilos e o retrabalho volta</td></tr>
+        <tr><td>Falta a quarta esfera</td><td>Assessoria, produtora e educação vendem tempo de gente. <strong>Dado e software</strong> é a única que escala sem folha — e já existe embrionária, sem nome de negócio</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Parte V · a sequência</div>
+  <h2>Ordem de dependência, não lista de desejos</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Fase</th><th>Quando</th><th>Foco</th><th>O que destrava</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td>1</td><td>agora</td><td>Camada de LGPD no EX1 — contrato de operador, opt-in, API Oficial</td><td>tudo. Sem isso, escalar o EX1 é acumular passivo</td></tr>
+        <tr><td>2</td><td>60 dias</td><td>20 clientes de EX1 com dado padronizado</td><td>o Painel do Nicho</td></tr>
+        <tr><td>3</td><td>90 dias</td><td>Primeira parceria de canal — atacadista ou plataforma</td><td>CAC fora do leilão do Meta</td></tr>
+        <tr><td>4</td><td>120 dias</td><td>Painel do Nicho publicado</td><td>autoridade e entrada comercial</td></tr>
+        <tr><td>5</td><td>6 meses</td><td>Piloto de white-label com 2 agências fora de moda</td><td>rompe o teto de 6.500</td></tr>
+        <tr><td>6</td><td>12 meses</td><td>Primeira rede de franquia</td><td>multiplica CAC por 50 a 200</td></tr>
+        <tr class="okrow"><td>7</td><td>18 meses</td><td>Segunda vertical — pet ou ótica — com o case de moda na mão</td><td>multiplica o TAM</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pull" style="margin-top:30px">
+    A infraestrutura de recompra do varejo brasileiro — provada em moda.
+    <small><strong>"A maior assessoria de marketing para loja de roupa do Brasil"</strong> é um teto de R$ 360 milhões e de dezesseis pessoas. O posicionamento acima mantém o nicho como prova e autoridade, mas não coloca o teto nele — e é defensável por três coisas que vocês já têm e o concorrente não: <strong>um produto documentado, um caso real de R$ 5.000 em um dia, e o começo de um ativo de dados.</strong></small>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Parte VI · honestidade</div>
+  <h2>Sete lacunas que este dossiê não fecha</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>#</th><th>Lacuna</th><th>Como resolver</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td>1</td><td>Distribuição das 15 mil EPPs por faixa de faturamento — <strong>premissa mais frágil de todo o dimensionamento</strong></td><td>Sebrae sob demanda, ou amostragem na própria carteira</td></tr>
+        <tr><td>2</td><td>Cerberus e concorrentes não verificados (domínio bloqueado neste ambiente)</td><td>Confirmar manualmente</td></tr>
+        <tr><td>3</td><td>Unidades de franquia <em>de moda</em> — só temos receita, não contagem</td><td>ABF publica; pedir o recorte</td></tr>
+        <tr><td>4</td><td>Lojistas cadastrados por atacadista de polo</td><td>Uma conversa com um atacadista</td></tr>
+        <tr><td>5</td><td>Parecer jurídico sobre a exposição de operadora no EX1</td><td>Advogado de LGPD, uma sessão</td></tr>
+        <tr><td>6</td><td>Horas reais por produto — nunca cronometradas</td><td>Tabelas de calibração do <code>04</code>, 15 minutos</td></tr>
+        <tr><td>7</td><td>Faturamento real dos clientes atuais</td><td>Perguntar na próxima reunião mensal</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <p><b>Fontes verificadas nesta sessão.</b> IEMI (varejo de vestuário R$ 314,9 bi, temporada 2026); Receita Federal via consulta de CNAE (1.013.880 lojas 4781-4); Sebrae (~15 mil EPPs no varejo de vestuário, ~10% do total nacional); ABF (franquias de moda R$ 30,8 bi em 2025, franchising com 3.200 marcas e 203 mil unidades); Loja Integrada 2,5 mi e Nuvemshop 180 mil lojistas; ANPD e LGPD (R$ 18 mi em multas por WhatsApp, varejo no radar 2026–2027, sanção de 2% com teto de R$ 50 mi); calendário de feiras de moda 2026–2027; TikTok Newsroom (102× em 12 meses); CNC (endividamento em 82%); salario.com.br (vendedor no varejo 2026); mercado de marketing digital acima de R$ 45 bi.</p>
+  <p><b>Fontes internas.</b> <code>business-model/</code> docs 01 a 24 na branch <code>claude/new-session-nx502g</code> — preços, horas, margens, runbook do EX1, ICP e o caso Ciés. Mais <code>OPERACAO-REAL</code>, <code>CONSELHO-EXPANSION-ANEXOS</code>, <code>EXPANSION-360</code> e os áudios.</p>
+  <p><b>O que é inferência minha, não dado.</b> A quebra das EPPs por faixa; o filtro de 60% para feminino e infantil; o multiplicador de 10 a 30× do TAM horizontal; as contas de white-label e de CAC por franqueador; a janela de 18 a 24 meses do EX3. Todas estão marcadas no documento em markdown e existem para serem contestadas — <b>a primeira delas derruba metade do dimensionamento se estiver errada.</b></p>
+  <p style="margin-top:16px"><b>Documento completo, com as marcações de confiança item a item:</b> <code>DOSSIE-MERCADO-ECOSSISTEMA-EXPANSION-2026-08-08.md</code></p>
+</footer>
+
+</div>
