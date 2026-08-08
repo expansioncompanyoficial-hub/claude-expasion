@@ -114,3 +114,39 @@ gatilhos objetivos para reavaliar.
 Nenhum preço aprovado. `A-003` (WhatsApp oficial × não-oficial), aberta desde
 17/07, passa de "importante" a **bloqueante**: o entregável 1.2 do EX1 não existe
 sem essa decisão.
+
+---
+
+## Rodada 08/08/2026 (3) — A tese
+
+**Entregue:** `21-TESE-DA-EXPANSION.md` e a versão visual
+(https://claude.ai/code/artifact/3caa70e1-714e-45e3-9522-4a6e6f5ffe4d).
+
+Síntese das três esferas do grupo — 360, estudo de mercado, produto e precificação
+— respondendo à pergunta do CEO sobre transformar a operação em plataforma.
+
+### Achados desta rodada
+
+| # | Achado | Onde |
+|---|---|---|
+| 1 | **O portão da plataforma já existe e tem número.** O conselho de 13/07 proibiu software próprio por 6 meses e fixou o gatilho: **MRR de assessoria ≥ R$ 60–80 mil** com SOP 90 dias sem exceção. A precificação deixa de ser projeto paralelo e vira o portão | `21` §1 · `D-020` |
+| 2 | **O espelho WebLuxury.** O mapa mental de 13/07 registra a Expansion como *"operadora substituível"* cujos ativos pertencem a outro. **"Esses dados têm que ser nossos" é o CEO recusando essa posição pela segunda vez** | `21` §3 |
+| 3 | **A empresa opera a 21% do próprio indicador.** Receita por pessoa de R$ 2.500 contra o piso de R$ 12 mil fixado pelo conselho. O modelo novo chega a 98% **sem contratar mais gente** | `21` §4 |
+| 4 | **Só o EX1 chega ao portão.** Com as 204h de capacidade atual: só EX3 teto em R$ 28.700; só EX2, R$ 35.700; **só EX1, R$ 61.200**. O EX1 gera R$ 300 de receita por hora contra R$ 141 do EX3 | `21` §5 |
+| 5 | **O produto que paga a conta é o mesmo que produz o ativo.** O EX1 é o de maior receita/hora e o único que entrega base de consumidores e evento rotulado. Não é coincidência — é o motivo de a tese fechar | `21` §6 |
+| 6 | **São quatro camadas, não um "CRM".** Canal e orquestração são alugados; base e inteligência são próprias desde o dia 1. **A base própria é dias de trabalho, não meses** | `21` §7 · `D-019` |
+| 7 | **A vantagem é `n`, não código.** Quem tem 200 lojas no padrão ganha de quem tem software melhor com 20. Os gatilhos de escala coincidem com o portão do conselho | `21` §8 |
+
+### O ponto de chegada dimensionado
+28 clientes (15 EX1 + 8 EX2 + 5 EX3) · MRR R$ 82.500 · 445 h/mês · folha 22,95% ·
+**lucro 38,5%** · 5 executores em tempo integral + 2 sócios · receita por pessoa
+R$ 11.786 · **~56.000 consumidores finais no dataset**.
+
+### Decisões registradas
+`D-018` (canal oficial prioritário com reserva — fecha `A-003`, aberta desde 17/07),
+`D-019` (a base é ativo da Expansion), `D-020` (o portão do conselho).
+Novas em aberto: `A-034` (a ferramenta de R$ 297 é por conta ou por número?) e
+`A-035` (PJs de meio período para tempo integral).
+
+### Lembrete agendado
+Cláusula de dados no contrato — `A-031` — agendada para 10/08/2026.
