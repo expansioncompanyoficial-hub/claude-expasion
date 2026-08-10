@@ -16,6 +16,7 @@ de nenhuma máquina em particular.
 | `CONSELHO-EXPANSION-*` | Conselho da Expansion e anexos |
 | `EXPANSION-360`, `OPERACAO-REAL`, `AUDITORIA-DRIVE` | Diagnóstico e operação real da agência |
 | `CASO-GESTOR-TRAFEGO-*` | Parecer + anexos sobre o vínculo com o gestor de tráfego e os alinhamentos de agosto/2026 |
+| `POLITICA-PAGAMENTO-EXPANSION-*` | Análise e decisão sobre a data de pagamento do time |
 | `POSICIONAMENTO-CONTEUDO-NICOLAS-*` | Posicionamento e estratégia de conteúdo |
 | `POP-SOCIAL-MEDIA-v0.1.md` | POP de social media |
 | [`_audios/`](_audios/) | Transcrições de áudios e reuniões |
