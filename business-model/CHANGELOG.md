@@ -60,7 +60,7 @@ passo de execução, quem faz, quanto tempo leva e o que o cliente recebe.
 
 | # | Fato | Efeito |
 |---|---|---|
-| 1 | **Ciés reativou a base e vendeu +R$ 5.000 em menos de um dia** | EX1 sai de hipótese para produto validado (`D-017`). Uma campanha cobre 90% da mensalidade pelo lucro de contribuição da lojista |
+| 1 | ~~Ciés reativou a base e vendeu +R$ 5.000 em menos de um dia~~ **❌ RETRATADO EM 10/08 — NÃO ACONTECEU.** `D-017` revogada por `D-034` | — |
 | 2 | **O contato no grupo de WhatsApp "demandava muito tempo" e não está em nenhuma hora precificada** | `ALERTA-05` — 30 min/dia derruba o EX3 de **31,3% para 23,5%** de lucro. Piso correto sobe de R$ 5.281 para R$ 6.635. Vira `A-027` |
 | 3 | **O designer não será renovado**; trabalho migra para IA + Canva, com automação de carrossel em construção | `D-016`. Folha R$ 9.350 → R$ 8.700; EX3 → 37,2h e 32,6% de lucro. **Mas a grade de conteúdo perde dono** → `A-028` |
 | 4 | **A operação tem 6 pessoas nomeadas** — Débora (social media), Matheus Felipe (tráfego), Daniel, Bernardo e Adryel (edição), designer (saindo) | Permite alocar cada entregável a uma pessoa com nome |
@@ -432,3 +432,49 @@ sobe de R$ 1.333,33 para R$ 1.666,67. `clientes-e-contratos.csv` corrigido.
 ### Decisões
 `D-028` a `D-033`. Novas em aberto: `A-042` (escada de preço), `A-043` (taxa de
 implantação), `A-044` (volume de EX1 em 30 dias — pergunta 02, ainda sem resposta).
+
+---
+
+## Rodada 10/08/2026 (4) — RETRATAÇÃO e o 360
+
+### ❌ RETRATAÇÃO — o caso Ciés não aconteceu
+
+**Nicolas confirmou em 10/08 que a Ciés NÃO vendeu R$ 5.000 em menos de um dia.**
+A afirmação foi retirada de **7 documentos** (`18`, `19`, `24`, `25`, `26`, `27`,
+`DECISION-LOG`) e de **4 páginas publicadas** (apresentação, entregáveis, margem,
+decisões da mesa — todas republicadas nas mesmas URLs).
+
+| | |
+|---|---|
+| `D-017` | ❌ **REVOGADA** por `D-034`. **O EX1 volta a `hipótese de produto`** |
+| `D-034` | O EX1 **não tem case próprio**. O Kauã **não pode** dizer *"foi assim com a Ciés"* |
+| `D-035` | **Regra de governança nova** — ver abaixo |
+| `A-045` | **Medir o que a Ciés de fato vende** a partir do contato semanal. Hoje `NÃO INFORMADO` |
+
+**O que é verdade e pode ser dito:** a Ciés faz vendas a partir do contato semanal
+que a Expansion gera, sem exigir encontro presencial. **Volume `NÃO INFORMADO`.**
+
+**O que substitui o case na venda:** o mecanismo segue sustentado por dado de setor
+(77% de base dormente · 8% de resposta · 32% de conversão), e `D-015` já resolvia a
+ausência de prova — **a primeira campanha é por conta da casa**, R$ 255 de custo
+direto contra um contrato de R$ 21.600.
+
+### `D-035` — a falha de processo, registrada
+
+O caso foi propagado para sete documentos e quatro páginas publicadas **sem nunca ter
+sido verificado**. A regra da casa — *"todo número tem fonte, status e responsável"* —
+foi cumprida na letra e furada no espírito: a fonte estava registrada, mas o status
+foi tratado como `CONFIRMADO` quando era relato verbal.
+
+> **Regra nova: fato relatado verbalmente entra como `A VERIFICAR`, nunca como
+> `CONFIRMADO`.** Só vira fato com evidência — print, extrato, relatório da
+> ferramenta. **Nenhum dado de operação própria entra em documento de venda sem prova
+> anexada.**
+
+### Entregue: `28-EXPANSION-360.md`
+https://claude.ai/code/artifact/ba967714-2c9a-44fb-843b-98de796930eb
+
+Consolidação de tudo entre 05 e 10/08 em nove seções: onde a empresa está · o nicho ·
+os três produtos · a conta do cliente · o caminho até o portão · como se entrega · a
+carteira cliente a cliente · **a coluna fato × hipótese × retratado** · e as nove
+decisões abertas por prioridade.

@@ -269,7 +269,7 @@ Duas clientes já na base. **Elas não são o mesmo teste.**
 |---|---|---|
 | Faturamento da loja | baixo, voltou a operar recentemente | R$ 20–30 mil/mês |
 | Paga hoje | R$ 1.333,33/mês | `NÃO INFORMADO` |
-| Já rodou a metodologia? | **Sim — R$ 5.000 em menos de um dia** | Não |
+| Já rodou a metodologia? | Parcialmente — faz vendas a partir do contato semanal, **volume `NÃO INFORMADO`** | Não |
 | Serve para testar | **o produto inteiro.** Já tem histórico de campanha real | **a máquina**, não o preço |
 | Está no ICP de EX1 (R$ 40–100k)? | a validar | **Não — está abaixo** |
 

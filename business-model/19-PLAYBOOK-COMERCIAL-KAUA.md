@@ -115,8 +115,8 @@ negociada. Cortesia com data para acabar o cliente lembra que ganhou.
 
 > *"Não vou te prometer venda, porque metade disso é o seu atendimento e eu não
 > controlo isso. O que eu te prometo é o mecanismo: sua base auditada, a campanha
-> rodando e o placar toda segunda mostrando os dois lados. A Ciés fez R$ 5.000 em
-> menos de um dia com esse mesmo mecanismo. Não é garantia — é o que aconteceu."*
+> rodando e o placar toda segunda mostrando os dois lados. **E a primeira campanha é
+> por minha conta — você vê o número antes de pagar por ele.**"*
 
 ---
 

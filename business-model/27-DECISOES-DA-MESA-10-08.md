@@ -151,9 +151,9 @@ a maioria da carteira tem. Não R$ 3.000 por 42 vídeos.
 **A necessidade de caixa é real e legítima. Mas a Ciés é o pior cliente da carteira
 para reajustar**, por três razões:
 
-1. **Ela é o case.** Os R$ 5.000 em menos de um dia são a prova central de toda a
-   venda do EX1. **Perder a Ciés é perder o argumento que vai vender os próximos
-   quinze contratos.**
+1. **Ela é onde o case vai nascer.** O EX1 **não tem prova própria** (`D-034`). A
+   Ciés é a candidata mais rápida a produzir a primeira. **Reajustar agora arrisca
+   perder exatamente o cliente onde o case seria feito.**
 2. **Ela é o piloto do módulo BASE** (`A-041`). É a única com campanha medida —
    mexer no preço durante o teste contamina o teste.
 3. **Ela já paga antecipado, trimestral, sem desconto.** É o melhor comportamento de
@@ -174,10 +174,10 @@ funcionar na própria loja.
 
 ### Como abrir
 
-> *"Lembra da campanha que fez cinco mil em menos de um dia? Aquilo foi uma vez. Eu
-> montei um produto que faz aquilo **todo mês**, mais quatro mensagens automáticas
-> rodando todo dia na sua base. É mil e oitocentos por mês, separado do que você já
-> tem. Quer ver a conta?"*
+> *"Você já vende pelo contato que a gente gera toda semana, sem precisar de
+> encontro. Eu montei um produto que faz isso virar rotina: uma campanha por mês na
+> sua base, mais quatro mensagens automáticas rodando todo dia. **A primeira campanha
+> é por minha conta** — você vê o número antes de decidir. Quer ver a conta?"*
 
 ---
 

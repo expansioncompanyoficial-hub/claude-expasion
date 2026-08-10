@@ -14,32 +14,27 @@ execução, quem faz, quanto tempo leva e o que o cliente recebe na mão.
 
 ---
 
-## 0 — O EX1 deixou de ser hipótese
+## 0 — RETRATADO: o EX1 ainda NÃO tem case
 
-**Fato novo, 08/08/2026, fonte: Nicolas (operação própria).** A Ciés reativou a
-base e **vendeu mais de R$ 5.000 em menos de um dia**.
+> ⚠️ **RETRATAÇÃO — 10/08/2026.** Esta seção afirmava que a Ciés reativou a base e
+> vendeu mais de R$ 5.000 em menos de um dia. **Nicolas confirmou em 10/08 que isso
+> não aconteceu.** A informação foi retirada de todo o acervo.
+>
+> **O EX1 volta a `hipótese de produto`** (`D-017` revogada por `D-034`). O mecanismo
+> continua sustentado por dado de setor — 77% de base dormente, 8% de resposta, 32%
+> de conversão sobre quem responde — **mas a Expansion ainda não tem prova própria.**
 
-Isso não é benchmark de fornecedor. É a operação da Expansion, com uma cliente
-real. Status do EX1 muda de `hipótese de produto` para `produto validado, falta
-embalar e cobrar`.
+**O que é verdade e pode ser dito:** a Ciés faz vendas a partir do contato semanal
+que a Expansion gera, sem exigir encontro presencial. **Quanto isso representa é
+`NÃO INFORMADO`** — e medir esse número é a primeira coisa que o piloto do EX1 tem
+que produzir (`A-045`).
 
-### A conta pelo lado da lojista
+**Consequência comercial:** o Kauã **não pode** dizer *"foi assim com a Ciés"*.
+A oferta correta é a de `D-015` — **a primeira campanha é por conta da casa**,
+justamente porque ainda não há case:
 
-| Linha | Valor |
-|---|---|
-| Venda gerada em 1 dia | R$ 5.000 |
-| Lucro de contribuição dela (32,4% — ver `26`) | R$ 1.620 |
-| Mensalidade do EX1 | R$ 1.800 |
-| **Cobertura da mensalidade por UMA campanha, em UM dia** | **90%** |
-
-**É assim que se conta na mesa:** uma campanha paga a mensalidade. A régua
-automática, rodando os outros 29 dias, é o lucro dela. Não é preciso prometer
-nada além disso — e já é mais do que qualquer agência de conteúdo consegue
-prometer com número.
-
-> **Ressalva honesta:** um caso não é taxa. É prova de que o mecanismo funciona,
-> não garantia de repetição. Na proposta, apresentar como *"foi assim com a
-> Ciés"*, nunca como *"você vai fazer R$ 5.000"*.
+> *"Eu não tenho case nesse formato ainda, e é por isso que a primeira campanha é
+> por minha conta. Você vê o número antes de pagar por ele."*
 
 ---
 
@@ -107,8 +102,7 @@ todo mundo igual.
    uma vez — derruba o número. · 30 min
 5. **Monitorar 48h** — velocidade de resposta é o que converte. · 45 min
 
-**O cliente recebe:** a venda concentrada de um dia. Foi assim que a Ciés fez
-R$ 5.000.
+**O cliente recebe:** a venda concentrada de um dia — o pico do mês.
 
 ### 1.4 · Placar Compartilhado — `SEMANAL` · 20 min × 4
 

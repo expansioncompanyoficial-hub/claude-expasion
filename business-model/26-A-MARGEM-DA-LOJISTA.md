@@ -185,22 +185,23 @@ de lucro, direto, sem dividir com nada.**
 
 ---
 
-## 7 — Não confundir: existem dois "R$ 5.000"
+## 7 — `RETRATADO` — o caso Ciés não existiu
+
+> ⚠️ **RETRATAÇÃO — 10/08/2026.** Esta seção comparava a meta calculada com um
+> suposto caso da Ciés de R$ 5.000 em um dia. **Nicolas confirmou que isso não
+> aconteceu.** Retirado.
+
+**Sobra só o número calculado, e ele basta:**
 
 | | O que é | Natureza |
 |---|---|---|
-| **R$ 5.000** | O que a **Ciés vendeu** em menos de um dia reativando a base | **Fato observado** |
 | **R$ 5.556** | A **venda nova necessária** para o EX1 se pagar — `1.800 ÷ 0,324` | **Meta calculada** |
 
-Os dois se parecem **por coincidência**. Misturados na conversa, um comercial atento
-pega — e a credibilidade da conta inteira cai junto.
-
-**Como falar dos dois sem misturar:**
+**Como falar sem case:**
 
 > *"A conta é: R$ 1.800 se paga com R$ 5.556 de venda nova, porque de cada real que
-> entra sobram 32 centavos pra você. E não é teoria — a Ciés fez R$ 5.000 numa
-> campanha, em menos de um dia. Chegou perto da meta do mês inteiro numa tarde. Não é
-> garantia; é o que aconteceu."*
+> entra sobram 32 centavos pra você. Eu não tenho case nesse formato ainda — e é por
+> isso que a primeira campanha é por minha conta. Você vê o número antes de pagar."*
 
 ---
 

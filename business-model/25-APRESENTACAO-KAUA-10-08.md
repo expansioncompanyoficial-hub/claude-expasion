@@ -160,21 +160,30 @@ Passa para a Débora ou um CS a partir do 11º cliente (`A-040`).
 
 ---
 
-## 6 — A prova
+## 6 — `RETRATADO` — o EX1 ainda não tem case
 
-**A Ciés reativou a base com essa metodologia e vendeu mais de R$ 5.000 em menos de
-um dia.** Não é benchmark de relatório — é a operação da casa.
+> ⚠️ **RETRATAÇÃO — 10/08/2026.** Esta seção afirmava que a Ciés vendeu mais de
+> R$ 5.000 em menos de um dia reativando a base. **Nicolas confirmou que isso não
+> aconteceu.** Retirado de todo o acervo. `D-017` revogada por `D-034`.
 
-| A conta pelo lado da lojista | Valor |
-|---|---|
-| Venda gerada em 1 dia | R$ 5.000 |
-| Lucro de contribuição dela (32,4%) | R$ 1.620 |
-| Mensalidade do EX1 | R$ 1.800 |
-| **Uma campanha, num dia, cobriu** | **97% do mês** |
+**O que se leva à mesa no lugar:**
 
-> **Como contar:** uma campanha paga a mensalidade; a régua, rodando os outros 29
-> dias, é o lucro dela. **Sempre como caso — *"foi assim com a Ciés"* — nunca como
-> promessa.** Um caso é prova de mecanismo, não é taxa.
+O mecanismo do EX1 é sustentado por **dado de setor**, não por operação própria:
+77% da base do varejo de moda está dormente · ~8% respondem a campanha segmentada ·
+**1 em cada 3 respostas vira venda** — contra menos de 2% de conversão do e-commerce.
+
+E o que resolve a ausência de case já existe: **`D-015` — a primeira campanha é por
+conta da casa.** Custa R$ 255 de custo direto contra um contrato de R$ 21.600 em 12
+meses.
+
+> **A frase honesta, e ela vende melhor que case inventado:**
+> *"Eu não tenho case nesse formato ainda, e é por isso que a primeira campanha é por
+> minha conta. Você vê o número antes de pagar por ele."*
+
+**O que é verdade sobre a Ciés e pode ser dito:** ela faz vendas a partir do contato
+semanal que a Expansion gera, sem exigir encontro presencial. **Quanto isso
+representa é `NÃO INFORMADO`** — medir esse número é `A-045`, e é o caminho mais
+rápido para o primeiro case real.
 
 ---
 

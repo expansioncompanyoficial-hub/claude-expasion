@@ -20,6 +20,7 @@
 
 | Arquivo | O que responde | Status |
 |---|---|---|
+| **`28-EXPANSION-360.md`** | **👉 O 360 — TUDO EM UMA PÁGINA.** Onde estamos, produtos, caminho, carteira, e a coluna fato × hipótese × retratado | **v1.0 — consolidado** |
 | **`27-DECISOES-DA-MESA-10-08.md`** | **👉 O QUE FICOU DECIDIDO.** Escada de preço do EX1, taxa de implantação, BANT-DA, e as duas divergências (Dr. Fred e Ciés) | **v1.0 — decisões** |
 | **`25-APRESENTACAO-KAUA-10-08.md`** | **👉 A MESA DE SEGUNDA.** Nicho, mercado, os 3 produtos, o EX1 técnico, a prova e as 5 perguntas | **v1.0 — apresentação** |
 | **`21-TESE-DA-EXPANSION.md`** | **👉 COMECE AQUI se quer a visão.** Como as três esferas se ligam, o portão da plataforma e a escada até ele | **v1.0 — tese** |
@@ -56,6 +57,7 @@
 | **`25-APRESENTACAO-KAUA-10-08.md`** | **A apresentação para o sócio.** O nicho de moda feminina e infantil, a tabela mestra e o EX1 no detalhe técnico | **v1.0 — 10/08** |
 | **`26-A-MARGEM-DA-LOJISTA.md`** | **De onde vem a meta do EX1.** A margem da lojista linha por linha e a **correção de 35% para 32,4%** | **v1.0 — corrige `D-013`** |
 | **`27-DECISOES-DA-MESA-10-08.md`** | **As respostas da mesa viradas em número**, com duas divergências registradas | **v1.0 — 10/08** |
+| **`28-EXPANSION-360.md`** | **O consolidado de tudo.** Nove seções, incluindo o status honesto de cada afirmação | **v1.0 — 10/08** |
 | `sql/0001-modulo-base-consumidor.sql` | O módulo BASE — 4 tabelas + 2 views, nas convenções do OS | **PROPOSTA, não aplicada** |
 | `templates/BASE-CLIENTE-TEMPLATE-v1.xlsx` | O padrão de dados, pronto para usar — 5 abas, cálculos prontos | **v1.0** |
 | `DECISION-LOG.md` | Toda decisão, com dono, data e consequência | vivo |
