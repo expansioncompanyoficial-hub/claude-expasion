@@ -1,5 +1,11 @@
 # 17 — COMO A CONTA FUNCIONA
 
+> ⚠️ **CORRIGIDO EM 10/08/2026 por `26-A-MARGEM-DA-LOJISTA.md`.** A margem de
+> contribuição da lojista usada abaixo (~35%) está **desatualizada**: o número correto
+> é **32,4%** — faltava o imposto sobre a venda. A meta do EX1 passa de R$ 5.143 para
+> **R$ 5.556**. A derivação antiga fica registrada porque o histórico é o valor.
+
+
 > **Documento de ensino.** Nicolas pediu para entender de onde vêm os números. Aqui está tudo, passo a passo, sem pular etapa.
 
 | | |
