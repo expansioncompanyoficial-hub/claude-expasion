@@ -394,3 +394,41 @@ Números corrigidos em `16`, `17`, `18`, `19`, `22`, `25` e na apresentação pu
 
 ### Decisões
 `D-026`, `D-027`. `D-013` revisada.
+
+---
+
+## Rodada 10/08/2026 (3) — As decisões da mesa
+
+**Entregue:** `27-DECISOES-DA-MESA-10-08.md` e a versão visual
+(https://claude.ai/code/artifact/c8f25651-b84c-468d-943c-2abc2e33e0f3).
+
+As cinco perguntas de `25` §9 foram respondidas pela direção. Quatro respostas
+viraram número; **duas viraram divergência registrada.**
+
+### O que a mesa decidiu
+
+| # | Decisão da mesa | O que a análise fez com ela |
+|---|---|---|
+| 1 | **"R$ 1.800 está barato"** | **Confirmado pelo dado** — a R$ 70 mil de faturamento a loja cresce só 7,9%. Vira `D-028`: **escada de preço por faixa** (R$ 1.800 / R$ 2.400 / R$ 2.900), lucro sobe para 50,8% e 52,6% |
+| 2 | **Antecipação no EX1 por causa do caixa** | Diagnóstico aceito, remédio ajustado. `D-029`: **taxa de implantação de R$ 900 + trimestral antecipado SEM desconto** = **R$ 6.300 de caixa por cliente novo**. Antecipar com desconto repetiria o Albanos (295% a.a.) |
+| 3 | **Script BANT confirmado** | `D-030`: **BANT-DA** — acrescenta **D** de dado e **A** de atendimento. Sem o D o SDR agenda reunião onde a auditoria não pode ser feita; sem o 2º A vende-se campanha para quem não responde |
+| 4 | **Albanos mantém R$ 24 mil trimestral** | Sem objeção. Ressalvas de `13` §8 seguem para a próxima renovação |
+
+### As duas divergências registradas
+
+| | A mesa | A análise |
+|---|---|---|
+| **Dr. Fred** (`D-032`) | Subir de R$ 1.750 para R$ 2.500–3.000 | **Concordo em reajustar, discordo da alavanca.** O escopo de 2 vídeos/dia é ~80 h/mês — **piso de R$ 10.833**. A R$ 3.000 o prejuízo continua. **Preço E escopo juntos:** R$ 3.000 por 12 vídeos + 1 diária |
+| **Ciés** (`D-031`) | Reajustar por causa do caixa | **Não reajustar — vender o EX1 por cima.** Ela é o case, é o piloto do módulo BASE e é o melhor pagador da casa. Reajuste de 30% daria +R$ 500/mês; **o EX1 dá +R$ 1.800/mês** e R$ 5.400 de caixa no ato |
+
+### O efeito no caixa
+**MRR de R$ 17.500 para R$ 20.550 — +17,4% mexendo em dois clientes, sem vender nada
+novo.** Mais R$ 5.400 de caixa imediato se a Ciés fechar trimestral antecipado.
+
+### Correção de dado — `D-033`
+**A Ciés pagou R$ 5.000 pelo trimestre, não R$ 4.000.** Receita mensal de competência
+sobe de R$ 1.333,33 para R$ 1.666,67. `clientes-e-contratos.csv` corrigido.
+
+### Decisões
+`D-028` a `D-033`. Novas em aberto: `A-042` (escada de preço), `A-043` (taxa de
+implantação), `A-044` (volume de EX1 em 30 dias — pergunta 02, ainda sem resposta).
