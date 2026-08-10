@@ -20,6 +20,7 @@
 
 | Arquivo | O que responde | Status |
 |---|---|---|
+| **`25-APRESENTACAO-KAUA-10-08.md`** | **👉 A MESA DE SEGUNDA.** Nicho, mercado, os 3 produtos, o EX1 técnico, a prova e as 5 perguntas | **v1.0 — apresentação** |
 | **`21-TESE-DA-EXPANSION.md`** | **👉 COMECE AQUI se quer a visão.** Como as três esferas se ligam, o portão da plataforma e a escada até ele | **v1.0 — tese** |
 | **`22-EX1-NA-PRATICA.md`** | **👉 COMECE AQUI se quer saber como se opera.** Dia a dia do EX1, sem CRM, com template de planilha pronto | **v1.0 — runbook** |
 | **`18-ENTREGAVEIS-DESTRINCHADOS.md`** | **👉 COMECE AQUI se quer saber o que é cada entrega.** Passo a passo de execução de cada entregável, quem faz, quanto tempo leva | **v1.0 — e traz o `ALERTA-05`** |
@@ -51,6 +52,7 @@
 | **`22-EX1-NA-PRATICA.md`** | **O runbook manual.** D+0 a D+30 do EX1, quem faz o quê, a pilha mínima e o `ALERTA-07` | **v1.0 — operacional** |
 | **`24-RESPOSTAS-E-O-POS-ENTREGA.md`** | **O que cai na mão do Nicolas depois da venda** — mais PDV/ERP explicados, o disparo, as 12 cláusulas de dados e a cessão de IP | **v1.0 — respostas** |
 | **`23-OPERACAO-SEM-OPERADOR.md`** | **A operação automatizada.** Os dois fluxos, o módulo BASE no Expansion OS, e as DIVERGÊNCIAS DO COMITÊ. **Corrige `A-033`** | **v1.0 — arquitetura** |
+| **`25-APRESENTACAO-KAUA-10-08.md`** | **A apresentação para o sócio.** O nicho de moda feminina e infantil, a tabela mestra e o EX1 no detalhe técnico | **v1.0 — 10/08** |
 | `sql/0001-modulo-base-consumidor.sql` | O módulo BASE — 4 tabelas + 2 views, nas convenções do OS | **PROPOSTA, não aplicada** |
 | `templates/BASE-CLIENTE-TEMPLATE-v1.xlsx` | O padrão de dados, pronto para usar — 5 abas, cálculos prontos | **v1.0** |
 | `DECISION-LOG.md` | Toda decisão, com dono, data e consequência | vivo |

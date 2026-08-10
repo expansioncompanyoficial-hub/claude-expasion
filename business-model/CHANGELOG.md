@@ -266,3 +266,28 @@ faz sair, o ritmo de 50–100/h, o que acontece na resposta) · o que exatamente
 
 ### Decisões registradas
 `D-024`, `D-025`. Novas em aberto: `A-039` (**bloqueante**), `A-040`, `A-041`.
+
+---
+
+## Rodada 10/08/2026 — A mesa de segunda
+
+**Entregue:** `25-APRESENTACAO-KAUA-10-08.md` e a versão visual
+(https://claude.ai/code/artifact/f684353c-a494-48f4-829e-1478bcad3582).
+
+Consolidação de tudo que foi construído entre 05 e 08/08, no formato de apresentação
+para o CFO/Diretor Comercial.
+
+### O que a apresentação fixa
+
+| # | Ponto | Onde |
+|---|---|---|
+| 1 | **O nicho é moda feminina E infantil** — 43% + infantil menina = 53% da produção de vestuário, e infantil/bebê cresceu +44,9% em 2021–2025. **É a mesma compradora**: um nicho, duas prateleiras | `25` §1 |
+| 2 | **O mercado não é a restrição: são 28 clientes.** E vender 10 EX1 dobra o faturamento consumindo 29% da capacidade existente — sem contratar ninguém | `25` §2 |
+| 3 | **O lucro está no produto mais barato.** R$ 300/hora do EX1 contra R$ 141 do EX3. **Inverte a lógica de agência** — não se vende o EX1 para "subir" o cliente depois | `25` §4 |
+| 4 | **EX1 destrinchado no detalhe técnico** — os cortes da auditoria, os 4 gatilhos da régua com a condição de data, o ritmo de disparo e as 7 métricas do placar | `25` §5 |
+| 5 | **Os cinco pendentes do 360 ditos abertamente** — grupo fora do preço, horas não cronometradas, EX2 sem operador, preços antes de imposto, grade sem dono | `25` §8 |
+| 6 | **Cinco perguntas de volta para o Kauã** — preço, volume, motion, carteira e qual pendência trava a venda | `25` §9 |
+
+### Nenhum número novo
+Toda a aritmética vem de `16`, `18`, `19` e `21`. Esta rodada **organiza, não
+recalcula.** Nenhum preço foi aprovado.
