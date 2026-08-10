@@ -28,9 +28,9 @@ embalar e cobrar`.
 | Linha | Valor |
 |---|---|
 | Venda gerada em 1 dia | R$ 5.000 |
-| Lucro de contribuição dela (35%, MC de varejo de moda — `13`) | R$ 1.750 |
+| Lucro de contribuição dela (32,4% — ver `26`) | R$ 1.620 |
 | Mensalidade do EX1 | R$ 1.800 |
-| **Cobertura da mensalidade por UMA campanha, em UM dia** | **97%** |
+| **Cobertura da mensalidade por UMA campanha, em UM dia** | **90%** |
 
 **É assim que se conta na mesa:** uma campanha paga a mensalidade. A régua
 automática, rodando os outros 29 dias, é o lucro dela. Não é preciso prometer
@@ -129,7 +129,7 @@ justamente a falta dela (`13`).
 
 **O que é:** 30 minutos com pauta fixa. Não é call de relacionamento.
 
-1. O mês em três números: venda gerada · meta de R$ 5.143 (a trava dos R$ 3
+1. O mês em três números: venda gerada · meta de R$ 5.556 (a trava dos R$ 3
    por R$ 1 de fee, D-013) · onde ficou.
 2. O que funcionou e o que morreu na campanha.
 3. O segmento e a oferta do mês seguinte, decididos ali.

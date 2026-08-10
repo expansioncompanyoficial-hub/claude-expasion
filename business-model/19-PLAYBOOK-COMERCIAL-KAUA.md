@@ -122,15 +122,15 @@ negociada. Cortesia com data para acabar o cliente lembra que ganhou.
 
 ## 7 — A trava de qualificação
 
-Cada **R$ 1** de mensalidade exige **R$ 2,86** de venda nova, porque a loja de roupa
-trabalha com margem de contribuição de ~35% (D-013).
+Cada **R$ 1** de mensalidade exige **R$ 3,09** de venda nova, porque a loja de roupa
+trabalha com margem de contribuição de **32,4%** (`D-026`, ver `26`).
 
 | Produto | Mensalidade | Venda nova necessária | Loja de | = crescimento de |
 |---|---|---|---|---|
-| EX1 | R$ 1.800 | R$ 5.143 | R$ 40–100 mil | 5% a 13% |
-| EX2 | R$ 3.500 | R$ 10.000 | R$ 100 mil+ | até 10% |
-| EX3 | R$ 5.500 | R$ 15.714 | R$ 140 mil+ | até 11% |
-| Os três | R$ 10.800 | R$ 30.857 | R$ 250 mil+ | até 12% |
+| EX1 | R$ 1.800 | R$ 5.556 | R$ 40–100 mil | 5% a 13% |
+| EX2 | R$ 3.500 | R$ 10.802 | R$ 100 mil+ | até 10% |
+| EX3 | R$ 5.500 | R$ 16.975 | R$ 140 mil+ | até 11% |
+| Os três | R$ 10.800 | R$ 33.333 | R$ 250 mil+ | até 12% |
 
 > **Se o Kauã não acredita que a loja chega nesse número, a venda não deve ser
 > feita.** Ela cancela no mês 4 e ainda fala mal. Loja abaixo de R$ 40 mil não tem

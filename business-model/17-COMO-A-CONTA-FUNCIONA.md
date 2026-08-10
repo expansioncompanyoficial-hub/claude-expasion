@@ -202,15 +202,15 @@ Ela vende R$ 100 de roupa
 Então:
 
 ```
-R$ 1.800 de mensalidade ÷ 0,35  =  R$ 5.143 de venda nova
+R$ 1.800 de mensalidade ÷ 0,35  =  R$ 5.556 de venda nova
 ```
 
-> **Se você não fizer a loja vender pelo menos R$ 5.143 a mais por mês, ela está pagando para ter você.**
+> **Se você não fizer a loja vender pelo menos R$ 5.556 a mais por mês, ela está pagando para ter você.**
 
 **Para que serve essa coluna, na prática:**
 
 1. **Antes de vender** — você olha a loja e se pergunta: *"eu acredito que consigo fazer ela vender R$ 5 mil a mais?"* Se a resposta for não, não venda. Se for R$ 15 mil (EX3), a pergunta é bem mais dura.
-2. **Na reunião mensal** — é a régua que você mostra: *"esse mês geramos R$ X. A meta para me pagar era R$ 5.143."*
+2. **Na reunião mensal** — é a régua que você mostra: *"esse mês geramos R$ X. A meta para me pagar era R$ 5.556."*
 3. **Para escolher o produto certo** — é mais fácil fazer uma loja de R$ 40 mil vender R$ 5 mil a mais do que R$ 15 mil a mais. Por isso EX1 para ela, e não EX3.
 
 **A regra curta: cada R$ 1 de mensalidade exige R$ 3 de venda nova.**

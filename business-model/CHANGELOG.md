@@ -60,7 +60,7 @@ passo de execução, quem faz, quanto tempo leva e o que o cliente recebe.
 
 | # | Fato | Efeito |
 |---|---|---|
-| 1 | **Ciés reativou a base e vendeu +R$ 5.000 em menos de um dia** | EX1 sai de hipótese para produto validado (`D-017`). Uma campanha cobre 97% da mensalidade pelo lucro de contribuição da lojista |
+| 1 | **Ciés reativou a base e vendeu +R$ 5.000 em menos de um dia** | EX1 sai de hipótese para produto validado (`D-017`). Uma campanha cobre 90% da mensalidade pelo lucro de contribuição da lojista |
 | 2 | **O contato no grupo de WhatsApp "demandava muito tempo" e não está em nenhuma hora precificada** | `ALERTA-05` — 30 min/dia derruba o EX3 de **31,3% para 23,5%** de lucro. Piso correto sobe de R$ 5.281 para R$ 6.635. Vira `A-027` |
 | 3 | **O designer não será renovado**; trabalho migra para IA + Canva, com automação de carrossel em construção | `D-016`. Folha R$ 9.350 → R$ 8.700; EX3 → 37,2h e 32,6% de lucro. **Mas a grade de conteúdo perde dono** → `A-028` |
 | 4 | **A operação tem 6 pessoas nomeadas** — Débora (social media), Matheus Felipe (tráfego), Daniel, Bernardo e Adryel (edição), designer (saindo) | Permite alocar cada entregável a uma pessoa com nome |
@@ -291,3 +291,55 @@ para o CFO/Diretor Comercial.
 ### Nenhum número novo
 Toda a aritmética vem de `16`, `18`, `19` e `21`. Esta rodada **organiza, não
 recalcula.** Nenhum preço foi aprovado.
+
+---
+
+## Rodada 10/08/2026 (2) — CORREÇÃO da margem da lojista
+
+**Entregue:** `26-A-MARGEM-DA-LOJISTA.md` e a versão visual
+(https://claude.ai/code/artifact/2ef02fde-1b1a-41a5-b625-5adc6f812f1e).
+
+### A correção
+
+Este acervo vinha usando **35%** de margem de contribuição para a lojista. Refazendo
+a cascata com todas as linhas, o número correto é **32,4%** — **faltava o imposto
+sobre a venda** (~7%, Simples Anexo I).
+
+```
+Venda                       100,0%
+(-) Custo da mercadoria     -54,6%   IBGE/PAC
+= Margem bruta               45,4%
+(-) Imposto sobre a venda    -7,0%   <- a linha que faltava
+(-) Meios de pagamento       -3,5%
+(-) Comissao de venda        -2,0%
+(-) Embalagem                -0,5%
+= MARGEM DE CONTRIBUICAO     32,4%
+```
+
+| | Antes | Correto |
+|---|---|---|
+| Venda nova para pagar o EX1 | R$ 5.143 | **R$ 5.556** |
+| EX2 · EX3 · os três | R$ 10.000 · R$ 15.714 · R$ 30.857 | **R$ 10.802 · R$ 16.975 · R$ 33.333** |
+| Caso Ciés — cobertura da mensalidade | 97% | **90%** |
+| Regra `R$ 1 de fee → ? de venda` | R$ 2,86 | **R$ 3,09** |
+
+**Nenhum preço da Expansion muda.** O que muda é a meta prometida ao cliente, que
+ficou 8% mais exigente. **E a regra dos R$ 3 deixa de ser arredondamento e vira
+exata.** `D-013` fica **REVISADA** por `D-026`.
+
+### Achados novos da mesma rodada
+
+| # | Achado | Onde |
+|---|---|---|
+| 1 | **O markup declarado não é o realizado.** Lojista fala em 2,5×; depois da liquidação o realizado fica em ~1,83×. Os 54,6% do IBGE já são o custo realizado | `26` §3 |
+| 2 | **A MC varia de 24,5% a 41,0%** conforme a loja — e a meta do EX1 varia de R$ 7.347 a R$ 4.390. **Vira ferramenta de qualificação** (`D-027`): duas perguntas na call calibram a meta | `26` §4 |
+| 3 | **A venda nova é mais lucrativa que a venda média** — ela não carrega custo fixo. Numa loja de R$ 60 mil, o EX1 sobe o lucro de R$ 3.840 para R$ 4.744: **+23,5% sem abrir mais cedo nem contratar ninguém.** É o argumento mais forte do EX1 e não estava escrito | `26` §6 |
+| 4 | **Existem dois "R$ 5.000" e eles são coisas diferentes** — o fato observado (Ciés) e a meta calculada (R$ 5.556). Misturados na mesa, derrubam a credibilidade da conta inteira | `26` §7 |
+
+### Propagação
+Números corrigidos em `16`, `17`, `18`, `19`, `22`, `25` e na apresentação publicada.
+`15` e `17` receberam banner de supersessão — a derivação antiga fica registrada,
+porque o histórico é o valor.
+
+### Decisões
+`D-026`, `D-027`. `D-013` revisada.

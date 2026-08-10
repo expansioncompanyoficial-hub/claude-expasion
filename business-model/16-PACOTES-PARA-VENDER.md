@@ -192,12 +192,12 @@ Com **4% de folga sobre o piso**, o EX3 não sobrevive a escopo aberto:
 
 | Combinação | Preço/mês | Lucro | Loja de | Precisa gerar de venda nova só para empatar |
 |---|---:|---:|---|---:|
-| **EX1** | R$ 1.800 | 47,2% | R$ 40–100k | R$ 5.143 |
+| **EX1** | R$ 1.800 | 47,2% | R$ 40–100k | R$ 5.556 |
 | **EX2** | R$ 3.500 | 37,1% | R$ 100k+ | R$ 10.000 |
 | **EX1 + EX2** | R$ 5.300 | 40,5% | R$ 100–150k | R$ 15.143 |
-| **EX3** | R$ 5.500 | 31,3% | R$ 140k+ | R$ 15.714 |
+| **EX3** | R$ 5.500 | 31,3% | R$ 140k+ | R$ 16.975 |
 | **EX2 + EX3** | R$ 9.000 | 33,5% | R$ 200k+ | R$ 25.714 |
-| **COMPLETO** | R$ 10.800 | 35,8% | R$ 250k+ | R$ 30.857 |
+| **COMPLETO** | R$ 10.800 | 35,8% | R$ 250k+ | R$ 33.333 |
 
 **Desconto por prazo:** 12 meses = −8%. 6 meses = preço cheio. Nada abaixo de 6 meses.
 

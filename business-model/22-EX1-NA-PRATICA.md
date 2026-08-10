@@ -161,7 +161,7 @@ descobre exatamente o que automatizar.**
 
 ### D+30 · Reunião de resultado — 45 min · Nicolas · pauta fixa
 
-- O mês em três números: venda gerada · meta de R$ 5.143 · onde ficou
+- O mês em três números: venda gerada · meta de R$ 5.556 · onde ficou
 - O que funcionou e o que morreu
 - **O segmento e a oferta do mês seguinte, decididos ali**
 - Uma pergunta sobre o estoque

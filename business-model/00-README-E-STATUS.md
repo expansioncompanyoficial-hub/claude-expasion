@@ -53,6 +53,7 @@
 | **`24-RESPOSTAS-E-O-POS-ENTREGA.md`** | **O que cai na mão do Nicolas depois da venda** — mais PDV/ERP explicados, o disparo, as 12 cláusulas de dados e a cessão de IP | **v1.0 — respostas** |
 | **`23-OPERACAO-SEM-OPERADOR.md`** | **A operação automatizada.** Os dois fluxos, o módulo BASE no Expansion OS, e as DIVERGÊNCIAS DO COMITÊ. **Corrige `A-033`** | **v1.0 — arquitetura** |
 | **`25-APRESENTACAO-KAUA-10-08.md`** | **A apresentação para o sócio.** O nicho de moda feminina e infantil, a tabela mestra e o EX1 no detalhe técnico | **v1.0 — 10/08** |
+| **`26-A-MARGEM-DA-LOJISTA.md`** | **De onde vem a meta do EX1.** A margem da lojista linha por linha e a **correção de 35% para 32,4%** | **v1.0 — corrige `D-013`** |
 | `sql/0001-modulo-base-consumidor.sql` | O módulo BASE — 4 tabelas + 2 views, nas convenções do OS | **PROPOSTA, não aplicada** |
 | `templates/BASE-CLIENTE-TEMPLATE-v1.xlsx` | O padrão de dados, pronto para usar — 5 abas, cálculos prontos | **v1.0** |
 | `DECISION-LOG.md` | Toda decisão, com dono, data e consequência | vivo |

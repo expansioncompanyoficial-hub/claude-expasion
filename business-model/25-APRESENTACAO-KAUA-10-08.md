@@ -58,7 +58,7 @@ E a Expansion já tem cliente nos dois lados — Ciés (feminino) e Clau Kids (i
 | Piso — nunca abaixo | R$ 813 | R$ 2.708 | R$ 5.281 |
 | **Desconto máximo** | **54,9%** | **22,6%** | **4,0%** |
 | Para loja de | R$ 40–100 mil | R$ 100 mil+ | R$ 140 mil+ |
-| Venda nova que exige | R$ 5.143 | R$ 10.000 | R$ 15.714 |
+| Venda nova que exige | R$ 5.556 | R$ 10.000 | R$ 16.975 |
 
 **Eles não formam escada** — cada um resolve um problema diferente e podem ser
 vendidos juntos ou separados.
@@ -148,7 +148,7 @@ relatório é a causa nº 1 de cancelamento de agência (e quase custou a Prime)
 ### 05 · Reunião de resultado — `MENSAL` · 45 min · pauta fixa
 
 ```
-1  o mes em tres numeros: venda gerada · meta de R$ 5.143 · onde ficou
+1  o mes em tres numeros: venda gerada · meta de R$ 5.556 · onde ficou
 2  o que funcionou e o que morreu na campanha
 3  o segmento e a oferta do mes seguinte, decididos ali
 4  uma pergunta sobre o estoque — e o que vira a proxima campanha
@@ -168,7 +168,7 @@ um dia.** Não é benchmark de relatório — é a operação da casa.
 | A conta pelo lado da lojista | Valor |
 |---|---|
 | Venda gerada em 1 dia | R$ 5.000 |
-| Lucro de contribuição dela (35%) | R$ 1.750 |
+| Lucro de contribuição dela (32,4%) | R$ 1.620 |
 | Mensalidade do EX1 | R$ 1.800 |
 | **Uma campanha, num dia, cobriu** | **97% do mês** |
 
