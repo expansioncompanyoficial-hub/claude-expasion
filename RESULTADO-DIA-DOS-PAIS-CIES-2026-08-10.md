@@ -1,221 +1,294 @@
 # RESULTADO DO DIA DOS PAIS — CIÉS BRAND
-**Fim de semana de 07 e 08/08 · fechado em 10/08**
+**Fim de semana de 07 e 08/08 · auditoria fechada em 10/08**
 
-Primeiro resultado medido desta conta desde o início do contrato. E o primeiro
+Primeiro resultado medido desta conta desde o início do contrato, e o primeiro
 relatório de segunda-feira que efetivamente aconteceu.
+
+Este documento serve a uma coisa: **entrar no dia 22 sabendo o que funcionou, o
+que quebrou e o que ainda não foi testado.**
 
 ---
 
-## 1. OS NÚMEROS
+## 1. O NÚMERO QUE MUDA A LEITURA
 
-### Mídia (Matheus, 10/08 09h38)
+Todo mundo no grupo falou em R$ 120 de tráfego. **Não foi isso.**
+
+| | Valor |
+|---|---|
+| PIX enviado | R$ 120,00 |
+| Impostos | −R$ 20,00 |
+| **Verba disponível na conta** | **R$ 100,00** |
+| **Efetivamente gasto pela Meta** | **R$ 60,06** |
+| **Sobrou sem ser entregue** | **R$ 39,94** |
+
+**A Meta não conseguiu entregar 40% da verba.** Não foi decisão da equipe: o
+leilão do Dia dos Pais estava tão disputado que a campanha não achou espaço.
+
+> Matheus, na sexta às 18h42: *"não chegamos nem a R$15 reais gastos... o leilão
+> está muito competitivo por conta do dia dos pais. Nosso problema aqui não é
+> verba, mas sim aparecer."*
+
+### E é isso que redimensiona o resultado
 
 | Métrica | Valor |
 |---|---|
-| Investido | **R$ 60,06** *(de R$ 120 disponíveis — a Meta não entregou o resto)* |
-| Alcance | 1.744 |
-| Impressões | 2.203 |
-| Cliques | 13 · **CTR 0,59%** |
-| **Conversas iniciadas** | **8** |
-| **Custo por conversa** | **R$ 7,15** |
-| Visitas ao perfil | 8 · R$ 0,35 cada |
+| Mídia efetivamente gasta | **R$ 60,06** |
+| Venda direta atribuída ao tráfego | **~R$ 700** |
+| **Retorno sobre mídia** | **11,65x** |
+| Faturamento total do fim de semana | **~R$ 2.500** |
+| **Faturamento por real de mídia** | **R$ 41,60** |
+
+**Sessenta reais.** É esse o número que precisa aparecer em toda conversa daqui
+para frente, inclusive na reunião de renovação do dia 26.
+
+---
+
+## 2. OS NÚMEROS COMPLETOS
+
+### Mídia (Matheus, 10/08 09h38)
+
+| Métrica | Valor | Leitura |
+|---|---|---|
+| Investido | R$ 60,06 | 60% da verba disponível |
+| Alcance | 1.744 | |
+| Impressões | 2.203 | Frequência 1,26 · **saudável, não saturou** |
+| Cliques | 13 | **CTR 0,59%** · baixo, ver §5 |
+| **Conversas iniciadas** | **8** | |
+| **Custo por conversa** | **R$ 7,15** | Contra R$ 3,85 histórico |
+| Visitas ao perfil | 8 · R$ 0,35 | Barato |
 
 ### Vendas (Kauan, 10/08 09h29)
 
 | Métrica | Valor |
 |---|---|
-| Vendas vindas do tráfego | **2 · ~R$ 700** |
+| Vendas atribuídas ao tráfego | **2 · ~R$ 700** · ticket R$ 350 |
 | **Faturamento do fim de semana** | **~R$ 2.500** |
-| Investimento total do fim de semana | R$ 220 |
 | Clientes ainda em negociação | 2 |
+| Investimento total informado | R$ 220 *(número aproximado do cliente)* |
 
-> *"Esse sem dúvidas foi o melhor final de semana dessa nossa parceria."*
-> — Kauan
+### O modelo bateu
 
----
+| | Projetado em 06/08 | **Real** | Erro |
+|---|---|---|---|
+| Faturamento, cenário base | R$ 2.400 | **~R$ 2.500** | **4%** |
 
-## 2. O MODELO BATEU
-
-| | Projetado (06/08) | **Real** |
-|---|---|---|
-| Faturamento, cenário base | **R$ 2.400** | **~R$ 2.500** |
-
-**Erro de 4%.** Não é sorte: o modelo foi construído sobre o ticket medido de
-julho e sobre a capacidade real da loja. É a primeira vez que essa conta tem
-projeção e resultado no mesmo lugar, e é isso que torna a projeção do dia 22
-defensável.
-
-**Referência de tamanho:** a primeira quinzena inteira de julho fez R$ 3,2 mil.
-**Um fim de semana fez 78% de uma quinzena inteira.**
+Referência de tamanho: a primeira quinzena inteira de julho fez R$ 3,2 mil.
+**Um fim de semana fez 78% de uma quinzena.**
 
 ---
 
-## 3. O QUE REALMENTE CAUSOU O RESULTADO — e não foi o tráfego
+## 3. O QUE CAUSOU O RESULTADO — e não foi o tráfego
 
-Esta é a leitura que ninguém fez no grupo, e é a mais importante.
-
-### Decomposição do faturamento
+### Decomposição
 
 | Origem | Valor | Fatia |
 |---|---|---|
 | Tráfego pago | R$ 700 | **28%** |
-| **Orgânico, disparo 1:1 e movimento da loja** | **R$ 1.800** | **72%** |
+| **Orgânico, disparo 1:1 e porta da loja** | **R$ 1.800** | **72%** |
 
-**Quase três quartos do resultado veio de canal que custa zero.** O disparo do
-Kauan na base, o story da Sabrina, o vídeo no perfil e a porta da loja.
+Quase três quartos veio de canal que custa zero: o disparo do Kauan na base, os
+stories da Sabrina, o reels no perfil e a vitrine.
 
-### E o número que muda tudo
+### E o número mais forte de todos
 
-**8 conversas geraram 2 vendas. Taxa de 25%.**
+**8 conversas geraram 2 vendas. Conversão de 25%.**
 
-O normal em Click-to-WhatsApp de moda é 5% a 10%. **Esta conta converteu de duas
-a cinco vezes acima da média.**
+O normal em Click-to-WhatsApp de moda é 5% a 10%.
 
-| Antes | Agora |
+| Antes | Este fim de semana |
 |---|---|
 | 52 conversas **não respondidas** em junho | 8 conversas, **todas respondidas** |
-| 35 conversas em 3 dias sem braço, em julho | Kauan de plantão o fim de semana inteiro |
+| 35 conversas em 3 dias sem braço, julho | Kauan de plantão o fim de semana inteiro |
 | Volume alto, conversão perto de zero | **Volume baixo, conversão de 25%** |
 
-> **A variável que mudou não foi tráfego. Foi atendimento.**
-> O gargalo histórico desta conta está documentado desde o parecer de crise, e
-> este fim de semana é a primeira prova quantitativa de que a leitura estava
-> certa. Menos conversa, mais venda.
-
-### O corolário incômodo, e ele importa para o dia 22
-
-**Escalar mídia não escala o resultado na mesma proporção.** Se 72% veio de canal
-gratuito e a conversão depende de alguém respondendo, dobrar a verba sem dobrar o
-braço de atendimento só aumenta a fila.
-
-Matheus, no grupo, chamou de *"uma das nossas piores campanhas em termos de
-tráfego e números"* — e está certo em números de mídia. **Só que o resultado do
-cliente foi o melhor da parceria.** As duas coisas são verdade ao mesmo tempo, e
-entender isso é o que separa otimizar campanha de otimizar negócio.
+> **A variável que mudou não foi tráfego. Foi atendimento.** É a primeira prova
+> quantitativa de que o diagnóstico do parecer de crise estava certo.
 
 ---
 
-## 4. O LEILÃO DO DIA DOS PAIS — medido, e serve para setembro
+## 4. O PONTO DO MATHEUS — ele está certo, e falta uma leitura
 
-| | Custo por conversa |
-|---|---|
-| Janela normal (31/07 a 02/08) | **R$ 3,85** |
-| **Janela do Dia dos Pais (07 a 08/08)** | **R$ 7,15** |
+> *"Apesar de falar para o Nicolas internamente que foi uma das nossas piores
+> campanhas (em termos de tráfego e números), para o lado de vocês o resultado
+> foi extraordinário. Mas não estou satisfeito, quero trazer mensagens e
+> principalmente vendas."*
 
-**O leilão dobrou de preço.** Era a previsão, e agora é dado.
+**Em métrica de mídia ele tem razão em tudo:**
 
-E a Meta **nem conseguiu entregar a verba inteira**: R$ 60 de R$ 120. Campanha
-sem espaço no leilão, exatamente o cenário que a decisão de trabalhar orgânico
-nessa janela antecipou.
-
-> Este número vale mais que os R$ 700 de venda. **Ele é o insumo de precificação
-> de toda data comemorativa daqui para frente**, começando pela Black Friday.
-
----
-
-## 5. O QUE DEU ERRADO, para não repetir
-
-| O quê | Custo | Correção |
+| Indicador | Resultado | Referência |
 |---|---|---|
-| **Quinta não rodou.** Roteiro chegou tarde, faltou take, vídeo só subiu sexta 11h30 | Perdeu um dia inteiro de aquecimento e o público de vídeo | Gravação em lote, com antecedência (ver `CALENDARIO-COMERCIAL-EXPANSION-2026-08-07.md`) |
-| **O clipe de sábado não pôde ser usado.** Ela gravou "amanhã das 10h às 18h", e ele só ficou pronto no sábado | Sábado rodou com o criativo de sexta | Falar **o dia**, nunca "amanhã", quando há risco de atraso na edição |
-| Horário da loja levou 4 dias para ser respondido | Travou o clipe, o anúncio e a copy | Perguntar dado operacional **junto com o briefing**, não depois |
+| CTR | 0,59% | Bom seria 1% a 2% |
+| Custo por conversa | R$ 7,15 | Histórico da conta: R$ 3,85 |
+| Volume de conversa | 8 em 2 dias | Ele quer 50 a 90 por semana |
+| Entrega de verba | 60% | Deveria ser 100% |
+
+### A leitura que falta, e ela é o coração do negócio
+
+**Se a campanha tivesse funcionado como ele queria, o resultado teria sido pior.**
+
+Com 8 conversas, o Kauan respondeu todas e converteu 25%. Se tivessem chegado
+90 conversas na sexta, quem responderia? Ele estava no expediente do trabalho
+dele. A Sabrina, no CLT e num curso o dia inteiro.
+
+> **90 conversas naquele fim de semana viravam o junho de novo:** fila não
+> respondida, cliente frustrada, e provavelmente as mesmas 2 vendas.
+
+**A meta do gestor de tráfego (mais mensagens) e a meta do negócio (mais venda)
+não são a mesma coisa nesta conta**, enquanto o atendimento for uma pessoa em
+meio período.
+
+### E o cliente entendeu isso sozinho
+
+Kauan, quando o Matheus ofereceu as duas opções:
+
+> *"A segunda eu sei que entrega! Mas não vou ter braço para atender. A primeira
+> é menos leads e quero ver a força que traz seguidores."*
+
+**O dono do negócio escolheu menos leads.** Isso não é resignação, é leitura
+correta da própria capacidade — e é exatamente o que este documento vinha
+defendendo desde 06/08.
+
+### A regra que sai daí, e vale para o dia 22
+
+> **Define o braço de atendimento primeiro. A verba é consequência, nunca o
+> contrário.**
+
+Quantas conversas por dia a operação absorve × custo por conversa = teto de
+verba. Qualquer real acima disso compra frustração.
 
 ---
 
-## 6. DADOS NOVOS QUE MUDAM O PLANO DO DIA 22
+## 5. O QUE ACERTAMOS
 
-| Dado | Valor | Efeito no evento |
+| # | Decisão | Prova |
 |---|---|---|
-| **Horário da loja** | **10h às 18h** | Grade fecha em **8 slots**, não 9 |
-| Conversão conversa → venda, com atendimento | **25%** | Funil recalculado abaixo |
-| Ticket por venda de tráfego | **R$ 350** | Base de projeção do ticket |
-| Custo por conversa em leilão caro | R$ 7,15 | Verba do dia 22 sai mais barata, leilão normal |
-| **Professor: provavelmente só às 15h, e não o dia todo** | — | **Ver §7. Não é perda** |
-| Parceiras confirmadas | Sobrancelha, cosméticos, salão | Falta definir o que cada uma oferece |
-| **Loja de bolsas** | **Estará no evento expondo** | Ativo físico, não só cupom |
-
-### A grade revisada — 10h às 18h
-
-8 slots de 1 hora, 6 vagas cada = **48 vagas**.
-
-| Horário | Vagas |
-|---|---|
-| 10h — 14h | 6 por hora |
-| **15h — 17h** | **4 por hora · consultoria com o estilista** |
-| 17h — 18h | 6 |
-
-### Os três cenários, agora com dado medido
-
-| | Conservador | **Base** | Otimista |
-|---|---|---|---|
-| Compradoras | 18 | **30** | 40 |
-| Ticket médio | R$ 380 | **R$ 480** | R$ 600 |
-| **FATURAMENTO** | **R$ 6.800** | **R$ 14.400** | **R$ 24.000** |
-
-Sustentado por: capacidade real da loja (~30 simultâneas), conversão medida de
-25%, ticket medido de R$ 350 em compra de peça única, e o resultado de R$ 2.500
-num fim de semana sem evento.
+| 1 | **Vender o look do almoço, não presente de pai** | As vendas foram peças femininas de ticket R$ 350 |
+| 2 | **Não descontar** | Vendeu no preço cheio. Ticket acima da média de julho (R$ 260) |
+| 3 | **Preço falado no vídeo** | Tráfego chegou qualificado. 25% de conversão sustenta isso |
+| 4 | **Kauan no atendimento** | **A decisão de maior impacto do fim de semana** |
+| 5 | **Disparo 1:1 na base** | 72% do faturamento veio de canal gratuito |
+| 6 | **Segurar a verba pequena** | A Meta nem entregou os R$ 100. Verba maior teria sido desperdício puro |
+| 7 | **Concentrar no sábado** | O dia da venda foi o sábado, como projetado |
+| 8 | **Domingo sem verba** | Loja fechada. Zero desperdício |
+| 9 | **Perfil pessoal e story cru** | O canal que sempre converteu nesta conta |
 
 ---
 
-## 7. O PROFESSOR SÓ ÀS 15H — e por que isso melhora o evento
+## 6. O QUE ERRAMOS
 
-Sabrina, 10/08: *"se for, será em torno de umas 15h provavelmente."*
-Kauan: *"provavelmente não vai conseguir estar todo o evento."*
+Ordenado por custo real.
 
-**Não é perda, é foco.**
+### 6.1 A quinta-feira não rodou · custo alto
 
-| "O dia todo" | **"Das 15h às 17h"** |
-|---|---|
-| Difícil de comunicar | **Hora marcada, fácil de anunciar** |
-| Movimento diluído | **Cria pico de movimento** |
-| Escassez vaga | **Escassez real: 8 vagas** |
-| Foto e vídeo espalhados | Cobertura concentrada no melhor momento |
+O roteiro estava com ela desde 04/08. Ela gravou só na noite de 06/08, faltou um
+take, e o vídeo só subiu **sexta às 11h30**.
 
-E **15h é o pico de público medido desta conta** no Meta Ads. A agenda dele
-coincide com a hora em que o público já está mais ativo.
+**Perdeu-se 1 dos 3 dias úteis da campanha, ou 33% da janela.** E junto foi o
+público de video view que alimentaria o retargeting de sexta.
 
-> A peça de anúncio fica: *"das 15h às 17h, o estilista que fez o vestido de
-> noiva da Angélica vai estar na Ciés montando o seu look. São 8 vagas."*
+### 6.2 O clipe de sábado nunca foi ao ar · custo alto
 
-Um horário curto e nomeado vende melhor que uma presença o dia inteiro.
+Ela gravou na sexta à noite dizendo *"amanhã estaremos das 10h às 18h"*. O Dani
+editou no sábado de manhã. Quando ficou pronto, **"amanhã" já estava errado.**
+
+> Sabrina, sábado 11h18: *"não vai fazer sentido, pq gravei falando que amanhã
+> estaríamos das 10h às 18h."*
+
+**O sábado, dia de maior intenção de compra, rodou com o criativo de sexta.**
+
+**A regra que faltava:** vídeo que pode atrasar na edição **nunca diz "amanhã"**.
+Diz o dia: *"sábado"*, *"dia 8"*.
+
+### 6.3 A planilha de reservas não foi usada · custo silencioso, e é o pior
+
+A planilha foi criada, subida no Drive e compartilhada em 06/08 às 16h27. O
+Kauan respondeu *"facinho pow"*.
+
+**Não há registro de uso.** E com isso:
+
+- **A mecânica de reserva não foi testada de verdade.** Era metade do objetivo do
+  fim de semana
+- Não se sabe quantas reservas foram feitas, nem quantas compareceram
+- Não se sabe a taxa de comparecimento, que é a premissa central da grade do
+  dia 22
+- O bloco de movimento da loja ficou vazio, então **continuamos sem a linha de
+  base de walk-in**
+
+> Entregamos a ferramenta e não garantimos o uso. **Ferramenta sem dono e sem
+> checagem diária não é entrega, é intenção.**
+
+### 6.4 A resposta automática nunca foi configurada · custo médio
+
+Foi desenhada, o texto foi aprovado, e ninguém ligou. As 8 conversas dependeram
+100% do Kauan estar olhando.
+
+### 6.5 O horário da loja levou 4 dias · custo médio
+
+Pedido em 05/08. Só apareceu no sábado 08/08, e por acidente, quando ela
+comentou o que tinha gravado. Travou o clipe, o anúncio e a copy dos stories.
+
+**A correção:** dado operacional (horário, capacidade, tamanhos, parcelamento)
+entra **junto com o briefing**, não depois.
+
+### 6.6 A lista de tamanhos dos 3 looks nunca chegou · custo baixo
+
+Pedida em 06/08 às 11h41. O Kauan atendeu no escuro o fim de semana inteiro.
+Não quebrou porque o volume foi baixo. **Com 40 conversas teria quebrado.**
+
+### 6.7 Imprecisão no número reportado · custo de credibilidade
+
+O cliente registrou *"foram 120 reais de tráfego"*. Foram R$ 60,06.
+
+Não é culpa dele — a informação chegou depois. Mas **se essa régua ficar de pé,
+o dia 22 será medido contra um custo que nunca existiu.** Corrigir agora, sem
+drama, protege a leitura do evento.
 
 ---
 
-## 8. O QUE FAZER ESTA SEMANA
+## 7. O QUE AINDA NÃO SABEMOS
 
-Faltam **12 dias**. O evento é sábado 22/08 e o contrato vence 26/08.
+Honestidade sobre os limites deste teste:
 
-| Prazo | O quê | Dono |
+| Pergunta | Status |
+|---|---|
+| A mecânica de reserva funciona? | **Não testada.** Volume baixo demais e planilha não usada |
+| Qual a taxa de comparecimento de quem reserva? | **Sem dado.** É a premissa central da grade do dia 22 |
+| Quanto de movimento a loja tem num sábado normal? | **Sem dado.** Sem linha de base para o walk-in |
+| O CTR de 0,59% é do criativo ou do leilão? | **Contaminado.** Só o dia 22, em leilão normal, separa as duas coisas |
+| Quantas conversas o Kauan absorve por dia? | **Sem teto medido.** 8 foi tranquilo. E 30? |
+
+> **Duas das cinco travam o dimensionamento do dia 22.** Precisam ser resolvidas
+> nos próximos 12 dias, não depois.
+
+---
+
+## 8. PONTOS DE MELHORIA PARA O DIA 22
+
+| # | Melhoria | Por quê |
 |---|---|---|
-| **Hoje 10/08** | Abrir as confirmações com a grade de horários | Expansion |
-| **Hoje 10/08** | Formalizar a loja de bolsas: exposição em troca de quê | Sabrina |
-| **Até 12/08** | O que cada parceira vai oferecer, fechado | Sabrina |
-| **Até 12/08** | Confirmação do professor, com horário e valor | Sabrina |
-| **Até 13/08** | Oferta fechada: preço, combo de inverno, escada de benefício | Nicolas |
-| **Até 15/08** | **Diária de gravação em lote:** evento **e** setembro na mesma sessão | Sabrina |
-| 16 a 20/08 | Conversão. Grosso da verba | Matheus |
-| **20/08** | Fecha a agenda. Dia do vale, maior conversão | Nicolas |
-| 21/08 | Lembrete individual em 100% das confirmadas | Kauan + Sabrina |
-| **22/08** | O evento | Todos |
-| 24/08 | Relatório do resultado | Matheus |
-| **26/08** | **Reunião de fechamento. Vence o contrato** | Nicolas |
+| 1 | **Braço de atendimento definido antes da verba** | A verba é consequência do teto de atendimento (§4) |
+| 2 | **Gravação em lote**, evento e setembro na mesma diária | Ela não produz sob demanda. Ver `CALENDARIO-COMERCIAL-EXPANSION-2026-08-07.md` |
+| 3 | **Vídeo nunca diz "amanhã"**, diz o dia | Erro 6.2 |
+| 4 | **Planilha com dono nomeado e checagem diária** | Erro 6.3. Sem isso o dia 22 também não é medido |
+| 5 | **Automática ligada antes do primeiro anúncio subir** | Erro 6.4 |
+| 6 | **Dado operacional junto do briefing** | Erro 6.5 |
+| 7 | **Medir o movimento normal da loja** num sábado comum, antes do dia 22 | Sem linha de base, o resultado do evento não tem contra o quê ser comparado |
+| 8 | **2 ou 3 variações de criativo** | Separa criativo de leilão e melhora o CTR de 0,59% |
+| 9 | **Corrigir a régua de custo** para R$ 60, não R$ 120 | Erro 6.7 |
 
 ---
 
-## 9. O QUE ESTE FIM DE SEMANA COMPROU, ALÉM DO DINHEIRO
+## 9. O QUE ESTE FIM DE SEMANA COMPROU
 
-1. **Credibilidade com número.** Projetei R$ 2.400 e saiu R$ 2.500. A próxima
-   projeção não precisa ser defendida, precisa ser lida.
-2. **A prova de que atendimento é a alavanca.** 25% de conversão com o Kauan
-   respondendo, contra 52 conversas perdidas em junho sem ninguém.
-3. **O Kauan virou operador.** Ele disparou na base, atendeu o fim de semana e
-   trouxe o relatório por conta própria na segunda de manhã. Isso não existia.
-4. **O primeiro relatório de segunda.** Era compromisso desde a call de 04/08 e
-   aconteceu, com número, sem cobrança.
-5. **O CPM da janela cara**, medido, que precifica Black Friday e Natal.
+1. **Credibilidade com número.** Projeção de R$ 2.400 contra R$ 2.500 real.
+2. **A prova de que atendimento é a alavanca**, não tráfego. 25% de conversão.
+3. **O custo do leilão em data comemorativa**, medido: R$ 7,15 contra R$ 3,85.
+   Precifica Black Friday e Natal.
+4. **O Kauan virou operador.** Disparou na base, atendeu o fim de semana e trouxe
+   relatório na segunda de manhã sem ninguém pedir.
+5. **O primeiro relatório de segunda**, com número e sem cobrança.
+6. **R$ 41,60 de faturamento por real de mídia.** É a frase da reunião do dia 26.
 
-> A conta entrou em agosto em recuperação de crise. Chega ao dia 22 com um
-> resultado medido, um modelo validado e um cliente elogiando por escrito. **O
-> argumento de renovação parou de ser promessa.**
+> A conta entrou em agosto em recuperação de crise. Chega ao dia 22 com resultado
+> medido, modelo validado com 4% de erro e o cliente elogiando por escrito.
+> **O argumento de renovação parou de ser promessa e virou extrato.**
