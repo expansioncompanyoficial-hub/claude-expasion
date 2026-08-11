@@ -13,15 +13,19 @@ Cliente-piloto do carrossel automático. Maior cliente da casa.
 | Assinatura da marca | PRIME · ASSESSORIA IMOBILIÁRIA |
 | Contatos | Laura Guimarães · José Breno |
 | Outras unidades | São José dos Campos · São Bernardo (fora do piloto) |
-| @ que publica | `@prime.alphaville` |
+| @ que publica (piloto) | `@prime.alphaville` — a **unidade** |
+| @ da matriz | `@primeassessoria_imobiliaria` — dona do formato InfoPrime |
 | Estilo visual | **Minimalista** |
 | CTA padrão | "Siga a Prime" ou "Comente PRIME" |
 | Slides padrão | 9 |
 
-> **[CONFERIR] Dois @ diferentes.** Você me passou `@prime.alphaville`, mas a peça de
-> referência do InfoPrime fecha com `@primeassessoria_imobiliaria`. Pode ser matriz ×
-> unidade. Antes de conectar o Instagram e importar histórico, confirmar **qual conta
-> publica o carrossel do piloto** — é ela que autoriza o acesso e de quem vem o histórico.
+**Resolvido:** são duas contas reais. `@primeassessoria_imobiliaria` é a **matriz**, de onde
+vem o formato InfoPrime. `@prime.alphaville` é a **unidade** e é a conta do piloto — é ela
+que autoriza o acesso e de quem vem o histórico a importar.
+
+Consequência editorial: o InfoPrime é um formato da matriz. Rodar na unidade exige combinar
+com o cliente se a Alphaville replica, adapta com recorte regional, ou se o piloto usa outro
+formato. **Ponto a validar antes da primeira edição.**
 
 ---
 
