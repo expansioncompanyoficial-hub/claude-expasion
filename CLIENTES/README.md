@@ -36,4 +36,7 @@ Além do anti-slop que já vem do material da BrandsDecoded, cada ficha carrega 
 
 | Cliente | Nicho | Estado |
 |---|---|---|
-| [PRIME](PRIME.md) | Crédito imobiliário | Piloto · 5 campos em falta |
+| [PRIME](PRIME.md) | Crédito imobiliário (Alphaville) | Piloto · identidade completa · 2 pontos a conferir |
+
+Ativos de marca (paleta, referências de layout, logo) ficam em `{cliente}-identidade/`
+ao lado da ficha.
