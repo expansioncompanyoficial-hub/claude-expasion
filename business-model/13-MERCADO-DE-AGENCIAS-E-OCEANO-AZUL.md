@@ -1,5 +1,15 @@
 # 13 — MERCADO DE AGÊNCIAS: BENCHMARKS, PONTOS CEGOS E OCEANO AZUL
 
+> ⚠️ **RETRATAÇÃO — 11/08/2026.** Os números de **duração de contrato e churn de
+> agência** usados neste documento (56/36/30/24 meses · 18%/42% de churn · 43% do
+> churn nos primeiros 90 dias) foram submetidos a verificação adversarial em 11/08 e
+> **todos voltaram REFUTADOS ou NÃO VERIFICÁVEIS.** A cadeia de fontes termina em
+> material de venda de fornecedor, sem amostra declarada e com contradição aritmética
+> interna. **Não existe benchmark público confiável de churn ou duração de contrato de
+> agência — nem brasileiro, nem americano.** Ver `30` §1. As conclusões que dependiam
+> desses números foram reancoradas; as que não dependiam seguem válidas.
+
+
 | | |
 |---|---|
 | **Versão** | 1.0 |
@@ -22,7 +32,7 @@
 | 3 | **Receita ÷ folha de entrega** | **≥ 2,0** (é o que produz 50% de margem) | **1,656** · a preço de mercado: **0,993** | 🔴 |
 | 4 | **Margem líquida** | 15–20% saudável · 25–30% alto desempenho · 30–40% especialistas de elite | ~0% real, negativa normalizada | 🔴 |
 | 5 | **Ocupação (utilização)** | **65–80%**; acima disso, queima time | Editor principal a **168,9%** no cenário mais otimista | 🔴 acima do teto |
-| 6 | **Duração média do cliente** | **56 meses** (fee recorrente) · 36 (híbrido) · 30 (performance) · **24 (projeto)** | **1 a 3 meses** | 🔴 **1,8% a 5,4% do benchmark** |
+| 6 | ~~Duração média do cliente~~ | ❌ **REFUTADO em 11/08** — ver banner no topo | **1 a 3 meses** | O problema é real; **o benchmark não existe.** Ver `30` §1 |
 | 7 | **Ticket mensal, Brasil** | R$ 3.000–6.000 padrão · **acima de R$ 6.000 = premium** | **R$ 1.935/perfil** | 🔴 32–65% da faixa padrão |
 
 ### O que a métrica 3 revela e as outras escondem
@@ -58,7 +68,7 @@ Este é o achado que eu não esperava, e é maior que a questão de preço.
 
 | Modelo | Duração média do cliente | Churn anual |
 |---|---:|---:|
-| Fee recorrente (retainer) | **56 meses** | 18% (top: 8–10%) |
+| ~~Fee recorrente (retainer)~~ | ❌ REFUTADO | ❌ REFUTADO |
 | Híbrido | 36 meses | — |
 | Performance | 30 meses | — |
 | **Projeto** | **24 meses** | **42%** |
@@ -66,7 +76,7 @@ Este é o achado que eu não esperava, e é maior que a questão de preço.
 
 E o dado que fecha o argumento:
 
-> **~43% do churn B2B acontece nos primeiros 90 dias.**
+> ❌ ~~**~43% do churn B2B acontece nos primeiros 90 dias.**~~ **NÃO VERIFICÁVEL** — a fonte é survey de percepção de um fornecedor que vende onboarding, sem amostra divulgada. **Retirado em 11/08.**
 
 **Os contratos da Expansion duram de 30 a 90 dias. Ou seja: a carteira inteira vive dentro da janela de maior risco de churn e nunca sai dela.** Todo cliente está permanentemente no período em que quase metade dos clientes desiste — e o contrato acaba exatamente ali.
 
@@ -176,7 +186,7 @@ TETO      obrigatório     ← sem teto, um mês viral vira fatura impagável
 | Ticket/perfil | R$ 1.935 | R$ 6.000 | R$ 6.000 fixo + variável |
 | Duração | 1–3 meses | 12 meses | 12 meses |
 | Modelo | fee fixo | fee fixo | **híbrido com resultado** |
-| Churn esperado | acima de 100%/ano | ~18% (padrão retainer) | ~10–18% |
+| Churn esperado | acima de 100%/ano | ❌ **REFUTADO** — sem benchmark confiável | ❌ **REFUTADO** |
 | Folha | segue subpaga | a mercado | a mercado + operação conversacional |
 | Ratio (contas/cabeça) | 1,00 | 1,00–1,5 | 2,5+ com grade e IA |
 | **Resultado provável** | **insolvência ou retorno ao emprego** | **negócio pequeno, saudável, sem defesa competitiva** | **posição defensável no nicho** |

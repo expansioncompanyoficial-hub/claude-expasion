@@ -1,5 +1,15 @@
 # 14 — PLANO DE PRODUTOS E PREÇOS
 
+> ⚠️ **RETRATAÇÃO — 11/08/2026.** Os números de **duração de contrato e churn de
+> agência** usados neste documento (56/36/30/24 meses · 18%/42% de churn · 43% do
+> churn nos primeiros 90 dias) foram submetidos a verificação adversarial em 11/08 e
+> **todos voltaram REFUTADOS ou NÃO VERIFICÁVEIS.** A cadeia de fontes termina em
+> material de venda de fornecedor, sem amostra declarada e com contradição aritmética
+> interna. **Não existe benchmark público confiável de churn ou duração de contrato de
+> agência — nem brasileiro, nem americano.** Ver `30` §1. As conclusões que dependiam
+> desses números foram reancoradas; as que não dependiam seguem válidas.
+
+
 > **Este é o documento para levar à mesa com o Kauã e o time.** Os outros treze são a memória de cálculo. Este é a decisão.
 
 | | |
@@ -228,7 +238,7 @@ Cinco decisões. Nenhuma é técnica — todas são de autoridade.
 |---|---|---|
 | **1** | **Lucro-alvo de 30%?** | define o teto de folha e, com ele, todo preço |
 | **2** | **P2 com piso de R$ 5.000 e alvo de R$ 6.000?** | trava o comercial; nenhuma venda abaixo sem exceção aprovada |
-| **3** | **Contrato de 12 meses como padrão?** | vale mais que o preço: benchmark de duração é 56 meses, a Expansion opera com 1–3 |
+| **3** | **Contrato de 12 meses como padrão?** | ❌ o benchmark dos 56 meses foi **REFUTADO em 11/08**. O argumento válido é outro: **ciclo de prova de valor por produto + esforço comercial.** Ver `30` §1 |
 | **4** | **Subir o ICP para lojas acima de R$ 80 mil/mês?** | muda o discurso comercial inteiro e pode custar clientes atuais |
 | **5** | **Contratar designer e operador de conversa** com o caixa da renegociação? | é o que torna o crescimento possível |
 

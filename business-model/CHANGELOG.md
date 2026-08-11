@@ -526,3 +526,100 @@ que já existe.**
 
 ### Decisões
 `D-036`, `D-037`. Nova em aberto: `A-046`.
+
+---
+
+## Rodada 11/08/2026 — Duração de contrato e a revisão do estudo de mercado
+
+**Entregue:** `30-ESTUDO-REVISADO-DURACAO-E-PRODUTOS.md` e a versão visual
+(https://claude.ai/code/artifact/a2541419-dfa2-487c-9496-83c36492fe49).
+
+Pergunta do Nicolas: **qual é a duração de cada produto** — e uma dúvida sobre o EX2 e
+o EX3, porque construir uma IA de atendimento "vai levar muito tempo" e a casa é boa é
+em **conteúdo e carrossel**.
+
+### 🚨 RETRATAÇÃO Nº 2 — os benchmarks de duração e churn caíram
+
+A revisão do estudo de mercado passou por **verificação adversarial**. A frente
+inteira de churn e duração de contrato foi **refutada ou declarada não verificável**:
+
+| Número que estava no acervo | Onde estava | Veredito |
+|---|---|---|
+| Duração média de 56 / 36 / 30 / 24 meses | `13`, `14` | ❌ **Refutado** |
+| Churn de 18% / 42% | `13`, `19` | ❌ **Refutado** |
+| **43% do churn nos primeiros 90 dias** | `14`, `19` | ❌ **Refutado** |
+| 25% de churn em agências pequenas | `13` | ❌ **Refutado** |
+| Retenção de 92% × 78% | `13` | ❌ **Refutado** |
+
+**Por quê:** a cadeia de fontes termina em material de venda de fornecedor, sem amostra
+declarada, com datas de campo contraditórias, contradição aritmética interna e citação
+circular. Banners de retratação em `13` e `14`; linhas riscadas; `A-012` reancorada.
+
+> **`D-009` (eliminar contrato de 3 meses) continua correta** — mas agora ancorada em
+> **ciclo de prova e esforço comercial**, que são internos e verificáveis, não em
+> benchmark de mercado que não existe.
+
+### A duração — `D-038`
+
+| Produto | Contrato | Por quê |
+|---|---|---|
+| **EX1** (todas as faixas) | **6 meses** | Precisa de **2 campanhas** para provar (≈90 dias). 6 meses dá margem de erro |
+| **EX2 · CONTEÚDO** | **6 meses** | Mesmo ciclo de prova |
+| **EX3 · MARCA** | **12 meses** | Muda posicionamento de marca — não se mede em trimestre |
+
+**A aritmética comercial que decide:** para manter 15 clientes, contrato de 3 meses
+exige **60 vendas/ano**; de 6 meses, **30**; de 12 meses, **15**. Contrato curto não é
+flexibilidade — é uma máquina de vender para repor.
+
+### O veredito sobre a IA — `D-039`
+
+**O Nicolas está errado no motivo e certo na conclusão.**
+
+Errado no prazo: o Meta Business Agent é **nativo no app (~5 min)**; um agente em n8n,
+30 minutos; no-code com API oficial, 1 a 7 dias. **Construir não é o gargalo.**
+
+Certo em congelar, por três motivos melhores:
+
+1. **Comoditização** — Take Blip × Claro Empresas, anunciado em **10/08/2026** (ontem),
+   a **R$ 179,90–399,90/mês**. Vender IA de atendimento a R$ 3.500 contra isso exige um
+   diferencial que a Expansion ainda não tem.
+2. **A demanda não existe** — ~**3%** das conversas de varejo conversacional no Brasil
+   são resolvidas fim a fim por IA, contra **41%** das MPEs que já têm chatbot.
+3. **Risco de plataforma datado** — a Meta passa a cobrar mensagem de serviço em
+   **01/10/2026**, com preço Brasil não publicado e fontes divergindo em 4×.
+
+**No lugar: EX2 · CONTEÚDO — R$ 3.200 · 14,25 h/mês · 42,5% de lucro · R$ 225/hora.**
+Margem melhor e horas menores que o EX2 · IA (37,1% e 20 h), no que a casa já faz.
+
+### ⚠️ `ALERTA-08` — o custo da Meta pode zerar o EX1 — `D-040`
+
+| Disparo para 2.000 contatos | Custo Meta | % do fee de R$ 1.800 | Lucro do EX1 |
+|---|---|---|---|
+| Tudo como **marketing** | R$ 620–760 | **35–42%** | **8,9%** ❌ |
+| **600 marketing + 400 utilidade** | R$ 221 | 12,3% | **34,9%** ✅ |
+
+A diferença entre as categorias é de **~87%** (R$ 0,31–0,38 contra R$ 0,034–0,05).
+**A arbitragem de categoria é a alavanca de margem do EX1** — desenho de produto, não
+detalhe operacional. Vira franquia de **600 disparos de marketing/mês**, excedente
+repassado. Substitui a franquia de 500 conversas de `A-032`.
+
+### O teto do EX3 sem captação presencial — `A-048`
+
+**55% dos profissionais de social media no Brasil cobram até R$ 1.500/mês e só 8%
+passam de R$ 4.000** (mLabs, 4.000+ respondentes). O EX3 a R$ 5.500 está **acima do
+percentil 92** — e o que autoriza essa faixa é exatamente a **captação presencial**.
+Tirando a captação, o teto realista é **R$ 2.500–3.500**.
+
+### O que o EX1 ganhou
+
+O melhor argumento de venda do acervo — brasileiro e do nicho exato:
+**77% dos registros do varejo de moda estão inativos há 12+ meses**; a média de
+compradores ativos é **22,6%** e mesmo o top 10 chega só a **35,1%** (Dito CRM,
+~20 milhões de consumidores, 50 marcas). Ticket médio de **R$ 190** (IEMI).
+
+E a brecha: **só 14% das agências brasileiras citam ROI como diferencial** e **51%
+admitem limitação para entregar resultados concretos.**
+
+### Decisões
+`D-038`, `D-039`, `D-040`. Novas em aberto: `A-047` (a loja pode não ter base
+cadastrada nenhuma) e `A-048` (teto do EX3 sem captação). `A-012` reancorada.

@@ -16,10 +16,11 @@
 
 ## Como ler este acervo
 
-**Para a VISÃO: `21`. Para OPERAR: `22` e `23`. Para vender: `16` e `19`. Para ENTREGAR: `18`. Para ENTENDER a conta: `17`.** Depois `14` e `15` — o `15` corrige duas seções do `14`. Os outros treze são a memória de cálculo que o sustenta.
+**Para a DURAÇÃO e o futuro do EX2/EX3: `30`. Para a VISÃO: `21`. Para OPERAR: `22` e `23`. Para vender: `16` e `19`. Para ENTREGAR: `18`. Para ENTENDER a conta: `17`.** Depois `14` e `15` — o `15` corrige duas seções do `14`. Os outros treze são a memória de cálculo que o sustenta.
 
 | Arquivo | O que responde | Status |
 |---|---|---|
+| **`30-ESTUDO-REVISADO-DURACAO-E-PRODUTOS.md`** | **👉 A DURAÇÃO DE CADA CONTRATO** e o veredito sobre o EX2 e o EX3. Traz a **retratação nº 2** (os benchmarks de churn caíram) e o **`ALERTA-08`** (o custo da Meta pode zerar o EX1) | **v1.0 — revisão de mercado** |
 | **`29-CATALOGO-DE-PRODUTOS.md`** | **👉 O CATÁLOGO.** Uma ficha por produto — para quem, o que entrega, quanto sobra — mais as 12 campanhas do ano | **v1.0 — catálogo** |
 | **`28-EXPANSION-360.md`** | **👉 O 360 — TUDO EM UMA PÁGINA.** Onde estamos, produtos, caminho, carteira, e a coluna fato × hipótese × retratado | **v1.0 — consolidado** |
 | **`27-DECISOES-DA-MESA-10-08.md`** | **👉 O QUE FICOU DECIDIDO.** Escada de preço do EX1, taxa de implantação, BANT-DA, e as duas divergências (Dr. Fred e Ciés) | **v1.0 — decisões** |
@@ -60,6 +61,7 @@
 | **`27-DECISOES-DA-MESA-10-08.md`** | **As respostas da mesa viradas em número**, com duas divergências registradas | **v1.0 — 10/08** |
 | **`28-EXPANSION-360.md`** | **O consolidado de tudo.** Nove seções, incluindo o status honesto de cada afirmação | **v1.0 — 10/08** |
 | **`29-CATALOGO-DE-PRODUTOS.md`** | **Ficha de cada produto** + a conversa sobre o EX1 + o calendário de 12 campanhas | **v1.0 — 10/08** |
+| **`30-ESTUDO-REVISADO-DURACAO-E-PRODUTOS.md`** | **Duração por produto** (6 · 6 · 12 meses), a revisão do estudo de mercado com verificação adversarial, o **veredito sobre a IA de atendimento** e o **`ALERTA-08`** | **v1.0 — 11/08** |
 | `sql/0001-modulo-base-consumidor.sql` | O módulo BASE — 4 tabelas + 2 views, nas convenções do OS | **PROPOSTA, não aplicada** |
 | `templates/BASE-CLIENTE-TEMPLATE-v1.xlsx` | O padrão de dados, pronto para usar — 5 abas, cálculos prontos | **v1.0** |
 | `DECISION-LOG.md` | Toda decisão, com dono, data e consequência | vivo |
