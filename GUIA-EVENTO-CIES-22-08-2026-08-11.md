@@ -26,11 +26,6 @@ Cada cliente que comprar sai com um kit de benefícios: **sobrancelha, cosmétic
 ## 05 · Sorteio no fim do dia
 Todas que comprarem concorrem. É o momento de emoção que fecha a tarde.
 
-## 06 · Uma marca de bolsas expondo · **a confirmar**
-Confecção própria, montada dentro da loja no dia. Mais uma coisa para ver, provar e levar.
-
-**Ainda não está fechado.** Entra na comunicação só depois que a marca confirmar por escrito. Até lá, o dia se anuncia sem ela.
-
 > **A aula é o ponto alto do dia, não o dia inteiro.** O Sábado Delas existe com ele e existe sem ele. Nada aqui depende de uma peça só, e é assim que tem que ser: **o que entra na comunicação é o que está confirmado.**
 
 ---
@@ -78,6 +73,10 @@ A Expansion edita de madrugada e sobe pela manhã. **A partir daqui a lista de c
 Reforço do anúncio e as primeiras confirmações aparecendo nos stories.
 
 **Até quinta:** as **3 composições** montadas com as peças que já estão na arara, e o que cada parceira vai oferecer, fechado.
+
+> **Sobre as composições:** o professor mandou a estrutura que ele pensou — calça ou saia com três blusas, blazer ou colete, vestido curto, vestido longo, conjuntos. É um bom esqueleto e ele está esperando um retorno.
+>
+> Ele vai citar sapato, cinto e bolsa como parte do conceito, e isso é bom: mostra que a aula é sobre guarda-roupa de verdade, não sobre vender. **A parte da Ciés é a roupa**, e é ela que as composições montam.
 
 ## Sábado 15
 
@@ -260,7 +259,6 @@ O que este documento traz é o que cada faixa tende a entregar, para a conversa 
 | **12/08** | Anúncio no ar. Lista de confirmação aberta | Expansion |
 | **13/08** | 3 composições montadas com as peças da arara | Sabrina |
 | 13/08 | O que cada parceira vai oferecer, fechado | Sabrina |
-| 13/08 | **Confirmar a marca de bolsas**, ou tirar do plano | Sabrina |
 | **15/08** | Vídeo 1 do professor na mão | Sabrina |
 | **16/08** | **Diária de gravação**, os 7 blocos | Sabrina + Expansion |
 | 18/08 | Vídeo 2 do professor | Sabrina |
