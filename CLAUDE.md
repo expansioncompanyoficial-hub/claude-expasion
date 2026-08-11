@@ -23,10 +23,14 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
 BRANDSDECODED/        Acervo de produto da BrandsDecoded (prompts, skills, guias)
+CLIENTES/             Fichas de marca — uma por cliente
+CARROSSEIS/           Registro das peças geradas (alimenta relatório e calibração)
+CALIBRACAO/           Régua de padrões por nicho, medida
 _audios/              Transcrições de áudios e reuniões
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
   settings.json       Permissões versionadas — sincroniza entre máquinas
+  skills/             Skills do repo — carregam sozinhas, sem instalação
   reference/          Originais preservados da migração
 ```
 
@@ -68,6 +72,23 @@ Duas regras próprias desta pasta, que sobrepõem as convenções gerais abaixo:
   renomeáveis.** São arquivos de produto, em minúsculas, que a FAQ nomeia um a um e
   que precisam subir com o nome exato. Melhoria vira arquivo novo ao lado, nunca
   edição no original.
+
+## Máquina de carrosséis — como usar
+
+A skill `carrossel-viral` (em `.claude/skills/`) roda o método da BrandsDecoded adaptado
+pra agência. **Não precisa instalar nada** — carrega sozinha quando o assunto é carrossel.
+
+Pedir um carrossel é uma frase: *"carrossel pra Prime sobre [tema]"*. A skill lê a ficha
+do cliente em `CLIENTES/`, gera 10 headlines, monta o carrossel, renderiza os PNGs e
+registra a peça em `CARROSSEIS/`.
+
+Duas regras que sustentam o sistema:
+
+1. **Origem do dado declarada.** Os números da BrandsDecoded (+155% Brasil, +119%
+   Fim/Morte) são da conta do Leonardo Varricchio, não do cliente. Enquanto não existir
+   `CALIBRACAO/{nicho}.md`, a skill usa esses padrões **e avisa que são emprestados**.
+2. **Registro não é opcional.** Sem a ficha em `CARROSSEIS/` não existe relatório semanal
+   nem recalibração. Foi ausência de relatório que quase custou a Prime em 16/07.
 
 ## Convenções
 
