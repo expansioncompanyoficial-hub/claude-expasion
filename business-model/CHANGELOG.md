@@ -478,3 +478,51 @@ Consolidação de tudo entre 05 e 10/08 em nove seções: onde a empresa está �
 os três produtos · a conta do cliente · o caminho até o portão · como se entrega · a
 carteira cliente a cliente · **a coluna fato × hipótese × retratado** · e as nove
 decisões abertas por prioridade.
+
+---
+
+## Rodada 10/08/2026 (5) — O catálogo
+
+**Entregue:** `29-CATALOGO-DE-PRODUTOS.md` e a versão visual
+(https://claude.ai/code/artifact/0f30655c-406b-4533-9f5f-e4f5994ac2ca).
+
+Uma ficha por produto, em linguagem de ouvir: para quem é, qual dor resolve, o que se
+entrega, e quanto sobra para a Expansion.
+
+### Um ajuste na faixa do EX1 — `D-036`
+
+Nicolas descreveu o EX1 como sendo para loja de **R$ 30 a 40 mil**. **A R$ 1.800 essa
+loja precisaria crescer 18,5% num mês** — número que quase nenhuma loja entrega.
+
+**Criado o EX1 LEVE:** R$ 1.200 · loja de R$ 30–40 mil · campanha a cada 2 meses ·
+placar mensal · **sem reunião mensal** · 2,25 h/mês · **53,4% de lucro** e
+**R$ 533/hora — a maior receita por hora da casa.**
+
+> ⚠️ **E é exatamente por isso que ele preocupa.** A margem é a maior porque o LEVE
+> **tirou a reunião mensal — o entregável que retém.** É porta de entrada com upgrade
+> planejado, **não produto de carteira.** Vira `A-046`.
+
+### As doze campanhas do ano — `D-037`
+
+O EX1 passa a ser vendido como **calendário comercial de 12 campanhas**, não como
+"uma campanha por mês". Cinco datas fortes concentram a oportunidade — Mães,
+Crianças, Black Friday, Natal e Dia da Mulher; nos outros meses a campanha ataca a
+base dormente, que não depende de data.
+
+**É o argumento do contrato de 12 meses** (`D-009`), e é conteúdo estratégico que a
+lojista não tem: *"a gente não vende post — a gente monta o seu calendário comercial
+do ano e executa mês a mês na base que você já tem."*
+
+### A conversa sobre o EX1, em números
+
+| | EX1 | EX2 | EX3 |
+|---|---|---|---|
+| Receita por hora | **R$ 300** | R$ 175 | R$ 141 |
+| Clientes que cabem nas 204 h | **34** | 10 | 5 |
+| MRR dessa carteira | **R$ 61.200** | R$ 35.700 | R$ 28.700 |
+
+**O EX1 é o único produto que sozinho leva a empresa ao portão do conselho com o time
+que já existe.**
+
+### Decisões
+`D-036`, `D-037`. Nova em aberto: `A-046`.
