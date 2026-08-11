@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Clau Kids — Guia do WhatsApp e do Tráfego</title>
+<style>
+  :root{
+    --paper:#FAF9F6; --ink:#1C1A17; --ink-soft:#5B5650; --ink-faint:#8A8478;
+    --line:#E4E0D8; --line-strong:#D2CCC0; --card:#FFFFFF;
+    --accent:#E67E22; --accent-ink:#7A3E0E; --accent-soft:#FBE7D2; --accent-line:#F0C393;
+    --verde:#6F8F35; --verde-ink:#3F5419; --verde-soft:#E7EEDA; --verde-line:#C4D6A0;
+    --zap:#1F7A5C; --zap-soft:#E0F0E9; --zap-line:#A9D3C3;
+    --amarelo-soft:#FBF3D9; --amarelo-line:#E8D69B; --amarelo-ink:#7A6212;
+    --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper); color:var(--ink); font-family:var(--font-body);
+    font-size:11px; line-height:1.55; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  @page{ size:A4; margin:0; }
+  .wrap{ max-width:770px; margin:0 auto; padding:15mm 14mm; }
+
+  h1,h2,h3{font-family:var(--font-display); margin:0; letter-spacing:-.01em;}
+
+  /* ── Capa ── */
+  .cover{background:linear-gradient(160deg,#2A1B0E 0%,#4A2E14 55%,var(--accent) 135%);
+    color:#FBEEDD; padding:26mm 16mm 20mm 16mm; position:relative; overflow:hidden; page-break-after:always;}
+  .cover::after{content:""; position:absolute; right:-70px; bottom:-70px; width:290px; height:290px;
+    border-radius:50%; background:rgba(255,255,255,.06);}
+  .cover .brand{font-family:var(--font-mono); font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; opacity:.75; margin-bottom:56px;}
+  .cover h1{font-size:37px; color:#fff; font-weight:700; line-height:1.14; max-width:12ch;}
+  .cover .sub{font-size:13.5px; color:#F3D9B8; max-width:42ch; margin-top:15px; line-height:1.55;}
+  .cover .indice{margin-top:40px; display:grid; grid-template-columns:1fr 1fr; gap:7px 20px; max-width:480px;}
+  .cover .indice div{font-size:11px; color:#F6E4CC; display:flex; gap:9px; align-items:baseline;
+    border-bottom:1px solid rgba(255,255,255,.14); padding-bottom:5px;}
+  .cover .indice span{font-family:var(--font-mono); font-size:9.5px; color:var(--accent-soft); opacity:.8;}
+  .cover .foot{margin-top:44px; font-family:var(--font-mono); font-size:9.5px; color:#F3D9B8; opacity:.85;}
+
+  /* ── Estrutura ── */
+  section{margin:18px 0; page-break-inside:avoid;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    margin-bottom:10px; border-bottom:1px solid var(--line); padding-bottom:5px;}
+  h2{font-size:15px; font-weight:700; color:var(--accent-ink);}
+  .num{font-family:var(--font-mono); font-size:11px; color:var(--accent); margin-right:7px;}
+  .section-note{font-family:var(--font-mono); font-size:8.5px; color:var(--ink-faint); white-space:nowrap;}
+  h3{font-size:12px; font-weight:700; margin:14px 0 6px 0; color:var(--ink);}
+  p{margin:0 0 8px 0;}
+  .lead{font-size:12px; color:var(--ink-soft); line-height:1.65; max-width:64ch;}
+  .pb{page-break-before:always;}
+
+  /* ── Fluxo ── */
+  .flow{display:flex; align-items:stretch; font-size:9.3px; margin:10px 0 4px 0;}
+  .flow-step{flex:1; border:1px solid var(--line); background:var(--card); padding:9px 9px; position:relative; text-align:center;}
+  .flow-step + .flow-step{border-left:none;}
+  .flow-step .ico{font-size:15px; line-height:1; margin-bottom:4px;}
+  .flow-step .k{font-family:var(--font-mono); color:var(--accent-ink); font-size:8px;
+    text-transform:uppercase; letter-spacing:.04em; font-weight:700;}
+  .flow-step .v{margin-top:3px; line-height:1.35; color:var(--ink-soft);}
+  .flow-step:not(:last-child)::after{content:"→"; position:absolute; right:-6px; top:50%;
+    transform:translateY(-50%); color:var(--ink-faint); font-size:11px; background:var(--paper);
+    width:12px; text-align:center; z-index:2;}
+
+  /* ── Passos ── */
+  .passo{display:grid; grid-template-columns:34px 1fr; gap:12px; margin-bottom:15px; page-break-inside:avoid;}
+  .passo .bola{width:28px; height:28px; border-radius:50%; background:var(--accent); color:#fff;
+    font-family:var(--font-mono); font-weight:700; font-size:13px; display:flex; align-items:center;
+    justify-content:center; margin-top:1px;}
+  .passo .titulo{font-size:12.5px; font-weight:700; margin-bottom:3px;}
+  .passo .desc{font-size:10.5px; color:var(--ink-soft); line-height:1.5; margin-bottom:6px;}
+
+  .caminho{font-family:var(--font-mono); font-size:9.3px; background:var(--zap-soft);
+    border:1px solid var(--zap-line); color:var(--zap); border-radius:4px; padding:5px 9px;
+    display:inline-block; margin-bottom:7px;}
+
+  /* ── Caixa de copiar ── */
+  .copiar{border:1.5px dashed var(--accent-line); background:#FFFCF8; border-radius:5px;
+    padding:11px 13px 10px 13px; margin:6px 0 10px 0; position:relative;}
+  .copiar .tag{position:absolute; top:-8px; left:11px; background:var(--accent); color:#fff;
+    font-family:var(--font-mono); font-size:7.5px; font-weight:700; letter-spacing:.06em;
+    text-transform:uppercase; padding:2px 7px; border-radius:3px;}
+  .copiar .txt{font-size:10.3px; line-height:1.62; color:var(--ink); margin-top:3px;}
+  .copiar .txt p{margin:0 0 6px 0;}
+  .copiar .txt p:last-child{margin:0;}
+
+  /* ── Boxes ── */
+  .box{border-radius:5px; padding:11px 13px; margin:9px 0;}
+  .box .mark{font-family:var(--font-mono); font-weight:700; font-size:9px; text-transform:uppercase;
+    letter-spacing:.05em; margin-bottom:5px; display:block;}
+  .box p:last-child{margin-bottom:0;}
+  .box.green{border:1px solid var(--verde-line); background:var(--verde-soft);}
+  .box.green .mark{color:var(--verde-ink);}
+  .box.amber{border:1px solid var(--amarelo-line); background:var(--amarelo-soft);}
+  .box.amber .mark{color:var(--amarelo-ink);}
+  .box.accent{border:1px dashed var(--accent-line); background:var(--accent-soft);}
+  .box.accent .mark{color:var(--accent-ink);}
+
+  /* ── Tabelas ── */
+  table{border-collapse:collapse; width:100%; font-size:10px; margin-bottom:4px;}
+  th{text-align:left; font-family:var(--font-mono); font-size:8px; text-transform:uppercase;
+    letter-spacing:.05em; color:var(--ink-faint); font-weight:600; padding:5px 7px;
+    border-bottom:1px solid var(--line-strong);}
+  td{padding:7px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .mono{font-family:var(--font-mono); font-size:9.3px; color:var(--ink-soft);}
+  .msg{font-family:var(--font-mono); font-size:9.2px; color:var(--zap); background:var(--zap-soft);
+    border-radius:3px; padding:3px 6px; display:inline-block; line-height:1.4;}
+
+  /* ── Investimentos ── */
+  .cenarios{display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px; margin-top:8px;}
+  .cen{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:13px 13px; position:relative;}
+  .cen.rec{border:2px solid var(--accent); background:#FFFCF8;}
+  .cen .tagrec{position:absolute; top:-8px; left:12px; background:var(--accent); color:#fff;
+    font-family:var(--font-mono); font-size:7.5px; font-weight:700; letter-spacing:.06em;
+    padding:2px 7px; border-radius:3px;}
+  .cen .nome{font-family:var(--font-mono); font-size:9px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.05em; color:var(--ink-faint); margin-bottom:5px;}
+  .cen.rec .nome{color:var(--accent-ink);}
+  .cen .valor{font-family:var(--font-mono); font-size:21px; font-weight:700; color:var(--ink); line-height:1;}
+  .cen .por{font-size:9px; color:var(--ink-faint); font-family:var(--font-mono); margin-top:3px;}
+  .cen .linha{border-top:1px solid var(--line); margin:9px 0 7px 0;}
+  .cen .conv{font-size:10px; color:var(--ink);}
+  .cen .conv b{font-size:13px; font-family:var(--font-mono);}
+  .cen .det{font-size:9.4px; color:var(--ink-soft); margin-top:6px; line-height:1.45;}
+
+  /* ── Etiquetas ── */
+  .etiquetas{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:6px;}
+  .etq{border:1px solid var(--line); background:var(--card); border-radius:5px; padding:9px 10px; text-align:center;}
+  .etq .n{font-family:var(--font-mono); font-size:15px; font-weight:700; color:var(--accent); line-height:1;}
+  .etq .nm{font-family:var(--font-mono); font-size:8.5px; font-weight:700; margin-top:4px;
+    text-transform:uppercase; letter-spacing:.03em;}
+  .etq .q{font-size:9px; color:var(--ink-soft); margin-top:4px; line-height:1.35;}
+
+  ul.tight{margin:5px 0 8px 0; padding-left:16px;}
+  ul.tight li{margin-bottom:5px; font-size:10.5px; line-height:1.5;}
+
+  .check{display:flex; gap:9px; padding:8px 0; border-bottom:1px dashed var(--line); align-items:flex-start;}
+  .check:last-child{border-bottom:none;}
+  .check .cx{width:12px; height:12px; border:1.5px solid var(--accent-line); border-radius:2px;
+    margin-top:3px; flex-shrink:0; background:var(--card);}
+  .check .q{font-size:10.5px; line-height:1.5;}
+
+  footer{margin-top:22px; border-top:1px solid var(--line); padding-top:10px;}
+  footer p{font-size:9px; color:var(--ink-faint); font-family:var(--font-mono); margin:0; line-height:1.55;}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="brand">Clau Kids × Expansion</div>
+  <h1>Seu WhatsApp pronto para receber clientes</h1>
+  <p class="sub">O guia de tudo o que vai acontecer quando os anúncios entrarem no ar — e o que deixar preparado antes.</p>
+  <div class="indice">
+    <div><span>01</span> Como funciona, do anúncio até a venda</div>
+    <div><span>02</span> Escolher o investimento</div>
+    <div><span>03</span> Deixar o WhatsApp pronto</div>
+    <div><span>04</span> De onde vem cada cliente</div>
+    <div><span>05</span> Sua rotina de 10 minutos</div>
+    <div><span>06</span> O que eu preciso de você</div>
+  </div>
+  <div class="foot">Agosto / 2026 &nbsp;·&nbsp; Preparado pela Expansion</div>
+</div>
+
+<div class="wrap">
+
+<p class="lead" style="margin-bottom:18px;">Oi, Clau! Esse documento é o par do plano de conteúdo. Lá a gente organizou <strong>o que vai ao ar</strong>. Aqui a gente organiza <strong>o que chega até você</strong> — porque quando o anúncio entrar no ar, gente que nunca ouviu falar da loja vai começar a te chamar no WhatsApp. Deixando essas coisas prontas antes, você atende melhor gastando menos tempo. É meia hora de preparo, uma vez só.</p>
+
+<section>
+  <div class="section-head"><h2><span class="num">01</span>Como funciona, do anúncio até a venda</h2><span class="section-note">o caminho completo</span></div>
+  <div class="flow">
+    <div class="flow-step"><div class="ico">📱</div><div class="k">Anúncio</div><div class="v">Uma mãe de Marília vê seu vídeo no Instagram</div></div>
+    <div class="flow-step"><div class="ico">👆</div><div class="k">Clique</div><div class="v">Ela toca no botão e o WhatsApp abre sozinho</div></div>
+    <div class="flow-step"><div class="ico">💬</div><div class="k">Mensagem</div><div class="v">Já vem escrita — você sabe de qual anúncio ela veio</div></div>
+    <div class="flow-step"><div class="ico">⚡</div><div class="k">Resposta</div><div class="v">Sua saudação dispara na hora, sem você fazer nada</div></div>
+    <div class="flow-step"><div class="ico">💛</div><div class="k">Você</div><div class="v">Chega já sabendo a idade e para quando é</div></div>
+  </div>
+  <div class="box green">
+    <span class="mark">A ideia central</span>
+    <p>O anúncio não vende. Ele traz a conversa até você — e <strong>quem vende é você</strong>, do jeito que você já vende. O que a gente está montando aqui é só para você não perder tempo escrevendo a mesma coisa vinte vezes, e para nenhuma mensagem ficar sem resposta num dia de loja cheia.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">02</span>Escolher o investimento</h2><span class="section-note">de 13 a 29 de agosto</span></div>
+  <p>São três caminhos. A diferença entre eles não é só quanto se gasta — é <strong>quantas conversas novas chegam por dia</strong> no seu WhatsApp. Como quem atende é você sozinha, esse é o número que realmente importa.</p>
+
+  <div class="cenarios">
+    <div class="cen">
+      <div class="nome">Opção A · Começar devagar</div>
+      <div class="valor">R$ 500</div>
+      <div class="por">no período todo</div>
+      <div class="linha"></div>
+      <div class="conv">cerca de <b>1</b> conversa nova por dia</div>
+      <div class="det">Serve para a gente descobrir qual anúncio funciona melhor, sem mexer muito na sua rotina.</div>
+    </div>
+    <div class="cen rec">
+      <span class="tagrec">NOSSA SUGESTÃO</span>
+      <div class="nome">Opção B · Operação</div>
+      <div class="valor">R$ 850</div>
+      <div class="por">no período todo</div>
+      <div class="linha"></div>
+      <div class="conv">cerca de <b>2</b> conversas novas por dia</div>
+      <div class="det">O equilíbrio: movimento real de gente nova, sem atropelar seu atendimento. É a que a gente recomenda.</div>
+    </div>
+    <div class="cen">
+      <div class="nome">Opção C · No limite</div>
+      <div class="valor">R$ 1.275</div>
+      <div class="por">no período todo</div>
+      <div class="linha"></div>
+      <div class="conv">cerca de <b>3</b> conversas novas por dia</div>
+      <div class="det">O máximo que faz sentido agora. Se em algum dia passar disso, a gente reduz na hora.</div>
+    </div>
+  </div>
+
+  <div class="box amber">
+    <span class="mark">Por que a gente não sugere gastar mais que isso</span>
+    <p>Dá para investir mais e trazer muito mais gente. Só que <strong>conversa que fica sem resposta é dinheiro jogado fora</strong> — e pior, é uma mãe que ficou com a impressão errada da sua loja numa cidade onde quase todo mundo chega por indicação. Você vende, atende, embala e ainda faz o lagarto à mão. A gente prefere trazer menos gente e você conseguir atender todo mundo bem. Quando a gente vir que sobra tempo, sobe.</p>
+  </div>
+
+  <p><strong>Uma coisa que eu preciso saber de você:</strong> quantos lagartos você tem prontos hoje, e quantos consegue fazer por semana? Se o anúncio prometer o presente e ele acabar, a gente precisa pausar antes. O número de lagartos manda no tamanho do anúncio.</p>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">03</span>Deixar o WhatsApp pronto</h2><span class="section-note">meia hora, uma vez só</span></div>
+  <p class="lead" style="margin-bottom:14px;">Tudo aqui é dentro do <strong>WhatsApp Business</strong>, no seu celular. São quatro coisas. Os textos estão prontos — é copiar, colar e salvar. Se preferir, a gente faz junto por vídeo, em quinze minutos.</p>
+
+  <div class="passo">
+    <div class="bola">1</div>
+    <div>
+      <div class="titulo">A saudação automática</div>
+      <div class="desc">É a mensagem que dispara sozinha quando alguém que nunca te chamou manda a primeira mensagem. Ela trabalha por você: enquanto você está atendendo alguém na loja, ela já cumprimenta, já explica que você responde, e já pergunta as duas coisas que você precisa saber para separar as peças.</div>
+      <div class="caminho">📱 WhatsApp Business → Ferramentas comerciais → Mensagem de saudação</div>
+      <div class="copiar">
+        <span class="tag">Copiar e colar</span>
+        <div class="txt">
+          <p>Oi! Aqui é a Clau 💛 Que bom que você me chamou.</p>
+          <p>Sou eu mesma que atendo, escolho e embalo cada peça — então às vezes eu demoro um pouquinho, porque estou com alguém na loja. Mas eu <strong>sempre</strong> respondo.</p>
+          <p>Enquanto isso, me adianta duas coisas:<br>1️⃣ É para menino ou menina, e quantos anos?<br>2️⃣ É para usar quando?</p>
+          <p>Uso essas informações só para separar as peças certas para você — se quiser que eu apague depois, é só me pedir.</p>
+          <p>Com isso eu já começo a separar 💛</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="passo">
+    <div class="bola">2</div>
+    <div>
+      <div class="titulo">A mensagem de ausência</div>
+      <div class="desc">Para quando a loja já fechou. Evita que alguém ache que foi ignorado — e ainda adianta seu trabalho da manhã seguinte. Configure para o horário em que você não está atendendo.</div>
+      <div class="caminho">📱 Ferramentas comerciais → Mensagem de ausência</div>
+      <div class="copiar">
+        <span class="tag">Copiar e colar</span>
+        <div class="txt">
+          <p>Oi! Aqui é a Clau 💛 A loja já fechou por hoje.</p>
+          <p>Amanhã a partir das 9h eu te respondo pessoalmente — sou eu mesma que atendo.</p>
+          <p>Se quiser adiantar: me diz a idade da criança e para quando você precisa 💛</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="passo">
+    <div class="bola">3</div>
+    <div>
+      <div class="titulo">Quatro respostas rápidas</div>
+      <div class="desc">São as perguntas que vão se repetir. Em vez de digitar tudo de novo toda vez, você salva cada uma com um atalho — aí é só digitar <span class="mono">/lagarto</span> e o texto inteiro aparece. Só quatro, para não virar bagunça.</div>
+      <div class="caminho">📱 Ferramentas comerciais → Respostas rápidas → + (criar)</div>
+
+      <div class="copiar">
+        <span class="tag">atalho: /lagarto</span>
+        <div class="txt">
+          <p>O lagarto do deserto é feito à mão, por mim.</p>
+          <p>Eu queria dar uma ampulheta pra falar do tempo e não coube no orçamento — aí eu sentei e fiz o lagarto, um por um.</p>
+          <p>Ele é o presente de quem leva uma peça da Coleção Deserto. Não é desconto e não é sorteio: é presente, e é enquanto durar o que eu consegui fazer.</p>
+          <p>Quer ver as peças? Me diz a idade e o tamanho 💛</p>
+        </div>
+      </div>
+
+      <div class="copiar">
+        <span class="tag">atalho: /tamanho</span>
+        <div class="txt">
+          <p>Eu sei exatamente do que você tá falando 💛</p>
+          <p>Tem uma idade em que a criança sai do infantil e ainda não cabe no adulto. Aí ou fica com roupa de bebê grande, ou com roupa de gente grande. As duas erram.</p>
+          <p>Eu trabalho com numeração até 18, com peça pensada pra idade dela — não pra idade que o corpo aparenta.</p>
+          <p>Me diz: quantos anos ela tem, e qual número ela veste hoje? 💛</p>
+        </div>
+      </div>
+
+      <div class="copiar">
+        <span class="tag">atalho: /comofunciona</span>
+        <div class="txt">
+          <p>Funciona assim, é simples 💛</p>
+          <p>1. Você me conta pra quem é e pra qual momento<br>
+             2. Eu separo as opções certas e te mando foto e vídeo reais, na luz da loja<br>
+             3. Você escolhe, eu embalo (e embrulho de presente, se for)<br>
+             4. Pix, débito ou cartão<br>
+             5. Retira aqui na loja — e se você for de fora, eu vejo com você a melhor forma</p>
+          <p>Sem você ter que garimpar 💛</p>
+        </div>
+      </div>
+
+      <div class="copiar">
+        <span class="tag">atalho: /espera</span>
+        <div class="txt">
+          <p>Oi! Tô sozinha na loja hoje e não quis te responder com pressa — você merece mais que uma resposta corrida.</p>
+          <p>Consigo te atender direitinho mais tarde. Pode ser? 💛</p>
+        </div>
+      </div>
+
+      <div class="box amber" style="margin-top:2px;">
+        <span class="mark">Repare no passo 5</span>
+        <p>Está escrito <em>"eu vejo com você a melhor forma"</em>, e não <em>"eu envio"</em>. Enquanto você não me disser se faz envio, qual o prazo e como funciona a troca de tamanho, é melhor não prometer — porque promessa que não se cumpre vira reclamação. Assim que você me passar isso, a gente troca a frase.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="passo">
+    <div class="bola">4</div>
+    <div>
+      <div class="titulo">Quatro etiquetas</div>
+      <div class="desc">São marcadores coloridos nas conversas. Você não escreve nada, não preenche planilha — só toca em dois momentos: quando abre a conversa e quando fecha a venda. É o que permite a gente saber, no fim do mês, o que o anúncio realmente trouxe.</div>
+      <div class="caminho">📱 Ferramentas comerciais → Etiquetas → + (criar)</div>
+      <div class="etiquetas">
+        <div class="etq"><div class="n">1</div><div class="nm">Veio do anúncio</div><div class="q">Marca assim que a conversa abre</div></div>
+        <div class="etq"><div class="n">2</div><div class="nm">Respondido</div><div class="q">Você já respondeu</div></div>
+        <div class="etq"><div class="n">3</div><div class="nm">Separei</div><div class="q">Já mandou opções, esperando resposta</div></div>
+        <div class="etq"><div class="n">4</div><div class="nm">Comprou</div><div class="q">Fechou 🎉</div></div>
+      </div>
+      <p style="font-size:10px; color:var(--ink-soft); margin-top:8px;">Sempre a etiqueta mais avançada — quando vira "Comprou", tira as outras. Você não precisa lembrar de onde a pessoa veio: <strong>o WhatsApp mostra o anúncio no topo da conversa</strong>, automaticamente.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">04</span>De onde vem cada cliente</h2><span class="section-note">quatro anúncios, quatro portas</span></div>
+  <p>Cada anúncio abre o WhatsApp com uma mensagem <strong>já escrita</strong> — a pessoa só aperta enviar. Isso é de propósito: você lê a primeira linha e já sabe o que ela quer, antes mesmo de perguntar.</p>
+  <table>
+    <thead><tr><th style="width:22%;">O anúncio</th><th style="width:34%;">A mensagem que chega</th><th>O que ela está querendo, e por onde começar</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>O lagarto</strong><br><span class="mono">foto do chaveiro</span></td>
+        <td><span class="msg">Oi Clau, vim pelo anúncio e quero saber do lagarto do deserto</span></td>
+        <td>Veio pelo presente. Responde com <span class="mono">/lagarto</span> — ele conta a história e leva a conversa para a roupa em uma mensagem só.</td>
+      </tr>
+      <tr>
+        <td><strong>Chegou a Deserto</strong><br><span class="mono">vídeo do unboxing</span></td>
+        <td><span class="msg">Oi Clau, quero ver a Coleção Deserto</span></td>
+        <td>Veio pela novidade — é a mais quente das quatro. Pergunta idade e para quando é, e já separa.</td>
+      </tr>
+      <tr>
+        <td><strong>As quatro perguntas</strong><br><span class="mono">vídeo do seu atendimento</span></td>
+        <td><span class="msg">Oi Clau, quero que você me ajude a escolher</span></td>
+        <td>Veio pelo seu jeito de atender. Já está pedindo curadoria — é a sua conversa favorita. Faz as suas perguntas de sempre.</td>
+      </tr>
+      <tr>
+        <td><strong>Tamanho grande</strong><br><span class="mono">vídeo do "não cabe mais"</span></td>
+        <td><span class="msg">Oi Clau, meu filho já veste tamanho grande e eu não acho roupa</span></td>
+        <td>Veio pela dor que só você resolve na região. Responde com <span class="mono">/tamanho</span> e pergunta o número que veste hoje.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:9px;"><strong>Sobre o lagarto nos anúncios:</strong> a gente sempre chama de <em>chaveiro feito à mão</em>, nunca de brinquedo, e não fala do efeito dele na criança. É uma regra do próprio Instagram para esse tipo de produto — no seu perfil, nos stories e nos reels, você continua falando dele como quiser. 💛</p>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">05</span>Sua rotina de 10 minutos</h2><span class="section-note">uma vez por dia, só</span></div>
+
+  <div class="box accent">
+    <span class="mark">17h40 — ninguém dorme sem resposta</span>
+    <p>Uma passada nas conversas do dia, antes de fechar. Quem você não conseguiu atender direito, manda o <span class="mono">/espera</span> — leva três segundos e resolve. <strong>Uma resposta curta e honesta vale muito mais que silêncio.</strong></p>
+  </div>
+
+  <h3>A pergunta que faz o trabalho todo</h3>
+  <p>De tudo que está nesse documento, se você guardar uma coisa só, guarda esta: <strong>"É para usar quando?"</strong></p>
+  <p>Quem responde com uma data está comprando. Quem não tem data está só olhando. Você separa as duas em segundos, e ainda por cima não soa fria — porque perguntar a ocasião é exatamente o que uma consultora de moda pergunta. É o que você já faz, só que agora logo no começo.</p>
+
+  <table style="margin-top:6px;">
+    <thead><tr><th style="width:26%;">Quando a resposta é…</th><th>O que fazer</th></tr></thead>
+    <tbody>
+      <tr><td>🔥 <strong>Tem data</strong> nas próximas duas semanas, ou já deu idade + tamanho + ocasião</td><td>Atendimento completo: separa 2 ou 3 opções, manda foto e vídeo reais, fecha.</td></tr>
+      <tr><td>🟡 <strong>Respondeu, mas sem data</strong> — "tô só olhando"</td><td>Manda <em>uma</em> seleção curta, convida para o grupo, marca a etiqueta e encerra por ali. Ela volta.</td></tr>
+      <tr><td>⚪ <strong>Só quer o presente</strong>, ou pergunta preço e some</td><td><span class="mono">/lagarto</span> ou convite para o grupo. Sem separar peça.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box green" style="margin-top:10px;">
+    <span class="mark">A regra que protege o seu dia</span>
+    <p><strong>Nunca mande foto ou vídeo de peça antes da pessoa responder pelo menos uma pergunta.</strong> Esse é o buraco por onde o dia inteiro vaza: você fotografa, separa, monta o vídeo — e do outro lado a pessoa some. Uma pergunta respondida já mostra que tem alguém ali de verdade.</p>
+  </div>
+
+  <p style="margin-top:9px;"><strong>E quem ficou sem resposta ontem?</strong> Um toque, no dia seguinte, curtinho: <em>"Oi, sou eu 💛 Ontem você me chamou e eu não quero te deixar sem resposta. Ainda faz sentido? Me diz só o tamanho e pra quando é."</em> Um toque só — quem não responder, a gente reencontra depois pelo anúncio.</p>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">06</span>O que eu preciso de você</h2><span class="section-note">para os anúncios entrarem no ar</span></div>
+  <p class="lead" style="margin-bottom:12px;">Nada aqui é trabalho — são respostas curtas, de mandar por áudio no grupo. Mas sem elas a gente não sobe anúncio, porque o anúncio prometeria coisa que a gente não sabe se dá para cumprir.</p>
+
+  <h3>Trava o começo</h3>
+  <div class="check"><div class="cx"></div><div class="q"><strong>Quantos lagartos você tem prontos</strong>, e quantos consegue fazer por semana? — é o que define o tamanho do anúncio</div></div>
+  <div class="check"><div class="cx"></div><div class="q"><strong>O lagarto:</strong> de que material é feito, mais ou menos que tamanho, e tem alguma peça que solta?</div></div>
+  <div class="check"><div class="cx"></div><div class="q"><strong>Qual das três opções de investimento</strong> você quer seguir (A, B ou C)</div></div>
+  <div class="check"><div class="cx"></div><div class="q"><strong>Confirmar nosso acesso</strong> à conta de anúncios, e que seu WhatsApp Business é o oficial, baixado da loja de aplicativos</div></div>
+
+  <h3>Não trava, mas ajuda muito</h3>
+  <div class="check"><div class="cx"></div><div class="q"><strong>Ticket médio:</strong> a peça mais barata, a mais cara e mais ou menos quanto sai uma compra normal — é o que me permite escrever a resposta certa para "quanto custa?"</div></div>
+  <div class="check"><div class="cx"></div><div class="q"><strong>Estoque nos números maiores</strong>, principalmente 14, 16 e 18 — o anúncio de tamanho grande é o mais forte que a gente tem, e não pode trazer mãe procurando o que acabou</div></div>
+  <div class="check"><div class="cx"></div><div class="q"><strong>Você faz envio?</strong> Qual o frete, o prazo, e como funciona se precisar trocar de tamanho?</div></div>
+  <div class="check"><div class="cx"></div><div class="q"><strong>Seu horário real da loja</strong>, e quantas conversas por dia você sente que dá conta com tranquilidade</div></div>
+
+  <div class="box accent" style="margin-top:14px;">
+    <span class="mark">O nosso combinado</span>
+    <p><strong>Toda sexta você recebe um resumo nosso</strong>, em quatro linhas: quanto foi investido, quantas pessoas te chamaram, qual anúncio trouxe mais gente e o que muda na semana seguinte. Você não precisa perguntar, nem pedir. Chega.</p>
+  </div>
+</section>
+
+<section>
+  <div class="box green">
+    <span class="mark">Resumindo</span>
+    <p>Meia hora configurando o WhatsApp, uma escolha de investimento, quatro respostas prontas e dez minutos por dia às 17h40. É isso. O resto — os anúncios, os públicos, os números — é com a gente. 💛</p>
+  </div>
+</section>
+
+<footer>
+  <p>Clau Kids × Expansion — guia de WhatsApp e tráfego, agosto/2026. Companheiro do plano de conteúdo enviado separadamente.</p>
+</footer>
+
+</div>
+</body>
+</html>
