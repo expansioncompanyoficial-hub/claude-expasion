@@ -145,11 +145,15 @@ Reels sexta**, com os temas linkados (o Reels puxa o carrossel, que puxa os stor
 | **meio** — educativo | "Como funciona a portabilidade", "o que trava a aprovação". Gera salvamento e direct |
 | **topo** — viral | Comportamento do mercado, fenômeno cultural. Traz gente nova |
 
-### O InfoPrime é da Laura, não nosso
+### O InfoPrime é a fonte, não o formato
 
-Correção importante: o **InfoPrime é um boletim semanal do mercado imobiliário que a
-própria Laura produz**. Não é formato da Expansion — é **fonte de pauta**, toda semana,
-sempre sobre notícia da semana corrente.
+O **InfoPrime é onde a Laura solta as notícias do mercado imobiliário**. É **fonte de
+pauta**, não formato a replicar.
+
+**O que a Expansion entrega é peça nova, com nome próprio.** Não precisa se chamar
+InfoPrime nem imitar o layout dele — o combinado (11/08) é **pelo menos um carrossel de
+notícia do mercado por semana**, no espírito de "o que aconteceu no mercado esta semana".
+A referência visual do InfoPrime serve como norte de identidade, não como molde.
 
 A pendência aprovada (`CONTEXTO-PRIME.md` §9, item 13) é justamente:
 
