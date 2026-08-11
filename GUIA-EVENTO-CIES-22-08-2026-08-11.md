@@ -15,7 +15,7 @@ Araras montadas por composição, peças separadas por tamanho e as novidades da
 ## 02 · A aula do guarda-roupa inteligente
 Trinta minutos com um estilista convidado, ensinando como montar um armário que rende: como ter **menos peça e mais look**.
 
-*Depende da confirmação dele, que sai nesta terça, 11/08.*
+**Confirmado.** Ele fechou o dia 22 e chega por volta das 14h.
 
 ## 03 · Café e ambientação
 A casa recebendo bem, como ela já sabe fazer. Quem espera não fica esperando, fica em outro lugar.
@@ -23,13 +23,15 @@ A casa recebendo bem, como ela já sabe fazer. Quem espera não fica esperando, 
 ## 04 · As parceiras da região
 Cada cliente que comprar sai com um kit de benefícios: **sobrancelha, cosméticos e salão de beleza**. Vantagem real, e nada disso sai do bolso da Ciés.
 
-## 05 · Uma marca de bolsas expondo
-Confecção própria, montada dentro da loja no dia. Mais uma coisa para ver, provar e levar.
-
-## 06 · Sorteio no fim do dia
+## 05 · Sorteio no fim do dia
 Todas que comprarem concorrem. É o momento de emoção que fecha a tarde.
 
-> **A aula é o ponto alto do dia, não o dia inteiro.** O Sábado Delas existe com ele e existe sem ele. Se o convidado confirmar, é a cereja. Se não confirmar, o sábado continua de pé com tudo o que está acima.
+## 06 · Uma marca de bolsas expondo · **a confirmar**
+Confecção própria, montada dentro da loja no dia. Mais uma coisa para ver, provar e levar.
+
+**Ainda não está fechado.** Entra na comunicação só depois que a marca confirmar por escrito. Até lá, o dia se anuncia sem ela.
+
+> **A aula é o ponto alto do dia, não o dia inteiro.** O Sábado Delas existe com ele e existe sem ele. Nada aqui depende de uma peça só, e é assim que tem que ser: **o que entra na comunicação é o que está confirmado.**
 
 ---
 
@@ -63,11 +65,9 @@ Todas que comprarem concorrem. É o momento de emoção que fecha a tarde.
 
 ## Terça 11 · hoje
 
-**A conversa com o professor.** Fecha formato, horário, tempo e valor. E o pedido dos dois vídeos do §Bônus.
+**A conversa presencial com o professor.** Ele já confirmou o dia 22 e o horário por mensagem, então hoje é para fechar o resto: **valor, tempo de fala, quais nomes ele autoriza citar** e o pedido dos dois vídeos do §Bônus.
 
-**À noite, se ele confirmar:** grava o anúncio. É o vídeo mais importante da campanha.
-
-**Se não confirmar hoje:** grava um clipe curto de bastidor, mostrando as araras sendo montadas, sem falar dele. O evento é anunciado do mesmo jeito, só sem esse ingrediente.
+**À noite: grava o anúncio.** É o vídeo mais importante da campanha.
 
 ## Quarta 12 · o anúncio no ar
 
@@ -126,7 +126,7 @@ O vídeo mais importante da campanha. Uns 40 segundos.
 
 > "Dia 22 eu vou fazer um sábado só nosso aqui na loja.
 >
-> Vai ter café, vai ter as araras montadas do jeito que eu queria, vai ter uma marca de bolsas expondo aqui dentro, e quem comprar sai com benefício das parceiras daqui da região.
+> Vai ter café, vai ter as araras montadas do jeito que eu queria, e quem comprar sai com benefício das parceiras daqui da região.
 >
 > E o melhor de tudo: eu chamei o [nome], que é meu professor, pra vir dar uma aula aqui de como montar um guarda-roupa que rende. Ele já fez [os trabalhos que ele autorizar citar].
 >
@@ -256,10 +256,11 @@ O que este documento traz é o que cada faixa tende a entregar, para a conversa 
 
 | Quando | O quê | Quem |
 |---|---|---|
-| **Hoje 11/08** | Conversa com o professor e o anúncio gravado à noite | Sabrina |
+| **Hoje 11/08** | Conversa com o professor: valor, tempo e nomes autorizados. E o anúncio gravado à noite | Sabrina |
 | **12/08** | Anúncio no ar. Lista de confirmação aberta | Expansion |
 | **13/08** | 3 composições montadas com as peças da arara | Sabrina |
 | 13/08 | O que cada parceira vai oferecer, fechado | Sabrina |
+| 13/08 | **Confirmar a marca de bolsas**, ou tirar do plano | Sabrina |
 | **15/08** | Vídeo 1 do professor na mão | Sabrina |
 | **16/08** | **Diária de gravação**, os 7 blocos | Sabrina + Expansion |
 | 18/08 | Vídeo 2 do professor | Sabrina |
