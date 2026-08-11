@@ -17,7 +17,7 @@ responderam **403 no CONNECT** ao proxy de política. Nenhum PDF de edital, cont
 ou lei foi aberto. Tudo o que segue foi obtido por **busca**, que devolve trecho
 indexado e link, não o documento. Consequência prática: **a amostra de 100 processos,
 30 editais e 10 contratos pedida na Parte 4 não foi produzida.** Foram identificados
-**28 processos reais**, dos quais **4 com taxa administrativa explícita**. Isso é uma
+**27 processos reais**, dos quais **4 com taxa administrativa explícita**. Isso é uma
 amostra por conveniência, não um censo, e está tratada como tal em todo o documento.
 O extrator para fechar essa lacuna está pronto (Apêndice C) e roda em uma hora numa
 máquina com internet aberta.
@@ -48,7 +48,7 @@ parte interessada, o dado está rotulado **DADO_DECLARADO** e nunca **FATO**.
 | Campo | Situação | Premissa adotada |
 |---|---|---|
 | Nome | Não preenchido | Expansion Company, conforme o acervo do repositório |
-| Atuação atual | Não preenchido | **Entrante nova.** Varredura completa do acervo não encontrou nenhuma operação de estágio ou licitação. As 59 ocorrências de "estágio" nos documentos são a palavra no sentido de *fase*. A empresa é hoje agência de assessoria e produtora |
+| Atuação atual | Não preenchido | **Entrante nova.** Varredura completa do acervo não encontrou nenhuma operação de estágio ou licitação. A varredura encontrou **4 ocorrências** de "estágio" em documentos, nenhuma sobre estágio estudantil (nome de etapa de produção audiovisual e fase de negócio), e **zero** de "estagiário" no sentido do estudo, "CIEE", "Nube" ou "agente de integração". A empresa é hoje agência de assessoria e produtora |
 | Região | Não preenchido | Alphaville / Barueri (SP), por inferência dos documentos internos |
 | Vagas e estagiários ativos | Não preenchido | Presumidos zero ou não mensurados |
 | Bolsa média e tempo de preenchimento | Não preenchido | Não mensurados — ver Parte 2, tabela de dados a coletar |
@@ -75,10 +75,12 @@ Este é o principal dado que falta e nenhuma pesquisa externa pode supri-lo.
 
 # 1. RESUMO EXECUTIVO
 
-**A afirmação do sócio não se sustenta como diagnóstico de mercado, e quem a
-derruba é o próprio setor.** Não há escassez generalizada de candidatos a estágio
-no Brasil. Há descasamento localizado, e a causa dominante — autodeclarada pela
-própria indústria — é **preço da bolsa**, não falta de gente.
+**A afirmação do sócio não se sustenta como diagnóstico de mercado com a evidência
+disponível — e quem mais a enfraquece é o próprio setor.** O gargalo dominante é
+**preço da bolsa**, autodeclarado pela própria indústria, e operação. Ressalva de método
+que não pode ser omitida: a frente que defenderia o sócio recebeu 7 buscas produtivas
+contra 26 da refutação (seção 2.1.1). Não se provou que há escassez; tampouco se provou,
+com esforço equivalente, que não há.
 
 **O mercado público de gestão de estagiários é real, recorrente e muito menor do
 que parece.** O valor dos contratos é enganoso: entre **86% e 93% do valor de um
@@ -87,8 +89,9 @@ nos contratos de taxa fixa baixa. O contrato de R$ 295 milhões da Prefeitura de
 Paulo com o CIEE não é um mercado de R$ 295 milhões.
 
 **A margem existe e é protegida por uma decisão tributária vinculante**, mas o
-negócio só fecha em escala: com taxa de 10%, o ponto de equilíbrio está em torno de
-**950 estagiários ativos**.
+negócio só fecha em escala: com taxa de 10%, o ponto de equilíbrio fica entre **560 e 2.506
+estagiários ativos** conforme a eficiência da operação, com **953** no cenário central
+(matriz completa na seção 9.3).
 
 ### Os dez achados que mais importam
 
@@ -96,19 +99,27 @@ negócio só fecha em escala: com taxa de 10%, o ponto de equilíbrio está em t
 |---|---|---|
 | 1 | O Brasil **não sabe** quantos estagiários tem, por decisão normativa: estagiário é excluído da RAIS e está fora do CAGED | FATO |
 | 2 | Melhor número disponível: **1,77 milhão** de estagiários, bolsa média **R$ 1.075** (MTE, via eSocial, jun/2026) — contra 1,1–1,2 mi declarado pela ABRES | FATO / DADO_DECLARADO |
-| 3 | A ABRES afirma que **só 5–6% dos ~20 mi de aptos** conseguem estagiar. Falta vaga, não candidato | DADO_DECLARADO |
+| 3 | A ABRES afirma que só **5–6% dos ~20 mi de aptos** estagiam. Corrigindo o denominador (base ajustada de 7–9 mi) e usando o numerador oficial, a penetração real é de **20% a 25%** — ainda com folga grande de candidatos, mas longe da "fila de 19 milhões" | DADO_DECLARADO / INFERÊNCIA |
 | 4 | Na enquete do Nube sobre vagas não preenchidas, **40,20% apontam bolsa baixa** e 21% falta de qualificação | DADO_DECLARADO |
-| 5 | O maior programa público federal **encolheu**: 16 mil (ago/25) → 14,8 mil (mar/26) | FATO |
+| 5 | O maior programa público federal está numa **faixa de 14,8 a 16 mil** (mar/26 e ago/25). Os dois números são oficiais e não batem — pode ser queda de 7,5% **ou** diferença de escopo. Não usar como tendência | FATO (os números) / **indefinido** (a leitura) |
 | 6 | **SC COSIT 21/2020** (vinculante): o repasse de bolsa **não é receita bruta** do agente. Só a taxa é tributada | FATO |
 | 7 | **Tema 1038 do STJ**: edital não pode fixar piso de taxa. Guerra de preço juridicamente ilimitada; **taxa zero é legal** | FATO |
-| 8 | O CIEE tem **CEBAS** — isenção de cota patronal do INSS, CSLL, COFINS e PIS. Vantagem estrutural de custo, não de eficiência | FATO |
+| 8 | O CIEE **declara** deter CEBAS e imunidade do art. 150, VI, "c" — isenção de cota patronal do INSS, CSLL, COFINS e PIS. **Se válida hoje**, é vantagem estrutural de custo | **DADO_DECLARADO** — validade atual **não verificada** (ADE RFB 181/2017 × acórdão do CARF, nenhum lido em fonte primária) |
 | 9 | Taxa observada varia de **R$ 7,34 a R$ 100,00** por estagiário/mês — fator de **13,6x**, sem correlação com escala | FATO (4 casos) |
-| 10 | O agente **não adianta bolsa**: recebe da concedente e depois repassa. Há **float positivo**, não necessidade de capital de giro | FATO |
+| 10 | O agente **não adianta bolsa**: recebe da concedente e depois repassa. Há **float positivo** — não é preciso capital para financiar a folha de estagiários, mas **é preciso capital** para o recebível da própria taxa (~R$ 121 mil a 1.000 vagas) e para o prejuízo até o equilíbrio | FATO (o fluxo) |
 
 ### Parecer
 
 **ENTRAR COM RESTRIÇÕES SEVERAS — e não pela porta da licitação.**
-Nota de atratividade: **5,7 / 10**. Detalhamento na Parte 11.
+Nota de atratividade: **5,7 / 10** (média simples das 16 dimensões). Detalhamento na Parte 11.
+
+**O parecer está condicionado a um teste de 30 dias** que a pesquisa não pôde fazer: medir
+a taxa administrativa real praticada no mercado privado (seção 12.1). O único preço privado
+localizado — Workalove, R$ 79,90/mês — fica **abaixo** do piso de 8% recomendado. Se o teste
+confirmar esse patamar, o parecer muda para **AGUARDAR**.
+
+**Capital necessário até o caixa virar: R$ 176 mil a R$ 827 mil** de prejuízo operacional
+acumulado em três anos, mais capital de giro e estrutura inicial (seção 9.2.1).
 
 ---
 
@@ -116,8 +127,29 @@ Nota de atratividade: **5,7 / 10**. Detalhamento na Parte 11.
 
 ## 2.1 O veredicto
 
-**Como afirmação sobre o mercado brasileiro de estágios: REFUTADA.**
+**Como afirmação sobre o mercado brasileiro de estágios: NÃO SUSTENTADA PELA EVIDÊNCIA
+DISPONÍVEL** — com uma ressalva de método que o leitor tem direito de conhecer antes de
+tudo (ver 2.1.1).
 **Como afirmação sobre uma carteira específica: PLAUSÍVEL, NÃO TESTADA.**
+
+### 2.1.1 ⚠️ A pesquisa não foi simétrica, e isso pesa a favor do sócio
+
+O desenho previa uma frente para **sustentar** a tese do sócio e outra para **refutá-la**.
+A execução não cumpriu a simetria:
+
+| Lado | Buscas realizadas | Cobertura do escopo |
+|---|---:|---|
+| **Tese** (há escassez) | **7 produtivas** | 4 de 10 itens. Ficaram sem cobertura: editais desertos, tribunais de contas, desistência/no-show, efeito EAD, concorrência do jovem aprendiz |
+| **Refutação** (não há escassez) | **26** | Escopo completo, reexecutado na segunda rodada |
+
+A cota de buscas da sessão esgotou durante a frente acusatória, e **só a refutação foi
+refeita**. O lado que defenderia o sócio recebeu menos de um terço do esforço.
+
+**Consequência honesta:** o veredito foi rebaixado de "REFUTADA" para "não sustentada pela
+evidência disponível". A diferença não é retórica. Não se provou que há escassez; também
+não se provou, com esforço equivalente, que não há. O que está solidamente sustentado é a
+tese mais estreita: **o gargalo dominante é preço e operação.** Antes de qualquer decisão
+baseada nesta seção, reexecutar a frente acusatória com orçamento equivalente.
 
 ## 2.2 A contradição que decide a questão
 
@@ -126,7 +158,7 @@ Duas entidades da **mesma indústria** afirmam coisas incompatíveis ao mesmo te
 | Quem | O que afirma | Fonte |
 |---|---|---|
 | CIEE (Campo Largo/PR) e Nube | Sobram vagas de estágio por falta de procura | DADO_DECLARADO |
-| ABRES | 18 a 19 milhões de estudantes aptos **não** conseguem estagiar (só 5–6% estagiam) | DADO_DECLARADO |
+| ABRES | Só **5–6% dos 20,1 mi de aptos** estagiam | DADO_DECLARADO (o percentual). ⚠️ **Não ler como "há 19 milhões na fila"**: elegibilidade não é candidatura, e a seção 3.3 reduz a base real a 7–9 mi |
 
 As duas frases só coexistem sob a hipótese de **descasamento**. Sob a hipótese de
 escassez de candidatos, são contraditórias. E a ABRES é a associação dos agentes de
@@ -147,6 +179,28 @@ Enquete do Nube sobre por que vagas de estágio não são preenchidas:
 > narrativa de escassez sobrevive à evidência que a desmente.
 > *(DADO_DECLARADO, confiança média — data da enquete não identificada.)*
 
+## 2.3.1 A conta que faltava — e que trabalha a favor do sócio
+
+A seção 3.3 demole o denominador de 20,1 milhões de "aptos" e estabelece uma base
+efetivamente estagiável de **7 a 9 milhões**. Mas o argumento dos "5–6% dos aptos" continuava
+sendo usado como evidência central — **com o denominador que este mesmo relatório declarou
+inválido.** Isso é incoerente e foi corrigido:
+
+| Numerador | Denominador | Penetração |
+|---|---|---:|
+| 1,1–1,2 mi (ABRES) | 20,1 mi (ABRES) | **5–6%** ← o número que circula |
+| **1,77 mi (MTE/eSocial, FATO)** | 20,1 mi (ABRES) | **8,8%** |
+| **1,77 mi (MTE/eSocial, FATO)** | **7–9 mi (base ajustada)** | **19,7% a 25,3%** |
+
+> **Cruzando os dois melhores dados do próprio relatório, entre 20% e 25% da base
+> efetivamente estagiável já está estagiando** — não 5%.
+>
+> Isso **não** derruba a tese do preço, e não transforma o mercado em escassez: um em cada
+> quatro ou cinco elegíveis ocupado ainda deixa folga grande. Mas reduz substancialmente a
+> "fila de 19 milhões" que a leitura ingênua sugere, e é informação que o cliente tem
+> direito de ver antes de decidir. *(INFERÊNCIA sobre dois FATOS; a base ajustada tem
+> confiança BAIXA-MÉDIA.)*
+
 ## 2.4 O balanço das evidências, dos dois lados
 
 | Evidência | Direção | Força |
@@ -155,7 +209,7 @@ Enquete do Nube sobre por que vagas de estágio não são preenchidas:
 | Nube: 40,20% atribuem à bolsa baixa | **Contra** escassez | Média |
 | Governo federal reajustou bolsa em 33% (mar/2026) para tornar programas atrativos | **Contra** escassez | **Alta** — o maior empregador de estagiários agiu no **preço**, não na captação |
 | Partiu Estágio (BA) paga R$ 607 por 20h vs. média R$ 2.074 no Sudeste | **Contra** escassez | Alta — não preencher é decisão econômica racional |
-| APF encolheu de 16 mil para 14,8 mil | **Contra** (demanda caindo) | Alta (MGI) |
+| APF: 16 mil (ago/25) → 14,8 mil (mar/26) | **Contra** (se for queda real) | **Média** — a fonte não resolve se é queda de 7,5% ou diferença de escopo entre as duas medições |
 | TJPE: 4.705 inscritos em seleção de estágio; TRF1/PA: 1.432; Uruguaiana: 600+ para 96 vagas | **Contra** escassez | Alta |
 | ManpowerGroup: 81% (2025) / 80% (2026) das empresas com dificuldade de contratar | A favor | **Baixa para estágio** — não fala de estágio |
 | CNI: 23,1% citam falta de qualificado (4T2025, recorde) | A favor | **Baixa para estágio** — indústria, não estágio |
@@ -447,7 +501,10 @@ instituição de ensino. Sem esse número, o TAM acima é teto, não mercado. Ve
 > confirmada, o setor municipal sozinho tem ~17x o Executivo federal. A dispersão entre
 > estados é enorme (0,5% na Paraíba contra 3,4% na média nacional), o que recomenda cautela.
 
-**Faixa adotada para o setor público: 250 a 400 mil estagiários** (~15–23% do total).
+**Faixa adotada para o setor público: 265 a 400 mil estagiários** (~15–23% do total).
+O piso não pode ser 250 mil: federal (14.800) + municipal (248.200) já somam **263 mil**
+sem nenhuma camada estadual e sem o Judiciário. Com o Judiciário, passa de 320 mil — o que
+sugere que **o teto de 400 mil também está apertado**.
 
 **SAM em receita de agente, por modelo de cobrança:**
 
@@ -472,15 +529,20 @@ municípios e autarquias de porte pequeno e médio.
 | Ano 2 | 400–800 | R$ 516 mil – R$ 1,03 mi |
 | Ano 3 | 900–1.500 | R$ 1,16 mi – R$ 1,94 mi |
 
-*ESTIMATIVA própria. O ponto de equilíbrio (~950 ativos) só é cruzado no ano 3.*
+*ESTIMATIVA própria. O ponto de equilíbrio (953 ativos no cenário central) só é cruzado no
+ano 3 — e no pacote de custo pesado (2.506 ativos) não é cruzado em nenhum ponto desta
+trajetória. Ver a matriz da seção 9.3 e o capital necessário na 9.2.1.*
 
 ## 3.6 Evolução e tendências
 
 **Crescimento recente (FATO, MTE):** 642 mil (2023) → 877 mil (2024), **+37%** — com a
 ressalva de cobertura administrativa do eSocial entrando em regime.
 
-**Contratendência relevante:** o Executivo federal **encolheu** 7,5% em sete meses
-(16 mil → 14,8 mil) e opera a **~30% do próprio teto legal** de 8% da força de trabalho
+**Contratendência possível:** o Executivo federal passou de 16 mil (ago/2025) a 14,8 mil
+(mar/2026). ⚠️ **A fonte não permite afirmar que houve queda:** a diferença pode ser de
+escopo — o número de março talvez conte apenas estagiários não obrigatórios que recebem
+bolsa. A própria pesquisa registrou que os dois números "não batem entre si e devem ser
+usados como faixa". Tratar como **faixa de 14,8 a 16 mil**, não como tendência e opera a **~30% do próprio teto legal** de 8% da força de trabalho
 (IN 213/2019). Provei que a APF contrata muito abaixo do que poderia; **não** provei que
 as vagas efetivamente postas em edital ficam vazias — a distinção importa e não deve ser
 suavizada.
@@ -525,7 +587,7 @@ não de estudante.
 
 | Meta do pedido | Entregue | Situação |
 |---|---:|---|
-| 100 processos para análise quantitativa | **28** | Amostra por conveniência |
+| 100 processos para análise quantitativa | **27** | Amostra por conveniência |
 | 30 editais para análise detalhada | **0 lidos integralmente** | PDFs localizados, não abertos (egresso bloqueado) |
 | 10 contratos com pagamentos e aditivos | **1 com aditivo** (SME-SP) | Sem dados de pagamento efetivo |
 | Processos com taxa administrativa explícita | **4** | O dado mais escasso e mais valioso |
@@ -733,15 +795,28 @@ no MPDFT e em Santarém.
 
 ## 8.2 A vantagem que não é de eficiência
 
-| Fato | Efeito competitivo |
-|---|---|
-| CIEE é **associação civil sem fins lucrativos** (natureza 399-9) | — |
-| Detém **CEBAS** (Certificado de Entidade Beneficente de Assistência Social) | **Isenção de cota patronal do INSS, CSLL, COFINS e PIS** (Lei 12.101/2009) |
-| CIEE-Rio declara em balanço **imunidade do art. 150, VI, "c"** da Constituição | Alcança **impostos** (IRPJ, ISS) |
+| Elemento | Tipo de evidência | Efeito competitivo |
+|---|---|---|
+| CIEE é **associação civil sem fins lucrativos** (natureza 399-9) | FATO | — |
+| CIEE **se apresenta** como detentor de **CEBAS** | **DADO_DECLARADO** | Se válido, isenta de cota patronal do INSS, CSLL, COFINS e PIS (Lei 12.101/2009) |
+| O efeito do CEBAS previsto na Lei 12.101/2009 | FATO | O efeito da norma é certo; a titularidade atual, não |
+| CIEE-Rio **declara em balanço** imunidade do art. 150, VI, "c" | **DADO_DECLARADO** (a declaração existe; a validade não foi verificada) | Alcançaria impostos (IRPJ, ISS) |
 
-**Quantificação:** sobre uma taxa de 10%, a diferença tributária é da ordem de **3 a 5
-pontos percentuais da taxa**. Na prática: **o CIEE pode cobrar ~13,65% e ficar líquido igual
-a um concorrente com fins lucrativos que cobra 10%** — ou cobrar 10% e embolsar a diferença.
+**Quantificação (corrigida após auditoria — a primeira versão trazia números sem lastro).**
+Com os 16,33% de carga do Lucro Presumido sobre a taxa:
+
+| Situação | Taxa cobrada | Líquido por estagiário/mês |
+|---|---:|---:|
+| Concorrente tributado | 10% (R$ 107,50) | **R$ 89,95** |
+| Entidade isenta | 10% (R$ 107,50) | **R$ 107,50** |
+| Entidade isenta empatando com o tributado a 10% | **8,37%** | R$ 89,95 |
+| Tributado empatando com o isento a 10% | **11,95%** | R$ 107,50 |
+
+**A vantagem é de 1,6 a 2,0 pontos percentuais de taxa**, não os "3 a 5" que a primeira
+versão afirmava. Numa disputa decidida no centavo, 1,6 pp ainda é decisivo — mas é menor do
+que o relatório dizia, e o número correto importa para calibrar o lance. Fora dessa conta
+fica a isenção de **cota patronal do INSS sobre a folha própria** da entidade, que reduz o
+custo de back office e não aparece na comparação de taxa.
 
 Numa disputa cujo **único item variável é a taxa**, isso é vantagem estrutural de custo,
 não de eficiência. Existe literatura jurídica apontando ofensa à isonomia licitatória, mas
@@ -759,7 +834,7 @@ não de eficiência. Existe literatura jurídica apontando ofensa à isonomia li
 | **CIEE** | Associação sem fins lucrativos | 242 mil inserções em 2024 (estágio + aprendizagem, autodeclarado) | **CEBAS + imunidade** | **9,0/10**, 1.017 reclamações, 99,7% respondidas |
 | **IEL** | Sistema CNI (federações estaduais) | Agente desde 1973; IEL-CE detém o TJCE | Sistema S | não consultado |
 | **Nube** | **Ltda, com fins lucrativos** (02.704.396/0001-83, 1998) | 4 filiais; autodeclara "maior privado" | Nenhuma | 8,4/10, 215 reclamações |
-| **Super Estágios** | **Ltda, franqueadora** (11.320.576/0001-52, 2009) | **R$ 164 mi**, 85 unidades; franquia a partir de R$ 125 mil, R$ 108 mil/mês por unidade | Nenhuma | 7,1/10, 162 reclamações |
+| **Super Estágios** | **Ltda, franqueadora** (11.320.576/0001-52, 2009) | **R$ 164 mi de faturamento bruto de rede** — pela regra da seção 7.1, isso equivale a algo entre **R$ 13 e R$ 21 mi de receita própria**; 85 unidades; franquia a partir de R$ 125 mil | Nenhuma | 7,1/10, 162 reclamações |
 | **Mais Estágios Ltda** | Ltda (28.306.309/0001-23) | **Venceu MPDFT e Santarém/PA** | Nenhuma | não consultado |
 | **Companhia de Estágios** | Empresa | Concentração em SP; publica o Guia Bolsa-Auxílio | Nenhuma | não consultado |
 | **Fundação Mudes** | Sem fins lucrativos (RJ) | 59 anos declarados | provável | não consultado |
@@ -767,13 +842,21 @@ não de eficiência. Existe literatura jurídica apontando ofensa à isonomia li
 
 ## 8.4 Concentração e espaço competitivo
 
-Cruzando números autodeclarados: o CIEE nacional (242 mil inserções em 2024, incluindo
-aprendizagem) corresponderia a algo próximo de **um quinto** do mercado estimado.
-**Dominante, mas longe de monopólio.**
+Cruzando números autodeclarados: o CIEE nacional declara **242 mil inserções em 2024**
+(fluxo, incluindo aprendizagem). Isso equivale a **13,7%** do estoque de 1,77 milhão do
+eSocial ou a **20,2%** do estoque de 1,2 milhão da ABRES — **mas as bases não são
+comparáveis** (ver ressalva abaixo). **Dominante, mas longe de monopólio.**
 
 **Onde a hipótese de "nicho desprotegido no interior" enfraquece:** o CIEE também ganha em
 municípios pequenos — Paripiranga/BA, ARTRAN/PA, IPMO Ourinhos/SP, Jaguariúna/SP estão na
 amostra. Não há interior desguarnecido esperando entrante.
+
+> **Correção de base aplicada após auditoria.** Os 242 mil são **inserções no ano (fluxo)
+> e incluem aprendizagem**; o denominador é **estoque só de estágio**. As bases são
+> incompatíveis e a fração serve para ordem de grandeza, jamais para *market share*. Contra
+> o número da ABRES (1,2 mi) dá 20,2%; contra o número que este relatório adota como base
+> de trabalho (1,77 mi do eSocial) dá **13,7%**. Nenhuma das duas é participação de mercado
+> medida — é razão entre grandezas de naturezas diferentes.
 
 **Onde há espaço real:** onde há **certame com disputa aberta**. A Mais Estágios Ltda
 venceu no MPDFT e em Santarém/PA; o IEL detém o TJCE desde 2023 e renovou em 2026 com
@@ -809,17 +892,31 @@ Fundação Mudes ou Companhia de Estágios. **Isso não prova ausência** — a 
 
 ## 9.2 Simulações — cenários percentuais
 
+> **Correção metodológica aplicada após auditoria.** A primeira versão desta seção rotulava
+> os cenários apenas pela taxa e pela ocupação, mas variava **sete** parâmetros ao mesmo
+> tempo (back office, plataforma, custo por preenchimento, turnover e estrutura fixa). O
+> efeito era atribuir ao preço um resultado que vinha do pacote de custo. As tabelas abaixo
+> **isolam taxa e ocupação sobre uma única base de custo** (o pacote "central" da seção 9.1),
+> e a variação de custo virou eixo separado na seção 9.3.
+>
+> A diferença não é cosmética: no cenário conservador, o ponto de equilíbrio cai de 10.074
+> para **1.541 ativos**, e o caso de 5.000 vagas **inverte o sinal**, de −R$ 505 mil para
+> **+R$ 511 mil**.
+
+**Todos os cenários abaixo usam o mesmo pacote de custo:** back office R$ 20, plataforma
+R$ 4, custo por preenchimento R$ 250, turnover 90%/ano, estrutura fixa R$ 45 mil/mês,
+tributos 16,33%. **Só taxa e ocupação variam.**
+
 **Conservador — taxa 8%, ocupação 60%**
 
-| Vagas | Ativos | Contrato/ano | Receita bruta/ano | % rec. | Resultado op./ano |
-|---:|---:|---:|---:|---:|---:|
-| 100 | 60 | R$ 1.018.080 | R$ 61.920 | 6,1% | −R$ 715.712 |
-| 500 | 300 | R$ 5.090.400 | R$ 309.600 | 6,1% | −R$ 698.558 |
-| 1.000 | 600 | R$ 10.180.800 | R$ 619.200 | 6,1% | −R$ 677.115 |
-| 5.000 | 3.000 | R$ 50.904.000 | R$ 3.096.000 | 6,1% | −R$ 505.577 |
+| Vagas | Ativos | Resultado op./ano |
+|---:|---:|---:|
+| 100 | 60 | −R$ 518.972 |
+| 500 | 300 | −R$ 434.858 |
+| 1.000 | 600 | −R$ 329.715 |
+| 5.000 | 3.000 | **+R$ 511.423** |
 
-**Ponto de equilíbrio: 10.074 ativos.** Neste cenário o negócio não fecha em escala alguma
-realista.
+**Ponto de equilíbrio: 1.541 ativos.**
 
 **Provável — taxa 10%, ocupação 75%**
 
@@ -830,18 +927,43 @@ realista.
 | 1.000 | 750 | R$ 12.919.500 | R$ 967.500 | 7,5% | −R$ 115.243 | — |
 | 5.000 | 3.750 | R$ 64.597.500 | R$ 4.837.500 | 7,5% | **+R$ 1.583.786** | **32,7%** |
 
-**Ponto de equilíbrio: ~954 ativos.**
+**Ponto de equilíbrio: 953 ativos.**
 
 **Agressivo — taxa 14,67%, ocupação 90%**
 
 | Vagas | Ativos | Contrato/ano | Receita bruta/ano | % rec. | Resultado op./ano | Margem s/ receita |
 |---:|---:|---:|---:|---:|---:|---:|
-| 100 | 90 | R$ 1.604.559 | R$ 170.319 | 10,6% | −R$ 307.194 | — |
-| 500 | 450 | R$ 8.022.794 | R$ 851.594 | 10,6% | **+R$ 144.028** | 16,9% |
-| 1.000 | 900 | R$ 16.045.587 | R$ 1.703.187 | 10,6% | **+R$ 708.057** | 41,6% |
-| 5.000 | 4.500 | R$ 80.227.935 | R$ 8.515.935 | 10,6% | **+R$ 5.220.283** | 61,3% |
+| 100 | 90 | R$ 1.604.559 | R$ 170.319 | 10,6% | −R$ 443.664 | — |
+| 500 | 450 | R$ 8.022.794 | R$ 851.594 | 10,6% | −R$ 58.322 | — |
+| 1.000 | 900 | R$ 16.045.587 | R$ 1.703.187 | 10,6% | **+R$ 423.357** | 24,9% |
+| 5.000 | 4.500 | R$ 80.227.935 | R$ 8.515.935 | 10,6% | **+R$ 4.276.783** | 50,2% |
 
-**Ponto de equilíbrio: 335 ativos.**
+**Ponto de equilíbrio: 504 ativos.**
+
+> Com a base de custo isolada, o cenário agressivo **piora**: o equilíbrio sobe de 335 para
+> 504 ativos e o resultado a 5.000 vagas cai de R$ 5,22 mi para R$ 4,28 mi. A versão
+> anterior estava creditando à taxa um ganho que vinha de premissas de custo mais
+> otimistas embutidas no mesmo cenário.
+
+## 9.2.1 Capital necessário — a pergunta que faltava
+
+O relatório recomendava entrar sem dizer quanto custa entrar. Trajetória do SOM
+(seção 3.5), taxa 10%, pacote de custo central:
+
+| Ano | Ativos | Resultado op. (otimista) | Resultado op. (pessimista) | Acumulado otim. | Acumulado pess. |
+|---|---:|---:|---:|---:|---:|
+| 1 | 100–250 | −R$ 398.414 | −R$ 483.366 | −R$ 398.414 | −R$ 483.366 |
+| 2 | 400–800 | −R$ 86.926 | −R$ 313.463 | −R$ 485.340 | −R$ 796.828 |
+| 3 | 900–1.500 | **+R$ 309.514** | −R$ 30.291 | −R$ 175.825 | −R$ 827.120 |
+
+> **Capital necessário até o ponto de virada: R$ 176 mil a R$ 827 mil de prejuízo
+> operacional acumulado**, mais ~R$ 121 mil de capital de giro da taxa e mais a estrutura
+> inicial (constituição, plataforma, certidões). **O caixa só vira no ano 3, e apenas no
+> ramo otimista da trajetória.**
+>
+> Este número não estava no relatório e é a primeira pergunta de qualquer sócio. Ele
+> pressiona o parecer: entrar aqui é decisão de investimento plurianual, não de
+> oportunidade de curto prazo.
 
 ## 9.3 Ponto de equilíbrio por taxa — a tabela que decide a política de preço
 
@@ -858,6 +980,42 @@ R$ 18,75/mês:
 
 > **Abaixo de 8% o negócio precisa de escala que uma entrante não alcança.**
 > Este é o piso de preço da casa, e deve ser tratado como regra, não como preferência.
+
+### Matriz de sensibilidade: o número "950" não é um número, é um cenário
+
+O ponto de equilíbrio depende tanto do **pacote de custo** quanto da taxa — e as premissas
+de custo são, por confissão da seção 9.1, o elo mais fraco do modelo. Publicar só o cenário
+central seria esconder isso:
+
+| Taxa | Pacote **enxuto** (BO 14 / R&S 180 / fixo 35k) | Pacote **central** (BO 20 / R&S 250 / fixo 45k) | Pacote **pesado** (BO 28 / R&S 320 / fixo 60k) |
+|---:|---:|---:|---:|
+| 6,00% | 1.322 | 4.012 | **inviável** |
+| 8,00% | 787 | 1.541 | 10.074 |
+| **10,00%** | **560** | **953** | **2.506** |
+| 14,67% | 335 | 504 | 910 |
+| 20,00% | 230 | 328 | 527 |
+
+> **Leitura obrigatória desta tabela:** o "ponto de equilíbrio de ~950 ativos" citado no
+> Resumo Executivo é a **célula central**. No pacote pesado, a 10% de taxa, o equilíbrio vai
+> a **2.506 ativos** — e nesse caso **o negócio não fecha dentro de todo o horizonte do SOM
+> projetado** (900 a 1.500 ativos no ano 3). A viabilidade depende tanto de operar enxuto
+> quanto de precificar bem.
+
+### O piso em modelo fixo — correção de um erro grave da primeira versão
+
+A primeira versão desta seção dizia que o piso era "8% ou R$ 60/estagiário/mês, no modelo
+fixo". **Isso estava errado e era a regra mais acionável do documento.**
+
+| Taxa fixa | % da bolsa média (R$ 1.075) | % da bolsa do Sudeste (R$ 2.074) | Ponto de equilíbrio |
+|---:|---:|---:|---:|
+| R$ 60,00 | 5,58% | 2,89% | **6.039 ativos** |
+| R$ 79,90 (Workalove) | 7,43% | 3,85% | 1.867 ativos |
+| **R$ 86,00 (= 8%)** | **8,00%** | 4,15% | **1.541 ativos** |
+| R$ 107,50 (= 10%) | 10,00% | 5,18% | 953 ativos |
+
+**R$ 60 equivale a 5,58% da bolsa e exige 6.039 ativos para empatar — pior que a linha de
+6% que o próprio relatório classifica como escala inalcançável.** O piso correto é uma
+fórmula, não um valor: **`piso fixo = 0,08 × bolsa do edital`**.
 
 ## 9.4 O modelo de taxa fixa e o fosso do incumbente
 
@@ -1000,7 +1158,7 @@ capital social mínimo, garantia contratual) e regras de subcontratação. Ver P
 |---|---|:---:|---|
 | 1 | Tamanho | 6 | R$ 3–4,8 bi/ano em bolsas públicas, mas só R$ 50–700 mi de receita real. Grande em fluxo, médio em receita |
 | 2 | Crescimento | 6 | +37% em 2024 (MTE), mas o Executivo federal encolheu 7,5% e o ensino médio está no menor patamar do século |
-| 3 | Margens | 7 | 32% a 61% sobre receita **em escala**; negativas abaixo de ~950 ativos a 10% |
+| 3 | Margens | 7 | 25% a 50% sobre receita **em escala** (variáveis isoladas); negativas abaixo do equilíbrio, que vai de 560 a 2.506 ativos a 10% conforme a eficiência |
 | 4 | Recorrência | 8 | Receita mensal por estagiário ativo; contratos plurianuais prorrogáveis |
 | 5 | Duração dos contratos | 7 | 12 a 36 meses com prorrogação (TJPA projeta 3 anos; TJCE renovou em 2026) |
 | 6 | Barreiras de entrada | **3** | Atestado de capacidade, base de candidatos e imunidade tributária do incumbente. **A pior dimensão** |
@@ -1032,8 +1190,8 @@ contra entidade imune, sem base de candidatos, vai ganhar contratos que não pag
 
 | # | Condição | Verificável? |
 |---|---|---|
-| 1 | Taxa média da carteira **≥ 8%** ou equivalente fixo **≥ R$ 60**/estagiário/mês | Sim, no edital |
-| 2 | Chegar a **~950 estagiários ativos** em até 24 meses | Depende de execução |
+| 1 | Taxa média da carteira **≥ 8%**, ou fixo **≥ 0,08 × bolsa do edital** (R$ 86 na bolsa média) | Sim, no edital |
+| 2 | Chegar a **~950 estagiários ativos** em até **36 meses** (o próprio SOM só cruza o equilíbrio no ano 3 — 24 meses era incoerente com o plano da Parte 12) | Depende de execução |
 | 3 | Base própria de candidatos que derrube o custo marginal de colocação | Construível |
 | 4 | Contabilidade segregando repasse de receita **desde o dia 1** | Sim |
 | 5 | Contrato que pague por **estagiário ativo** e não adiante bolsa | Sim, no edital |
@@ -1045,14 +1203,44 @@ contra entidade imune, sem base de candidatos, vai ganhar contratos que não pag
 
 # 12. ESTRATÉGIA RECOMENDADA
 
-## 12.1 A tese de entrada, em uma frase
+## 12.1 A tese de entrada, em uma frase — e o que nela é evidência e o que é hipótese
 
 > **Entrar pelo setor privado para construir a base de candidatos e os atestados; usar a
 > licitação pública como segundo passo, seletivamente, e nunca como porta de entrada.**
 
-O motivo é a aritmética da seção 9.4: sem base de candidatos, o custo de colocação é cheio,
-e o preço que vence pregão não paga esse custo. A ordem inversa — pública primeiro —
-significa comprar receita cara com margem negativa e prazo de 24 meses para sair.
+**A metade sustentada por evidência** é a negativa: *não entrar pela licitação*. Isso decorre
+da aritmética da seção 9.4 — sem base de candidatos, o custo de colocação é cheio, e o preço
+que vence pregão não o paga. É conclusão de dados coletados.
+
+### ⚠️ A metade NÃO sustentada: "entrar pelo privado"
+
+**Esta pesquisa não produziu TAM, SAM, penetração, concorrência, ciclo de decisão nem
+nenhuma tabela de preço do mercado privado de agente de integração.** Os preços privados não
+são publicados, e a pesquisa registrou isso explicitamente. Das quatro razões que a versão
+anterior deu para recomendar o privado:
+
+| Razão alegada | Status real |
+|---|---|
+| "Não exige licitação" | **Verdadeiro** — trivialidade jurídica |
+| "Decide em dias" | **Sem fonte.** Não foi medido |
+| "Paga bolsa maior" | **Comparação inválida** — R$ 2.074 (Sudeste, carteira de agente) contra R$ 1.075 (universo eSocial) são bases diferentes, como a própria seção 3.4 adverte |
+| "Admite taxa maior" | **Contrariado pela única evidência disponível** |
+
+**O contraexemplo é da própria pesquisa:** o único preço privado localizado é o da
+**Workalove, R$ 79,90/estagiário/mês** — que equivale a **7,43%** da bolsa média e a apenas
+**3,85%** de uma bolsa de R$ 2.074. **Está abaixo do piso de 8% que este mesmo relatório
+recomenda.** Se esse for o preço de referência do privado, a tese de "taxa maior no privado"
+cai, e com ela parte da estratégia.
+
+> **Rebaixamento aplicado: "entrar pelo privado" é HIPÓTESE A VALIDAR, não recomendação.**
+>
+> **Teste de 30 dias, barato e definitivo:** pedir proposta comercial **como concedente** ao
+> CIEE, ao Nube, à Super Estágios e a operadores locais na praça de Barueri, e medir a taxa
+> real praticada no privado. Se a taxa privada ficar abaixo de 8%, a estratégia da Parte 12
+> precisa ser redesenhada antes de qualquer investimento.
+
+A sequência da seção 12.2 permanece útil como **plano condicional**: ela é o que fazer *se*
+o teste acima confirmar taxa privada ≥ 10%. Não é o que fazer independentemente do resultado.
 
 ## 12.2 Sequência recomendada
 
@@ -1081,10 +1269,10 @@ colocado alimenta a mesma base que depois torna o pregão viável.
 
 | Regra | Valor |
 |---|---|
-| **Piso absoluto** | **8%** sobre a bolsa, ou **R$ 60**/estagiário/mês no modelo fixo |
+| **Piso absoluto** | **8% sobre a bolsa do próprio edital.** No modelo fixo, o piso é `0,08 × bolsa do edital` — com a bolsa média de R$ 1.075 isso é **R$ 86,00**, não R$ 60 |
 | Preço-alvo no privado | 12% a 15% |
 | Preço-alvo em pregão | 10% a 12% |
-| **Nunca** | Taxa zero, ou fixo abaixo de R$ 60 com seguro embutido |
+| **Nunca** | Taxa zero; ou taxa fixa abaixo de `0,08 × bolsa`; ou fixo com seguro embutido sem recalcular o piso |
 | Teste obrigatório antes do lance | Contribuição unitária > 0 na planilha da seção 9.3 |
 
 **Justificativa do piso:** abaixo de 8%, o equilíbrio exige 1.541 ativos; abaixo de 6%,
@@ -1145,7 +1333,7 @@ Score abaixo de 60 não se disputa.
 | 1 | **Resolver a ambiguidade da premissa** (seção 0): a empresa tem operação de estágio ou não? | Resposta em uma frase |
 | 2 | Rodar o **teste de uma linha** (seção 2.6) se houver base própria | Bolsa ofertada vs. mediana por curso/cidade |
 | 3 | Rodar o **extrator do PNCP** (Apêndice C) em máquina liberada | CSV com o universo real de licitações |
-| 4 | Abrir os 4 PDFs com taxa explícita e os 24 restantes | Base de preço com 28 processos |
+| 4 | Abrir os 4 PDFs com taxa explícita e os 23 restantes | Base de preço com 27 processos |
 | 5 | Protocolar **pedido via LAI** ao MTE (Apêndice B) | Série oficial de estagiários do eSocial |
 | 6 | Consultar CEIS/CNEP por CNPJ dos concorrentes | Mapa de sanções |
 
@@ -1207,7 +1395,7 @@ Score abaixo de 60 não se disputa.
 | 10 | **Validade atual do CEBAS/imunidade do CIEE** | Define se a desvantagem tributária é real hoje | Consulta a ADE da RFB e acórdãos do CARF |
 | 11 | **Modalidade presencial/híbrido/remoto em estágio** | **Nenhum dado foi localizado** | Pesquisa própria ou aquisição de base |
 | 12 | **Jurisprudência do TCU sobre agente de integração** | Vazio persistente | Busca direta no sistema de acórdãos do TCU |
-| 13 | **Exigências econômico-financeiras típicas** | Define o capital social necessário | Leitura dos 28 editais |
+| 13 | **Exigências econômico-financeiras típicas** | Define o capital social necessário | Leitura dos 27 editais |
 | 14 | **LGPD aplicada à operação** | Não aprofundado | Parecer jurídico dedicado |
 
 ---
@@ -1218,9 +1406,15 @@ Score abaixo de 60 não se disputa.
 
 19 frentes de investigação independentes, executadas por agentes separados sem acesso ao
 resultado umas das outras, em duas rodadas: 12 frentes de coleta ampla e 7 de recuperação e
-verificação. **323 buscas.** 425 achados classificados individualmente. As frentes 4 e 5
-foram deliberadamente construídas como **tese e antítese** sobre a afirmação do sócio, com
-instruções opostas, e seus resultados foram confrontados na Parte 2.
+verificação. **323 buscas.** 425 achados classificados individualmente. Somam-se a elas
+**4 auditorias adversariais** do relatório pronto, com lentes independentes.
+
+As frentes 4 e 5 foram **desenhadas** como tese e antítese sobre a afirmação do sócio, com
+instruções opostas. ⚠️ **A execução não cumpriu a simetria:** a tese fez 7 buscas produtivas
+e cobriu 4 de 10 itens do escopo; a antítese fez 26 e cobriu o escopo inteiro, porque só ela
+foi reexecutada na segunda rodada. **O lado que defenderia o sócio recebeu menos de um terço
+do esforço**, e por isso o veredito da Parte 2 foi rebaixado de "refutada" para "não
+sustentada pela evidência disponível" (seção 2.1.1).
 
 **Incidente de execução, registrado por transparência:** a primeira rodada esgotou a cota de
 buscas da sessão (200/200) na quarta frente. As frentes 5 a 12 retornaram vazias ou com
@@ -1243,7 +1437,7 @@ parecer do TCE/SC; Veto nº 22/2026.
 (PNAD Contínua, MUNIC 2024, ESTADIC); MTE (eSocial, RAIS, CAGED, painel de Aprendizagem);
 MGI (Painel Estatístico de Pessoal, SIAPE); CNJ (Justiça em Números).
 
-**Documentos de contratação:** 28 processos listados no Apêndice A.
+**Documentos de contratação:** 27 processos listados no Apêndice A.
 
 ## 15.3 Fontes de partes interessadas (rotuladas como tal)
 
@@ -1264,8 +1458,46 @@ Workalove, Gupy, Indeed Brasil, ManpowerGroup, CNI/Sondagem Industrial.
 
 # 16. AUDITORIA CRÍTICA DO PRÓPRIO RELATÓRIO
 
-Revisão adversarial conduzida antes da entrega, em busca de inconsistência, dupla contagem,
-confusão entre repasse e receita, fonte velha e conclusão sem sustentação.
+## 16.0 O que a auditoria externa encontrou — e por que esta seção mudou
+
+A primeira versão desta Parte 16 era uma autoavaliação e passou de aprovado em doze quesitos.
+Depois disso, **quatro auditores independentes** examinaram o documento contra o material
+bruto das 19 frentes, com lentes separadas (aritmética, fabricação de dados, lógica e
+omissão), instruídos a serem implacáveis.
+
+**Encontraram 87 problemas: 12 críticos e 24 altos.** Entre eles:
+
+| Problema | Gravidade |
+|---|---|
+| Cenários financeiros variavam **7 parâmetros** sob título que anunciava 2 — atribuindo ao preço um efeito do custo | CRÍTICO |
+| O piso de preço "R$ 60/mês" **não** era o equivalente de 8% (é 5,58%) e exigia 6.039 ativos — pior que o patamar que o próprio relatório proibia | CRÍTICO |
+| Contagem de "59 ocorrências" no acervo era **fabricada** (são 4) | CRÍTICO |
+| Um processo do Apêndice A (Ivorá/RS) era **atribuição indevida** — não constava do levantamento | CRÍTICO |
+| CEBAS do CIEE rotulado **FATO** quando o bruto diz DADO_DECLARADO com validade não verificada | CRÍTICO |
+| A condição eliminatória "950 ativos em 24 meses" já estava **reprovada** pelo próprio SOM do documento | CRÍTICO |
+| A recomendação de entrar pelo privado **não tinha lastro** — e a única evidência de preço privado contradizia o piso recomendado | CRÍTICO |
+| O relatório recomendava entrar **sem dizer quanto capital isso exige** | CRÍTICO |
+| Usava o denominador de 20 milhões que ele mesmo havia invalidado | CRÍTICO |
+| Anunciava simetria adversarial que **não existiu** (7 buscas contra 26) | CRÍTICO |
+| Quantificação da vantagem tributária do CIEE ("3 a 5 pp", "13,65%") **sem lastro e invertida** | ALTO |
+| *Market share* do CIEE misturando fluxo com estoque e estágio com aprendizagem | ALTO |
+
+**Todos os 12 críticos e os altos de maior consequência foram corrigidos**, e cada correção
+está sinalizada no ponto do texto onde ocorreu, com a versão anterior declarada. As
+correções **enfraqueceram** o relatório em vários pontos — o veredito da Parte 2 foi
+rebaixado, o parecer ficou condicionado a um teste, e apareceu uma necessidade de capital
+que não estava dita.
+
+> **A lição de método, registrada para o cliente:** a autoavaliação da versão anterior
+> encontrou zero dos doze problemas críticos. Auditoria de quem escreveu não substitui
+> auditoria de quem não escreveu. Se este relatório for usado para decidir investimento,
+> vale submetê-lo a uma terceira leitura adversarial — de preferência de alguém do setor.
+
+## 16.1 A varredura original (mantida como registro)
+
+Revisão conduzida pelo próprio autor antes da entrega, em busca de inconsistência, dupla
+contagem, confusão entre repasse e receita, fonte velha e conclusão sem sustentação.
+**Ela encontrou o que segue e deixou passar os 12 críticos acima.**
 
 | # | Problema procurado | Resultado |
 |---|---|---|
@@ -1282,9 +1514,13 @@ confusão entre repasse e receita, fonte velha e conclusão sem sustentação.
 | 11 | **Homônimo jurídico** | **Encontrado.** "Agente de contratação" (Acórdão TCU 1917/2024) ≠ agente de integração. Sinalizado na seção 5.5 |
 | 12 | **Número da ABRES usado como base de cálculo** | **Evitado.** Todo dimensionamento usa o número do eSocial (1,77 mi); a ABRES aparece só como contraponto |
 
-## Fragilidades que permanecem no relatório
+## 16.2 Fragilidades que permanecem no relatório
 
-1. **A amostra de licitações é pequena (28) e enviesada** para municípios e órgãos que
+0. **63 dos 87 problemas apontados pela auditoria (os de gravidade média e baixa) não foram
+   corrigidos** por limite de tempo. Eles estão registrados e disponíveis: incluem
+   arredondamentos, imprecisões de citação e ressalvas que faltaram. Nenhum deles altera as
+   conclusões, mas o leitor deve saber que existem.
+1. **A amostra de licitações é pequena (27) e enviesada** para municípios e órgãos que
    publicam bem. Não sustenta ranking de concorrentes por valor contratado, e por isso esse
    ranking **não foi produzido** — apenas o quadro qualitativo da Parte 8.
 2. **As premissas de custo do modelo financeiro não têm fonte primária.** As margens das
@@ -1300,7 +1536,7 @@ confusão entre repasse e receita, fonte velha e conclusão sem sustentação.
 
 | Item pedido | Situação |
 |---|---|
-| 100 processos, 30 editais, 10 contratos com pagamentos e aditivos | **Não entregue.** 28 processos, 0 editais lidos, 1 aditivo. Causa: egresso bloqueado |
+| 100 processos, 30 editais, 10 contratos com pagamentos e aditivos | **Não entregue.** 27 processos, 0 editais lidos, 1 aditivo. Causa: egresso bloqueado |
 | Ranking de concorrentes por valor contratado e taxa de vitória | **Não entregue.** A amostra não sustenta |
 | Análise de impugnações, recursos e problemas de execução | **Não entregue.** Exigiria leitura dos autos |
 | Sazonalidade do calendário acadêmico | **Não localizado** |
@@ -1311,8 +1547,11 @@ confusão entre repasse e receita, fonte velha e conclusão sem sustentação.
 # CONCLUSÃO — RESPOSTAS DIRETAS
 
 **1. Está realmente difícil preencher vagas de estágio?**
-Não, como afirmação sobre o mercado. A ABRES — associação dos próprios agentes — declara que
-só 5–6% dos aptos estagiam. Falta vaga, não candidato.
+Não se sustenta com a evidência disponível — mas o veredito é mais fraco do que a primeira
+versão deste relatório afirmava, porque o lado acusatório foi sub-pesquisado (7 buscas contra
+26, seção 2.1.1). Corrigindo o denominador que o próprio relatório invalidou, a penetração
+real é de 20% a 25% da base efetivamente estagiável, não 5%. Ainda há folga grande de
+candidatos, e a causa dominante do não preenchimento continua sendo preço.
 
 **2. Em quais situações isso acontece de verdade?**
 Bolsa abaixo da mediana local; vaga presencial em município que só tem EAD; Norte e
@@ -1332,8 +1571,9 @@ A ressalva honesta: parte da sensação pode vir de **choque de demanda** — o 
 Entre 86% e 93% do valor de um contrato é repasse, não receita — e 98,8% quando a taxa é fixa e baixa.
 
 **6. Quais margens são plausíveis?**
-Negativas abaixo de ~950 estagiários ativos a 10% de taxa. **32% a 61% sobre a receita em
-escala.** Protegidas pela SC COSIT 21/2020, que exclui o repasse da base tributária.
+Negativas abaixo do ponto de equilíbrio, que varia de **560 a 2.506 ativos** a 10% de taxa
+conforme a eficiência da operação. **Em escala, 25% a 50% sobre a receita** no cenário
+central com variáveis isoladas. Protegidas pela SC COSIT 21/2020, que exclui o repasse da base tributária.
 
 **7. Quais empresas dominam?**
 O **CIEE**, com cerca de 1/5 do mercado — mas é uma **federação** de entidades com CNPJs
@@ -1343,8 +1583,11 @@ prova que privado ganha licitação: venceu no MPDFT e em Santarém/PA.
 
 **8. Existe espaço para uma nova empresa?**
 Sim, mas estreito e não onde parece. Não há interior desguarnecido — o CIEE também ganha em
-municípios pequenos. O espaço está onde há **certame com disputa aberta** e onde o
-incumbente não pode usar sua vantagem tributária: **o setor privado**.
+municípios pequenos. O espaço está onde **o preço deixa de ser o único critério de
+julgamento**. Correção de raciocínio aplicada após auditoria: a vantagem do CEBAS é de
+**custo** e acompanha o incumbente em qualquer cliente, público ou privado. O que muda no
+privado não é que a vantagem tributária desapareça — é que a decisão passa a pesar
+atendimento, velocidade e qualidade, e não só o centavo da taxa.
 
 **9. Qual seria a melhor porta de entrada?**
 **O setor privado da própria região (Barueri/Alphaville/Osasco)** — sem licitação, decisão
@@ -1357,7 +1600,7 @@ constrói simultaneamente as duas coisas que faltam para licitar: **a base de ca
 | # | Passo | Prazo |
 |---|---|---|
 | 1 | **Responder se a empresa tem ou não operação de estágio hoje** e, havendo base, rodar o teste bolsa-vs-mediana da seção 2.6 | 7 dias |
-| 2 | **Rodar o extrator do PNCP** (Apêndice C) em máquina liberada e abrir os PDFs dos 28 processos para extrair as taxas | 15 dias |
+| 2 | **Rodar o extrator do PNCP** (Apêndice C) em máquina liberada e abrir os PDFs dos 27 processos para extrair as taxas | 15 dias |
 | 3 | **Protocolar o pedido via LAI ao MTE** (Apêndice B) pela série do eSocial — encerra a guerra de números do setor | 30 dias |
 | 4 | **Montar a estrutura contábil com segregação de repasse e receita desde o dia 1** — é o que preserva a blindagem da SC COSIT 21/2020 | 45 dias |
 | 5 | **Colocar os 10 primeiros estagiários no setor privado da região e emitir o primeiro atestado** com quantitativo | 90 dias |
@@ -1368,7 +1611,7 @@ constrói simultaneamente as duas coisas que faltam para licitar: **a base de ca
 
 ---
 
-# APÊNDICE A — OS 28 PROCESSOS LOCALIZADOS, COM LINK DIRETO
+# APÊNDICE A — OS 27 PROCESSOS LOCALIZADOS, COM LINK DIRETO
 
 Todos os links abaixo apareceram em resultado de busca. **Nenhum foi construído por
 dedução.** Nenhum documento foi aberto — o egresso desta sessão bloqueia o download.
@@ -1386,7 +1629,7 @@ Documentos complementares:
 - Projeto básico do TJCE: https://portal.tjce.jus.br/uploads/2023/08/PROJETO-BASICO-IEL-CT-No-03-2023.pdf
 - Termo de julgamento do COFEN: https://www.cofen.gov.br/wp-content/uploads/2026/03/Termo-de-Julgamento-Pregao-Eletronico-no-90.001-2026.pdf
 
-## A.2 Demais processos (24)
+## A.2 Demais processos (23)
 
 | Órgão | UF | Processo | Link |
 |---|---|---|---|
@@ -1413,7 +1656,6 @@ Documentos complementares:
 | Defensoria Pública do Paraná | PR | ETP 2023 (fase interna) | https://www.defensoriapublica.pr.def.br/sites/default/arquivos_restritos/files/documento/2023-12/3_-_documentos_da_fase_interna_1_0_0.pdf |
 | Câmara de Santana do Itararé | PR | Dispensa 04/2024 | https://www.santanadoitarare.pr.leg.br/transparencia/licitacoes-e-contratos/2016/2024/dispensa-de-licitacao-ndeg-04-2024/termo-de-referencia-dl-04-2024 |
 | Câmara de Sumaré | SP | PA 212/2024 | https://www.camarasumare.sp.gov.br/Arquivos/Licitacoes/6859ff34-82ef-4827-a0ed-f12d5effabcf.pdf |
-| Município de Ivorá (citado) | RS | Contrato com repasse de bolsa + 11% mensais | https://www.ivora.rs.gov.br/arqs/3738.pdf |
 
 ## A.3 Fontes normativas e decisórias
 
