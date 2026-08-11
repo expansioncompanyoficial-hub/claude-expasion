@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Clau Kids — Plano de Tráfego Agosto</title>
+<style>
+  :root{
+    --paper:#FAF9F6; --ink:#1C1A17; --ink-soft:#5B5650; --ink-faint:#8A8478;
+    --line:#E4E0D8; --line-strong:#D2CCC0; --card:#FFFFFF;
+    --accent:#E67E22; --accent-ink:#7A3E0E; --accent-soft:#FBE7D2; --accent-line:#F0C393;
+    --verde:#6F8F35; --verde-ink:#3F5419; --verde-soft:#E7EEDA; --verde-line:#C4D6A0;
+    --critical:#B8442E; --critical-soft:#F6E1DC; --critical-line:#E7B4A4;
+    --amarelo-soft:#FBF3D9; --amarelo-line:#E8D69B; --amarelo-ink:#7A6212;
+    --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper); color:var(--ink); font-family:var(--font-body);
+    font-size:10.5px; line-height:1.5; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  @page{ size:A4; margin:0; }
+  .wrap{ max-width:790px; margin:0 auto; padding:14mm 13mm; }
+
+  h1,h2,h3{font-family:var(--font-display); margin:0; letter-spacing:-.01em;}
+
+  /* Cover */
+  .cover{background:linear-gradient(160deg,#2A1B0E 0%,#4A2E14 55%,var(--accent) 135%);
+    color:#FBEEDD; padding:26mm 16mm 20mm 16mm; position:relative; overflow:hidden; page-break-after:always;}
+  .cover::after{content:""; position:absolute; right:-70px; bottom:-70px; width:280px; height:280px;
+    border-radius:50%; background:rgba(255,255,255,.06);}
+  .cover .brand{font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.75; margin-bottom:52px;}
+  .cover h1{font-size:36px; color:#fff; font-weight:700; line-height:1.15; max-width:13ch;}
+  .cover .sub{font-size:13.5px; color:#F3D9B8; max-width:44ch; margin-top:14px; line-height:1.55;}
+  .cover .thesis{margin-top:34px; border-left:3px solid var(--accent); padding-left:14px; max-width:50ch;}
+  .cover .thesis p{font-size:12px; color:#F6E4CC; margin:0; line-height:1.6;}
+  .cover .foot{margin-top:52px; font-family:var(--font-mono); font-size:9.5px; color:#F3D9B8; opacity:.85; display:flex; gap:16px; flex-wrap:wrap;}
+
+  section{margin:17px 0; page-break-inside:avoid;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    margin-bottom:9px; border-bottom:1px solid var(--line); padding-bottom:5px;}
+  h2{font-size:14.5px; font-weight:700; color:var(--accent-ink);}
+  .num{font-family:var(--font-mono); font-size:11px; color:var(--accent); margin-right:7px;}
+  .section-note{font-family:var(--font-mono); font-size:8.5px; color:var(--ink-faint); white-space:nowrap;}
+  h3{font-size:11.5px; font-weight:700; margin:13px 0 6px 0; color:var(--ink);}
+  p{margin:0 0 7px 0;}
+
+  table{border-collapse:collapse; width:100%; font-size:9.6px; margin-bottom:4px;}
+  th{text-align:left; font-family:var(--font-mono); font-size:8px; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--ink-faint); font-weight:600; padding:5px 6px; border-bottom:1px solid var(--line-strong);}
+  td{padding:6px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .mono{font-family:var(--font-mono); font-size:9px; color:var(--ink-soft);}
+  .code{font-family:var(--font-mono); font-size:8.8px; font-weight:700; color:var(--accent-ink);
+    background:var(--accent-soft); border-radius:3px; padding:1px 5px; white-space:nowrap;}
+
+  .box{border-radius:5px; padding:11px 13px; margin:9px 0;}
+  .box .mark{font-family:var(--font-mono); font-weight:700; font-size:9px; text-transform:uppercase;
+    letter-spacing:.05em; margin-bottom:5px; display:block;}
+  .box p:last-child{margin-bottom:0;}
+  .box.red{border:1px solid var(--critical-line); background:var(--critical-soft);}
+  .box.red .mark{color:var(--critical);}
+  .box.green{border:1px solid var(--verde-line); background:var(--verde-soft);}
+  .box.green .mark{color:var(--verde-ink);}
+  .box.amber{border:1px solid var(--amarelo-line); background:var(--amarelo-soft);}
+  .box.amber .mark{color:var(--amarelo-ink);}
+  .box.accent{border:1px dashed var(--accent-line); background:var(--accent-soft);}
+  .box.accent .mark{color:var(--accent-ink);}
+
+  .cenarios{display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:6px;}
+  .cen{background:var(--card); border:1px solid var(--line); border-radius:5px; padding:11px 12px;}
+  .cen.rec{border:2px solid var(--accent); background:#FFFCF8;}
+  .cen .nome{font-family:var(--font-mono); font-size:9px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.05em; color:var(--ink-faint); margin-bottom:4px;}
+  .cen.rec .nome{color:var(--accent-ink);}
+  .cen .valor{font-family:var(--font-mono); font-size:19px; font-weight:700; color:var(--ink); line-height:1;}
+  .cen .por{font-size:9px; color:var(--ink-faint); font-family:var(--font-mono); margin-top:2px;}
+  .cen .det{font-size:9.3px; color:var(--ink-soft); margin-top:7px; line-height:1.45; border-top:1px solid var(--line); padding-top:6px;}
+  .cen .tagrec{display:inline-block; font-family:var(--font-mono); font-size:7.5px; font-weight:700;
+    background:var(--accent); color:#fff; border-radius:2px; padding:1px 5px; letter-spacing:.05em; margin-bottom:5px;}
+
+  .flow{display:flex; align-items:stretch; font-size:9px; margin-top:6px;}
+  .flow-step{flex:1; border:1px solid var(--line); background:var(--card); padding:7px 8px; position:relative;}
+  .flow-step + .flow-step{border-left:none;}
+  .flow-step .k{font-family:var(--font-mono); color:var(--accent-ink); font-size:7.8px; text-transform:uppercase;}
+  .flow-step .v{margin-top:2px; line-height:1.3;}
+  .flow-step:not(:last-child)::after{content:"→"; position:absolute; right:-6px; top:50%; transform:translateY(-50%);
+    color:var(--ink-faint); font-size:10px; background:var(--paper); width:12px; text-align:center; z-index:2;}
+
+  blockquote{margin:6px 0; padding:9px 12px; background:var(--card); border-left:3px solid var(--accent-line);
+    border-radius:0 4px 4px 0; font-size:9.8px; line-height:1.55; color:var(--ink);}
+  blockquote p{margin:0 0 5px 0;}
+  blockquote p:last-child{margin:0;}
+
+  ul.tight{margin:4px 0 8px 0; padding-left:15px;}
+  ul.tight li{margin-bottom:4px; font-size:10px; line-height:1.45;}
+
+  .pend{display:flex; gap:8px; padding:7px 0; border-bottom:1px dashed var(--line); align-items:flex-start;}
+  .pend:last-child{border-bottom:none;}
+  .pend .dono{font-family:var(--font-mono); font-size:8px; font-weight:700; border-radius:3px; padding:1px 5px;
+    white-space:nowrap; margin-top:1px; background:var(--card); border:1px solid var(--line-strong); color:var(--ink-soft);}
+  .pend .q{font-size:10px; line-height:1.45;}
+
+  footer{margin-top:20px; border-top:1px solid var(--line); padding-top:9px;}
+  footer p{font-size:8.3px; color:var(--ink-faint); font-family:var(--font-mono); margin:0; line-height:1.55;}
+  .pb{page-break-before:always;}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="brand">Clau Kids × Expansion</div>
+  <h1>Plano de tráfego — agosto</h1>
+  <p class="sub">Leads no WhatsApp usando exclusivamente o material já gravado. Nenhuma gravação nova.</p>
+  <div class="thesis">
+    <p>A aposta não é comprar conversa barata — é comprar a conversa certa em volume que ela consiga responder. A verba é derivada do teto de atendimento, não da ambição de faturamento.</p>
+  </div>
+  <div class="foot"><span>Agosto / 2026</span><span>Uso interno — Expansion</span><span>v1, pós-auditoria</span></div>
+</div>
+
+<div class="wrap">
+
+<section>
+  <div class="section-head"><h2><span class="num">01</span>A tese</h2><span class="section-note">por que este plano é diferente do padrão</span></div>
+  <p>O padrão de mercado seria subir R$ 1.500–3.000, gerar 60–100 conversas e mostrar custo por conversa baixo no relatório. <strong>Foi exatamente isso que matou o caso Ciés</strong>: 35–52 conversas geradas, a lojista sem tempo, o dinheiro inteiro vaporizado.</p>
+  <p>A Clau opera sozinha — vende, atende, embala e faz o brinde à mão. Este plano aceita conscientemente gerar <strong>menos</strong> conversas do que a verba compraria, em troca de que cada uma seja respondida. Conversa não respondida custa o dinheiro da mídia <em>e</em> queima a marca numa cidade onde a base inteira vem de indicação.</p>
+  <div class="box accent">
+    <span class="mark">A segunda aposta, mais barata</span>
+    <p>O tráfego de agosto não precisa se pagar na primeira compra. Ele precisa <strong>provar o mecanismo</strong> (o brinde puxa? a dor de tamanho puxa? ela responde?) e <strong>construir o público de remarketing</strong> que hoje não existe — para setembro começar com custo estruturalmente menor. Está escrito aqui para não haver mal-entendido em 31/08.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">02</span>O que julho diz — e o que não diz</h2><span class="section-note">R$ 137 · 7 conversas</span></div>
+  <p><strong>Fato:</strong> R$ 137 pagos em 27/07, 2 anúncios, veiculação até 30/07, 7 conversas iniciadas em menos de 24h. As mensagens falavam do brinquedo e de roupas/calçados.</p>
+  <table>
+    <thead><tr><th>Afirmação em circulação</th><th>Status real</th></tr></thead>
+    <tbody>
+      <tr><td>"Custo por conversa = R$ 19,57"</td><td><strong>Aritmeticamente inválido.</strong> Divide o gasto de ~4 dias por um resultado de 1 dia — e "R$ 137 pago em 27/07" pode ser crédito depositado, não gasto realizado</td></tr>
+      <tr><td>"O brinde puxa mais que a roupa"</td><td><strong>Hipótese, não conclusão.</strong> n=7. Se o anúncio tinha texto pré-preenchido citando o brinde, as pessoas falaram dele porque o app escreveu por elas</td></tr>
+      <tr><td>"R$ 19,57 é caro ou barato"</td><td>Com 7 eventos, o custo real está entre <strong>R$ 9,50 e R$ 48,75</strong> (intervalo de Poisson 95%). Banda de 5×</td></tr>
+      <tr><td>"Uma venda já pagou os R$ 137"</td><td>Falso a qualquer margem realista com ticket de faixa 1 (~R$ 150)</td></tr>
+    </tbody>
+  </table>
+  <p>O uso legítimo dos R$ 137: provou que <strong>existe demanda alcançável em Marília por mídia paga</strong> e que a mecânica funciona na conta dela. Teste de sinal, não de performance.</p>
+  <div class="box amber">
+    <span class="mark">Número de planejamento</span>
+    <p><strong>R$ 25 por conversa — é estimativa</strong>, ponto conservador dentro da banda acima, ajustado para cima porque público local pequeno satura e encarece. Será substituído pelo número real na primeira semana.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">03</span>Os criativos</h2><span class="section-note">tudo sai do que já existe</span></div>
+
+  <div class="box red">
+    <span class="mark">Quatro travas — valem para todos, sem exceção</span>
+    <ul class="tight" style="margin-bottom:0;">
+      <li><strong>Proibido áudio da biblioteca do Instagram/Reels.</strong> Anúncio pago não pode usar áudio licenciado do orgânico — é a falha mais comum na conversão orgânico→pago.</li>
+      <li><strong>Zero rosto de criança identificável em mídia paga.</strong> Não temos autorização de responsável arquivada para nenhum menor.</li>
+      <li><strong>O lagarto é chaveiro/pingente feito à mão. Nunca "brinquedo".</strong> Brinquedo tem certificação INMETRO compulsória. Card obrigatório: "Não recomendado para menores de 3 anos".</li>
+      <li><strong>Zero função comportamental do lagarto no pago.</strong> Nada de concentração, acalmar, "não para as mãos" — candidato direto a reprovação pela política de atributos pessoais, numa conta com histórico de bloqueio. O ângulo sensorial segue liberado no orgânico.</li>
+    </ul>
+  </div>
+
+  <h3>Rodada 1 — no ar em 13/08</h3>
+  <table>
+    <thead><tr><th>#</th><th>Criativo</th><th>Sai de</th><th>Gancho (0–3s)</th><th>Condição</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="code">A1</span></td>
+        <td><strong>Estático</strong><br>"Esse lagarto não está à venda"</td>
+        <td>Frame do vídeo do lagarto que <strong>ela já gravou</strong></td>
+        <td><em>"Esse lagarto aqui não está à venda."</em></td>
+        <td>Confirmar material/tamanho do lagarto e card de faixa etária</td>
+      </tr>
+      <tr>
+        <td><span class="code">A2</span></td>
+        <td><strong>Vídeo</strong><br>Unboxing da Coleção Deserto</td>
+        <td>Pasta "Chegando 31/7/26" — 4 vídeos + 6 fotos, já no Drive</td>
+        <td><em>"Acabou de chegar. E ainda nem foi pra arara."</em></td>
+        <td><strong>Sem condição.</strong> Único criativo que não depende de terceiros — sobe mesmo se tudo atrasar</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Entram como troca de criativo, dentro do mesmo conjunto</h3>
+  <table>
+    <thead><tr><th>#</th><th>Criativo</th><th>Gancho</th><th>Entra</th><th>Condição</th></tr></thead>
+    <tbody>
+      <tr><td><span class="code">A3</span></td><td>"As quatro perguntas" (destaque, evergreen)</td><td><em>"Aqui a primeira pergunta nunca é o tamanho."</em></td><td class="mono">20/08</td><td>Material da Bianca transferido + checklist de divergência aplicado</td></tr>
+      <tr><td><span class="code">A4</span></td><td>"A idade em que a criança não cabe mais"</td><td><em>"Tem uma idade em que a criança sai do infantil e ainda não cabe no adulto."</em></td><td class="mono">21/08</td><td><strong>Reescrito em 3ª pessoa.</strong> O original "Seu filho tem nove anos…" é candidato a reprovação por atributo pessoal. E não pode rodar antes do Reel orgânico de 21/08 — queimaria o gancho</td></tr>
+      <tr><td><span class="code">A5</span></td><td><em>Fallback</em> — Carrossel "Do 2 ao 18"</td><td>Card 1: <em>"Do 2 ao 18. Sim, dezoito."</em></td><td class="mono">se A3/A4 atrasarem</td><td>Nenhum rosto de menor + <strong>estoque confirmado em 16–18</strong></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">03b</span>Proibido em mídia paga neste mês</h2><span class="section-note">e o motivo de cada veto</span></div>
+  <table>
+    <thead><tr><th>Material</th><th>Motivo do veto</th></tr></thead>
+    <tbody>
+      <tr><td>Qualquer roteiro do Pool B ou C</td><td>Status "escrito, não gravado". A restrição é literal: nada novo é gravado</td></tr>
+      <tr><td>A13 — teaser Pula Bula</td><td>Texto escrito tem o posicionamento errado (roupa de dia a dia). Só entra depois de alguém assistir ao bruto e transcrever o que ela realmente falou</td></tr>
+      <tr><td>A02 — "Começou no quarto do meu filho"</td><td>Contém o erro "hoje são duas lojas". Nenhum frame entra em pago até o QC</td></tr>
+      <tr><td>C22 — ângulo sensorial</td><td>Impulsionamento proibido (trava 4)</td></tr>
+      <tr><td>C23 — "todo mundo espera desconto"</td><td>Coloca a palavra "desconto" dentro de um anúncio pago e planta a ideia em quem não pensava nisso. Fica no orgânico</td></tr>
+      <tr><td>Depoimento em vídeo + prints de feedback</td><td>Sem autorização escrita <em>específica para mídia paga</em>. Uso em stories não cobre anúncio</td></tr>
+      <tr><td>As ~37 fotos de catálogo da Pula Bula</td><td>Fotos de estúdio do fornecedor — qualquer loja do Brasil tem as mesmas. Como capa, comunicam "revendedor genérico"</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">04</span>A estrutura de campanha</h2><span class="section-note">dois conjuntos, não seis</span></div>
+  <p><strong>Objetivo:</strong> Engajamento → Mensagens. <strong>Destino:</strong> WhatsApp (click-to-WhatsApp). <strong>Otimização:</strong> conversas iniciadas.</p>
+  <p>Não usamos o objetivo Vendas porque ele precisa de ~50 eventos por conjunto em 7 dias para sair do aprendizado — a R$ 25/conversa isso seria ~R$ 1.250/semana num único conjunto, muito acima do que agosto comporta. Escolhemos o objetivo que a verba sustenta e compensamos a qualidade onde é de graça: no criativo, que filtra, e na mensagem pré-preenchida, que qualifica.</p>
+  <table>
+    <thead><tr><th>Conjunto</th><th>Destino</th><th>Verba</th><th>Público</th><th>Papel</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">CJ-A</td><td>WhatsApp</td><td class="mono">75–80%</td><td>Mulheres 25–55, Marília + 25 km, sem segmentação detalhada</td><td>Motor. Todos os criativos entram aqui</td></tr>
+      <tr><td class="mono">CJ-B</td><td>Instagram Direct</td><td class="mono">20–25%</td><td>Idêntico</td><td><strong>Redundância anti-bloqueio, ligada desde o dia 1.</strong> Se o WhatsApp cair às 14h, move-se 100% da verba para cá em minutos</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:8px;"><strong>Por que dois e não seis:</strong> o gestor da casa é um só. Um plano que exige atenção diária de quem não a tem não é plano — é lista de desejos que vira culpa. <strong>Um ponto de decisão por semana, segunda-feira.</strong></p>
+  <p><strong>Sem interesses:</strong> a Meta removeu dezenas de categorias de interesse detalhado em 15/01/2026, e em praça pequena empilhar interesse fragmenta um público que já é pequeno. Broad + geo + idade.</p>
+  <div class="box amber">
+    <span class="mark">Regra de ouro operacional</span>
+    <p>Nunca editar anúncio ativo. Qualquer edição de copy, público ou verba acima de 20% reseta o aprendizado. <strong>Criativo novo = anúncio novo.</strong> E toda mudança de arquitetura tem que estar feita até 22/08 — de 23/08 em diante só se mexe em verba e criativo.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">04b</span>Calendário</h2><span class="section-note">amarrado ao orgânico já fechado</span></div>
+  <table>
+    <thead><tr><th>Data</th><th>Mídia</th><th>Racional</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">11–12/08</td><td><strong>D0. Verba R$ 0.</strong> Fechar os portões, criar os públicos no BM, configurar saudação e ausência do WhatsApp</td><td>Os públicos retroagem 365 dias, mas só a partir da criação. Criar hoje custa zero e vale setembro inteiro</td></tr>
+      <tr><td class="mono">13/08 qui</td><td><strong>D1. CJ-A + CJ-B no ar</strong> com A1 e A2</td><td>O Reel do Deserto (11/08) já aqueceu a praça 48h antes</td></tr>
+      <tr><td class="mono">16/08 dom</td><td>Corte de higiene: pausar anúncio com &lt;500 impressões ou CTR &lt;0,8%</td><td>Não julgar custo por conversa ainda — em D3 é ruído</td></tr>
+      <tr><td class="mono">18/08 seg</td><td>Ponto de decisão semanal nº 1</td><td>Redistribuir verba entre A1 e A2</td></tr>
+      <tr><td class="mono">20–21/08</td><td>Entram A3 e A4</td><td>A4 no mesmo dia do Reel orgânico A09 — orgânico e pago carregando a mesma promessa</td></tr>
+      <tr><td class="mono">24/08 seg</td><td><strong>Congelamento estrutural até 26/08.</strong> Nenhum anúncio novo, nenhuma edição</td><td>Anúncio novo entra em aprendizado por dias. Mexer agora come a janela do lançamento</td></tr>
+      <tr><td class="mono">25/08 ter</td><td><strong>Verba constante. Sem pico.</strong></td><td>É o dia mais cheio dela do mês (lançamento com peça em mãos + reabordagem VIP + operação normal). Dobrar entrada de conversa nesse dia é fabricar a falha do Ciés de propósito</td></tr>
+      <tr><td class="mono">29/08 sáb</td><td>Último dia de veiculação</td><td>Rotação de criativo antes disso se a frequência passar de 2,5 em 7 dias</td></tr>
+      <tr><td class="mono">31/08 seg</td><td>Fechamento, relatório do mês, decisão de setembro</td><td></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">05</span>Verba — e o teto que manda nela</h2><span class="section-note">janela 13–29/08</span></div>
+  <div class="box red">
+    <span class="mark">O teto vem do atendimento, não do orçamento</span>
+    <p><strong>Teto de agosto: 3 conversas novas por dia vindas de mídia paga.</strong> É uma decisão conservadora declarada, não uma medição — e isso precisa ser dito em voz alta. O que a sustenta: ela opera 100% sozinha; o maior medo declarado dela no onboarding é a demanda explodir e não dar conta; no caso Ciés 35–52 conversas morreram sem resposta; e em agosto ela ainda tem 7 Reels, stories diários, o lançamento da Pula Bula e a reabordagem do grupo VIP.</p>
+    <p><strong>Um segundo teto, provavelmente mais baixo: o número de lagartos.</strong> Cada um é feito à mão por ela. Anúncio no ar prometendo brinde que acabou gera reclamação — e reclamação vira denúncia, que é o vetor do bloqueio que ela já sofreu duas vezes. <strong>A verba não gera mais conversas por semana do que lagartos ela consegue fazer por semana.</strong> Ninguém perguntou quantos existem.</p>
+  </div>
+
+  <div class="cenarios">
+    <div class="cen">
+      <div class="nome">A — Prova</div>
+      <div class="valor">R$ 500</div>
+      <div class="por">~R$ 30/dia · ~1,2 conversa/dia</div>
+      <div class="det">~20 conversas (banda 12–33). Compra informação sobre qual ângulo puxa. <strong>Risco:</strong> amostra pequena de novo, setembro segue no escuro</div>
+    </div>
+    <div class="cen rec">
+      <span class="tagrec">RECOMENDADO</span>
+      <div class="nome">B — Operação</div>
+      <div class="valor">R$ 850</div>
+      <div class="por">~R$ 50/dia · ~2,0 conversas/dia</div>
+      <div class="det">~34 conversas (banda 21–57). Abaixo do teto com margem, defensável para quem fatura R$ 20–30 mil, e gera amostra para decidir setembro com dado</div>
+    </div>
+    <div class="cen">
+      <div class="nome">C — Teto</div>
+      <div class="valor">R$ 1.275</div>
+      <div class="por">~R$ 75/dia · ~3,0 conversas/dia</div>
+      <div class="det">~51 conversas (banda 32–85). <strong>Risco:</strong> a banda alta estoura o teto. Exige corte imediato se passar de 3/dia por 2 dias</div>
+    </div>
+  </div>
+
+  <div class="box amber" style="margin-top:10px;">
+    <span class="mark">Nada disso está aprovado</span>
+    <p>"Definição do investimento em tráfego" é pendência aberta desde o onboarding de 10/07. O único valor real que já existiu é R$ 137. <strong>Quem fecha é o Nicolas, com ela — e é conversa comercial, não decisão de tráfego.</strong> Dois fatos precisam estar na mesa: o contrato é R$ 5 mil pelo total dos 3 meses, não mensal; e em 27/07 ela declarou que o próximo destino do dinheiro é a reforma da loja. Propor verba de mídia sem nomear esse trade-off é a conversa que derruba a renovação.</p>
+  </div>
+  <p><strong>Teto absoluto de agosto: R$ 1.275.</strong> Acima disso não sobe em nenhuma hipótese, porque o ticket médio real nunca foi levantado — e sem ele não se está gerindo mídia, se está apostando.</p>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">06</span>O funil no WhatsApp</h2><span class="section-note">onde o dinheiro realmente vaza</span></div>
+  <p><strong>Princípio de projeto:</strong> a insatisfação nº 1 declarada por ela é <em>"não gerar diferença em relação ao que ela já faz sozinha"</em>. Um pacote que chega com 14 respostas rápidas, 7 etiquetas e três varreduras diárias transfere operação para a operadora solo cujo medo é não dar conta. Ficou o mínimo irredutível — e a Expansion configura junto com ela na tela, não manda lista de tarefas.</p>
+
+  <h3>Mensagem pré-preenchida — uma por anúncio</h3>
+  <p>É a única alavanca de qualificação que custa zero tempo dela. E como o click-to-WhatsApp mostra o cartão de referência do anúncio no topo da conversa, ela sabe de onde a pessoa veio sem lembrar de nada.</p>
+  <table>
+    <tbody>
+      <tr><td class="mono" style="width:70px;">A1 lagarto</td><td class="mono">Oi Clau, vim pelo anúncio e quero saber do lagarto do deserto</td></tr>
+      <tr><td class="mono">A2 unboxing</td><td class="mono">Oi Clau, quero ver a Coleção Deserto</td></tr>
+      <tr><td class="mono">A3 perguntas</td><td class="mono">Oi Clau, quero que você me ajude a escolher</td></tr>
+      <tr><td class="mono">A4 tamanho</td><td class="mono">Oi Clau, meu filho já veste tamanho grande e eu não acho roupa</td></tr>
+    </tbody>
+  </table>
+
+  <h3>A saudação automática — dispara em 1 segundo, sem ela</h3>
+  <blockquote>
+    <p>Oi! Aqui é a Clau 💛 Que bom que você me chamou.</p>
+    <p>Sou eu mesma que atendo, escolho e embalo cada peça — então às vezes eu demoro um pouquinho, porque estou com alguém na loja. Mas eu <strong>sempre</strong> respondo.</p>
+    <p>Enquanto isso, me adianta duas coisas:<br>1️⃣ É para menino ou menina, e quantos anos?<br>2️⃣ <strong>É para usar quando?</strong></p>
+    <p>Uso essas informações só para separar as peças certas para você — se quiser que eu apague depois, é só me pedir.</p>
+    <p>Com isso eu já começo a separar 💛</p>
+  </blockquote>
+  <p>Faz três coisas de uma vez: mata a percepção de abandono (que é o que vira denúncia, que é o vetor do bloqueio), coleta os dois dados de maior poder de triagem, e transforma "estou sozinha" em "sou eu mesma que atendo" — que é a regra editorial nº 5. A linha sobre apagar os dados não é enfeite: o funil coleta dado pessoal de criança e a LGPD exige finalidade explícita.</p>
+
+  <div class="box green">
+    <span class="mark">A pergunta que faz o trabalho todo</span>
+    <p><strong>"É para usar quando?"</strong> é a de maior poder de triagem do funil inteiro. Data = comprador. Ausência de data = curioso. Ela separa em segundos e não soa fria, porque perguntar a data é literalmente o que uma consultora de curadoria pergunta.</p>
+    <p style="margin-top:6px;"><strong>Regra de proteção de tempo, inegociável:</strong> ela nunca manda foto ou vídeo de peça antes de o lead responder pelo menos uma pergunta. Foto antes de resposta é o buraco por onde o dia dela vaza para curiosos.</p>
+  </div>
+
+  <h3>Quatro respostas rápidas — não catorze</h3>
+  <table>
+    <thead><tr><th>Atalho</th><th>Para quê</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">/lagarto</td><td>Redireciona do brinde para a roupa em uma mensagem, contando a história da ampulheta que não coube — <strong>sem citar função do objeto</strong></td></tr>
+      <tr><td class="mono">/tamanho</td><td>A trilha do maior diferencial: "tem uma idade em que a criança sai do infantil e ainda não cabe no adulto"</td></tr>
+      <tr><td class="mono">/comofunciona</td><td>Os 5 passos da compra. <strong>Diz "eu vejo com você a melhor forma", não "eu envio"</strong> — prometer envio antes de existir política de frete fabrica frustração</td></tr>
+      <tr><td class="mono">/espera</td><td>Honestidade vence silêncio: "tô sozinha na loja hoje e não quis te responder com pressa"</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Recuperação: um toque, não três.</strong> A escada de 3 mensagens foi reprovada — seriam centenas de mensagens outbound para desconhecidos, saindo de um número já restringido duas vezes. Fica só o D+1, curto, sem mídia, sem link. Quem não responder vira público de remarketing pago em setembro.</p>
+  <p><strong>Uma varredura obrigatória por dia: 17h40, ninguém dorme sem resposta.</strong> 10 minutos. Três varreduras diárias violariam o próprio princípio de projeto e seriam abandonadas na primeira sexta movimentada.</p>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">07</span>Mensuração sem CRM</h2><span class="section-note">três números, não nove</span></div>
+  <table>
+    <thead><tr><th>#</th><th>Número</th><th>Quem produz</th><th>Como</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">1</td><td>Conversas iniciadas, por anúncio e por dia</td><td>Matheus</td><td>Gerenciador, automático</td></tr>
+      <tr><td class="mono">2</td><td><strong>Conversas sem resposta em 24h</strong></td><td>Clau</td><td>Contagem simples, 1× por semana</td></tr>
+      <tr><td class="mono">3</td><td>Vendas do lançamento</td><td>Clau</td><td><strong>Lagartos feitos − lagartos restantes.</strong> Contagem física, sem sistema, sem planilha — ela já controla naturalmente porque é quem produz</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Etiquetas do WhatsApp — quatro:</strong> <span class="mono">1 VEIO DO ANÚNCIO · 2 RESPONDIDO · 3 SEPAREI/ORÇAMENTO · 4 COMPROU</span>. Ela não escreve nada, não preenche nada. Toca em dois momentos: ao abrir a conversa e ao fechar a venda.</p>
+  <p><strong>Sem catálogo do WhatsApp em agosto.</strong> Exigiria precificar 12–20 peças numa semana de lançamento (ela não tem preço digitalizado em lugar nenhum) e o catálogo <em>não é privado</em> — expõe preço a concorrente. A hipótese do próprio Matheus para o bloqueio de julho foi denúncia de concorrente.</p>
+  <div class="box accent">
+    <span class="mark">O entregável que faltava — obrigatório</span>
+    <p><strong>Relatório semanal da Expansion PARA a Clau. Toda sexta, a partir de 15/08. Dono: Nicolas.</strong> Não é a cliente reportando para a agência — é o contrário. A ausência disso quase perdeu o maior cliente da casa em julho, o endpoint do Matheus que devolve as métricas dela já existe e não é usado, e a insatisfação nº 3 declarada por ela é literalmente "falta de proximidade/parceria". Quatro linhas: quanto gastou · quantas conversas · qual anúncio trouxe mais · o que muda semana que vem.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">08</span>Riscos e travas</h2><span class="section-note">os que podem parar tudo</span></div>
+  <table>
+    <thead><tr><th>Risco</th><th>Trava</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Bloqueio — e ninguém sabe o que foi bloqueado.</strong> O registro de 21/07 diz "a Meta tá bloqueando"; outro trecho fala em "bloqueios do WhatsApp Business". São dois eventos com riscos opostos</td><td><strong>Portão zero.</strong> Se foi o WhatsApp, o click-to-WhatsApp é de baixo risco porque o lead sempre inicia. Se foi a conta de anúncio ou o BM, o plano inteiro está sobre um ativo com histórico de enforcement</td></tr>
+      <tr><td>Repetir o gatilho de bloqueio</td><td>Fluxo <strong>sempre inbound</strong>. Nunca adicionar ninguém ao grupo — só mandar link. Zero lista de transmissão para base fria. Confirmar que é o app <strong>oficial</strong> (mod = banimento garantido, e é a causa que ninguém checou)</td></tr>
+      <tr><td><strong>O modo de falha do caso Ciés</strong></td><td><strong>Kill-switch, e ele é do Matheus, não dela:</strong> não-resposta em 24h acima de 20% por 2 dias seguidos → <strong>pausa a campanha</strong>, mesmo com o custo por conversa ótimo. E a verba não sobe enquanto não-resposta não estiver abaixo de 15% por duas semanas</td></tr>
+      <tr><td><strong>Estoque.</strong> O melhor ângulo do lote ("do 2 ao 18") é o mais escasso por definição</td><td>Se ela tem 3 peças em 16–18 e o anúncio traz 40 mães procurando exatamente isso, o resultado são 40 mães descobrindo que a promessa não se cumpre — numa marca cujo diferencial é "aqui você não tem erro"</td></tr>
+      <tr><td><strong>Direito de imagem</strong></td><td>Zero rosto de menor em pago. E uma verificação que ninguém fez: <strong>o contrato da Bianca cobre veiculação em mídia paga, ou só uso orgânico?</strong> Todos os criativos de vídeo dependem disso</td></tr>
+      <tr><td>Contingência de bloqueio</td><td>CJ-B (Instagram Direct) ligado desde o dia 1 é a única redundância legítima. <strong>"Conta de anúncio reserva" e "chip aquecido" saíram do plano</strong> — são evasão de política e prática de spam, motivo de banimento permanente</td></tr>
+      <tr><td><strong>Não existir critério de parar</strong></td><td><strong>Decidido em 31/08:</strong> se menos de 20% das conversas viraram venda, ou a não-resposta ficou acima de 20% na média do mês, o tráfego pausa em setembro. Não se insiste em canal que não converte porque já se investiu nele</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">09</span>Pendências que travam o start</h2><span class="section-note">sem estas, verba = R$ 0</span></div>
+  <div class="pend"><span class="dono">Matheus</span><span class="q"><strong>Qual ativo foi restringido em 20–21/07?</strong> Número do WhatsApp, conta de anúncio, perfil ou Business Manager? Texto literal da notificação. Houve recurso? → trava <strong>toda</strong> a verba</span></div>
+  <div class="pend"><span class="dono">Matheus</span><span class="q"><strong>Quanto do R$ 137 foi efetivamente gasto</strong>, e qual a curva de gasto × conversas por dia e por anúncio? Qual era o texto pré-preenchido de cada um dos 2 anúncios?</span></div>
+  <div class="pend"><span class="dono">Nicolas</span><span class="q"><strong>Qual verba mensal ela aprova?</strong> Conversa comercial, com o trade-off da reforma na mesa</span></div>
+  <div class="pend"><span class="dono">Clau/Matheus</span><span class="q"><strong>Acesso administrativo confirmado</strong> ao Business Manager e à conta de anúncio, + confirmação de que o WhatsApp é o app oficial</span></div>
+  <div class="pend"><span class="dono">Clau</span><span class="q"><strong>Quantos lagartos existem hoje</strong> e quantos ela produz por semana? → é o teto real da oferta e a métrica de vendas</span></div>
+  <div class="pend"><span class="dono">Clau</span><span class="q"><strong>Lagarto: material, tamanho, há peça destacável?</strong> → trava de segurança de produto</span></div>
+  <div class="pend"><span class="dono">Nicolas</span><span class="q"><strong>A licença do material da Bianca cobre mídia paga?</strong> → todos os criativos de vídeo</span></div>
+  <div class="pend"><span class="dono">Nicolas</span><span class="q"><strong>Material da Bianca transferido + checklist de divergência aplicado em A02 e A13</strong> → trava A3 e A4, mas <em>não</em> trava o D1, que sobe com A1 e A2</span></div>
+
+  <h3 style="margin-top:14px;">Desejáveis — travam a escala, não o start</h3>
+  <p class="mono" style="font-size:9.5px; line-height:1.6;">Ticket médio real (pendência aberta desde 10/07 — é uma pergunta de WhatsApp de 2 minutos) · Estoque por numeração, em especial 14/16/18 · Faz envio? Qual frete, prazo e política de troca? · Horário real da loja e quantas conversas por dia ela sente que dá conta · Autorização escrita do depoimento para mídia paga</p>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">10</span>Backlog</h2><span class="section-note">o que ficou de fora e o que destrava</span></div>
+  <table>
+    <thead><tr><th>Ideia</th><th>Condição para destravar</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Remarketing pago</strong> (interações 365d, quem assistiu 75% dos Reels)</td><td><strong>Setembro.</strong> Os públicos são criados agora, em D0, custo zero. Em 01/09 existe um pool quente construído de graça pelo cronograma orgânico — é o que faz setembro começar mais barato que agosto, e é o melhor argumento de renovação que temos</td></tr>
+      <tr><td>Raio ampliado 25–80 km no ângulo "menina grande"</td><td>Política de frete, prazo e troca por escrito + estoque confirmado em 14/16/18</td></tr>
+      <tr><td>Objetivo Vendas (audiência de compradores)</td><td>Verba concentrada acima de ~R$ 100/dia em um conjunto e teto de atendimento acima de 4 conversas/dia</td></tr>
+      <tr><td>Depoimento em vídeo da cliente</td><td>Autorização escrita. É o criativo de <strong>remarketing</strong> correto — nunca de aquisição: público frio não confia em depoimento de desconhecido</td></tr>
+      <tr><td>Grupo VIP como destino de anúncio</td><td>Causa-raiz do bloqueio resolvida. Em agosto o grupo só é oferecido dentro de conversa já aberta. <strong>Alternativa para setembro: Canal do WhatsApp</strong> — não expõe números, é feito para broadcast</td></tr>
+      <tr><td><strong>Público personalizado da base de clientes dela</strong> — o ativo de maior qualidade que essa conta pode ter</td><td>O sistema não exporta contatos, e ninguém propôs o contorno: ela digitar 150–300 números de clientes reais. Acima de 100 já vira fonte de público semelhante. <strong>Só entra se ela quiser, não se a gente quiser</strong></td></tr>
+      <tr><td>Segunda pessoa, meio período, só WhatsApp</td><td>Ticket médio levantado + duas semanas com taxa de resposta medida. É o medo declarado dela virando plano em vez de crise — mas só com número na mão</td></tr>
+      <tr><td>API oficial do WhatsApp (WABA)</td><td><strong>O gatilho não é volume — é a segunda pessoa atendendo.</strong> Porta de mão única: o número não volta para o app comum</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="box green">
+    <span class="mark">Uma última linha</span>
+    <p>Este plano gera menos conversas do que a verba compraria. Isso é deliberado. O que se compra em agosto não é volume — é a prova de que a cadeia funciona ponta a ponta com uma pessoa só operando: <strong>anúncio → conversa → resposta → venda → lagarto entregue</strong>. No dia em que essa cadeia estiver provada, escalar é aritmética. Enquanto não estiver, escalar é comprar o caso Ciés de novo, com o dinheiro da Clau.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Construído por workflow de 7 agentes: 4 lentes independentes (criativo/oferta · estrutura de campanha · funil pós-clique · benchmark de mercado) + 2 auditores adversariais (viabilidade operacional · conformidade editorial e risco) + síntese. Tudo que as auditorias reprovaram saiu do plano; o que ficou condicionado está com a condição escrita ao lado. Fonte completa: PLANO-TRAFEGO-AGOSTO-2026-08-04.md. Gerado 04/08/2026.</p>
+</footer>
+
+</div>
+</body>
+</html>

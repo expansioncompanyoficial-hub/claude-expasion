@@ -147,7 +147,7 @@ mensagem genérica.
 | Qua 26 | Carrossel 04 — "Guia do vestido pra menina grande" | Pool C | Depende das peças (chegaram semana 1) |
 | Qui 27 | B17 — "Roupa clarinha em criança? Eu também achava" | Pool B | Quebra de objeção |
 | Sex 28 | A11 — "O grupo onde tudo chega primeiro" | Pool A (já filmado) | Fecha o mês puxando pro canal direto |
-| Sáb 30 | A10 — "Eu não vendo pra todo mundo" | Pool A (já filmado) | Fecha o mês reforçando a curadoria — diferencial antes de virar setembro |
+| Dom 30 | A10 — "Eu não vendo pra todo mundo" | Pool A (já filmado) | Fecha o mês reforçando a curadoria — diferencial antes de virar setembro |
 | Gatilho, não data fixa | B18 — "A areia escorreu" | Pool B | **Publicar quando o estoque da Deserto realmente começar a esvaziar** — nunca antecipar escassez que não existe |
 | Reserva | B20, Resgate do Acervo | — | Pra qualquer semana que render menos |
 
