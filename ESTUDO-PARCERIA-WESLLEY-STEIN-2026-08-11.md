@@ -1,5 +1,14 @@
 # ESTUDO — PARCERIA WESLLEY STEIN: PREJUÍZO OU TROCO?
 
+> **SUPERADO EM 11/08/2026 — NÃO USAR.** Este documento foi escrito antes do
+> acesso ao `DOSSIE-STEIN-EXPANSION-2026-08-11.html` e **modelou o negócio
+> errado**: supôs lançamento de infoproduto com vídeos e tráfego, remuneração
+> fixo + %, e teto de R$ 100 mil. O negócio real é assessoria mensal de seis
+> funções a R$ 2.000 mais 30% em lançamentos, com evento em jan/2027.
+> Nome correto da contraparte: **Wesley Stein**.
+> **Vale a rodada 2:** `ESTUDO-PARCERIA-STEIN-RODADA2-2026-08-11.md`.
+> Mantido só como registro do histórico.
+
 **Expansion Company · 11/08/2026 · valores PROVISÓRIOS**
 
 Pergunta da mesa: a parceria com o Weslley Stein — lançamento com produção de
