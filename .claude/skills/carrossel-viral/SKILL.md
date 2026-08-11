@@ -39,18 +39,28 @@ Nunca apresentar número emprestado como se fosse do cliente. Nunca inventar nú
 
 ## Etapa 0 — Quem é o cliente
 
-Identificar o cliente pela conversa e **ler `CLIENTES/{CLIENTE}.md`**. Essa ficha responde
-as 7 perguntas de briefing do material de uma vez: marca, @, nicho, cor, estilo, CTA e
-regras editoriais próprias.
+Identificar o cliente pela conversa e **ler `CLIENTES/{CLIENTE}/FICHA-CARROSSEL-{CLIENTE}.md`**.
+Essa ficha responde as 7 perguntas de briefing do material de uma vez: marca, @, nicho,
+cor, estilo, CTA, públicos e régua editorial.
 
-- **Ficha existe** → seguir direto para a Etapa 1. Não perguntar nada que já esteja nela.
+- **Ficha existe** → seguir para a Etapa 1. Não perguntar nada que já esteja nela.
 - **Ficha não existe** → rodar o briefing de 7 perguntas do
   `BRANDSDECODED/CONTENT-MACHINE/prompts/system-prompt-maquina-carrosseis-v4.md`
-  (Bloco 3), e **gravar a ficha em `CLIENTES/` no fim** pra nunca mais perguntar.
+  (Bloco 3), e **gravar a ficha** no fim pra nunca mais perguntar.
 - **Cliente não informado** → perguntar só isso, em uma linha.
 
-Se a ficha tiver campos marcados `[FALTA]`, perguntar **apenas esses**, juntos, numa
+Campos marcados `[FALTA]` ou `[CONFERIR]`: perguntar **apenas esses**, juntos, numa
 mensagem só — e atualizar a ficha com a resposta.
+
+**Quando a decisão depender de contexto de conta** — histórico com o cliente, o que já foi
+vetado, qual pendência a peça atende, quem aprova — ler `CLIENTES/{CLIENTE}/CONTEXTO-{CLIENTE}.md`.
+É o dossiê da conta e a fonte da verdade; a ficha é só o recorte operacional.
+
+### Um público por peça
+
+Cliente com mais de um público na ficha: **declarar qual público a peça atende antes de
+escrever a primeira linha**, e não misturar. Peça que fala com dois converte nenhum. Se o
+insumo servir a dois, viram duas peças.
 
 ---
 

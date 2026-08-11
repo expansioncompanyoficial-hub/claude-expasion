@@ -23,7 +23,8 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
 BRANDSDECODED/        Acervo de produto da BrandsDecoded (prompts, skills, guias)
-CLIENTES/             Fichas de marca — uma por cliente
+CLIENTES/             Um diretório por cliente da Expansion
+  PRIME/              Prime Assessoria (crédito imobiliário)
 CARROSSEIS/           Registro das peças geradas (alimenta relatório e calibração)
 CALIBRACAO/           Régua de padrões por nicho, medida
 _audios/              Transcrições de áudios e reuniões
@@ -33,6 +34,29 @@ _audios/              Transcrições de áudios e reuniões
   skills/             Skills do repo — carregam sozinhas, sem instalação
   reference/          Originais preservados da migração
 ```
+
+## CLIENTES — como usar
+
+Cada cliente da Expansion tem um diretório em `CLIENTES/<CLIENTE>/`. A ideia é que
+uma sessão do Claude Code possa ser aberta para um cliente só e ter contexto completo
+sem depender do que ficou na cabeça de alguém.
+
+**Ponto de entrada de cada cliente: `CONTEXTO-<CLIENTE>.md`.** É documento vivo — quem
+é o cliente, quem é quem dos dois lados, contrato, linha do tempo, números, pendências
+de parte a parte e riscos abertos. Os demais arquivos são as fontes:
+
+| Padrão | O que é |
+|---|---|
+| `CONTEXTO-<CLIENTE>.md` | Dossiê mestre. Documento vivo, sem data no nome |
+| `<CLIENTE>-ALINHAMENTO-AAAA-MM-DD.md` | Reunião: notas de decisão + transcrição integral |
+| `<CLIENTE>-WHATSAPP-<CANAL>-AAAA-MM-DD.md` | Transcrição exportada do WhatsApp |
+| `<CLIENTE>-DRIVE-INVENTARIO-AAAA-MM-DD.md` | Mapa da pasta do cliente no Drive |
+| `FICHA-CARROSSEL-<CLIENTE>.md` | Ficha operacional que a skill `carrossel-viral` lê |
+| `identidade/` | Ativos de marca: paleta, referências de layout, logo |
+
+**Regra de credencial:** senha nunca entra neste repositório. Ao trazer transcrição de
+WhatsApp, substituir por `[SENHA REDIGIDA]` e apontar para o documento de acessos no
+Drive. Códigos 2FA já expirados podem ficar — fazem parte do registro operacional.
 
 ## AEOS — como usar
 
@@ -78,9 +102,13 @@ Duas regras próprias desta pasta, que sobrepõem as convenções gerais abaixo:
 A skill `carrossel-viral` (em `.claude/skills/`) roda o método da BrandsDecoded adaptado
 pra agência. **Não precisa instalar nada** — carrega sozinha quando o assunto é carrossel.
 
-Pedir um carrossel é uma frase: *"carrossel pra Prime sobre [tema]"*. A skill lê a ficha
-do cliente em `CLIENTES/`, gera 10 headlines, monta o carrossel, renderiza os PNGs e
-registra a peça em `CARROSSEIS/`.
+Pedir um carrossel é uma frase: *"carrossel pra Prime sobre [tema]"*. A skill lê
+`CLIENTES/<CLIENTE>/FICHA-CARROSSEL-<CLIENTE>.md`, gera as headlines, monta o carrossel,
+renderiza os PNGs e registra a peça em `CARROSSEIS/`.
+
+São **três modos**, não um: `topo` (viral), `meio` (educativo) e `newsroom` (capa de
+notícia). Cada um tem régua editorial própria — inclusive anti-slop, que se contradiz
+entre eles. Ver `.claude/skills/carrossel-viral/references/modos.md`.
 
 Duas regras que sustentam o sistema:
 
