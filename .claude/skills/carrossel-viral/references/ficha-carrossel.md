@@ -14,6 +14,7 @@ performar**. Se um campo não pode explicar diferença de desempenho, não entra
 
 | Campo | A hipótese que ele testa |
 |---|---|
+| `modo` | Separa o que não pode ser comparado — viral, educativo e capa de notícia jogam jogos diferentes |
 | `padrao_headline` | O padrão de hook muda o alcance |
 | `gatilhos` | Combinações emocionais performam diferente |
 | `tipo` | Tendência rende diferente de Case |
@@ -32,6 +33,7 @@ id: 2026-08-11-PRIME-taxa-que-ninguem-explica
 cliente: PRIME
 nicho: credito-imobiliario
 data_geracao: 2026-08-11
+modo: topo                    # topo | meio | newsroom  — OBRIGATÓRIO
 insumo_tipo: materia          # materia | ideia | transcricao | link | print
 tipo: tese-contraintuitiva    # tendencia | tese-contraintuitiva | case | previsao
 eixo: mercado                 # mercado | cases | noticias | cultura | produto

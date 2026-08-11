@@ -69,6 +69,28 @@ vai dizer o que funciona de verdade nesta audiência.
 
 ---
 
+## Mistura editorial sugerida
+
+Crédito imobiliário é compra cara, longa e assustadora. Os três modos fazem trabalhos
+diferentes e a conta precisa dos três — a proporção abaixo é **ponto de partida a ajustar
+com o desempenho real**, não regra.
+
+| Modo | Papel na Prime | Frequência sugerida |
+|---|---|---|
+| **Newsroom** — capa de notícia | Selic, FGTS, Minha Casa Minha Vida, linha nova da Caixa, teto de financiamento. Chegar antes do concorrente. | Quando a notícia aparecer |
+| **Meio** — educativo | "Como funciona a portabilidade", "5 coisas que travam a aprovação". É o que gera salvamento e direct — provavelmente a maior fonte de lead. | 1–2 por semana |
+| **Topo** — viral | Comportamento do mercado imobiliário, geração que não compra imóvel, aluguel × financiamento. Traz gente nova. | 1 por semana |
+
+**A aposta forte aqui é o Newsroom.** É o modo mais subestimado do pacote e o de melhor
+encaixe: crédito imobiliário tem notícia relevante quase toda semana, e a janela de duas
+horas é exatamente a vantagem que uma assessoria com processo tem sobre um concorrente
+que posta quando dá.
+
+Contrapartida: notícia de juros e crédito **exige o dobro de cuidado** com a régua de
+compliance acima. Manchete factual, sem promessa de taxa nem de aprovação.
+
+---
+
 ## Histórico que importa pro fluxo
 
 Dois eventos da operação mudam como esta skill trata a Prime:

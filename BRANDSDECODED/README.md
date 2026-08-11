@@ -21,6 +21,7 @@ BRANDSDECODED/
 │   ├── prompts/            os 7 .md do produto — nomes preservados, verbatim
 │   └── docs/               prompts alternativos + FAQ + boas práticas
 ├── NEWSROOM/               news-jacking: capa única de notícia
+│   └── prompts/            os 4 .md do produto — nomes preservados, verbatim
 ├── SKILLS/                 as 4 skills do Kit, verbatim
 ├── docs/                   visão geral do Kit de Skills
 └── originais/              PDFs e ZIPs como recebidos
@@ -58,21 +59,33 @@ depende deles para funcionar. Não renomear.
 | `FAQ-CONTENT-MACHINE.md` | 25 perguntas: instalação, fluxo, design, export, uso avançado. |
 | `GUIA-BOAS-PRATICAS-CONTENT-MACHINE.md` | Briefing, escolha de headline, ajustes, imagens, 10 prompts prontos, calendário editorial, checklist de publicação. |
 
-**Os três system prompts são alternativos entre si**, não complementares. O v4 (em `prompts/`)
-é o completo — briefing, headlines, aprovação de texto, render HTML e export PNG.
+**Os três system prompts de carrossel são alternativos entre si**, não complementares. O v4
+(em `prompts/`) é o completo — briefing, headlines, aprovação de texto, render HTML e export PNG.
+
+O `PROMPT-CRIADOR-CARROSSEIS-MEIO-FUNIL` é caso à parte: não compete com o v4, **complementa**.
+O v4 faz carrossel de topo de funil (cultural, alcance); esse faz meio de funil (educativo,
+autoridade). São registros diferentes — inclusive na régua anti-slop, já que o v4 proíbe
+segunda pessoa e o de meio de funil a usa de propósito.
 
 ---
 
 ## NEWSROOM — capa de notícia
 
-`NEWSROOM-GUIA-DE-INSTALACAO.md` — v1.1, maio de 2026. Sistema de news-jacking: notícia
-quente → 10 headlines → capa 1080×1350 em PNG. Fluxo de 6 etapas, comandos de controle,
-solução de problemas.
+Produto **completo**: guia + os 4 arquivos. Sistema de news-jacking — notícia quente →
+10 headlines → capa única 1080×1350 em PNG, dentro da janela de ~2 horas em que o tema
+ainda está quente. Não gera carrossel; entrega **uma capa**.
 
-> **Lacuna conhecida:** o guia é o único arquivo do Newsroom que chegou. Os 4 arquivos
-> do produto que ele manda instalar — `newsroom-system-prompt.md`, `newsroom-design.md`,
-> `newsroom-anti-slop.md`, `newsroom-banco-hooks.md` — **não vieram**. Sem eles o
-> Newsroom não roda.
+| Arquivo | Papel | Onde vai |
+|---|---|---|
+| `prompts/newsroom-system-prompt.md` | O cérebro. Fluxo de 5 etapas, curadoria de fontes por tier, janela dura de 7 dias, render da capa. | **Instruções** do projeto |
+| `prompts/newsroom-design.md` | Design da capa única: tipografia, gradiente, hierarquia, escala da headline. | Knowledge Files |
+| `prompts/newsroom-anti-slop.md` | Anti-slop específico de headline de notícia. | Knowledge Files |
+| `prompts/newsroom-banco-hooks.md` | Banco de hooks — **maior que o do Content Machine** (9,2 mil vs 6,8 mil caracteres). Neste modo, usar este. | Knowledge Files |
+| `NEWSROOM-GUIA-DE-INSTALACAO.md` | v1.1, maio de 2026. Setup, fluxo, comandos, solução de problemas. | — |
+
+Duas regras que o diferenciam do Content Machine: **janela de 7 dias com DD/MM obrigatório**
+(notícia de data vaga é descartada) e **honestidade na busca** — preferir 5 manchetes
+verificadas a 8 com 3 duvidosas.
 
 ---
 
@@ -117,7 +130,9 @@ Três coisas se repetem em quase todos os arquivos e valem como leitura do méto
 
 O envio trouxe repetições, verificadas por md5 antes de descartar:
 
-- `NewsroomGuiadeInstalacao.pdf` — 2 cópias idênticas
+- `NewsroomGuiadeInstalacao.pdf` — 3 cópias idênticas
 - `00__Comece_por_aqui__Visao_Geral.pdf` — 4 cópias idênticas (duas nomeadas `_2`)
+- `Prompt: Criador de Carrosséis Meio de Funil` — chegou como PDF e depois como Google Doc;
+  o texto é idêntico caractere a caractere
 
 Guardada uma de cada em `originais/`.

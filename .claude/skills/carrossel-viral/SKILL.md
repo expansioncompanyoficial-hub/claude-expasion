@@ -54,9 +54,23 @@ mensagem só — e atualizar a ficha com a resposta.
 
 ---
 
-## Etapa 1 — Insumo
+## Etapa 1 — Insumo e modo
 
 Aceitar o que vier: tema, matéria, link, print, transcrição, áudio transcrito ou ideia solta.
+
+**Escolher o modo** — são três, e cada um tem fluxo próprio. Ler `references/modos.md`.
+
+| Modo | Quando | Entrega |
+|---|---|---|
+| **topo** | Tendência, tese cultural, comportamento | Carrossel viral, 10 headlines |
+| **meio** | Dúvida, passo a passo, erro comum | Carrossel educativo, 5 capas |
+| **newsroom** | Notícia com data, últimos 7 dias | **Capa única**, em minutos |
+
+Se o pedido nomear o modo, obedecer. Se não, decidir pelo insumo e **dizer em uma linha**
+qual foi usado. Ambíguo → perguntar, uma linha só.
+
+As etapas 2 a 9 abaixo descrevem o **modo topo**. Para meio e newsroom, `references/modos.md`
+diz o que muda — o resto do fluxo (validação editorial, aprovação, render, ficha) é igual.
 
 **Pesquisar na web quando** o insumo for uma ideia/tese sem lastro, ou uma notícia que
 precisa de contexto. Buscar de 3 a 6 âncoras verificáveis — dado, data, nome, número de
@@ -186,6 +200,7 @@ precisa pra saber o quanto confiar na régua.
 
 | Arquivo | Quando ler |
 |---|---|
+| `references/modos.md` | Sempre na Etapa 1 — decide topo · meio · newsroom |
 | `references/fluxo-agencia.md` | Dúvida sobre ficha de cliente, aprovação ou publicação |
 | `references/ficha-carrossel.md` | Sempre na Etapa 9 |
 
