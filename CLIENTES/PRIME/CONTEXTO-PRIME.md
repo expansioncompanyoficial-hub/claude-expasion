@@ -296,12 +296,38 @@ atendimento **e relatórios** — para *acompanhar a chegada dos leads → verif
 atendimento → aumentar a conversão*. É o mesmo relatório cuja ausência quase custou o
 cliente em 16/07: ele deixa de ser prestação de contas e passa a ser o produto.
 
-### Landing page da Prime Alphaville
+### Landing page da Prime Alphaville — e a pergunta comercial
 
-**A unidade não tem site próprio** — só existe o geral da Prime. A Laura cobrou isso do
-Kaio já em 05/05 e repetiu na call de 27/07. O que ela quer: fotos do escritório,
-apresentação geral dos serviços e mais texto — *"muita gente gosta de ler."*
-É entregável de produção, não de conteúdo, e está aberto desde maio.
+A unidade **não tem site próprio** — só existe o geral da Prime. Mas a página **já existe,
+e foi a Laura quem fez**, por conta própria, depois de pedir e não receber.
+
+**A cronologia, apurada nas fontes:**
+
+| Data | Fato | Registro |
+|---|---|---|
+| 16/04 | Laura leva o assunto ao **Kaio** na reunião de onboarding de tráfego | ⚠️ Reunião não gravada. **Não se sabe o que ele respondeu** |
+| 05/05 14h47 | Laura: *"Site de Alphaville não temos, temos o geral da Prime. Eu até comentei com o Kaio na reunião que fizemos para criar uma landing page"* | Privado |
+| 05/05 16h00 | Nicolas responde com o plano fechado — playbook, editor, roteiros/15 dias, 20 posts, tráfego, R$ 3.000 por Prime. **LP não está na lista.** Não houve recusa explícita | Privado |
+| 27/07 | Laura: *"o que eu tinha pedido, **eu fiz por conta própria** lá. Organizei o material… tá bem organizado em questão de formulário. **Tá me atendendo, o que eu fiz**"* | Fathom [04:31] |
+| 27/07 | O que ainda falta: apresentação dos serviços, fotos do escritório, mais texto. As notas do Nicolas usam o verbo **"ajustar"**, não "criar" | Notas |
+
+**Leitura:** não há registro de promessa da Expansion. Mas houve **um pedido que ficou sem
+resposta** — e do lado dela isso não é recusa, é pendência. É a **segunda vez** que ela diz
+"pedi, não fizeram, fiz eu" (a primeira é o ManyChat, pedido em 17/06 e nunca ativado).
+
+**Recomendação comercial:** não é upsell, mas também não é escopo.
+- **Absorver** o ajuste — fotos, textos de serviço, apresentação na página que ela já montou.
+  Custo baixo e apaga o passivo de relacionamento sem abrir precedente de site grátis.
+- **Cobrar como projeto à parte** se ela quiser LP nova de verdade: estrutura de conversão,
+  copy de venda, formulário integrado ao tráfego e ao CRM, domínio, hospedagem. E o timing
+  favorece — LP integrada é justamente a peça que falta para medir o ROI que ela vai cobrar.
+
+🔴 **Duas verificações pendentes antes de fechar a questão:**
+1. **O contrato de 15/04** (`Contrato_Expansion_PrimeAssessoria_assinado.pdf`, 2 páginas)
+   só existe no WhatsApp. É ele que resolve o escopo em definitivo — a lista de 05/05 nem
+   serve de prova, porque foi resposta a *"o plano mais em conta para as unidades"*.
+2. **O que o Kaio disse em 16/04.** Se prometeu, virou compromisso verbal. Ele saiu da
+   operação em 01/06 — perguntar ao Kauã ou ao Heitor.
 
 ---
 
