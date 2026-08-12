@@ -62,53 +62,43 @@ Jane | Plano Saúde Empresarial
 `Jane Queiroz | Plano de Saúde` (29/30) — perde "empresarial", que é o
 qualificador que o ICP digita. Recomendação: a primeira.*
 
-**Bio** — estruturada nas funções do **Método 3L**
-([playbook, Etapa 03](../../PLAYBOOK-SOCIAL-MIDIA-v2.md)) — o que faz · autoridade ·
-CTA, nesta ordem — mais a linha de praça, reintroduzida em 12/08 por decisão de
-completude: a bio inteira se lê num bater de olho, com um marcador por linha. A
-versão de julho tinha 165 caracteres (limite: 150) e **nenhuma linha de CTA**.
+**Bio** — reformulada em 12/08 na direção do Nicolas: espelhar a estrutura do
+posicionamento pessoal dele (*"Faço empresários crescerem unindo o que o mercado
+separa"*) — **quem é → o que faz, destrinchado e com a prova dentro da frase →
+CTA**. As funções do Método 3L
+([playbook, Etapa 03](../../PLAYBOOK-SOCIAL-MIDIA-v2.md)) continuam todas
+presentes; o que muda é que a autoridade deixa de ser uma linha solta de números
+e passa a viver dentro da frase que descreve o trabalho.
 
 ```
-🏥 Plano de saúde empresarial, sem susto no reajuste
-⭐ Desde 2012, +5.000 vidas protegidas
-📍 SP · RJ · BH
-👇 Cote o plano da sua empresa no WhatsApp
+Fundadora da JQL Seguros
+Protejo +5.000 vidas cuidando do plano de saúde da sua empresa antes e depois da assinatura
+👇 Cote seu plano no WhatsApp
 ```
-*146 caracteres em contagem simples, **149/150 se o Instagram contar emoji em
-dobro** — cabe, mas sem folga nenhuma: qualquer acréscimo estoura. "Corretora"
-segue fora da linha de autoridade: o `@` já diz "seguros" e a categoria do perfil
-profissional exibe "Corretora de seguros" logo abaixo do Nome.*
+*145/150 caracteres (146 se o Instagram contar o emoji em dobro).*
 
 | Linha | Função | Por quê |
 |---|---|---|
-| 🏥 | **O que faz + para quem** | *"Sem susto no reajuste"* é fala dela do onboarding (*"você não precisa tomar susto no seu boleto"*) — e é o filtro da régua da §1: num produto tabelado, só quem tem o pós-venda dela sustenta essa promessa |
-| ⭐ | **Autoridade** | Tempo de mercado primeiro, volume como prova |
-| 📍 | **Praça** (fora do 3L, decisão 12/08) | Plano de saúde é regional — rede credenciada muda por praça. Dizer onde atende qualifica o lead antes do clique |
-| 👇 | **CTA único** | Uma ação (cotar), um destino (o link logo abaixo — o 👇 aponta para ele). *"O plano da sua empresa"* fala com dono e RH sem gastar a linha 1 com qualificação |
+| 1 | **Quem é** | "Fundadora" pesa mais que "corretora": ela é dona do negócio. O "JQL Seguros" volta aqui como marca institucional — precedido de "Fundadora da", a sigla comunica sem precisar ser decodificada. O `@` segue `janequeirozseguros` |
+| 2 | **O que faz + prova, na mesma frase** | Verbo em primeira pessoa, como no posicionamento do Nicolas. "+5.000 vidas" deixa de ser número parado e vira ação ("protejo"); e *"antes e depois da assinatura"* é a régua da §1 inteira: o mercado separa a venda do pós-venda — ela não |
+| 3 | **CTA único** | Uma ação (cotar), um destino (o 👇 aponta para o link do WhatsApp logo abaixo). "Seu plano" já foi qualificado pela linha 2: "da sua empresa" |
 
-> ⚠️ **É "sem susto", nunca "sem custo".** Numa revisão de 12/08 a linha 1 quase foi
+> ⚠️ **É "sem susto", nunca "sem custo".** Numa revisão de 12/08 a bio quase foi
 > ao ar como *"sem custo no reajuste"* — promessa que não existe (reajuste sempre tem
 > custo) e que em nicho regulado configura propaganda enganosa. O diferencial dela é
-> **previsibilidade**: avisar com 60 dias, sem surpresa no boleto. Conferir essa
-> palavra antes de qualquer publicação.
-
-**Alternativa mais direta ao ICP**, se a preferência for qualificar antes de conectar
-(117/150):
-```
-Plano de saúde empresarial · 30 a 99 vidas
-+5.000 vidas protegidas desde 2012 · SUSEP plena
-Fale comigo no WhatsApp ↓
-```
+> **previsibilidade**: avisar com 60 dias, sem surpresa no boleto. A expressão saiu
+> da bio, mas segue viva em destaque, post fixado e artes — conferir essa palavra
+> antes de qualquer publicação.
 
 **Para onde foi o que saiu da bio** (nada se perde, muda de casa):
 
-- *"Cuido da apólice depois da assinatura, não só antes"* → vira a capa e a descrição
-  do destaque **Casos reais** e o **post fixado** de apresentação. Na bio era promessa
-  que qualquer um assina; em destaque com caso real, só ela assina. A linha 1 ("sem
-  susto no reajuste") continua sendo o gancho dele na bio.
-- *"📍 SP · RJ · BH"* → **voltou para a bio** em 12/08 (linha 3). A **mensagem
-  pré-preenchida do WhatsApp** segue pedindo a cidade, porque a triagem do lead
-  acontece na conversa, não na leitura.
+- *"Sem susto no reajuste"* → gancho do **post fixado** de apresentação e capa do
+  destaque **Casos reais**, junto do detalhamento do pós-venda (aviso de reajuste
+  com 60 dias, o que a operadora nega). O ⚠️ acima segue valendo para toda peça.
+- *"Desde 2012"* → destaque **Quem sou** (recepcionista → Marinha → 2012) e a arte
+  *"Os números que sustentam o seu nome"*, já prevista no cronograma de agosto.
+- *"📍 SP · RJ · BH"* → **mensagem pré-preenchida do WhatsApp** (o lead chega
+  dizendo a cidade — a triagem acontece na conversa) e destaque **Quem sou**.
 
 **Link:** WhatsApp com mensagem pré-preenchida por origem
 (`?text=Vim pelo Instagram e quero cotar o plano da minha empresa em [cidade]`).
