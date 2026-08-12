@@ -69,16 +69,25 @@ linhas, 165 caracteres (limite: 150) e **nenhuma linha de CTA**.
 
 ```
 Plano de saúde empresarial, sem susto no reajuste
-Corretora desde 2012 · +5.000 vidas protegidas
+Desde 2012, +5.000 vidas protegidas
 Cote o plano da sua empresa no WhatsApp ↓
 ```
-*138/150 caracteres, contando as quebras.*
+*127/150 caracteres, contando as quebras. Ajustada em 12/08: "Corretora" saiu da
+linha 2 — o `@` já diz "seguros" e a categoria do perfil profissional exibe
+"Corretora de seguros"; a linha abre pelo tempo de mercado, que é o degrau mais
+alto da hierarquia disponível, e o volume vem como prova.*
 
 | Linha | Função no 3L | Por quê |
 |---|---|---|
 | 1 | **O que faz + para quem** | *"Sem susto no reajuste"* é fala dela do onboarding (*"você não precisa tomar susto no seu boleto"*) — e é o filtro da régua da §1: num produto tabelado, só quem tem o pós-venda dela sustenta essa promessa |
-| 2 | **Autoridade** | O melhor conjunto verdadeiro disponível: tempo de mercado + volume. Linha que a cliente já viu no material |
-| 3 | **CTA único** | Uma ação (cotar), um destino (o link ↓). *"O plano da sua empresa"* fala com dono e RH sem gastar a linha 1 com qualificação |
+| 2 | **Autoridade** | Tempo de mercado + volume, nesta ordem, sem rótulo redundante com o `@` |
+| 3 | **CTA único** | Uma ação (cotar), um destino (o link ↓). *"O plano da sua empresa"* fala com dono e RH sem gastar a linha 1 com qualificação. O *"no WhatsApp ↓"* fica: CTA sem destino não converte — a seta aponta para o botão de link logo abaixo |
+
+> ⚠️ **É "sem susto", nunca "sem custo".** Numa revisão de 12/08 a linha 1 quase foi
+> ao ar como *"sem custo no reajuste"* — promessa que não existe (reajuste sempre tem
+> custo) e que em nicho regulado configura propaganda enganosa. O diferencial dela é
+> **previsibilidade**: avisar com 60 dias, sem surpresa no boleto. Conferir essa
+> palavra antes de qualquer publicação.
 
 **Alternativa mais direta ao ICP**, se a preferência for qualificar antes de conectar
 (117/150):
