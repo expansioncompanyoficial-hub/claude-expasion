@@ -12,15 +12,15 @@
 
 | No papo | Quem é | O que o acervo confirma |
 |---|---|---|
-| **Antônio** | Dono do hub/encontro de negócios; mentor; "estou pivotando pra conexão" | O acervo registra **Antônio Fogaça** — sócio/conselheiro da Expansion, "tem cadeira, traz indicação", ex-vice-presidente do grupo do Pablo Marçal, ex-cliente (`EXPANSION-360`:13, 21, 95). **Hipótese provável, não confirmada:** nada no acervo descreve o Fogaça como dono de hub |
-| **Consultor ex-W1** (nome não dito) | Ficou 2 anos na W1, saiu, "deu um control C e control V"; procurou o hub para acelerar/sociedade | Sem menção no acervo. Antônio ficou de passar o nome |
-| **Prime** | "Cliente nosso de crédito imobiliário, a número um do país"; deu acesso a empresários grandes | Confirma: "a maior assessoria de crédito imobiliário do país" (`EXPANSION-360`:89; `OPERACAO-REAL`:184), 3 unidades na carteira. Nuance que o papo omite: a relação já teve bandeira vermelha e quase-cancelamento (`AUDITORIA-DRIVE`) |
+| **Antônio** | Dono do hub/encontro de negócios; mentor; está pivotando o hub para conexão | O acervo registra **Antônio Fogaça** — sócio/conselheiro da Expansion, "tem cadeira, traz indicação", vice-presidente do grupo do Pablo Marçal à época em que Nicolas era analista dele, ex-cliente (`EXPANSION-360`:13, 21, 95). **Hipótese provável, não confirmada:** nada no acervo descreve o Fogaça como dono de hub |
+| **Consultor ex-W1** (nome não dito) | Ficou 2 anos na W1, saiu, "deu um control C e control V"; procurou o hub para acelerar/sociedade | Sem menção no acervo. Na gravação, o Antônio respondeu à pergunta do nome com a **W1** (onde o cara trabalhava) — o nome da pessoa nunca foi dito, e não há compromisso registrado de passá-lo |
+| **Prime** | "Cliente nosso de crédito imobiliário, a número um do país"; deu acesso a empresários grandes | Confirma: "a maior assessoria de crédito imobiliário do país" (`EXPANSION-360`:89; `OPERACAO-REAL`:184), 3 unidades na carteira (`OPERACAO-REAL`:47–49). Nuance que o papo omite: a relação já teve bandeira vermelha (`OPERACAO-REAL`:183) e quase-cancelamento (`AUDITORIA-DRIVE`) |
 | **ITC Energia** | "Número um de Minas em energia solar", ligada ao "sócio do meu sócio"; será indicada pro Henrique | No acervo grafada **ITCE Energia**, cliente de fluxo esporádico (`OPERACAO-REAL`:60). O "número um de MG" e o vínculo societário só existem na conversa |
 | **Henrique** | Destinatário da indicação da ITC | **Nenhuma menção no acervo** — pessoa nova, sem referência |
 | **Kauã** (transcrito "Cauã") | Sócio; bolando com Nicolas a cobertura estilo TV; será apresentado ao Antônio | Kauã Catini, cofundador, ex-filmaker do Darlan (`EXPANSION-360`:12–13) |
 | **Sócio do mercado de luxo** (nome não dito) | Relógios são o dele; intermedia barco, aeronave, carro; tem plataforma; "vem dessa frustração" | Tudo indica ser o **Cleber (WebLuxury)**: relógios como praça dele, marca de 27 anos, plataforma, NewCo em estruturação com o Nicolas (`PLATAFORMA-WEBLUXURY-2026-07-13`:2, 137) |
-| **Bruno Avelar** (transcrito também "Bruno delarca") | Networker do luxo, conexão "surreal", entrada cara | Sem menção no acervo. Não confundir com Bruno Batista, cliente cancelado em 21/05 (`OPERACAO-REAL`:63) |
-| **Darlan** | Ecossistema onde o sócio do luxo investiu R$ 300 mil; "eu não entrego nada, eu conecto o pessoal" | O acervo o conhece por outro ângulo: era o chefe do Kauã antes da Expansion (`EXPANSION-360`:13). O investimento do sócio e as ~30 vendas são informação nova desta conversa |
+| **Bruno Avelar** (transcrito também "Bruno delarca") | Networker do luxo, conexão "surreal"; custo de entrada citado, valor indeterminado | Sem menção no acervo. Não confundir com Bruno Batista, cliente cancelado em 21/05 (`OPERACAO-REAL`:63) |
+| **Darlan** | Ecossistema onde o sócio do luxo investiu ~R$ 300 mil (leitura provável da gravação); "eu não entrego nada, eu conecto o pessoal" | O acervo o conhece por outro ângulo: era o chefe do Kauã antes da Expansion (`EXPANSION-360`:13). O investimento do sócio e as ~30 vendas são informação nova desta conversa |
 
 ---
 
@@ -39,7 +39,7 @@ O consultor procurou o hub para acelerar e avaliar sociedade — mas "arrancou d
 
 ### O que a W1 é de verdade (pesquisa 12/08/2026)
 
-A referência existe e é grande: **W1 Consultoria** (w1.com.br), fundada em **2010** em São Paulo sobre um modelo europeu, se vende como "número 1 em planejamento financeiro do Brasil". Números públicos (com a ressalva de que parte das matérias é *brand story* paga pela própria W1): **~50 mil clientes ativos, ~800 consultores, ~R$ 2 bi sob custódia, receita de ~R$ 100 mi em 2024 (+130%), R$ 700 mi em consórcios vendidos em 2024**. CEO: Gabriel Mangueira.
+A referência existe e é grande: **W1 Consultoria** (w1.com.br), fundada em **2010** em São Paulo sobre um modelo europeu, se vende como "número 1 em planejamento financeiro do Brasil". Números públicos (com a ressalva de que parte das matérias é *brand story* paga pela própria W1): **~50 mil clientes ativos, ~800 consultores (fontes mais antigas citam 400+), ~R$ 2 bi sob custódia, receita de ~R$ 100 mi em 2024 (+130%), R$ 700 mi em consórcios vendidos em 2024**. CEO: Gabriel Mangueira.
 
 Como o modelo ganha dinheiro — e por que ele é "copiável":
 
@@ -78,8 +78,8 @@ O anti-modelo citado é o próprio Darlan, na fala que o Antônio ouviu no camar
 ## 4. ENCONTRO DE NEGÓCIOS
 
 - **Formato:** mantém o atual — "o último foi bem bacana" (decisão do Antônio; ele ainda não tinha pensado na pauta).
-- **A novidade do Nicolas:** cobertura estilo **programa de TV** — microfone, entrevistas — estratégia sendo bolada com o **Kauã**, que será apresentado ao Antônio.
-- **A diretriz do Antônio (o que "vira o jogo"):** **prova social capturada no ato** — não depoimento forçado, mas o vídeo no momento em que o negócio real acontece no evento: *"que que vocês fizeram agora?" "Acabamos de fechar um negócio, marcaram reunião..."*. Para o negócio dele (proximidade + social), é essa a métrica de conteúdo que importa.
+- **A novidade do Nicolas:** cobertura estilo **programa de TV** — microfone, entrevistas — estratégia sendo bolada com o **Kauã**, para apresentar ao Antônio (a estratégia e/ou o próprio Kauã — a frase corta no áudio).
+- **A diretriz do Antônio (o que "vira o jogo"):** **prova social capturada no ato** — não depoimento forçado, mas o vídeo no momento em que o negócio real acontece no evento: *"que que vocês fizeram agora?" "Acabamos de fechar um negócio"* — e os encaminhamentos junto ("marcaram a reunião, marcaram isso, marcaram aquilo"). Para o negócio dele (proximidade + social), é essa a métrica de conteúdo que importa.
 
 As duas ideias são complementares e viram um roteiro só: a estrutura de TV do Nicolas é o **meio de produção**; o flagrante de negócio fechado é a **pauta**. É produção de evento — exatamente o serviço de origem da Expansion (`EXPANSION-360`:19, 22).
 
@@ -89,9 +89,9 @@ As duas ideias são complementares e viram um roteiro só: a estrutura de TV do 
 
 Nicolas quer conectar o sócio do luxo (tudo indica: **Cleber/WebLuxury**) ao hub — "ele vem dessa frustração". O mapa que o Antônio devolveu:
 
-- **Para foco em luxo, a referência é o Bruno Avelar** — "a conexão do cara é surreal", ele "realmente conecta". Mas tem dois lados: exigências de tribo (relógio no braço, viagens) e **custo de entrada dito como "uma milha e meia" — valor indeterminado na transcrição: R$ 1,5 mil (gíria) ou R$ 1,5 milhão**. Antes de qualquer conversa, a primeira pergunta é essa cifra.
-- **O precedente Darlan (informação nova, não estava no acervo):** o sócio investiu **R$ 300 mil** no ecossistema do Darlan. **ROI financeiro houve** — "umas trinta vendas" de relógio — mas a experiência azedou por **atitude do time e do próprio Darlan**. Ou seja: a frustração não foi com o formato "ecossistema pago", foi com a postura de entrega. Isso calibra a próxima compra: o filtro não é só "quantos negócios saem", é **como o dono do ecossistema trata quem paga**.
-- **A tese do Antônio para o luxo:** *"esse trem de luxo tem que estar em tudo, tem que aparecer em tudo"* — presença gera desejo por convivência (o exemplo do mineiro que veio de avião, comprou uma cota e, rodando num salão cheio de relógio, "acha que compra"). Sobre ROI dentro do hub: honesto — o mentorado que fatura R$ 30 mi+ é cliente potencial; o que fatura "cem contos" nunca vai pagar; **"o importante é estar no meio"**. Ele ficou de **avisar quando houver evento "padrãozinho top" para levar o Cleber**.
+- **Para foco em luxo, a referência é o Bruno Avelar** — "a conexão do cara é surreal", ele "realmente conecta". Mas tem dois lados: um lado negativo pouco inteligível na gravação — aparentemente ligado a compra de relógio e viagens com o grupo (leitura incerta) — e **custo de entrada dito como "uma milha e meia" — valor indeterminado na transcrição: R$ 1,5 mil (gíria) ou R$ 1,5 milhão**. Antes de qualquer conversa, a primeira pergunta é essa cifra.
+- **O precedente Darlan (informação nova, não estava no acervo):** o sócio investiu **R$ 300 mil** (leitura provável da gravação) no ecossistema do Darlan. **ROI financeiro houve** — "umas trinta vendas" de relógio — mas a experiência azedou por **atitude do time e do próprio Darlan**. Ou seja: a frustração não foi com o formato "ecossistema pago", foi com a postura de entrega. Isso calibra a próxima compra: o filtro não é só "quantos negócios saem", é **como o dono do ecossistema trata quem paga**.
+- **A tese do Antônio para o luxo:** *"esse trem de luxo tem que estar em tudo, tem que aparecer em tudo"* — presença gera desejo por convivência (o exemplo do mineiro que veio de avião, comprou "uma cotinha" — leitura provável do bruto "gotinha" — e, rodando num salão cheio de relógio, conclui: "opa, tem que comprar, eu acho que eu compro esse negócio"). Sobre ROI dentro do hub: honesto — o mentorado que fatura R$ 30 mi+ é cliente potencial; o que fatura "cem contos" nunca vai pagar; **"o importante é estar no meio"**. Ele ficou de **avisar quando houver evento "padrãozinho top" para levar o Cleber**.
 - **"Ele pode botar na plataforma — barco, aeronave, carro":** cuidado. A deliberação da WebLuxury já fechou essa porta no ano 1: rede fechada, **relógio como categoria-motor, náutica/aviação como vitrine e lead-gen, "nunca promessa de transação"** (`PLATAFORMA-WEBLUXURY-2026-07-13`, resumo executivo). A fala solta do papo não revoga o parecer — se a ideia voltar, volta pela mesa.
 
 ---
@@ -101,10 +101,10 @@ Nicolas quer conectar o sócio do luxo (tudo indica: **Cleber/WebLuxury**) ao hu
 | # | Ação | Responsável | Prazo / gatilho |
 |---|---|---|---|
 | 1 | Marcar papo presencial no escritório do Antônio | Nicolas marca | **Depois do dia 21** (Antônio enrolado até o dia 20) |
-| 2 | Pegar com o Antônio o **nome do consultor ex-W1** (ele ficou de olhar) | Nicolas cobra | Antes do papo presencial |
+| 2 | Pedir ao Antônio o **nome do consultor ex-W1** (não foi dito no papo — ele respondeu com o nome da W1) | Nicolas | Antes do papo presencial |
 | 3 | Estudar o modelo W1 ("entra lá, vê como faz pra ser consultor") | Nicolas | Feito o primeiro passo: seção 2 deste documento |
 | 4 | Bolar com o Kauã a cobertura estilo TV + **roteiro de prova social no ato** (diretriz do Antônio) | Nicolas + Kauã | Próximo encontro de negócios |
-| 5 | Apresentar o Kauã ao Antônio | Nicolas | Próxima visita / encontro |
+| 5 | Apresentar ao Antônio a estratégia da cobertura (e/ou o Kauã — fala cortada no áudio) | Nicolas | Próxima visita / encontro |
 | 6 | Indicar a ITC Energia pro Henrique | Nicolas | Sem prazo dito |
 | 7 | Conectar o Cleber ao hub — começando por evento "padrãozinho top" | Antônio avisa; Nicolas leva | Quando surgir o evento |
 | 8 | Levantar o **custo real de entrada no network do Avelar** antes de apresentar ao Cleber | Nicolas (via Antônio) | Antes de qualquer compromisso |
@@ -113,7 +113,7 @@ Nicolas quer conectar o sócio do luxo (tudo indica: **Cleber/WebLuxury**) ao hu
 
 ## 7. PONTOS DE ATENÇÃO (o freio de mão)
 
-1. **"É uma história que você tem que contar" — não engolir esse conselho como veio.** O Antônio sugeriu contornar a objeção de ser novo dizendo que "já teve empresa". O acervo mostra que **Nicolas não precisa inventar nada**: a história real — quebrou no digital aos 18–19, por arrogância — já está roteirizada como item oficial da narrativa (`POSICIONAMENTO-CONTEUDO-NICOLAS-2026-07-17`:95) e é *mais* forte do que uma história fabricada. Inventar histórico colide de frente com o posicionamento aprovado ("sem papo de guru, realista") e, num jogo cuja moeda é confiança (seção 3), é o risco reputacional mais barato de evitar.
+1. **"É uma história que você tem que contar" — não engolir esse conselho como veio.** O Antônio sugeriu contornar a objeção de ser novo respondendo que já teve empresa ("cara, você já teve empresário? Já tive, já tive não sei o quê"). O acervo mostra que **Nicolas não precisa inventar nada**: a história real — quebrou no digital aos 18–19, por arrogância — já está roteirizada como item oficial da narrativa (`POSICIONAMENTO-CONTEUDO-NICOLAS-2026-07-17`:95) e é *mais* forte do que uma história fabricada. Inventar histórico colide de frente com o posicionamento aprovado ("sem papo de guru, realista") e, num jogo cuja moeda é confiança (seção 3), é o risco reputacional mais barato de evitar.
 2. **"Control C, control V" tem limite jurídico e estratégico.** Copiar a *estrutura* de um modelo público (fee + esteira + pilares) é benchmarking; copiar *material, marca ou método nomeado* de terceiro é passivo de PI e concorrência desleal. E o posicionamento do Nicolas ataca justamente o mercado de fórmula pronta (`POSICIONAMENTO`, regras 10 e 14) — se a Expansion entrar nessa linha, precisa ser com **método próprio documentado**, não com xerox.
 3. **Caixa não comporta empolgação.** O próprio Nicolas abriu o papo dizendo que o investimento atual "fica meio em cima". O acervo confirma: sócios ainda MEI com teto estourado (`EXPANSION-360`:111), serviço vendido abaixo do preço (`CONSELHO-EXPANSION`:77) e a WebLuxury pedindo R$ 175–405 mil no trimestre com capital ainda não declarado (`PARECER-RODADA4`). **Planejamento financeiro PJ/PF seria a terceira frente simultânea** (agência + WebLuxury + isso). O modelo-referência do papo é o retrato do risco: o consultor ex-W1 "arrancou demais, emocionou, veio com um monte de investimento" — na voz do próprio Antônio, isso foi dito como defeito, não como elogio.
 4. **Ecossistema pago se compra com número, não com clima.** Precedente Darlan: R$ 300 mil para ~30 vendas com atrito. Entrada no Avelar: valor indeterminado (R$ 1,5 mil ou R$ 1,5 milhão — três ordens de grandeza de diferença). Regra prática: **nenhuma conversa avança sem a cifra por escrito e sem definir o que é sucesso em 6 meses**.

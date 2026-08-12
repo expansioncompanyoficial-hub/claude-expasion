@@ -33,6 +33,9 @@
 | mais inchuçar | mais enche o saco | média |
 | tem pra o cara parar de faturar | na hora que o cara para de faturar | média |
 | Eu estava com o camarim com o Dardan | Eu estava no camarim com o Darlan | alta |
+| está devendo três meses eu mais reclamo | está devendo três meses, é o que mais reclama | média |
+| só a cara ali | só que cara, ali | média |
+| já comprou o relógio do Brasil | já comprou o relógio no Brasil | média |
 
 ---
 
@@ -170,7 +173,7 @@
 
 **NICOLAS:** Uhum.
 
-**ANTÔNIO:** Mas o lado, o lado negativo é que às vezes as pessoas estão com ele, já comprou o relógio no Brasil, [ininteligível: "que viagem pros Estados Unidos servem o relógio no no no no braço, ouve, sei lá, ou não né"]. Mas assim, nada nada nada — pra entrar lá dentro, uma milha e meia [valor indeterminado: R$ 1,5 mil na gíria ("milha" = mil) ou R$ 1,5 milhão — ver análise], né, uma milha, uma milha e meia. Então, ele está preparado pra pra pra dar esse espaço, né? E semana passada a gente fez a mesa aqui, um cara veio de avião, entendeu? Lá de Minas. Ele comprou uma cotinha [bruto: "gotinha"] e tal, então assim, é um cara que tem grana.
+**ANTÔNIO:** Mas o lado, o lado negativo é que às vezes as pessoas estão com ele, já comprou o relógio no Brasil [bruto: "do Brasil"], [ininteligível: "que viagem pros Estados Unidos servem o relógio no no no no braço, ouve, sei lá, ou não né"]. Mas assim, nada nada nada — pra entrar lá dentro, uma milha e meia [valor indeterminado: R$ 1,5 mil na gíria ("milha" = mil) ou R$ 1,5 milhão — ver análise], né, uma milha, uma milha e meia. Então, ele está preparado pra pra pra dar esse espaço, né? E semana passada a gente fez a mesa aqui, um cara veio de avião, entendeu? Lá de Minas. Ele comprou uma cotinha [bruto: "gotinha"] e tal, então assim, é um cara que tem grana.
 
 **NICOLAS:** Uhum.
 
@@ -186,7 +189,7 @@
 
 **NICOLAS:** Antônio, dentro do seu negócio, vai fazer o ROI?
 
-**ANTÔNIO:** [ininteligível: "Acho que você engravidou de novos negócios cara"], eu tenho, como eu te falei, eu tenho o mentorado que fatura mais de trinta milhão, que é o cliente dele, mas tem que o mentorado que fatura cem contos [bruto: "sem conta"]. O de cem contos não vai pagar nunca, né? Mas os outros poderiam pagar alguma coisa. Então, eu acho que o importante é estar no meio, entendeu?
+**ANTÔNIO:** [ininteligível: "Acho que você engravidou de novos negócios cara"], eu tenho, como eu te falei, eu tenho o mentorado que fatura mais de trinta milhão, que é o cliente dele, mas tem que o mentorado que fatura cem contos [bruto: "sem conta"]. O de cem contos não vai pagar nunca, né? Mas os outros, poderiam pagar alguma coisa? Então, eu acho que o importante é estar no meio, entendeu?
 
 **NICOLAS:** Tá.
 
@@ -194,7 +197,7 @@
 
 **NICOLAS:** Tá.
 
-**ANTÔNIO:** E pra ele ver como é que é. Mas, quer fechar negócio grande, igual ele está querendo aí, só que cara, ali eu não vejo nem um Darlan também, tá? Eu vejo é o, é o Bruno Avelar, cara [bruto: "Bruno delarca"].
+**ANTÔNIO:** E pra ele ver como é que é. Mas, quer fechar negócio grande, igual ele está querendo aí, só que cara, ali [bruto: "só a cara ali"] eu não vejo nem um Darlan também, tá? Eu vejo é o, é o Bruno Avelar, cara [bruto: "Bruno delarca"].
 
 **NICOLAS:** Uhum.
 
@@ -232,7 +235,7 @@
 
 **[NICOLAS?]:** Quem reclama?
 
-**ANTÔNIO:** [ininteligível: "Reclamo, tem gente que não reclama, lógico que é reclamo"]. Né, vamos dar um exemplo: os cara que não paga é os que mais reclamam. O cara entra lá, paga uma parcela lá, está devendo três meses, é o que mais reclama, mais enche o saco [bruto: "mais inchuçar"].
+**ANTÔNIO:** [ininteligível: "Reclamo, tem gente que não reclama, lógico que é reclamo"]. Né, vamos dar um exemplo: os cara que não paga é os que mais reclamam. O cara entra lá, paga uma parcela lá, está devendo três meses, é o que mais reclama [bruto: "eu mais reclamo"], mais enche o saco [bruto: "mais inchuçar"].
 
 **NICOLAS:** É, sim, mesmo.
 
