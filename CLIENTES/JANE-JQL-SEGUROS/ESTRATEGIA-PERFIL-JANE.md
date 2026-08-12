@@ -62,26 +62,29 @@ Jane | Plano Saúde Empresarial
 `Jane Queiroz | Plano de Saúde` (29/30) — perde "empresarial", que é o
 qualificador que o ICP digita. Recomendação: a primeira.*
 
-**Bio** — reestruturada no **Método 3L**
-([playbook, Etapa 03](../../PLAYBOOK-SOCIAL-MIDIA-v2.md)): três linhas, cada uma com
-uma função, nesta ordem — o que faz · autoridade · CTA. A versão anterior tinha 4
-linhas, 165 caracteres (limite: 150) e **nenhuma linha de CTA**.
+**Bio** — estruturada nas funções do **Método 3L**
+([playbook, Etapa 03](../../PLAYBOOK-SOCIAL-MIDIA-v2.md)) — o que faz · autoridade ·
+CTA, nesta ordem — mais a linha de praça, reintroduzida em 12/08 por decisão de
+completude: a bio inteira se lê num bater de olho, com um marcador por linha. A
+versão de julho tinha 165 caracteres (limite: 150) e **nenhuma linha de CTA**.
 
 ```
-Plano de saúde empresarial, sem susto no reajuste
-Desde 2012, +5.000 vidas protegidas
-Cote o plano da sua empresa no WhatsApp ↓
+🏥 Plano de saúde empresarial, sem susto no reajuste
+⭐ Desde 2012, +5.000 vidas protegidas
+📍 SP · RJ · BH
+👇 Cote o plano da sua empresa no WhatsApp
 ```
-*127/150 caracteres, contando as quebras. Ajustada em 12/08: "Corretora" saiu da
-linha 2 — o `@` já diz "seguros" e a categoria do perfil profissional exibe
-"Corretora de seguros"; a linha abre pelo tempo de mercado, que é o degrau mais
-alto da hierarquia disponível, e o volume vem como prova.*
+*146 caracteres em contagem simples, **149/150 se o Instagram contar emoji em
+dobro** — cabe, mas sem folga nenhuma: qualquer acréscimo estoura. "Corretora"
+segue fora da linha de autoridade: o `@` já diz "seguros" e a categoria do perfil
+profissional exibe "Corretora de seguros" logo abaixo do Nome.*
 
-| Linha | Função no 3L | Por quê |
+| Linha | Função | Por quê |
 |---|---|---|
-| 1 | **O que faz + para quem** | *"Sem susto no reajuste"* é fala dela do onboarding (*"você não precisa tomar susto no seu boleto"*) — e é o filtro da régua da §1: num produto tabelado, só quem tem o pós-venda dela sustenta essa promessa |
-| 2 | **Autoridade** | Tempo de mercado + volume, nesta ordem, sem rótulo redundante com o `@` |
-| 3 | **CTA único** | Uma ação (cotar), um destino (o link ↓). *"O plano da sua empresa"* fala com dono e RH sem gastar a linha 1 com qualificação. O *"no WhatsApp ↓"* fica: CTA sem destino não converte — a seta aponta para o botão de link logo abaixo |
+| 🏥 | **O que faz + para quem** | *"Sem susto no reajuste"* é fala dela do onboarding (*"você não precisa tomar susto no seu boleto"*) — e é o filtro da régua da §1: num produto tabelado, só quem tem o pós-venda dela sustenta essa promessa |
+| ⭐ | **Autoridade** | Tempo de mercado primeiro, volume como prova |
+| 📍 | **Praça** (fora do 3L, decisão 12/08) | Plano de saúde é regional — rede credenciada muda por praça. Dizer onde atende qualifica o lead antes do clique |
+| 👇 | **CTA único** | Uma ação (cotar), um destino (o link logo abaixo — o 👇 aponta para ele). *"O plano da sua empresa"* fala com dono e RH sem gastar a linha 1 com qualificação |
 
 > ⚠️ **É "sem susto", nunca "sem custo".** Numa revisão de 12/08 a linha 1 quase foi
 > ao ar como *"sem custo no reajuste"* — promessa que não existe (reajuste sempre tem
@@ -103,9 +106,9 @@ Fale comigo no WhatsApp ↓
   do destaque **Casos reais** e o **post fixado** de apresentação. Na bio era promessa
   que qualquer um assina; em destaque com caso real, só ela assina. A linha 1 ("sem
   susto no reajuste") continua sendo o gancho dele na bio.
-- *"📍 SP · RJ · BH"* → vai para a **mensagem pré-preenchida do WhatsApp** (o lead
-  já chega dizendo a cidade — vira triagem em vez de gastar caractere) e para o
-  destaque **Quem sou**.
+- *"📍 SP · RJ · BH"* → **voltou para a bio** em 12/08 (linha 3). A **mensagem
+  pré-preenchida do WhatsApp** segue pedindo a cidade, porque a triagem do lead
+  acontece na conversa, não na leitura.
 
 **Link:** WhatsApp com mensagem pré-preenchida por origem
 (`?text=Vim pelo Instagram e quero cotar o plano da minha empresa em [cidade]`).
