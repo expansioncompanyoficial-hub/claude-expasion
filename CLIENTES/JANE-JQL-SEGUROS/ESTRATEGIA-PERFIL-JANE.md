@@ -51,32 +51,57 @@ Cinco checagens antes de subir:
 **Handle:** `@janequeirozseguros`
 *Sai o "JQL" — sigla não decodificável por quem não é cliente. Confirmar disponibilidade.*
 
-**Nome** (campo buscável do Instagram — é aqui que mora o SEO):
+**Nome** (campo buscável do Instagram — é aqui que mora o SEO). O campo tem
+**30 caracteres** (Etapa 02 do playbook), e a versão anterior tinha 41 — o Instagram
+cortaria. Como o `@` já carrega "queiroz" e "seguros", o sobrenome sai e a
+palavra-chave inteira fica:
 ```
-Jane Queiroz | Plano de Saúde Empresarial
+Jane | Plano Saúde Empresarial
 ```
+*30/30 caracteres. Alternativa, se ela fizer questão do sobrenome no Nome:
+`Jane Queiroz | Plano de Saúde` (29/30) — perde "empresarial", que é o
+qualificador que o ICP digita. Recomendação: a primeira.*
 
-**Bio** — proposta:
+**Bio** — reestruturada no **Método 3L**
+([playbook, Etapa 03](../../PLAYBOOK-SOCIAL-MIDIA-v2.md)): três linhas, cada uma com
+uma função, nesta ordem — o que faz · autoridade · CTA. A versão anterior tinha 4
+linhas, 165 caracteres (limite: 150) e **nenhuma linha de CTA**.
+
 ```
-Plano de saúde empresarial, sem susto no reajuste.
+Plano de saúde empresarial, sem susto no reajuste
 Corretora desde 2012 · +5.000 vidas protegidas
-Cuido da apólice depois da assinatura, não só antes.
-📍 SP · RJ · BH
+Cote o plano da sua empresa no WhatsApp ↓
 ```
+*138/150 caracteres, contando as quebras.*
 
-> *"Sem susto no reajuste"* é fala dela, do onboarding: *"você não precisa tomar susto
-> no seu boleto"*. E a terceira linha é o diferencial inteiro em oito palavras.
+| Linha | Função no 3L | Por quê |
+|---|---|---|
+| 1 | **O que faz + para quem** | *"Sem susto no reajuste"* é fala dela do onboarding (*"você não precisa tomar susto no seu boleto"*) — e é o filtro da régua da §1: num produto tabelado, só quem tem o pós-venda dela sustenta essa promessa |
+| 2 | **Autoridade** | O melhor conjunto verdadeiro disponível: tempo de mercado + volume. Linha que a cliente já viu no material |
+| 3 | **CTA único** | Uma ação (cotar), um destino (o link ↓). *"O plano da sua empresa"* fala com dono e RH sem gastar a linha 1 com qualificação |
 
-**Alternativa mais direta ao ICP**, se a preferência for qualificar antes de conectar:
+**Alternativa mais direta ao ICP**, se a preferência for qualificar antes de conectar
+(117/150):
 ```
 Plano de saúde empresarial · 30 a 99 vidas
-Corretora desde 2012 · SUSEP plena · +5.000 vidas
-O que a operadora nega, a gente resolve.
++5.000 vidas protegidas desde 2012 · SUSEP plena
+Fale comigo no WhatsApp ↓
 ```
 
+**Para onde foi o que saiu da bio** (nada se perde, muda de casa):
+
+- *"Cuido da apólice depois da assinatura, não só antes"* → vira a capa e a descrição
+  do destaque **Casos reais** e o **post fixado** de apresentação. Na bio era promessa
+  que qualquer um assina; em destaque com caso real, só ela assina. A linha 1 ("sem
+  susto no reajuste") continua sendo o gancho dele na bio.
+- *"📍 SP · RJ · BH"* → vai para a **mensagem pré-preenchida do WhatsApp** (o lead
+  já chega dizendo a cidade — vira triagem em vez de gastar caractere) e para o
+  destaque **Quem sou**.
+
 **Link:** WhatsApp com mensagem pré-preenchida por origem
-(`?text=Vim pelo Instagram e queria entender sobre...`). Sem isso, não há como medir
-a escada de KPI da §8.
+(`?text=Vim pelo Instagram e quero cotar o plano da minha empresa em [cidade]`).
+Sem isso, não há como medir a escada de KPI da §8 — e a cidade na mensagem faz a
+triagem de praça (SP · RJ · BH) que saiu da bio.
 
 **Foto:** ela gosta de estar arrumada e maquiada — é parte da identidade declarada, não
 vaidade. Usar foto da diária, fundo limpo, enquadramento de rosto.
