@@ -35,7 +35,7 @@ EXPANSION-CONTENT-SYSTEM/
 ## Pendências que travam o avanço (resumo — detalhe no Decision Log)
 
 1. ~~DEC-PEND-01~~ — **resolvida** (DEC-005): o projeto posiciona a marca institucional Expansion; marca pessoal desvinculada, para depois.
-2. **DEC-PEND-02** — radicalidade do nicho (os 4 clientes fora de moda).
+2. ~~DEC-PEND-02~~ — **resolvida** (DEC-006): posicionamento 100% moda; clientes fora do nicho não entram na marca pública.
 3. **DEC-PEND-03** — identidade visual (o laranja da casa × laranja/preto da Cerberus).
 4. ~~DEC-PEND-04~~ — **resolvida** (DEC-003): modelagem fechada em Cerberus e Alpha, sem Benchmark 02.
 5. **DEC-PEND-05** — oferta do território "atendimento" (VENDEMOS × OVERDELIVERY).

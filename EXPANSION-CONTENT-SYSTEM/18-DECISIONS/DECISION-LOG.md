@@ -23,6 +23,14 @@
 - **Responsável:** Nicolas.
 - **Status:** Ativa.
 
+### DEC-006 · Posicionamento 100% no nicho moda — clientes fora do nicho não entram na marca pública
+- **Data:** 13/08/2026
+- **Decisão:** O posicionamento da Expansion é construído integralmente para o nicho de moda/vestuário feminino. Os clientes fora do nicho (Prime, Fórum TEIA, Albanos ×2, Dr. Fred e demais) **não entram** na comunicação pública — nem como prova social, nem como estudo de caso, nem na arquitetura do perfil.
+- **Contexto:** Definido pelo Nicolas em 13/08: *"pode seguir com o posicionamento sem envolver os outros clientes fora do nicho"*.
+- **Consequências:** (1) **fecha DEC-PEND-02** para efeitos de marca: os clientes legados são caixa de transição, atendidos normalmente, mas invisíveis no posicionamento público; (2) a especialização radical (princípio nº 1 do playbook modelado) pode ser aplicada sem diluição — todo o perfil fala a língua da lojista de moda; (3) o banco de provas públicas nasce de Ciés Brand e Clau Kids (e futuros clientes do nicho), o que **aumenta a urgência da prova auditável**: são hoje 2 contas para sustentar toda a prova social da marca; (4) a gestão comercial da carteira legada segue como assunto interno, fora deste projeto.
+- **Responsável:** Nicolas.
+- **Status:** Ativa.
+
 ### DEC-005 · O posicionamento é da marca institucional Expansion — marca pessoal desvinculada
 - **Data:** 13/08/2026
 - **Decisão:** Este projeto posiciona a **Expansion Company como marca institucional**. O posicionamento não se vincula à marca pessoal do Nicolas.
@@ -54,11 +62,8 @@
 ### ~~DEC-PEND-01 · Qual marca este projeto posiciona~~ → RESOLVIDA
 - **Resolução:** 13/08/2026, pelo Nicolas — ver **DEC-005**. O projeto posiciona a marca institucional Expansion; a marca pessoal fica desvinculada e para depois. Das alternativas mapeadas, prevaleceu a (c) sequenciar, com elemento da (a): perfis com papéis separados.
 
-### DEC-PEND-02 · Radicalidade do nicho — os 4 clientes fora de moda
-- **O conflito:** dos 6 clientes ativos, 4 (Prime, Fórum TEIA, Albanos ×2) estão fora do nicho moda. O próprio `360` §14 registra a decisão em aberto: caixa que financia a transição ou âncora que impede o nicho?
-- **Por que trava:** define se o perfil público pode ser 100% "língua de lojista de moda" (princípio da especialização radical) ou precisa acomodar prova social de outros nichos.
-- **Decisor:** Nicolas + Kauã.
-- **Status:** ⏳ Aberta — **bloqueia FASE 05 e a arquitetura do feed (§18).**
+### ~~DEC-PEND-02 · Radicalidade do nicho — os 4 clientes fora de moda~~ → RESOLVIDA
+- **Resolução:** 13/08/2026, pelo Nicolas — ver **DEC-006**. Posicionamento 100% moda; clientes fora do nicho são caixa de transição e não aparecem na marca pública.
 
 ### DEC-PEND-03 · Identidade visual — o problema do laranja
 - **O conflito:** a paleta da casa codificada na skill `roteiro-expansion` é laranja (#E67E22). O concorrente direto (Cerberus) tem identidade **laranja/preto saturada** como ativo central de marca no mesmo nicho — e o relatório aponta essa estética agressiva como *fraqueza* dela junto ao público feminino (Gap 01).
