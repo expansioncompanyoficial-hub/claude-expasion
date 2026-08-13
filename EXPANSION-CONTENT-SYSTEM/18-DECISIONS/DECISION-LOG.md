@@ -23,6 +23,14 @@
 - **Responsável:** Nicolas.
 - **Status:** Ativa.
 
+### DEC-004 · WebLuxury fora do escopo deste projeto
+- **Data:** 13/08/2026
+- **Decisão:** O cluster WebLuxury não entra no sistema de posicionamento e conteúdo da Expansion. Nada dos documentos `PLATAFORMA-WEBLUXURY-*` precisa ser considerado neste projeto.
+- **Contexto:** Definido pelo Nicolas em 13/08: *"não precisa ver nada da WebLuxury"*.
+- **Consequências:** (1) DEC-PEND-01 se reduz de três vetores para **dois**: marca institucional Expansion/moda × marca pessoal do Nicolas; (2) as travas contratuais do cluster WebLuxury deixam de ser restrições deste projeto; (3) o insight de mercado "o mercado tem quem poste e não tem quem grave" (H3-bis do Diagnostic), que nasceu naquele cluster, só permanece se se sustentar por mérito próprio como hipótese sobre o nicho moda — a validar na FASE 05, sem dependência da WebLuxury.
+- **Responsável:** Nicolas.
+- **Status:** Ativa.
+
 ### DEC-002 · Estrutura mínima de arquivos
 - **Data:** 13/08/2026
 - **Decisão:** Criar apenas as pastas com conteúdo real nesta fase (`01-RESEARCH`, `02-COMPETITIVE-INTELLIGENCE`, `18-DECISIONS` + diagnóstico na raiz), seguindo a numeração do briefing §29. As demais pastas nascem quando a fase correspondente produzir conteúdo.
@@ -34,11 +42,11 @@
 
 ## DECISÕES PENDENTES (travam fases seguintes)
 
-### DEC-PEND-01 · Qual marca este projeto posiciona — o conflito dos três vetores
-- **O conflito:** existem três direções de marca simultâneas e não conciliadas:
+### DEC-PEND-01 · Qual marca este projeto posiciona — institucional × pessoal
+*(Reduzida de três para dois vetores pela DEC-004: WebLuxury saiu do escopo.)*
+- **O conflito:** existem duas direções de marca simultâneas e não conciliadas:
   1. **Expansion institucional / nicho moda** — "a maior assessoria de marketing para loja de roupa do Brasil" (`EXPANSION-360` §11);
-  2. **Marca pessoal do Nicolas** — "o maior ecossistema empresarial de multiplicação de talentos e gestão do Brasil", com "marketing" **vetado** da promessa e foco comercial em consultoria (`POSICIONAMENTO-CONTEUDO-NICOLAS` §1, §6);
-  3. **Expansion como operadora de conteúdo de luxo B2B** para a rede WebLuxury (cluster `PLATAFORMA-WEBLUXURY-*`), com travas contratuais próprias.
+  2. **Marca pessoal do Nicolas** — "o maior ecossistema empresarial de multiplicação de talentos e gestão do Brasil", com "marketing" **vetado** da promessa e foco comercial em consultoria (`POSICIONAMENTO-CONTEUDO-NICOLAS` §1, §6).
 - **Por que trava:** founder-led content (briefing §13) é impossível de desenhar sem saber qual narrativa o rosto do Nicolas carrega no perfil da Expansion — a pessoal fala de gestão/pessoas e *não pode falar "marketing"*; a institucional vende exatamente marketing para lojistas. Sem resolver, cada conteúdo do founder puxa a marca para um lado.
 - **Alternativas mapeadas:** (a) perfis separados com papéis definidos (Expansion = marca-mãe nichada; Nicolas = autoridade pessoal que empresta credibilidade pontual); (b) fundir narrativas ("o ecossistema" como guarda-chuva); (c) sequenciar (Expansion agora, pessoal depois).
 - **Decisor:** Nicolas.

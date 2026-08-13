@@ -34,7 +34,7 @@ EXPANSION-CONTENT-SYSTEM/
 
 ## Pendências que travam o avanço (resumo — detalhe no Decision Log)
 
-1. **DEC-PEND-01** — qual marca este projeto posiciona: Expansion/moda × marca pessoal do Nicolas × vetor WebLuxury.
+1. **DEC-PEND-01** — qual marca este projeto posiciona: Expansion/moda × marca pessoal do Nicolas (vetor WebLuxury excluído pela DEC-004).
 2. **DEC-PEND-02** — radicalidade do nicho (os 4 clientes fora de moda).
 3. **DEC-PEND-03** — identidade visual (o laranja da casa × laranja/preto da Cerberus).
 4. ~~DEC-PEND-04~~ — **resolvida** (DEC-003): modelagem fechada em Cerberus e Alpha, sem Benchmark 02.
