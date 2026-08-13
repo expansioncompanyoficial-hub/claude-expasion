@@ -623,3 +623,55 @@ admitem limitação para entregar resultados concretos.**
 ### Decisões
 `D-038`, `D-039`, `D-040`. Novas em aberto: `A-047` (a loja pode não ter base
 cadastrada nenhuma) e `A-048` (teto do EX3 sem captação). `A-012` reancorada.
+
+---
+
+## Rodada 11/08/2026 (2) — A folha de estudo
+
+**Entregue:** `31-OS-TRES-PRODUTOS-PARA-ESTUDAR.md` e a versão visual
+(https://claude.ai/code/artifact/6b53bdb8-196e-4332-bae8-38edaa2ae2e9).
+
+Pedido do Nicolas: *"organiza os 3 produtos e entregáveis que vou estudar com o Kauã"*.
+
+**Consolida em uma peça só** o que estava espalhado por cinco documentos: `16` (os
+pacotes), `18` (o manual de entrega), `19` (o playbook comercial), `29` (o catálogo) e
+`30` (a revisão de mercado). Os cinco continuam válidos como memória de cálculo.
+
+### Por que a consolidação era necessária agora
+
+O cardápio tinha **desalinhado entre os documentos** depois da rodada de 11/08:
+
+| Onde | Dizia | Deveria dizer |
+|---|---|---|
+| `16`, `18`, `29` | EX2 = IA de atendimento, R$ 3.500, 20 h | **EX2 · CONTEÚDO, R$ 3.200, 14,25 h** (`D-039`) |
+| `16`, `18` | "os três" = R$ 10.800 · 65 h · 35,8% | **R$ 10.500 · 59,25 h · 37,4%** |
+| `16` | contrato "6 ou 12 meses" | **6 · 6 · 12 por produto** (`D-038`) |
+
+**O 360 novo ficou melhor que o antigo:** menos R$ 300 de preço, menos 6 horas de
+trabalho e **1,6 ponto a mais de lucro**.
+
+### O que a folha traz que não existia em lugar nenhum
+
+1. **Uma anatomia idêntica nos três produtos** — *a dor → para quem → o que entrega →
+   o que NÃO entrega → a conta* — para dar para estudar em paralelo, coluna por coluna.
+2. **A seção "o que NÃO entrega" em todos os três.** Antes ela existia só no `16` e em
+   formato de nota de rodapé. **É ela que protege a margem.**
+3. **O escopo do EX2 · CONTEÚDO destrinchado pela primeira vez** — os 4 entregáveis com
+   memória de horas: roteiros 2h · direção remota 1h · edição 4h · carrosséis 2,5h ·
+   publicação 2,75h · tráfego 2h = **14,25 h**. Status `ESTIMADO`, como todo o resto.
+4. **O argumento da diária do EX3, invertido:** ela não é custo, **é o que autoriza o
+   preço.** Com 55% do mercado brasileiro cobrando até R$ 1.500 e só 8% passando de
+   R$ 4.000, o EX3 a R$ 5.500 está acima do percentil 92 — e é a presença na loja que
+   sustenta essa posição. *Ou tem gravação e vale R$ 5.500, ou não tem e vale R$ 3.200.*
+5. **A folha de cola de 11 linhas**, para o Kauã levar no bolso.
+
+### O que a folha diz que o Kauã ainda não pode dizer
+
+A retratação da Ciés entrou na peça comercial, não só no acervo técnico: **a Expansion
+não tem case próprio do EX1 com número.** A oferta da primeira campanha por conta da
+casa é apresentada pelo que ela é — **o substituto honesto do case que ainda não
+existe**, não generosidade.
+
+### Decisões
+Nenhuma nova. A folha consolida `D-036` a `D-040` e expõe as nove pendências
+(`A-006`, `A-027`, `A-029`, `A-042`, `A-043`, `A-046`, `A-047`, `A-048`, `D-039`).
