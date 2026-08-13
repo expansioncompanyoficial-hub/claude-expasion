@@ -13,7 +13,7 @@ Sistema em construção para responder, ao final: *o que a Expansion representa,
 | 02 · Competitive Intelligence | ✅ 13/08 — escopo fechado em 2 inputs (DEC-003: não haverá Benchmark 02) | `02-COMPETITIVE-INTELLIGENCE/PARECER-INTELIGENCIA-COMPETITIVA-2026-08-13.md` |
 | 03 · Extração de padrões | ✅ 13/08 — aprofundada na modelagem completa | PARECER §2 + DIAGNOSTIC §3 + `02-COMPETITIVE-INTELLIGENCE/MODELAGEM-CERBERUS-ALPHA-2026-08-13.md` |
 | 04 · Whitespace | 🟡 Preliminar | DIAGNOSTIC §5 (hipóteses H1–H6) |
-| 05 · Posicionamento | ⛔ Travada por decisões | Depende de DEC-PEND-01/02 (ver Decision Log) |
+| 05 · Posicionamento | 🟢 Destravada (DEC-005) — em construção | Marca institucional Expansion; alvo: nicho moda decidido no `360` §11 |
 | 06–12 | ⚪ Não iniciadas | — |
 
 **Leitura de entrada: `EXECUTIVE-DIAGNOSTIC-V1-2026-08-13.md`** — síntese de tudo até aqui.
@@ -34,7 +34,7 @@ EXPANSION-CONTENT-SYSTEM/
 
 ## Pendências que travam o avanço (resumo — detalhe no Decision Log)
 
-1. **DEC-PEND-01** — qual marca este projeto posiciona: Expansion/moda × marca pessoal do Nicolas (vetor WebLuxury excluído pela DEC-004).
+1. ~~DEC-PEND-01~~ — **resolvida** (DEC-005): o projeto posiciona a marca institucional Expansion; marca pessoal desvinculada, para depois.
 2. **DEC-PEND-02** — radicalidade do nicho (os 4 clientes fora de moda).
 3. **DEC-PEND-03** — identidade visual (o laranja da casa × laranja/preto da Cerberus).
 4. ~~DEC-PEND-04~~ — **resolvida** (DEC-003): modelagem fechada em Cerberus e Alpha, sem Benchmark 02.

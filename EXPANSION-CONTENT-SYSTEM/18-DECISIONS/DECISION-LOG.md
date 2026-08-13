@@ -23,6 +23,15 @@
 - **Responsável:** Nicolas.
 - **Status:** Ativa.
 
+### DEC-005 · O posicionamento é da marca institucional Expansion — marca pessoal desvinculada
+- **Data:** 13/08/2026
+- **Decisão:** Este projeto posiciona a **Expansion Company como marca institucional**. O posicionamento não se vincula à marca pessoal do Nicolas.
+- **Contexto:** Definido pelo Nicolas em 13/08: *"Vamos formar um posicionamento para a Expansion, não precisa vincular à marca pessoal porque tenho mais um sócio. Depois fazemos isso."*
+- **Motivo:** A empresa tem dois sócios fundadores (Nicolas + Kauã); construir a marca da empresa sobre a persona de um só criaria dependência e desequilíbrio. O projeto de marca pessoal (sessão com Gabriel) segue existindo como trilha separada e futura.
+- **Consequências:** (1) **fecha DEC-PEND-01**; (2) o rosto no conteúdo institucional pode incluir os dois sócios e o time, sem carregar a narrativa do ecossistema pessoal; (3) as **regras de copy** da sessão com Gabriel (gerúndio, autoafirmação, anti-guru, dor com especificidade) continuam transplantáveis como técnica — o que não se transplanta é a promessa narrativa pessoal ("ecossistema de multiplicação de talentos") nem o veto à palavra "marketing", que era específico daquele perfil; (4) founder-led content (briefing §13) será desenhado a serviço da marca Expansion, não o contrário.
+- **Responsável:** Nicolas.
+- **Status:** Ativa.
+
 ### DEC-004 · WebLuxury fora do escopo deste projeto
 - **Data:** 13/08/2026
 - **Decisão:** O cluster WebLuxury não entra no sistema de posicionamento e conteúdo da Expansion. Nada dos documentos `PLATAFORMA-WEBLUXURY-*` precisa ser considerado neste projeto.
@@ -42,15 +51,8 @@
 
 ## DECISÕES PENDENTES (travam fases seguintes)
 
-### DEC-PEND-01 · Qual marca este projeto posiciona — institucional × pessoal
-*(Reduzida de três para dois vetores pela DEC-004: WebLuxury saiu do escopo.)*
-- **O conflito:** existem duas direções de marca simultâneas e não conciliadas:
-  1. **Expansion institucional / nicho moda** — "a maior assessoria de marketing para loja de roupa do Brasil" (`EXPANSION-360` §11);
-  2. **Marca pessoal do Nicolas** — "o maior ecossistema empresarial de multiplicação de talentos e gestão do Brasil", com "marketing" **vetado** da promessa e foco comercial em consultoria (`POSICIONAMENTO-CONTEUDO-NICOLAS` §1, §6).
-- **Por que trava:** founder-led content (briefing §13) é impossível de desenhar sem saber qual narrativa o rosto do Nicolas carrega no perfil da Expansion — a pessoal fala de gestão/pessoas e *não pode falar "marketing"*; a institucional vende exatamente marketing para lojistas. Sem resolver, cada conteúdo do founder puxa a marca para um lado.
-- **Alternativas mapeadas:** (a) perfis separados com papéis definidos (Expansion = marca-mãe nichada; Nicolas = autoridade pessoal que empresta credibilidade pontual); (b) fundir narrativas ("o ecossistema" como guarda-chuva); (c) sequenciar (Expansion agora, pessoal depois).
-- **Decisor:** Nicolas.
-- **Status:** ⏳ Aberta — **bloqueia FASE 05 (Posicionamento) e §13 (Founder-led).**
+### ~~DEC-PEND-01 · Qual marca este projeto posiciona~~ → RESOLVIDA
+- **Resolução:** 13/08/2026, pelo Nicolas — ver **DEC-005**. O projeto posiciona a marca institucional Expansion; a marca pessoal fica desvinculada e para depois. Das alternativas mapeadas, prevaleceu a (c) sequenciar, com elemento da (a): perfis com papéis separados.
 
 ### DEC-PEND-02 · Radicalidade do nicho — os 4 clientes fora de moda
 - **O conflito:** dos 6 clientes ativos, 4 (Prime, Fórum TEIA, Albanos ×2) estão fora do nicho moda. O próprio `360` §14 registra a decisão em aberto: caixa que financia a transição ou âncora que impede o nicho?
