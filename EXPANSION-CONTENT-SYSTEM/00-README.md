@@ -10,8 +10,8 @@ Sistema em construção para responder, ao final: *o que a Expansion representa,
 | Fase | Status | Entregável |
 |---|---|---|
 | 01 · Inventário e leitura | ✅ 13/08 | `01-RESEARCH/INVENTARIO-MATERIAIS-2026-08-13.md` |
-| 02 · Competitive Intelligence | ✅ 13/08 (2 de 3 inputs) | `02-COMPETITIVE-INTELLIGENCE/PARECER-INTELIGENCIA-COMPETITIVA-2026-08-13.md` |
-| 03 · Extração de padrões | ✅ 13/08 | PARECER §2 + DIAGNOSTIC §3 |
+| 02 · Competitive Intelligence | ✅ 13/08 — escopo fechado em 2 inputs (DEC-003: não haverá Benchmark 02) | `02-COMPETITIVE-INTELLIGENCE/PARECER-INTELIGENCIA-COMPETITIVA-2026-08-13.md` |
+| 03 · Extração de padrões | ✅ 13/08 — aprofundada na modelagem completa | PARECER §2 + DIAGNOSTIC §3 + `02-COMPETITIVE-INTELLIGENCE/MODELAGEM-CERBERUS-ALPHA-2026-08-13.md` |
 | 04 · Whitespace | 🟡 Preliminar | DIAGNOSTIC §5 (hipóteses H1–H6) |
 | 05 · Posicionamento | ⛔ Travada por decisões | Depende de DEC-PEND-01/02 (ver Decision Log) |
 | 06–12 | ⚪ Não iniciadas | — |
@@ -37,7 +37,7 @@ EXPANSION-CONTENT-SYSTEM/
 1. **DEC-PEND-01** — qual marca este projeto posiciona: Expansion/moda × marca pessoal do Nicolas × vetor WebLuxury.
 2. **DEC-PEND-02** — radicalidade do nicho (os 4 clientes fora de moda).
 3. **DEC-PEND-03** — identidade visual (o laranja da casa × laranja/preto da Cerberus).
-4. **DEC-PEND-04** — INPUT C (Benchmark 02) + confirmação da classificação dos inputs.
+4. ~~DEC-PEND-04~~ — **resolvida** (DEC-003): modelagem fechada em Cerberus e Alpha, sem Benchmark 02.
 5. **DEC-PEND-05** — oferta do território "atendimento" (VENDEMOS × OVERDELIVERY).
 
 **Lacuna nº 1 de informação:** auditoria do Instagram atual da própria Expansion — não existe em nenhum documento.

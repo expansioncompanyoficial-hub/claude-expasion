@@ -15,6 +15,14 @@
 - **Responsável:** Claude (provisório) — **confirmação do Nicolas pendente em DEC-PEND-04.**
 - **Status:** Ativa, revisável.
 
+### DEC-003 · Modelar somente Cerberus e Alpha — não haverá INPUT C
+- **Data:** 13/08/2026
+- **Decisão:** O escopo de modelagem fica fechado nos dois relatórios recebidos (Cerberus e Alpha). Não haverá Benchmark 02.
+- **Contexto:** O briefing original previa 3 inputs; o Nicolas definiu em 13/08: *"vamos modelar somente esses dois, a Cerberus e a Alpha"*.
+- **Consequências:** (1) fecha DEC-PEND-04; (2) a coluna "Benchmark 02" da matriz comparativa deixa de existir — o PARECER de 13/08 permanece como está por ser documento datado (convenção do repo: sem edição destrutiva), e a `MODELAGEM-CERBERUS-ALPHA-2026-08-13.md` passa a ser a referência vigente; (3) a distinção INPUT A × INPUT B perde importância prática — os dois players são modelados por inteiro; a Cerberus mantém o rótulo de concorrente direto pela sobreposição de nicho (moda).
+- **Responsável:** Nicolas.
+- **Status:** Ativa.
+
 ### DEC-002 · Estrutura mínima de arquivos
 - **Data:** 13/08/2026
 - **Decisão:** Criar apenas as pastas com conteúdo real nesta fase (`01-RESEARCH`, `02-COMPETITIVE-INTELLIGENCE`, `18-DECISIONS` + diagnóstico na raiz), seguindo a numeração do briefing §29. As demais pastas nascem quando a fase correspondente produzir conteúdo.
@@ -49,10 +57,8 @@
 - **Decisor:** Nicolas.
 - **Status:** ⏳ Aberta — **bloqueia FASE 08 (Creative System / §17 Visual).**
 
-### DEC-PEND-04 · INPUT C e confirmação da classificação
-- **Pergunta:** o Benchmark 02 ainda vem? E a classificação Cerberus=concorrente / Alpha=benchmark está correta?
-- **Decisor:** Nicolas.
-- **Status:** ⏳ Aberta — não bloqueia a FASE 02 (análise dos dois recebidos está feita), mas deixa a matriz comparativa com uma coluna vazia.
+### ~~DEC-PEND-04 · INPUT C e confirmação da classificação~~ → RESOLVIDA
+- **Resolução:** 13/08/2026, pelo Nicolas — ver **DEC-003**. Não haverá INPUT C; modelagem fechada em Cerberus e Alpha.
 
 ### DEC-PEND-05 · O produto do território "atendimento" (VENDEMOS × OVERDELIVERY)
 - **O conflito:** o whitespace mais promissor identificado (H2 — conteúdo → conversa → venda → recompra) depende de a Expansion estruturar a oferta de CRM/atendimento que ela mesma identificou. A enquete interna "VENDEMOS × OVERDELIVERY" (13/07) teve zero votos e nunca foi decidida (`OPERACAO-REAL` §11).
