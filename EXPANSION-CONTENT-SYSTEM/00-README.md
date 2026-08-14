@@ -12,11 +12,14 @@ Sistema em construção para responder, ao final: *o que a Expansion representa,
 | 01 · Inventário e leitura | ✅ 13/08 | `01-RESEARCH/INVENTARIO-MATERIAIS-2026-08-13.md` |
 | 02 · Competitive Intelligence | ✅ 13/08 — escopo fechado em 2 inputs (DEC-003: não haverá Benchmark 02) | `02-COMPETITIVE-INTELLIGENCE/PARECER-INTELIGENCIA-COMPETITIVA-2026-08-13.md` |
 | 03 · Extração de padrões | ✅ 13/08 — aprofundada na modelagem completa | PARECER §2 + DIAGNOSTIC §3 + `02-COMPETITIVE-INTELLIGENCE/MODELAGEM-CERBERUS-ALPHA-2026-08-13.md` |
-| 04 · Whitespace | 🟡 Preliminar | DIAGNOSTIC §5 (hipóteses H1–H6) |
-| 05 · Posicionamento | 🟢 Destravada (DEC-005) — em construção | Marca institucional Expansion; alvo: nicho moda decidido no `360` §11 |
-| 06–12 | ⚪ Não iniciadas | — |
+| 04 · Whitespace | ✅ 14/08 — resolvido no painel de territórios | DIAGNOSTIC §5 + `03-POSITIONING/` §1 |
+| 05 · Posicionamento | ✅ 14/08 | **`03-POSITIONING/POSICIONAMENTO-EXPANSION-2026-08-14.md`** (DEC-007) |
+| 06 · Narrativa | ✅ 14/08 | POSICIONAMENTO §11 (narrativa) + §12 (Brand POV) |
+| 07–12 | ⚪ Não iniciadas | Territórios de conteúdo, creative system, distribuição, métricas, OS, calendário |
 
-**Leitura de entrada: `EXECUTIVE-DIAGNOSTIC-V1-2026-08-13.md`** — síntese de tudo até aqui.
+**Leitura de entrada:** `03-POSITIONING/POSICIONAMENTO-EXPANSION-2026-08-14.md` (a arquitetura vigente) · `EXECUTIVE-DIAGNOSTIC-V1-2026-08-13.md` (o diagnóstico que a antecedeu).
+
+**Portões que bloqueiam o anúncio público do posicionamento** (detalhe em POSICIONAMENTO §14): capacidade de edição dedicada · segundo captador · baseline do perfil da Expansion · método de captação nomeado.
 
 ## Estrutura
 

@@ -23,6 +23,17 @@
 - **Responsável:** Nicolas.
 - **Status:** Ativa.
 
+### DEC-007 · Território de posicionamento: "DE DENTRO DA LOJA", em duas fases
+- **Data:** 14/08/2026
+- **Decisão:** A Expansion se posiciona no eixo **dentro × à distância**. Fase 1 (anunciável agora): *a assessoria que entra na loja e grava a coleção*. Fase 2 (travada até o produto existir): *o balcão digital — a conversa que chega e a cliente que volta*.
+- **Contexto:** Painel de 4 territórios independentes julgados por 3 lentes adversariais. Notas (defensabilidade/credibilidade/audiência): Segundo Balcão 82/**44**/82 · Dentro da Loja 72/**79**/74 · Extrato Aberto 68/71/54 · Coleção-Campanha 55/57/70.
+- **Motivo:** O território de maior valor competitivo (Segundo Balcão) recebeu a pior nota de credibilidade do painel porque depende de duas decisões nunca tomadas (DEC-PEND-05 e arquitetura de WhatsApp) — seria "roadmap com frase de bio". Dentro da Loja é o único cuja atividade central já acontece e já está paga, e o único cuja falha degrada em vez de refutar. Os dois compartilham o mesmo eixo, e a presença física é o caminho de acesso ao balcão digital.
+- **Alternativas:** escolher só o Segundo Balcão (rejeitada por credibilidade); só Dentro da Loja sem horizonte (rejeitada: é feature, não tese); blend dos quatro (rejeitada: posicionamento é escolha, não média).
+- **Consequências:** (1) *Extrato Aberto* e *Coleção-Campanha* rebaixados de posicionamento a mecanismo (artefato de retenção e formato-produto); (2) renúncias explícitas assumidas — geografia (raio atendível a partir de Alphaville), volume, lead que quer milagre, comparação por ROAS; (3) a meta "maior do Brasil" (`360` §11) vira meta de empresa, não frase de posicionamento — a primazia reivindicada é de eixo, não de tamanho; (4) 4 portões bloqueiam o anúncio público: capacidade de edição, segundo captador, baseline do perfil e método nomeado.
+- **Documento:** `03-POSITIONING/POSICIONAMENTO-EXPANSION-2026-08-14.md`
+- **Responsável:** Nicolas (validação pendente).
+- **Status:** Ativa, aguardando validação.
+
 ### DEC-006 · Posicionamento 100% no nicho moda — clientes fora do nicho não entram na marca pública
 - **Data:** 13/08/2026
 - **Decisão:** O posicionamento da Expansion é construído integralmente para o nicho de moda/vestuário feminino. Os clientes fora do nicho (Prime, Fórum TEIA, Albanos ×2, Dr. Fred e demais) **não entram** na comunicação pública — nem como prova social, nem como estudo de caso, nem na arquitetura do perfil.
