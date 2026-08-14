@@ -127,8 +127,49 @@ Registradas agora, com data, para não serem confundidas depois com achados. Sã
 | ID | Hipótese | Origem | Status |
 |---|---|---|---|
 | H1 | Retenção em conteúdo longo é o diferencial dele — sustentar vídeo acima da média sem perder audiência | Briefing interno da Expansion | ABERTA |
-| H2 | O material público sugere ênfase em "níveis de atenção" e estrutura de gancho como sistema, não intuição | Descrição pública dos produtos dele | ABERTA — fonte é copy de venda, não o conteúdo orgânico |
+| H2 | O material público sugere ênfase em "níveis de atenção" e estrutura de gancho como sistema, não intuição | Descrição pública dos produtos dele | ABERTA — detalhada abaixo (§4.1) |
 | H3 | A edição (corte curto, b-roll pesado, legenda queimada) carrega parte da retenção que se creditaria ao roteiro | Padrão do formato; o briefing interno o descreve | ABERTA — é o teste central de §5.8 |
+| H4 | O canal do YouTube dele (1M+ inscritos) e a página do Facebook espelham parte do conteúdo — rota de coleta alternativa com transcrição mais fácil (auto-captions do YouTube) | Busca web 14/08/2026 | ABERTA — verificar sobreposição real com os Reels |
+
+### 4.1 Dossiê de fontes secundárias — o método segundo o próprio Maman
+
+Coletado por busca web em 14/08/2026. **Isto é o que ele VENDE, não o que foi
+observado nos vídeos.** São alegações comerciais do próprio autor (copy de venda
+e entrevistas), registradas aqui porque geram perguntas de verificação precisas
+para a análise real. Nada disto entra no playbook sem confirmação nos Reels.
+
+**Alegações centrais do framework dele:**
+
+1. **"Níveis de atenção"** — a tese de que um vídeo viral precisa ativar todos os
+   níveis: atenção curta (parar o scroll), atenção longa (assistir até o fim) e
+   criação de hábito (voltar/seguir/agir). O "roteiro explosivo" dele conteria
+   estágios obrigatórios mapeados a esses níveis.
+2. **"7 gatilhos da atenção"** — sete mecanismos que fariam qualquer pessoa parar
+   nos primeiros 3 segundos. A lista exata não está pública fora dos cursos;
+   ele tem três episódios no podcast *Virando O Jogo* (YouTube) dedicados a isso.
+3. **"7 formatos de roteiro"** — sete estruturas prontas, adaptáveis por nicho
+   (produto *Erupção de Seguidores*).
+4. **Origem alegada do método:** em 2021 ele teria feito engenharia reversa dos
+   próprios vídeos virais para extrair os gatilhos — ou seja, o mesmo exercício
+   deste projeto, aplicado por ele a si mesmo.
+
+**Perguntas de verificação que isso gera (para §5 e §7):**
+
+- Os Reels dele exibem, de fato, uma estrutura tripartite mapeável a
+  *parar → permanecer → agir*? Em que timestamps a transição acontece?
+- Existem ~7 padrões de gancho recorrentes e distinguíveis nos 3 primeiros
+  segundos — ou a contagem "7" é empacotamento comercial de menos padrões?
+- **O que ele pratica bate com o que ele vende?** Divergência entre método
+  declarado e método praticado seria um achado de primeira ordem.
+
+**Sementes para o inventário (links reais encontrados):**
+
+- Reel sobre o próprio tema: `instagram.com/elias.maman/reel/CwgIIv_grFu/`
+  ("Faça essas 3 coisas para prender a atenção") — candidato natural a EMxx.
+- Podcast *Virando O Jogo* no YouTube: 3 episódios sobre os "7 gatilhos" — fonte
+  para ouvir o método explicado pelo autor (complemento, não substituto dos Reels).
+- Página no Facebook espelha vídeos ("Domine os Gatilhos da Atenção...") —
+  possível fonte alternativa de download/transcrição.
 
 H3 é a mais importante. Se a retenção vier majoritariamente da execução, o playbook
 precisa dizer isso com todas as letras — senão entrega-se a clientes um método
