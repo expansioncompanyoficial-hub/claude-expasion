@@ -3376,6 +3376,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <script>
+  // ===== DESTINO DOS LEADS =====
+  // Declarado uma vez so: o envio e o reenvio da fila usam estas mesmas
+  // constantes. Antes eram duas copias, e duas copias significam que um dia
+  // alguem troca uma e esquece a outra — e a fila passa a entregar no banco
+  // errado sem ninguem perceber.
+  // A chave e PUBLICA por design: fica no JavaScript do navegador. Quem
+  // protege os dados e a RLS — pelo papel anonimo ela so permite INSERIR
+  // um lead, nunca ler.
+  const CRM_URL = 'https://svehbpeazopamaemdhxd.supabase.co/rest/v1/leads';
+  const CRM_KEY = 'sb_publishable_W0X1p_Yargzzd3EXQiDcoA_FzdwgYmt';
+
   // Nav scrolled
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -3510,11 +3521,6 @@ const data = {
     submitBtn.innerHTML = 'Enviando...';
 
     // ===== ENVIO PARA O CRM INTERNO DA EXPANSION =====
-    // A chave abaixo e PUBLICA por design: fica no JavaScript do navegador.
-    // Quem protege os dados e a RLS no banco — pelo papel anonimo esta chave
-    // so permite INSERIR um lead, nunca ler. Ver 0002_leads.sql.
-    const CRM_URL = 'https://tefenzgtzfyeeogwkxup.supabase.co/rest/v1/leads';
-    const CRM_KEY = 'sb_publishable_cmCDLDdw0RfV98egmfDGnQ_nXEsagfM';
     const WHATSAPP_FALLBACK = 'https://wa.me/5519987030886?text=Oi!%20Tentei%20enviar%20o%20formul%C3%A1rio%20do%20site%20e%20n%C3%A3o%20consegui.%20Quero%20agendar%20o%20diagn%C3%B3stico.';
 
     // Numero brasileiro no formato que o CRM espera: 55 + DDD + numero.
@@ -3773,8 +3779,6 @@ if (serviceCards.length) {
     try {
       const pending = JSON.parse(localStorage.getItem('expansion_leads_pending') || '[]');
       if (pending.length === 0) return;
-      const CRM_URL = 'https://tefenzgtzfyeeogwkxup.supabase.co/rest/v1/leads';
-      const CRM_KEY = 'sb_publishable_cmCDLDdw0RfV98egmfDGnQ_nXEsagfM';
       const restantes = [];
       let concluidos = 0;
       pending.forEach(lead => {
