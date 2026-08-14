@@ -22,7 +22,10 @@ def enquadrar(src, dst, foco=0.5):
     return im.size, dst.stat().st_size
 
 TRABALHOS = [
-    ('foto_time_920x500.jpg', 'expansion-equipe-02.jpg',     0.50),
+    ('IMG_3807.png',          'expansion-equipe-02.jpg',     0.41),
+    # vertical entrando em recorte horizontal: os rostos vivem acima do centro
+    ('c3b454b4-1a9b-41c7-9c57-bf67ac70d203.png',
+                              'expansion-bastidores-01.jpg', 0.42),
     ('IMG_9206.jpeg',         'expansion-escritorio-01.jpg', 0.46),
 ]
 for origem, destino, foco in TRABALHOS:
