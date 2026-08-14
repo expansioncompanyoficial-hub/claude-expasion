@@ -16,6 +16,7 @@ de nenhuma máquina em particular.
 | `CONSELHO-EXPANSION-*` | Conselho da Expansion e anexos |
 | `EXPANSION-360`, `OPERACAO-REAL`, `AUDITORIA-DRIVE` | Diagnóstico e operação real da agência |
 | `POSICIONAMENTO-CONTEUDO-NICOLAS-*` | Posicionamento e estratégia de conteúdo |
+| `POSICIONAMENTO-INSTAGRAM-EXPANSION-*` | Posição do perfil da empresa no Instagram, bio 3L e mapa do mercado |
 | `POP-SOCIAL-MEDIA-v0.1.md` | POP de social media |
 | [`_audios/`](_audios/) | Transcrições de áudios e reuniões |
 
