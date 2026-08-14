@@ -2,6 +2,34 @@
 
 Este é o passo que destrava tudo. A análise está pronta para rodar; falta a base.
 
+---
+
+## Opção preferida: Remote Control (o Mac vira a mão, a web continua sendo a cabeça)
+
+Não existe "aprovação" que a sessão da nuvem envie para o Chrome — a extensão
+Claude in Chrome pareia com um Claude Code rodando **na mesma máquina** que o
+navegador. O aperto de mão começa sempre no Mac.
+
+O `remote-control` resolve isso pela via correta: a sessão roda no Mac (com o
+Chrome logado e os MCPs locais) e fica visível em claude.ai/code, de onde a
+sessão de análise consegue enviar a tarefa direto para ela.
+
+```bash
+cd <pasta-do-repo>        # clonar antes, se ainda não existir no Mac
+git checkout claude/elias-maman-roteiros-reversa-yyo9sd
+claude remote-control
+```
+
+O processo fica de pé no terminal e imprime a URL da sessão. Deixar aberto
+durante toda a coleta. Requisitos: extensão **Claude in Chrome** instalada e
+Chrome **logado no Instagram**.
+
+Feito isso, avisar na sessão de análise — ela envia o prompt abaixo sozinha.
+
+---
+
+## Opção manual: colar o prompt na mão
+
 ## Por que no Mac
 
 A sessão da web roda em container na nuvem, com egress bloqueado: `instagram.com`
