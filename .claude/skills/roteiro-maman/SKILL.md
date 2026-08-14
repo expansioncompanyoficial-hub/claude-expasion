@@ -28,8 +28,9 @@ fato oculto, corpo com recompensa em parcelas, ponte própria do cliente e um
 1. `ENGENHARIA-REVERSA-ROTEIROS-EM/07_MEMORIA_MESTRE.md` — leia SEMPRE, antes
    de qualquer etapa. São 2 páginas: chassi de 9 blocos, padrões com denominador,
    regras inegociáveis, antipadrões.
-2. `ENGENHARIA-REVERSA-ROTEIROS-EM/05_TEMPLATES.md` — leia na hora de escrever
-   (etapa 5). T1–T5 por arquétipo, T6 ganchos, T7 construtor de ponte.
+2. `ENGENHARIA-REVERSA-ROTEIROS-EM/05_TEMPLATES.md` — leia a partir da
+   **etapa 3**: o T6 (ganchos) serve à etapa 3, o T7 (ponte) à etapa 4, e os
+   T1–T5 à escrita na etapa 5.
 3. `ENGENHARIA-REVERSA-ROTEIROS-EM/06_CHECKLIST_E_RUBRICA.md` — leia na hora de
    avaliar (etapa 6). Rubrica 0–100 com trava anti-maquiagem.
 4. `ENGENHARIA-REVERSA-ROTEIROS-EM/04_PLAYBOOK_REPLICAVEL.md` — consulte quando
@@ -105,13 +106,20 @@ Decida e registre (a árvore completa está no arquivo 04, Parte 3):
   Sem prova real do usuário ou fonte pública verificável, não escreva o bloco.
   Marque `[PROVA NECESSÁRIA: descrição do que falta]` e liste na entrega.
   Nunca preencha com número inventado, nem como placeholder realista.
+  Blocos que dependem de prova pendente (típico: a prova social visual, bloco 8
+  do chassi): escreva-os com a marcação **e uma instrução de fallback explícita**
+  ("se o print não for autorizado, cortar este bloco — o vídeo fecha em Xs sem
+  ele"). O chassi sobrevive à omissão de um bloco; não sobrevive a prova falsa.
 
 ## ETAPA 4 · Ponte própria
 
 A frase-dobradiça do Maman é assinatura dele — usar a formulação dele é o erro
-que o estudo mais adverte. Construa a ponte DO CLIENTE com o T7: uma tese, três
-formulações (binária, escala, condicional). Critérios do T7: verdadeira para
-≥70% dos temas do cliente, dita em <12s, contém uma escolha, decorável.
+que o estudo mais adverte. Construa a ponte DO CLIENTE: **uma tese, três
+formulações diferentes**. Os dois arquivos nomeiam as formas de jeitos um pouco
+distintos (04/P8: binária, escala, condicional · 05/T7: dois caminhos,
+princípio, contraste) — é o mesmo exercício; não trave no rótulo: a tese
+permanece, a roupa gira. Critérios do T7: verdadeira para ≥70% dos temas do
+cliente, dita em <12s, contém uma escolha, decorável.
 Se o cliente já tem uma ponte registrada no repositório, reuse-a.
 
 ## ETAPA 5 · Escrita do roteiro
@@ -141,6 +149,9 @@ só tem valor se puder ser baixa:
   abaixo da metade do peso → teto 60, reescreva o critério travado.
 - Passe pelos antipadrões (06, Parte 3): sem bordão copiado, sem número sem
   fonte, sem vulnerabilidade fabricada, sem CTA desconectado da ponte.
+- Originalidade pressupõe checar 3 concorrentes do nicho; quando não houver
+  como, pontue o critério de forma conservadora e registre "não verificado" —
+  nota baixa honesta vale mais que nota alta chutada.
 - Teste de identidade: se trocar o nome do cliente e o vídeo continuar fazendo
   sentido para qualquer concorrente, a adaptação falhou (arquivo 04, Parte 4).
 
