@@ -74,9 +74,25 @@ Reforço do anúncio e as primeiras confirmações aparecendo nos stories.
 
 **Até quinta:** as **3 composições** montadas com as peças que já estão na arara, e o que cada parceira vai oferecer, fechado.
 
-> **Sobre as composições:** o professor mandou a estrutura que ele pensou — calça ou saia com três blusas, blazer ou colete, vestido curto, vestido longo, conjuntos. É um bom esqueleto e ele está esperando um retorno.
->
-> Ele vai citar sapato, cinto e bolsa como parte do conceito, e isso é bom: mostra que a aula é sobre guarda-roupa de verdade, não sobre vender. **A parte da Ciés é a roupa**, e é ela que as composições montam.
+### O que é uma composição, na prática
+
+**São 5 peças da arara que, juntas, montam 3 looks diferentes.** Só isso.
+
+Um exemplo, com peças que já estão paradas:
+
+| A composição | Os looks que ela monta |
+|---|---|
+| 1 calça · 1 saia · 3 blusas | **Look 1:** calça + blusa A |
+| | **Look 2:** saia + blusa B |
+| | **Look 3:** calça + blusa C, com a saia por cima como sobreposição |
+
+**A gravação é isso:** ela pega as peças da arara na frente da câmera, monta o primeiro look, troca, monta o segundo, troca, monta o terceiro. Uns 40 segundos.
+
+**Por que da arara e não do estoque novo:** o objetivo do evento é girar o que está parado. Quando a cliente vê que uma blusa encalhada é a peça que amarra três looks, ela para de ver uma blusa e passa a ver um sistema.
+
+> **O professor já mandou o esqueleto:** calça ou saia com três blusas, blazer ou colete, vestido curto, vestido longo, conjuntos. É só aplicar isso nas peças que já estão na loja. **Ele está esperando um retorno sobre essa estrutura.**
+
+Ele vai citar sapato, cinto e bolsa como parte do conceito na aula, e isso é bom: mostra que a aula é sobre guarda-roupa de verdade, não sobre vender. **A parte da Ciés é a roupa**, e é ela que as composições montam.
 
 ## Sábado 15
 
@@ -84,7 +100,9 @@ Loja aberta. Stories da reação das clientes.
 
 ## Domingo 16 · a diária de gravação
 
-Uma sessão só, e resolve a semana inteira. **Sete blocos, uns 60 minutos no total:**
+Uma sessão só, e resolve a semana inteira. **Sete blocos, uns 60 minutos no total.**
+
+**É a Sabrina sozinha, com o celular.** Sem videomaker e sem produção — foi assim que todo o material que funcionou até agora foi feito. **A diária do videomaker fica guardada para o dia 22**, onde a câmera profissional rende muito mais e já deixa material pronto para setembro.
 
 | # | O que grava |
 |---|---|
