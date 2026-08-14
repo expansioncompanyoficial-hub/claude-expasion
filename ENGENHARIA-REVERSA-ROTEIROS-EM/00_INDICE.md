@@ -16,7 +16,8 @@ aplicável a qualquer cliente da Expansion — sem copiar frases, ideias ou iden
 | `01_BASE_DE_EVIDENCIAS.md` | Validação de acesso, spec de coleta, critério de seleção, hipóteses pré-registradas | ✅ |
 | `_captura/INVENTARIO-EM.csv` | Inventário EM01–EM55, pronto para preencher | ✅ vazio |
 | `_captura/MODELO-TRANSCRICAO.md` | Modelo de ficha por vídeo | ✅ |
-| `_captura/PROMPT-COLETA-MAC.md` | **Próximo passo** — prompt pronto para rodar no Mac | ✅ |
+| `_captura/LIBERAR-REDE.md` | **Próximo passo** — liberar `instagram.com` no ambiente (rota escolhida) | ✅ |
+| `_captura/PROMPT-COLETA-MAC.md` | Rota alternativa — coleta pelo Chrome do Mac, se o login barrar | ✅ |
 | `02_ANALISE_PROFUNDA.md` | Desmontagem cronológica + mapa psicológico | ⏳ depende da coleta |
 | `03_DNA_DOS_ROTEIROS.md` | Padrões e DNA operacional | ⏳ |
 | `04_PLAYBOOK_REPLICAVEL.md` | Princípios, arquétipos, motor de adaptação | ⏳ |
@@ -51,8 +52,12 @@ Pular para o playbook produz dica genérica, não sistema.
 
 1. **Nada é escrito sem evidência.** Fato observado, padrão, interpretação e
    hipótese ficam sempre rotulados e separados.
-2. **Grupo de controle incluído** (`EM41–EM55`). 40 virais medem sobreviventes;
-   sem os medianos não se distingue causa de estilo. Ver §3 do `01`.
+2. **Grupo de controle incluído** (`EM41–EM55`) — confirmado pelo Nicolas em
+   14/08/2026. 40 virais medem sobreviventes; sem os medianos não se distingue
+   causa de estilo. Ver §3 do `01`.
+2b. **Rota de desbloqueio: liberar a rede do ambiente** (nível `Custom`),
+   decidida em 14/08/2026. Se o muro de login do Instagram barrar, cai para a
+   rota do Mac sem perder nada — os arquivos de saída são os mesmos.
 3. **Roteiro vs. execução ficam separados** em toda conclusão. Se a retenção vier
    da edição, o playbook diz isso — entregar a cliente um método que só funciona
    com a mesma edição seria vender fumaça.
