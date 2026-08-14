@@ -46,6 +46,64 @@ Todas que comprarem concorrem. É o momento de emoção que fecha a tarde.
 
 ---
 
+# AS DECISÕES DE 14/08
+
+## A taxa de reserva · R$ 10 · **aprovada**
+
+Quem quiser garantir lugar na aula paga **R$ 10 de taxa de reserva**, e esse valor **é abatido em qualquer compra feita no dia**.
+
+| | |
+|---|---|
+| **Por que cobrar** | Confirmação de graça tem 40% a 60% de falta. Com taxa, cai para perto de 10% |
+| **Por que R$ 10** | Alto o bastante para doer se perder, baixo o bastante para não afastar ninguém |
+| **Por que abater na compra** | A cliente não está pagando, está **adiantando**. Muda a cabeça inteira |
+| **O ganho invisível** | **Qualifica.** Quem paga R$ 10 para assistir uma aula é quem quer comprar |
+
+**Quem vier e não comprar sai com o kit das parceiras mesmo assim.** Assim ninguém sai de mãos vazias, e o kit não custa nada para a Ciés.
+
+> **Duas palavras que não podem aparecer: "ingresso" e "entrada".** É **taxa de reserva**. A Ciés não está vendendo ingresso para uma palestra, está reservando um lugar que é limitado.
+
+**Operação:** pagamento por Pix, e **quem pagou entra na planilha na hora**. Sem registro, a taxa não serve para nada.
+
+## Hora marcada · **opcional, com vantagem**
+
+A loja fica aberta o dia todo e entra quem quiser, sem hora marcada. Isso não muda.
+
+**Mas quem marcar horário na parte da manhã tem duas coisas que quem chega de surpresa não tem:**
+
+- As peças já separadas no tamanho dela
+- Atendimento sem espera, antes da loja encher
+
+> Assim ninguém fica de fora por não ter marcado, e ainda existe um motivo real para vir de manhã em vez de só aparecer depois da aula.
+
+## O teto da aula · **decidido pelo atendimento, não pelo espaço**
+
+Com a garagem e cadeiras alugadas, cabe mais gente. **Mas caber sentado não é o limite que importa.**
+
+A janela de conversão é das 15h às 16h30, ou seja **90 minutos**. Com atendimento de uns 15 minutos por cliente:
+
+| Quantas pessoas atendendo | Quantas clientes são atendidas |
+|---|---|
+| 2 | 12 |
+| 3 | **18** |
+| 4 | 24 |
+
+**Se 40 pessoas assistem à aula e só 18 conseguem ser atendidas, 22 vão embora frustradas** — e essas 22 pagaram R$ 10 para estar ali.
+
+> **Teto sugerido: 25 a 30 na aula, com 3 pessoas atendendo.** Para subir para 40, o time do dia precisa ser de 4 ou 5. **É decisão de braço, não de cadeira** — a mesma lição que o Dia dos Pais já cobrou uma vez.
+
+## As parceiras · **divulgar quem, não o quê**
+
+Anuncia as parceiras pelo nome e diz que vai ter brinde. **Não revela o que cada uma vai dar.**
+
+Três razões:
+
+1. Gera curiosidade, como a Sabrina falou
+2. **As parceiras ainda não definiram o que vão oferecer.** Anunciar específico e depois mudar queima a confiança
+3. **Parceira nomeada reposta.** Vira alcance de graça em três públicos novos
+
+---
+
 # O NOME
 
 **Sábado Delas** é o nome do evento da Ciés. Ele volta em setembro, em novembro, sempre que houver um sábado especial na loja.
