@@ -202,6 +202,16 @@ Salve em `ROTEIROS-MAMAN/ROTEIRO-<TEMA>-<AAAA-MM-DD>.md` (convenção da casa:
 CAIXA-ALTA com hífen e data) e mostre o roteiro completo na conversa. Commit
 segue a rotina normal do repositório.
 
+**Documento de gravação (padrão desde 14/08):** além do .md, gere o `.docx`
+limpo com SÓ o roteiro operacional — cabeçalho Expansion (laranja FF6B1A),
+linha meta (quem grava · público · duração · palavra-chave), "antes de gravar"
+(pendências práticas), tabela TEMPO/FALA/VISUAL (bloco condicionado a prova em
+fundo âmbar), capa e legenda. Sem dossiê, sem rubrica: é o papel que vai para a
+mão de quem grava. Salvar em `ROTEIROS-MAMAN/` e enviar ao usuário
+(SendUserFile) quando houver canal. Aviso de ambiente: o LibreOffice do
+container da web não converte docx — verifique a estrutura via unzip/XML em vez
+de renderizar.
+
 ## Guardrails — não negociáveis
 
 1. **Nada de prova inventada.** Número sem fonte exibível na tela não entra.
