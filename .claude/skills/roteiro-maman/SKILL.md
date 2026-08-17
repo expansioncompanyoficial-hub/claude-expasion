@@ -141,6 +141,13 @@ das etapas 1–4. Regras de linguagem (todas medidas no estudo, arquivo 02 §5):
 - Frases de 8–14 palavras. "Você" nos blocos argumentativos.
 - Conectores de fala ("só que", "então", "dá uma olhada"), não de escrita.
 - Concreto no lugar de abstrato: cena, objeto, horário — não conceito.
+- **Linguagem de balcão (regra da casa, 14/08):** o espectador não é gestor —
+  zero jargão de gestão/marketing na fala ("giro", "ticket", "recompra",
+  "indicador", "conversão", "follow-up") sem tradução. Se um termo técnico
+  precisar entrar, entra DEPOIS da ideia dita em palavras comuns, nunca antes.
+  Toda conta vem com exemplo numérico concreto ("vendeu cinco mil em vinte
+  vendas? Cada cliente levou duzentos e cinquenta") — exemplo aritmético é
+  ilustração, não prova, e não precisa de fonte.
 - Escrito para ser DITO: leia em voz alta mentalmente; onde travar, reescreva.
 - Recompensa fechada a cada 20–40s; CTA social no pico emocional, antes de
   qualquer menção comercial; um único CTA final com palavra-chave própria do

@@ -82,27 +82,30 @@ a autoridade do Kauã (números) em vez da autoridade de social media.
 
 ## 3. Roteiro cronometrado (~112s)
 
+*Revisão 14/08: fala reescrita em linguagem de balcão — zero jargão de gestão;
+termo técnico nenhum antes da explicação; conta sempre com exemplo numérico.*
+
 | TEMPO | FALA | VISUAL |
 |---|---|---|
 | 0–6s | Sua loja pode estar vendendo… e mesmo assim murchando. E o sinal disso tá pendurado na arara. Você só não enxerga mais ele. | Kauã na loja ou set neutro, plano fechado. Legenda queimada. Primeiro frame = capa. |
-| 6–12s | Se você tem loja de roupa, olha esses três números comigo. Anota aí: são três. | Corte seco. Cartela: "3 NÚMEROS". Contador mental armado. |
-| 12–35s | O primeiro: giro. Aquela peça que chegou na coleção passada e você nem VÊ mais na arara. A gente chama isso de cegueira de arara. Peça parada é dinheiro parado: é o caixa da próxima coleção preso num cabide. Olha hoje: o que tá há mais de sessenta dias sem vender? | B-roll: mão passando pelas peças na arara, para numa peça; etiqueta antiga; zoom no cabide. Cartela: "Nº 1 — GIRO · +60 dias parada". |
-| 35–58s | O segundo: quanto cada cliente leva. A cliente levou a blusa. E a calça? O cinto? O brinco? Se você não mede isso, a segunda peça fica no provador todo santo dia. A conta é simples: total vendido dividido pelo número de vendas. Faz da última semana. | B-roll: sacola com uma peça só vs. look completo no balcão; calculadora rápida na tela. Cartela: "Nº 2 — TICKET · vendido ÷ vendas". |
-| 58–78s | O terceiro: quem volta. A cliente que comprou no Dia das Mães… voltou? Loja que vive só de cliente novo tá sempre começando do zero. E isso não é drama: o Sebrae mostra que metade das pequenas empresas fecha antes dos cinco anos — e a má gestão financeira tá entre as principais causas. | B-roll: caderninho/sistema com nomes; porta da loja. Cartela: "Nº 3 — RECOMPRA · clientes que voltam em 90 dias" → depois: "metade fecha antes de 5 anos — Fonte: Sebrae". |
-| 78–86s | Antes de continuar: manda esse vídeo pra tua amiga lojista. Aquela que vive dizendo que o mês tá estranho. Ela precisa olhar esses três números hoje. | CTA social no pico. Ícone de compartilhar. Zero menção comercial. |
-| 86–100s | Porque no fundo, loja se divide em duas: a que olha os números toda semana… e a que descobre no fim do mês se deu certo. Previsibilidade é isso. Não é sorte. É leitura. | Ponte (formulação 1 + fecho da 2). Câmera mais perto, ritmo desacelera. |
-| 100–108s | `[PROVA NECESSÁRIA: autorização da Lica Senhorita + dado que sustente]` Foi o que a gente arrumou na Lica Senhorita: números no lugar, e a loja saiu de trinta pra cem mil de faturamento em três meses. | Print/dado autorizado com seta desenhada (estética bruta, não publicitária). **Fallback: sem autorização, CORTAR este bloco — o vídeo fecha em ~104s sem ele.** |
-| 108–112s (ou 100–104s no fallback) | Eu sou o Kauã, da Expansion. Quer enxergar onde os números da SUA loja estão vazando? Comenta ARARA aqui embaixo que eu te chamo pro diagnóstico gratuito. | Cartela final: ARARA. Ação < 4s. |
+| 6–12s | Se você tem loja de roupa, olha esses três números comigo. São só três. Anota aí. | Corte seco. Cartela: "3 NÚMEROS". Contador mental armado. |
+| 12–35s | O primeiro: há quanto tempo a peça tá parada. Sabe aquela peça que chegou na coleção passada… e você nem VÊ mais ela na arara? A gente chama isso de cegueira de arara. Peça parada é dinheiro parado. É o dinheiro da coleção nova preso num cabide. Faz o teste hoje: o que tá há mais de sessenta dias sem vender? | B-roll: mão passando pelas peças na arara, para numa peça; etiqueta antiga; zoom no cabide. Cartela: "Nº 1 — PEÇA PARADA · +60 dias sem vender". |
+| 35–58s | O segundo: quanto cada cliente leva. A cliente levou a blusa. E a calça? E o cinto? E o brinco? Ficaram lá? Isso é venda escapando na tua frente. A conta é fácil: soma o que você vendeu na semana e divide pelo número de vendas. Vendeu cinco mil em vinte vendas? Cada cliente levou duzentos e cinquenta. Dá pra subir isso. | B-roll: sacola com uma peça só vs. look completo no balcão. Conta de exemplo na tela: "R$ 5.000 ÷ 20 vendas = R$ 250". Cartela: "Nº 2 — QUANTO CADA CLIENTE LEVA". |
+| 58–78s | O terceiro: quem volta. A cliente que comprou no Dia das Mães… apareceu de novo? Loja que só vive de cliente novo tá sempre começando do zero. E olha o que o Sebrae mostra: metade das lojas pequenas fecha antes de cinco anos. E uma das maiores causas é cuidar mal do dinheiro da loja. | B-roll: caderninho/sistema com nomes; porta da loja. Cartela: "Nº 3 — QUEM VOLTA · em até 90 dias" → depois: "metade fecha antes de 5 anos — Fonte: Sebrae". |
+| 78–86s | Antes de continuar: manda esse vídeo pra tua amiga que tem loja. Aquela que vive falando que o mês tá estranho. Ela precisa ver esses três números hoje. | CTA social no pico. Ícone de compartilhar. Zero menção comercial. |
+| 86–100s | Porque no fundo, existem dois tipos de loja: a que olha os números toda semana… e a que só descobre no fim do mês se sobrou dinheiro. É isso que dá previsibilidade: você sabe hoje o que fazer amanhã. Não é sorte. É leitura. | Ponte (formulação 1 + fecho da 2). Câmera mais perto, ritmo desacelera. |
+| 100–108s | `[PROVA NECESSÁRIA: autorização da Lica Senhorita + dado que sustente]` Foi isso que a gente arrumou na Lica Senhorita: os números entraram no lugar, e a loja foi de trinta pra cem mil de faturamento em três meses. | Print/dado autorizado com seta desenhada (estética bruta, não publicitária). **Fallback: sem autorização, CORTAR este bloco — o vídeo fecha em ~104s sem ele.** |
+| 108–112s (ou 100–104s no fallback) | Eu sou o Kauã, da Expansion. Quer que eu olhe esses três números da TUA loja com você? Comenta ARARA aqui embaixo que eu te chamo pro diagnóstico gratuito. | Cartela final: ARARA. Ação < 4s. |
 
 ## 4. Publicação
 
 - **Capa:** "O SINAL TÁ NA ARARA — E VOCÊ NÃO VÊ" (Kauã ao lado de uma arara,
   olhar na lente).
-- **Legenda (pergunta):** "Qual peça da sua loja tá há mais de 60 dias na arara —
-  e quanto de caixa ela tá prendendo? Os 3 números do vídeo respondem. Comenta
-  ARARA que eu te chamo pro diagnóstico gratuito da sua loja. (Caso citado é
-  resultado real de cliente, com contexto próprio — cada loja tem seu ponto de
-  partida.)"
+- **Legenda (pergunta):** "Tem peça na sua loja parada há mais de 60 dias? Ela tá
+  prendendo o dinheiro da coleção nova. Os 3 números do vídeo mostram onde olhar.
+  Comenta ARARA que eu te chamo pro diagnóstico gratuito da sua loja. (Caso
+  citado é resultado real de cliente, com contexto próprio — cada loja tem seu
+  ponto de partida.)"
 - **Palavra-chave:** ARARA — configurar automação de direct ANTES de postar.
 
 ## 5. Rubrica (critérios R, base 100)
@@ -111,7 +114,7 @@ a autoridade do Kauã (números) em vez da autoridade de social media.
 
 | Critério (peso) | Nota | Por quê |
 |---|---|---|
-| Clareza (7) | 6,5 | três números, três cenas, uma conta |
+| Clareza (7) | 7 | linguagem de balcão (revisão 14/08): zero jargão, conta com exemplo — um leigo entende de primeira |
 | Gancho (12) | 9 | ocultação + afetado fortes; agente propositalmente ausente |
 | Relevância (7) | 6 | exclui quem não tem loja de roupa |
 | Tensão (7) | 5 | urgência serena; sem catástrofe |
@@ -132,9 +135,11 @@ genérico do Sebrae por prova da casa.
 ## 6. Provas pendentes
 
 - `[PROVA NECESSÁRIA: autorização da Lica Senhorita + evidência dos números
-  30→100k/3 meses (relatório, print de faturamento anonimizável)]` — bloco
-  100–108s escrito com **fallback de corte** (vídeo fecha em ~104s sem ele).
-  Sem a evidência, não afirmar o número nem em legenda.
+  30→100k/3 meses (relatório, print de faturamento anonimizável). A evidência
+  deve esclarecer se é faturamento MENSAL que foi de 30 para 100 mil — a fala
+  só afirma o que o documento sustentar]` — bloco 100–108s com **fallback de
+  corte** (vídeo fecha em ~104s sem ele). Sem evidência, o número não aparece
+  nem na legenda.
 - `[PROVA NECESSÁRIA: para vídeos futuros — giro/ticket/recompra reais de
   clientes da casa, anonimizados]` — prova própria vale mais que dado setorial.
 
