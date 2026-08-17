@@ -174,14 +174,14 @@ pre.brief{background:var(--black-2);border:1px solid var(--g3);border-left:3px s
 <header class="hero"><div class="wrap">
   <div class="eyebrow reveal">Sistema · Engenharia reversa aplicada</div>
   <h1 class="reveal d1">Roteirista <span>Expansion</span></h1>
-  <p class="reveal d2">Preencha o ICP, gere o briefing e deixe o resto com o motor: o Claude roda o
-  skill <b>roteiro-maman</b> — estudo de dores e desejos, tema pelos 3 testes, chassi de 9 blocos,
-  rubrica ≥ 70. <b>A página não inventa roteiro nem prova</b>: ela padroniza a entrada do time e
-  formata a entrega.</p>
+  <p class="reveal d2">Você entrega o mínimo — cliente, ICP e oferta. O motor faz o resto: o Claude roda o
+  skill <b>roteiro-maman</b> e <b>gera o briefing completo com base nova a cada rodada</b> (dores e
+  desejos pesquisados na hora, nunca requentados), depois o roteiro no chassi de 9 blocos, rubrica ≥ 70.
+  O histórico só serve para não repetir tema e gancho.</p>
   <div class="steps reveal d2">
-    <div class="step"><div class="n">01</div><h3>Preencha e gere</h3><p>O formulário vira um briefing padronizado — o formato que o skill lê sem perguntar nada de volta.</p></div>
-    <div class="step"><div class="n">02</div><h3>Cole no Claude</h3><p>Em qualquer sessão do repositório <span style="font-family:var(--mono);font-size:12px">claude-expasion</span>. O skill assume e devolve o roteiro completo.</p></div>
-    <div class="step"><div class="n">03</div><h3>Cole de volta</h3><p>A página formata as 7 seções, guarda no histórico deste navegador e baixa o .md pra você.</p></div>
+    <div class="step"><div class="n">01</div><h3>Diga o mínimo</h3><p>Cliente, ICP e oferta. O briefing não é digitado — é gerado: a pesquisa é refeita do zero em cada geração.</p></div>
+    <div class="step"><div class="n">02</div><h3>Cole no Claude</h3><p>Em qualquer sessão do repositório <span style="font-family:var(--mono);font-size:12px">claude-expasion</span>. O skill gera briefing + roteiro, sem repetir os anteriores.</p></div>
+    <div class="step"><div class="n">03</div><h3>Cole de volta</h3><p>A página formata a entrega (o briefing gerado é a seção 1), guarda no histórico e baixa o .md.</p></div>
   </div>
 </div></header>
 
@@ -199,15 +199,13 @@ pre.brief{background:var(--black-2);border:1px solid var(--g3);border-left:3px s
       </div>
       <div class="field" id="f-icp"><label>Público (ICP) <em>*</em></label>
         <textarea id="i-icp" placeholder="Com quem o vídeo fala. Ex.: donas de loja de roupa feminina, 30–55, cidade média, faturando 20–80 mil/mês, Instagram parado…"></textarea>
-      </div>
-      <div class="field"><label>De quem esse público cuida</label>
-        <input id="i-cuida" placeholder="Filhos, pacientes, funcionários, o caixa da loja… (é daqui que sai o compartilhamento)">
+        <div class="hint">Dores, desejos, crença e de quem o público cuida serão PESQUISADOS e entregues no briefing gerado — você não precisa saber.</div>
       </div>
       <div class="field" id="f-oferta"><label>O que vamos vender (oferta) <em>*</em></label>
         <input id="i-oferta" placeholder="Ex.: assessoria de marketing — gestão de Instagram + tráfego">
       </div>
-      <div class="field"><label>Provas reais que temos</label>
-        <textarea id="i-provas" placeholder="Prints, números com fonte, casos, documentos. Se não houver, escreva 'nenhuma ainda' — o roteiro sai com [PROVA NECESSÁRIA], nunca com número inventado."></textarea>
+      <div class="field"><label>Provas reais (se houver)</label>
+        <textarea id="i-provas" placeholder="Só o que a pesquisa não alcança: prints, casos, números internos. Vazio = o roteiro usa fonte pública verificada e marca o resto como [PROVA NECESSÁRIA]."></textarea>
       </div>
       <div class="frow">
         <div class="field"><label>Objetivo do vídeo</label>
@@ -222,9 +220,6 @@ pre.brief{background:var(--black-2);border:1px solid var(--g3);border-left:3px s
           </select>
         </div>
       </div>
-      <div class="field"><label>Tom de voz (3 adjetivos)</label>
-        <input id="i-tom" placeholder="Ex.: direto, próximo, sem drama">
-      </div>
       <div class="field"><label>Ponte da marca (se já existir)</label>
         <input id="i-ponte" placeholder="A tese que conecta qualquer tema à oferta. Vazio = o skill constrói uma.">
       </div>
@@ -232,7 +227,7 @@ pre.brief{background:var(--black-2);border:1px solid var(--g3);border-left:3px s
         <input id="i-obs" placeholder="Tema proibido, campanha do mês, referência…">
       </div>
       <div class="actions">
-        <button class="btn" id="b-gerar">Gerar briefing</button>
+        <button class="btn" id="b-gerar">Gerar missão</button>
         <button class="btn-ghost btn btn-sm" id="b-limpar" type="button">Limpar</button>
       </div>
     </div>
@@ -243,7 +238,7 @@ pre.brief{background:var(--black-2);border:1px solid var(--g3);border-left:3px s
     <div id="out-body">
       <div class="out-empty">
         <div class="big">Nada gerado ainda</div>
-        <p>Preencha ao menos o ICP e a oferta ao lado e gere o briefing. Os outros campos reduzem o que volta como pendência.</p>
+        <p>Preencha cliente, ICP e oferta ao lado e gere a missão. O briefing completo quem gera é o motor — com pesquisa nova a cada rodada.</p>
       </div>
     </div>
   </section>
@@ -292,9 +287,8 @@ pre.brief{background:var(--black-2);border:1px solid var(--g3);border-left:3px s
 "use strict";
 const $=s=>document.querySelector(s);
 const FIELDS=[["cliente","CLIENTE/MARCA"],["rosto","QUEM FALA NO VÍDEO"],["icp","ICP (PÚBLICO)"],
-["cuida","DE QUEM O PÚBLICO CUIDA"],["oferta","OFERTA"],["provas","PROVAS REAIS DISPONÍVEIS"],
-["objetivo","OBJETIVO"],["duracao","DURAÇÃO-ALVO"],["tom","TOM (3 ADJETIVOS)"],
-["ponte","PONTE EXISTENTE"],["obs","OBSERVAÇÕES"]];
+["oferta","OFERTA"],["provas","PROVAS REAIS (SE HOUVER)"],["objetivo","OBJETIVO"],
+["duracao","DURAÇÃO-ALVO"],["ponte","PONTE EXISTENTE (SE HOUVER)"],["obs","OBSERVAÇÕES"]];
 let current=null, dl=null;
 
 /* toast */
@@ -318,10 +312,13 @@ async function baixar(nome,conteudo){
 function val(id){return ($("#i-"+id).value||"").trim();}
 function buildBriefing(){
   const linhas=FIELDS.map(([id,rot])=>rot+": "+(val(id)||"—"));
-  return "=== BRIEFING ROTEIRO-MAMAN v1 ===\n"
-  +"Use o skill roteiro-maman do repositório claude-expasion e entregue o roteiro completo no formato padrão de 7 seções.\n\n"
+  return "=== MISSÃO ROTEIRO-MAMAN v2 ===\n"
+  +"Use o skill roteiro-maman do repositório claude-expasion.\n"
+  +"1) GERE O BRIEFING COMPLETO desta entrada com PESQUISA NOVA, refeita do zero (dores, desejos, crença, objeção, de quem o público cuida, provas públicas verificáveis, fontes). Não reaproveite dossiês de roteiros anteriores.\n"
+  +"2) Consulte ROTEIROS-MAMAN/ com uma única função: NÃO repetir tema, gancho, abertura nem palavra-chave já usados para este cliente.\n"
+  +"3) Entregue o ROTEIRO completo no formato padrão de 7 seções — a seção 1 é o briefing gerado, para o time revisar.\n\n"
   +linhas.join("\n")
-  +"\n\nRegras: não inventar prova (marcar [PROVA NECESSÁRIA] com fallback de corte); ponte própria da marca; palavra-chave própria; rubrica ≥ 70; calibrar expectativa.";
+  +"\n\nRegras: não inventar prova (marcar [PROVA NECESSÁRIA] com fallback de corte); ponte própria da marca; palavra-chave própria e inédita neste cliente; rubrica ≥ 70; calibrar expectativa.";
 }
 function gerar(){
   let ok=true;
@@ -333,16 +330,16 @@ function gerar(){
     icp:val("icp"),briefing:b,roteiro:null};
   salvarHist(current);
   renderBriefing(b);
-  $("#fstate").textContent="briefing gerado";
+  $("#fstate").textContent="missão gerada";
 }
 function renderBriefing(b){
-  $("#out-title").textContent="Saída · Briefing pronto";
+  $("#out-title").textContent="Saída · Missão pronta";
   $("#out-state").textContent="passo 2: colar no claude";
   $("#out-body").innerHTML=
   '<div class="card-b">'
   +'<pre class="brief" id="briefpre"></pre>'
   +'<div class="actions">'
-  +'<button class="btn btn-sm" id="b-copiar">Copiar briefing</button>'
+  +'<button class="btn btn-sm" id="b-copiar">Copiar missão</button>'
   +(dl?'<button class="btn-ghost btn btn-sm" id="b-dlb" type="button">Baixar .md</button>':"")
   +'<a class="btn-ghost btn btn-sm" href="https://claude.ai" target="_blank" rel="noopener">Abrir Claude</a>'
   +'</div>'
@@ -353,10 +350,10 @@ function renderBriefing(b){
   +'</div></div>';
   $("#briefpre").textContent=b;
   $("#b-copiar").onclick=async()=>{
-    try{await navigator.clipboard.writeText(current.briefing);toast("Briefing copiado — cole no Claude");}
+    try{await navigator.clipboard.writeText(current.briefing);toast("Missão copiada — cole no Claude");}
     catch(e){const r=document.createRange();r.selectNodeContents($("#briefpre"));
       const s=getSelection();s.removeAllRanges();s.addRange(r);toast("Selecionado — use Ctrl/Cmd+C");}};
-  const db=$("#b-dlb");if(db)db.onclick=()=>baixar("BRIEFING-"+slug(current.cliente)+".md",current.briefing);
+  const db=$("#b-dlb");if(db)db.onclick=()=>baixar("MISSAO-"+slug(current.cliente)+".md",current.briefing);
   $("#b-format").onclick=()=>{
     const md=($("#i-roteiro").value||"").trim();
     if(!md)return toast("Cole o roteiro primeiro");
@@ -421,7 +418,7 @@ function pintarHist(){
   const h=lerHist();const g=$("#hist-grid");
   $("#hist-count").textContent=h.length?h.length+" briefing"+(h.length>1?"s":"")+" neste navegador":"vazio — o histórico fica neste navegador";
   g.innerHTML=h.map(x=>'<div class="hcard" data-id="'+x.id+'">'
-    +'<div class="badge'+(x.roteiro?" done":"")+'">'+(x.roteiro?"roteiro ok":"briefing")+'</div>'
+    +'<div class="badge'+(x.roteiro?" done":"")+'">'+(x.roteiro?"roteiro ok":"missão")+'</div>'
     +'<div class="when">'+dia(x.ts)+'</div>'
     +'<div class="name">'+esc(x.cliente)+'</div>'
     +'<div class="meta">'+esc((x.icp||"").slice(0,80))+(x.icp&&x.icp.length>80?"…":"")+'</div>'

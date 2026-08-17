@@ -39,22 +39,33 @@ fato oculto, corpo com recompensa em parcelas, ponte própria do cliente e um
 Não parafraseie o método de memória: os arquivos são a fonte. Se algum não
 existir no checkout atual, avise e pare — não improvise outro método por cima.
 
-## ETAPA 0 · Intake do ICP
+## ETAPA 0 · Entrada mínima
 
-Colete o que segue. **Pesquise antes de perguntar** — só pergunte ao usuário o
-que não dá para descobrir sozinho (tipicamente: oferta, provas disponíveis e
-objetivo do vídeo). Se o ICP citar um cliente da casa, procure primeiro os
-documentos dele no repositório.
+**O briefing completo é ENTREGA, não entrada.** O time fornece só o essencial e
+o sistema constrói todo o resto com pesquisa própria — dores, desejos, crença,
+objeção, de quem o público cuida, provas públicas, tom. Não devolva perguntas
+que a pesquisa responde.
 
-| Campo | Obrigatório? |
+| Campo | Status |
 |---|---|
-| Quem é o público (demografia, ocupação, situação) | Sim |
-| De quem esse público **cuida** ou por quem responde | Sim — o sistema roda em cima disso |
-| Oferta / o que o usuário vende para esse público | Sim |
-| Provas reais disponíveis (números, casos, prints, documentos) | Sim — sem isso a etapa 3 trava |
-| Objetivo do vídeo (alcance / autoridade / relacionamento / conversão) | Sim — default: alcance |
-| Nível de consciência, crença dominante, objeção nº 1 | Descobrir na etapa 1 se não vier |
-| Tom de voz, duração-alvo, CTA desejado | Opcional — defaults do método |
+| Cliente/marca + quem fala no vídeo | Obrigatório |
+| Quem é o público (ICP) | Obrigatório |
+| Oferta | Obrigatório |
+| Objetivo (default: alcance) · duração (default: 120–160s) | Opcional |
+| Provas reais e ponte existente | Opcionais — **só o cliente tem**; se não vierem, provas internas viram `[PROVA NECESSÁRIA]` e a ponte é construída na etapa 4 |
+
+Se o cliente for da casa, busque os documentos dele no repositório antes de
+qualquer pergunta.
+
+### Regra da base nova (inegociável)
+
+**Cada geração parte de pesquisa refeita do zero.** Nunca reaproveite o dossiê
+de um roteiro anterior como base — o mercado muda, a linguagem muda, e dossiê
+requentado produz roteiro requentado. O histórico em `ROTEIROS-MAMAN/` é
+consultado com UMA função: **evitar repetição** — não repetir tema, gancho,
+abertura nem palavra-chave já usados para o mesmo cliente. Cliente com roteiros
+anteriores: varie o chassi (família de arquiteturas, 03 §5) e gire a formulação
+da ponte (a tese permanece; a roupa gira).
 
 ## ETAPA 1 · Estudo de dores e desejos
 
@@ -161,7 +172,9 @@ Estrutura fixa da entrega, nesta ordem:
 
 ```
 # ROTEIRO — [TEMA CURTO] · [cliente/ICP] · AAAA-MM-DD
-## 1. Mini-dossiê do ICP        (dores, desejos, crença, objeção, de quem cuida)
+## 1. Briefing gerado           (dossiê completo: dores, desejos, crença, objeção,
+                                 de quem cuida, fontes — é a entrada reconstruída
+                                 pelo sistema, para o time revisar)
 ## 2. Decisões                  (tema + matriz dos 3 testes · arquétipo · gancho ·
                                  emoção · prova · ponte com 3 formulações · CTA)
 ## 3. Roteiro cronometrado      (tabela: TEMPO | FALA | VISUAL)
