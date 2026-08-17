@@ -145,6 +145,10 @@ das etapas 1–4. Regras de linguagem (todas medidas no estudo, arquivo 02 §5):
   zero jargão de gestão/marketing na fala ("giro", "ticket", "recompra",
   "indicador", "conversão", "follow-up") sem tradução. Se um termo técnico
   precisar entrar, entra DEPOIS da ideia dita em palavras comuns, nunca antes.
+  Metáforas só do universo do próprio público (arara, cabide, provador, caixa);
+  imagem fora desse universo soa estranha na boca de quem grava ("loja
+  murchando" caiu por isso — no lugar, a dor dita como o público diz:
+  "vende mas o dinheiro não sobra").
   Toda conta vem com exemplo numérico concreto ("vendeu cinco mil em vinte
   vendas? Cada cliente levou duzentos e cinquenta") — exemplo aritmético é
   ilustração, não prova, e não precisa de fonte.

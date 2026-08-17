@@ -87,7 +87,7 @@ termo técnico nenhum antes da explicação; conta sempre com exemplo numérico.
 
 | TEMPO | FALA | VISUAL |
 |---|---|---|
-| 0–6s | Sua loja pode estar vendendo… e mesmo assim murchando. E o sinal disso tá pendurado na arara. Você só não enxerga mais ele. | Kauã na loja ou set neutro, plano fechado. Legenda queimada. Primeiro frame = capa. |
+| 0–6s | Sua loja vende… mas o dinheiro não sobra. E o sinal disso tá pendurado na arara. Você só não enxerga mais ele. | Kauã na loja ou set neutro, plano fechado. Legenda queimada. Primeiro frame = capa. |
 | 6–12s | Se você tem loja de roupa, olha esses três números comigo. São só três. Anota aí. | Corte seco. Cartela: "3 NÚMEROS". Contador mental armado. |
 | 12–35s | O primeiro: há quanto tempo a peça tá parada. Sabe aquela peça que chegou na coleção passada… e você nem VÊ mais ela na arara? A gente chama isso de cegueira de arara. Peça parada é dinheiro parado. É o dinheiro da coleção nova preso num cabide. Faz o teste hoje: o que tá há mais de sessenta dias sem vender? | B-roll: mão passando pelas peças na arara, para numa peça; etiqueta antiga; zoom no cabide. Cartela: "Nº 1 — PEÇA PARADA · +60 dias sem vender". |
 | 35–58s | O segundo: quanto cada cliente leva. A cliente levou a blusa. E a calça? E o cinto? E o brinco? Ficaram lá? Isso é venda escapando na tua frente. A conta é fácil: soma o que você vendeu na semana e divide pelo número de vendas. Vendeu cinco mil em vinte vendas? Cada cliente levou duzentos e cinquenta. Dá pra subir isso. | B-roll: sacola com uma peça só vs. look completo no balcão. Conta de exemplo na tela: "R$ 5.000 ÷ 20 vendas = R$ 250". Cartela: "Nº 2 — QUANTO CADA CLIENTE LEVA". |
