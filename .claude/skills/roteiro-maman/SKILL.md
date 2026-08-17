@@ -55,7 +55,10 @@ que a pesquisa responde.
 | Provas reais e ponte existente | Opcionais — **só o cliente tem**; se não vierem, provas internas viram `[PROVA NECESSÁRIA]` e a ponte é construída na etapa 4 |
 
 Se o cliente for da casa, busque os documentos dele no repositório antes de
-qualquer pergunta.
+qualquer pergunta. **Diretrizes de marca em `ROTEIROS-MAMAN/DIRETRIZ-<CLIENTE>.md`
+prevalecem sobre qualquer documento de posicionamento mais antigo** — para a
+Expansion: o diferencial comunicado é O MÉTODO (atração + conversão, o caminho
+inteiro), nunca o videomaker, que é recurso de alguns planos.
 
 ### Regra da base nova (inegociável)
 

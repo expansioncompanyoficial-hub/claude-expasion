@@ -3,19 +3,22 @@
 > Base: `POSICIONAMENTO-EXPANSION-2026-08-14` (território **De Dentro da Loja**) +
 > `ESTRATEGIA-INSTAGRAM-EXPANSION-2026-08-14` (territórios T1–T5, séries, biblioteca de ganchos)
 > + pesquisas de linguagem de 14/08 (dores confirmadas) · Skill `roteiro-maman`.
-> R1 = já aprovado (ARARA). Regras duras respeitadas em todos: inimigo é o MODELO, nunca a
-> lojista · sem promessa de faturamento · sem escassez encenada · sem prazo de publicação
-> (gargalo de edição) · Fase 2 (direct) só como diagnóstico · vocabulário dela, zero jargão.
+> **REVISÃO 17/08 — DIRETRIZ-EXPANSION.md:** o diferencial comunicado é O MÉTODO (atração +
+> conversão, o caminho inteiro), nunca o videomaker — que é recurso de alguns planos. R02, R05
+> e R10 reescritos; fechos de R03/R04/R06/R07/R08/R09 realinhados; raio geográfico fora das
+> falas até definição. R1 = já aprovado (ARARA). Regras mantidas: inimigo é o MODELO (que para
+> no post), nunca a lojista · sem promessa de faturamento · sem escassez encenada · sem
+> prazo/SLA · vocabulário dela ("funil" na fala vira "o caminho").
 
 ## Matriz do lote (anti-repetição interna)
 
 | # | Roteiro | Série/Território | Gancho (framework da estratégia) | Chassi | CTA | Nota |
 |---|---|---|---|---|---|---|
 | 01 | OS 3 NÚMEROS DA LOJA | T2 · autoridade de varejo | Problema invisível | ARQ-1 lista curada | ARARA | 80 |
-| 02 | O MANIFESTO — QUEM TRABALHOU FOI VOCÊ | Post fixado · T1/T5 | Contraste de método | Manifesto de território | VISITA | 82 |
+| 02 | O MANIFESTO — APARECER NÃO É VENDER | Post fixado · T1/T5 | Inversão de crença (aparecer ≠ vender) | Manifesto do método | MÉTODO | 83 |
 | 03 | A CALÇA QUE ESPEROU 90 DIAS | T2 · PARADO NA ARARA | A peça como personagem | ARQ-6 história com desfecho econômico | ETIQUETA | 81 |
 | 04 | MORREU NO DIRECT | T3 · achado proprietário | Número do vazamento | ARQ-5 mecanismo invisível | resposta nos comentários | 83 |
-| 05 | O DIA DE LOJA — COMO FUNCIONA | T1 · DIA DE LOJA | Cena reconhecível | Execução como conteúdo | AGENDA | 80 |
+| 05 | O CAMINHO — COMO O MÉTODO FUNCIONA | T1/T3 · método | Contraste de resultado (posta muito × vende todo dia) | Explicação de método em 4 paradas | CAMINHO | 82 |
 | 06 | A JANELA DA NOVIDADE | T2 · autoridade de varejo | Mecanismo da janela (prazo de validade) | ARQ-5 cadeia causal curta | COLEÇÃO | 79 |
 | 07 | O QUE A ZARA SABE SOBRE ESTREIA | T4 · VITRINE ALHEIA | Tradução de marca grande | ARQ-3 diagnóstico de caso público | ESTREIA | 80 |
 | 08 | O QUE A GENTE NÃO PROMETE | T5 · O QUE A GENTE NÃO FAZ | A recusa | Posicionamento anti-milagre | SEGUNDA | 81 |
@@ -46,20 +49,20 @@
 
 ---
 
-## R02 · O MANIFESTO — QUEM TRABALHOU FOI VOCÊ
-**Série:** Post fixado · T1/T5 · **Objetivo:** Posicionamento + conversão · **Duração:** ~70s · **Gancho:** Contraste de método · **Chassi:** Manifesto de território · **CTA:** VISITA · **Rubrica (R, compacta):** 82/100
+## R02 · O MANIFESTO — APARECER NÃO É VENDER
+**Série:** Post fixado · T1/T5 · **Objetivo:** Posicionamento + conversão · **Duração:** ~72s · **Gancho:** Inversão de crença (aparecer ≠ vender) · **Chassi:** Manifesto do método · **CTA:** MÉTODO · **Rubrica (R, compacta):** 83/100
 
 | TEMPO | FALA | VISUAL |
 |---|---|---|
-| 0–7s | Te mandaram o roteiro pelo WhatsApp e pediram pra você gravar. Então quem trabalhou ali… foi você. E era pra ser o contrário. | Nicolas ou Kauã direto na câmera, set neutro. Legenda queimada. |
-| 7–17s | A cena é sempre a mesma: sexta chega a lista. “Grava esses três e sobe no Drive.” Você fecha a loja, janta… e às dez da noite tá de celular na mão, gravando sozinha. | B-roll: print de WhatsApp genérico (encenado), celular apoiado na arara à noite. |
-| 17–30s | Esse é o modelo de quase toda assessoria: trabalhar de longe. O post até sai bonito. Mas quem parou de vender pra filmar foi você. A peça é sua, a loja é sua… e o trabalho ficou sendo seu também. | B-roll: rotina da loja. Regra de tom: o alvo é o MODELO, nunca a lojista. |
-| 30–48s | A gente faz o contrário: marca o dia e vai até a sua loja. Você separa as araras de manhã, dá vinte minutos de fala — porque de roupa quem entende é você — e volta pro balcão. A câmera é problema nosso. | Bastidor REAL de dia de gravação: equipe chegando, luz, araras. Prova nível 1. |
-| 48–58s | E do mesmo dia saem as três coisas: o feed, os stories e o anúncio. Toda coleção que entra na sua loja sai de lá gravada. Em dia marcado. Sem você parar de atender. | Cartela: “1 diária → feed + story + anúncio”. NÃO prometer prazo de publicação. |
-| 58–70s | Se a sua loja é de roupa feminina e tá na Grande São Paulo: comenta VISITA que a gente te explica como funciona o dia de gravação na sua loja. | Cartela final: VISITA. Filtro de ICP dito em voz alta. |
+| 0–7s | A sua loja não precisa aparecer mais. Ela precisa vender mais. E isso… não é a mesma coisa. | Nicolas ou Kauã direto na câmera, set neutro. Legenda queimada. |
+| 7–20s | O pacote que vendem por aí para no post: conteúdo bonito, número de visualização, print de alcance. Aí a cliente chama no direct, pergunta o preço… e dali pra frente o problema volta a ser seu. | B-roll: feed bonito → notificação chegando → silêncio. Regra de tom: o alvo é o MODELO que para no post, nunca a lojista. |
+| 20–38s | Porque venda de loja não nasce do post. Nasce de um caminho: a cliente certa te descobre, chega na conversa, compra… e volta. Se uma ponta desse caminho tá solta, o resto vira enfeite. | Cartela com o caminho em 4 paradas: DESCOBRE → CONVERSA → COMPRA → VOLTA. |
+| 38–52s | Por isso o nosso trabalho é o caminho inteiro: atrair a cliente certa E cuidar da conversão. Tem plano com a nossa equipe gravando dentro da loja, tem plano que roda sem câmera nenhuma. O método é o mesmo. | Bastidor + tela de estratégia. Videomaker citado como recurso de plano, NUNCA como a bandeira. |
+| 52–62s | E a gente não promete milagre. Promete método — com relatório toda segunda, inclusive do que não funcionou. | Cartela: “método + relatório de segunda”. Anti-milagre mantido. |
+| 62–72s | Se você tem loja de roupa feminina: comenta MÉTODO que a gente te mostra o caminho da sua loja — da atenção até o caixa. | Cartela final: MÉTODO. (Raio geográfico fora da fala até definição do Nicolas.) |
 
-**Capa:** "GRAVAR A COLEÇÃO NÃO ERA PRA SER TRABALHO SEU"
-**Legenda:** Quem grava a coleção da sua loja hoje — você, depois de fechar? Assessoria de moda não se faz por WhatsApp. Se faz dentro da loja. Comenta VISITA que a gente te explica como funciona o dia de gravação.
+**Capa:** "APARECER MAIS NÃO É VENDER MAIS"
+**Legenda:** Sua loja aparece… e o caixa não acompanha? O problema quase nunca é o post — é o caminho depois dele. Comenta MÉTODO que a gente te mostra o caminho da sua loja, da atenção até o caixa.
 
 ---
 
@@ -73,7 +76,7 @@
 | 28–46s | Só que a única pessoa que podia transformar essa peça em imagem… é a mesma que atende, embala, compra, paga fornecedor e fecha a loja. A peça fica esperando ela ter tempo. E peça não sabe esperar. | B-roll: dona atendendo, provador, caixa. Culpa na ESTRUTURA, nunca nela. |
 | 46–60s | Aí chega o fim da estação com nome bonito: liquidação. Mas liquidação, no fundo, é a conta da imagem que não foi feita a tempo. O desconto não é estratégia. É atraso virando prejuízo. | Cartela: “liquidação = a fatura da imagem atrasada”. Ritmo desacelera. |
 | 60–68s | Manda esse vídeo pra amiga lojista que tá com a arara cheia de coleção passada. Ela precisa ouvir isso antes da próxima compra no Brás. | CTA social no pico. |
-| 68–82s | A gente resolve isso de um jeito só: indo até a loja. A coleção vira imagem enquanto é novidade — gravada lá dentro, com você. Comenta ETIQUETA que a gente te mostra como funciona. | Bastidor real de gravação. Cartela final: ETIQUETA. |
+| 68–82s | É isso que o método resolve: a peça vira imagem e oferta enquanto é novidade — parte do caminho que vai da atenção até o caixa. Comenta ETIQUETA que a gente te mostra o caminho da peça até a venda. | Peça publicada + conversa chegando + venda. Cartela final: ETIQUETA. |
 
 **Capa:** "ESSA CALÇA VAI SAIR COM 50% — E NÃO PRECISAVA"
 **Legenda:** Toda liquidação conta a mesma história: a peça que esperou pra virar imagem. Quanto da sua margem tá indo embora no fim da estação? Comenta ETIQUETA que a gente te mostra como a coleção vira conteúdo enquanto é novidade.
@@ -88,7 +91,7 @@
 | 0–8s | ⚠ SÓ COM PRINT ANONIMIZADO: Trinta e cinco mulheres chamaram uma loja de roupa no WhatsApp. Em três dias. Nenhuma comprou. E o anúncio não teve culpa nenhuma. | Print anonimizado das conversas com seta. SEM o print: usar gancho alternativo — “Tem venda morrendo dentro do celular da loja. E ninguém tá vendo.” |
 | 8–22s | Essa loja investiu mil reais em anúncio. E o anúncio fez o trabalho dele: trouxe gente perguntando “quanto tá?”, “tem no 38?”, “faz condicional?”. | B-roll: notificações chegando em sequência. Linguagem da lojista nas mensagens. |
 | 22–40s | Só que vontade de comprar roupa tem hora. A cliente pergunta às três da tarde… e a resposta sai às onze da noite, quando a loja fecha. A vontade já passou. A venda não morreu no anúncio. Morreu na espera. | Relógio correndo; mensagem com “visto”. Cartela: “a venda morre na espera”. |
-| 40–55s | Então quando alguém te diz que anúncio não funciona pra loja de roupa… desconfia. Na maioria das vezes o anúncio funcionou. O que faltou foi braço no balcão digital — alguém cuidando da conversa que chega. | FASE 2 SÓ COMO DIAGNÓSTICO: descrever o vazamento, NÃO vender solução, NÃO dar manual. |
+| 40–55s | Então quando alguém te diz que anúncio não funciona pra loja de roupa… desconfia. Na maioria das vezes o anúncio funcionou. O que faltou foi a segunda metade do caminho: alguém cuidando da conversa que chega. Atração sem conversão é balde furado. | Descrever o vazamento e o custo — sem prometer SLA nem entregar manual. |
 | 55–66s | E cada conversa dessas custou dinheiro de verdade. Conversa que chega e não é respondida é verba indo embora em silêncio. | Cartela: “conversa sem resposta = verba jogada fora”. |
 | 66–76s | Compartilha esse vídeo com a lojista que jura que anúncio não funciona. Ela precisa ver onde a venda tá morrendo de verdade. | CTA social. |
 | 76–90s | E me responde aqui embaixo, de verdade: na sua loja, quanto tempo uma cliente espera por resposta no direct? Uma hora? Um dia? Escreve aí — a gente tá mapeando isso loja por loja. | CTA de comentário (KPI do território é conversa). Sem palavra-chave comercial. |
@@ -98,20 +101,20 @@
 
 ---
 
-## R05 · O DIA DE LOJA — COMO FUNCIONA
-**Série:** T1 · DIA DE LOJA · **Objetivo:** Aquisição + prova · **Duração:** ~85s · **Gancho:** Cena reconhecível · **Chassi:** Execução como conteúdo · **CTA:** AGENDA · **Rubrica (R, compacta):** 80/100
+## R05 · O CAMINHO — COMO O MÉTODO FUNCIONA
+**Série:** T1/T3 · método · **Objetivo:** Aquisição + conversão · **Duração:** ~88s · **Gancho:** Contraste de resultado (posta muito × vende todo dia) · **Chassi:** Explicação de método em 4 paradas · **CTA:** CAMINHO · **Rubrica (R, compacta):** 82/100
 
 | TEMPO | FALA | VISUAL |
 |---|---|---|
-| 0–8s | Você fecha a loja às sete. Chega em casa, janta, resolve a vida. E às dez da noite… tá de celular na mão, gravando a coleção. De novo. | Encenação noturna: celular apoiado, luz ruim. Legenda queimada. |
-| 8–16s | Isso não é desorganização sua. É o modelo que te venderam: a assessoria fica com a parte de longe… e você fica com o trabalho. | Regra de tom: culpa no modelo. Corte seco. |
-| 16–45s | O dia de loja funciona assim: a gente chega de manhã com equipe e luz. As araras você separou na véspera — dez minutos. Você dá vinte minutos de fala sobre as peças, porque de roupa quem entende é você. E volta pro balcão. A gente passa o dia filmando: caimento, detalhe, provador, a loja viva. | BASTIDOR REAL: chegada, montagem, a dona sendo dirigida, a loja atendendo em paralelo. É a prova nível 1 do posicionamento. |
-| 45–60s | Do mesmo dia saem as três coisas: feed, stories e o criativo do anúncio. Uma diária, três frentes. E a peça aparece do jeito que a cliente decide comprar: em movimento, no corpo. | Resultado publicado lado a lado com o bruto. NÃO prometer prazo de publicação. |
-| 60–72s | Isso aqui não é promessa de vídeo de venda. É o que os nossos bastidores mostram acontecendo, semana sim, semana sim. | Sequência rápida de vários dias de loja diferentes (material real existente). |
-| 72–85s | Loja de roupa feminina, Grande São Paulo: comenta AGENDA que a gente te mostra como marcar o seu dia de gravação. | Cartela final: AGENDA. Filtro de ICP em voz alta. |
+| 0–8s | Tem loja postando todo santo dia… com o caixa parado. E tem loja postando três vezes por semana… vendendo todo dia. A diferença não tá na frequência. | Direto na câmera. Cartela: “todo dia × 3×/semana”. |
+| 8–20s | Tá no caminho. Post sozinho é vitrine acesa com porta emperrada: a cliente olha, chama… e a venda trava na conversa, na demora, no esquecimento. | B-roll: vitrine linda → mensagem sem resposta. Culpa no modelo, nunca nela. |
+| 20–48s | O método cuida das quatro paradas. Um: a cliente CERTA te descobre — conteúdo e anúncio pra quem compra, não pra quem só curte. Dois: a conversa — quem chama encontra um caminho de resposta pensado pra vender, não pra enrolar. Três: o caixa — oferta certa, na peça certa, sem depender de liquidação. Quatro: a volta — quem comprou é lembrada na próxima coleção. | Cartela acumulando as 4 paradas: DESCOBRE → CONVERSA → COMPRA → VOLTA. Uma a uma, no ritmo da fala. |
+| 48–62s | Isso é estratégia, não mágica: cada parada tem um número. E o número aparece no relatório de segunda-feira — o que funcionou e o que não funcionou. | Cartela: “relatório de segunda”. Anti-milagre. NÃO prometer prazo/SLA. |
+| 62–74s | Tem plano com dia de gravação dentro da loja. Tem plano sem câmera nenhuma. O que nunca muda é o caminho completo — porque atração sem conversão é conta que não fecha. | Bastidor real como EXEMPLO de recurso de plano (não como bandeira). |
+| 74–88s | Comenta CAMINHO que a gente desenha o da sua loja: onde a venda tá escapando hoje… e o que arrumar primeiro. | Cartela final: CAMINHO. |
 
-**Capa:** "VOCÊ SEPARA AS ARARAS. A GENTE FAZ O RESTO."
-**Legenda:** O dia de gravação dentro da loja, do início ao fim: você separa as araras de manhã, dá vinte minutos de fala e volta a atender. Comenta AGENDA que a gente te mostra como marcar o seu.
+**Capa:** "POST NÃO É VENDA. VENDA É CAMINHO."
+**Legenda:** Tem loja postando todo dia com o caixa parado — e loja postando 3× por semana vendendo todo dia. A diferença é o caminho. Comenta CAMINHO que a gente desenha o da sua loja: onde a venda tá escapando e o que fazer primeiro.
 
 ---
 
@@ -124,8 +127,8 @@
 | 8–28s | Funciona assim: a grade é pequena. A numeração boa vai embora primeiro. Quem paga preço cheio é quem vê a peça enquanto ela é novidade. Quando sobra grade quebrada… só o desconto move. | B-roll: grade completa → buracos na arara. Cartela: “grade quebrada = só desconto move”. |
 | 28–48s | Por isso coleção que demora pra virar imagem envelhece pendurada. O fornecedor já foi pago. A foto ainda não existe. E a estação não espera ninguém. | B-roll: boleto de fornecedor, calendário, arara. Tom sereno, sem catástrofe. |
 | 48–58s | Salva esse vídeo agora — e lembra dele no dia em que a próxima coleção chegar na sua loja. | CTA de salvamento (KPI do território). |
-| 58–72s | O jeito de vencer a janela é um só: tratar chegada de coleção como evento com data. A peça vira imagem enquanto é novidade — e é por isso que a gente grava dentro da loja, no ritmo da coleção. | Bastidor de gravação + peça publicada. Ponte do território DENTRO. |
-| 72–80s | Comenta COLEÇÃO que a gente te explica como a estreia da sua próxima coleção vira campanha. | Cartela final: COLEÇÃO. |
+| 58–72s | O jeito de vencer a janela é tratar chegada de coleção como evento com data: a peça vira imagem e oferta enquanto é novidade, a cliente fiel é avisada primeiro, e a conversa que chega encontra resposta. Novidade virando venda — não só post. | Peça publicada + oferta + conversa. Ponte do MÉTODO (atração → conversão). |
+| 72–80s | Comenta COLEÇÃO que a gente te explica como a estreia da sua próxima coleção vira campanha que vende. | Cartela final: COLEÇÃO. |
 
 **Capa:** "PEÇA DE ROUPA TEM PRAZO DE VALIDADE"
 **Legenda:** Não é a data da etiqueta — é a janela em que a peça vende no preço cheio. Salva esse vídeo pra lembrar na próxima chegada de coleção. E comenta COLEÇÃO que a gente te explica como a estreia da próxima vira campanha.
@@ -142,7 +145,7 @@
 | 30–52s | Sua loja não é a Zara — e não precisa ser. Com quarenta peças você faz estreia: data marcada, a cliente fiel avisada primeiro, o provador arrumado pra receber, e a novidade no preço cheio na primeira semana. | Tradução para a escala dela, na língua dela: peça, grade, provador, cliente fiel. |
 | 52–64s | O contrário disso é o que ensinaram pra loja pequena: chegou coleção, já posta com desconto. Aí a novidade nasce velha — e a margem morre no primeiro dia. | Cartela: “novidade que nasce velha não tem margem”. |
 | 64–76s | Salva e manda pra lojista que tá esperando coleção chegar essa semana. | CTA social. |
-| 76–90s | E comenta ESTREIA que a gente te conta como um dia de gravação dentro da loja transforma a chegada da coleção numa campanha com data. | Cartela final: ESTREIA. |
+| 76–90s | E comenta ESTREIA que a gente te conta como o método transforma a chegada da sua coleção numa campanha com data — do conteúdo à conversa. | Cartela final: ESTREIA. |
 
 **Capa:** "POR QUE A ZARA NÃO DÁ DESCONTO NA ESTREIA"
 **Legenda:** Marca grande não anuncia desconto em chegada de coleção — e tem um mecanismo aí que loja de bairro pode usar com 40 peças. Comenta ESTREIA que a gente te conta como um dia de gravação transforma a chegada da coleção em campanha.
@@ -156,7 +159,7 @@
 |---|---|---|
 | 0–8s | A gente não promete dobrar o faturamento da sua loja. E se alguém prometer… segura a carteira. | Direto na câmera, sem b-roll. Tom firme e calmo. |
 | 8–26s | Porque faturamento é resultado SEU: depende do seu preço, da sua compra, do seu atendimento. Quem promete o que é seu tá te vendendo justamente a parte que não controla. | Cartela: “ninguém pode prometer o que é seu”. |
-| 26–48s | O que a gente promete é o que a gente controla: dia de gravação marcado, na sua loja. Número combinado de peças captadas. Do mesmo dia: feed, story e anúncio. E toda segunda-feira, o mesmo relatório, com os mesmos números — inclusive o que não funcionou. | Cartelas dos compromissos, uma a uma. SEM prazo de publicação (gargalo de edição — decisão do posicionamento). |
+| 26–48s | O que a gente promete é o que a gente controla: um caminho desenhado pra SUA loja — atração e conversão, da cliente que te descobre à cliente que volta. O trabalho combinado, entregue. E toda segunda-feira, o mesmo relatório, com os mesmos números — inclusive o que não funcionou. | Cartelas dos compromissos, uma a uma. SEM prazo/SLA (régua de credibilidade mantida). |
 | 48–60s | Se você procura milagre, a gente não é pra você — e tá tudo bem. Se procura uma equipe que entra na loja e presta conta toda semana… | Pausa. Filtro dito com respeito. |
 | 60–75s | …comenta SEGUNDA que a gente te mostra um extrato de verdade. Com o que deu certo e com o que não deu. | ⚠ Exige extrato real autorizado/anonimizado pra mostrar em tela. Cartela final: SEGUNDA. |
 
@@ -173,7 +176,7 @@
 | 0–8s | Tem uma lista dentro da sua loja que vale mais que anúncio. E quase nenhuma lojista sabe que ela existe. | Direto na câmera. Cartela: “a lista invisível”. |
 | 8–25s | É a lista de quem JÁ comprou de você. A cliente de março que levou duas peças, amou… e nunca mais apareceu. Ela não te trocou por outra loja. Ela só nunca mais foi lembrada. | B-roll: sacola sendo entregue, porta da loja. Culpa em ninguém — é estrutura. |
 | 25–45s | E essa lista mora em lugar que você nem olha: o caderninho da condicional. O WhatsApp da loja. O cadastro da sacolinha. A memória da tua melhor vendedora. Loja que não olha pra isso recomeça do zero todo mês. | B-roll: caderninho, WhatsApp, ficha de cadastro. Linguagem: condicional, sacola, vendedora. |
-| 45–58s | Cliente nova custa caro — anúncio, tempo, convencimento. Quem já comprou só precisava de um motivo pra voltar: a peça nova que tem a cara dela. | Cartela: “quem já comprou só precisava ser lembrada”. Sem número inventado. |
+| 45–58s | Cliente nova custa caro — anúncio, tempo, convencimento. Quem já comprou só precisava de um motivo pra voltar: a peça nova que tem a cara dela. Essa é a parte do caminho que quase nenhum marketing olha — a venda que nasce de quem já é cliente. | Cartela: “o caminho de volta”. Sem número inventado. |
 | 58–70s | Manda esse vídeo pra lojista que vive dizendo que a cidade parou de comprar. A cidade não parou. A lista é que tá esquecida. | CTA social. |
 | 70–85s | E responde aqui embaixo, de verdade: quantas clientes de março voltaram na sua loja? Se você não sabe… escreve “não sei”. É mais comum do que parece — e é aí que a conversa começa. | CTA de comentário. Sem manual completo (regra do território): nomear o vazamento, não entregar o passo a passo. |
 
@@ -187,14 +190,14 @@
 
 | TEMPO | FALA | VISUAL |
 |---|---|---|
-| 0–8s | A Expansion começou com um colchão no chão. E isso explica por que hoje a gente trabalha dentro da loja dos outros. | Foto/cena de arquivo se existir; senão, direto na câmera. SEM tom de super-herói (regra da casa). |
-| 8–30s | A gente veio da câmera. Os dois sócios eram filmakers antes de abrir a empresa. E quem já carregou tripé sabe de uma coisa: câmera boa não substitui estar presente. O caimento da peça, a luz da loja, o jeito que a dona fala do produto — isso não se dirige por WhatsApp. | B-roll: equipamentos, bastidor. A narrativa é DA EMPRESA (sócios a serviço da marca). |
-| 30–52s | Por isso o nosso produto não é post. É presença: equipe dentro da loja, no ritmo da coleção. A assessoria que trabalha de longe devolve pra dona o trabalho mais difícil — a gente foi montado pro contrário. | Bastidores de dias de loja diferentes. |
-| 52–66s | E é também por isso que a gente não pega toda loja. Loja de roupa feminina, ponto físico, Grande São Paulo — as que dá pra atender de perto, do jeito que a gente acredita. | Filtro real de capacidade — NUNCA escassez encenada (“últimas vagas” é proibido). |
-| 66–80s | Quer ver como isso funciona na prática? Acompanha o próximo DIA DE LOJA aqui no perfil. É a melhor forma de conhecer a gente trabalhando… antes de chamar a gente pra tua loja. | CTA de seguir/acompanhar a série. Cartela: “DIA DE LOJA · toda semana”. |
+| 0–8s | A Expansion começou com um colchão no chão. E isso explica por que a gente não vende post — vende método. | Foto/cena de arquivo se existir; senão, direto na câmera. SEM tom de super-herói (regra da casa). |
+| 8–30s | A gente veio de baixo e veio da prática: gravando, editando, anunciando, vendendo. E foi vendo a venda de perto que caiu a ficha — post bonito sem caminho não paga boleto de fornecedor. | B-roll: equipamentos, bastidor, rotina. A narrativa é DA EMPRESA (sócios a serviço da marca), sem heroísmo. |
+| 30–52s | Por isso a Expansion não vende post. Vende método: atrair a cliente certa, converter a conversa que chega, e trazer de volta quem já comprou. Tem plano que leva nossa equipe e câmera pra dentro da loja. Tem plano que roda com o seu celular. O método é o mesmo — e o relatório de segunda também. | Cartela: DESCOBRE → CONVERSA → COMPRA → VOLTA. Videomaker como recurso de plano. |
+| 52–66s | E a gente não pega toda loja. Loja de roupa feminina, com ponto físico — as que o método atende do jeito que a gente acredita. | Filtro real de capacidade — NUNCA escassez encenada. Raio geográfico fora da fala até definição. |
+| 66–80s | Quer ver o método funcionando em loja de verdade? Acompanha o perfil — toda semana tem caso, bastidor e número real aqui. | CTA de seguir/acompanhar. Cartela: “toda semana aqui”. |
 
-**Capa:** "POR QUE A GENTE ENTRA NA LOJA DOS OUTROS"
-**Legenda:** A Expansion começou com um colchão no chão — e é por isso que hoje o nosso produto é presença. Acompanha o próximo DIA DE LOJA aqui no perfil: é a melhor forma de ver como a gente trabalha antes de chamar a gente.
+**Capa:** "POR QUE A GENTE NÃO VENDE POST"
+**Legenda:** A Expansion começou com um colchão no chão — e foi vendo a venda de perto que aprendeu: post bonito sem caminho não paga boleto. Acompanha o perfil: toda semana tem o método funcionando em loja de verdade.
 
 ---
 
