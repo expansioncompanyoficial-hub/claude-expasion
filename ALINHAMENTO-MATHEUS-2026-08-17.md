@@ -379,3 +379,33 @@ produto, não enche evento presencial de bairro. **O dado é dele e está corret
 > **Ceder aqui não custa nada e recupera tudo.** A estratégia do evento fica
 > intacta, o gestor recupera autoria, e o cliente ganha a única coisa que
 > importa: peça saindo pela porta.
+
+---
+
+## 13. DESFECHO · 17/08
+
+**Resolvido por ligação**, como na questão do dia 10. E com rito definido:
+
+> **Daily toda segunda-feira às 10h30**, sobre clientes e estratégias.
+
+É exatamente o que ele pediu no áudio: *"a gente precisa ter um alinhamento"*.
+Deixa de ser promessa de escutar mais e vira **hora marcada na agenda**, o que é
+a única forma que sobrevive a semana cheia.
+
+**Atenção ao vão:** a primeira daily cai em **24/08**, dois dias depois do evento.
+**Entre hoje e sábado 22 não existe rito**, e é justamente a semana mais
+apertada. Vale marcar uma conversa curta de meia hora nesta quarta ou quinta,
+fora da daily, só para o dia 22.
+
+### O que ainda falta fechar por escrito
+
+| # | Combinado | Status |
+|---|---|---|
+| 1 | Daily de segunda, 10h30 | ✅ definido |
+| 2 | **Resposta escrita em 24h a toda proposta dele**, aceitando ou recusando com motivo | pendente |
+| 3 | **Objetivo de campanha e segmentação são decisão dele**, com veto | pendente |
+| 4 | Sync curto antes do dia 22 | pendente |
+
+O item 2 é o mais barato e é o que ele mais cobrou: *"faz tempo que eu mando
+ideias no privado e você não responde."* **Sem ele, a daily vira reunião e o
+problema volta.**
