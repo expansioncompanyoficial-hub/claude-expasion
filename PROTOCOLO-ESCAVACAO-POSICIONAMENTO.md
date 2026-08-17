@@ -325,7 +325,7 @@ tese-raiz estava rasa — e o conserto é na Escavação 2, não na frase.
 
 ---
 
-## 4. Os quatro portões
+## 4. Os cinco portões
 
 Nenhum passa por decisão de gosto. Cada um trava a etapa seguinte.
 
