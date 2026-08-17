@@ -173,6 +173,18 @@ Regras que mais quebram, então conferir sempre:
 - `document.fonts.ready` antes de capturar.
 - Contraste mínimo 4.5:1. Sem seta de swipe.
 
+**O render é feito pelos scripts da skill**, não à mão:
+
+```bash
+python3 scripts/render_carrossel.py spec.json carrossel.html
+python3 scripts/export_png.py carrossel.html slides/
+```
+
+Escrever o spec JSON com os tokens da ficha do cliente e os slides. Ver
+`scripts/README.md` para os tipos de slide e o formato. O exportador confirma na saída a
+medida real do slide e se as fontes carregaram — **conferir as duas coisas** antes de
+entregar.
+
 Entregar o HTML pro usuário conferir no navegador antes de exportar PNG.
 
 ---
@@ -213,6 +225,7 @@ precisa pra saber o quanto confiar na régua.
 | `references/modos.md` | Sempre na Etapa 1 — decide topo · meio · newsroom |
 | `references/fluxo-agencia.md` | Dúvida sobre ficha de cliente, aprovação ou publicação |
 | `references/ficha-carrossel.md` | Sempre na Etapa 9 |
+| `scripts/README.md` | Etapa 7 — formato do spec e tipos de slide |
 
 ## Limites
 
