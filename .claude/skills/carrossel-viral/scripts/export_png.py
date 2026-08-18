@@ -35,6 +35,9 @@ with sync_playwright() as p:
     page.goto(f"file://{html}", wait_until="networkidle")
     page.evaluate("() => document.fonts.ready")
     page.wait_for_timeout(1200)
+    # o auto-fit roda depois das fontes; sem esperar por ele o PNG sai com
+    # o tamanho pré-ajuste
+    page.wait_for_function("() => window.__fitPronto === true", timeout=20000)
 
     loaded = page.evaluate(
         """() => document.fonts.check('900 92px Montserrat')
@@ -56,4 +59,4 @@ with sync_playwright() as p:
     box = slides.nth(0).bounding_box()
     browser.close()
 
-print(f"{n} PNGs em {out}/  ·  slide medido: {int(box['width'])}x{int(box['height'])}  ·  fontes carregadas: {loaded}")
+print(f"{n} PNGs em {out}/  ·  slide medido: {int(box['width'])}x{int(box['height'])}  ·  fontes carregadas: {loaded}  ·  auto-fit aplicado")

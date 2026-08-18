@@ -1,108 +1,73 @@
 {
   "marca": "Prime Assessoria",
   "handle": "@prime.alphaville",
+  "copyright": "2026 ®",
+  "verificado": true,
   "tokens": {
     "dark": "#191818",
     "accent": "#e14414",
-    "gray": "#9d9d9c",
+    "claro": "#F0EEEC",
+    "texto": "#FFFFFF",
     "fonte_head": "Montserrat",
-    "fonte_body": "Poppins",
-    "capa_size": 96
+    "fonte_body": "Poppins"
   },
   "fontes": [
-    {
-      "family": "Montserrat",
-      "weight": 800,
-      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-800-normal.woff2"
-    },
-    {
-      "family": "Montserrat",
-      "weight": 900,
-      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-900-normal.woff2"
-    },
-    {
-      "family": "Poppins",
-      "weight": 400,
-      "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-400-normal.woff2"
-    },
-    {
-      "family": "Poppins",
-      "weight": 600,
-      "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-600-normal.woff2"
-    }
+    {"family": "Montserrat", "weight": 800, "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-800-normal.woff2"},
+    {"family": "Poppins", "weight": 400, "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-400-normal.woff2"},
+    {"family": "Poppins", "weight": 600, "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-600-normal.woff2"}
   ],
   "slides": [
     {
-      "tipo": "capa",
+      "tipo": "capa", "fundo": "capa",
       "headline": "R$ 15 BILHÕES NÃO CABEM EM UM *TROFÉU*",
-      "sub": "A Prime Assessoria na primeira edição do Prêmio ATRINCA Real Estate."
+      "sub": "A Prime na primeira edição do Prêmio ATRINCA Real Estate"
     },
     {
-      "tipo": "texto",
-      "tag": "O que aconteceu",
-      "paragrafos": [
-        "Em 10 de agosto, o Espaço Unimed recebeu a primeira edição do **Prêmio ATRINCA Real Estate**, idealizado por Flávio Augusto, Joel Jota, Caio Carneiro e Cezar Haik.",
-        "A **Prime Assessoria** estava entre os nomes da categoria de crédito imobiliário."
-      ]
+      "tipo": "texto", "fundo": "claro", "tag": "O que aconteceu",
+      "h1": "10 DE *AGOSTO*",
+      "paragrafos": ["O Espaço Unimed recebeu a primeira edição do **Prêmio ATRINCA Real Estate**, idealizado por Flávio Augusto, Joel Jota, Caio Carneiro e Cezar Haik. A Prime estava entre os nomes da categoria de crédito imobiliário."]
     },
     {
-      "tipo": "texto",
-      "tag": "A indicação",
-      "h1": "Nenhuma categoria foi *vendida*.",
-      "paragrafos": [
-        "As indicações saíram de pesquisa com o próprio mercado — corretores, imobiliárias e profissionais do setor.",
-        "Aparecer ali custa uma coisa só: **ter feito o trabalho**."
-      ]
+      "tipo": "texto", "fundo": "destaque", "tag": "A indicação",
+      "h1": "NINGUÉM *COMPROU*",
+      "paragrafos": ["As indicações saíram de pesquisa com o próprio mercado: corretores, imobiliárias e profissionais do setor. Aparecer ali custa uma coisa só — **ter feito o trabalho**."]
     },
     {
-      "tipo": "texto",
-      "tag": "O que uma assessoria faz",
-      "h1": "O banco nega. E a venda *para*.",
-      "paragrafos": [
-        "A Prime opera como correspondente de várias instituições ao mesmo tempo e reenquadra o perfil do cliente na política de crédito que aprova.",
-        "**O que um recusa por score, outro aprova por patrimônio.**"
-      ]
+      "tipo": "texto", "fundo": "escuro", "tag": "O que uma assessoria faz",
+      "h1": "O BANCO *NEGA*",
+      "paragrafos": ["A Prime opera como correspondente de várias instituições ao mesmo tempo e reenquadra o perfil do cliente na política de crédito que aprova."]
     },
     {
-      "tipo": "stat",
-      "tag": "Os números",
+      "tipo": "stat", "fundo": "destaque", "tag": "Os números",
       "numero": "R$ 15 BI",
-      "label": "financiados até aqui",
-      "paragrafos": [
-        "São **165 unidades** no país. Cada uma existe porque uma venda que ia parar no banco encontrou outro caminho."
-      ],
+      "label": "financiados até aqui, em 165 unidades pelo país",
       "fonte": "Prime Assessoria"
     },
     {
-      "tipo": "bullets",
-      "tag": "O que muda para o corretor",
+      "tipo": "declaracao", "fundo": "escuro", "tag": "A virada",
+      "h1": "SCORE NÃO É *SENTENÇA*",
+      "paragrafos": ["O que um banco recusa por score, outro aprova por patrimônio."]
+    },
+    {
+      "tipo": "bullets", "fundo": "destaque", "tag": "O que muda para o corretor",
+      "h1": "A CONTA *MUDA*",
       "itens": [
-        "Cliente negado no banco ainda tem caminho em outra política de crédito",
+        "Cliente negado ainda tem caminho em outra política",
         "**O cliente segue com o corretor.** A comissão também",
-        "Banco isolado limita o poder de compra; análise integrada amplia",
-        "Parceria qualificada em crédito fecha o negócio que ia travar"
+        "Banco isolado limita; análise integrada amplia",
+        "Parceria em crédito fecha o negócio que ia travar"
       ]
     },
     {
-      "tipo": "texto",
-      "tag": "Na prática",
-      "h1": "Quem indica coloca o *próprio nome* junto.",
-      "paragrafos": [
-        "Por isso a origem da indicação importa. Quando ela vem de pesquisa com o setor, o que está sendo medido é trabalho entregue."
-      ]
+      "tipo": "declaracao", "fundo": "escuro", "tag": "Na prática",
+      "h1": "QUEM INDICA *ASSINA*",
+      "paragrafos": ["Quando a indicação vem de pesquisa com o setor, o que está sendo medido é trabalho entregue."]
     },
     {
-      "tipo": "destaque",
-      "tag": "O insight",
-      "texto": "O mercado indica quem ele já viu *trabalhar*."
-    },
-    {
-      "tipo": "cta",
-      "tag": "Parceria",
-      "ponte": "A venda que trava no crédito é a que mais dói, porque já estava fechada na cabeça do cliente.",
+      "tipo": "cta", "fundo": "claro", "tag": "Parceria",
+      "ponte": "A venda que trava no crédito é a que mais dói, porque já estava **fechada na cabeça do cliente**.",
       "instrucao": "Comenta a palavra abaixo:",
       "palavra": "PRIME"
     }
-  ],
-  "monograma": "P"
+  ]
 }

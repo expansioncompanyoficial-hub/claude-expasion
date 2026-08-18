@@ -147,6 +147,23 @@ Rodar também o `brandsdecoded-filtro-editorial.md` inteiro e os 5 testes finais
 
 **Somar a isso a régua editorial da ficha do cliente** — o que aquela marca não diz.
 
+### Tamanho de headline (medido, não estimado)
+
+O estudo da plataforma da BrandsDecoded mediu o ponto de quebra do layout:
+
+| Headline | Resultado no layout deles |
+|---|---|
+| ~70 caracteres | invade o corpo em 6 de 9 slides |
+| ~45 caracteres | invade em 4 |
+| ~24 caracteres | encaixa |
+
+**Alvo nos slides internos: 20 a 26 caracteres, 2 a 3 palavras fortes.** A capa aguenta
+~45 porque é centralizada e tem mais área.
+
+Nosso renderizador tem auto-fit e não quebra — mas headline curta não é só questão de
+caber: é o que faz o slide ser lido no feed. Escrever dentro do alvo, não confiar no
+encolhimento.
+
 ---
 
 ## Etapa 6 — Aprovação do texto (bloqueante)
