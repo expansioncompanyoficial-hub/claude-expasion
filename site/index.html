@@ -513,15 +513,16 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 .pain-conclusion h3 .orange { color: var(--orange); }
 
 /* ===========================================
-   SECTION 3 — METHOD C.A.T.
+   SECTION 3 — METHOD C.A.C.
 =========================================== */
 .method {
   padding: 140px 0;
   background: linear-gradient(180deg, var(--black) 0%, var(--black-2) 100%);
   position: relative;
+  overflow: hidden;   /* recorta o C.A.C. decorativo: sem isto a pagina rola de lado */
 }
 .method::before {
-  content: "C.A.T.";
+  content: "C.A.C.";
   position: absolute;
   top: 10%;
   right: -5%;
@@ -2527,6 +2528,106 @@ footer {
   .marquee-diagonal .marquee-item { font-size: 15px; padding: 0 12px; gap: 12px; }
   .marquee-diagonal .marquee-item::after { font-size: 13px; margin-left: 12px; }
   .marquee-diagonal .marquee-track { animation-duration: 18s; }
+}
+
+/* ===========================================
+   PASSE DE LEGIBILIDADE NO CELULAR
+   Fica no fim da folha de proposito: sobrescreve os tamanhos definidos
+   acima sem obrigar a garimpar cada regra no bloco de 640px.
+
+   Motivo medido, nao impressao: --text-dim (#5A5A5A) rende 2,96:1 sobre o
+   fundo #050505. O minimo de acessibilidade para texto corrido e 4,5:1.
+   Ou seja, metade das legendas do site era ilegivel no sol — e no celular
+   e onde o trafego pago cai.
+=========================================== */
+@media (max-width: 640px) {
+
+  /* A marca d'agua "C.A.C." sai do celular. Em 130px ela cai atras do
+     proprio titulo e do paragrafo — no desktop e fundo, aqui virava ruido
+     em cima do texto que a pessoa precisa ler. */
+  .method::before { display: none; }
+
+  /* Um lugar so: todo cinza da pagina nasce daqui. */
+  :root {
+    --text-muted: #A9A9A9;   /* era #888888 — 5,75:1  ->  8,67:1 */
+    --text-dim:   #8C8C8C;   /* era #5A5A5A — 2,96:1  ->  6,06:1 */
+  }
+
+  /* --- A PROVA SOCIAL ---
+     Os tres resultados do hero sao o argumento mais forte da pagina e
+     estavam saindo em 24px com legenda de 10px. Ninguem le 10px. */
+  .hero-stats { gap: 22px; margin-top: 44px; }
+  .hero-stat { padding: 18px 0 6px; border-top-width: 3px; }
+  .hero-stat-num { font-size: 32px; line-height: 1.05; }
+  .hero-stat-label {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-top: 10px;
+  }
+
+  /* --- OS CASES ---
+     Um card por vez no carrossel: ha espaco de sobra, nao havia razao
+     para o texto ficar em 14px. */
+  /* O card usa a largura toda; as setas descem para uma barra de controle
+     embaixo. Sobrepostas nas laterais elas caiam em cima do titulo, e em
+     28px nem davam alvo de dedo — 44px e o minimo de toque decente. */
+  .cases-slider { max-width: 100%; padding-bottom: 68px; }
+  .slider-arrow {
+    top: auto;
+    bottom: 0;
+    transform: none;
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+    border-radius: 4px;
+  }
+  .slider-arrow.prev { left: calc(50% - 50px); }
+  .slider-arrow.next { right: calc(50% - 50px); }
+  .case-card { padding: 34px 26px; }
+  .case-brand  { font-size: 12px; }
+  .case-period { font-size: 13px; }
+  .case-title  { font-size: 25px; line-height: 1.15; }
+  .case-desc   { font-size: 16px; line-height: 1.6; }
+  .cases-quote { font-size: 26px; }
+
+  /* --- TEXTO CORRIDO ---
+     14 e 15px viram 16px: e o piso confortavel de leitura no telefone. */
+  .hero-sub           { font-size: 17px; line-height: 1.6; }
+  .method-header p,
+  .pillar-desc,
+  .cases-header p,
+  .plans-intro,
+  .plans-footer p,
+  .about-content p,
+  .how-step p,
+  .fit-text,
+  .compare-row,
+  .team-content > p,
+  .team-point p,
+  .service-content p,
+  .faq-answer-inner   { font-size: 16px; line-height: 1.65; }
+
+  .service-list li    { font-size: 16px; }
+  .team-point h3      { font-size: 26px; }
+  .faq-question       { font-size: 19px; }
+
+  /* --- LEGENDAS E MICROCOPIA ---
+     Tudo o que estava em 10 e 11px. Sao curtas: crescer nao quebra layout. */
+  .eyebrow,
+  .service-number,
+  .plan-tag,
+  .footer-col h4      { font-size: 12px; }
+  .form-field label   { font-size: 11px; letter-spacing: 0.16em; }
+  .form-footer,
+  .final-cta-micro,
+  .footer-bottom      { font-size: 12px; }
+  .modal-subtitle     { font-size: 15px; }
+  .footer-slogan,
+  .footer-col a,
+  .footer-col span    { font-size: 15px; }
+  .about-num-label,
+  .plan-price-label   { font-size: 12px; }
 }
 </style>
 </head>
