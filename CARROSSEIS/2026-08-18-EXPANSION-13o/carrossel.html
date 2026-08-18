@@ -6,19 +6,16 @@
 --head:'Montserrat',sans-serif;--body:'Poppins',sans-serif;
 --grad:linear-gradient(180deg,#fa7e01 0%,#ff6522 50%,#fa7e01 100%)}
 
-/* Ênfase em degradê — a escrita destacada não é chapada, é preenchida pelo
-   degradê da marca. Sobre fundo destaque não faz sentido (degradê sobre a
-   própria cor), então lá a ênfase volta a ser peso e cor sólida. */
-.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;
--webkit-text-fill-color:transparent;color:transparent;
--webkit-box-decoration-break:clone;box-decoration-break:clone}
+/* O degradê é do FUNDO do slide de destaque, não da escrita. A escrita em
+   destaque é `--destaque` chapado — conferido na API e na renderização real de
+   sete páginas. */
 body{background:#111;display:flex;flex-direction:column;align-items:center;gap:22px;padding:22px}
 .slide{width:1080px;height:1350px;position:relative;overflow:hidden;flex:none}
 
 /* ── fundos ───────────────────────────────────────────────────────────── */
 .f-capa,.f-foto{background:#000}
 .f-escuro{background:var(--escuro)}
-.f-destaque{background:var(--destaque)}
+.f-destaque{background:var(--grad)}
 .f-claro{background:var(--claro)}
 
 /* foto sangrada — a imagem a 65% sobre preto, e o scrim subindo da base.
@@ -34,16 +31,18 @@ font-weight:700;line-height:1.4;letter-spacing:0;text-transform:uppercase;
 opacity:0.3}
 .f-escuro .barra,.f-capa .barra,.f-destaque .barra,.f-foto .barra{color:#fff}
 .f-claro .barra{color:#000}
+.f-destaque .barra{color:#fff}
 
 /* ── grade · margem lateral 108, largura útil 864 ─────────────────────── */
-.content{position:absolute;top:150px;left:108px;right:108px;bottom:108px;display:flex;
-flex-direction:column;justify-content:center;gap:38px;z-index:2}
+.content{position:absolute;top:230px;left:108px;right:108px;bottom:108px;display:flex;
+flex-direction:column;justify-content:flex-start;gap:44px;z-index:2}
+.content:has(> .foto:first-child){top:208px}
 .f-foto .content{justify-content:flex-end;gap:32px}
 
 .tag{font-family:var(--body);font-size:17px;font-weight:600;letter-spacing:3px;
 text-transform:uppercase}
 .f-escuro .tag,.f-claro .tag,.f-foto .tag{color:var(--destaque)}
-.f-destaque .tag{color:rgba(0,0,0,.62)}
+.f-destaque .tag{color:rgba(255,255,255,.72)}
 
 /* ── título · 75,7px semibold · lh 1,06 · tracking −0,056 · à esquerda ───
    Faixa medida nas peças reais: 60,5 a 83,8. O auto-fit trabalha dentro dela. */
@@ -51,13 +50,11 @@ text-transform:uppercase}
 letter-spacing:-.056em}
 .h1.grande{font-size:83.8px}
 .f-escuro .h1,.f-foto .h1{color:var(--texto)}
-.f-destaque .h1{color:#000}
-.f-claro .h1{color:var(--destaque)}
+.f-destaque .h1{color:#fff}
+.f-claro .h1{color:#000}
 .h1 em{font-style:normal}
-.f-escuro .h1 em,.f-claro .h1 em,.f-foto .h1 em{background:var(--grad);
--webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.f-destaque .h1 em{background:none;-webkit-text-fill-color:#fff;color:#fff}
+.f-escuro .h1 em,.f-claro .h1 em,.f-foto .h1 em{color:var(--destaque)}
+.f-destaque .h1 em{color:#fff;font-weight:700}
 .h1 b{font-weight:700}
 
 /* ── corpo · 45,4px · lh 0,96 · tracking −0,033 · à esquerda ────────────
@@ -67,23 +64,17 @@ color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .corpo{font-family:var(--body);font-size:45.4px;font-weight:400;line-height:.96;
 letter-spacing:-.033em;text-align:left}
 .f-claro .corpo{font-size:36.6px}
-.f-escuro .corpo,.f-foto .corpo{color:#fff}
-.f-claro .corpo,.f-destaque .corpo{color:#000}
+.f-escuro .corpo,.f-foto .corpo,.f-destaque .corpo{color:#fff}
+.f-claro .corpo{color:#000}
 .corpo b{font-weight:700}
-.corpo em{font-style:normal;font-weight:400;background:var(--grad);
--webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.f-destaque .corpo em{background:none;-webkit-text-fill-color:#fff;color:#fff;font-weight:700}
+.corpo em{font-style:normal;font-weight:400;color:var(--destaque)}
+.f-destaque .corpo em{color:#fff;font-weight:700}
 
 /* Chamada do slide final: o parágrafo inteiro na cor de destaque, e a palavra
    de comando em bold dentro dele. */
-.corpo.chamada{background:var(--grad);-webkit-background-clip:text;background-clip:text;
--webkit-text-fill-color:transparent;color:transparent;
--webkit-box-decoration-break:clone;box-decoration-break:clone}
+.corpo.chamada{color:var(--destaque)}
 .corpo.chamada b{font-weight:700}
-.f-claro .corpo.chamada,.f-destaque .corpo.chamada{background:none;
--webkit-text-fill-color:var(--destaque);color:var(--destaque)}
-.f-destaque .corpo.chamada{-webkit-text-fill-color:#000;color:#000}
+.f-destaque .corpo.chamada{color:#fff;font-weight:600}
 
 .fonte{font-family:var(--body);font-size:21px;padding-top:20px;letter-spacing:.3px}
 .f-escuro .fonte,.f-foto .fonte{color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.20)}
@@ -106,8 +97,8 @@ letter-spacing:-.033em;margin-top:-6px}
 .bullets{display:flex;flex-direction:column;gap:26px}
 .row{display:flex;gap:22px;align-items:flex-start;font-family:var(--body);
 font-size:40px;line-height:1.02;letter-spacing:-.033em}
-.f-escuro .row,.f-foto .row{color:#fff}
-.f-claro .row,.f-destaque .row{color:#000}
+.f-escuro .row,.f-foto .row,.f-destaque .row{color:#fff}
+.f-claro .row{color:#000}
 .row b{font-weight:700}
 .row em{font-style:normal;color:var(--destaque)}
 .seta{flex:none;font-weight:600;color:var(--destaque)}
@@ -148,9 +139,7 @@ display:flex;align-items:center;justify-content:center;font-size:16px;font-weigh
 .capa-h1{font-family:var(--head);color:#fff}
 .capa-impacto{font-size:111.5px;font-weight:700;line-height:.92;letter-spacing:-.087em}
 .capa-manchete{font-size:79.6px;font-weight:600;line-height:1.06;letter-spacing:-.056em}
-.capa-h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;
-background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
--webkit-box-decoration-break:clone;box-decoration-break:clone}
+.capa-h1 em{font-style:normal;color:var(--destaque)}
 .capa-h1 b{font-weight:700}
 
 /* legenda da capa · 21,2px · lh 1,06 · tracking −0,056 */
@@ -164,7 +153,7 @@ letter-spacing:-.056em;color:#fff}
             <span class="chip-handle">@assessoriaexpansion</span><span class="selo">✓</span></div>
           <div class="capa-h1 capa-impacto fit">Duas datas do 13º que devem entrar no <em>calendário da sua loja</em></div>
           <div class="capa-sub">O dinheiro da cliente tem calendário. A campanha também deveria ter.</div>
-        </div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="content"><div class="h1 fit">A lei já marcou as datas pra você</div><div class="corpo">A primeira parcela do 13º cai <em>até 30 de novembro</em>. A segunda, <em>até 20 de dezembro</em>.</div><div class="corpo">Não é previsão de mercado, é a <b>Lei 4.090</b>. Todo ano, nas mesmas duas datas.</div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-destaque"><div class="content"><div class="h1 fit">São dois momentos, não um</div><div class="corpo">Quem trata o 13º como um evento só trabalha metade dele.</div><div class="corpo">A primeira parcela é a <b>compra pensada</b>. A segunda chega em cima do Natal, quando a sua cliente já está resolvendo presente.</div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div><div class="avanco">→</div></div><div class="slide f-escuro"><div class="content"><div class="h1 fit">O que muda de uma para a outra</div><div class="corpo">Em novembro ela compra <em>para ela</em>. Em dezembro ela compra <em>para os outros</em>, e o que sobra vira presente de última hora.</div><div class="corpo"><b>A vitrine não pode ser a mesma nas duas.</b></div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-claro"><div class="content"><div class="stat">50%</div><div class="stat-label">do 13º já está na conta da sua cliente em novembro. A outra metade só entra até o dia 20 de dezembro.</div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-destaque"><div class="content"><div class="h1 grande fit">Campanha de 13º que começa em dezembro chega atrasada em <em>metade do dinheiro</em>.</div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div><div class="avanco">→</div></div><div class="slide f-escuro"><div class="content"><div class="h1 fit">O que fazer com cada data</div><div class="bullets"><div class="row"><span class="seta">→</span><span><b>Novembro</b> — a peça de valor mais alto, aquela que ela adiou o ano inteiro.</span></div><div class="row"><span class="seta">→</span><span><b>Dezembro</b> — presente, kit e embalagem pronta. Ticket menor, decisão mais rápida.</span></div><div class="row"><span class="seta">→</span><span><b>Entre as duas</b> — reserva e lista de espera, para ela escolher antes de o dinheiro cair.</span></div></div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="content"><div class="h1 grande fit">Quem só aparece no dia do pagamento disputa uma decisão que <em>já foi tomada</em>.</div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="content"><div class="h1 grande fit">A campanha certa é a que chega antes do dinheiro</div><div class="corpo">Novembro e dezembro não são o mesmo mês comercial, e quem trata os dois igual entrega a metade mais cara da decisão pra outra loja.</div><div class="corpo chamada">Para montar o calendário das duas datas na sua loja, comenta <b>13</b>.</div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div>
+        </div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-claro"><div class="content"><div class="h1 fit">A lei já marcou as datas pra você</div><div class="corpo">A primeira parcela do 13º cai <em>até 30 de novembro</em>. A segunda, <em>até 20 de dezembro</em>.</div><div class="corpo">Não é previsão de mercado, é a <b>Lei 4.090</b>. Todo ano, nas mesmas duas datas.</div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-destaque"><div class="content"><div class="h1 fit">São dois momentos, não um</div><div class="corpo">Quem trata o 13º como um evento só trabalha metade dele.</div><div class="corpo">A primeira parcela é a <b>compra pensada</b>. A segunda chega em cima do Natal, quando a sua cliente já está resolvendo presente.</div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div><div class="avanco">→</div></div><div class="slide f-claro"><div class="content"><div class="h1 fit">O que muda de uma para a outra</div><div class="corpo">Em novembro ela compra <em>para ela</em>. Em dezembro ela compra <em>para os outros</em>, e o que sobra vira presente de última hora.</div><div class="corpo"><b>A vitrine não pode ser a mesma nas duas.</b></div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="content"><div class="stat">50%</div><div class="stat-label">do 13º já está na conta da sua cliente em novembro. A outra metade só entra até o dia 20 de dezembro.</div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="content"><div class="h1 grande fit">Campanha de 13º que começa em dezembro chega atrasada em <em>metade do dinheiro</em>.</div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-claro"><div class="content"><div class="h1 fit">O que fazer com cada data</div><div class="bullets"><div class="row"><span class="seta">→</span><span><b>Novembro</b> — a peça de valor mais alto, aquela que ela adiou o ano inteiro.</span></div><div class="row"><span class="seta">→</span><span><b>Dezembro</b> — presente, kit e embalagem pronta. Ticket menor, decisão mais rápida.</span></div><div class="row"><span class="seta">→</span><span><b>Entre as duas</b> — reserva e lista de espera, para ela escolher antes de o dinheiro cair.</span></div></div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="content"><div class="h1 grande fit">Quem só aparece no dia do pagamento disputa uma decisão que <em>já foi tomada</em>.</div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="content"><div class="h1 grande fit">A campanha certa é a que chega antes do dinheiro</div><div class="corpo">Novembro e dezembro não são o mesmo mês comercial, e quem trata os dois igual entrega a metade mais cara da decisão pra outra loja.</div><div class="corpo chamada">Para montar o calendário das duas datas na sua loja, comenta <b>13</b>.</div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div>
 <script>
 /* Auto-fit — no Canva o ajuste de texto longo é manual, slide a slide.
    Aqui a headline encolhe até caber, com piso, e o corpo cede depois. */

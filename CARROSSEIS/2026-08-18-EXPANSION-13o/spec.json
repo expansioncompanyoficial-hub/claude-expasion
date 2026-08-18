@@ -74,7 +74,7 @@
     },
     {
       "tipo": "texto",
-      "fundo": "escuro",
+      "fundo": "claro",
       "h1": "A lei já marcou as datas pra você",
       "paragrafos": [
         "A primeira parcela do 13º cai *até 30 de novembro*. A segunda, *até 20 de dezembro*.",
@@ -92,7 +92,7 @@
     },
     {
       "tipo": "texto",
-      "fundo": "escuro",
+      "fundo": "claro",
       "h1": "O que muda de uma para a outra",
       "paragrafos": [
         "Em novembro ela compra *para ela*. Em dezembro ela compra *para os outros*, e o que sobra vira presente de última hora.",
@@ -101,18 +101,18 @@
     },
     {
       "tipo": "stat",
-      "fundo": "claro",
+      "fundo": "escuro",
       "numero": "50%",
       "label": "do 13º já está na conta da sua cliente em novembro. A outra metade só entra até o dia 20 de dezembro."
     },
     {
       "tipo": "declaracao",
-      "fundo": "destaque",
+      "fundo": "escuro",
       "h1": "Campanha de 13º que começa em dezembro chega atrasada em *metade do dinheiro*."
     },
     {
       "tipo": "bullets",
-      "fundo": "escuro",
+      "fundo": "claro",
       "h1": "O que fazer com cada data",
       "itens": [
         "**Novembro** — a peça de valor mais alto, aquela que ela adiou o ano inteiro.",

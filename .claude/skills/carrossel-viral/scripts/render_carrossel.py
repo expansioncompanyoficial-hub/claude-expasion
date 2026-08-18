@@ -162,12 +162,21 @@ def slide_html(spec, s, i, total):
         return f'<div class="slide f-capa">{corpo}{barra(spec)}</div>'
 
     inner = f'<div class="tag">{esc(s["tag"])}</div>' if s.get("tag") else ""
+
+    # A foto ocupa uma de três posições, e as três aparecem nas peças reais:
+    # abre o slide, separa headline de corpo, ou fecha embaixo.
+    pos = s.get("foto_pos", "meio")
+    foto = (f'<div class="foto"><img src="{b64_img(s["imagem"])}" alt=""></div>'
+            if s.get("imagem") else "")
+    if pos == "topo":
+        inner += foto
+
     if s.get("h1"):
         cls = "h1 grande fit" if tipo in ("declaracao", "cta") else "h1 fit"
         inner += f'<div class="{cls}">{rich(s["h1"])}</div>'
 
-    if s.get("imagem"):
-        inner += f'<div class="foto"><img src="{b64_img(s["imagem"])}" alt=""></div>'
+    if pos == "meio":
+        inner += foto
 
     if tipo == "stat":
         inner += f'<div class="stat">{rich(s["numero"])}</div>'
@@ -188,6 +197,8 @@ def slide_html(spec, s, i, total):
 
     for p in s.get("paragrafos", []):
         inner += f'<div class="corpo">{rich(p)}</div>'
+    if pos == "base":
+        inner += foto
     if s.get("fonte"):
         inner += f'<div class="fonte">Fonte: <b>{esc(s["fonte"])}</b></div>'
 
@@ -214,19 +225,16 @@ def build(spec):
 --head:'{t['fonte_head']}',sans-serif;--body:'{t['fonte_body']}',sans-serif;
 --grad:{t.get('gradiente', 'linear-gradient(180deg,#fa7e01 0%,#ff6522 50%,#fa7e01 100%)')}}}
 
-/* Ênfase em degradê — a escrita destacada não é chapada, é preenchida pelo
-   degradê da marca. Sobre fundo destaque não faz sentido (degradê sobre a
-   própria cor), então lá a ênfase volta a ser peso e cor sólida. */
-.grad{{background:var(--grad);-webkit-background-clip:text;background-clip:text;
--webkit-text-fill-color:transparent;color:transparent;
--webkit-box-decoration-break:clone;box-decoration-break:clone}}
+/* O degradê é do FUNDO do slide de destaque, não da escrita. A escrita em
+   destaque é `--destaque` chapado — conferido na API e na renderização real de
+   sete páginas. */
 body{{background:#111;display:flex;flex-direction:column;align-items:center;gap:22px;padding:22px}}
 .slide{{width:{W}px;height:{H}px;position:relative;overflow:hidden;flex:none}}
 
 /* ── fundos ───────────────────────────────────────────────────────────── */
 .f-capa,.f-foto{{background:#000}}
 .f-escuro{{background:var(--escuro)}}
-.f-destaque{{background:var(--destaque)}}
+.f-destaque{{background:var(--grad)}}
 .f-claro{{background:var(--claro)}}
 
 /* foto sangrada — a imagem a 65% sobre preto, e o scrim subindo da base.
@@ -242,16 +250,18 @@ font-weight:700;line-height:1.4;letter-spacing:0;text-transform:uppercase;
 opacity:{op_barra}}}
 .f-escuro .barra,.f-capa .barra,.f-destaque .barra,.f-foto .barra{{color:#fff}}
 .f-claro .barra{{color:#000}}
+.f-destaque .barra{{color:#fff}}
 
 /* ── grade · margem lateral 108, largura útil 864 ─────────────────────── */
-.content{{position:absolute;top:150px;left:108px;right:108px;bottom:108px;display:flex;
-flex-direction:column;justify-content:center;gap:38px;z-index:2}}
+.content{{position:absolute;top:230px;left:108px;right:108px;bottom:108px;display:flex;
+flex-direction:column;justify-content:flex-start;gap:44px;z-index:2}}
+.content:has(> .foto:first-child){{top:208px}}
 .f-foto .content{{justify-content:flex-end;gap:32px}}
 
 .tag{{font-family:var(--body);font-size:17px;font-weight:600;letter-spacing:3px;
 text-transform:uppercase}}
 .f-escuro .tag,.f-claro .tag,.f-foto .tag{{color:var(--destaque)}}
-.f-destaque .tag{{color:rgba(0,0,0,.62)}}
+.f-destaque .tag{{color:rgba(255,255,255,.72)}}
 
 /* ── título · 75,7px semibold · lh 1,06 · tracking −0,056 · à esquerda ───
    Faixa medida nas peças reais: 60,5 a 83,8. O auto-fit trabalha dentro dela. */
@@ -259,13 +269,11 @@ text-transform:uppercase}}
 letter-spacing:-.056em}}
 .h1.grande{{font-size:83.8px}}
 .f-escuro .h1,.f-foto .h1{{color:var(--texto)}}
-.f-destaque .h1{{color:#000}}
-.f-claro .h1{{color:var(--destaque)}}
+.f-destaque .h1{{color:#fff}}
+.f-claro .h1{{color:#000}}
 .h1 em{{font-style:normal}}
-.f-escuro .h1 em,.f-claro .h1 em,.f-foto .h1 em{{background:var(--grad);
--webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}}
-.f-destaque .h1 em{{background:none;-webkit-text-fill-color:#fff;color:#fff}}
+.f-escuro .h1 em,.f-claro .h1 em,.f-foto .h1 em{{color:var(--destaque)}}
+.f-destaque .h1 em{{color:#fff;font-weight:700}}
 .h1 b{{font-weight:700}}
 
 /* ── corpo · 45,4px · lh 0,96 · tracking −0,033 · à esquerda ────────────
@@ -275,23 +283,17 @@ color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .corpo{{font-family:var(--body);font-size:45.4px;font-weight:400;line-height:.96;
 letter-spacing:-.033em;text-align:left}}
 .f-claro .corpo{{font-size:36.6px}}
-.f-escuro .corpo,.f-foto .corpo{{color:#fff}}
-.f-claro .corpo,.f-destaque .corpo{{color:#000}}
+.f-escuro .corpo,.f-foto .corpo,.f-destaque .corpo{{color:#fff}}
+.f-claro .corpo{{color:#000}}
 .corpo b{{font-weight:700}}
-.corpo em{{font-style:normal;font-weight:400;background:var(--grad);
--webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}}
-.f-destaque .corpo em{{background:none;-webkit-text-fill-color:#fff;color:#fff;font-weight:700}}
+.corpo em{{font-style:normal;font-weight:400;color:var(--destaque)}}
+.f-destaque .corpo em{{color:#fff;font-weight:700}}
 
 /* Chamada do slide final: o parágrafo inteiro na cor de destaque, e a palavra
    de comando em bold dentro dele. */
-.corpo.chamada{{background:var(--grad);-webkit-background-clip:text;background-clip:text;
--webkit-text-fill-color:transparent;color:transparent;
--webkit-box-decoration-break:clone;box-decoration-break:clone}}
+.corpo.chamada{{color:var(--destaque)}}
 .corpo.chamada b{{font-weight:700}}
-.f-claro .corpo.chamada,.f-destaque .corpo.chamada{{background:none;
--webkit-text-fill-color:var(--destaque);color:var(--destaque)}}
-.f-destaque .corpo.chamada{{-webkit-text-fill-color:#000;color:#000}}
+.f-destaque .corpo.chamada{{color:#fff;font-weight:600}}
 
 .fonte{{font-family:var(--body);font-size:21px;padding-top:20px;letter-spacing:.3px}}
 .f-escuro .fonte,.f-foto .fonte{{color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.20)}}
@@ -314,8 +316,8 @@ letter-spacing:-.033em;margin-top:-6px}}
 .bullets{{display:flex;flex-direction:column;gap:26px}}
 .row{{display:flex;gap:22px;align-items:flex-start;font-family:var(--body);
 font-size:40px;line-height:1.02;letter-spacing:-.033em}}
-.f-escuro .row,.f-foto .row{{color:#fff}}
-.f-claro .row,.f-destaque .row{{color:#000}}
+.f-escuro .row,.f-foto .row,.f-destaque .row{{color:#fff}}
+.f-claro .row{{color:#000}}
 .row b{{font-weight:700}}
 .row em{{font-style:normal;color:var(--destaque)}}
 .seta{{flex:none;font-weight:600;color:var(--destaque)}}
@@ -356,9 +358,7 @@ display:flex;align-items:center;justify-content:center;font-size:16px;font-weigh
 .capa-h1{{font-family:var(--head);color:#fff}}
 .capa-impacto{{font-size:111.5px;font-weight:700;line-height:.92;letter-spacing:-.087em}}
 .capa-manchete{{font-size:79.6px;font-weight:600;line-height:1.06;letter-spacing:-.056em}}
-.capa-h1 em{{font-style:normal;background:var(--grad);-webkit-background-clip:text;
-background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
--webkit-box-decoration-break:clone;box-decoration-break:clone}}
+.capa-h1 em{{font-style:normal;color:var(--destaque)}}
 .capa-h1 b{{font-weight:700}}
 
 /* legenda da capa · 21,2px · lh 1,06 · tracking −0,056 */

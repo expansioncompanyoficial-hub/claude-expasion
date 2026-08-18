@@ -436,16 +436,13 @@ function parse(txt){
 }
 const nSlides = () => tpl.ritmo ? tpl.ritmo.length : (tpl.n || 7);
 const par = i => ({ h: blocos[i*2] || '', c: blocos[i*2+1] || '' });
-/* Ênfase em degradê. Medido no Canva da Expansion: a escrita destacada não é
-   chapada, é preenchida pelo degradê da marca. Cliente sem degradê declarado
-   cai no accent sólido. */
+/* O degradê é do FUNDO do slide de destaque, não da escrita — foi o que sete
+   páginas do Canva mostraram. A escrita em destaque é a cor chapada. */
 function grad(){
   return cli.grad || cli.accent;
 }
-function EM(txt, cor){
-  return `<span style="background:${grad()};-webkit-background-clip:text;background-clip:text;
-    -webkit-text-fill-color:transparent;color:transparent;
-    -webkit-box-decoration-break:clone">${esc(txt)}</span>`;
+function EM(txt){
+  return `<span style="color:${cli.accent}">${esc(txt)}</span>`;
 }
 function foto(seed){
   return `linear-gradient(${140+seed*24}deg, ${cli.escuro} 0%, ${cli.accent} 62%, ${cli.claro} 140%)`;
@@ -494,19 +491,19 @@ function render(i){
         <div style="font-size:21.2px;line-height:1.06;letter-spacing:-.056em;
           color:#fff">${esc(c||'Legenda da capa')}</div></div></div>`;
 
-    const bg = f==='destaque'?cli.accent : f==='escuro'?cli.escuro : cli.claro;
+    const bg = f==='destaque'?grad() : f==='escuro'?cli.escuro : cli.claro;
     const cl = (f==='claro'||f==='cta');
-    const corH = f==='destaque' ? '#000' : cl ? cli.accent : '#fff';
-    const corC = (f==='destaque'||cl) ? '#000' : '#fff';
-    const corB = f==='destaque' ? 'rgba(0,0,0,.55)' : cl ? 'rgba(0,0,0,.30)' : 'rgba(255,255,255,.30)';
+    const corH = cl ? '#000' : '#fff';
+    const corC = cl ? '#000' : '#fff';
+    const corB = cl ? 'rgba(0,0,0,.30)' : 'rgba(255,255,255,.30)';
     const seta = f==='destaque' ? `<div style="position:absolute;right:108px;bottom:76px;width:78px;
       height:78px;border-radius:50%;background:#fff;color:#000;display:flex;align-items:center;
       justify-content:center;font-size:36px;font-weight:600;z-index:20">→</div>` : '';
     const chamada = f==='cta' ? `<div style="font-size:45.4px;line-height:.96;
       letter-spacing:-.033em;text-align:left">${EM(c||'Para receber o material, comenta a palavra.')}</div>` : '';
     return `<div class="slide" style="background:${bg}">${barra(corB)}
-      <div style="position:absolute;top:150px;left:108px;right:108px;bottom:108px;display:flex;
-        flex-direction:column;justify-content:center;gap:38px;z-index:2">
+      <div style="position:absolute;top:230px;left:108px;right:108px;bottom:108px;display:flex;
+        flex-direction:column;justify-content:flex-start;gap:44px;z-index:2">
         ${H(h||'Headline',75.7,corH,f==='cta'?'font-weight:700':'')}
         ${f==='cta' ? chamada : `<div style="font-size:${cl?36.6:45.4}px;line-height:.96;
           letter-spacing:-.033em;text-align:left;color:${corC}">${esc(c||'Texto de apoio do slide.')}</div>`}

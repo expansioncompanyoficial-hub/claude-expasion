@@ -74,7 +74,7 @@ por causa disso — sem `unicode-range`, a última apaga a primeira.
 | `tipo` | Campos |
 |---|---|
 | `capa` | `headline`, `sub`, `foto_fundo`, `estilo` (sobrepõe `capa_estilo`) |
-| `texto` | `tag`, `h1`, `paragrafos[]`, `imagem`, `fonte` |
+| `texto` | `tag`, `h1`, `paragrafos[]`, `imagem`, `foto_pos`, `fonte` |
 | `stat` | `tag`, `numero`, `label`, `paragrafos[]`, `fonte` |
 | `bullets` | `tag`, `h1`, `itens[]` |
 | `declaracao` | `h1` — headline grande, sem corpo |
@@ -92,6 +92,15 @@ vira automaticamente a família **foto sangrada**.
 
 São dois enquadramentos diferentes, e três dos quatro designs reais usam o
 primeiro. `foto_opacidade` ajusta o 0,65 quando a foto vem clara demais.
+
+`foto_pos` põe a caixa de imagem em `topo`, `meio` (padrão) ou `base`. As três
+posições aparecem nas peças reais — não é sempre no meio.
+
+## Composição
+
+O conteúdo é **ancorado no topo**, nunca centralizado: começa em y≈230 e desce.
+Com texto curto sobra espaço embaixo, e isso é o desenho — centralizar tira o ar
+da peça e desalinha os slides entre si quando vistos em sequência no feed.
 
 ## Capa: impacto ou manchete
 
@@ -111,8 +120,12 @@ Dois mecanismos, e o Canva usa os dois no mesmo parágrafo:
 
 | Marcação | Efeito |
 |---|---|
-| `*trecho*` | troca a cor para a cor de destaque |
+| `*trecho*` | troca a cor para a cor de destaque, **chapada** |
 | `**trecho**` | mantém a cor e sobe o peso |
+
+O degradê da marca (`tokens.gradiente`) é o **fundo do slide de destaque**, não o
+preenchimento da escrita. Já tentei o contrário: está errado, e o Canva mostra
+`#ff9901` chapado em todas as páginas.
 
 Marcação **por conteúdo**, não por índice de palavra — que é como a plataforma
 da BrandsDecoded grava, e por isso o realce dela anda de lugar quando o texto

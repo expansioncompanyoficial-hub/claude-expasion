@@ -103,13 +103,54 @@ a que aparece nas peças de notícia da Prime. É a capa de newsroom.
 
 ---
 
+## O ritmo das nove páginas
+
+Lido nas miniaturas do MOD 01, página por página. Não é alternância mecânica:
+
+| Pág. | Fundo | Composição |
+|---|---|---|
+| 1 | foto sangrada | chip · headline · legenda, ancorado embaixo |
+| 2 | **claro** | foto no topo · headline · corpo |
+| 3 | **destaque** | headline · foto no meio · corpo |
+| 4 | claro | headline · corpo · foto embaixo |
+| 5 | escuro | foto no topo · headline · corpo |
+| 6 | escuro | headline grande · corpo. **Sem foto** |
+| 7 | claro | headline · foto no meio · corpo |
+| 8 | escuro | headline · corpo · foto embaixo |
+| 9 | escuro | headline · corpo · chamada laranja |
+
+Duas coisas que eu tinha errado e que mudam a peça inteira:
+
+**A composição é ancorada no topo, nunca centralizada.** O conteúdo começa em
+y≈208 quando a foto abre o slide e em y≈230 quando a headline abre, e desce. Com
+texto curto sobra espaço embaixo — **e isso é o desenho**, não falta de conteúdo.
+Centralizar, que era o que eu fazia, tira o ar da peça e desalinha os slides
+entre si quando vistos em sequência no feed.
+
+**A foto tem três posições, e as três aparecem.** Abrindo o slide, separando
+headline de corpo, ou fechando embaixo. Não é sempre no meio.
+
+---
+
 ## Cores
 
 | | Expansion | Prime |
 |---|---|---|
 | Destaque | `#ff9901` | `#f94c00` |
 | Fundo escuro | `#000000` | `#000000` |
-| Gradiente laranja | `linear-gradient(180deg,#fa7e01,#ff6522 50%,#fa7e01)` | — |
+| **Fundo do slide de destaque** | `linear-gradient(180deg,#fa7e01,#ff6522 50%,#fa7e01)` | — |
+
+### O degradê é do fundo, não da escrita
+
+Ponto que custou uma rodada. O degradê laranja existe, mas ele é o **fundo do
+slide de destaque** — não o preenchimento da escrita destacada.
+
+A escrita em destaque é `#ff9901` **chapado**, em todas as sete páginas
+conferidas, tanto na API quanto na renderização real. Cheguei a preencher a
+ênfase com o degradê; está errado e foi desfeito.
+
+**No slide de destaque o texto é branco** — headline e corpo. Eu tinha passado
+para preto por causa de contraste; o original é branco, e branco é o que fica.
 
 > **Divergência a resolver com o cliente:** o manual de marca da Prime traz
 > `#e14414`, e os carrosséis no Canva usam `#f94c00`. São cores diferentes. A
@@ -140,6 +181,11 @@ dela anda de lugar quando o texto muda.
 | | Antes | Real |
 |---|---|---|
 | Enquadramento | só caixa de imagem | **foto sangrada em 3 de 4 designs** |
+| Composição | centralizada na vertical | **ancorada no topo** |
+| Posição da foto | sempre no meio | **topo · meio · base** |
+| Ênfase na escrita | — | `#ff9901` chapado (**não** degradê) |
+| Texto sobre destaque | preto | **branco** |
+| Headline sobre claro | laranja | **preta** |
 | Margem lateral | 60 | **108** |
 | Headline interna | 112 black | **75,7 semibold** |
 | Entrelinha da headline | 0,92 | **1,06** |
