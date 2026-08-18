@@ -140,26 +140,25 @@ body{{background:#111;display:flex;flex-direction:column;align-items:center;gap:
 
 /* barra superior de metadados — some a numeração e a barra de progresso,
    que a plataforma não tem */
-.barra{{position:absolute;top:0;left:0;right:0;padding:44px 60px 0;display:flex;
-justify-content:space-between;z-index:20;font-family:var(--body);font-size:19px;
-font-weight:500;letter-spacing:.4px}}
-.f-escuro .barra,.f-capa .barra{{color:rgba(255,255,255,.55)}}
-.f-destaque .barra{{color:rgba(255,255,255,.80)}}
-.f-claro .barra{{color:rgba(0,0,0,.45)}}
+.barra{{position:absolute;top:0;left:0;right:0;padding:50px 56px 0;display:flex;
+justify-content:space-between;z-index:20;font-family:var(--body);font-size:16px;
+font-weight:700;letter-spacing:0;text-transform:uppercase;opacity:.30}}
+.f-escuro .barra,.f-capa .barra,.f-destaque .barra{{color:#fff}}
+.f-claro .barra{{color:#000}}
 
-.content{{position:absolute;top:132px;left:60px;right:60px;bottom:92px;display:flex;
-flex-direction:column;justify-content:center;gap:34px;z-index:2}}
+.content{{position:absolute;top:150px;left:108px;right:108px;bottom:108px;display:flex;
+flex-direction:column;justify-content:center;gap:38px;z-index:2}}
 
-.tag{{font-family:var(--body);font-size:19px;font-weight:600;letter-spacing:3.2px;
+.tag{{font-family:var(--body);font-size:17px;font-weight:600;letter-spacing:3px;
 text-transform:uppercase}}
 .f-escuro .tag{{color:var(--destaque)}}
 .f-destaque .tag{{color:rgba(0,0,0,.62)}}
 .f-claro .tag{{color:var(--destaque)}}
 
 /* razão 3,3x entre título e corpo · entrelinha do título abaixo de 1 */
-.h1{{font-family:var(--head);font-size:112px;font-weight:800;line-height:.92;
-letter-spacing:-.04em;text-transform:uppercase}}
-.h1.grande{{font-size:136px;line-height:.90}}
+.h1{{font-family:var(--head);font-size:66px;font-weight:600;line-height:1.06;
+letter-spacing:-.056em}}
+.h1.grande{{font-size:80px;font-weight:700;line-height:1.06}}
 .f-escuro .h1{{color:var(--texto)}}
 .f-destaque .h1{{color:#000}}
 .f-claro .h1{{color:var(--destaque)}}
@@ -167,8 +166,9 @@ letter-spacing:-.04em;text-transform:uppercase}}
 .f-escuro .h1 em,.f-claro .h1 em{{color:var(--destaque)}}
 .f-destaque .h1 em{{color:#fff}}
 
-.corpo{{font-family:var(--body);font-size:41px;font-weight:400;line-height:1.17;
-letter-spacing:-.8px;text-align:justify}}
+.corpo{{font-family:var(--body);font-size:42px;font-weight:400;line-height:.96;
+letter-spacing:-.033em;text-align:left}}
+.f-claro .corpo{{font-size:37px}}
 .f-escuro .corpo{{color:rgba(255,255,255,.70)}}
 .f-destaque .corpo{{color:#fff}}
 .f-claro .corpo{{color:rgba(0,0,0,.78)}}
@@ -183,7 +183,7 @@ letter-spacing:-.8px;text-align:justify}}
 .f-claro .fonte{{color:rgba(0,0,0,.45);border-top:1px solid rgba(0,0,0,.14)}}
 .fonte b{{font-weight:600}}
 
-.foto{{width:100%;height:420px;border-radius:22px;overflow:hidden;flex:none}}
+.foto{{width:100%;height:488px;border-radius:13px;overflow:hidden;flex:none}}
 .foto img{{width:100%;height:100%;object-fit:cover;display:block}}
 
 .stat{{font-family:var(--head);font-size:184px;font-weight:800;line-height:.86;
@@ -221,7 +221,7 @@ font-size:37px;line-height:1.24}}
 letter-spacing:-.04em;color:var(--destaque)}}
 
 /* botão circular de avanço — só nos slides de destaque */
-.avanco{{position:absolute;right:60px;bottom:60px;width:78px;height:78px;border-radius:50%;
+.avanco{{position:absolute;right:108px;bottom:76px;width:78px;height:78px;border-radius:50%;
 background:#fff;color:#000;display:flex;align-items:center;justify-content:center;
 font-family:var(--body);font-size:36px;font-weight:600;z-index:20}}
 
@@ -229,7 +229,7 @@ font-family:var(--body);font-size:36px;font-weight:600;z-index:20}}
 .capa-bg{{position:absolute;inset:0;background-size:cover;background-position:center}}
 .capa-grad{{position:absolute;inset:0;background:linear-gradient(to bottom,
 rgba(0,0,0,.28) 0%,rgba(0,0,0,.10) 26%,rgba(0,0,0,.66) 58%,rgba(0,0,0,.94) 80%,rgba(0,0,0,1) 100%)}}
-.capa-area{{position:absolute;left:60px;right:60px;bottom:120px;z-index:10;
+.capa-area{{position:absolute;left:108px;right:108px;bottom:120px;z-index:10;
 display:flex;flex-direction:column;align-items:center;text-align:center;gap:30px}}
 .chip{{display:flex;align-items:center;gap:13px;background:rgba(0,0,0,.45);
 border:1.5px solid rgba(255,255,255,.16);border-radius:60px;padding:11px 26px 11px 12px}}
@@ -239,11 +239,11 @@ font-size:20px;font-weight:800;color:#fff}}
 .chip-handle{{font-family:var(--body);font-size:23px;font-weight:500;color:#fff}}
 .selo{{width:24px;height:24px;border-radius:50%;background:#1d9bf0;color:#fff;
 display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}}
-.capa-h1{{font-family:var(--head);font-size:132px;font-weight:800;line-height:.94;
-letter-spacing:-.04em;text-transform:uppercase;color:#fff}}
+.capa-h1{{font-family:var(--head);font-size:112px;font-weight:700;line-height:.92;
+letter-spacing:-.087em;color:#fff}}
 .capa-h1 em{{color:var(--destaque);font-style:normal}}
 .capa-sub{{font-family:var(--body);font-size:31px;font-weight:400;line-height:1.26;
-color:#E4E4E4;text-transform:uppercase;letter-spacing:.4px}}
+color:#E4E4E4;letter-spacing:-.02em}}
 </style></head><body>
 {slides}
 <script>
@@ -257,7 +257,7 @@ color:#E4E4E4;text-transform:uppercase;letter-spacing:.4px}}
     if (!box) return;
     var head = box.querySelector('.fit');
     if (head) {{
-      var min = head.classList.contains('capa-h1') ? 62 : 54;
+      var min = head.classList.contains('capa-h1') ? 56 : 38;
       while (estoura(box) && px(head) > min) head.style.fontSize = (px(head) - 3) + 'px';
     }}
     var corpos = box.querySelectorAll('.corpo, .row, .cta-ponte, .stat-label');

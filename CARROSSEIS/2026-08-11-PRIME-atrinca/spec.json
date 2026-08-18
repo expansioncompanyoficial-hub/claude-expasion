@@ -12,45 +12,78 @@
     "fonte_body": "Poppins"
   },
   "fontes": [
-    {"family": "Montserrat", "weight": 800, "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-800-normal.woff2"},
-    {"family": "Poppins", "weight": 400, "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-400-normal.woff2"},
-    {"family": "Poppins", "weight": 600, "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-600-normal.woff2"}
+    {
+      "family": "Montserrat",
+      "weight": 800,
+      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-800-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 400,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-400-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 600,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-600-normal.woff2"
+    }
   ],
   "slides": [
     {
-      "tipo": "capa", "fundo": "capa",
-      "headline": "R$ 15 BILHÕES NÃO CABEM EM UM *TROFÉU*",
+      "tipo": "capa",
+      "fundo": "capa",
+      "headline": "R$ 15 bilhões não cabem em um *troféu*",
       "sub": "A Prime na primeira edição do Prêmio ATRINCA Real Estate"
     },
     {
-      "tipo": "texto", "fundo": "claro", "tag": "O que aconteceu",
-      "h1": "10 DE *AGOSTO*",
-      "paragrafos": ["O Espaço Unimed recebeu a primeira edição do **Prêmio ATRINCA Real Estate**, idealizado por Flávio Augusto, Joel Jota, Caio Carneiro e Cezar Haik. A Prime estava entre os nomes da categoria de crédito imobiliário."]
+      "tipo": "texto",
+      "fundo": "claro",
+      "tag": "O que aconteceu",
+      "h1": "10 de agosto",
+      "paragrafos": [
+        "O Espaço Unimed recebeu a primeira edição do **Prêmio ATRINCA Real Estate**, idealizado por Flávio Augusto, Joel Jota, Caio Carneiro e Cezar Haik. A Prime estava entre os nomes da categoria de crédito imobiliário."
+      ]
     },
     {
-      "tipo": "texto", "fundo": "destaque", "tag": "A indicação",
-      "h1": "NINGUÉM *COMPROU*",
-      "paragrafos": ["As indicações saíram de pesquisa com o próprio mercado: corretores, imobiliárias e profissionais do setor. Aparecer ali custa uma coisa só — **ter feito o trabalho**."]
+      "tipo": "texto",
+      "fundo": "destaque",
+      "tag": "A indicação",
+      "h1": "Ninguém *comprou* essa indicação",
+      "paragrafos": [
+        "As indicações saíram de pesquisa com o próprio mercado: corretores, imobiliárias e profissionais do setor. Aparecer ali custa uma coisa só — **ter feito o trabalho**."
+      ]
     },
     {
-      "tipo": "texto", "fundo": "escuro", "tag": "O que uma assessoria faz",
-      "h1": "O BANCO *NEGA*",
-      "paragrafos": ["A Prime opera como correspondente de várias instituições ao mesmo tempo e reenquadra o perfil do cliente na política de crédito que aprova."]
+      "tipo": "texto",
+      "fundo": "escuro",
+      "tag": "O que uma assessoria faz",
+      "h1": "O banco nega e a venda *para*",
+      "paragrafos": [
+        "A Prime opera como correspondente de várias instituições ao mesmo tempo e reenquadra o perfil do cliente na política de crédito que aprova."
+      ]
     },
     {
-      "tipo": "stat", "fundo": "destaque", "tag": "Os números",
+      "tipo": "stat",
+      "fundo": "destaque",
+      "tag": "Os números",
       "numero": "R$ 15 BI",
       "label": "financiados até aqui, em 165 unidades pelo país",
       "fonte": "Prime Assessoria"
     },
     {
-      "tipo": "declaracao", "fundo": "escuro", "tag": "A virada",
-      "h1": "SCORE NÃO É *SENTENÇA*",
-      "paragrafos": ["O que um banco recusa por score, outro aprova por patrimônio."]
+      "tipo": "declaracao",
+      "fundo": "escuro",
+      "tag": "A virada",
+      "h1": "Score não é *sentença*",
+      "paragrafos": [
+        "O que um banco recusa por score, outro aprova por patrimônio."
+      ]
     },
     {
-      "tipo": "bullets", "fundo": "destaque", "tag": "O que muda para o corretor",
-      "h1": "A CONTA *MUDA*",
+      "tipo": "bullets",
+      "fundo": "destaque",
+      "tag": "O que muda para o corretor",
+      "h1": "A conta do corretor *muda*",
       "itens": [
         "Cliente negado ainda tem caminho em outra política",
         "**O cliente segue com o corretor.** A comissão também",
@@ -59,12 +92,18 @@
       ]
     },
     {
-      "tipo": "declaracao", "fundo": "escuro", "tag": "Na prática",
-      "h1": "QUEM INDICA *ASSINA*",
-      "paragrafos": ["Quando a indicação vem de pesquisa com o setor, o que está sendo medido é trabalho entregue."]
+      "tipo": "declaracao",
+      "fundo": "escuro",
+      "tag": "Na prática",
+      "h1": "Quem indica *assina* junto",
+      "paragrafos": [
+        "Quando a indicação vem de pesquisa com o setor, o que está sendo medido é trabalho entregue."
+      ]
     },
     {
-      "tipo": "cta", "fundo": "claro", "tag": "Parceria",
+      "tipo": "cta",
+      "fundo": "claro",
+      "tag": "Parceria",
       "ponte": "A venda que trava no crédito é a que mais dói, porque já estava **fechada na cabeça do cliente**.",
       "instrucao": "Comenta a palavra abaixo:",
       "palavra": "PRIME"

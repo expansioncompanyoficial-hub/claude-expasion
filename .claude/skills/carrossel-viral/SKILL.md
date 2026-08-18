@@ -147,12 +147,27 @@ Rodar também o `brandsdecoded-filtro-editorial.md` inteiro e os 5 testes finais
 
 **Somar a isso a régua editorial da ficha do cliente** — o que aquela marca não diz.
 
-### Tamanho de headline (medido, não estimado)
+### Tamanho de headline — depende do layout, e a diferença é grande
 
-O estudo da plataforma da BrandsDecoded mediu o ponto de quebra do layout:
+Duas réguas medidas, e **usar a errada estraga a peça**:
 
-| Headline | Resultado no layout deles |
-|---|---|
+| Layout | Headline | Alvo |
+|---|---|---|
+| **BrandsDecoded** — caixa alta, 112px | quebra acima de ~26 caracteres | **20 a 26 caracteres**, 2–3 palavras |
+| **Expansion / Canva** — caixa mista, 66px semibold | cabe muito mais | **40 a 56 caracteres**, frase inteira |
+
+O padrão da casa é o segundo. Exemplos reais medidos do Canva da Expansion:
+
+> "A venda pode esfriar depois que a cliente já chegou" — 50 car.
+> "Quem responde primeiro reduz o trabalho da cliente" — 49 car.
+> "Preço baixo nao explica toda venda perdida." — 42 car.
+
+São **frases completas em caixa mista**, não fragmentos em caixa alta. A caixa alta com
+2–3 palavras é o registro da BrandsDecoded; só usar quando a peça for naquele layout.
+
+Medidas completas em `BRANDSDECODED/MAQUINA/MEDIDAS-CANVA-2026-08-11.md`.
+
+---|---|
 | ~70 caracteres | invade o corpo em 6 de 9 slides |
 | ~45 caracteres | invade em 4 |
 | ~24 caracteres | encaixa |
