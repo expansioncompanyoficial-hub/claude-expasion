@@ -1,7 +1,25 @@
 # ESTÚDIO — protótipo da interface
 
-Protótipo do app de carrosséis da Expansion. Abas por cliente, brand kit editável ao vivo,
-cinco templates e preview dos slides em 1080×1350.
+Protótipo do app de carrosséis da Expansion. Dois níveis: uma galeria de clientes e, dentro
+de cada um, o estúdio com os carrosséis dele, o brand kit e os cinco templates.
+
+## A navegação
+
+```
+CLIENTES                    →   DENTRO DO CLIENTE
+galeria de cards                ‹ Clientes / Prime Alphaville
++ novo cliente                  ├── carrosséis do cliente (chips) + novo
+                                ├── marca: 3 cores, fontes, assinatura
+                                ├── template: 5 opções
+                                ├── palco: slide grande + tiras
+                                └── conteúdo: editor + contadores
+```
+
+Um cliente é uma sessão: guarda a marca e as peças. Entrar nele abre tudo numa tela só —
+não precisa navegar de novo pra trocar de carrossel, de template ou de cor.
+
+É o mesmo modelo da plataforma da BrandsDecoded (projetos na entrada, studio dentro), que
+faz sentido porque separa *configurar a marca* de *produzir peça*.
 
 Publicado como artifact em 11/08/2026. Arquitetura do back end em
 `../ESTUDIO-ARQUITETURA-2026-08-11.md`.

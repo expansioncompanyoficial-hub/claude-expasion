@@ -14,36 +14,73 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--app);color:var(--texto);font-family:var(--ui);font-size:14px;
   line-height:1.5;-webkit-font-smoothing:antialiased}
+button{font-family:inherit}
 
 /* ---------- topo ---------- */
 .topo{border-bottom:1px solid var(--linha);background:var(--painel);position:sticky;top:0;z-index:50}
-.topo-linha{display:flex;align-items:center;gap:24px;padding:0 20px;min-height:56px;flex-wrap:wrap}
-.marca-app{display:flex;align-items:baseline;gap:9px;padding:10px 0}
+.topo-linha{display:flex;align-items:center;gap:18px;padding:0 22px;min-height:56px;flex-wrap:wrap}
+.marca-app{display:flex;align-items:baseline;gap:9px;padding:12px 0}
 .marca-app strong{font-size:15px;letter-spacing:.14em;text-transform:uppercase;font-weight:650}
 .marca-app span{font-family:var(--mono);font-size:10px;color:var(--fraco);letter-spacing:.1em}
-.abas{display:flex;gap:2px;overflow-x:auto;flex:1;min-width:0;padding-bottom:0}
-.aba{appearance:none;border:0;background:transparent;color:var(--meio);font-family:var(--ui);
-  font-size:13px;font-weight:500;padding:17px 15px 15px;border-bottom:2px solid transparent;
-  cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:8px;transition:color .12s}
-.aba:hover{color:var(--texto)}
-.aba[aria-selected="true"]{color:var(--texto);border-bottom-color:var(--pt-accent,var(--expansion))}
-.aba .ponto{width:9px;height:9px;border-radius:50%;flex:none;border:1px solid rgba(255,255,255,.18)}
-.aba:focus-visible{outline:2px solid var(--expansion);outline-offset:-2px}
+.trilha{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--meio);min-width:0}
+.trilha .sep{color:var(--fraco)}
+.trilha b{color:var(--texto);font-weight:550;display:flex;align-items:center;gap:8px}
+.voltar{appearance:none;border:1px solid var(--linha-forte);background:var(--campo);
+  color:var(--meio);font-size:12.5px;padding:6px 12px;border-radius:7px;cursor:pointer}
+.voltar:hover{color:var(--texto);border-color:var(--meio)}
+.voltar:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
+.ponto{width:9px;height:9px;border-radius:50%;flex:none;border:1px solid rgba(255,255,255,.20)}
 
-/* ---------- grade ---------- */
-.grade{display:grid;grid-template-columns:264px minmax(0,1fr) 340px;gap:0;
+/* ---------- tela 1: clientes ---------- */
+.tela-clientes{padding:40px 26px 70px;max-width:1180px;margin:0 auto}
+.titulo-tela{font-size:24px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
+.sub-tela{color:var(--meio);font-size:14px;margin-bottom:30px;max-width:62ch}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:15px}
+.card{background:var(--painel);border:1px solid var(--linha);border-radius:12px;overflow:hidden;
+  cursor:pointer;text-align:left;padding:0;color:inherit;display:flex;flex-direction:column;
+  transition:border-color .12s,transform .12s}
+.card:hover{border-color:var(--linha-forte);transform:translateY(-2px)}
+.card:focus-visible{outline:2px solid var(--expansion);outline-offset:2px}
+.card-topo{height:104px;position:relative;display:flex;align-items:flex-end;padding:13px}
+.card-inicial{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;
+  justify-content:center;font-family:'Montserrat';font-size:20px;font-weight:800;color:#fff;
+  border:1.5px solid rgba(255,255,255,.22)}
+.card-corpo{padding:14px 15px 16px;display:flex;flex-direction:column;gap:4px}
+.card-nome{font-size:14.5px;font-weight:600;letter-spacing:-.01em}
+.card-nicho{font-size:12.5px;color:var(--meio)}
+.card-rodape{display:flex;align-items:center;justify-content:space-between;margin-top:9px;
+  font-family:var(--mono);font-size:10px;color:var(--fraco);letter-spacing:.06em}
+.swatches{display:flex;gap:3px}
+.sw{width:11px;height:11px;border-radius:3px;border:1px solid rgba(255,255,255,.16)}
+
+.card-novo{background:transparent;border:1.5px dashed var(--linha-forte);align-items:center;
+  justify-content:center;min-height:196px;gap:9px;color:var(--meio)}
+.card-novo:hover{border-color:var(--expansion);color:var(--texto)}
+.mais{width:38px;height:38px;border-radius:50%;border:1.5px solid currentColor;display:flex;
+  align-items:center;justify-content:center;font-size:20px;line-height:1}
+
+/* ---------- formulário de cliente ---------- */
+.modal-fundo{position:fixed;inset:0;background:rgba(0,0,0,.66);display:flex;align-items:center;
+  justify-content:center;z-index:100;padding:22px}
+.modal{background:var(--painel);border:1px solid var(--linha-forte);border-radius:14px;
+  width:min(430px,100%);max-height:88vh;overflow-y:auto;padding:24px}
+.modal h2{font-size:17px;font-weight:600;margin-bottom:4px}
+.modal p.dica{color:var(--meio);font-size:12.5px;margin-bottom:20px}
+
+/* ---------- grade do estúdio ---------- */
+.grade{display:grid;grid-template-columns:262px minmax(0,1fr) 336px;
   height:calc(100vh - 57px);min-height:600px}
 .col{overflow-y:auto;padding:20px}
 .col-esq{border-right:1px solid var(--linha);background:var(--painel)}
 .col-dir{border-left:1px solid var(--linha);background:var(--painel)}
-.col-meio{background:var(--app);display:flex;flex-direction:column;gap:16px;padding:20px}
+.col-meio{background:var(--app);display:flex;flex-direction:column;gap:14px;padding:18px 20px}
 
-.bloco{margin-bottom:26px}
+.bloco{margin-bottom:25px}
 .rotulo{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--fraco);margin-bottom:11px;display:block}
+  color:var(--fraco);margin-bottom:11px;display:flex;justify-content:space-between;align-items:center}
 
 /* ---------- marca ---------- */
-.cores{display:flex;flex-direction:column;gap:9px}
+.cores{display:flex;flex-direction:column;gap:8px}
 .cor{display:flex;align-items:center;gap:11px;background:var(--campo);border:1px solid var(--linha);
   border-radius:7px;padding:8px 10px}
 .cor input[type=color]{appearance:none;border:0;width:30px;height:30px;border-radius:6px;
@@ -55,15 +92,18 @@ body{background:var(--app);color:var(--texto);font-family:var(--ui);font-size:14
 .cor-hex{font-family:var(--mono);font-size:11px;color:var(--meio)}
 
 .campo{background:var(--campo);border:1px solid var(--linha);border-radius:7px;
-  padding:8px 10px;color:var(--texto);font-family:var(--ui);font-size:13px;width:100%}
+  padding:9px 11px;color:var(--texto);font-family:var(--ui);font-size:13px;width:100%}
 .campo:focus{outline:0;border-color:var(--linha-forte)}
+.campo::placeholder{color:var(--fraco)}
 .dupla{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.mini{font-family:var(--mono);font-size:10px;color:var(--fraco);margin-top:6px;display:block}
+label.rot{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--fraco);margin:14px 0 6px}
+.mini{font-family:var(--mono);font-size:10px;color:var(--fraco);margin-top:7px;display:block}
 
 /* ---------- templates ---------- */
 .tpls{display:flex;flex-direction:column;gap:7px}
 .tpl{display:flex;gap:11px;align-items:center;background:var(--campo);border:1px solid var(--linha);
-  border-radius:8px;padding:9px;cursor:pointer;text-align:left;color:inherit;font-family:inherit;width:100%}
+  border-radius:8px;padding:9px;cursor:pointer;text-align:left;color:inherit;width:100%}
 .tpl:hover{border-color:var(--linha-forte)}
 .tpl[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion));
   background:color-mix(in srgb,var(--pt-accent,var(--expansion)) 11%,var(--campo))}
@@ -71,7 +111,23 @@ body{background:var(--app);color:var(--texto);font-family:var(--ui);font-size:14
 .tpl-mini{width:34px;height:43px;border-radius:3px;flex:none;overflow:hidden;position:relative;
   border:1px solid rgba(255,255,255,.10)}
 .tpl-nome{display:block;font-size:12px;font-weight:550;line-height:1.25}
-.tpl-sub{display:block;font-family:var(--mono);font-size:9.5px;color:var(--fraco);letter-spacing:.05em;margin-top:2px}
+.tpl-sub{display:block;font-family:var(--mono);font-size:9.5px;color:var(--fraco);
+  letter-spacing:.05em;margin-top:2px}
+
+/* ---------- carrosséis do cliente ---------- */
+.pecas{display:flex;gap:8px;overflow-x:auto;padding:1px 1px 4px}
+.peca{flex:none;display:flex;align-items:center;gap:9px;background:var(--painel);
+  border:1px solid var(--linha);border-radius:9px;padding:7px 12px 7px 8px;cursor:pointer;
+  color:inherit;white-space:nowrap}
+.peca:hover{border-color:var(--linha-forte)}
+.peca[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion));
+  background:color-mix(in srgb,var(--pt-accent,var(--expansion)) 10%,var(--painel))}
+.peca:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
+.peca-mini{width:20px;height:25px;border-radius:2px;overflow:hidden;position:relative;flex:none;
+  border:1px solid rgba(255,255,255,.12)}
+.peca-nome{font-size:12.5px;font-weight:500}
+.peca-tpl{font-family:var(--mono);font-size:9px;color:var(--fraco);letter-spacing:.05em}
+.peca-nova{border-style:dashed;color:var(--meio);padding:7px 14px}
 
 /* ---------- canvas ---------- */
 .canvas-topo{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
@@ -82,10 +138,10 @@ body{background:var(--app);color:var(--texto);font-family:var(--ui);font-size:14
     linear-gradient(45deg,#1A1A20 25%,transparent 25%,transparent 75%,#1A1A20 75%),
     linear-gradient(45deg,#1A1A20 25%,#191920 25%,#191920 75%,#1A1A20 75%);
   background-size:22px 22px;background-position:0 0,11px 11px;
-  border:1px solid var(--linha);border-radius:12px;padding:22px}
+  border:1px solid var(--linha);border-radius:12px;padding:20px}
 .moldura{box-shadow:0 12px 40px rgba(0,0,0,.5);border-radius:3px;overflow:hidden;flex:none}
 
-.tiras{display:flex;gap:8px;overflow-x:auto;padding:3px 1px 6px}
+.tiras{display:flex;gap:8px;overflow-x:auto;padding:2px 1px 6px}
 .tira{flex:none;border:2px solid transparent;border-radius:5px;overflow:hidden;cursor:pointer;
   background:transparent;padding:0;position:relative;line-height:0}
 .tira[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion))}
@@ -100,15 +156,16 @@ body{background:var(--app);color:var(--texto);font-family:var(--ui);font-size:14
 /* ---------- conteúdo ---------- */
 textarea.editor{background:var(--campo);border:1px solid var(--linha);border-radius:8px;
   padding:12px;color:var(--texto);font-family:var(--mono);font-size:11.5px;line-height:1.7;
-  width:100%;min-height:340px;resize:vertical}
+  width:100%;min-height:320px;resize:vertical}
 textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
 .acoes{display:flex;gap:8px;margin-top:11px;flex-wrap:wrap}
 .btn{appearance:none;border:1px solid var(--linha-forte);background:var(--campo);color:var(--texto);
-  font-family:var(--ui);font-size:12.5px;font-weight:550;padding:9px 15px;border-radius:7px;cursor:pointer}
+  font-size:12.5px;font-weight:550;padding:9px 15px;border-radius:7px;cursor:pointer}
 .btn:hover{border-color:var(--meio)}
 .btn:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
 .btn-forte{background:var(--pt-accent,var(--expansion));border-color:transparent;color:#fff}
 .btn-forte:hover{filter:brightness(1.08)}
+.btn-largo{width:100%;justify-content:center;text-align:center}
 
 .aviso{border-left:2px solid var(--expansion);background:rgba(230,126,34,.08);
   padding:10px 13px;border-radius:0 6px 6px 0;font-size:12px;color:var(--meio);margin-top:13px}
@@ -120,37 +177,46 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
 .linha-c .val.alerta{color:var(--expansion)}
 .linha-c .val.bom{color:var(--ok)}
 
+.oculto{display:none !important}
+
 @media(max-width:1180px){
   .grade{grid-template-columns:1fr;height:auto}
   .col{max-height:none;border:0;border-bottom:1px solid var(--linha)}
-  .palco{min-height:520px}
+  .palco{min-height:500px}
 }
 </style>
 
 <div class="topo">
   <div class="topo-linha">
     <div class="marca-app"><strong>Estúdio</strong><span>EXPANSION · v0</span></div>
-    <div class="abas" role="tablist" id="abas"></div>
+    <div class="trilha" id="trilha"></div>
   </div>
 </div>
 
-<div class="grade">
+<!-- ============ TELA 1 — clientes ============ -->
+<section class="tela-clientes" id="tela-clientes">
+  <h1 class="titulo-tela">Clientes</h1>
+  <p class="sub-tela">Cada cliente guarda a própria marca, os próprios templates e os
+    carrosséis já feitos. Entra num deles pra criar.</p>
+  <div class="cards" id="cards"></div>
+</section>
+
+<!-- ============ TELA 2 — estúdio do cliente ============ -->
+<div class="grade oculto" id="tela-estudio">
   <aside class="col col-esq">
     <div class="bloco">
-      <span class="rotulo">Marca do cliente</span>
+      <span class="rotulo">Marca</span>
       <div class="cores" id="cores"></div>
       <span class="mini" id="fontes-info"></span>
     </div>
-
     <div class="bloco">
       <span class="rotulo">Assinatura</span>
       <input class="campo" id="handle" aria-label="@ do Instagram">
       <div class="dupla" style="margin-top:8px">
         <input class="campo" id="nome" aria-label="Nome da marca">
-        <input class="campo" id="direito" aria-label="Assinatura de rodapé">
+        <input class="campo" id="direito" aria-label="Rodapé">
       </div>
     </div>
-
     <div class="bloco">
       <span class="rotulo">Template</span>
       <div class="tpls" id="tpls"></div>
@@ -158,13 +224,12 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
   </aside>
 
   <main class="col-meio">
+    <div class="pecas" id="pecas"></div>
     <div class="canvas-topo">
-      <div class="canvas-info">
-        <b id="info-tpl">—</b> · <span id="info-n">—</span> · 1080 × 1350
-      </div>
+      <div class="canvas-info"><b id="info-tpl">—</b> · <span id="info-n">—</span> · 1080 × 1350</div>
       <div class="acoes" style="margin:0">
-        <button class="btn" id="btn-prev" type="button">‹</button>
-        <button class="btn" id="btn-next" type="button">›</button>
+        <button class="btn" id="btn-prev" type="button" aria-label="Slide anterior">‹</button>
+        <button class="btn" id="btn-next" type="button" aria-label="Próximo slide">›</button>
       </div>
     </div>
     <div class="palco"><div class="moldura" id="moldura"></div></div>
@@ -173,10 +238,10 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
 
   <aside class="col col-dir">
     <div class="bloco">
-      <span class="rotulo">Conteúdo</span>
+      <span class="rotulo">Conteúdo <span id="nome-peca" style="text-transform:none;letter-spacing:0"></span></span>
       <textarea class="editor" id="editor" spellcheck="false" aria-label="Blocos de texto"></textarea>
       <div class="acoes">
-        <button class="btn btn-forte" id="btn-aplicar" type="button">Aplicar</button>
+        <button class="btn btn-forte" id="btn-gerar" type="button">Gerar com IA</button>
         <button class="btn" id="btn-exemplo" type="button">Exemplo</button>
       </div>
       <div class="aviso">
@@ -188,40 +253,40 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
   </aside>
 </div>
 
+<!-- ============ modal ============ -->
+<div class="modal-fundo oculto" id="modal-fundo">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <h2 id="modal-titulo">Novo cliente</h2>
+    <p class="dica">O que entrar aqui vale pra todos os carrosséis desse cliente.</p>
+    <label class="rot" for="f-nome">Nome</label>
+    <input class="campo" id="f-nome" placeholder="Clínica Albanos">
+    <label class="rot" for="f-nicho">Nicho</label>
+    <input class="campo" id="f-nicho" placeholder="Autismo">
+    <label class="rot" for="f-handle">@ do Instagram</label>
+    <input class="campo" id="f-handle" placeholder="@clinicaalbanos">
+    <label class="rot">Cores da marca</label>
+    <div class="dupla" style="grid-template-columns:1fr 1fr 1fr">
+      <input type="color" class="campo" id="f-escuro" value="#1A1A1F" aria-label="Fundo" style="height:40px;padding:4px">
+      <input type="color" class="campo" id="f-accent" value="#E67E22" aria-label="Destaque" style="height:40px;padding:4px">
+      <input type="color" class="campo" id="f-claro" value="#F0EEEC" aria-label="Claro" style="height:40px;padding:4px">
+    </div>
+    <span class="mini">fundo · destaque · claro</span>
+    <div class="acoes" style="margin-top:20px">
+      <button class="btn btn-forte" id="f-criar" type="button">Criar cliente</button>
+      <button class="btn" id="f-cancelar" type="button">Cancelar</button>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ============ dados ============ */
-const CLIENTES = [
-  { id:'prime', nome:'Prime Alphaville', handle:'@prime.alphaville', marca:'Prime Assessoria',
-    direito:'2026 ®', nicho:'Crédito imobiliário',
-    escuro:'#191818', accent:'#E14414', claro:'#F0EEEC',
-    head:'Montserrat', body:'Poppins' },
-  { id:'albanos', nome:'Clínica Albanos', handle:'@clinicaalbanos', marca:'Clínica Albanos',
-    direito:'2026 ®', nicho:'Autismo',
-    escuro:'#12212E', accent:'#2E9BC4', claro:'#EEF4F7',
-    head:'Montserrat', body:'Poppins' },
-  { id:'cies', nome:'Ciés Brand', handle:'@ciesbrand', marca:'Ciés',
-    direito:'2026 ®', nicho:'Moda feminina',
-    escuro:'#1E1519', accent:'#C4728A', claro:'#F6F0F1',
-    head:'Montserrat', body:'Poppins' },
-  { id:'clau', nome:'Clau Kids', handle:'@claukids', marca:'Clau Kids',
-    direito:'2026 ®', nicho:'Moda infantil',
-    escuro:'#1B2233', accent:'#F2A93B', claro:'#FDF6EA',
-    head:'Montserrat', body:'Poppins' },
-  { id:'fred', nome:'Dr. Fred', handle:'@drfredoficial', marca:'Dr. Fred',
-    direito:'2026 ®', nicho:'Saúde',
-    escuro:'#101C1A', accent:'#1E9E7E', claro:'#EEF6F3',
-    head:'Montserrat', body:'Poppins' },
-];
-
-/* Cinco templates. Os quatro de topo são modelados nos da BrandsDecoded;
-   o de meio é o que já roda no renderizador da skill. */
 const TEMPLATES = [
-  { id:'meio',   nome:'Meio de Funil',  etapa:'MEIO · 9 SLIDES',
+  { id:'meio',   nome:'Meio de Funil', etapa:'MEIO · 9 SLIDES',
     ritmo:['capa','claro','destaque','escuro','destaque','escuro','destaque','escuro','cta'] },
-  { id:'brands1',nome:'Brands 1',       etapa:'TOPO · FOTO + BASE',  ritmo:null, n:7 },
-  { id:'brands2',nome:'Brands 2',       etapa:'TOPO · SERIFA CENTRO',ritmo:null, n:7 },
-  { id:'brands3',nome:'Brands 3',       etapa:'TOPO · DUAS COLUNAS', ritmo:null, n:7 },
-  { id:'twitter',nome:'Twitter',        etapa:'TOPO · CARTÃO',       ritmo:null, n:7 },
+  { id:'brands1',nome:'Brands 1', etapa:'TOPO · FOTO + BASE',   n:7 },
+  { id:'brands2',nome:'Brands 2', etapa:'TOPO · SERIFA CENTRO', n:7 },
+  { id:'brands3',nome:'Brands 3', etapa:'TOPO · DUAS COLUNAS',  n:7 },
+  { id:'twitter',nome:'Twitter',  etapa:'TOPO · CARTÃO',        n:7 },
 ];
 
 const EXEMPLO = `texto 1 - O banco nega e a venda para
@@ -243,14 +308,33 @@ texto 16 - Indicar uma assessoria é colocar o próprio nome junto do serviço d
 texto 17 - Chama no direct
 texto 18 - Quer a análise de crédito dos seus clientes? Manda mensagem.`;
 
+const nova = (nome,tpl,txt) => ({ id:Math.random().toString(36).slice(2,8), nome, tpl, txt:txt||'' });
+
+const CLIENTES = [
+  { id:'prime', nome:'Prime Alphaville', handle:'@prime.alphaville', marca:'Prime Assessoria',
+    direito:'2026 ®', nicho:'Crédito imobiliário', escuro:'#191818', accent:'#E14414',
+    claro:'#F0EEEC', head:'Montserrat', body:'Poppins',
+    pecas:[ nova('Prêmio ATRINCA','meio',EXEMPLO), nova('Portabilidade','brands1','') ] },
+  { id:'albanos', nome:'Clínica Albanos', handle:'@clinicaalbanos', marca:'Clínica Albanos',
+    direito:'2026 ®', nicho:'Autismo', escuro:'#12212E', accent:'#2E9BC4',
+    claro:'#EEF4F7', head:'Montserrat', body:'Poppins', pecas:[ nova('Sinais precoces','meio','') ] },
+  { id:'cies', nome:'Ciés Brand', handle:'@ciesbrand', marca:'Ciés', direito:'2026 ®',
+    nicho:'Moda feminina', escuro:'#1E1519', accent:'#C4728A', claro:'#F6F0F1',
+    head:'Montserrat', body:'Poppins', pecas:[ nova('Coleção nova','brands2','') ] },
+  { id:'clau', nome:'Clau Kids', handle:'@claukids', marca:'Clau Kids', direito:'2026 ®',
+    nicho:'Moda infantil', escuro:'#1B2233', accent:'#F2A93B', claro:'#FDF6EA',
+    head:'Montserrat', body:'Poppins', pecas:[ nova('Volta às aulas','twitter','') ] },
+  { id:'fred', nome:'Dr. Fred', handle:'@drfredoficial', marca:'Dr. Fred', direito:'2026 ®',
+    nicho:'Saúde', escuro:'#101C1A', accent:'#1E9E7E', claro:'#EEF6F3',
+    head:'Montserrat', body:'Poppins', pecas:[ nova('Check-up anual','brands3','') ] },
+];
+
 /* ============ estado ============ */
-let cli = CLIENTES[0];
-let tpl = TEMPLATES[0];
-let blocos = [];
-let atual = 0;
+let cli = null, peca = null, tpl = TEMPLATES[0], blocos = [], atual = 0;
 
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const acha = id => TEMPLATES.find(t => t.id === id) || TEMPLATES[0];
 
 function parse(txt){
   const out = [];
@@ -263,8 +347,6 @@ function parse(txt){
 }
 const nSlides = () => tpl.ritmo ? tpl.ritmo.length : (tpl.n || 7);
 const par = i => ({ h: blocos[i*2] || '', c: blocos[i*2+1] || '' });
-
-/* foto de exemplo — no sistema real entra a imagem do cliente */
 function foto(seed){
   return `linear-gradient(${140+seed*24}deg, ${cli.escuro} 0%, ${cli.accent} 62%, ${cli.claro} 140%)`;
 }
@@ -273,25 +355,25 @@ function foto(seed){
 function barra(cor){
   return `<div style="position:absolute;top:0;left:0;right:0;padding:44px 60px 0;display:flex;
     justify-content:space-between;z-index:20;font-size:19px;font-weight:500;letter-spacing:.4px;
-    color:${cor}">
-    <span>${esc(cli.handle)}</span><span>${esc(cli.marca)}</span><span>${esc(cli.direito)}</span></div>`;
+    color:${cor}"><span>${esc(cli.handle)}</span><span>${esc(cli.marca)}</span>
+    <span>${esc(cli.direito)}</span></div>`;
 }
 function chip(){
   return `<div style="display:inline-flex;align-items:center;gap:13px;background:rgba(0,0,0,.45);
     border:1.5px solid rgba(255,255,255,.16);border-radius:60px;padding:11px 26px 11px 12px">
     <span style="width:40px;height:40px;border-radius:50%;background:${cli.accent};display:flex;
-    align-items:center;justify-content:center;font-family:'Montserrat';font-size:20px;font-weight:800;
-    color:#fff">${esc(cli.marca[0])}</span>
+    align-items:center;justify-content:center;font-family:'Montserrat';font-size:20px;
+    font-weight:800;color:#fff">${esc(cli.marca[0]||'?')}</span>
     <span style="font-size:23px;font-weight:500;color:#fff">${esc(cli.handle)}</span>
     <span style="width:24px;height:24px;border-radius:50%;background:#1d9bf0;color:#fff;display:flex;
     align-items:center;justify-content:center;font-size:14px;font-weight:700">✓</span></div>`;
 }
-const H = (t,sz,cor,extra='') => `<div style="font-family:'Montserrat';font-size:${sz}px;font-weight:800;
-  line-height:.92;letter-spacing:-.04em;text-transform:uppercase;color:${cor};${extra}">${esc(t)}</div>`;
+const H = (t,sz,cor,extra='') => `<div style="font-family:'Montserrat';font-size:${sz}px;
+  font-weight:800;line-height:.92;letter-spacing:-.04em;text-transform:uppercase;color:${cor};
+  ${extra}">${esc(t)}</div>`;
 
 function render(i){
-  const {h,c} = par(i);
-  const T = tpl.id;
+  const {h,c} = par(i); const T = tpl.id;
 
   if (T === 'meio'){
     const f = tpl.ritmo[i];
@@ -301,18 +383,16 @@ function render(i){
         rgba(0,0,0,.30) 0%,rgba(0,0,0,.10) 26%,rgba(0,0,0,.66) 58%,rgba(0,0,0,.95) 82%,#000 100%)"></div>
       ${barra('rgba(255,255,255,.55)')}
       <div style="position:absolute;left:60px;right:60px;bottom:120px;z-index:10;display:flex;
-        flex-direction:column;align-items:center;text-align:center;gap:30px">
-        ${chip()}
+        flex-direction:column;align-items:center;text-align:center;gap:30px">${chip()}
         ${H(h||'Headline da capa',132,'#fff','line-height:.94')}
         <div style="font-size:31px;line-height:1.26;color:#E4E4E4;text-transform:uppercase;
-          letter-spacing:.4px">${esc(c||'Subheadline')}</div>
-      </div></div>`;
+          letter-spacing:.4px">${esc(c||'Subheadline')}</div></div></div>`;
 
     const bg = f==='destaque'?cli.accent : f==='escuro'?cli.escuro : cli.claro;
-    const claroFundo = (f==='claro'||f==='cta');
-    const corH = f==='destaque' ? '#000' : claroFundo ? cli.accent : '#fff';
-    const corC = f==='destaque' ? '#fff' : claroFundo ? 'rgba(0,0,0,.78)' : 'rgba(255,255,255,.70)';
-    const corB = f==='destaque' ? 'rgba(255,255,255,.80)' : claroFundo ? 'rgba(0,0,0,.45)' : 'rgba(255,255,255,.55)';
+    const cl = (f==='claro'||f==='cta');
+    const corH = f==='destaque' ? '#000' : cl ? cli.accent : '#fff';
+    const corC = f==='destaque' ? '#fff' : cl ? 'rgba(0,0,0,.78)' : 'rgba(255,255,255,.70)';
+    const corB = f==='destaque' ? 'rgba(255,255,255,.80)' : cl ? 'rgba(0,0,0,.45)' : 'rgba(255,255,255,.55)';
     const seta = f==='destaque' ? `<div style="position:absolute;right:60px;bottom:60px;width:78px;
       height:78px;border-radius:50%;background:#fff;color:#000;display:flex;align-items:center;
       justify-content:center;font-size:36px;font-weight:600;z-index:20">→</div>` : '';
@@ -326,8 +406,7 @@ function render(i){
         flex-direction:column;justify-content:center;gap:34px;z-index:2">
         ${f!=='cta' ? H(h||'Headline',112,corH) : ''}
         <div style="font-size:41px;line-height:1.17;letter-spacing:-.8px;text-align:justify;
-          color:${corC}">${esc(c||'Texto de apoio do slide.')}</div>
-        ${cta}
+          color:${corC}">${esc(c||'Texto de apoio do slide.')}</div>${cta}
       </div>${seta}</div>`;
   }
 
@@ -341,8 +420,7 @@ function render(i){
         color:${cli.accent};margin-bottom:26px">${esc(cli.handle)}</div>
       ${H(h||'Headline em duas ou três linhas',104,'#fff')}
       <div style="font-size:32px;line-height:1.34;color:rgba(255,255,255,.72);margin-top:26px;
-        max-width:86%">${esc(c||'Linha de apoio abaixo da headline.')}</div>
-    </div></div>`;
+        max-width:86%">${esc(c||'Linha de apoio abaixo da headline.')}</div></div></div>`;
 
   if (T === 'brands2') return `<div class="slide" style="background:#000">
     <div style="position:absolute;inset:0;background:${foto(i+2)};opacity:.88"></div>
@@ -355,8 +433,7 @@ function render(i){
       <div style="font-family:Georgia,'Times New Roman',serif;font-size:106px;font-weight:400;
         line-height:1.06;letter-spacing:-.02em;color:#fff">${esc(h||'A headline em serifa, centralizada')}</div>
       <div style="font-size:30px;line-height:1.4;color:rgba(255,255,255,.74);max-width:80%">
-        ${esc(c||'Apoio curto embaixo.')}</div>
-    </div></div>`;
+        ${esc(c||'Apoio curto embaixo.')}</div></div></div>`;
 
   if (T === 'brands3') return `<div class="slide" style="background:${cli.escuro}">
     ${barra('rgba(255,255,255,.50)')}
@@ -367,10 +444,8 @@ function render(i){
       ${H(h||'Headline na coluna da direita',82,'#fff')}
       <div style="font-size:33px;line-height:1.32;color:rgba(255,255,255,.70)">
         ${esc(c||'Texto de apoio ao lado da imagem.')}</div>
-      <div style="width:54px;height:4px;background:${cli.accent}"></div>
-    </div></div>`;
+      <div style="width:54px;height:4px;background:${cli.accent}"></div></div></div>`;
 
-  /* twitter */
   return `<div class="slide" style="background:${cli.claro};display:flex;align-items:center;
     justify-content:center;padding:78px">
     <div style="width:100%;background:#fff;border-radius:34px;padding:56px;
@@ -378,20 +453,18 @@ function render(i){
       <div style="display:flex;align-items:center;gap:20px;margin-bottom:34px">
         <div style="width:82px;height:82px;border-radius:50%;background:${cli.accent};display:flex;
           align-items:center;justify-content:center;font-family:'Montserrat';font-size:38px;
-          font-weight:800;color:#fff">${esc(cli.marca[0])}</div>
+          font-weight:800;color:#fff">${esc(cli.marca[0]||'?')}</div>
         <div style="flex:1;min-width:0">
-          <div style="display:flex;align-items:center;gap:9px;font-size:32px;font-weight:600;color:#0F1419">
-            ${esc(cli.marca)}
+          <div style="display:flex;align-items:center;gap:9px;font-size:32px;font-weight:600;
+            color:#0F1419">${esc(cli.marca)}
             <span style="width:28px;height:28px;border-radius:50%;background:#1d9bf0;color:#fff;
               display:flex;align-items:center;justify-content:center;font-size:16px">✓</span></div>
-          <div style="font-size:28px;color:#536471">${esc(cli.handle)}</div></div>
-      </div>
+          <div style="font-size:28px;color:#536471">${esc(cli.handle)}</div></div></div>
       <div style="font-size:46px;line-height:1.3;color:#0F1419;font-weight:500">${esc(h||'A frase principal do post.')}</div>
       <div style="font-size:38px;line-height:1.42;color:#0F1419;margin-top:24px">${esc(c||'O parágrafo de apoio, logo abaixo.')}</div>
       <div style="height:280px;border-radius:22px;margin-top:34px;background:${foto(i+6)}"></div>
       <div style="display:flex;gap:52px;margin-top:34px;font-size:28px;color:#536471">
-        <span>♡ 1.234</span><span>↺ 218</span><span>↗</span></div>
-    </div></div>`;
+        <span>♡ 1.234</span><span>↺ 218</span><span>↗</span></div></div></div>`;
 }
 
 /* ============ pintura ============ */
@@ -400,12 +473,61 @@ function escala(el, alvo){
   el.style.transform = `scale(${s})`;
   return { w: Math.round(1080*s), h: Math.round(1350*s) };
 }
+
+function telaClientes(){
+  $('#tela-clientes').classList.remove('oculto');
+  $('#tela-estudio').classList.add('oculto');
+  $('#trilha').innerHTML = '';
+  document.documentElement.style.setProperty('--pt-accent', 'var(--expansion)');
+
+  const c = $('#cards'); c.innerHTML = '';
+  CLIENTES.forEach(x => {
+    const b = document.createElement('button');
+    b.className = 'card'; b.type = 'button';
+    b.innerHTML = `
+      <div class="card-topo" style="background:linear-gradient(146deg,${x.escuro} 0%,${x.accent} 118%)">
+        <span class="card-inicial" style="background:${x.accent}">${esc(x.marca[0]||'?')}</span></div>
+      <div class="card-corpo">
+        <span class="card-nome">${esc(x.nome)}</span>
+        <span class="card-nicho">${esc(x.nicho)}</span>
+        <span class="card-rodape">
+          <span>${x.pecas.length} ${x.pecas.length===1?'carrossel':'carrosséis'}</span>
+          <span class="swatches">
+            <span class="sw" style="background:${x.escuro}"></span>
+            <span class="sw" style="background:${x.accent}"></span>
+            <span class="sw" style="background:${x.claro}"></span></span></span></div>`;
+    b.onclick = () => abrir(x);
+    c.appendChild(b);
+  });
+
+  const n = document.createElement('button');
+  n.className = 'card card-novo'; n.type = 'button';
+  n.innerHTML = `<span class="mais">+</span><span style="font-size:13px;font-weight:500">Novo cliente</span>`;
+  n.onclick = () => $('#modal-fundo').classList.remove('oculto');
+  c.appendChild(n);
+}
+
+function abrir(x){
+  cli = x;
+  peca = x.pecas[0] || (x.pecas.push(nova('Sem título','meio','')), x.pecas[0]);
+  tpl = acha(peca.tpl); blocos = parse(peca.txt); atual = 0;
+  $('#tela-clientes').classList.add('oculto');
+  $('#tela-estudio').classList.remove('oculto');
+  $('#trilha').innerHTML = `<button class="voltar" type="button" id="btn-voltar">‹ Clientes</button>
+    <span class="sep">/</span><b><span class="ponto" style="background:${cli.accent}"></span>
+    ${esc(cli.nome)}</b>`;
+  $('#btn-voltar').onclick = telaClientes;
+  camposMarca(); montarTpls(); montarPecas();
+  $('#editor').value = peca.txt;
+  pintar();
+}
+
 function pintar(){
   document.documentElement.style.setProperty('--pt-accent', cli.accent);
   const n = nSlides();
   if (atual >= n) atual = n-1;
 
-  const largura = Math.min(370, Math.max(230, window.innerWidth * 0.26));
+  const largura = Math.min(360, Math.max(220, window.innerWidth * 0.25));
   const m = $('#moldura');
   m.innerHTML = render(atual);
   const d = escala(m.firstElementChild, largura);
@@ -413,6 +535,7 @@ function pintar(){
 
   $('#info-tpl').textContent = tpl.nome;
   $('#info-n').textContent = `slide ${atual+1} de ${n}`;
+  $('#nome-peca').textContent = peca ? '· ' + peca.nome : '';
 
   const t = $('#tiras'); t.innerHTML = '';
   for (let i=0;i<n;i++){
@@ -424,9 +547,7 @@ function pintar(){
     b.style.width='68px'; b.style.height='85px';
     b.onclick = () => { atual=i; pintar(); };
     t.appendChild(b);
-    const s = b.querySelector('.slide');
-    escala(s, 64);
-    s.style.pointerEvents='none';
+    const s = b.querySelector('.slide'); escala(s,64); s.style.pointerEvents='none';
   }
   contar();
 }
@@ -439,29 +560,12 @@ function contar(){
   };
   const usados = blocos.filter(b=>b && b.trim()).length;
   add('blocos preenchidos', `${usados} / ${n*2}`, usados>=n*2?'bom':'');
-  let longas = 0, pior = 0;
+  let longas=0, pior=0;
   for (let i=1;i<n;i++){ const h=(par(i).h||'').length; if(h>26) longas++; if(h>pior) pior=h; }
   add('headlines acima de 26', longas, longas?'alerta':'bom');
   add('maior headline interna', pior+' car.', pior>26?'alerta':'bom');
 }
 
-/* ============ montagem ============ */
-function montarAbas(){
-  const c = $('#abas');
-  CLIENTES.forEach((x,i) => {
-    const b = document.createElement('button');
-    b.className='aba'; b.type='button'; b.role='tab';
-    b.setAttribute('aria-selected', i===0);
-    b.innerHTML = `<span class="ponto" style="background:${x.accent}"></span>${x.nome}`;
-    b.onclick = () => {
-      cli = x;
-      [...c.children].forEach(k => k.setAttribute('aria-selected','false'));
-      b.setAttribute('aria-selected','true');
-      camposMarca(); pintar();
-    };
-    c.appendChild(b);
-  });
-}
 function camposMarca(){
   const defs = [['escuro','Fundo'],['accent','Destaque'],['claro','Claro']];
   const c = $('#cores'); c.innerHTML='';
@@ -471,15 +575,14 @@ function camposMarca(){
       <div class="cor-txt"><div class="cor-nome">${nome}</div>
       <div class="cor-hex">${cli[k].toUpperCase()}</div></div>`;
     d.querySelector('input').oninput = e => {
-      cli[k] = e.target.value;
-      d.querySelector('.cor-hex').textContent = e.target.value.toUpperCase();
-      pintar();
+      cli[k]=e.target.value; d.querySelector('.cor-hex').textContent=e.target.value.toUpperCase(); pintar();
     };
     c.appendChild(d);
   });
   $('#fontes-info').textContent = `${cli.head} · ${cli.body} — ${cli.nicho}`;
-  $('#handle').value = cli.handle; $('#nome').value = cli.marca; $('#direito').value = cli.direito;
+  $('#handle').value=cli.handle; $('#nome').value=cli.marca; $('#direito').value=cli.direito;
 }
+
 function montarTpls(){
   const c = $('#tpls'); c.innerHTML='';
   TEMPLATES.forEach(t => {
@@ -489,39 +592,92 @@ function montarTpls(){
     b.innerHTML = `<span class="tpl-mini" id="mini-${t.id}"></span>
       <span><span class="tpl-nome">${t.nome}</span><span class="tpl-sub">${t.etapa}</span></span>`;
     b.onclick = () => {
-      tpl = t; atual = 0;
-      [...c.children].forEach(k => k.setAttribute('aria-pressed','false'));
+      tpl=t; peca.tpl=t.id; atual=0;
+      [...c.children].forEach(k=>k.setAttribute('aria-pressed','false'));
       b.setAttribute('aria-pressed','true');
-      pintar(); miniaturas();
+      pintar(); miniaturas(); montarPecas();
     };
     c.appendChild(b);
   });
   miniaturas();
 }
 function miniaturas(){
-  const guarda = tpl;
+  const g = tpl;
   TEMPLATES.forEach(t => {
     const alvo = document.getElementById('mini-'+t.id); if(!alvo) return;
     tpl = t; alvo.innerHTML = render(0);
-    const s = alvo.querySelector('.slide');
-    escala(s, 34); s.style.pointerEvents='none';
+    const s = alvo.querySelector('.slide'); escala(s,34); s.style.pointerEvents='none';
   });
-  tpl = guarda;
+  tpl = g;
 }
 
-$('#btn-aplicar').onclick = () => { blocos = parse($('#editor').value); pintar(); };
-$('#btn-exemplo').onclick = () => { $('#editor').value = EXEMPLO; blocos = parse(EXEMPLO); pintar(); };
-$('#btn-prev').onclick = () => { atual = (atual-1+nSlides())%nSlides(); pintar(); };
-$('#btn-next').onclick = () => { atual = (atual+1)%nSlides(); pintar(); };
-$('#editor').oninput = () => { blocos = parse($('#editor').value); pintar(); };
-['handle','nome','direito'].forEach(k => {
-  $('#'+k).oninput = e => {
-    cli[{handle:'handle',nome:'marca',direito:'direito'}[k]] = e.target.value; pintar();
+function montarPecas(){
+  const c = $('#pecas'); c.innerHTML='';
+  cli.pecas.forEach(p => {
+    const b = document.createElement('button');
+    b.className='peca'; b.type='button';
+    b.setAttribute('aria-pressed', p.id===peca.id);
+    b.innerHTML = `<span class="peca-mini" id="pm-${p.id}"></span>
+      <span><span class="peca-nome">${esc(p.nome)}</span><br>
+      <span class="peca-tpl">${acha(p.tpl).nome.toUpperCase()}</span></span>`;
+    b.onclick = () => {
+      peca.txt = $('#editor').value;
+      peca = p; tpl = acha(p.tpl); blocos = parse(p.txt); atual = 0;
+      $('#editor').value = p.txt;
+      pintar(); montarTpls(); montarPecas();
+    };
+    c.appendChild(b);
+    const g = tpl, gb = blocos;
+    tpl = acha(p.tpl); blocos = parse(p.txt);
+    const alvo = b.querySelector('.peca-mini'); alvo.innerHTML = render(0);
+    const s = alvo.querySelector('.slide'); escala(s,20); s.style.pointerEvents='none';
+    tpl = g; blocos = gb;
+  });
+  const n = document.createElement('button');
+  n.className='peca peca-nova'; n.type='button'; n.textContent='+ Novo carrossel';
+  n.onclick = () => {
+    peca.txt = $('#editor').value;
+    const p = nova('Sem título', tpl.id, '');
+    cli.pecas.push(p); peca = p; blocos = []; atual = 0;
+    $('#editor').value = '';
+    pintar(); montarPecas();
   };
-});
-let t0; window.onresize = () => { clearTimeout(t0); t0 = setTimeout(pintar, 120); };
+  c.appendChild(n);
+}
 
-montarAbas(); camposMarca(); montarTpls();
-$('#editor').value = EXEMPLO; blocos = parse(EXEMPLO);
-pintar();
+/* ============ eventos ============ */
+$('#btn-exemplo').onclick = () => {
+  $('#editor').value = EXEMPLO; peca.txt = EXEMPLO; blocos = parse(EXEMPLO); pintar(); montarPecas();
+};
+$('#btn-gerar').onclick = () => {
+  alert('No sistema real, este botão chama a skill carrossel-viral: ela lê a ficha do cliente, '
+    + 'gera as headlines e devolve os 18 blocos já preenchidos.\n\nNo protótipo, use "Exemplo".');
+};
+$('#btn-prev').onclick = () => { atual=(atual-1+nSlides())%nSlides(); pintar(); };
+$('#btn-next').onclick = () => { atual=(atual+1)%nSlides(); pintar(); };
+$('#editor').oninput = () => {
+  blocos = parse($('#editor').value); if(peca) peca.txt = $('#editor').value; pintar();
+};
+[['handle','handle'],['nome','marca'],['direito','direito']].forEach(([campo,chave]) => {
+  $('#'+campo).oninput = e => { cli[chave]=e.target.value; pintar(); };
+});
+
+$('#f-cancelar').onclick = () => $('#modal-fundo').classList.add('oculto');
+$('#modal-fundo').onclick = e => { if(e.target === $('#modal-fundo')) $('#modal-fundo').classList.add('oculto'); };
+$('#f-criar').onclick = () => {
+  const nome = $('#f-nome').value.trim() || 'Cliente sem nome';
+  const x = { id:Math.random().toString(36).slice(2,8), nome,
+    marca:nome, handle:$('#f-handle').value.trim() || '@cliente',
+    direito:'2026 ®', nicho:$('#f-nicho').value.trim() || 'Nicho a definir',
+    escuro:$('#f-escuro').value, accent:$('#f-accent').value, claro:$('#f-claro').value,
+    head:'Montserrat', body:'Poppins', pecas:[ nova('Primeiro carrossel','meio','') ] };
+  CLIENTES.push(x);
+  $('#modal-fundo').classList.add('oculto');
+  ['f-nome','f-nicho','f-handle'].forEach(k => $('#'+k).value = '');
+  abrir(x);
+};
+
+let t0; window.onresize = () => { if(cli){ clearTimeout(t0); t0=setTimeout(pintar,120); } };
+
+telaClientes();
 </script>
