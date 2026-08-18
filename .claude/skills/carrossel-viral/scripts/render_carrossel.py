@@ -4,13 +4,23 @@ Renderiza um carrossel 1080x1350 a partir de um spec JSON.
 
     python3 render_carrossel.py spec.json saida.html
 
-O sistema visual segue o levantado da plataforma da BrandsDecoded — ver
-BRANDSDECODED/MAQUINA/ESTUDO-DA-PLATAFORMA-2026-08-11.md — com duas
-melhorias deliberadas sobre ela: auto-fit da headline (lá a headline longa
-passa por cima do corpo sem aviso) e contraste corrigido no CTA.
+A régua tipográfica vem da medição dos carrosséis reais da Expansion no Canva
+— ver BRANDSDECODED/MAQUINA/MEDIDAS-CANVA-2026-08-11.md. Não é estimativa:
+cada número saiu da geometria e da formatação que o Canva guarda, em canvas
+1080x1350, portanto escala 1:1 com o CSS aqui.
 
-Fundos: capa · claro · escuro · destaque
-Tipos:  capa · texto · bullets · stat · declaracao · cta
+Duas melhorias deliberadas sobre o original: auto-fit da headline (no Canva o
+texto longo é reajustado à mão) e contraste corrigido no CTA.
+
+Famílias de fundo
+  foto     imagem sangrada a 65% sobre preto + scrim — 3 dos 4 designs reais
+  escuro   chapado
+  destaque cor de marca
+  claro    fundo claro
+  capa     primeiro slide
+
+Tipos de slide
+  capa · texto · bullets · stat · declaracao · cta
 """
 import base64
 import json
@@ -32,14 +42,24 @@ def face(family, weight, path):
     )
 
 
+def b64_img(path):
+    p = Path(path)
+    ext = p.suffix.lstrip(".").lower().replace("jpg", "jpeg")
+    return f"data:image/{ext};base64," + base64.b64encode(p.read_bytes()).decode()
+
+
 def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 def rich(s):
-    """*destaque* e **forte**. Destaque é por palavra, marcado por conteúdo —
-    na plataforma ele é gravado por índice, o que move o realce quando o
-    texto muda. Divergência de propósito."""
+    """*destaque* e **forte**.
+
+    Os dois existem porque o Canva usa os dois, e são coisas diferentes:
+    *destaque* troca a cor (para a cor de marca) e **forte** mantém a cor e
+    sobe o peso. Marcação por conteúdo, não por índice de palavra — que é como
+    a plataforma da BrandsDecoded grava, e por isso o realce dela anda de lugar
+    quando o texto muda."""
     out = esc(s)
     while "**" in out:
         out = out.replace("**", "<b>", 1).replace("**", "</b>", 1)
@@ -50,36 +70,50 @@ def rich(s):
 
 def barra(spec):
     """Barra superior de metadados: @handle · nome · copyright.
-    Cada campo some se não vier no spec."""
+    Medida: y 49,7 · x 56,1 · 15,78px bold · tracking 0. Cada campo some se
+    não vier no spec."""
     campos = [spec.get("handle", ""), spec.get("marca", ""), spec.get("copyright", "")]
     return '<div class="barra">' + "".join(
         f"<span>{esc(c)}</span>" for c in campos if c
     ) + "</div>"
 
 
+def fundo_foto(s):
+    """Foto sangrada + scrim. É o enquadramento dominante nos designs reais:
+    a imagem cobre o slide a 65% sobre preto e um degradê de baixo pra cima
+    garante a leitura do texto, que fica ancorado na base."""
+    if not s.get("foto_fundo"):
+        return ""
+    op = s.get("foto_opacidade", 0.65)
+    return (f'<div class="bg-foto" style="background-image:url({b64_img(s["foto_fundo"])});'
+            f'opacity:{op}"></div><div class="bg-scrim"></div>')
+
+
 def slide_html(spec, s, i, total):
     tipo = s.get("tipo", "texto")
     fundo = s.get("fundo") or ("capa" if tipo == "capa" else "escuro")
+    if s.get("foto_fundo") and tipo != "capa":
+        fundo = "foto"
     verificado = spec.get("verificado", True)
 
     if tipo == "capa":
-        bg = ""
-        if s.get("imagem"):
-            data = base64.b64encode(Path(s["imagem"]).read_bytes()).decode()
-            ext = Path(s["imagem"]).suffix.lstrip(".").replace("jpg", "jpeg")
-            bg = (f'<div class="capa-bg" style="background-image:url('
-                  f'data:image/{ext};base64,{data})"></div>')
+        img = s.get("foto_fundo") or s.get("imagem")
+        bg = (f'<div class="bg-foto" style="background-image:url({b64_img(img)});'
+              f'opacity:{s.get("foto_opacidade", 0.66)}"></div>') if img \
+            else '<div class="capa-banho"></div>'
         selo = '<span class="selo">✓</span>' if verificado else ""
         inicial = esc(spec.get("marca", "?")[:1].upper())
         sub = f'<div class="capa-sub">{rich(s["sub"])}</div>' if s.get("sub") else ""
-        corpo = f"""{bg}<div class="capa-grad"></div>
+        estilo = s.get("estilo") or spec.get("capa_estilo", "impacto")
+        grad = '<div class="capa-grad"></div>' if img else ""
+        corpo = f"""{bg}{grad}
         <div class="capa-area">
           <div class="chip"><span class="chip-dot">{inicial}</span>
             <span class="chip-handle">{esc(spec.get('handle',''))}</span>{selo}</div>
-          <div class="capa-h1 fit">{rich(s['headline'])}</div>
+          <div class="capa-h1 capa-{estilo} fit">{rich(s['headline'])}</div>
           {sub}
         </div>"""
-        return (f'<div class="slide f-capa">{corpo}{barra(spec)}</div>')
+        return f'<div class="slide f-capa">{corpo}{barra(spec)}</div>'
 
     inner = f'<div class="tag">{esc(s["tag"])}</div>' if s.get("tag") else ""
     if s.get("h1"):
@@ -87,9 +121,7 @@ def slide_html(spec, s, i, total):
         inner += f'<div class="{cls}">{rich(s["h1"])}</div>'
 
     if s.get("imagem"):
-        data = base64.b64encode(Path(s["imagem"]).read_bytes()).decode()
-        ext = Path(s["imagem"]).suffix.lstrip(".").replace("jpg", "jpeg")
-        inner += (f'<div class="foto"><img src="data:image/{ext};base64,{data}" alt=""></div>')
+        inner += f'<div class="foto"><img src="{b64_img(s["imagem"])}" alt=""></div>'
 
     if tipo == "stat":
         inner += f'<div class="stat">{rich(s["numero"])}</div>'
@@ -109,11 +141,10 @@ def slide_html(spec, s, i, total):
     if s.get("fonte"):
         inner += f'<div class="fonte">Fonte: <b>{esc(s["fonte"])}</b></div>'
 
-    # Botão circular de avanço: só nos slides de destaque, como na plataforma.
     avanco = '<div class="avanco">→</div>' if fundo == "destaque" and i + 1 < total else ""
 
-    return (f'<div class="slide f-{fundo}"><div class="content">{inner}</div>'
-            f'{barra(spec)}{avanco}</div>')
+    return (f'<div class="slide f-{fundo}">{fundo_foto(s)}'
+            f'<div class="content">{inner}</div>{barra(spec)}{avanco}</div>')
 
 
 def build(spec):
@@ -122,6 +153,7 @@ def build(spec):
     slides = "".join(slide_html(spec, s, i, len(spec["slides"]))
                      for i, s in enumerate(spec["slides"]))
     claro = t.get("claro", "#F0F0F0")
+    op_barra = t.get("barra_opacidade", 0.30)
 
     return f"""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <title>{esc(spec['marca'])} — carrossel</title><style>
@@ -132,123 +164,152 @@ def build(spec):
 body{{background:#111;display:flex;flex-direction:column;align-items:center;gap:22px;padding:22px}}
 .slide{{width:{W}px;height:{H}px;position:relative;overflow:hidden;flex:none}}
 
-/* fundos — o ritmo da plataforma: alternado destaque/escuro, claro nas pontas */
-.f-capa{{background:#000}}
+/* ── fundos ───────────────────────────────────────────────────────────── */
+.f-capa,.f-foto{{background:#000}}
 .f-escuro{{background:var(--escuro)}}
 .f-destaque{{background:var(--destaque)}}
 .f-claro{{background:var(--claro)}}
 
-/* barra superior de metadados — some a numeração e a barra de progresso,
-   que a plataforma não tem */
-.barra{{position:absolute;top:0;left:0;right:0;padding:50px 56px 0;display:flex;
-justify-content:space-between;z-index:20;font-family:var(--body);font-size:16px;
-font-weight:700;letter-spacing:0;text-transform:uppercase;opacity:.30}}
-.f-escuro .barra,.f-capa .barra,.f-destaque .barra{{color:#fff}}
+/* foto sangrada — a imagem a 65% sobre preto, e o scrim subindo da base.
+   Medido: a peça real empilha foto + degradê e ancora o texto embaixo. */
+.bg-foto{{position:absolute;inset:0;background-size:cover;background-position:center}}
+.bg-scrim{{position:absolute;inset:0;background:linear-gradient(to bottom,
+transparent 26%,rgba(0,0,0,.72) 62%,rgba(0,0,0,.94) 84%,#000 100%)}}
+
+/* ── barra superior · y 49,7 · x 56,1 · 15,78px bold · tracking 0 ─────── */
+.barra{{position:absolute;top:49.7px;left:56.1px;right:56.1px;display:flex;
+justify-content:space-between;z-index:20;font-family:var(--body);font-size:15.8px;
+font-weight:700;line-height:1.4;letter-spacing:0;text-transform:uppercase;
+opacity:{op_barra}}}
+.f-escuro .barra,.f-capa .barra,.f-destaque .barra,.f-foto .barra{{color:#fff}}
 .f-claro .barra{{color:#000}}
 
+/* ── grade · margem lateral 108, largura útil 864 ─────────────────────── */
 .content{{position:absolute;top:150px;left:108px;right:108px;bottom:108px;display:flex;
 flex-direction:column;justify-content:center;gap:38px;z-index:2}}
+.f-foto .content{{justify-content:flex-end;gap:32px}}
 
 .tag{{font-family:var(--body);font-size:17px;font-weight:600;letter-spacing:3px;
 text-transform:uppercase}}
-.f-escuro .tag{{color:var(--destaque)}}
+.f-escuro .tag,.f-claro .tag,.f-foto .tag{{color:var(--destaque)}}
 .f-destaque .tag{{color:rgba(0,0,0,.62)}}
-.f-claro .tag{{color:var(--destaque)}}
 
-/* razão 3,3x entre título e corpo · entrelinha do título abaixo de 1 */
-.h1{{font-family:var(--head);font-size:66px;font-weight:600;line-height:1.06;
+/* ── título · 75,7px semibold · lh 1,06 · tracking −0,056 · à esquerda ───
+   Faixa medida nas peças reais: 60,5 a 83,8. O auto-fit trabalha dentro dela. */
+.h1{{font-family:var(--head);font-size:75.7px;font-weight:600;line-height:1.06;
 letter-spacing:-.056em}}
-.h1.grande{{font-size:80px;font-weight:700;line-height:1.06}}
-.f-escuro .h1{{color:var(--texto)}}
+.h1.grande{{font-size:83.8px}}
+.f-escuro .h1,.f-foto .h1{{color:var(--texto)}}
 .f-destaque .h1{{color:#000}}
 .f-claro .h1{{color:var(--destaque)}}
 .h1 em{{font-style:normal}}
-.f-escuro .h1 em,.f-claro .h1 em{{color:var(--destaque)}}
+.f-escuro .h1 em,.f-claro .h1 em,.f-foto .h1 em{{color:var(--destaque)}}
 .f-destaque .h1 em{{color:#fff}}
+.h1 b{{font-weight:700}}
 
-.corpo{{font-family:var(--body);font-size:42px;font-weight:400;line-height:.96;
+/* ── corpo · 45,4px · lh 0,96 · tracking −0,033 · à esquerda ────────────
+   Entrelinha abaixo de 1 é escolha de estilo, não descuido: dá densidade.
+   O texto é branco chapado — a ênfase é por cor ou por peso, nunca por
+   opacidade, que é como eu tinha feito antes. */
+.corpo{{font-family:var(--body);font-size:45.4px;font-weight:400;line-height:.96;
 letter-spacing:-.033em;text-align:left}}
-.f-claro .corpo{{font-size:37px}}
-.f-escuro .corpo{{color:rgba(255,255,255,.70)}}
-.f-destaque .corpo{{color:#fff}}
-.f-claro .corpo{{color:rgba(0,0,0,.78)}}
-.corpo b{{font-weight:600}}
-.f-escuro .corpo b{{color:#fff}}
-.corpo em{{font-style:normal;font-weight:600;color:var(--destaque)}}
-.f-destaque .corpo em{{color:#000}}
+.f-claro .corpo{{font-size:36.6px}}
+.f-escuro .corpo,.f-foto .corpo{{color:#fff}}
+.f-claro .corpo,.f-destaque .corpo{{color:#000}}
+.corpo b{{font-weight:700}}
+.corpo em{{font-style:normal;font-weight:400;color:var(--destaque)}}
+.f-destaque .corpo em{{color:#fff;font-weight:700}}
 
 .fonte{{font-family:var(--body);font-size:21px;padding-top:20px;letter-spacing:.3px}}
-.f-escuro .fonte{{color:rgba(255,255,255,.38);border-top:1px solid rgba(255,255,255,.16)}}
+.f-escuro .fonte,.f-foto .fonte{{color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.20)}}
 .f-destaque .fonte{{color:rgba(0,0,0,.55);border-top:1px solid rgba(0,0,0,.20)}}
-.f-claro .fonte{{color:rgba(0,0,0,.45);border-top:1px solid rgba(0,0,0,.14)}}
+.f-claro .fonte{{color:rgba(0,0,0,.55);border-top:1px solid rgba(0,0,0,.16)}}
 .fonte b{{font-weight:600}}
 
-.foto{{width:100%;height:488px;border-radius:13px;overflow:hidden;flex:none}}
+/* caixa de imagem · 864 × 488,4 · canto 13 */
+.foto{{width:100%;height:488.4px;border-radius:13px;overflow:hidden;flex:none}}
 .foto img{{width:100%;height:100%;object-fit:cover;display:block}}
 
-.stat{{font-family:var(--head);font-size:184px;font-weight:800;line-height:.86;
-letter-spacing:-.05em;color:var(--destaque)}}
+.stat{{font-family:var(--head);font-size:184px;font-weight:700;line-height:.86;
+letter-spacing:-.06em;color:var(--destaque)}}
 .f-destaque .stat{{color:#000}}
-.stat-label{{font-family:var(--body);font-size:34px;line-height:1.26;margin-top:-8px}}
-.f-escuro .stat-label{{color:rgba(255,255,255,.58)}}
-.f-claro .stat-label{{color:rgba(0,0,0,.58)}}
+.stat-label{{font-family:var(--body);font-size:36.6px;line-height:.96;
+letter-spacing:-.033em;margin-top:-6px}}
+.f-escuro .stat-label,.f-foto .stat-label{{color:#fff}}
+.f-claro .stat-label{{color:#000}}
 
-.bullets{{display:flex;flex-direction:column;gap:28px}}
+.bullets{{display:flex;flex-direction:column;gap:26px}}
 .row{{display:flex;gap:22px;align-items:flex-start;font-family:var(--body);
-font-size:37px;line-height:1.24}}
-.f-escuro .row{{color:rgba(255,255,255,.74)}}
-.f-destaque .row{{color:#fff}}
-.f-claro .row{{color:rgba(0,0,0,.78)}}
-.row b{{font-weight:600}}
-.f-escuro .row b{{color:#fff}}
+font-size:40px;line-height:1.02;letter-spacing:-.033em}}
+.f-escuro .row,.f-foto .row{{color:#fff}}
+.f-claro .row,.f-destaque .row{{color:#000}}
+.row b{{font-weight:700}}
+.row em{{font-style:normal;color:var(--destaque)}}
 .seta{{flex:none;font-weight:600;color:var(--destaque)}}
 .f-destaque .seta{{color:#000}}
 
 /* CTA — a plataforma põe corpo laranja sobre cinza claro (~2:1).
    Aqui o corpo vai em texto legível e o laranja fica na palavra-chave. */
-.cta-ponte{{font-family:var(--body);font-size:38px;line-height:1.32;letter-spacing:-.6px}}
-.f-claro .cta-ponte{{color:rgba(0,0,0,.72)}}
-.f-escuro .cta-ponte{{color:rgba(255,255,255,.72)}}
-.cta-ponte b{{font-weight:600}}
-.f-claro .cta-ponte b{{color:#000}}
-.cta-box{{border-radius:22px;padding:40px 46px}}
+.cta-ponte{{font-family:var(--body);font-size:40px;line-height:1.02;letter-spacing:-.033em}}
+.f-claro .cta-ponte{{color:#000}}
+.f-escuro .cta-ponte,.f-foto .cta-ponte{{color:#fff}}
+.cta-ponte b{{font-weight:700}}
+.cta-box{{border-radius:22px;padding:34px 52px 40px;align-self:flex-start}}
 .f-claro .cta-box{{background:#fff;border:3px solid var(--destaque)}}
-.f-escuro .cta-box{{background:rgba(255,255,255,.05);border:3px solid var(--destaque)}}
+.f-escuro .cta-box,.f-foto .cta-box{{background:rgba(255,255,255,.06);border:3px solid var(--destaque)}}
 .cta-instr{{font-family:var(--body);font-size:25px;margin-bottom:10px}}
 .f-claro .cta-instr{{color:rgba(0,0,0,.55)}}
-.f-escuro .cta-instr{{color:rgba(255,255,255,.55)}}
-.cta-word{{font-family:var(--head);font-size:92px;font-weight:800;line-height:1;
-letter-spacing:-.04em;color:var(--destaque)}}
+.f-escuro .cta-instr,.f-foto .cta-instr{{color:rgba(255,255,255,.62)}}
+.cta-word{{font-family:var(--head);font-size:92px;font-weight:700;line-height:1;
+letter-spacing:-.056em;color:var(--destaque)}}
 
-/* botão circular de avanço — só nos slides de destaque */
 .avanco{{position:absolute;right:108px;bottom:76px;width:78px;height:78px;border-radius:50%;
 background:#fff;color:#000;display:flex;align-items:center;justify-content:center;
 font-family:var(--body);font-size:36px;font-weight:600;z-index:20}}
 
-/* capa */
-.capa-bg{{position:absolute;inset:0;background-size:cover;background-position:center}}
+/* ── capa ─────────────────────────────────────────────────────────────── */
+/* Sem foto, a capa não fica preta chapada: recebe um banho radial na cor da
+   marca, vindo de baixo — mesma direção do scrim das peças com imagem. */
+.capa-banho{{position:absolute;inset:0;background:
+radial-gradient(66% 26% at 50% 108%,#fff8 0%,transparent 64%),
+radial-gradient(112% 40% at 50% 112%,var(--destaque) 0%,transparent 68%),
+radial-gradient(154% 62% at 50% 122%,var(--destaque) 0%,transparent 60%),#000}}
+/* Sem foto o bloco sobe: o banho fica sendo base, e a headline não cai em
+   cima da própria luz — que é onde o laranja sobre laranja se perde. */
+.slide:has(.capa-banho) .capa-area{{bottom:236px}}
 .capa-grad{{position:absolute;inset:0;background:linear-gradient(to bottom,
-rgba(0,0,0,.28) 0%,rgba(0,0,0,.10) 26%,rgba(0,0,0,.66) 58%,rgba(0,0,0,.94) 80%,rgba(0,0,0,1) 100%)}}
-.capa-area{{position:absolute;left:108px;right:108px;bottom:120px;z-index:10;
+rgba(0,0,0,.30) 0%,rgba(0,0,0,.12) 24%,rgba(0,0,0,.62) 58%,rgba(0,0,0,.92) 82%,#000 100%)}}
+.capa-area{{position:absolute;left:108px;right:108px;bottom:150px;z-index:10;
 display:flex;flex-direction:column;align-items:center;text-align:center;gap:30px}}
-.chip{{display:flex;align-items:center;gap:13px;background:rgba(0,0,0,.45);
-border:1.5px solid rgba(255,255,255,.16);border-radius:60px;padding:11px 26px 11px 12px}}
-.chip-dot{{width:40px;height:40px;border-radius:50%;background:var(--destaque);
+
+/* chip de perfil · círculo 48,7 · @ 31,8px medium · tracking −0,084 */
+.chip{{display:flex;align-items:center;gap:14px}}
+.chip-dot{{width:48.7px;height:48.7px;border-radius:50%;background:var(--destaque);
 display:flex;align-items:center;justify-content:center;font-family:var(--head);
-font-size:20px;font-weight:800;color:#fff}}
-.chip-handle{{font-family:var(--body);font-size:23px;font-weight:500;color:#fff}}
-.selo{{width:24px;height:24px;border-radius:50%;background:#1d9bf0;color:#fff;
-display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}}
-.capa-h1{{font-family:var(--head);font-size:112px;font-weight:700;line-height:.92;
-letter-spacing:-.087em;color:#fff}}
+font-size:24px;font-weight:700;color:#fff}}
+.chip-handle{{font-family:var(--body);font-size:31.8px;font-weight:500;line-height:1.4;
+letter-spacing:-.084em;color:#fff}}
+.selo{{width:27.8px;height:27.8px;border-radius:50%;background:#1d9bf0;color:#fff;
+display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700}}
+
+/* Duas capas, e a diferença é de gênero editorial:
+   impacto  111,5px bold · lh 0,92 · tracking −0,087   → topo de funil, viral
+   manchete  79,6px semibold · lh 1,06 · tracking −0,056 → newsroom e meio */
+.capa-h1{{font-family:var(--head);color:#fff}}
+.capa-impacto{{font-size:111.5px;font-weight:700;line-height:.92;letter-spacing:-.087em}}
+.capa-manchete{{font-size:79.6px;font-weight:600;line-height:1.06;letter-spacing:-.056em}}
 .capa-h1 em{{color:var(--destaque);font-style:normal}}
-.capa-sub{{font-family:var(--body);font-size:31px;font-weight:400;line-height:1.26;
-color:#E4E4E4;letter-spacing:-.02em}}
+.capa-h1 b{{font-weight:700}}
+
+/* legenda da capa · 21,2px · lh 1,06 · tracking −0,056 */
+.capa-sub{{font-family:var(--body);font-size:21.2px;font-weight:400;line-height:1.06;
+letter-spacing:-.056em;color:#fff}}
+.capa-sub em{{font-style:normal;color:var(--destaque)}}
 </style></head><body>
 {slides}
 <script>
-/* Auto-fit — a plataforma não tem: lá a headline longa passa por cima do corpo
-   sem aviso. Aqui ela encolhe até caber, com piso, e o corpo cede depois. */
+/* Auto-fit — no Canva o ajuste de texto longo é manual, slide a slide.
+   Aqui a headline encolhe até caber, com piso, e o corpo cede depois. */
 (function () {{
   function px(el) {{ return parseFloat(getComputedStyle(el).fontSize); }}
   function estoura(box) {{ return box.scrollHeight > box.clientHeight + 1; }}
@@ -257,13 +318,15 @@ color:#E4E4E4;letter-spacing:-.02em}}
     if (!box) return;
     var head = box.querySelector('.fit');
     if (head) {{
-      var min = head.classList.contains('capa-h1') ? 56 : 38;
+      var min = 52;
+      if (head.classList.contains('capa-impacto')) min = 72;
+      else if (head.classList.contains('capa-manchete')) min = 56;
       while (estoura(box) && px(head) > min) head.style.fontSize = (px(head) - 3) + 'px';
     }}
     var corpos = box.querySelectorAll('.corpo, .row, .cta-ponte, .stat-label');
     var guarda = 0;
     while (estoura(box) && guarda++ < 40) {{
-      corpos.forEach(function (c) {{ if (px(c) > 24) c.style.fontSize = (px(c) - 1) + 'px'; }});
+      corpos.forEach(function (c) {{ if (px(c) > 30) c.style.fontSize = (px(c) - 1) + 'px'; }});
       if (!corpos.length) break;
     }}
     slide.dataset.ajustado = head ? Math.round(px(head)) : '';

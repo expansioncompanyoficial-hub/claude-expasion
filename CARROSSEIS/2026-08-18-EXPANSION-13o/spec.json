@@ -1,0 +1,90 @@
+{
+  "marca": "EXPANSION",
+  "handle": "@assessoriaexpansion",
+  "copyright": "2026 ®",
+  "verificado": true,
+  "capa_estilo": "impacto",
+  "tokens": {
+    "dark": "#000000",
+    "accent": "#ff9901",
+    "claro": "#F0EEEC",
+    "texto": "#FFFFFF",
+    "barra_opacidade": 0.30,
+    "fonte_head": "Montserrat",
+    "fonte_body": "Poppins"
+  },
+  "fontes": [
+    {"family": "Montserrat", "weight": 600, "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-600-normal.woff2"},
+    {"family": "Montserrat", "weight": 700, "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-700-normal.woff2"},
+    {"family": "Poppins", "weight": 400, "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-400-normal.woff2"},
+    {"family": "Poppins", "weight": 500, "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-500-normal.woff2"},
+    {"family": "Poppins", "weight": 700, "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-700-normal.woff2"}
+  ],
+  "slides": [
+    {
+      "tipo": "capa",
+      "headline": "Duas datas do 13º que devem entrar no *calendário da sua loja*",
+      "sub": "O dinheiro da cliente tem calendário. A campanha também deveria ter."
+    },
+    {
+      "tipo": "texto",
+      "fundo": "escuro",
+      "h1": "A lei já marcou as datas pra você",
+      "paragrafos": [
+        "A primeira parcela do 13º cai *até 30 de novembro*. A segunda, *até 20 de dezembro*.",
+        "Não é previsão de mercado, é a **Lei 4.090**. Todo ano, nas mesmas duas datas."
+      ]
+    },
+    {
+      "tipo": "texto",
+      "fundo": "destaque",
+      "h1": "São dois momentos, não um",
+      "paragrafos": [
+        "Quem trata o 13º como um evento só trabalha metade dele.",
+        "A primeira parcela é a **compra pensada**. A segunda chega em cima do Natal, quando a sua cliente já está resolvendo presente."
+      ]
+    },
+    {
+      "tipo": "texto",
+      "fundo": "escuro",
+      "h1": "O que muda de uma para a outra",
+      "paragrafos": [
+        "Em novembro ela compra *para ela*. Em dezembro ela compra *para os outros*, e o que sobra vira presente de última hora.",
+        "**A vitrine não pode ser a mesma nas duas.**"
+      ]
+    },
+    {
+      "tipo": "stat",
+      "fundo": "claro",
+      "numero": "50%",
+      "label": "do 13º já está na conta da sua cliente em novembro. A outra metade só entra até o dia 20 de dezembro."
+    },
+    {
+      "tipo": "declaracao",
+      "fundo": "destaque",
+      "h1": "Campanha de 13º que começa em dezembro chega atrasada em *metade do dinheiro*."
+    },
+    {
+      "tipo": "bullets",
+      "fundo": "escuro",
+      "h1": "O que fazer com cada data",
+      "itens": [
+        "**Novembro** — a peça de valor mais alto, aquela que ela adiou o ano inteiro.",
+        "**Dezembro** — presente, kit e embalagem pronta. Ticket menor, decisão mais rápida.",
+        "**Entre as duas** — reserva e lista de espera, para ela escolher antes de o dinheiro cair."
+      ]
+    },
+    {
+      "tipo": "declaracao",
+      "fundo": "escuro",
+      "h1": "Quem só aparece no dia do pagamento disputa uma decisão que *já foi tomada*."
+    },
+    {
+      "tipo": "cta",
+      "fundo": "claro",
+      "ponte": "Se a sua loja ainda vai montar o calendário de novembro e dezembro, a gente monta junto.",
+      "instrucao": "Comente a palavra",
+      "palavra": "13"
+    }
+  ]
+}
