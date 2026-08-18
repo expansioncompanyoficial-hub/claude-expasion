@@ -5,15 +5,21 @@
 /* Chrome escuro de ferramenta, de propósito: o canvas é do cliente,
    a interface sai da frente. Tema único, tudo pintado explicitamente. */
 :root{
-  --app:#141418; --painel:#1C1C22; --campo:#24242C; --linha:#2E2E38;
-  --linha-forte:#3D3D4A; --texto:#E9E9EF; --meio:#9A9AA8; --fraco:#6C6C7A;
-  --expansion:#E67E22; --ok:#3FB88F;
+  --app:#0E1015; --painel:#161A21; --campo:#1D222B; --linha:#262C37;
+  --linha-forte:#38404E; --texto:#E7EBF2; --meio:#8E97A8; --fraco:#5F6878;
+  --expansion:#E67E22; --ok:#3FB88F; --brilho:var(--expansion);
   --ui:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--app);color:var(--texto);font-family:var(--ui);font-size:14px;
-  line-height:1.5;-webkit-font-smoothing:antialiased}
+  line-height:1.5;-webkit-font-smoothing:antialiased;position:relative;min-height:100vh}
+/* banho ambiente com a cor do cliente ativo — some na galeria */
+body::before{content:"";position:fixed;inset:0 0 auto;height:420px;pointer-events:none;z-index:0;
+  background:radial-gradient(120% 100% at 50% -34%,
+    color-mix(in srgb,var(--brilho) 22%,transparent) 0%,transparent 68%);
+  opacity:var(--banho,0);transition:opacity .5s ease}
+.topo,.tela-clientes,.grade{position:relative;z-index:1}
 button{font-family:inherit}
 
 /* ---------- topo ---------- */
@@ -32,32 +38,48 @@ button{font-family:inherit}
 .ponto{width:9px;height:9px;border-radius:50%;flex:none;border:1px solid rgba(255,255,255,.20)}
 
 /* ---------- tela 1: clientes ---------- */
-.tela-clientes{padding:40px 26px 70px;max-width:1180px;margin:0 auto}
-.titulo-tela{font-size:24px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
-.sub-tela{color:var(--meio);font-size:14px;margin-bottom:30px;max-width:62ch}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:15px}
-.card{background:var(--painel);border:1px solid var(--linha);border-radius:12px;overflow:hidden;
+.tela-clientes{padding:52px 26px 80px;max-width:1220px;margin:0 auto}
+.titulo-tela{font-family:'Montserrat',var(--ui);font-size:34px;font-weight:800;
+  letter-spacing:-.035em;margin-bottom:8px;line-height:1.05}
+.sub-tela{color:var(--meio);font-size:14.5px;margin-bottom:34px;max-width:58ch;line-height:1.55}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:17px}
+.card{background:var(--painel);border:1px solid var(--linha);border-radius:15px;overflow:hidden;
   cursor:pointer;text-align:left;padding:0;color:inherit;display:flex;flex-direction:column;
-  transition:border-color .12s,transform .12s}
-.card:hover{border-color:var(--linha-forte);transform:translateY(-2px)}
+  position:relative;isolation:isolate;
+  transition:border-color .2s,transform .2s,box-shadow .25s}
+.card::after{content:"";position:absolute;inset:0;border-radius:15px;pointer-events:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.card:hover{border-color:color-mix(in srgb,var(--c-accent,var(--expansion)) 52%,var(--linha));
+  transform:translateY(-3px);
+  box-shadow:0 16px 40px -14px color-mix(in srgb,var(--c-accent,#000) 55%,transparent)}
 .card:focus-visible{outline:2px solid var(--expansion);outline-offset:2px}
-.card-topo{height:104px;position:relative;display:flex;align-items:flex-end;padding:13px}
-.card-inicial{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;
-  justify-content:center;font-family:'Montserrat';font-size:20px;font-weight:800;color:#fff;
-  border:1.5px solid rgba(255,255,255,.22)}
-.card-corpo{padding:14px 15px 16px;display:flex;flex-direction:column;gap:4px}
-.card-nome{font-size:14.5px;font-weight:600;letter-spacing:-.01em}
+
+/* a marca ocupa a tampa do card — logo grande, gradiente da paleta */
+.card-topo{height:142px;position:relative;display:flex;align-items:center;justify-content:center;
+  padding:20px;overflow:hidden}
+.card-topo::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(78% 62% at 50% 118%,rgba(0,0,0,.42),transparent 72%)}
+.card-logo{position:relative;z-index:2;max-width:74%;max-height:76px;object-fit:contain;
+  filter:drop-shadow(0 3px 12px rgba(0,0,0,.42))}
+.card-inicial{position:relative;z-index:2;width:60px;height:60px;border-radius:16px;display:flex;
+  align-items:center;justify-content:center;font-family:'Montserrat';font-size:27px;font-weight:800;
+  color:#fff;background:rgba(0,0,0,.30);border:1.5px solid rgba(255,255,255,.26);
+  backdrop-filter:blur(3px)}
+.card-corpo{padding:15px 16px 17px;display:flex;flex-direction:column;gap:3px}
+.card-nome{font-size:15px;font-weight:600;letter-spacing:-.012em}
 .card-nicho{font-size:12.5px;color:var(--meio)}
-.card-rodape{display:flex;align-items:center;justify-content:space-between;margin-top:9px;
+.card-rodape{display:flex;align-items:center;justify-content:space-between;margin-top:11px;
+  padding-top:11px;border-top:1px solid var(--linha);
   font-family:var(--mono);font-size:10px;color:var(--fraco);letter-spacing:.06em}
-.swatches{display:flex;gap:3px}
-.sw{width:11px;height:11px;border-radius:3px;border:1px solid rgba(255,255,255,.16)}
+.swatches{display:flex;gap:4px}
+.sw{width:12px;height:12px;border-radius:4px;border:1px solid rgba(255,255,255,.18)}
 
 .card-novo{background:transparent;border:1.5px dashed var(--linha-forte);align-items:center;
-  justify-content:center;min-height:196px;gap:9px;color:var(--meio)}
-.card-novo:hover{border-color:var(--expansion);color:var(--texto)}
-.mais{width:38px;height:38px;border-radius:50%;border:1.5px solid currentColor;display:flex;
-  align-items:center;justify-content:center;font-size:20px;line-height:1}
+  justify-content:center;min-height:236px;gap:11px;color:var(--meio)}
+.card-novo:hover{border-color:var(--expansion);color:var(--texto);transform:translateY(-3px);
+  box-shadow:none}
+.mais{width:42px;height:42px;border-radius:50%;border:1.5px solid currentColor;display:flex;
+  align-items:center;justify-content:center;font-size:21px;line-height:1}
 
 /* ---------- formulário de cliente ---------- */
 .modal-fundo{position:fixed;inset:0;background:rgba(0,0,0,.66);display:flex;align-items:center;
@@ -100,6 +122,23 @@ label.rot{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1
   text-transform:uppercase;color:var(--fraco);margin:14px 0 6px}
 .mini{font-family:var(--mono);font-size:10px;color:var(--fraco);margin-top:7px;display:block}
 
+.logo-caixa{border:1px solid var(--linha);border-radius:9px;background:var(--campo);
+  padding:11px;display:flex;align-items:center;gap:11px}
+.logo-vitrine{width:56px;height:44px;border-radius:6px;flex:none;display:flex;align-items:center;
+  justify-content:center;overflow:hidden}
+.logo-vitrine img{max-width:88%;max-height:88%;object-fit:contain}
+.logo-vazio{font-family:var(--mono);font-size:9px;color:var(--fraco);text-align:center;
+  line-height:1.3}
+.logo-lado{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.arquivo{position:relative;overflow:hidden;display:inline-block}
+.arquivo input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.fundos{display:flex;gap:4px;flex-wrap:wrap}
+.fundo-op{appearance:none;border:1px solid var(--linha);background:var(--campo);color:var(--meio);
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.04em;text-transform:uppercase;
+  padding:4px 6px;border-radius:5px;cursor:pointer;flex:1;min-width:0}
+.fundo-op[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion));color:var(--texto)}
+.fundo-op:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
+
 /* ---------- templates ---------- */
 .tpls{display:flex;flex-direction:column;gap:7px}
 .tpl{display:flex;gap:11px;align-items:center;background:var(--campo);border:1px solid var(--linha);
@@ -139,7 +178,10 @@ label.rot{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1
     linear-gradient(45deg,#1A1A20 25%,#191920 25%,#191920 75%,#1A1A20 75%);
   background-size:22px 22px;background-position:0 0,11px 11px;
   border:1px solid var(--linha);border-radius:12px;padding:20px}
-.moldura{box-shadow:0 12px 40px rgba(0,0,0,.5);border-radius:3px;overflow:hidden;flex:none}
+.moldura{border-radius:4px;overflow:hidden;flex:none;position:relative;
+  box-shadow:0 18px 54px -12px rgba(0,0,0,.72),
+             0 0 0 1px rgba(255,255,255,.05),
+             0 0 70px -18px color-mix(in srgb,var(--pt-accent,var(--expansion)) 62%,transparent)}
 
 .tiras{display:flex;gap:8px;overflow-x:auto;padding:2px 1px 6px}
 .tira{flex:none;border:2px solid transparent;border-radius:5px;overflow:hidden;cursor:pointer;
@@ -206,7 +248,8 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
   <aside class="col col-esq">
     <div class="bloco">
       <span class="rotulo">Marca</span>
-      <div class="cores" id="cores"></div>
+      <div class="logo-caixa" id="logo-caixa"></div>
+      <div class="cores" id="cores" style="margin-top:9px"></div>
       <span class="mini" id="fontes-info"></span>
     </div>
     <div class="bloco">
@@ -271,6 +314,22 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
       <input type="color" class="campo" id="f-claro" value="#F0EEEC" aria-label="Claro" style="height:40px;padding:4px">
     </div>
     <span class="mini">fundo · destaque · claro</span>
+    <label class="rot">Logo</label>
+    <div class="logo-caixa">
+      <div class="logo-vitrine" id="f-logo-vitrine" style="background:#0F1116">
+        <span class="logo-vazio">sem<br>logo</span></div>
+      <div class="logo-lado">
+        <span class="btn arquivo" style="padding:7px 12px;font-size:11.5px;text-align:center">
+          Escolher arquivo<input type="file" id="f-logo" accept="image/png,image/jpeg,image/svg+xml"></span>
+        <div class="fundos" id="f-fundos">
+          <button class="fundo-op" type="button" data-v="auto" aria-pressed="true">auto</button>
+          <button class="fundo-op" type="button" data-v="claro" aria-pressed="false">claro</button>
+          <button class="fundo-op" type="button" data-v="escuro" aria-pressed="false">escuro</button>
+        </div>
+      </div>
+    </div>
+    <span class="mini">PNG com fundo transparente cai melhor. Se o arquivo já vier com fundo
+      preto, escolhe <b>escuro</b> que a moldura acompanha.</span>
     <div class="acoes" style="margin-top:20px">
       <button class="btn btn-forte" id="f-criar" type="button">Criar cliente</button>
       <button class="btn" id="f-cancelar" type="button">Cancelar</button>
@@ -310,23 +369,29 @@ texto 18 - Quer a análise de crédito dos seus clientes? Manda mensagem.`;
 
 const nova = (nome,tpl,txt) => ({ id:Math.random().toString(36).slice(2,8), nome, tpl, txt:txt||'' });
 
+/* Moldura do logo. 'auto' deixa transparente; 'claro' e 'escuro' põem um fundo
+   atrás, pra logo monocromático não sumir sobre a cor da marca. */
+const molde = c => c.logoFundo==='claro' ? '#FFFFFF'
+               : c.logoFundo==='escuro' ? '#101216'
+               : 'transparent';
+
 const CLIENTES = [
   { id:'prime', nome:'Prime Alphaville', handle:'@prime.alphaville', marca:'Prime Assessoria',
     direito:'2026 ®', nicho:'Crédito imobiliário', escuro:'#191818', accent:'#E14414',
-    claro:'#F0EEEC', head:'Montserrat', body:'Poppins',
+    claro:'#F0EEEC', head:'Montserrat', body:'Poppins', logo:null, logoFundo:'auto',
     pecas:[ nova('Prêmio ATRINCA','meio',EXEMPLO), nova('Portabilidade','brands1','') ] },
   { id:'albanos', nome:'Clínica Albanos', handle:'@clinicaalbanos', marca:'Clínica Albanos',
     direito:'2026 ®', nicho:'Autismo', escuro:'#12212E', accent:'#2E9BC4',
-    claro:'#EEF4F7', head:'Montserrat', body:'Poppins', pecas:[ nova('Sinais precoces','meio','') ] },
+    claro:'#EEF4F7', head:'Montserrat', body:'Poppins', logo:null, logoFundo:'auto', pecas:[ nova('Sinais precoces','meio','') ] },
   { id:'cies', nome:'Ciés Brand', handle:'@ciesbrand', marca:'Ciés', direito:'2026 ®',
     nicho:'Moda feminina', escuro:'#1E1519', accent:'#C4728A', claro:'#F6F0F1',
-    head:'Montserrat', body:'Poppins', pecas:[ nova('Coleção nova','brands2','') ] },
+    head:'Montserrat', body:'Poppins', logo:null, logoFundo:'auto', pecas:[ nova('Coleção nova','brands2','') ] },
   { id:'clau', nome:'Clau Kids', handle:'@claukids', marca:'Clau Kids', direito:'2026 ®',
     nicho:'Moda infantil', escuro:'#1B2233', accent:'#F2A93B', claro:'#FDF6EA',
-    head:'Montserrat', body:'Poppins', pecas:[ nova('Volta às aulas','twitter','') ] },
+    head:'Montserrat', body:'Poppins', logo:null, logoFundo:'auto', pecas:[ nova('Volta às aulas','twitter','') ] },
   { id:'fred', nome:'Dr. Fred', handle:'@drfredoficial', marca:'Dr. Fred', direito:'2026 ®',
     nicho:'Saúde', escuro:'#101C1A', accent:'#1E9E7E', claro:'#EEF6F3',
-    head:'Montserrat', body:'Poppins', pecas:[ nova('Check-up anual','brands3','') ] },
+    head:'Montserrat', body:'Poppins', logo:null, logoFundo:'auto', pecas:[ nova('Check-up anual','brands3','') ] },
 ];
 
 /* ============ estado ============ */
@@ -359,11 +424,17 @@ function barra(cor){
     <span>${esc(cli.direito)}</span></div>`;
 }
 function chip(){
+  const selo = cli.logo
+    ? `<span style="width:40px;height:40px;border-radius:50%;background:${
+        cli.logoFundo==='claro' ? '#fff' : cli.logoFundo==='escuro' ? '#101216' : 'rgba(255,255,255,.10)'
+      };display:flex;align-items:center;justify-content:center;overflow:hidden">
+      <img src="${cli.logo}" alt="" style="max-width:78%;max-height:78%;object-fit:contain"></span>`
+    : `<span style="width:40px;height:40px;border-radius:50%;background:${cli.accent};display:flex;
+      align-items:center;justify-content:center;font-family:'Montserrat';font-size:20px;
+      font-weight:800;color:#fff">${esc(cli.marca[0]||'?')}</span>`;
   return `<div style="display:inline-flex;align-items:center;gap:13px;background:rgba(0,0,0,.45);
     border:1.5px solid rgba(255,255,255,.16);border-radius:60px;padding:11px 26px 11px 12px">
-    <span style="width:40px;height:40px;border-radius:50%;background:${cli.accent};display:flex;
-    align-items:center;justify-content:center;font-family:'Montserrat';font-size:20px;
-    font-weight:800;color:#fff">${esc(cli.marca[0]||'?')}</span>
+    ${selo}
     <span style="font-size:23px;font-weight:500;color:#fff">${esc(cli.handle)}</span>
     <span style="width:24px;height:24px;border-radius:50%;background:#1d9bf0;color:#fff;display:flex;
     align-items:center;justify-content:center;font-size:14px;font-weight:700">✓</span></div>`;
@@ -479,14 +550,20 @@ function telaClientes(){
   $('#tela-estudio').classList.add('oculto');
   $('#trilha').innerHTML = '';
   document.documentElement.style.setProperty('--pt-accent', 'var(--expansion)');
+  document.documentElement.style.setProperty('--banho', '0');
 
   const c = $('#cards'); c.innerHTML = '';
   CLIENTES.forEach(x => {
     const b = document.createElement('button');
     b.className = 'card'; b.type = 'button';
+    b.style.setProperty('--c-accent', x.accent);
+    const tampa = x.logo
+      ? `<img class="card-logo" src="${x.logo}" alt="" style="${x.logoFundo!=='auto'
+          ? `background:${molde(x)};padding:9px 13px;border-radius:9px` : ''}">`
+      : `<span class="card-inicial">${esc(x.marca[0]||'?')}</span>`;
     b.innerHTML = `
-      <div class="card-topo" style="background:linear-gradient(146deg,${x.escuro} 0%,${x.accent} 118%)">
-        <span class="card-inicial" style="background:${x.accent}">${esc(x.marca[0]||'?')}</span></div>
+      <div class="card-topo" style="background:linear-gradient(146deg,${x.escuro} 0%,${x.accent} 132%)">
+        ${tampa}</div>
       <div class="card-corpo">
         <span class="card-nome">${esc(x.nome)}</span>
         <span class="card-nicho">${esc(x.nicho)}</span>
@@ -524,6 +601,8 @@ function abrir(x){
 
 function pintar(){
   document.documentElement.style.setProperty('--pt-accent', cli.accent);
+  document.documentElement.style.setProperty('--brilho', cli.accent);
+  document.documentElement.style.setProperty('--banho', '1');
   const n = nSlides();
   if (atual >= n) atual = n-1;
 
@@ -566,7 +645,35 @@ function contar(){
   add('maior headline interna', pior+' car.', pior>26?'alerta':'bom');
 }
 
+function painelLogo(){
+  const c = $('#logo-caixa');
+  c.innerHTML = `
+    <div class="logo-vitrine" style="background:${cli.logoFundo==='auto' ? 'var(--app)' : molde(cli)}">
+      ${cli.logo ? `<img src="${cli.logo}" alt="">`
+                 : `<span class="logo-vazio">sem<br>logo</span>`}</div>
+    <div class="logo-lado">
+      <span class="btn arquivo" style="padding:6px 10px;font-size:11px;text-align:center">
+        ${cli.logo ? 'Trocar' : 'Enviar logo'}
+        <input type="file" accept="image/png,image/jpeg,image/svg+xml"></span>
+      <div class="fundos">
+        ${['auto','claro','escuro'].map(v =>
+          `<button class="fundo-op" type="button" data-v="${v}"
+            aria-pressed="${cli.logoFundo===v}">${v}</button>`).join('')}
+      </div>
+    </div>`;
+  c.querySelector('input[type=file]').onchange = e => {
+    const f = e.target.files[0]; if(!f) return;
+    const r = new FileReader();
+    r.onload = () => { cli.logo = r.result; painelLogo(); pintar(); };
+    r.readAsDataURL(f);
+  };
+  c.querySelectorAll('.fundo-op').forEach(b => {
+    b.onclick = () => { cli.logoFundo = b.dataset.v; painelLogo(); pintar(); };
+  });
+}
+
 function camposMarca(){
+  painelLogo();
   const defs = [['escuro','Fundo'],['accent','Destaque'],['claro','Claro']];
   const c = $('#cores'); c.innerHTML='';
   defs.forEach(([k,nome]) => {
@@ -662,6 +769,25 @@ $('#editor').oninput = () => {
   $('#'+campo).oninput = e => { cli[chave]=e.target.value; pintar(); };
 });
 
+let fLogo = null, fFundo = 'auto';
+$('#f-logo').onchange = e => {
+  const f = e.target.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    fLogo = r.result;
+    $('#f-logo-vitrine').innerHTML = `<img src="${fLogo}" alt="">`;
+  };
+  r.readAsDataURL(f);
+};
+$('#f-fundos').querySelectorAll('.fundo-op').forEach(b => {
+  b.onclick = () => {
+    fFundo = b.dataset.v;
+    $('#f-fundos').querySelectorAll('.fundo-op').forEach(k => k.setAttribute('aria-pressed', k===b));
+    $('#f-logo-vitrine').style.background =
+      fFundo==='claro' ? '#FFFFFF' : fFundo==='escuro' ? '#101216' : '#0F1116';
+  };
+});
+
 $('#f-cancelar').onclick = () => $('#modal-fundo').classList.add('oculto');
 $('#modal-fundo').onclick = e => { if(e.target === $('#modal-fundo')) $('#modal-fundo').classList.add('oculto'); };
 $('#f-criar').onclick = () => {
@@ -670,10 +796,13 @@ $('#f-criar').onclick = () => {
     marca:nome, handle:$('#f-handle').value.trim() || '@cliente',
     direito:'2026 ®', nicho:$('#f-nicho').value.trim() || 'Nicho a definir',
     escuro:$('#f-escuro').value, accent:$('#f-accent').value, claro:$('#f-claro').value,
-    head:'Montserrat', body:'Poppins', pecas:[ nova('Primeiro carrossel','meio','') ] };
+    head:'Montserrat', body:'Poppins', logo:null, logoFundo:'auto', pecas:[ nova('Primeiro carrossel','meio','') ] };
   CLIENTES.push(x);
   $('#modal-fundo').classList.add('oculto');
   ['f-nome','f-nicho','f-handle'].forEach(k => $('#'+k).value = '');
+  fLogo = null; fFundo = 'auto';
+  $('#f-logo-vitrine').innerHTML = '<span class="logo-vazio">sem<br>logo</span>';
+  $('#f-logo-vitrine').style.background = '#0F1116';
   abrir(x);
 };
 
