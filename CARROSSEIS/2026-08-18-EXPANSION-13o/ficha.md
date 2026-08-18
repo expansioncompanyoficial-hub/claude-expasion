@@ -10,7 +10,7 @@
 | Público | dona de loja de roupa feminina |
 | Template | Meio de Funil · 9 slides |
 | Tema | as duas parcelas do 13º como duas campanhas distintas |
-| Status | gerado — não publicado |
+| Status | **vagas de imagem abertas** — não vai pro cliente assim |
 
 ## Eixo
 
@@ -50,9 +50,24 @@ dos quatro carrosséis pelo conector — ver
 | Capa | 111,5 bold · lh 0,92 · tracking −0,087 · centro |
 | Destaque | `#ff9901` |
 
-Ênfase em degradê (`linear-gradient(180deg,#fa7e01,#ff6522 50%,#fa7e01)`), e o
-slide final no formato real medido: não é caixa nem botão, é o último parágrafo
-inteiro na cor de destaque com a palavra de comando em bold.
+Slides internos na **grade absoluta medida**, quatro arquétipos conforme onde a
+foto entra. Ênfase chapada em `#ff9901`; o degradê é o fundo do slide laranja.
+Slide final no formato real: não é caixa nem botão, é o último parágrafo inteiro
+na cor de destaque com a palavra de comando em bold.
+
+## As seis vagas de imagem
+
+| Slide | Posição | O que entra |
+|---|---|---|
+| 2 | topo | Vitrine de loja feminina em novembro, cliente olhando peça de valor mais alto |
+| 3 | meio | Duas datas destacadas num calendário de parede da loja |
+| 4 | base | Cliente provando peça com calma — compra pensada, não de última hora |
+| 6 | meio | Balcão em dezembro: sacola de presente, embalagem pronta, fila |
+| 8 | base | Arara organizada com etiqueta de reserva — lista de espera |
+| capa | sangrada | falta |
+
+Slides 5, 7 e 9 **ficam sem foto de propósito** — são o número, a declaração e o
+fechamento, e no original (páginas 6 e 9) esses slides também são só texto.
 
 Capa sem foto: recebeu banho radial na cor da marca. Nos quatro designs reais
 a capa sempre tem imagem — **assim que houver foto, ela entra e o banho sai.**

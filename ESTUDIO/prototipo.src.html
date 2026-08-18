@@ -499,15 +499,37 @@ function render(i){
     const seta = f==='destaque' ? `<div style="position:absolute;right:108px;bottom:76px;width:78px;
       height:78px;border-radius:50%;background:#fff;color:#000;display:flex;align-items:center;
       justify-content:center;font-size:36px;font-weight:600;z-index:20">→</div>` : '';
-    const chamada = f==='cta' ? `<div style="font-size:45.4px;line-height:.96;
-      letter-spacing:-.033em;text-align:left">${EM(c||'Para receber o material, comenta a palavra.')}</div>` : '';
+    // A grade medida do Canva: cada bloco no seu `top`, não em fluxo. Quatro
+    // arquétipos, conforme onde a foto entra. Sem foto, é o slide de virada.
+    const GRADE = {
+      topo: {foto:207.9, h1:717.0, corpo:1005.8},
+      meio: {h1:161.0, foto:453.9, corpo:951.1},
+      base: {h1:230.5, corpo:534.9, foto:799.8},
+      nada: {h1:298.9, corpo:641.9},
+    };
+    const posFoto = ['','topo','meio','base','topo','nada','meio','base','nada'][i] || 'nada';
+    const g = GRADE[posFoto] || GRADE.nada;
+    const bloco = (top, html) =>
+      `<div style="position:absolute;top:${top}px;left:108px;width:864px;z-index:2">${html}</div>`;
+
+    const vaga = (posFoto==='nada') ? '' : bloco(g.foto,
+      `<div style="height:442.2px;border-radius:13px;border:2px dashed ${cl?cli.accent:'#fff'};
+        background:${cl?'rgba(0,0,0,.03)':'rgba(255,255,255,.06)'};display:flex;
+        flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center">
+        <span style="font-size:16px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+          color:${cl?cli.accent:'#fff'}">Imagem · ${posFoto}</span>
+        <span style="font-size:15px;letter-spacing:.1em;opacity:.5;color:${corC}">864 × 442 · canto 13</span>
+      </div>`);
+
+    const corpoHtml = f==='cta'
+      ? `<div style="font-size:45.4px;line-height:.96;letter-spacing:-.033em">${EM(c||'Comenta a palavra.')}</div>`
+      : `<div style="font-size:${cl?36.6:45.4}px;line-height:.96;letter-spacing:-.033em;
+          color:${corC}">${esc(c||'Texto de apoio do slide.')}</div>`;
+
     return `<div class="slide" style="background:${bg}">${barra(corB)}
-      <div style="position:absolute;top:230px;left:108px;right:108px;bottom:108px;display:flex;
-        flex-direction:column;justify-content:flex-start;gap:44px;z-index:2">
-        ${H(h||'Headline',75.7,corH,f==='cta'?'font-weight:700':'')}
-        ${f==='cta' ? chamada : `<div style="font-size:${cl?36.6:45.4}px;line-height:.96;
-          letter-spacing:-.033em;text-align:left;color:${corC}">${esc(c||'Texto de apoio do slide.')}</div>`}
-      </div>${seta}</div>`;
+      ${bloco(g.h1, H(h||'Headline',75.7,corH,f==='cta'?'font-weight:700':''))}
+      ${vaga}
+      ${bloco(g.corpo, corpoHtml)}${seta}</div>`;
   }
 
   if (T === 'brands1') return `<div class="slide" style="background:#000">

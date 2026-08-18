@@ -79,7 +79,9 @@
       "paragrafos": [
         "A primeira parcela do 13º cai *até 30 de novembro*. A segunda, *até 20 de dezembro*.",
         "Não é previsão de mercado, é a **Lei 4.090**. Todo ano, nas mesmas duas datas."
-      ]
+      ],
+      "foto_pos": "topo",
+      "imagem_brief": "Vitrine de loja feminina em novembro, cliente olhando peça de valor mais alto"
     },
     {
       "tipo": "texto",
@@ -88,7 +90,9 @@
       "paragrafos": [
         "Quem trata o 13º como um evento só trabalha metade dele.",
         "A primeira parcela é a **compra pensada**. A segunda chega em cima do Natal, quando a sua cliente já está resolvendo presente."
-      ]
+      ],
+      "foto_pos": "meio",
+      "imagem_brief": "Duas datas destacadas num calendário de parede da loja"
     },
     {
       "tipo": "texto",
@@ -97,7 +101,9 @@
       "paragrafos": [
         "Em novembro ela compra *para ela*. Em dezembro ela compra *para os outros*, e o que sobra vira presente de última hora.",
         "**A vitrine não pode ser a mesma nas duas.**"
-      ]
+      ],
+      "foto_pos": "base",
+      "imagem_brief": "Cliente provando peça com calma — compra pensada, não de última hora"
     },
     {
       "tipo": "stat",
@@ -108,7 +114,9 @@
     {
       "tipo": "declaracao",
       "fundo": "escuro",
-      "h1": "Campanha de 13º que começa em dezembro chega atrasada em *metade do dinheiro*."
+      "h1": "Campanha de 13º que começa em dezembro chega atrasada em *metade do dinheiro*.",
+      "foto_pos": "meio",
+      "imagem_brief": "Balcão em dezembro: sacola de presente, embalagem pronta, fila"
     },
     {
       "tipo": "bullets",
@@ -123,7 +131,9 @@
     {
       "tipo": "declaracao",
       "fundo": "escuro",
-      "h1": "Quem só aparece no dia do pagamento disputa uma decisão que *já foi tomada*."
+      "h1": "Quem só aparece no dia do pagamento disputa uma decisão que *já foi tomada*.",
+      "foto_pos": "base",
+      "imagem_brief": "Arara organizada com etiqueta de reserva — lista de espera"
     },
     {
       "tipo": "cta",

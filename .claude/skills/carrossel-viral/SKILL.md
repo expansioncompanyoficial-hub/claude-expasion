@@ -200,8 +200,16 @@ enquadramentos, que não são intercambiáveis:
 
 | | Quando |
 |---|---|
-| `foto_fundo` — sangrada, 65% sobre preto, texto embaixo | é o padrão da casa: 3 dos 4 designs reais |
-| `imagem` — caixa 864 × 488, canto 13 | quando a foto é ilustração de um ponto, não o clima do slide |
+| `foto_fundo` — sangrada, 65% sobre preto, texto embaixo | capa, e peças de clima |
+| `imagem` + `foto_pos` — caixa 864 × 442, canto 13 | slides internos: a foto ocupa `topo`, `meio` ou `base` |
+
+Seis das nove páginas do original têm foto; **três não têm, e isso é escolha** —
+a declaração forte e o fechamento ficam melhores sem. Qual slide recebe foto e o
+que ela precisa mostrar está em `references/imagens.md`.
+
+Enquanto a foto não existe, declarar `foto_pos` + `imagem_brief`: o renderizador
+reserva e desenha o espaço na medida certa. **Peça não vai pro cliente com vaga
+aberta** — ou a foto entra, ou o `foto_pos` sai.
 
 Render conforme `BRANDSDECODED/CONTENT-MACHINE/prompts/brandsdecoded-design-system.md` e
 `brandsdecoded-principios-design.md`, aplicando cor, fonte e estilo da ficha do cliente.

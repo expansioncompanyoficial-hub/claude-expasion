@@ -74,7 +74,7 @@ por causa disso — sem `unicode-range`, a última apaga a primeira.
 | `tipo` | Campos |
 |---|---|
 | `capa` | `headline`, `sub`, `foto_fundo`, `estilo` (sobrepõe `capa_estilo`) |
-| `texto` | `tag`, `h1`, `paragrafos[]`, `imagem`, `foto_pos`, `fonte` |
+| `texto` | `tag`, `h1`, `paragrafos[]`, `imagem`, `foto_pos`, `imagem_brief`, `fonte` |
 | `stat` | `tag`, `numero`, `label`, `paragrafos[]`, `fonte` |
 | `bullets` | `tag`, `h1`, `itens[]` |
 | `declaracao` | `h1` — headline grande, sem corpo |
@@ -93,14 +93,36 @@ vira automaticamente a família **foto sangrada**.
 São dois enquadramentos diferentes, e três dos quatro designs reais usam o
 primeiro. `foto_opacidade` ajusta o 0,65 quando a foto vem clara demais.
 
-`foto_pos` põe a caixa de imagem em `topo`, `meio` (padrão) ou `base`. As três
-posições aparecem nas peças reais — não é sempre no meio.
+## A grade dos slides internos
 
-## Composição
+O original é **posicionado à mão, não fluído**. Reproduzir com flexbox aproxima e
+nunca bate. Cada bloco vai no `top` medido, e são quatro arquétipos:
 
-O conteúdo é **ancorado no topo**, nunca centralizado: começa em y≈230 e desce.
-Com texto curto sobra espaço embaixo, e isso é o desenho — centralizar tira o ar
-da peça e desalinha os slides entre si quando vistos em sequência no feed.
+| `foto_pos` | Ordem | `top` de cada bloco | Páginas |
+|---|---|---|---|
+| `topo` | foto · título · corpo | 207,9 · 717,0 · 1005,8 | 2 e 5 |
+| `meio` | título · foto · corpo | 161,0 · 453,9 · 951,1 | 3 e 7 |
+| `base` | título · corpo · foto | 230,5 · 534,9 · 799,8 | 4 e 8 |
+| ausente | título · corpo | 298,9 · 641,9 | 6 e 9 |
+
+Todos com `left: 108` e largura `864`. A caixa de imagem é sempre **864 × 442,2,
+canto 13**.
+
+Cada bloco tem uma altura máxima — até onde o próximo começa — e o auto-fit
+encolhe o texto **dentro da própria fatia**, sem empurrar o slide. É isso que
+mantém os nove slides alinhados entre si quando alguém desliza o feed.
+
+Sem `foto_pos` o slide é "sem foto", que é o que as páginas 6 e 9 fazem: a
+declaração forte e o fechamento. Sobra espaço embaixo, e isso é o desenho.
+
+## Vaga de imagem
+
+Sem `imagem`, o `foto_pos` **reserva e desenha o espaço** na medida certa, com o
+briefing em `imagem_brief`. O slide já nasce desenhado em volta da foto, então
+trocar a vaga pela imagem não mexe em mais nada.
+
+Qual slide recebe foto, em que posição e o que ela mostra:
+`../references/imagens.md`.
 
 ## Capa: impacto ou manchete
 

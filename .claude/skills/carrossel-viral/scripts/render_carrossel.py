@@ -28,6 +28,39 @@ import sys
 from pathlib import Path
 
 W, H = 1080, 1350
+MARGEM, UTIL = 108, 864
+BASE = H - MARGEM            # 1242 — onde o conteúdo termina
+FOTO_H, FOTO_R = 442.2, 13
+FOLGA = 24                   # respiro mínimo entre um bloco e o próximo
+
+# Os quatro arquétipos de slide interno, com os `top` lidos elemento a elemento
+# no Canva. O original é posicionado à mão, não fluído — reproduzir com flexbox
+# centralizado aproxima e nunca bate. Aqui cada bloco vai no seu y medido.
+#
+#   topo  foto abre o slide          páginas 2 e 5
+#   meio  foto separa título e corpo páginas 3 e 7
+#   base  foto fecha embaixo         páginas 4 e 8
+#   None  sem foto                   páginas 6 e 9
+GRADE = {
+    "topo": {"foto": 207.9, "h1": 717.0, "corpo": 1005.8},
+    "meio": {"h1": 161.0, "foto": 453.9, "corpo": 951.1},
+    "base": {"h1": 230.5, "corpo": 534.9, "foto": 799.8},
+    None: {"h1": 298.9, "corpo": 641.9},
+}
+
+
+def limites(pos):
+    """Altura máxima de cada bloco: até onde o próximo começa."""
+    g = GRADE[pos]
+    ordem = sorted(g.items(), key=lambda kv: kv[1])
+    out = {}
+    for i, (nome, y) in enumerate(ordem):
+        if nome == "foto":
+            out[nome] = FOTO_H
+            continue
+        fim = ordem[i + 1][1] - FOLGA if i + 1 < len(ordem) else BASE
+        out[nome] = round(fim - y, 1)
+    return out
 
 
 def b64_font(path):
@@ -161,51 +194,75 @@ def slide_html(spec, s, i, total):
         </div>"""
         return f'<div class="slide f-capa">{corpo}{barra(spec)}</div>'
 
-    inner = f'<div class="tag">{esc(s["tag"])}</div>' if s.get("tag") else ""
+    # `foto_pos` decide o arquétipo. Sem ele o slide é o "sem foto", que é o
+    # que as páginas 6 e 9 fazem.
+    pos = s.get("foto_pos")
+    if pos not in GRADE:
+        pos = None
+    g, lim = GRADE[pos], limites(pos)
 
-    # A foto ocupa uma de três posições, e as três aparecem nas peças reais:
-    # abre o slide, separa headline de corpo, ou fecha embaixo.
-    pos = s.get("foto_pos", "meio")
-    foto = (f'<div class="foto"><img src="{b64_img(s["imagem"])}" alt=""></div>'
-            if s.get("imagem") else "")
-    if pos == "topo":
-        inner += foto
+    def bloco(nome, html, extra=""):
+        return (f'<div class="bloco" style="top:{g[nome]}px;'
+                f'max-height:{lim[nome]}px;{extra}">{html}</div>')
 
-    if s.get("h1"):
-        cls = "h1 grande fit" if tipo in ("declaracao", "cta") else "h1 fit"
-        inner += f'<div class="{cls}">{rich(s["h1"])}</div>'
+    partes = []
 
-    if pos == "meio":
-        inner += foto
+    if s.get("tag"):
+        partes.append(f'<div class="bloco tag" style="top:{g["h1"] - 46}px">'
+                      f'{esc(s["tag"])}</div>')
 
+    # Cabeça do slide
     if tipo == "stat":
-        inner += f'<div class="stat">{rich(s["numero"])}</div>'
-        inner += f'<div class="stat-label">{rich(s["label"])}</div>'
-    if tipo == "bullets":
-        rows = "".join(
+        cabeca = f'<div class="stat">{rich(s["numero"])}</div>'
+    elif s.get("h1"):
+        cls = "h1 grande" if tipo in ("declaracao", "cta") else "h1"
+        cabeca = f'<div class="{cls} fit">{rich(s["h1"])}</div>'
+    else:
+        cabeca = ""
+    if cabeca:
+        partes.append(bloco("h1", cabeca))
+
+    # Corpo do slide
+    miolo = ""
+    if tipo == "stat":
+        miolo = f'<div class="corpo">{rich(s["label"])}</div>'
+    elif tipo == "bullets":
+        miolo = '<div class="bullets">' + "".join(
             f'<div class="row"><span class="seta">→</span><span>{rich(b)}</span></div>'
-            for b in s["itens"])
-        inner += f'<div class="bullets">{rows}</div>'
-    if tipo == "cta":
+            for b in s["itens"]) + "</div>"
+    elif tipo == "cta":
         if s.get("ponte"):
-            inner += f'<div class="corpo">{rich(s["ponte"])}</div>'
+            miolo += f'<div class="corpo">{rich(s["ponte"])}</div>'
         chamada = s.get("chamada")
         if not chamada and s.get("instrucao"):
             chamada = f'{s["instrucao"]} **{s["palavra"]}**.'
         if chamada:
-            inner += f'<div class="corpo chamada">{rich(chamada)}</div>'
-
-    for p in s.get("paragrafos", []):
-        inner += f'<div class="corpo">{rich(p)}</div>'
-    if pos == "base":
-        inner += foto
+            miolo += f'<div class="corpo chamada">{rich(chamada)}</div>'
+    for par in s.get("paragrafos", []):
+        miolo += f'<div class="corpo">{rich(par)}</div>'
     if s.get("fonte"):
-        inner += f'<div class="fonte">Fonte: <b>{esc(s["fonte"])}</b></div>'
+        miolo += f'<div class="fonte">Fonte: <b>{esc(s["fonte"])}</b></div>'
+    if miolo:
+        partes.append(bloco("corpo", f'<div class="pilha fit-corpo">{miolo}</div>'))
+
+    # Foto — e quando ela ainda não existe, o espaço dela fica reservado e
+    # visível, com o briefing do que entra ali. Slide não se desenha em volta
+    # de uma foto que ninguém pediu.
+    if pos:
+        if s.get("imagem"):
+            dentro = f'<img src="{b64_img(s["imagem"])}" alt="">'
+            classe = "foto"
+        else:
+            brief = s.get("imagem_brief", "Imagem a definir")
+            dentro = (f'<span class="vaga-rot">Imagem · {esc(pos)}</span>'
+                      f'<span class="vaga-brief">{esc(brief)}</span>'
+                      f'<span class="vaga-dim">864 × 442 · canto 13</span>')
+            classe = "foto vaga"
+        partes.append(f'<div class="bloco {classe}" style="top:{g["foto"]}px">{dentro}</div>')
 
     avanco = '<div class="avanco">→</div>' if fundo == "destaque" and i + 1 < total else ""
-
     return (f'<div class="slide f-{fundo}">{fundo_foto(s)}'
-            f'<div class="content">{inner}</div>{barra(spec)}{avanco}</div>')
+            f'{"".join(partes)}{barra(spec)}{avanco}</div>')
 
 
 def build(spec):
@@ -253,13 +310,13 @@ opacity:{op_barra}}}
 .f-destaque .barra{{color:#fff}}
 
 /* ── grade · margem lateral 108, largura útil 864 ─────────────────────── */
-.content{{position:absolute;top:230px;left:108px;right:108px;bottom:108px;display:flex;
-flex-direction:column;justify-content:flex-start;gap:44px;z-index:2}}
-.content:has(> .foto:first-child){{top:208px}}
-.f-foto .content{{justify-content:flex-end;gap:32px}}
+.bloco{{position:absolute;left:{MARGEM}px;width:{UTIL}px;overflow:hidden;z-index:2}}
+.pilha{{display:flex;flex-direction:column;gap:30px}}
+.f-foto .content{{position:absolute;left:{MARGEM}px;right:{MARGEM}px;bottom:{MARGEM}px;
+display:flex;flex-direction:column;justify-content:flex-end;gap:32px;z-index:2}}
 
 .tag{{font-family:var(--body);font-size:17px;font-weight:600;letter-spacing:3px;
-text-transform:uppercase}}
+text-transform:uppercase;overflow:visible}}
 .f-escuro .tag,.f-claro .tag,.f-foto .tag{{color:var(--destaque)}}
 .f-destaque .tag{{color:rgba(255,255,255,.72)}}
 
@@ -302,18 +359,31 @@ letter-spacing:-.033em;text-align:left}}
 .fonte b{{font-weight:600}}
 
 /* caixa de imagem · 864 × 488,4 · canto 13 */
-.foto{{width:100%;height:488.4px;border-radius:13px;overflow:hidden;flex:none}}
+.foto{{height:{FOTO_H}px;border-radius:{FOTO_R}px;overflow:hidden}}
 .foto img{{width:100%;height:100%;object-fit:cover;display:block}}
 
-.stat{{font-family:var(--head);font-size:184px;font-weight:700;line-height:.86;
-letter-spacing:-.06em;color:var(--destaque)}}
-.f-destaque .stat{{color:#000}}
-.stat-label{{font-family:var(--body);font-size:36.6px;line-height:.96;
-letter-spacing:-.033em;margin-top:-6px}}
-.f-escuro .stat-label,.f-foto .stat-label{{color:#fff}}
-.f-claro .stat-label{{color:#000}}
+/* Vaga de imagem — o espaço fica reservado na medida certa, com o briefing do
+   que entra ali. O slide já nasce desenhado em volta da foto, e trocar a vaga
+   pela imagem não mexe em mais nada. */
+.foto.vaga{{display:flex;flex-direction:column;align-items:center;justify-content:center;
+gap:14px;text-align:center;padding:0 64px;border:2px dashed var(--destaque);
+background:rgba(255,255,255,.04)}}
+.f-claro .foto.vaga{{background:rgba(0,0,0,.03)}}
+.f-destaque .foto.vaga{{border-color:#fff;background:rgba(255,255,255,.10)}}
+.vaga-rot{{font-family:var(--body);font-size:16px;font-weight:700;letter-spacing:.18em;
+text-transform:uppercase;color:var(--destaque)}}
+.vaga-brief{{font-family:var(--body);font-size:31px;line-height:1.14;letter-spacing:-.02em}}
+.vaga-dim{{font-family:var(--body);font-size:15px;letter-spacing:.1em;opacity:.5}}
+.f-escuro .vaga-brief,.f-foto .vaga-brief{{color:#fff}}
+.f-claro .vaga-brief{{color:#000}}
+.f-destaque .vaga-rot,.f-destaque .vaga-brief{{color:#fff}}
 
-.bullets{{display:flex;flex-direction:column;gap:26px}}
+.stat{{font-family:var(--head);font-size:150px;font-weight:700;line-height:.92;
+letter-spacing:-.06em;color:var(--destaque)}}
+.f-destaque .stat{{color:#fff}}
+
+
+.bullets{{display:flex;flex-direction:column;gap:22px}}
 .row{{display:flex;gap:22px;align-items:flex-start;font-family:var(--body);
 font-size:40px;line-height:1.02;letter-spacing:-.033em}}
 .f-escuro .row,.f-foto .row,.f-destaque .row{{color:#fff}}
@@ -368,28 +438,33 @@ letter-spacing:-.056em;color:#fff}}
 </style></head><body>
 {slides}
 <script>
-/* Auto-fit — no Canva o ajuste de texto longo é manual, slide a slide.
-   Aqui a headline encolhe até caber, com piso, e o corpo cede depois. */
+/* Auto-fit sobre a grade. Cada bloco tem um `top` medido e uma altura máxima
+   — até onde o próximo começa. O texto encolhe dentro da própria fatia, sem
+   empurrar o slide: é o que mantém os nove slides alinhados entre si. */
 (function () {{
   function px(el) {{ return parseFloat(getComputedStyle(el).fontSize); }}
-  function estoura(box) {{ return box.scrollHeight > box.clientHeight + 1; }}
+  function estoura(b) {{ return b.scrollHeight > b.clientHeight + 1; }}
   document.querySelectorAll('.slide').forEach(function (slide) {{
-    var box = slide.querySelector('.content') || slide.querySelector('.capa-area');
-    if (!box) return;
-    var head = box.querySelector('.fit');
-    if (head) {{
-      var min = 52;
-      if (head.classList.contains('capa-impacto')) min = 72;
-      else if (head.classList.contains('capa-manchete')) min = 56;
-      while (estoura(box) && px(head) > min) head.style.fontSize = (px(head) - 3) + 'px';
+    slide.querySelectorAll('.bloco').forEach(function (b) {{
+      var head = b.querySelector('.fit');
+      if (head) {{
+        var min = 52;
+        while (estoura(b) && px(head) > min) head.style.fontSize = (px(head) - 2) + 'px';
+      }}
+      var corpos = b.querySelectorAll('.corpo, .row');
+      var guarda = 0;
+      while (corpos.length && estoura(b) && guarda++ < 60) {{
+        corpos.forEach(function (c) {{ if (px(c) > 28) c.style.fontSize = (px(c) - 1) + 'px'; }});
+      }}
+    }});
+    // capa continua com a régua própria: ela é centralizada e ancorada embaixo
+    var capa = slide.querySelector('.capa-area');
+    if (capa) {{
+      var h = capa.querySelector('.fit');
+      var piso = h && h.classList.contains('capa-impacto') ? 72 : 56;
+      while (h && capa.scrollHeight > capa.clientHeight + 1 && px(h) > piso)
+        h.style.fontSize = (px(h) - 3) + 'px';
     }}
-    var corpos = box.querySelectorAll('.corpo, .row, .cta-ponte, .stat-label');
-    var guarda = 0;
-    while (estoura(box) && guarda++ < 40) {{
-      corpos.forEach(function (c) {{ if (px(c) > 30) c.style.fontSize = (px(c) - 1) + 'px'; }});
-      if (!corpos.length) break;
-    }}
-    slide.dataset.ajustado = head ? Math.round(px(head)) : '';
   }});
   window.__fitPronto = true;
 }})();
