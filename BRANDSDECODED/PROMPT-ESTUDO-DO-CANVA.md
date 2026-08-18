@@ -1,8 +1,16 @@
 # Prompt para a extensão do Chrome medir os carrosséis do Canva
 
-O conector do Canva não está autorizado nesta sessão e `canva.link` é bloqueado pelo proxy
-de egress — mesmo caso da plataforma da BrandsDecoded. A extensão roda na máquina do
-Nicolas e enxerga tudo.
+> **Não precisa mais ser usado — 18/08/2026.** O Nicolas autorizou o conector do
+> Canva e a medição saiu direto pela API, com precisão maior do que a leitura de
+> painel que este prompt pedia. O resultado está em
+> `MAQUINA/MEDIDAS-CANVA-2026-08-11.md`.
+>
+> Fica no repositório como registro do caminho alternativo, que continua válido
+> se algum dia o conector cair: a extensão roda na máquina do Nicolas e enxerga
+> o que a sessão não enxerga.
+
+Escrito quando o conector do Canva não estava autorizado e `canva.link` era bloqueado
+pelo proxy de egress — mesmo caso da plataforma da BrandsDecoded.
 
 Cole o bloco abaixo numa conversa da extensão, **com os designs do Canva abertos**.
 

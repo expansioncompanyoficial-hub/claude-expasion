@@ -34,12 +34,58 @@ def b64_font(path):
     return base64.b64encode(Path(path).read_bytes()).decode()
 
 
+# Os arquivos do @fontsource são subconjuntos por faixa de caractere. O
+# `latin-ext` traz SÓ os acentuados — sem o `latin` do lado não existe glifo
+# para A-Z. Duas declarações com a mesma família e o mesmo peso só convivem se
+# cada uma disser a faixa que cobre; sem isso a última apaga a primeira.
+FAIXAS = {
+    "latin": ("U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,"
+              "U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,"
+              "U+2193,U+2212,U+2215,U+FEFF,U+FFFD"),
+    "latin-ext": ("U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,"
+                  "U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,"
+                  "U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF"),
+}
+
+
+def faixa_do_arquivo(path):
+    nome = Path(path).name
+    if "-latin-ext-" in nome:
+        return FAIXAS["latin-ext"]
+    if "-latin-" in nome:
+        return FAIXAS["latin"]
+    return None
+
+
 def face(family, weight, path):
+    faixa = faixa_do_arquivo(path)
+    rng = f"unicode-range:{faixa};" if faixa else ""
     return (
         "@font-face{font-family:'%s';font-style:normal;font-weight:%s;"
-        "font-display:block;src:url(data:font/woff2;base64,%s) format('woff2');}"
-        % (family, weight, b64_font(path))
+        "font-display:block;%ssrc:url(data:font/woff2;base64,%s) format('woff2');}"
+        % (family, weight, rng, b64_font(path))
     )
+
+
+def confere_fontes(fontes):
+    """Falha alto quando um par família+peso só tem o `latin-ext`.
+
+    Este erro é silencioso por natureza: `document.fonts.ready` resolve, o
+    preview parece certo, e o PNG sai numa fonte de sistema qualquer. Melhor
+    quebrar aqui do que descobrir na peça entregue."""
+    ext, lat = set(), set()
+    for f in fontes:
+        nome = Path(f["file"]).name
+        chave = (f["family"], f["weight"])
+        (ext if "-latin-ext-" in nome else lat).add(chave)
+    faltando = sorted(ext - lat)
+    if faltando:
+        itens = " · ".join(f"{fam} {w}" for fam, w in faltando)
+        raise SystemExit(
+            f"Faltando o arquivo `latin` de: {itens}.\n"
+            "O `latin-ext` sozinho não tem A-Z — o texto sairia numa fonte de "
+            "sistema sem avisar. Acrescente o .woff2 `latin` de cada um."
+        )
 
 
 def b64_img(path):
@@ -117,7 +163,7 @@ def slide_html(spec, s, i, total):
 
     inner = f'<div class="tag">{esc(s["tag"])}</div>' if s.get("tag") else ""
     if s.get("h1"):
-        cls = "h1 grande fit" if tipo == "declaracao" else "h1 fit"
+        cls = "h1 grande fit" if tipo in ("declaracao", "cta") else "h1 fit"
         inner += f'<div class="{cls}">{rich(s["h1"])}</div>'
 
     if s.get("imagem"):
@@ -132,9 +178,13 @@ def slide_html(spec, s, i, total):
             for b in s["itens"])
         inner += f'<div class="bullets">{rows}</div>'
     if tipo == "cta":
-        inner += f'<div class="cta-ponte">{rich(s["ponte"])}</div>'
-        inner += (f'<div class="cta-box"><div class="cta-instr">{esc(s["instrucao"])}</div>'
-                  f'<div class="cta-word">{esc(s["palavra"])}</div></div>')
+        if s.get("ponte"):
+            inner += f'<div class="corpo">{rich(s["ponte"])}</div>'
+        chamada = s.get("chamada")
+        if not chamada and s.get("instrucao"):
+            chamada = f'{s["instrucao"]} **{s["palavra"]}**.'
+        if chamada:
+            inner += f'<div class="corpo chamada">{rich(chamada)}</div>'
 
     for p in s.get("paragrafos", []):
         inner += f'<div class="corpo">{rich(p)}</div>'
@@ -149,6 +199,7 @@ def slide_html(spec, s, i, total):
 
 def build(spec):
     t = spec["tokens"]
+    confere_fontes(spec["fontes"])
     faces = "".join(face(f["family"], f["weight"], f["file"]) for f in spec["fontes"])
     slides = "".join(slide_html(spec, s, i, len(spec["slides"]))
                      for i, s in enumerate(spec["slides"]))
@@ -160,7 +211,15 @@ def build(spec):
 {faces}
 *{{margin:0;padding:0;box-sizing:border-box}}
 :root{{--escuro:{t['dark']};--destaque:{t['accent']};--claro:{claro};--texto:{t.get('texto','#FFFFFF')};
---head:'{t['fonte_head']}',sans-serif;--body:'{t['fonte_body']}',sans-serif}}
+--head:'{t['fonte_head']}',sans-serif;--body:'{t['fonte_body']}',sans-serif;
+--grad:{t.get('gradiente', 'linear-gradient(180deg,#fa7e01 0%,#ff6522 50%,#fa7e01 100%)')}}}
+
+/* Ênfase em degradê — a escrita destacada não é chapada, é preenchida pelo
+   degradê da marca. Sobre fundo destaque não faz sentido (degradê sobre a
+   própria cor), então lá a ênfase volta a ser peso e cor sólida. */
+.grad{{background:var(--grad);-webkit-background-clip:text;background-clip:text;
+-webkit-text-fill-color:transparent;color:transparent;
+-webkit-box-decoration-break:clone;box-decoration-break:clone}}
 body{{background:#111;display:flex;flex-direction:column;align-items:center;gap:22px;padding:22px}}
 .slide{{width:{W}px;height:{H}px;position:relative;overflow:hidden;flex:none}}
 
@@ -203,8 +262,10 @@ letter-spacing:-.056em}}
 .f-destaque .h1{{color:#000}}
 .f-claro .h1{{color:var(--destaque)}}
 .h1 em{{font-style:normal}}
-.f-escuro .h1 em,.f-claro .h1 em,.f-foto .h1 em{{color:var(--destaque)}}
-.f-destaque .h1 em{{color:#fff}}
+.f-escuro .h1 em,.f-claro .h1 em,.f-foto .h1 em{{background:var(--grad);
+-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}}
+.f-destaque .h1 em{{background:none;-webkit-text-fill-color:#fff;color:#fff}}
 .h1 b{{font-weight:700}}
 
 /* ── corpo · 45,4px · lh 0,96 · tracking −0,033 · à esquerda ────────────
@@ -217,8 +278,20 @@ letter-spacing:-.033em;text-align:left}}
 .f-escuro .corpo,.f-foto .corpo{{color:#fff}}
 .f-claro .corpo,.f-destaque .corpo{{color:#000}}
 .corpo b{{font-weight:700}}
-.corpo em{{font-style:normal;font-weight:400;color:var(--destaque)}}
-.f-destaque .corpo em{{color:#fff;font-weight:700}}
+.corpo em{{font-style:normal;font-weight:400;background:var(--grad);
+-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}}
+.f-destaque .corpo em{{background:none;-webkit-text-fill-color:#fff;color:#fff;font-weight:700}}
+
+/* Chamada do slide final: o parágrafo inteiro na cor de destaque, e a palavra
+   de comando em bold dentro dele. */
+.corpo.chamada{{background:var(--grad);-webkit-background-clip:text;background-clip:text;
+-webkit-text-fill-color:transparent;color:transparent;
+-webkit-box-decoration-break:clone;box-decoration-break:clone}}
+.corpo.chamada b{{font-weight:700}}
+.f-claro .corpo.chamada,.f-destaque .corpo.chamada{{background:none;
+-webkit-text-fill-color:var(--destaque);color:var(--destaque)}}
+.f-destaque .corpo.chamada{{-webkit-text-fill-color:#000;color:#000}}
 
 .fonte{{font-family:var(--body);font-size:21px;padding-top:20px;letter-spacing:.3px}}
 .f-escuro .fonte,.f-foto .fonte{{color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.20)}}
@@ -247,21 +320,6 @@ font-size:40px;line-height:1.02;letter-spacing:-.033em}}
 .row em{{font-style:normal;color:var(--destaque)}}
 .seta{{flex:none;font-weight:600;color:var(--destaque)}}
 .f-destaque .seta{{color:#000}}
-
-/* CTA — a plataforma põe corpo laranja sobre cinza claro (~2:1).
-   Aqui o corpo vai em texto legível e o laranja fica na palavra-chave. */
-.cta-ponte{{font-family:var(--body);font-size:40px;line-height:1.02;letter-spacing:-.033em}}
-.f-claro .cta-ponte{{color:#000}}
-.f-escuro .cta-ponte,.f-foto .cta-ponte{{color:#fff}}
-.cta-ponte b{{font-weight:700}}
-.cta-box{{border-radius:22px;padding:34px 52px 40px;align-self:flex-start}}
-.f-claro .cta-box{{background:#fff;border:3px solid var(--destaque)}}
-.f-escuro .cta-box,.f-foto .cta-box{{background:rgba(255,255,255,.06);border:3px solid var(--destaque)}}
-.cta-instr{{font-family:var(--body);font-size:25px;margin-bottom:10px}}
-.f-claro .cta-instr{{color:rgba(0,0,0,.55)}}
-.f-escuro .cta-instr,.f-foto .cta-instr{{color:rgba(255,255,255,.62)}}
-.cta-word{{font-family:var(--head);font-size:92px;font-weight:700;line-height:1;
-letter-spacing:-.056em;color:var(--destaque)}}
 
 .avanco{{position:absolute;right:108px;bottom:76px;width:78px;height:78px;border-radius:50%;
 background:#fff;color:#000;display:flex;align-items:center;justify-content:center;
@@ -298,7 +356,9 @@ display:flex;align-items:center;justify-content:center;font-size:16px;font-weigh
 .capa-h1{{font-family:var(--head);color:#fff}}
 .capa-impacto{{font-size:111.5px;font-weight:700;line-height:.92;letter-spacing:-.087em}}
 .capa-manchete{{font-size:79.6px;font-weight:600;line-height:1.06;letter-spacing:-.056em}}
-.capa-h1 em{{color:var(--destaque);font-style:normal}}
+.capa-h1 em{{font-style:normal;background:var(--grad);-webkit-background-clip:text;
+background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+-webkit-box-decoration-break:clone;box-decoration-break:clone}}
 .capa-h1 b{{font-weight:700}}
 
 /* legenda da capa · 21,2px · lh 1,06 · tracking −0,056 */

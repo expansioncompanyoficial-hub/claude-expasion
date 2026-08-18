@@ -39,14 +39,37 @@ with sync_playwright() as p:
     # o tamanho pré-ajuste
     page.wait_for_function("() => window.__fitPronto === true", timeout=20000)
 
-    loaded = page.evaluate(
-        """() => document.fonts.check('900 92px Montserrat')
-                && document.fonts.check('400 35px Poppins')"""
+    # `document.fonts.check` mente para o que importa aqui: ele responde sobre a
+    # família, não sobre o texto que vai ser desenhado. Com um subconjunto que
+    # não tem A-Z ele devolve True e o PNG sai numa fonte de sistema. Então a
+    # conferência é por medida: desenha a mesma frase com a fonte pedida e com
+    # uma pilha de fallback puro. Se a largura bater, a fonte não está valendo.
+    fontes = page.evaluate(
+        """() => {
+            const alvos = [...document.querySelectorAll('.capa-h1,.h1,.corpo')];
+            const vistos = new Map();
+            for (const el of alvos) {
+              const c = getComputedStyle(el);
+              const fam = c.fontFamily.split(',')[0].replace(/['"]/g, '').trim();
+              const chave = fam + '/' + c.fontWeight;
+              if (vistos.has(chave)) continue;
+              const p = document.createElement('span');
+              p.textContent = 'Handgloves 123 ABCDEFGH';
+              p.style.cssText = 'position:absolute;visibility:hidden;white-space:pre;'
+                + 'font-size:100px;font-weight:' + c.fontWeight;
+              document.body.appendChild(p);
+              p.style.fontFamily = "'" + fam + "', __sem_fonte__, monospace";
+              const comFonte = p.getBoundingClientRect().width;
+              p.style.fontFamily = '__sem_fonte__, monospace';
+              const semFonte = p.getBoundingClientRect().width;
+              p.remove();
+              vistos.set(chave, Math.abs(comFonte - semFonte) > 0.5);
+            }
+            return [...vistos.entries()].map(([k, ok]) => k + (ok ? '' : ' NAO APLICADA'));
+        }"""
     )
-    if not loaded:
-        page.wait_for_timeout(3000)
-        page.evaluate("() => document.fonts.ready")
-        loaded = page.evaluate("() => document.fonts.check('900 92px Montserrat')")
+    falhas = [f for f in fontes if 'NAO APLICADA' in f]
+    loaded = not falhas
 
     slides = page.locator(".slide")
     n = slides.count()
@@ -59,4 +82,12 @@ with sync_playwright() as p:
     box = slides.nth(0).bounding_box()
     browser.close()
 
-print(f"{n} PNGs em {out}/  ·  slide medido: {int(box['width'])}x{int(box['height'])}  ·  fontes carregadas: {loaded}  ·  auto-fit aplicado")
+print(f"{n} PNGs em {out}/  ·  slide medido: {int(box['width'])}x{int(box['height'])}"
+      f"  ·  fontes: {' · '.join(fontes)}  ·  auto-fit aplicado")
+if falhas:
+    raise SystemExit(
+        "\nA fonte não foi aplicada em: " + " · ".join(falhas) + "\n"
+        "Os PNGs saíram numa fonte de sistema. Causa quase sempre a mesma: o "
+        ".woff2 `latin-ext` foi embutido sem o `latin` do lado, e aí não existe "
+        "glifo para A-Z. Acrescente os dois no spec e rode de novo."
+    )

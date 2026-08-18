@@ -8,19 +8,30 @@ base64, então dá pra usar hoje sem depender de licença ou download manual.
 
 ## A restrição que o sistema impõe
 
-O renderizador desenha a headline em **112–136px, caixa alta, tracking −0,04em e
-entrelinha ~0,92**. Isso é exigente e descarta boa parte das fontes bonitas:
+**Corrigido em 18/08.** A versão anterior desta seção partia do layout errado —
+descrevia a headline como 112–136px em caixa alta, que é o desenho da
+BrandsDecoded, não o da Expansion. Medido no Canva, o nosso é outro:
 
-1. **Precisa ter peso 800 ou mais.** Em 112px caixa alta, peso 600 some.
-2. **Caixa alta precisa ser uniforme.** Fonte desenhada para caixa baixa costuma ter
-   maiúsculas irregulares que aparecem nesse tamanho.
-3. **Diacrítico precisa caber.** Já aconteceu: com entrelinha 0,80, o til de "NÃO" encostou
-   na linha de cima em Montserrat. Toda fonte candidata tem que ser testada com
-   **ÃÕÉÇ em caixa alta**, não só com o alfabeto inglês.
+| | Valor real |
+|---|---|
+| Headline interna | **75,7px semibold** (peso 600), caixa mista |
+| Capa impacto | 111,5px bold (peso 700), caixa mista |
+| Corpo | 45,4px, entrelinha 0,96 |
+
+Três consequências, e a segunda muda as recomendações:
+
+1. **Peso 800 deixou de ser requisito.** Em 75px semibold, a fonte precisa ler
+   bem em 600 e 700 — não precisa ter black. Isso reabre boa parte do catálogo
+   que a régua antiga descartava.
+2. **Caixa mista, não caixa alta.** Some a exigência de maiúsculas uniformes, e
+   entra outra: a fonte precisa ter **caixa baixa boa em corpo grande**, com
+   altura-x generosa. É outro critério, e mais fácil de satisfazer.
+3. **Diacrítico continua sendo o filtro.** Entrelinha 0,96 no corpo é apertada, e
+   1,06 na headline não é folgada. Toda candidata tem que ser testada com
+   **ã õ é ç** em duas linhas seguidas, não só com o alfabeto inglês. Já
+   aconteceu de o til encostar na linha de cima.
 
 A terceira é a que mais elimina candidata, e é a que ninguém lembra de testar.
-
----
 
 ## As sugestões
 
@@ -28,7 +39,7 @@ A terceira é a que mais elimina candidata, e é a que ninguém lembra de testar
 
 | Papel | Fonte | Peso |
 |---|---|---|
-| Headline | **Montserrat** | 800 |
+| Headline | **Montserrat** | 600 / 700 |
 | Corpo | **Poppins** | 400 / 600 |
 
 **Não mexer.** É o manual de marca oficial da Prime, conferido em
@@ -40,7 +51,7 @@ A terceira é a que mais elimina candidata, e é a que ninguém lembra de testar
 
 | Papel | Fonte | Peso |
 |---|---|---|
-| Headline | **Nunito** | 800 |
+| Headline | **Nunito** | 600 / 700 |
 | Corpo | **Inter** | 400 / 600 |
 
 Quem lê conteúdo sobre autismo costuma ser pai ou mãe, cansado e ansioso, muitas vezes no
@@ -59,7 +70,7 @@ irregular (lê como pouco sério num assunto clínico).
 
 | Papel | Fonte | Peso |
 |---|---|---|
-| Headline | **Fraunces** | 700 / 900 |
+| Headline | **Fraunces** | 600 / 700 |
 | Corpo | **DM Sans** | 400 / 500 |
 
 Moda pede serifa com atitude editorial. **Fraunces** tem eixo variável e um desenho com
@@ -77,7 +88,7 @@ Cormorant Garamond (600) + Work Sans (400).
 
 | Papel | Fonte | Peso |
 |---|---|---|
-| Headline | **Quicksand** | 700 |
+| Headline | **Quicksand** | 600 / 700 |
 | Corpo | **Nunito** | 400 / 600 |
 
 A armadilha do nicho: **moda infantil vende para a mãe, não para a criança.** Tipografia de
@@ -86,9 +97,9 @@ desenho animado afasta quem paga.
 Quicksand é arredondada e leve, com ar de lúdico adulto — funciona em embalagem de marca
 infantil premium. Nunito acompanha o arredondamento no corpo sem competir.
 
-Ressalva honesta: Quicksand só vai até o peso 700. Nas headlines de 112px caixa alta ela
-fica mais leve que as outras — pode ser exatamente o tom certo para a marca, ou pode ficar
-fraca demais no feed. **Vale um teste lado a lado antes de fechar.**
+A ressalva que estava aqui — "Quicksand só vai até 700, fica fraca em 112px caixa
+alta" — **caiu com a correção da régua.** Em 75px semibold, 700 é exatamente o
+peso que o layout pede. Quicksand deixou de ser a escolha arriscada da lista.
 
 ---
 
@@ -96,7 +107,7 @@ fraca demais no feed. **Vale um teste lado a lado antes de fechar.**
 
 | Papel | Fonte | Peso |
 |---|---|---|
-| Headline | **Archivo** | 800 |
+| Headline | **Archivo** | 600 / 700 |
 | Corpo | **Inter** | 400 / 600 |
 
 Saúde precisa de autoridade sem frieza. Archivo é uma grotesca sólida, de origem editorial,
@@ -115,7 +126,8 @@ No spec do carrossel, os dois campos e os arquivos:
 ```json
 "tokens": { "fonte_head": "Nunito", "fonte_body": "Inter" },
 "fontes": [
-  {"family":"Nunito","weight":800,"file":".../nunito-latin-ext-800-normal.woff2"},
+  {"family":"Nunito","weight":600,"file":".../nunito-latin-ext-600-normal.woff2"},
+  {"family":"Nunito","weight":700,"file":".../nunito-latin-ext-700-normal.woff2"},
   {"family":"Inter","weight":400,"file":".../inter-latin-ext-400-normal.woff2"},
   {"family":"Inter","weight":600,"file":".../inter-latin-ext-600-normal.woff2"}
 ]
@@ -123,8 +135,14 @@ No spec do carrossel, os dois campos e os arquivos:
 
 Instalar: `npm i @fontsource/nunito @fontsource/inter`
 
-**Usar sempre a variante `latin-ext`.** É ela que traz ã, õ, ç e os acentos. A variante
-`latin` sozinha renderiza o acento como caixa vazia, e o erro só aparece no PNG final.
+**Usar sempre as duas variantes, `latin` e `latin-ext`** — cada peso entra duas
+vezes na lista. São subconjuntos complementares: `latin` tem A-Z, `latin-ext` tem
+ã, õ, ç e os acentos. Qualquer um sozinho quebra, e quebra em silêncio.
+
+Foi exatamente o que aconteceu aqui até 18/08: só o `latin-ext` estava embutido,
+não havia glifo para A-Z, e todas as peças saíram numa fonte de sistema sem
+ninguém perceber. Hoje o renderizador recusa rodar nessa condição e o exportador
+mede a largura do texto para conferir que a fonte pedida realmente valeu.
 
 ---
 
@@ -134,6 +152,9 @@ Estas são sugestões de partida, feitas a partir do nicho e da paleta de cada c
 **Nenhuma foi validada contra material real dos clientes** — só a da Prime, que veio do
 manual de marca.
 
-Quando os designs do Canva forem medidos (ver `../BRANDSDECODED/PROMPT-ESTUDO-DO-CANVA.md`),
-a régua tipográfica real entra no lugar do palpite, e estas sugestões viram só o ponto de
-partida para os clientes que ainda não têm manual.
+A régua tipográfica **já foi medida** (ver
+`../BRANDSDECODED/MAQUINA/MEDIDAS-CANVA-2026-08-11.md`) e substituiu o palpite —
+é por isso que a seção de restrições acima mudou. O que continua em aberto são os
+**nomes das duas fontes que a Expansion usa no Canva**: a API devolve só um ID
+interno, e o brand kit da conta está vazio. Enquanto isso o renderizador roda com
+Montserrat + Poppins, que dão a mesma cor de mancha.

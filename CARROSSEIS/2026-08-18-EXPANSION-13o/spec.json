@@ -9,16 +9,62 @@
     "accent": "#ff9901",
     "claro": "#F0EEEC",
     "texto": "#FFFFFF",
-    "barra_opacidade": 0.30,
+    "barra_opacidade": 0.3,
     "fonte_head": "Montserrat",
-    "fonte_body": "Poppins"
+    "fonte_body": "Poppins",
+    "gradiente": "linear-gradient(180deg,#fa7e01 0%,#ff6522 50%,#fa7e01 100%)"
   },
   "fontes": [
-    {"family": "Montserrat", "weight": 600, "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-600-normal.woff2"},
-    {"family": "Montserrat", "weight": 700, "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-700-normal.woff2"},
-    {"family": "Poppins", "weight": 400, "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-400-normal.woff2"},
-    {"family": "Poppins", "weight": 500, "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-500-normal.woff2"},
-    {"family": "Poppins", "weight": 700, "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-700-normal.woff2"}
+    {
+      "family": "Montserrat",
+      "weight": 600,
+      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-600-normal.woff2"
+    },
+    {
+      "family": "Montserrat",
+      "weight": 600,
+      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-600-normal.woff2"
+    },
+    {
+      "family": "Montserrat",
+      "weight": 700,
+      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff2"
+    },
+    {
+      "family": "Montserrat",
+      "weight": 700,
+      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-700-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 400,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-400-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 400,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-400-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 500,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-500-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 500,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-500-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 700,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-700-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 700,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-700-normal.woff2"
+    }
   ],
   "slides": [
     {
@@ -81,10 +127,10 @@
     },
     {
       "tipo": "cta",
-      "fundo": "claro",
-      "ponte": "Se a sua loja ainda vai montar o calendário de novembro e dezembro, a gente monta junto.",
-      "instrucao": "Comente a palavra",
-      "palavra": "13"
+      "fundo": "escuro",
+      "h1": "A campanha certa é a que chega antes do dinheiro",
+      "ponte": "Novembro e dezembro não são o mesmo mês comercial, e quem trata os dois igual entrega a metade mais cara da decisão pra outra loja.",
+      "chamada": "Para montar o calendário das duas datas na sua loja, comenta **13**."
     }
   ]
 }

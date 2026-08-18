@@ -50,8 +50,17 @@ dos quatro carrosséis pelo conector — ver
 | Capa | 111,5 bold · lh 0,92 · tracking −0,087 · centro |
 | Destaque | `#ff9901` |
 
+Ênfase em degradê (`linear-gradient(180deg,#fa7e01,#ff6522 50%,#fa7e01)`), e o
+slide final no formato real medido: não é caixa nem botão, é o último parágrafo
+inteiro na cor de destaque com a palavra de comando em bold.
+
 Capa sem foto: recebeu banho radial na cor da marca. Nos quatro designs reais
 a capa sempre tem imagem — **assim que houver foto, ela entra e o banho sai.**
+
+> **Achado no meio do caminho:** até esta peça, todos os PNGs do renderizador
+> saíram numa fonte de sistema, não em Montserrat/Poppins. Só o `.woff2`
+> `latin-ext` estava embutido, e ele não tem A-Z. Corrigido, com trava no
+> renderizador e conferência por medida no exportador.
 
 ## A medir depois de publicar
 

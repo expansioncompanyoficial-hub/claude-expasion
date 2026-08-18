@@ -154,7 +154,7 @@ Duas réguas medidas, e **usar a errada estraga a peça**:
 | Layout | Headline | Alvo |
 |---|---|---|
 | **BrandsDecoded** — caixa alta, 112px | quebra acima de ~26 caracteres | **20 a 26 caracteres**, 2–3 palavras |
-| **Expansion / Canva** — caixa mista, 66px semibold | cabe muito mais | **40 a 56 caracteres**, frase inteira |
+| **Expansion / Canva** — caixa mista, 75,7px semibold | cabe muito mais | **40 a 56 caracteres**, frase inteira |
 
 O padrão da casa é o segundo. Exemplos reais medidos do Canva da Expansion:
 
@@ -165,19 +165,21 @@ O padrão da casa é o segundo. Exemplos reais medidos do Canva da Expansion:
 São **frases completas em caixa mista**, não fragmentos em caixa alta. A caixa alta com
 2–3 palavras é o registro da BrandsDecoded; só usar quando a peça for naquele layout.
 
+A capa tem duas réguas, e **são dois gêneros editoriais, não duas estéticas**:
+
+| Capa | Tipografia | Quando | Alvo |
+|---|---|---|---|
+| **impacto** | 111,5px bold, entrelinha 0,92 | topo de funil, viral | **até ~45 caracteres** |
+| **manchete** | 79,6px semibold, entrelinha 1,06 | newsroom, meio de funil | **até ~70 caracteres** |
+
+A manchete usa a tipografia da headline interna aumentada. É a capa das peças de
+notícia — foi assim que a Prime saiu nas duas peças da Exame e da Trinca.
+
+Nosso renderizador tem auto-fit e não quebra — mas headline dentro do alvo não é só
+questão de caber: é o que faz o slide ser lido no feed. Escrever dentro do alvo, não
+confiar no encolhimento.
+
 Medidas completas em `BRANDSDECODED/MAQUINA/MEDIDAS-CANVA-2026-08-11.md`.
-
----|---|
-| ~70 caracteres | invade o corpo em 6 de 9 slides |
-| ~45 caracteres | invade em 4 |
-| ~24 caracteres | encaixa |
-
-**Alvo nos slides internos: 20 a 26 caracteres, 2 a 3 palavras fortes.** A capa aguenta
-~45 porque é centralizada e tem mais área.
-
-Nosso renderizador tem auto-fit e não quebra — mas headline curta não é só questão de
-caber: é o que faz o slide ser lido no feed. Escrever dentro do alvo, não confiar no
-encolhimento.
 
 ---
 
@@ -193,8 +195,13 @@ caro do que uma rodada de revisão.
 
 ## Etapa 7 — Imagens e render
 
-Sugerir onde imagem fortalece (slides com menos de 60% de preenchimento textual → `.img-box`;
-slides dark com texto médio → fundo com overlay). **Toda imagem enviada tem que ser usada.**
+Sugerir onde imagem fortalece. **Toda imagem enviada tem que ser usada**, e há dois
+enquadramentos, que não são intercambiáveis:
+
+| | Quando |
+|---|---|
+| `foto_fundo` — sangrada, 65% sobre preto, texto embaixo | é o padrão da casa: 3 dos 4 designs reais |
+| `imagem` — caixa 864 × 488, canto 13 | quando a foto é ilustração de um ponto, não o clima do slide |
 
 Render conforme `BRANDSDECODED/CONTENT-MACHINE/prompts/brandsdecoded-design-system.md` e
 `brandsdecoded-principios-design.md`, aplicando cor, fonte e estilo da ficha do cliente.
