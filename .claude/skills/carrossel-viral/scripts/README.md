@@ -124,6 +124,26 @@ trocar a vaga pela imagem não mexe em mais nada.
 Qual slide recebe foto, em que posição e o que ela mostra:
 `../references/imagens.md`.
 
+## Quanto texto cabe em cada fatia
+
+Cada bloco tem um teto, e o texto tem que **preencher a fatia** — página escrita
+pela metade é o sinal mais fácil de peça malfeita.
+
+| Arquétipo | Headline | Corpo |
+|---|---|---|
+| `topo` | até 3 linhas · ~70 car. | ~5 linhas · **230 a 260 car.** |
+| `meio` | até 3 linhas · ~70 car. | ~6 linhas · **280 a 310 car.** |
+| `base` | até 3 linhas · ~70 car. | ~5 linhas · **230 a 260 car.** |
+| sem foto | até 4 linhas · ~95 car. | até 13 linhas · **420 a 520 car.** |
+
+O slide sem foto é o que mais engana: ele tem o dobro do espaço, e é justamente
+onde o argumento longo deve morar. Escrever 100 caracteres ali deixa dois terços
+da página vazios.
+
+**Não existe slide só de número neste template.** Um `50%` gigante com duas
+linhas de legenda ocupa um terço da página e quebra o alinhamento com os
+vizinhos. Número entra dentro do corpo, na frase.
+
 ## Capa: impacto ou manchete
 
 Não é escolha estética, é gênero editorial.
@@ -133,8 +153,16 @@ Não é escolha estética, é gênero editorial.
 | `impacto` | 111,5px bold, entrelinha 0,92, tracking −0,087 | topo de funil, viral |
 | `manchete` | 79,6px semibold, entrelinha 1,06, tracking −0,056 | newsroom, meio de funil |
 
+A headline da capa é **ancorada na base** (termina em y 1239,7) e cresce para
+cima, com 439,2px de altura útil. Não flutua no meio do slide: apoia no pé e
+deixa a metade de cima livre para a imagem. O chip fica logo acima, em y 748,3.
+
+**A capa não leva legenda.** O campo `sub` existe, mas a página 1 do original não
+tem — e uma linha a mais embaixo divide a atenção e tira força da manchete.
+
 Capa sem foto recebe um banho radial na cor da marca. É recurso de contorno —
-nos quatro designs reais a capa sempre tem imagem.
+nos quatro designs reais a capa sempre tem imagem, em **opacidade cheia**: quem
+escurece são os scrims, não a imagem.
 
 ## Ênfase no texto
 

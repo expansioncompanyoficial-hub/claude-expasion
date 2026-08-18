@@ -103,6 +103,33 @@ a que aparece nas peças de notícia da Prime. É a capa de newsroom.
 
 ---
 
+## A capa, elemento a elemento
+
+| Elemento | `top` | Medida |
+|---|---|---|
+| Foto | 0 | cobre 1080 × 1350, **opacidade cheia** |
+| Scrim longo | 160,0 | girado 180°, desce até fora do canvas |
+| Scrim de base | 1111,2 | reforça o pé |
+| Chip · avatar | 751,3 | 46,2 circular |
+| Chip · nome | 754,3 | 21,4 medium · tracking −0,084 |
+| Chip · @ | 779,7 | 10,6 medium · **opacidade 0,49** |
+| **Headline** | **800,5** | `left 108` · **864 × 439,2** · 111,5 bold · lh 0,92 · tracking −0,087 · centro |
+
+Três coisas que essa tabela resolve:
+
+**A headline termina em 1239,7** — encostada na margem de baixo. Ela não flutua
+no meio do slide: apoia na base e cresce para cima. É daí que vem o impacto, e é
+o que deixa a metade de cima livre para a imagem aparecer.
+
+**A foto está em opacidade cheia.** Quem escurece são os dois scrims, e só de
+onde o texto começa. Baixar a opacidade da imagem, que era o que eu fazia,
+apaga a foto inteira em vez de abrir espaço para o texto.
+
+**Não existe legenda.** A página 1 tem chip e headline, e nada mais. Uma linha a
+mais embaixo divide a atenção e tira força da manchete.
+
+---
+
 ## O ritmo das nove páginas
 
 Lido nas miniaturas do MOD 01, página por página. Não é alternância mecânica:

@@ -176,22 +176,34 @@ def slide_html(spec, s, i, total):
     verificado = spec.get("verificado", True)
 
     if tipo == "capa":
+        # Geometria da página 1, elemento a elemento: o chip em y 748,3 e a
+        # headline em y 800,5 ocupando 439,2 — ou seja, encostada na margem de
+        # baixo. É o que dá o impacto: o texto não flutua no meio do slide, ele
+        # se apoia na base e deixa a imagem respirar em cima.
         img = s.get("foto_fundo") or s.get("imagem")
-        bg = (f'<div class="bg-foto" style="background-image:url({b64_img(img)});'
-              f'opacity:{s.get("foto_opacidade", 0.66)}"></div>') if img \
-            else '<div class="capa-banho"></div>'
+        if img:
+            bg = f'<div class="bg-foto capa-foto" style="background-image:url({b64_img(img)})"></div>'
+        else:
+            bg = '<div class="capa-banho"></div>'
         selo = '<span class="selo">✓</span>' if verificado else ""
         inicial = esc(spec.get("marca", "?")[:1].upper())
-        sub = f'<div class="capa-sub">{rich(s["sub"])}</div>' if s.get("sub") else ""
         estilo = s.get("estilo") or spec.get("capa_estilo", "impacto")
-        grad = '<div class="capa-grad"></div>' if img else ""
-        corpo = f"""{bg}{grad}
-        <div class="capa-area">
-          <div class="chip"><span class="chip-dot">{inicial}</span>
-            <span class="chip-handle">{esc(spec.get('handle',''))}</span>{selo}</div>
-          <div class="capa-h1 capa-{estilo} fit">{rich(s['headline'])}</div>
-          {sub}
-        </div>"""
+
+        # A legenda é opcional e, por padrão, não existe: a página 1 não tem.
+        # Uma linha a mais embaixo divide a atenção e tira força da headline.
+        sub_html = (f'<div class="capa-sub">{rich(s["sub"])}</div>'
+                    if s.get("sub") else "")
+
+        corpo = f"""{bg}<div class="capa-grad"></div>
+        <div class="chip">
+          <span class="chip-dot">{inicial}</span>
+          <span class="chip-col">
+            <span class="chip-nome">{esc(spec.get('marca',''))}{selo}</span>
+            <span class="chip-handle">{esc(spec.get('handle',''))}</span>
+          </span>
+        </div>
+        <div class="capa-h1 capa-{estilo} fit">{rich(s['headline'])}</div>
+        {sub_html}"""
         return f'<div class="slide f-capa">{corpo}{barra(spec)}</div>'
 
     # `foto_pos` decide o arquétipo. Sem ele o slide é o "sem foto", que é o
@@ -201,14 +213,18 @@ def slide_html(spec, s, i, total):
         pos = None
     g, lim = GRADE[pos], limites(pos)
 
-    def bloco(nome, html, extra=""):
-        return (f'<div class="bloco" style="top:{g[nome]}px;'
-                f'max-height:{lim[nome]}px;{extra}">{html}</div>')
+    def bloco(nome, html):
+        # O teto vai em `data-teto`, não em `max-height`: com entrelinha abaixo
+        # de 1 o `scrollHeight` estoura por alguns pixels de glifo mesmo quando
+        # o texto cabe, e medir por ali fazia o auto-fit encolher até o piso —
+        # ou cortar a última palavra ao meio.
+        return (f'<div class="bloco" data-teto="{lim[nome]}" style="top:{g[nome]}px">'
+                f'<div class="dentro">{html}</div></div>')
 
     partes = []
 
     if s.get("tag"):
-        partes.append(f'<div class="bloco tag" style="top:{g["h1"] - 46}px">'
+        partes.append(f'<div class="tag" style="top:{g["h1"] - 46}px">'
                       f'{esc(s["tag"])}</div>')
 
     # Cabeça do slide
@@ -243,7 +259,7 @@ def slide_html(spec, s, i, total):
     if s.get("fonte"):
         miolo += f'<div class="fonte">Fonte: <b>{esc(s["fonte"])}</b></div>'
     if miolo:
-        partes.append(bloco("corpo", f'<div class="pilha fit-corpo">{miolo}</div>'))
+        partes.append(bloco("corpo", f'<div class="pilha">{miolo}</div>'))
 
     # Foto — e quando ela ainda não existe, o espaço dela fica reservado e
     # visível, com o briefing do que entra ali. Slide não se desenha em volta
@@ -258,7 +274,7 @@ def slide_html(spec, s, i, total):
                       f'<span class="vaga-brief">{esc(brief)}</span>'
                       f'<span class="vaga-dim">864 × 442 · canto 13</span>')
             classe = "foto vaga"
-        partes.append(f'<div class="bloco {classe}" style="top:{g["foto"]}px">{dentro}</div>')
+        partes.append(f'<div class="{classe}" style="top:{g["foto"]}px">{dentro}</div>')
 
     avanco = '<div class="avanco">→</div>' if fundo == "destaque" and i + 1 < total else ""
     return (f'<div class="slide f-{fundo}">{fundo_foto(s)}'
@@ -310,8 +326,9 @@ opacity:{op_barra}}}
 .f-destaque .barra{{color:#fff}}
 
 /* ── grade · margem lateral 108, largura útil 864 ─────────────────────── */
-.bloco{{position:absolute;left:{MARGEM}px;width:{UTIL}px;overflow:hidden;z-index:2}}
+.bloco{{position:absolute;left:{MARGEM}px;width:{UTIL}px;z-index:2}}
 .pilha{{display:flex;flex-direction:column;gap:30px}}
+.foto,.tag{{position:absolute;left:{MARGEM}px;width:{UTIL}px;z-index:2}}
 .f-foto .content{{position:absolute;left:{MARGEM}px;right:{MARGEM}px;bottom:{MARGEM}px;
 display:flex;flex-direction:column;justify-content:flex-end;gap:32px;z-index:2}}
 
@@ -397,43 +414,48 @@ font-size:40px;line-height:1.02;letter-spacing:-.033em}}
 background:#fff;color:#000;display:flex;align-items:center;justify-content:center;
 font-family:var(--body);font-size:36px;font-weight:600;z-index:20}}
 
-/* ── capa ─────────────────────────────────────────────────────────────── */
-/* Sem foto, a capa não fica preta chapada: recebe um banho radial na cor da
-   marca, vindo de baixo — mesma direção do scrim das peças com imagem. */
-.capa-banho{{position:absolute;inset:0;background:
-radial-gradient(66% 26% at 50% 108%,#fff8 0%,transparent 64%),
-radial-gradient(112% 40% at 50% 112%,var(--destaque) 0%,transparent 68%),
-radial-gradient(154% 62% at 50% 122%,var(--destaque) 0%,transparent 60%),#000}}
-/* Sem foto o bloco sobe: o banho fica sendo base, e a headline não cai em
-   cima da própria luz — que é onde o laranja sobre laranja se perde. */
-.slide:has(.capa-banho) .capa-area{{bottom:236px}}
+/* ── capa · geometria da página 1 ──────────────────────────────────────
+   foto cobre o slide em opacidade cheia — quem escurece são os dois scrims,
+   um longo a partir de y 160 e outro reforçando a base a partir de y 1111.
+   É isso que deixa a imagem legível atrás sem apagá-la. */
+.capa-foto{{opacity:1}}
 .capa-grad{{position:absolute;inset:0;background:linear-gradient(to bottom,
-rgba(0,0,0,.30) 0%,rgba(0,0,0,.12) 24%,rgba(0,0,0,.62) 58%,rgba(0,0,0,.92) 82%,#000 100%)}}
-.capa-area{{position:absolute;left:108px;right:108px;bottom:150px;z-index:10;
-display:flex;flex-direction:column;align-items:center;text-align:center;gap:30px}}
+rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 18%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.80) 66%,
+rgba(0,0,0,.95) 84%,#000 100%)}}
 
-/* chip de perfil · círculo 48,7 · @ 31,8px medium · tracking −0,084 */
-.chip{{display:flex;align-items:center;gap:14px}}
-.chip-dot{{width:48.7px;height:48.7px;border-radius:50%;background:var(--destaque);
+.slide:has(.capa-banho) .capa-h1{{bottom:130px}}
+
+/* chip · y 748,3 · avatar 46,2 · nome 21,4 medium · @ 10,6 a 49% */
+.chip{{position:absolute;top:748.3px;left:0;right:0;z-index:10;
+display:flex;align-items:center;justify-content:center;gap:11px}}
+.chip-dot{{width:46.2px;height:46.2px;border-radius:50%;background:var(--destaque);
 display:flex;align-items:center;justify-content:center;font-family:var(--head);
-font-size:24px;font-weight:700;color:#fff}}
-.chip-handle{{font-family:var(--body);font-size:31.8px;font-weight:500;line-height:1.4;
-letter-spacing:-.084em;color:#fff}}
-.selo{{width:27.8px;height:27.8px;border-radius:50%;background:#1d9bf0;color:#fff;
-display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700}}
+font-size:23px;font-weight:700;color:#fff;flex:none}}
+.chip-col{{display:flex;flex-direction:column}}
+.chip-nome{{display:flex;align-items:center;gap:7px;font-family:var(--body);
+font-size:21.4px;font-weight:500;line-height:1.4;letter-spacing:-.084em;color:#fff}}
+.chip-handle{{font-family:var(--body);font-size:10.6px;font-weight:500;line-height:1.4;
+letter-spacing:-.084em;color:#fff;opacity:.49}}
+.selo{{width:16px;height:16px;border-radius:50%;background:#1d9bf0;color:#fff;
+display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;
+flex:none}}
 
-/* Duas capas, e a diferença é de gênero editorial:
-   impacto  111,5px bold · lh 0,92 · tracking −0,087   → topo de funil, viral
-   manchete  79,6px semibold · lh 1,06 · tracking −0,056 → newsroom e meio */
-.capa-h1{{font-family:var(--head);color:#fff}}
+/* headline · y 800,5 · left 108 · 864 de largura · até 439,2 de altura.
+   Duas capas, e a diferença é de gênero editorial:
+   impacto  111,5 bold · lh 0,92 · tracking −0,087   → topo de funil, viral
+   manchete  79,6 semibold · lh 1,06 · tracking −0,056 → newsroom */
+.capa-h1{{position:absolute;bottom:110.3px;left:{MARGEM}px;width:{UTIL}px;
+z-index:10;font-family:var(--head);color:#fff;text-align:center}}
 .capa-impacto{{font-size:111.5px;font-weight:700;line-height:.92;letter-spacing:-.087em}}
 .capa-manchete{{font-size:79.6px;font-weight:600;line-height:1.06;letter-spacing:-.056em}}
 .capa-h1 em{{font-style:normal;color:var(--destaque)}}
 .capa-h1 b{{font-weight:700}}
 
-/* legenda da capa · 21,2px · lh 1,06 · tracking −0,056 */
-.capa-sub{{font-family:var(--body);font-size:21.2px;font-weight:400;line-height:1.06;
-letter-spacing:-.056em;color:#fff}}
+/* Legenda: existe, mas não entra por padrão. A página 1 não tem, e uma linha
+   a mais embaixo divide a atenção e tira força da headline. */
+.capa-sub{{position:absolute;top:1262px;left:{MARGEM}px;width:{UTIL}px;z-index:10;
+font-family:var(--body);font-size:21.2px;font-weight:400;line-height:1.06;
+letter-spacing:-.056em;color:#fff;text-align:center;opacity:.72}}
 .capa-sub em{{font-style:normal;color:var(--destaque)}}
 </style></head><body>
 {slides}
@@ -441,33 +463,41 @@ letter-spacing:-.056em;color:#fff}}
 /* Auto-fit sobre a grade. Cada bloco tem um `top` medido e uma altura máxima
    — até onde o próximo começa. O texto encolhe dentro da própria fatia, sem
    empurrar o slide: é o que mantém os nove slides alinhados entre si. */
-(function () {{
+/* Depois de `document.fonts.ready`, não antes. Rodando cedo o auto-fit mede o
+   texto na fonte de sistema, para de encolher achando que coube, e quando a
+   fonte real entra o bloco estoura — foi assim que uma palavra saiu cortada ao
+   meio numa peça pronta. */
+document.fonts.ready.then(function () {{
   function px(el) {{ return parseFloat(getComputedStyle(el).fontSize); }}
-  function estoura(b) {{ return b.scrollHeight > b.clientHeight + 1; }}
+  // Altura real do texto = linhas x entrelinha, e `offsetHeight` dá isso exato.
+  // `scrollHeight` inclui o transbordo do glifo e mente quando lh < 1.
+  function passa(el, teto) {{ return el.offsetHeight > teto + 1; }}
+
   document.querySelectorAll('.slide').forEach(function (slide) {{
     slide.querySelectorAll('.bloco').forEach(function (b) {{
-      var head = b.querySelector('.fit');
+      var teto = parseFloat(b.dataset.teto);
+      var dentro = b.firstElementChild;
+      var head = dentro.querySelector('.fit');
       if (head) {{
-        var min = 52;
-        while (estoura(b) && px(head) > min) head.style.fontSize = (px(head) - 2) + 'px';
+        while (passa(dentro, teto) && px(head) > 34)
+          head.style.fontSize = (px(head) - 1) + 'px';
       }}
-      var corpos = b.querySelectorAll('.corpo, .row');
+      var corpos = dentro.querySelectorAll('.corpo, .row');
       var guarda = 0;
-      while (corpos.length && estoura(b) && guarda++ < 60) {{
-        corpos.forEach(function (c) {{ if (px(c) > 28) c.style.fontSize = (px(c) - 1) + 'px'; }});
+      while (corpos.length && passa(dentro, teto) && guarda++ < 90) {{
+        corpos.forEach(function (c) {{ if (px(c) > 22) c.style.fontSize = (px(c) - 1) + 'px'; }});
       }}
     }});
-    // capa continua com a régua própria: ela é centralizada e ancorada embaixo
-    var capa = slide.querySelector('.capa-area');
+    // A capa tem 439,2 de altura útil e cresce da base para cima.
+    var capa = slide.querySelector('.capa-h1');
     if (capa) {{
-      var h = capa.querySelector('.fit');
-      var piso = h && h.classList.contains('capa-impacto') ? 72 : 56;
-      while (h && capa.scrollHeight > capa.clientHeight + 1 && px(h) > piso)
-        h.style.fontSize = (px(h) - 3) + 'px';
+      var piso = capa.classList.contains('capa-impacto') ? 62 : 48;
+      while (passa(capa, 439.2) && px(capa) > piso)
+        capa.style.fontSize = (px(capa) - 1) + 'px';
     }}
   }});
   window.__fitPronto = true;
-}})();
+}});
 </script>
 </body></html>"""
 

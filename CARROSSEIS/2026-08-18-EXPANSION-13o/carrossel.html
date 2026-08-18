@@ -34,8 +34,9 @@ opacity:0.3}
 .f-destaque .barra{color:#fff}
 
 /* ── grade · margem lateral 108, largura útil 864 ─────────────────────── */
-.bloco{position:absolute;left:108px;width:864px;overflow:hidden;z-index:2}
+.bloco{position:absolute;left:108px;width:864px;z-index:2}
 .pilha{display:flex;flex-direction:column;gap:30px}
+.foto,.tag{position:absolute;left:108px;width:864px;z-index:2}
 .f-foto .content{position:absolute;left:108px;right:108px;bottom:108px;
 display:flex;flex-direction:column;justify-content:flex-end;gap:32px;z-index:2}
 
@@ -121,82 +122,98 @@ font-size:40px;line-height:1.02;letter-spacing:-.033em}
 background:#fff;color:#000;display:flex;align-items:center;justify-content:center;
 font-family:var(--body);font-size:36px;font-weight:600;z-index:20}
 
-/* ── capa ─────────────────────────────────────────────────────────────── */
-/* Sem foto, a capa não fica preta chapada: recebe um banho radial na cor da
-   marca, vindo de baixo — mesma direção do scrim das peças com imagem. */
-.capa-banho{position:absolute;inset:0;background:
-radial-gradient(66% 26% at 50% 108%,#fff8 0%,transparent 64%),
-radial-gradient(112% 40% at 50% 112%,var(--destaque) 0%,transparent 68%),
-radial-gradient(154% 62% at 50% 122%,var(--destaque) 0%,transparent 60%),#000}
-/* Sem foto o bloco sobe: o banho fica sendo base, e a headline não cai em
-   cima da própria luz — que é onde o laranja sobre laranja se perde. */
-.slide:has(.capa-banho) .capa-area{bottom:236px}
+/* ── capa · geometria da página 1 ──────────────────────────────────────
+   foto cobre o slide em opacidade cheia — quem escurece são os dois scrims,
+   um longo a partir de y 160 e outro reforçando a base a partir de y 1111.
+   É isso que deixa a imagem legível atrás sem apagá-la. */
+.capa-foto{opacity:1}
 .capa-grad{position:absolute;inset:0;background:linear-gradient(to bottom,
-rgba(0,0,0,.30) 0%,rgba(0,0,0,.12) 24%,rgba(0,0,0,.62) 58%,rgba(0,0,0,.92) 82%,#000 100%)}
-.capa-area{position:absolute;left:108px;right:108px;bottom:150px;z-index:10;
-display:flex;flex-direction:column;align-items:center;text-align:center;gap:30px}
+rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 18%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.80) 66%,
+rgba(0,0,0,.95) 84%,#000 100%)}
 
-/* chip de perfil · círculo 48,7 · @ 31,8px medium · tracking −0,084 */
-.chip{display:flex;align-items:center;gap:14px}
-.chip-dot{width:48.7px;height:48.7px;border-radius:50%;background:var(--destaque);
+.slide:has(.capa-banho) .capa-h1{bottom:130px}
+
+/* chip · y 748,3 · avatar 46,2 · nome 21,4 medium · @ 10,6 a 49% */
+.chip{position:absolute;top:748.3px;left:0;right:0;z-index:10;
+display:flex;align-items:center;justify-content:center;gap:11px}
+.chip-dot{width:46.2px;height:46.2px;border-radius:50%;background:var(--destaque);
 display:flex;align-items:center;justify-content:center;font-family:var(--head);
-font-size:24px;font-weight:700;color:#fff}
-.chip-handle{font-family:var(--body);font-size:31.8px;font-weight:500;line-height:1.4;
-letter-spacing:-.084em;color:#fff}
-.selo{width:27.8px;height:27.8px;border-radius:50%;background:#1d9bf0;color:#fff;
-display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700}
+font-size:23px;font-weight:700;color:#fff;flex:none}
+.chip-col{display:flex;flex-direction:column}
+.chip-nome{display:flex;align-items:center;gap:7px;font-family:var(--body);
+font-size:21.4px;font-weight:500;line-height:1.4;letter-spacing:-.084em;color:#fff}
+.chip-handle{font-family:var(--body);font-size:10.6px;font-weight:500;line-height:1.4;
+letter-spacing:-.084em;color:#fff;opacity:.49}
+.selo{width:16px;height:16px;border-radius:50%;background:#1d9bf0;color:#fff;
+display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;
+flex:none}
 
-/* Duas capas, e a diferença é de gênero editorial:
-   impacto  111,5px bold · lh 0,92 · tracking −0,087   → topo de funil, viral
-   manchete  79,6px semibold · lh 1,06 · tracking −0,056 → newsroom e meio */
-.capa-h1{font-family:var(--head);color:#fff}
+/* headline · y 800,5 · left 108 · 864 de largura · até 439,2 de altura.
+   Duas capas, e a diferença é de gênero editorial:
+   impacto  111,5 bold · lh 0,92 · tracking −0,087   → topo de funil, viral
+   manchete  79,6 semibold · lh 1,06 · tracking −0,056 → newsroom */
+.capa-h1{position:absolute;bottom:110.3px;left:108px;width:864px;
+z-index:10;font-family:var(--head);color:#fff;text-align:center}
 .capa-impacto{font-size:111.5px;font-weight:700;line-height:.92;letter-spacing:-.087em}
 .capa-manchete{font-size:79.6px;font-weight:600;line-height:1.06;letter-spacing:-.056em}
 .capa-h1 em{font-style:normal;color:var(--destaque)}
 .capa-h1 b{font-weight:700}
 
-/* legenda da capa · 21,2px · lh 1,06 · tracking −0,056 */
-.capa-sub{font-family:var(--body);font-size:21.2px;font-weight:400;line-height:1.06;
-letter-spacing:-.056em;color:#fff}
+/* Legenda: existe, mas não entra por padrão. A página 1 não tem, e uma linha
+   a mais embaixo divide a atenção e tira força da headline. */
+.capa-sub{position:absolute;top:1262px;left:108px;width:864px;z-index:10;
+font-family:var(--body);font-size:21.2px;font-weight:400;line-height:1.06;
+letter-spacing:-.056em;color:#fff;text-align:center;opacity:.72}
 .capa-sub em{font-style:normal;color:var(--destaque)}
 </style></head><body>
-<div class="slide f-capa"><div class="capa-banho"></div>
-        <div class="capa-area">
-          <div class="chip"><span class="chip-dot">E</span>
-            <span class="chip-handle">@assessoriaexpansion</span><span class="selo">✓</span></div>
-          <div class="capa-h1 capa-impacto fit">Duas datas do 13º que devem entrar no <em>calendário da sua loja</em></div>
-          <div class="capa-sub">O dinheiro da cliente tem calendário. A campanha também deveria ter.</div>
-        </div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-claro"><div class="bloco" style="top:717.0px;max-height:264.8px;"><div class="h1 fit">A lei já marcou as datas pra você</div></div><div class="bloco" style="top:1005.8px;max-height:236.2px;"><div class="pilha fit-corpo"><div class="corpo">A primeira parcela do 13º cai <em>até 30 de novembro</em>. A segunda, <em>até 20 de dezembro</em>.</div><div class="corpo">Não é previsão de mercado, é a <b>Lei 4.090</b>. Todo ano, nas mesmas duas datas.</div></div></div><div class="bloco foto vaga" style="top:207.9px"><span class="vaga-rot">Imagem · topo</span><span class="vaga-brief">Vitrine de loja feminina em novembro, cliente olhando peça de valor mais alto</span><span class="vaga-dim">864 × 442 · canto 13</span></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-destaque"><div class="bloco" style="top:161.0px;max-height:268.9px;"><div class="h1 fit">São dois momentos, não um</div></div><div class="bloco" style="top:951.1px;max-height:290.9px;"><div class="pilha fit-corpo"><div class="corpo">Quem trata o 13º como um evento só trabalha metade dele.</div><div class="corpo">A primeira parcela é a <b>compra pensada</b>. A segunda chega em cima do Natal, quando a sua cliente já está resolvendo presente.</div></div></div><div class="bloco foto vaga" style="top:453.9px"><span class="vaga-rot">Imagem · meio</span><span class="vaga-brief">Duas datas destacadas num calendário de parede da loja</span><span class="vaga-dim">864 × 442 · canto 13</span></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div><div class="avanco">→</div></div><div class="slide f-claro"><div class="bloco" style="top:230.5px;max-height:280.4px;"><div class="h1 fit">O que muda de uma para a outra</div></div><div class="bloco" style="top:534.9px;max-height:240.9px;"><div class="pilha fit-corpo"><div class="corpo">Em novembro ela compra <em>para ela</em>. Em dezembro ela compra <em>para os outros</em>, e o que sobra vira presente de última hora.</div><div class="corpo"><b>A vitrine não pode ser a mesma nas duas.</b></div></div></div><div class="bloco foto vaga" style="top:799.8px"><span class="vaga-rot">Imagem · base</span><span class="vaga-brief">Cliente provando peça com calma — compra pensada, não de última hora</span><span class="vaga-dim">864 × 442 · canto 13</span></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="bloco" style="top:298.9px;max-height:319.0px;"><div class="stat">50%</div></div><div class="bloco" style="top:641.9px;max-height:600.1px;"><div class="pilha fit-corpo"><div class="corpo">do 13º já está na conta da sua cliente em novembro. A outra metade só entra até o dia 20 de dezembro.</div></div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="bloco" style="top:161.0px;max-height:268.9px;"><div class="h1 grande fit">Campanha de 13º que começa em dezembro chega atrasada em <em>metade do dinheiro</em>.</div></div><div class="bloco foto vaga" style="top:453.9px"><span class="vaga-rot">Imagem · meio</span><span class="vaga-brief">Balcão em dezembro: sacola de presente, embalagem pronta, fila</span><span class="vaga-dim">864 × 442 · canto 13</span></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-claro"><div class="bloco" style="top:298.9px;max-height:319.0px;"><div class="h1 fit">O que fazer com cada data</div></div><div class="bloco" style="top:641.9px;max-height:600.1px;"><div class="pilha fit-corpo"><div class="bullets"><div class="row"><span class="seta">→</span><span><b>Novembro</b> — a peça de valor mais alto, aquela que ela adiou o ano inteiro.</span></div><div class="row"><span class="seta">→</span><span><b>Dezembro</b> — presente, kit e embalagem pronta. Ticket menor, decisão mais rápida.</span></div><div class="row"><span class="seta">→</span><span><b>Entre as duas</b> — reserva e lista de espera, para ela escolher antes de o dinheiro cair.</span></div></div></div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="bloco" style="top:230.5px;max-height:280.4px;"><div class="h1 grande fit">Quem só aparece no dia do pagamento disputa uma decisão que <em>já foi tomada</em>.</div></div><div class="bloco foto vaga" style="top:799.8px"><span class="vaga-rot">Imagem · base</span><span class="vaga-brief">Arara organizada com etiqueta de reserva — lista de espera</span><span class="vaga-dim">864 × 442 · canto 13</span></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="bloco" style="top:298.9px;max-height:319.0px;"><div class="h1 grande fit">A campanha certa é a que chega antes do dinheiro</div></div><div class="bloco" style="top:641.9px;max-height:600.1px;"><div class="pilha fit-corpo"><div class="corpo">Novembro e dezembro não são o mesmo mês comercial, e quem trata os dois igual entrega a metade mais cara da decisão pra outra loja.</div><div class="corpo chamada">Para montar o calendário das duas datas na sua loja, comenta <b>13</b>.</div></div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div>
+<div class="slide f-capa"><div class="capa-banho"></div><div class="capa-grad"></div>
+        <div class="chip">
+          <span class="chip-dot">E</span>
+          <span class="chip-col">
+            <span class="chip-nome">EXPANSION<span class="selo">✓</span></span>
+            <span class="chip-handle">@assessoriaexpansion</span>
+          </span>
+        </div>
+        <div class="capa-h1 capa-impacto fit">Duas datas do 13º que devem entrar no <em>calendário da sua loja</em></div>
+        <div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-claro"><div class="bloco" data-teto="264.8" style="top:717.0px"><div class="dentro"><div class="h1 fit">A lei já marcou as suas duas datas</div></div></div><div class="bloco" data-teto="236.2" style="top:1005.8px"><div class="dentro"><div class="pilha"><div class="corpo">A primeira parcela do 13º cai <em>até 30 de novembro</em> e a segunda <em>até 20 de dezembro</em>. Não é sazonalidade de varejo, é a Lei 4.090: vale para todo mundo de carteira assinada e se repete nas mesmas datas todo ano. <b>Dá para montar o calendário com um ano de antecedência.</b></div></div></div></div><div class="foto vaga" style="top:207.9px"><span class="vaga-rot">Imagem · topo</span><span class="vaga-brief">Calendário de parede da loja com 30/11 e 20/12 marcados</span><span class="vaga-dim">864 × 442 · canto 13</span></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-destaque"><div class="bloco" data-teto="268.9" style="top:161.0px"><div class="dentro"><div class="h1 fit">São dois momentos de compra, não um</div></div></div><div class="bloco" data-teto="290.9" style="top:951.1px"><div class="dentro"><div class="pilha"><div class="corpo">Quem trata o 13º como evento único trabalha metade dele. A parcela de novembro chega sem disputa de data comemorativa e vira <b>compra pensada</b> — a cliente escolhe para si. A de dezembro chega junto do Natal, quando a lista de presentes já comeu a maior parte do valor.</div></div></div></div><div class="foto vaga" style="top:453.9px"><span class="vaga-rot">Imagem · meio</span><span class="vaga-brief">Cliente provando com calma no provador, atendimento consultivo</span><span class="vaga-dim">864 × 442 · canto 13</span></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div><div class="avanco">→</div></div><div class="slide f-claro"><div class="bloco" data-teto="280.4" style="top:230.5px"><div class="dentro"><div class="h1 fit">O que muda de novembro para dezembro</div></div></div><div class="bloco" data-teto="240.9" style="top:534.9px"><div class="dentro"><div class="pilha"><div class="corpo">Em novembro ela compra <em>para ela</em>, com calma e ticket mais alto. Em dezembro compra <em>para os outros</em>, com pressa e ticket menor. São duas clientes dentro da mesma pessoa, e <b>a vitrine não pode ser a mesma nas duas.</b></div></div></div></div><div class="foto vaga" style="top:799.8px"><span class="vaga-rot">Imagem · base</span><span class="vaga-brief">Duas cenas lado a lado: peça de valor alto e sacola de presente</span><span class="vaga-dim">864 × 442 · canto 13</span></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="bloco" data-teto="264.8" style="top:717.0px"><div class="dentro"><div class="h1 fit">Metade do dinheiro chega antes</div></div></div><div class="bloco" data-teto="236.2" style="top:1005.8px"><div class="dentro"><div class="pilha"><div class="corpo">A primeira parcela é o <em>adiantamento de metade</em> do salário. Em 30 de novembro, metade do 13º da sua cliente já está na conta dela; a outra metade só entra até 20 de dezembro. <b>Campanha que começa em dezembro chega atrasada na metade mais cara.</b></div></div></div></div><div class="foto vaga" style="top:207.9px"><span class="vaga-rot">Imagem · topo</span><span class="vaga-brief">Balcão da loja no fim de novembro, movimento tranquilo</span><span class="vaga-dim">864 × 442 · canto 13</span></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="bloco" data-teto="319.0" style="top:298.9px"><div class="dentro"><div class="h1 fit">Novembro é a data que quase ninguém trabalha</div></div></div><div class="bloco" data-teto="600.1" style="top:641.9px"><div class="dentro"><div class="pilha"><div class="corpo">O varejo de moda concentra o esforço de fim de ano em dezembro, quando a disputa por atenção está no pico e o desconto vira a única linguagem possível.</div><div class="corpo">Novembro é o oposto: o dinheiro já caiu, a cliente ainda não comprometeu o valor com presente e a decisão dela não tem prazo. É quando a peça que ela vem adiando o ano inteiro encontra alguém com dinheiro e sem pressa. <b>Quem chega primeiro nessa janela não precisa competir por preço.</b></div></div></div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-claro"><div class="bloco" data-teto="268.9" style="top:161.0px"><div class="dentro"><div class="h1 fit">O que fazer com cada uma das datas</div></div></div><div class="bloco" data-teto="290.9" style="top:951.1px"><div class="dentro"><div class="pilha"><div class="corpo"><b>Novembro:</b> a peça de valor mais alto, atendimento consultivo, provador reservado. <b>Dezembro:</b> presente pronto, kit montado, embalagem resolvida, ticket menor. <b>Entre as duas:</b> lista de espera e reserva, para ela escolher antes de o dinheiro cair.</div></div></div></div><div class="foto vaga" style="top:453.9px"><span class="vaga-rot">Imagem · meio</span><span class="vaga-brief">Arara organizada com etiqueta de reserva e nome da cliente</span><span class="vaga-dim">864 × 442 · canto 13</span></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="bloco" data-teto="280.4" style="top:230.5px"><div class="dentro"><div class="h1 fit">A decisão acontece antes do pagamento</div></div></div><div class="bloco" data-teto="240.9" style="top:534.9px"><div class="dentro"><div class="pilha"><div class="corpo">Quem só aparece no dia em que o dinheiro cai disputa uma escolha que já foi feita. A cliente decide onde vai gastar enquanto espera o pagamento, e decide olhando quem apareceu <b>nas semanas anteriores</b> — não quem apareceu no dia.</div></div></div></div><div class="foto vaga" style="top:799.8px"><span class="vaga-rot">Imagem · base</span><span class="vaga-brief">Conversa de WhatsApp da loja com a cliente, semanas antes do pagamento</span><span class="vaga-dim">864 × 442 · canto 13</span></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div><div class="slide f-escuro"><div class="bloco" data-teto="319.0" style="top:298.9px"><div class="dentro"><div class="h1 grande fit">A campanha certa chega antes do dinheiro</div></div></div><div class="bloco" data-teto="600.1" style="top:641.9px"><div class="dentro"><div class="pilha"><div class="corpo">Novembro e dezembro não são o mesmo mês comercial. Tratar os dois igual entrega a metade mais cara da decisão para outra loja, e é justamente a metade que compra sem desconto. O calendário das duas datas se monta em uma tarde e vale para todo ano, porque as datas não mudam.</div><div class="corpo chamada">Para montar esse calendário na sua loja, comenta <b>13</b>.</div></div></div></div><div class="barra"><span>@assessoriaexpansion</span><span>EXPANSION</span><span>2026 ®</span></div></div>
 <script>
 /* Auto-fit sobre a grade. Cada bloco tem um `top` medido e uma altura máxima
    — até onde o próximo começa. O texto encolhe dentro da própria fatia, sem
    empurrar o slide: é o que mantém os nove slides alinhados entre si. */
-(function () {
+/* Depois de `document.fonts.ready`, não antes. Rodando cedo o auto-fit mede o
+   texto na fonte de sistema, para de encolher achando que coube, e quando a
+   fonte real entra o bloco estoura — foi assim que uma palavra saiu cortada ao
+   meio numa peça pronta. */
+document.fonts.ready.then(function () {
   function px(el) { return parseFloat(getComputedStyle(el).fontSize); }
-  function estoura(b) { return b.scrollHeight > b.clientHeight + 1; }
+  // Altura real do texto = linhas x entrelinha, e `offsetHeight` dá isso exato.
+  // `scrollHeight` inclui o transbordo do glifo e mente quando lh < 1.
+  function passa(el, teto) { return el.offsetHeight > teto + 1; }
+
   document.querySelectorAll('.slide').forEach(function (slide) {
     slide.querySelectorAll('.bloco').forEach(function (b) {
-      var head = b.querySelector('.fit');
+      var teto = parseFloat(b.dataset.teto);
+      var dentro = b.firstElementChild;
+      var head = dentro.querySelector('.fit');
       if (head) {
-        var min = 52;
-        while (estoura(b) && px(head) > min) head.style.fontSize = (px(head) - 2) + 'px';
+        while (passa(dentro, teto) && px(head) > 34)
+          head.style.fontSize = (px(head) - 1) + 'px';
       }
-      var corpos = b.querySelectorAll('.corpo, .row');
+      var corpos = dentro.querySelectorAll('.corpo, .row');
       var guarda = 0;
-      while (corpos.length && estoura(b) && guarda++ < 60) {
-        corpos.forEach(function (c) { if (px(c) > 28) c.style.fontSize = (px(c) - 1) + 'px'; });
+      while (corpos.length && passa(dentro, teto) && guarda++ < 90) {
+        corpos.forEach(function (c) { if (px(c) > 22) c.style.fontSize = (px(c) - 1) + 'px'; });
       }
     });
-    // capa continua com a régua própria: ela é centralizada e ancorada embaixo
-    var capa = slide.querySelector('.capa-area');
+    // A capa tem 439,2 de altura útil e cresce da base para cima.
+    var capa = slide.querySelector('.capa-h1');
     if (capa) {
-      var h = capa.querySelector('.fit');
-      var piso = h && h.classList.contains('capa-impacto') ? 72 : 56;
-      while (h && capa.scrollHeight > capa.clientHeight + 1 && px(h) > piso)
-        h.style.fontSize = (px(h) - 3) + 'px';
+      var piso = capa.classList.contains('capa-impacto') ? 62 : 48;
+      while (passa(capa, 439.2) && px(capa) > piso)
+        capa.style.fontSize = (px(capa) - 1) + 'px';
     }
   });
   window.__fitPronto = true;
-})();
+});
 </script>
 </body></html>

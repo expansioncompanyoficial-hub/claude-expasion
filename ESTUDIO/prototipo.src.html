@@ -456,6 +456,45 @@ function barra(cor){
     <span>${esc(cli.marca)}</span><span>${esc(cli.direito)}</span></div>`;
 }
 function chip(){
+  // Página 1: avatar 46,2 · nome 21,4 medium · @ 10,6 a 49% de opacidade.
+  const selo = cli.logo
+    ? `<span style="width:46.2px;height:46.2px;border-radius:50%;background:${
+        cli.logoFundo==='claro' ? '#fff' : cli.logoFundo==='escuro' ? '#101216' : 'rgba(255,255,255,.10)'
+      };display:flex;align-items:center;justify-content:center;overflow:hidden;flex:none">
+      <img src="${cli.logo}" alt="" style="max-width:78%;max-height:78%;object-fit:contain"></span>`
+    : `<span style="width:46.2px;height:46.2px;border-radius:50%;background:${cli.accent};
+      display:flex;align-items:center;justify-content:center;font-family:'Montserrat',var(--ui);
+      font-size:23px;font-weight:700;color:#fff;flex:none">${esc(cli.marca[0]||'?')}</span>`;
+  return `${selo}<span style="display:flex;flex-direction:column">
+    <span style="display:flex;align-items:center;gap:7px;font-size:21.4px;font-weight:500;
+      line-height:1.4;letter-spacing:-.084em;color:#fff">${esc(cli.marca)}
+      <span style="width:16px;height:16px;border-radius:50%;background:#1d9bf0;color:#fff;
+        display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;
+        flex:none">✓</span></span>
+    <span style="font-size:10.6px;font-weight:500;line-height:1.4;letter-spacing:-.084em;
+      color:#fff;opacity:.49">${esc(cli.handle)}</span></span>`;
+}
+
+/* O degradê é do FUNDO do slide de destaque, não da escrita — foi o que sete
+   páginas do Canva mostraram. A escrita em destaque é a cor chapada. */
+function grad(){
+  return cli.grad || cli.accent;
+}
+function EM(txt){
+  return `<span style="color:${cli.accent}">${esc(txt)}</span>`;
+}
+function foto(seed){
+  return `linear-gradient(${140+seed*24}deg, ${cli.escuro} 0%, ${cli.accent} 62%, ${cli.claro} 140%)`;
+}
+
+/* ============ render dos templates ============ */
+function barra(cor){
+  return `<div style="position:absolute;top:49.7px;left:56.1px;right:56.1px;display:flex;
+    justify-content:space-between;z-index:20;font-size:15.8px;font-weight:700;line-height:1.4;
+    letter-spacing:0;text-transform:uppercase;color:${cor}"><span>${esc(cli.handle)}</span>
+    <span>${esc(cli.marca)}</span><span>${esc(cli.direito)}</span></div>`;
+}
+function chip(){
   const selo = cli.logo
     ? `<span style="width:48.7px;height:48.7px;border-radius:50%;background:${
         cli.logoFundo==='claro' ? '#fff' : cli.logoFundo==='escuro' ? '#101216' : 'rgba(255,255,255,.10)'
@@ -481,15 +520,16 @@ function render(i){
   if (T === 'meio'){
     const f = tpl.ritmo[i];
     if (f === 'capa') return `<div class="slide" style="background:${cli.escuro}">
-      <div style="position:absolute;inset:0;background:${foto(0)};opacity:.85"></div>
+      <div style="position:absolute;inset:0;background:${foto(0)}"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(to bottom,
-        rgba(0,0,0,.30) 0%,rgba(0,0,0,.10) 26%,rgba(0,0,0,.66) 58%,rgba(0,0,0,.95) 82%,#000 100%)"></div>
-      ${barra('rgba(255,255,255,.55)')}
-      <div style="position:absolute;left:108px;right:108px;bottom:150px;z-index:10;display:flex;
-        flex-direction:column;align-items:center;text-align:center;gap:30px">${chip()}
-        ${H(h||'Headline da capa',111.5,'#fff','font-weight:700;line-height:.92;letter-spacing:-.087em')}
-        <div style="font-size:21.2px;line-height:1.06;letter-spacing:-.056em;
-          color:#fff">${esc(c||'Legenda da capa')}</div></div></div>`;
+        rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 18%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.80) 66%,
+        rgba(0,0,0,.95) 84%,#000 100%)"></div>
+      ${barra('rgba(255,255,255,.30)')}
+      <div style="position:absolute;top:748.3px;left:0;right:0;z-index:10;display:flex;
+        align-items:center;justify-content:center;gap:11px">${chip()}</div>
+      <div class="capa-h1" style="position:absolute;bottom:110.3px;left:108px;width:864px;z-index:10;
+        font-family:'Montserrat',var(--ui);font-size:111.5px;font-weight:700;line-height:.92;
+        letter-spacing:-.087em;color:#fff;text-align:center">${esc(h||'Headline da capa')}</div></div>`;
 
     const bg = f==='destaque'?grad() : f==='escuro'?cli.escuro : cli.claro;
     const cl = (f==='claro'||f==='cta');
@@ -589,6 +629,19 @@ function render(i){
 }
 
 /* ============ pintura ============ */
+/* A capa cresce da base para cima e tem 439,2px de altura útil. Se passar
+   disso, a headline encolhe — é o que impede o texto de subir por cima do
+   chip. Mede por `offsetHeight`, que é linhas x entrelinha exato; medir por
+   `scrollHeight` mente quando a entrelinha é menor que 1. */
+function fitCapa(raiz){
+  raiz.querySelectorAll('.slide').forEach(function(s){
+    const h = s.querySelector('.capa-h1');
+    if (!h) return;
+    let fs = parseFloat(getComputedStyle(h).fontSize);
+    while (h.offsetHeight > 440 && fs > 62) { fs -= 1; h.style.fontSize = fs+'px'; }
+  });
+}
+
 function escala(el, alvo){
   const s = alvo / 1080;
   el.style.transform = `scale(${s})`;
@@ -659,6 +712,7 @@ function pintar(){
   const largura = Math.min(360, Math.max(220, window.innerWidth * 0.25));
   const m = $('#moldura');
   m.innerHTML = render(atual);
+  fitCapa(m);
   const d = escala(m.firstElementChild, largura);
   m.style.width = d.w+'px'; m.style.height = d.h+'px';
 
@@ -676,7 +730,7 @@ function pintar(){
     b.style.width='68px'; b.style.height='85px';
     b.onclick = () => { atual=i; pintar(); };
     t.appendChild(b);
-    const s = b.querySelector('.slide'); escala(s,64); s.style.pointerEvents='none';
+    const s = b.querySelector('.slide'); fitCapa(b); escala(s,64); s.style.pointerEvents='none';
   }
   contar();
 }

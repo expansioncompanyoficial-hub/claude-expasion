@@ -70,77 +70,83 @@
     {
       "tipo": "capa",
       "headline": "Duas datas do 13º que devem entrar no *calendário da sua loja*",
-      "sub": "O dinheiro da cliente tem calendário. A campanha também deveria ter."
+      "imagem_brief": "Vitrine de loja feminina, cliente olhando peça de valor mais alto"
     },
     {
       "tipo": "texto",
       "fundo": "claro",
-      "h1": "A lei já marcou as datas pra você",
-      "paragrafos": [
-        "A primeira parcela do 13º cai *até 30 de novembro*. A segunda, *até 20 de dezembro*.",
-        "Não é previsão de mercado, é a **Lei 4.090**. Todo ano, nas mesmas duas datas."
-      ],
       "foto_pos": "topo",
-      "imagem_brief": "Vitrine de loja feminina em novembro, cliente olhando peça de valor mais alto"
+      "imagem_brief": "Calendário de parede da loja com 30/11 e 20/12 marcados",
+      "h1": "A lei já marcou as suas duas datas",
+      "paragrafos": [
+        "A primeira parcela do 13º cai *até 30 de novembro* e a segunda *até 20 de dezembro*. Não é sazonalidade de varejo, é a Lei 4.090: vale para todo mundo de carteira assinada e se repete nas mesmas datas todo ano. **Dá para montar o calendário com um ano de antecedência.**"
+      ]
     },
     {
       "tipo": "texto",
       "fundo": "destaque",
-      "h1": "São dois momentos, não um",
-      "paragrafos": [
-        "Quem trata o 13º como um evento só trabalha metade dele.",
-        "A primeira parcela é a **compra pensada**. A segunda chega em cima do Natal, quando a sua cliente já está resolvendo presente."
-      ],
       "foto_pos": "meio",
-      "imagem_brief": "Duas datas destacadas num calendário de parede da loja"
+      "imagem_brief": "Cliente provando com calma no provador, atendimento consultivo",
+      "h1": "São dois momentos de compra, não um",
+      "paragrafos": [
+        "Quem trata o 13º como evento único trabalha metade dele. A parcela de novembro chega sem disputa de data comemorativa e vira **compra pensada** — a cliente escolhe para si. A de dezembro chega junto do Natal, quando a lista de presentes já comeu a maior parte do valor."
+      ]
     },
     {
       "tipo": "texto",
       "fundo": "claro",
-      "h1": "O que muda de uma para a outra",
-      "paragrafos": [
-        "Em novembro ela compra *para ela*. Em dezembro ela compra *para os outros*, e o que sobra vira presente de última hora.",
-        "**A vitrine não pode ser a mesma nas duas.**"
-      ],
       "foto_pos": "base",
-      "imagem_brief": "Cliente provando peça com calma — compra pensada, não de última hora"
-    },
-    {
-      "tipo": "stat",
-      "fundo": "escuro",
-      "numero": "50%",
-      "label": "do 13º já está na conta da sua cliente em novembro. A outra metade só entra até o dia 20 de dezembro."
-    },
-    {
-      "tipo": "declaracao",
-      "fundo": "escuro",
-      "h1": "Campanha de 13º que começa em dezembro chega atrasada em *metade do dinheiro*.",
-      "foto_pos": "meio",
-      "imagem_brief": "Balcão em dezembro: sacola de presente, embalagem pronta, fila"
-    },
-    {
-      "tipo": "bullets",
-      "fundo": "claro",
-      "h1": "O que fazer com cada data",
-      "itens": [
-        "**Novembro** — a peça de valor mais alto, aquela que ela adiou o ano inteiro.",
-        "**Dezembro** — presente, kit e embalagem pronta. Ticket menor, decisão mais rápida.",
-        "**Entre as duas** — reserva e lista de espera, para ela escolher antes de o dinheiro cair."
+      "imagem_brief": "Duas cenas lado a lado: peça de valor alto e sacola de presente",
+      "h1": "O que muda de novembro para dezembro",
+      "paragrafos": [
+        "Em novembro ela compra *para ela*, com calma e ticket mais alto. Em dezembro compra *para os outros*, com pressa e ticket menor. São duas clientes dentro da mesma pessoa, e **a vitrine não pode ser a mesma nas duas.**"
       ]
     },
     {
-      "tipo": "declaracao",
+      "tipo": "texto",
       "fundo": "escuro",
-      "h1": "Quem só aparece no dia do pagamento disputa uma decisão que *já foi tomada*.",
+      "foto_pos": "topo",
+      "imagem_brief": "Balcão da loja no fim de novembro, movimento tranquilo",
+      "h1": "Metade do dinheiro chega antes",
+      "paragrafos": [
+        "A primeira parcela é o *adiantamento de metade* do salário. Em 30 de novembro, metade do 13º da sua cliente já está na conta dela; a outra metade só entra até 20 de dezembro. **Campanha que começa em dezembro chega atrasada na metade mais cara.**"
+      ]
+    },
+    {
+      "tipo": "texto",
+      "fundo": "escuro",
+      "h1": "Novembro é a data que quase ninguém trabalha",
+      "paragrafos": [
+        "O varejo de moda concentra o esforço de fim de ano em dezembro, quando a disputa por atenção está no pico e o desconto vira a única linguagem possível.",
+        "Novembro é o oposto: o dinheiro já caiu, a cliente ainda não comprometeu o valor com presente e a decisão dela não tem prazo. É quando a peça que ela vem adiando o ano inteiro encontra alguém com dinheiro e sem pressa. **Quem chega primeiro nessa janela não precisa competir por preço.**"
+      ]
+    },
+    {
+      "tipo": "texto",
+      "fundo": "claro",
+      "foto_pos": "meio",
+      "imagem_brief": "Arara organizada com etiqueta de reserva e nome da cliente",
+      "h1": "O que fazer com cada uma das datas",
+      "paragrafos": [
+        "**Novembro:** a peça de valor mais alto, atendimento consultivo, provador reservado. **Dezembro:** presente pronto, kit montado, embalagem resolvida, ticket menor. **Entre as duas:** lista de espera e reserva, para ela escolher antes de o dinheiro cair."
+      ]
+    },
+    {
+      "tipo": "texto",
+      "fundo": "escuro",
       "foto_pos": "base",
-      "imagem_brief": "Arara organizada com etiqueta de reserva — lista de espera"
+      "imagem_brief": "Conversa de WhatsApp da loja com a cliente, semanas antes do pagamento",
+      "h1": "A decisão acontece antes do pagamento",
+      "paragrafos": [
+        "Quem só aparece no dia em que o dinheiro cai disputa uma escolha que já foi feita. A cliente decide onde vai gastar enquanto espera o pagamento, e decide olhando quem apareceu **nas semanas anteriores** — não quem apareceu no dia."
+      ]
     },
     {
       "tipo": "cta",
       "fundo": "escuro",
-      "h1": "A campanha certa é a que chega antes do dinheiro",
-      "ponte": "Novembro e dezembro não são o mesmo mês comercial, e quem trata os dois igual entrega a metade mais cara da decisão pra outra loja.",
-      "chamada": "Para montar o calendário das duas datas na sua loja, comenta **13**."
+      "h1": "A campanha certa chega antes do dinheiro",
+      "ponte": "Novembro e dezembro não são o mesmo mês comercial. Tratar os dois igual entrega a metade mais cara da decisão para outra loja, e é justamente a metade que compra sem desconto. O calendário das duas datas se monta em uma tarde e vale para todo ano, porque as datas não mudam.",
+      "chamada": "Para montar esse calendário na sua loja, comenta **13**."
     }
   ]
 }
