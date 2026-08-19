@@ -89,9 +89,81 @@ button{font-family:inherit}
 .modal h2{font-size:17px;font-weight:600;margin-bottom:4px}
 .modal p.dica{color:var(--meio);font-size:12.5px;margin-bottom:20px}
 
-/* ---------- grade do estúdio ---------- */
-.grade{display:grid;grid-template-columns:262px minmax(0,1fr) 336px;
-  height:calc(100vh - 57px);min-height:600px}
+/* ---------- grade do estúdio ----------
+   Quatro colunas: trilho das etapas, painel do contexto, palco e editor.
+   O trilho encolhe para 58px e vira só ícone. */
+.grade{display:grid;grid-template-columns:var(--trilho,204px) 262px minmax(0,1fr) var(--editor,336px);
+  height:calc(100vh - 57px);min-height:600px;transition:grid-template-columns .16s ease}
+
+/* ---------- trilho das etapas ----------
+   As etapas não são ferramentas separadas: são estágios da mesma peça. A capa
+   escolhida vira o slide 1, a legenda sai do que já está escrito, e a aprovação
+   só abre quando há o que aprovar. Por isso o trilho mostra estado, não só nome. */
+.trilho{background:#12151B;border-right:1px solid var(--linha);display:flex;
+  flex-direction:column;padding:14px 10px;gap:4px;overflow:hidden}
+.encolher{align-self:flex-end;background:none;border:1px solid var(--linha);color:var(--meio);
+  width:26px;height:26px;border-radius:7px;cursor:pointer;font-size:13px;line-height:1;
+  margin-bottom:8px;flex:none}
+.encolher:hover{border-color:var(--linha-forte);color:var(--texto)}
+.etapas{display:flex;flex-direction:column;gap:3px}
+.etapa{display:flex;align-items:center;gap:11px;background:none;border:1px solid transparent;
+  border-radius:9px;padding:9px 10px;cursor:pointer;text-align:left;color:var(--meio);
+  font-family:var(--ui);width:100%}
+.etapa:hover:not(:disabled){background:var(--campo)}
+.etapa[aria-current="true"]{background:var(--campo);border-color:var(--pt-accent,var(--expansion));
+  color:var(--texto)}
+.etapa:disabled{opacity:.42;cursor:not-allowed}
+.etapa:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
+.et-ico{width:26px;height:26px;border-radius:7px;background:var(--campo);display:flex;
+  align-items:center;justify-content:center;font-size:13px;flex:none;
+  border:1px solid var(--linha)}
+.etapa[aria-current="true"] .et-ico{background:var(--pt-accent,var(--expansion));
+  border-color:transparent}
+.et-txt{display:flex;flex-direction:column;min-width:0}
+.et-nome{font-size:12.5px;font-weight:550;line-height:1.3;white-space:nowrap}
+.et-est{font-family:var(--mono);font-size:9px;color:var(--fraco);letter-spacing:.05em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.etapa[aria-current="true"] .et-est{color:var(--pt-accent,var(--expansion))}
+.grade.encolhido{--trilho:58px}
+.grade.sem-editor{--editor:0px}
+.grade.encolhido .et-txt,.grade.encolhido .encolher{display:none}
+.grade.encolhido .etapa{justify-content:center;padding:9px 0}
+
+/* painéis contextuais e telas de etapa */
+.opcoes{display:flex;gap:5px}
+.op{flex:1;background:var(--campo);border:1px solid var(--linha);color:var(--meio);
+  font-family:var(--ui);font-size:12px;padding:7px 0;border-radius:7px;cursor:pointer}
+.op[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion));color:var(--texto)}
+.lista-pad{display:flex;flex-direction:column;gap:5px;margin-bottom:8px}
+.pad{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;color:var(--meio);
+  padding:5px 8px;border-radius:6px;background:var(--campo)}
+.pad b{color:var(--texto);font-weight:550}
+.passos{margin:0 0 8px 15px;color:var(--meio);font-size:12px;line-height:1.65}
+.checa{display:flex;flex-direction:column;gap:7px}
+.item-ck{display:flex;gap:9px;align-items:flex-start;font-size:12px;line-height:1.45;
+  color:var(--meio)}
+.item-ck b{color:var(--texto);font-weight:550}
+.mk{flex:none;width:15px;height:15px;border-radius:4px;display:flex;align-items:center;
+  justify-content:center;font-size:9px;margin-top:1px}
+.mk.ok{background:var(--ok);color:#0E1015}
+.mk.no{background:var(--campo);border:1px solid var(--linha-forte);color:var(--fraco)}
+
+.tela-et{flex:1;min-height:0;overflow-y:auto}
+.cartao-et{background:var(--painel);border:1px solid var(--linha);border-radius:12px;
+  padding:20px;margin-bottom:13px}
+.cartao-et h3{font-size:14px;font-weight:600;margin-bottom:7px}
+.cartao-et p{font-size:13px;color:var(--meio);line-height:1.6}
+.legenda-vista{white-space:pre-wrap;font-size:13.5px;line-height:1.65;color:#C6CDD9}
+.trava{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:11px;text-align:center;padding:60px 24px;color:var(--meio)}
+.trava b{color:var(--texto);font-size:14.5px;font-weight:600}
+.trava span{font-size:13px;line-height:1.6;max-width:44ch}
+.usar{position:absolute;left:7px;right:7px;bottom:7px;z-index:30;background:var(--pt-accent,var(--expansion));
+  color:#fff;border:none;border-radius:6px;font-family:var(--ui);font-size:10.5px;font-weight:600;
+  padding:6px 0;cursor:pointer;opacity:0;transition:opacity .12s}
+.capa-cartao:hover .usar,.capa-cartao:focus-within .usar{opacity:1}
+.capa-cartao.escolhida{border-color:var(--ok)}
+.capa-cartao.escolhida .usar{opacity:1;background:var(--ok);color:#0E1015}
 .col{overflow-y:auto;padding:20px}
 .col-esq{border-right:1px solid var(--linha);background:var(--painel)}
 .col-dir{border-left:1px solid var(--linha);background:var(--painel)}
@@ -240,6 +312,9 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
 
 @media(max-width:1180px){
   .grade{grid-template-columns:1fr;height:auto}
+  .trilho{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--linha)}
+  .etapas{flex-direction:row}
+  .encolher{display:none}
   .col{max-height:none;border:0;border-bottom:1px solid var(--linha)}
   .palco{min-height:500px}
 }
@@ -262,32 +337,114 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
 
 <!-- ============ TELA 2 — estúdio do cliente ============ -->
 <div class="grade oculto" id="tela-estudio">
-  <aside class="col col-esq">
-    <div class="bloco">
-      <span class="rotulo">Marca</span>
-      <div class="logo-caixa" id="logo-caixa"></div>
-      <div class="cores" id="cores" style="margin-top:9px"></div>
-      <span class="mini" id="fontes-info"></span>
-    </div>
-    <div class="bloco">
-      <span class="rotulo">Assinatura</span>
-      <input class="campo" id="handle" aria-label="@ do Instagram">
-      <div class="dupla" style="margin-top:8px">
-        <input class="campo" id="nome" aria-label="Nome da marca">
-        <input class="campo" id="direito" aria-label="Rodapé">
+
+  <!-- trilho das etapas — a peça é uma só e atravessa todas -->
+  <nav class="trilho" id="trilho" aria-label="Etapas da peça">
+    <button class="encolher" id="btn-encolher" type="button" aria-label="Encolher trilho">‹</button>
+    <div class="etapas" id="etapas"></div>
+  </nav>
+
+  <aside class="col col-esq" id="painel">
+    <!-- MARCA -->
+    <div class="painel-et" data-et="marca">
+      <div class="bloco">
+        <span class="rotulo">Marca</span>
+        <div class="logo-caixa" id="logo-caixa"></div>
+        <div class="cores" id="cores" style="margin-top:9px"></div>
+        <span class="mini" id="fontes-info"></span>
+      </div>
+      <div class="bloco">
+        <span class="rotulo">Assinatura</span>
+        <input class="campo" id="handle" aria-label="@ do Instagram">
+        <div class="dupla" style="margin-top:8px">
+          <input class="campo" id="nome" aria-label="Nome da marca">
+          <input class="campo" id="direito" aria-label="Rodapé">
+        </div>
+      </div>
+      <div class="bloco">
+        <span class="rotulo">CTA fixo</span>
+        <input class="campo" id="cta-palavra" aria-label="Palavra do CTA">
+        <span class="mini">A palavra que a pessoa comenta. Não muda de peça pra peça —
+          é por ela que o disparo automático reconhece o lead.</span>
       </div>
     </div>
-    <div class="bloco">
-      <span class="rotulo">Template</span>
-      <div class="tpls" id="tpls"></div>
+
+    <!-- CAPAS -->
+    <div class="painel-et oculto" data-et="capas">
+      <div class="bloco">
+        <span class="rotulo">Dose do scrim</span>
+        <div class="opcoes" id="doses">
+          <button class="op" type="button" data-v="leve">leve</button>
+          <button class="op" type="button" data-v="medio" aria-pressed="true">médio</button>
+          <button class="op" type="button" data-v="forte">forte</button>
+        </div>
+        <span class="mini">A metade de cima tem que continuar sendo imagem. Escurecer o
+          slide inteiro resolve a legibilidade e mata a foto — que é o que faz alguém parar.</span>
+      </div>
+      <div class="bloco">
+        <span class="rotulo">Padrões de hook</span>
+        <div class="lista-pad" id="padroes"></div>
+        <span class="mini">Cobrir cinco padrões diferentes na mesma rodada. Dez headlines
+          do mesmo padrão são uma headline testada dez vezes.</span>
+      </div>
+    </div>
+
+    <!-- CARROSSEL -->
+    <div class="painel-et oculto" data-et="carrossel">
+      <div class="bloco">
+        <span class="rotulo">Template</span>
+        <div class="tpls" id="tpls"></div>
+      </div>
+    </div>
+
+    <!-- LEGENDA -->
+    <div class="painel-et oculto" data-et="legenda">
+      <div class="bloco">
+        <span class="rotulo">Estrutura</span>
+        <ol class="passos">
+          <li>Gancho, até 125 caracteres — é o que aparece antes do "mais"</li>
+          <li>Contexto e análise</li>
+          <li>Fontes, quando houver número</li>
+          <li>CTA com a palavra fixa</li>
+          <li>5 a 12 hashtags</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- APROVAÇÃO -->
+    <div class="painel-et oculto" data-et="aprovacao">
+      <div class="bloco">
+        <span class="rotulo">A ordem</span>
+        <ol class="passos">
+          <li>peça gerada</li>
+          <li>revisão interna</li>
+          <li>link pro cliente</li>
+          <li>aceite</li>
+          <li>publica</li>
+          <li>grava o <code>media_id</code></li>
+        </ol>
+        <span class="mini">O aceite do cliente é o que dispara a publicação — nunca a
+          geração. Foi a ausência de rastro nessa etapa que quase custou a Prime em 16/07.</span>
+      </div>
+    </div>
+
+    <!-- DESEMPENHO -->
+    <div class="painel-et oculto" data-et="desempenho">
+      <div class="bloco">
+        <span class="rotulo">O que se mede</span>
+        <div class="lista-pad">
+          <div class="pad"><b>Salvamentos</b><span>o que mais pesa</span></div>
+          <div class="pad"><b>Compartilhamentos</b><span>alcance ganho</span></div>
+          <div class="pad"><b>Retenção até o 7</b><span>onde está o prático</span></div>
+          <div class="pad"><b>Alcance</b><span>contexto, não nota</span></div>
+        </div>
+        <span class="mini">Salvamento antes de curtida. Peça de calendário que funciona é
+          a que a pessoa guarda pra voltar depois — e é salvamento que a recalibração lê.</span>
+      </div>
     </div>
   </aside>
 
   <main class="col-meio">
-    <div class="modos" id="modos">
-      <button class="modo" type="button" data-m="carrossel" aria-pressed="true">Carrossel</button>
-      <button class="modo" type="button" data-m="capas" aria-pressed="false">Capas virais</button>
-    </div>
     <div class="pecas" id="pecas"></div>
     <div class="canvas-topo">
       <div class="canvas-info"><b id="info-tpl">—</b> · <span id="info-n">—</span> · 1080 × 1350</div>
@@ -299,9 +456,12 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
     <div class="palco"><div class="moldura" id="moldura"></div></div>
     <div class="tiras" id="tiras"></div>
     <div class="grade-capas oculto" id="grade-capas"></div>
+    <div class="tela-et oculto" id="c-legenda"></div>
+    <div class="tela-et oculto" id="c-aprovacao"></div>
+    <div class="tela-et oculto" id="c-desempenho"></div>
   </main>
 
-  <aside class="col col-dir">
+  <aside class="col col-dir" id="coluna-dir">
     <div class="bloco">
       <span class="rotulo">Conteúdo <span id="nome-peca" style="text-transform:none;letter-spacing:0"></span></span>
       <textarea class="editor" id="editor" spellcheck="false" aria-label="Blocos de texto"></textarea>
@@ -317,6 +477,10 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
         Uma headline por linha. Marque com <b>*asterisco*</b> o trecho que carrega a virada —
         é ele que a pessoa lê primeiro. Cobrir <b>cinco padrões diferentes</b> na mesma rodada
         é o que transforma a escolha em informação.
+      </div>
+      <div class="aviso oculto" id="aviso-legenda">
+        O gancho tem até <b>125 caracteres</b> — é o que aparece antes do "mais".
+        Termina com a palavra do CTA e 5 a 12 hashtags.
       </div>
       <div class="contagem" id="contagem"></div>
     </div>
@@ -418,7 +582,20 @@ texto 16 - Entre as duas datas: reserva e lista de espera, para ela escolher ant
 texto 17 - A campanha certa é a que chega antes do dinheiro
 texto 18 - Para montar o calendário das duas datas na sua loja, comenta 13.`;
 
-const nova = (nome,tpl,txt) => ({ id:Math.random().toString(36).slice(2,8), nome, tpl, txt:txt||'' });
+const nova = (nome,tpl,txt) => ({ id:Math.random().toString(36).slice(2,8), nome, tpl,
+  txt:txt||'', capas:[], capa:null, legenda:'', scrim:'medio', status:'rascunho' });
+
+const LEGENDA_EXEMPLO = `Duas datas. Não uma.
+
+O 13º da sua cliente não cai de uma vez: a primeira parcela sai até 30 de novembro e a segunda até 20 de dezembro. Está na Lei 4.090, e é assim todo ano.
+
+Metade do dinheiro já está na conta dela em novembro — e é aí que ela compra pra ela, a peça de valor mais alto que ficou adiando o ano inteiro. Em dezembro muda: o que entra já chega comprometido com presente.
+
+Quem monta uma campanha só, em dezembro, chega atrasado em metade do dinheiro. E é justamente a metade que compra sem desconto.
+
+Para montar o calendário das duas datas na sua loja, comenta DIAGNÓSTICO aqui embaixo.
+
+#lojaderoupas #modafeminina #varejodemoda #13osalario #marketingparalojas`;
 
 /* Moldura do logo. 'auto' deixa transparente; 'claro' e 'escuro' põem um fundo
    atrás, pra logo monocromático não sumir sobre a cor da marca. */
@@ -427,7 +604,7 @@ const molde = c => c.logoFundo==='claro' ? '#FFFFFF'
                : 'transparent';
 
 const CLIENTES = [
-  { id:'expansion', nome:'Expansion', handle:'@assessoriaexpansion', marca:'EXPANSION',
+  { id:'expansion', nome:'Expansion', handle:'@assessoriaexpansion', marca:'EXPANSION', cta:'DIAGNÓSTICO',
     direito:'2026 ®', nicho:'Marketing para lojas de roupas femininas', escuro:'#000000',
     accent:'#FF9901', claro:'#F0EEEC', head:'Montserrat', body:'Poppins', logo:null,
     logoFundo:'auto', grad:'linear-gradient(180deg,#fa7e01 0%,#ff6522 50%,#fa7e01 100%)',
@@ -452,7 +629,7 @@ const CLIENTES = [
 
 /* ============ estado ============ */
 let cli = null, peca = null, tpl = TEMPLATES[0], blocos = [], atual = 0;
-let modo = 'carrossel', capas = [], capaVista = 0;
+let etapa = 'carrossel';
 
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
@@ -733,14 +910,24 @@ function abrir(x){
     ${esc(cli.nome)}</b>`;
   $('#btn-voltar').onclick = telaClientes;
   camposMarca(); montarTpls(); montarPecas();
-  $('#editor').value = peca.txt;
-  pintar();
+  $('#cta-palavra').value = cli.cta || '';
+  etapa = null; trocaEtapa('carrossel');
 }
 
-/* ── modo capas ───────────────────────────────────────────────────────────
-   A capa é o único slide que decide se o carrossel vai ser lido. Gerar uma só
-   é apostar; gerar dez e escolher é trabalhar. Aqui elas saem lado a lado, na
-   mesma imagem e nos mesmos tokens: a comparação é só de texto. */
+/* ── as etapas ────────────────────────────────────────────────────────────
+   Não são ferramentas separadas que se comunicam: são estágios da mesma peça.
+   A capa escolhida vira o slide 1, a legenda sai do que já está escrito, e a
+   aprovação só abre quando existe o que aprovar. Foi por isso que preferi
+   estágio a aba — aba sugere paralelo, e aqui a ordem importa. */
+const ETAPAS = [
+  { id:'marca',      ico:'◆', nome:'Marca' },
+  { id:'capas',      ico:'✦', nome:'Capas' },
+  { id:'carrossel',  ico:'▤', nome:'Carrossel' },
+  { id:'legenda',    ico:'¶', nome:'Legenda' },
+  { id:'aprovacao',  ico:'✓', nome:'Aprovação' },
+  { id:'desempenho', ico:'↗', nome:'Desempenho' },
+];
+
 const CAPAS_EXEMPLO = `A *morte* da campanha de dezembro
 O 13º não cai de uma vez: *cai em duas*
 Metade do dinheiro chega em novembro. *A sua vitrine, em dezembro.*
@@ -748,18 +935,108 @@ Investigando as *duas datas* que decidem o fim de ano da sua loja
 Quantas vendas a sua loja perdeu *esperando dezembro*?
 A Lei 4.090 marcou o seu calendário *antes de você*`;
 
-function lerCapas(txt){
-  return txt.split('\n').map(l => l.trim()).filter(Boolean);
+const PADROES = [
+  ['Morte / Fim','A morte de X'],
+  ['Geracional','Por que [geração] está…?'],
+  ['Investigando','Investigando [fenômeno]'],
+  ['Contraste','duas metades que se negam'],
+  ['Dois-pontos','[Afirmação]: [reviravolta]'],
+  ['Provocação','pergunta que ela já se fez'],
+];
+
+const lerCapas = txt => txt.split('\n').map(l => l.trim()).filter(Boolean);
+
+/* O editor é um só e serve três etapas. Antes de trocar, o que estava nele
+   volta pro campo certo da peça — senão o texto do carrossel some quando
+   alguém passa pelas capas. */
+function guardaEditor(){
+  if (!peca) return;
+  const v = $('#editor').value;
+  if (etapa === 'capas')     peca.capas = lerCapas(v);
+  else if (etapa === 'legenda') peca.legenda = v;
+  else if (etapa === 'carrossel') peca.txt = v;
+}
+const semMarca = s => (s||'').replace(/\*/g,'');
+
+/* Estado de cada etapa. É o que o trilho mostra, e é o que decide o que está
+   travado — travar sem dizer por quê é o que faz gente clicar duas vezes. */
+function estado(id){
+  const blocosOk = blocos.filter(Boolean).length;
+  if (id === 'marca')      return { txt: cli ? cli.nicho : '—' };
+  if (id === 'capas')      return { txt: peca?.capa ? 'escolhida' : (peca?.capas?.length ? peca.capas.length+' geradas' : '—') };
+  if (id === 'carrossel')  return { txt: blocosOk ? blocosOk+'/18 blocos' : '—' };
+  if (id === 'legenda')    return { txt: peca?.legenda ? 'pronta' : '—',
+                                    trava: blocosOk < 2 ? 'Escreva o carrossel primeiro — a legenda sai dele.' : null };
+  if (id === 'aprovacao')  return { txt: peca?.status || 'rascunho',
+                                    trava: !peca?.legenda ? 'A legenda vai junto no link do cliente.' : null };
+  return { txt: peca?.status === 'publicado' ? 'coletando' : '—',
+           trava: peca?.status !== 'publicado' ? 'Só existe depois que a peça for publicada.' : null };
 }
 
+function montarPadroes(){
+  $('#padroes').innerHTML = PADROES
+    .map(([nome, forma]) => `<div class="pad"><b>${nome}</b><span>${esc(forma)}</span></div>`)
+    .join('');
+}
+
+function montarTrilho(){
+  const c = $('#etapas'); c.innerHTML = '';
+  ETAPAS.forEach(e => {
+    const st = estado(e.id);
+    const b = document.createElement('button');
+    b.className = 'etapa'; b.type = 'button';
+    b.setAttribute('aria-current', String(e.id === etapa));
+    if (st.trava){ b.disabled = true; b.title = st.trava; }
+    b.innerHTML = `<span class="et-ico">${e.ico}</span>
+      <span class="et-txt"><span class="et-nome">${e.nome}</span>
+      <span class="et-est">${esc(st.trava ? 'travado' : st.txt)}</span></span>`;
+    b.onclick = () => trocaEtapa(e.id);
+    c.appendChild(b);
+  });
+}
+
+function trocaEtapa(id){
+  const st = estado(id);
+  if (st.trava) return;
+  guardaEditor();
+  etapa = id;
+  $$('.painel-et').forEach(p => p.classList.toggle('oculto', p.dataset.et !== id));
+  const noCarrossel = id === 'carrossel', nasCapas = id === 'capas';
+  document.querySelector('.palco').classList.toggle('oculto', !noCarrossel);
+  $('#tiras').classList.toggle('oculto', !noCarrossel);
+  $('#pecas').classList.toggle('oculto', !(noCarrossel || nasCapas));
+  $('.canvas-topo').classList.toggle('oculto', !(noCarrossel || nasCapas));
+  $('#grade-capas').classList.toggle('oculto', !nasCapas);
+  ['legenda','aprovacao','desempenho'].forEach(k =>
+    $('#c-'+k).classList.toggle('oculto', id !== k));
+
+  const editavel = ['carrossel','capas','legenda'].includes(id);
+  $('#coluna-dir').classList.toggle('oculto', !editavel);
+  $('#tela-estudio').classList.toggle('sem-editor', !editavel);
+  $('#aviso-carrossel').classList.toggle('oculto', id !== 'carrossel');
+  $('#aviso-capas').classList.toggle('oculto', id !== 'capas');
+  $('#aviso-legenda').classList.toggle('oculto', id !== 'legenda');
+  if (id === 'capas')     $('#editor').value = (peca?.capas || []).join('\n');
+  if (id === 'carrossel') $('#editor').value = peca ? peca.txt : '';
+  if (id === 'legenda')   $('#editor').value = peca?.legenda || '';
+
+  if (nasCapas){ montarPadroes(); pintarCapas(); }
+  else if (noCarrossel) pintar();
+  else if (id === 'legenda') pintarLegenda();
+  else if (id === 'aprovacao') pintarAprovacao();
+  else if (id === 'desempenho') pintarDesempenho();
+  montarTrilho();
+  $('#info-tpl').textContent = nasCapas ? 'Capas virais' : tpl.nome;
+  $('#info-n').textContent = nasCapas ? `${(peca?.capas||[]).length} capas`
+                                      : `slide ${atual+1} de ${nSlides()}`;
+}
+
+/* ── capas ─────────────────────────────────────────────────────────────── */
 function capaHtml(texto){
-  const rico = esc(texto).replace(/\*([^*]+)\*/g,
-    `<span style="color:${cli.accent}">$1</span>`);
+  const rico = esc(texto).replace(/\*([^*]+)\*/g, `<span style="color:${cli.accent}">$1</span>`);
   return `<div class="slide" style="background:${cli.escuro}">
     <div style="position:absolute;inset:0;background:${foto(1)}"></div>
-    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,
-      rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 18%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.80) 66%,
-      rgba(0,0,0,.95) 84%,#000 100%)"></div>
+    <div style="position:absolute;inset:0;background:${SCRIM[peca?.scrim||'medio']}"></div>
     ${barra('rgba(255,255,255,.30)')}
     <div style="position:absolute;top:748.3px;left:0;right:0;z-index:10;display:flex;
       align-items:center;justify-content:center;gap:11px">${chip()}</div>
@@ -768,27 +1045,30 @@ function capaHtml(texto){
       letter-spacing:-.087em;color:#fff;text-align:center">${rico}</div></div>`;
 }
 
+const SCRIM = {
+  leve:`linear-gradient(to bottom,rgba(0,0,0,.10) 0%,rgba(0,0,0,.02) 24%,rgba(0,0,0,.26) 50%,rgba(0,0,0,.64) 68%,rgba(0,0,0,.88) 86%,rgba(0,0,0,.96) 100%)`,
+  medio:`linear-gradient(to bottom,rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 18%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.80) 66%,rgba(0,0,0,.95) 84%,#000 100%)`,
+  forte:`linear-gradient(to bottom,rgba(0,0,0,.30) 0%,rgba(0,0,0,.16) 16%,rgba(0,0,0,.58) 42%,rgba(0,0,0,.90) 62%,#000 80%,#000 100%)`,
+};
+
 function pintarCapas(){
   const g = $('#grade-capas'); g.innerHTML = '';
-  if (!capas.length){
+  const lista = peca?.capas || [];
+  if (!lista.length){
     g.innerHTML = `<div class="mini" style="grid-column:1/-1;padding:20px 2px">
       Uma headline por linha, no editor à direita.</div>`;
     return;
   }
-  capas.forEach((h, i) => {
-    const b = document.createElement('button');
-    b.className = 'capa-cartao'; b.type = 'button';
-    // Faixa de trabalho medida: 45 a 70 caracteres. Acima de 85 a headline
-    // encolhe demais para o feed e tem de ser reescrita.
-    const nu = h.replace(/\*/g,'').length;
+  lista.forEach((h, i) => {
+    const b = document.createElement('div');
+    b.className = 'capa-cartao' + (peca.capa === h ? ' escolhida' : '');
+    // Faixa medida: 45 a 70 caracteres. Acima de 85 encolhe demais pro feed.
+    const nu = semMarca(h).length;
     const cor = nu > 85 ? '#E2574C' : nu > 70 ? '#E8A33D' : 'var(--ok)';
     b.innerHTML = `<span class="selo-n">${String(i+1).padStart(2,'0')}</span>
-      <span class="car" style="color:${cor}">${nu}</span>${capaHtml(h)}`;
-    b.onclick = () => { capaVista = i; modo = 'carrossel'; /* ver grande */
-      $('#moldura').innerHTML = capaHtml(h); fitCapa($('#moldura'));
-      const d = escala($('#moldura').firstElementChild, 360);
-      $('#moldura').style.width = d.w+'px'; $('#moldura').style.height = d.h+'px';
-      modo = 'capas'; };
+      <span class="car" style="color:${cor}">${nu}</span>${capaHtml(h)}
+      <button class="usar" type="button">${peca.capa === h ? '✓ é esta' : 'Usar esta capa'}</button>`;
+    b.querySelector('.usar').onclick = () => escolheCapa(h);
     g.appendChild(b);
     fitCapa(b);
     const s = b.querySelector('.slide'); escala(s, 168); s.style.pointerEvents = 'none';
@@ -796,20 +1076,79 @@ function pintarCapas(){
   });
 }
 
-function trocaModo(m){
-  modo = m;
-  $$('#modos .modo').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.m === m)));
-  const capa = m === 'capas';
-  $('#grade-capas').classList.toggle('oculto', !capa);
-  document.querySelector('.palco').classList.toggle('oculto', capa);
-  $('#tiras').classList.toggle('oculto', capa);
-  $('#pecas').classList.toggle('oculto', capa);
-  $('#aviso-carrossel').classList.toggle('oculto', capa);
-  $('#aviso-capas').classList.toggle('oculto', !capa);
-  $('#editor').value = capa ? capas.join('\n') : (peca ? peca.txt : '');
-  $('#info-tpl').textContent = capa ? 'Capas virais' : tpl.nome;
-  $('#info-n').textContent = capa ? `${capas.length} capas` : `slide ${atual+1} de ${nSlides()}`;
-  if (capa) pintarCapas(); else pintar();
+/* A conexão entre as duas etapas: a capa escolhida **é** o slide 1. Ela entra
+   no bloco `texto 1` e o carrossel passa a começar por ela. Sem isso, escolher
+   a capa seria só marcar um favorito. */
+function escolheCapa(h){
+  peca.capa = h;
+  const linhas = (peca.txt || '').split('\n');
+  const nova = 'texto 1 - ' + semMarca(h);
+  if (linhas[0] && /^texto\s*1\s*-/i.test(linhas[0])) linhas[0] = nova;
+  else linhas.unshift(nova);
+  peca.txt = linhas.join('\n');
+  blocos = parse(peca.txt);
+  trocaEtapa('carrossel');
+  montarPecas();
+}
+
+/* ── legenda ───────────────────────────────────────────────────────────── */
+function pintarLegenda(){
+  const txt = peca?.legenda || '';
+  const gancho = txt.split('\n')[0] || '';
+  const palavra = (cli.cta || 'DIAGNÓSTICO').toUpperCase();
+  const temCta = txt.toUpperCase().includes(palavra);
+  const tags = (txt.match(/#[\wÀ-ÿ]+/g) || []).length;
+  $('#c-legenda').innerHTML = `
+    <div class="cartao-et"><h3>Como vai aparecer no feed</h3>
+      <p class="legenda-vista">${esc(txt) || '<span style="color:var(--fraco)">Escreva a legenda no editor à direita. O que já está no carrossel é o material — a legenda não repete, ela estende.</span>'}</p></div>
+    <div class="cartao-et"><h3>Conferência</h3>
+      <div class="checa">
+        ${ck(gancho.length > 0 && gancho.length <= 125, `Gancho com ${gancho.length} caracteres`, 'até 125, que é o que aparece antes do “mais”')}
+        ${ck(temCta, `CTA com a palavra <b>${esc(palavra)}</b>`, 'é por ela que o disparo reconhece o lead')}
+        ${ck(tags >= 5 && tags <= 12, `${tags} hashtags`, 'entre 5 e 12')}
+      </div></div>`;
+}
+const ck = (ok, titulo, nota) =>
+  `<div class="item-ck"><span class="mk ${ok?'ok':'no'}">${ok?'✓':'·'}</span>
+   <span><b>${titulo}</b><br>${nota}</span></div>`;
+
+/* ── aprovação ─────────────────────────────────────────────────────────── */
+function pintarAprovacao(){
+  const blocosOk = blocos.filter(Boolean).length;
+  const palavra = (cli.cta || 'DIAGNÓSTICO').toUpperCase();
+  const pronto = peca?.capa && blocosOk >= 18 && peca?.legenda;
+  const semFoto = !peca?.capa;
+  $('#c-aprovacao').innerHTML = `
+    <div class="cartao-et"><h3>Antes de mandar pro cliente</h3>
+      <div class="checa">
+        ${ck(!!peca?.capa, 'Capa escolhida', semFoto ? 'volte em Capas e clique em “usar esta capa”' : esc(semMarca(peca.capa)))}
+        ${ck(blocosOk >= 18, `${blocosOk} de 18 blocos`, 'dois por slide, nove slides')}
+        ${ck(!!peca?.legenda, 'Legenda escrita', `com a palavra ${esc(palavra)}`)}
+        ${ck(false, 'Vagas de imagem preenchidas', 'peça não vai pro cliente com vaga aberta')}
+      </div></div>
+    <div class="cartao-et"><h3>O link do cliente</h3>
+      <p>Moldura de Instagram com os slides deslizáveis, a legenda e dois botões.
+      O “pedir alteração” abre campo de comentário, e <b>o comentário volta como insumo
+      da próxima rodada</b>.</p>
+      <div class="acoes"><button class="btn btn-forte" ${pronto?'':'disabled'} id="b-enviar-cli">
+        ${pronto ? 'Gerar link de aprovação' : 'Faltam itens acima'}</button></div>
+      <p style="margin-top:11px;font-size:12px;color:var(--fraco)">
+      O aceite do cliente é o que dispara a publicação. Nunca a geração.</p></div>`;
+  const b = $('#b-enviar-cli');
+  if (b && pronto) b.onclick = () => {
+    peca.status = 'revisao';
+    b.textContent = 'Link gerado — /a/' + Math.random().toString(36).slice(2,12);
+    b.disabled = true; montarTrilho();
+  };
+}
+
+/* ── desempenho ────────────────────────────────────────────────────────── */
+function pintarDesempenho(){
+  $('#c-desempenho').innerHTML = `
+    <div class="trava"><b>Ainda não há o que medir</b>
+      <span>O desempenho aparece aqui depois que a peça for publicada e o
+      <code>media_id</code> voltar. É ele que liga a peça ao número — e sem essa ligação
+      a recalibração por nicho não existe.</span></div>`;
 }
 
 function pintar(){
@@ -942,10 +1281,10 @@ function montarPecas(){
       <span><span class="peca-nome">${esc(p.nome)}</span><br>
       <span class="peca-tpl">${acha(p.tpl).nome.toUpperCase()}</span></span>`;
     b.onclick = () => {
-      peca.txt = $('#editor').value;
+      guardaEditor();
+      const alvo = etapa; etapa = null;
       peca = p; tpl = acha(p.tpl); blocos = parse(p.txt); atual = 0;
-      $('#editor').value = p.txt;
-      pintar(); montarTpls(); montarPecas();
+      montarTpls(); montarPecas(); trocaEtapa(alvo);
     };
     c.appendChild(b);
     const g = tpl, gb = blocos;
@@ -957,19 +1296,26 @@ function montarPecas(){
   const n = document.createElement('button');
   n.className='peca peca-nova'; n.type='button'; n.textContent='+ Novo carrossel';
   n.onclick = () => {
-    peca.txt = $('#editor').value;
+    guardaEditor();
+    etapa = null;
     const p = nova('Sem título', tpl.id, '');
     cli.pecas.push(p); peca = p; blocos = []; atual = 0;
-    $('#editor').value = '';
-    pintar(); montarPecas();
+    montarPecas(); trocaEtapa('capas');
   };
   c.appendChild(n);
 }
 
 /* ============ eventos ============ */
 $('#btn-exemplo').onclick = () => {
-  if (modo === 'capas'){ $('#editor').value = CAPAS_EXEMPLO; capas = lerCapas(CAPAS_EXEMPLO);
-    pintarCapas(); $('#info-n').textContent = `${capas.length} capas`; return; }
+  if (etapa === 'capas'){
+    $('#editor').value = CAPAS_EXEMPLO; peca.capas = lerCapas(CAPAS_EXEMPLO);
+    pintarCapas(); montarTrilho();
+    $('#info-n').textContent = `${peca.capas.length} capas`; return;
+  }
+  if (etapa === 'legenda'){
+    peca.legenda = LEGENDA_EXEMPLO; $('#editor').value = LEGENDA_EXEMPLO;
+    pintarLegenda(); montarTrilho(); return;
+  }
   $('#editor').value = EXEMPLO; peca.txt = EXEMPLO; blocos = parse(EXEMPLO); pintar(); montarPecas();
 };
 $('#btn-gerar').onclick = () => {
@@ -978,12 +1324,29 @@ $('#btn-gerar').onclick = () => {
 };
 $('#btn-prev').onclick = () => { atual=(atual-1+nSlides())%nSlides(); pintar(); };
 $('#btn-next').onclick = () => { atual=(atual+1)%nSlides(); pintar(); };
-$$('#modos .modo').forEach(b => b.onclick = () => trocaModo(b.dataset.m));
+$$('#doses .op').forEach(b => b.onclick = () => {
+  $$('#doses .op').forEach(o => o.setAttribute('aria-pressed', String(o === b)));
+  if (peca){ peca.scrim = b.dataset.v; pintarCapas(); }
+});
+
+$('#cta-palavra').oninput = e => {
+  cli.cta = e.target.value.toUpperCase();
+  if (etapa === 'legenda') pintarLegenda();
+};
+
+$('#btn-encolher').onclick = () => {
+  const g = $('#tela-estudio'); g.classList.toggle('encolhido');
+  $('#btn-encolher').textContent = g.classList.contains('encolhido') ? '›' : '‹';
+};
 
 $('#editor').oninput = () => {
-  if (modo === 'capas'){ capas = lerCapas($('#editor').value); pintarCapas();
-    $('#info-n').textContent = `${capas.length} capas`; return; }
-  blocos = parse($('#editor').value); if(peca) peca.txt = $('#editor').value; pintar();
+  const v = $('#editor').value;
+  if (etapa === 'capas'){
+    peca.capas = lerCapas(v); pintarCapas(); montarTrilho();
+    $('#info-n').textContent = `${peca.capas.length} capas`; return;
+  }
+  if (etapa === 'legenda'){ peca.legenda = v; pintarLegenda(); montarTrilho(); return; }
+  blocos = parse(v); if(peca) peca.txt = v; pintar(); montarTrilho();
 };
 [['handle','handle'],['nome','marca'],['direito','direito']].forEach(([campo,chave]) => {
   $('#'+campo).oninput = e => { cli[chave]=e.target.value; pintar(); };

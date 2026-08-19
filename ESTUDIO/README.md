@@ -56,3 +56,26 @@ skill. É protótipo de interface, não o produto. O que falta está tabelado no
 arquitetura.
 
 As fotos são gradientes derivados das cores do cliente, no lugar de imagem real.
+
+## O trilho de etapas
+
+A tela do cliente tem um trilho retrátil à esquerda com seis etapas:
+
+```
+Marca · Capas · Carrossel · Legenda · Aprovação · Desempenho
+```
+
+**Elas não são ferramentas paralelas que se comunicam — são estágios da mesma
+peça.** Foi a escolha de desenho, e ela muda o comportamento em três pontos:
+
+1. **A capa escolhida vira o slide 1.** Clicar em "usar esta capa" escreve a
+   headline no bloco `texto 1` e leva pro Carrossel. Sem isso, escolher a capa
+   seria só marcar um favorito.
+2. **A etapa mostra estado, não só nome.** "6 geradas", "18/18 blocos",
+   "aguardando cliente". É o que responde "onde essa peça está" sem abrir nada.
+3. **Etapa sem pré-requisito fica travada, e diz por quê.** Legenda antes de
+   escrever o carrossel, aprovação antes da legenda, desempenho antes de
+   publicar. Travar sem explicar é o que faz a pessoa clicar duas vezes.
+
+O trilho encolhe para 58px e vira só ícone. E a coluna do editor some nas etapas
+que não escrevem — não faz sentido reservar 336px de espaço morto.
