@@ -1,0 +1,343 @@
+<title>360 comercial — carteira, mercado, segmentação e o que resta de 2026</title>
+<style>
+:root{
+  color-scheme: light;
+  --ground:#FFFFFF; --surface:#F5F3F8; --surface-2:#EDEAF3;
+  --line:#DDD8E6; --line-strong:#C4BCD6;
+  --ink:#191420; --ink-2:#4E465C; --ink-3:#7A7189;
+  --accent:#D6004F; --accent-soft:#FDE7EF;
+  --warn:#A65200; --warn-soft:#FBEEDD;
+  --ok:#0F7A52; --ok-soft:#E3F5EC;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#141019; --surface:#1D1925; --surface-2:#262031;
+    --line:#302939; --line-strong:#453C52;
+    --ink:#F0ECF5; --ink-2:#B0A7BE; --ink-3:#847A93;
+    --accent:#FF3D78; --accent-soft:#3A1122;
+    --warn:#E0922F; --warn-soft:#33240F;
+    --ok:#3DD68C; --ok-soft:#0E2A1E;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#141019; --surface:#1D1925; --surface-2:#262031;
+  --line:#302939; --line-strong:#453C52;
+  --ink:#F0ECF5; --ink-2:#B0A7BE; --ink-3:#847A93;
+  --accent:#FF3D78; --accent-soft:#3A1122;
+  --warn:#E0922F; --warn-soft:#33240F;
+  --ok:#3DD68C; --ok-soft:#0E2A1E;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+}
+:root{
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.num{font-variant-numeric:tabular-nums}
+.mast{border-bottom:1px solid var(--line);padding:46px 0 32px;margin-bottom:42px}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.kicker span:not(:first-child){color:var(--ink-3)}
+h1{font-family:var(--mono);font-weight:600;font-size:clamp(28px,4.8vw,44px);line-height:1.08;letter-spacing:-.03em;margin:0 0 20px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.dek{font-size:clamp(17px,2.1vw,20px);color:var(--ink-2);max-width:64ch;margin:0}
+.dek strong{color:var(--ink);font-weight:600}
+section{margin:0 0 62px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:12px;margin:0 0 18px}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+h2{font-family:var(--mono);font-weight:600;font-size:clamp(21px,3vw,28px);letter-spacing:-.02em;line-height:1.2;margin:0 0 16px;text-wrap:balance}
+h3{font-family:var(--mono);font-weight:600;font-size:16px;margin:0 0 9px}
+p{margin:0 0 16px;max-width:66ch}
+p:last-child{margin-bottom:0}
+.lede{font-size:19px;color:var(--ink-2)}
+strong{font-weight:600}
+code{font-family:var(--mono);font-size:.9em;background:var(--surface-2);padding:1px 5px;border-radius:2px}
+.tw{overflow-x:auto;border-radius:4px}
+table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:13.5px;min-width:660px}
+th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;padding:10px 13px;background:var(--surface);border:1px solid var(--line)}
+td{padding:11px 13px;border:1px solid var(--line);vertical-align:top;line-height:1.45;color:var(--ink-2)}
+td:first-child{color:var(--ink);font-weight:600}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+td.pos{color:var(--ok);font-weight:600}
+td.neg{color:var(--accent);font-weight:600}
+tr.hl td{background:var(--accent-soft)}
+tr.okrow td{background:var(--ok-soft)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.card{background:var(--ground);padding:20px}
+.kl{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);line-height:1.35;margin-bottom:7px}
+.big{font-family:var(--mono);font-size:clamp(24px,3.2vw,31px);font-weight:600;letter-spacing:-.035em;line-height:1.05;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.card p{font-family:var(--sans);font-size:12.5px;line-height:1.5;color:var(--ink-2);margin:6px 0 0}
+.pull{border-left:3px solid var(--accent);padding:4px 0 4px 22px;margin:26px 0;font-size:19px;line-height:1.5;max-width:60ch}
+.pull small{display:block;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.5}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:16px 18px;font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.note b{color:var(--ink)}
+.note.hot{border-color:var(--accent);background:var(--accent-soft)}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.steps{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.step{background:var(--ground);padding:20px;display:grid;grid-template-columns:36px 1fr;gap:16px}
+.step-n{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent);line-height:1.15;font-variant-numeric:tabular-nums}
+.step h3{margin-bottom:7px}
+.step p{font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--ink-2);max-width:72ch;margin-bottom:9px}
+.step p strong{color:var(--ink)}
+.formula{font-family:var(--mono);font-size:12.5px;background:var(--surface);border-left:3px solid var(--accent);padding:12px 15px;margin:12px 0;border-radius:0 3px 3px 0;overflow-x:auto;white-space:pre;line-height:1.6;color:var(--ink)}
+.chartbox{border:1px solid var(--line);border-radius:4px;padding:18px 18px 12px;background:var(--ground)}
+svg.ch{display:block;width:100%;height:auto}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:12px;color:var(--ink-2);padding:0 4px 10px}
+.legend b{display:inline-block;width:16px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+footer{border-top:1px solid var(--line);padding:30px 0 60px;margin-top:20px;font-family:var(--sans);font-size:13px;color:var(--ink-3);line-height:1.6}
+footer p{max-width:70ch}
+footer b{color:var(--ink-2)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker"><span>360 comercial</span><span>Expansion</span><span>19/08/2026 · 133 dias até o fim do ano</span></div>
+  <h1>Vocês têm <em>1 lead qualificado</em><br>e 0,03% do mercado.</h1>
+  <p class="dek">O limite de 2026 não é mercado, nem preço, nem capacidade — <strong>é que o funil comercial não existe como sistema</strong>. A boa notícia: a lista das 6.500 lojas do ICP é extraível da base pública da Receita Federal, de graça, e vira público personalizado no Meta. Isso muda a natureza do problema de tráfego.</p>
+</header>
+
+<section>
+  <div class="note warn"><b>Duas correções de data.</b> Os documentos anteriores foram escritos com a data de 08/08. <b>Hoje é 19/08.</b> Consequência prática: a janela de captação barata antes da propaganda eleitoral <b>fechou em 16/08, há três dias</b> — vocês já estão dentro do período de CPM inflado, que vai até 25/10. Todas as projeções abaixo foram refeitas a partir de hoje.</p></div>
+</section>
+
+<section>
+  <div class="eyebrow">1 · a carteira de verdade</div>
+  <h2>Quantos clientes e quantos leads</h2>
+  <div class="cards">
+    <div class="card"><div class="kl">Clientes ativos</div><div class="big">6</div><p>Carteira girou ~17 nomes em 90 dias. Só 2 são de moda: Ciés e Clau Kids.</p></div>
+    <div class="card"><div class="kl">MRR normalizado</div><div class="big">R$ 15,5 mil</div><p>R$ 17,5 mil com Reino. Contratos de R$ 1.333 a R$ 3.000.</p></div>
+    <div class="card"><div class="kl">Leads no CRM · 07/07</div><div class="big" style="color:var(--accent)">4</div><p>Três desqualificados. <strong>Um qualificado.</strong></p></div>
+    <div class="card"><div class="kl">Canal de aquisição</div><div class="big" style="color:var(--accent)">0</div><p>"Não têm canal que cai lead todo dia" — diagnóstico do próprio 360 de julho.</p></div>
+  </div>
+
+  <div class="pull">
+    Quatro leads no mês inteiro, três desqualificados — e o CRM foi pausado em 06/07 porque não foi pago.
+    <small>Registro literal do grupo de tráfego: <em>"pausa a campanha pq o CRM não está funcionando que não pagou ele"</em>. <strong>Não existe base de leads para reportar.</strong> O que existe é uma carteira de seis contas trazidas por rede de relacionamento, todas abaixo do piso de R$ 5 mil que o próprio conselho fixou em 13/07.</small>
+  </div>
+
+  <div class="tw" style="margin-top:22px">
+    <table>
+      <thead><tr><th>O que o comercial tem hoje</th><th>Estado</th><th>Consequência</th></tr></thead>
+      <tbody>
+        <tr><td>Lista de prospecção</td><td class="neg">não existe</td><td>Prospecção depende de indicação e rede pessoal</td></tr>
+        <tr><td>CRM operante</td><td class="neg">pausado por inadimplência em 06/07</td><td>Lead que entra não é rastreado</td></tr>
+        <tr><td>Público semente para lookalike</td><td class="neg">não existe</td><td>Impossível rodar o público de melhor custo do Meta</td></tr>
+        <tr><td>Piso de preço travado</td><td class="neg">decidido em 13/07, nunca aplicado</td><td>Carteira inteira abaixo de R$ 5 mil</td></tr>
+        <tr class="okrow"><td>Produto validado com prova</td><td class="pos">EX1, R$ 5.000 em um dia na Ciés</td><td>Existe o que vender. Falta a quem</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">2 · participação</div>
+  <h2>Que fatia vocês têm</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Recorte</th><th>Expansion</th><th>Mercado</th><th>Participação</th></tr></thead>
+      <tbody>
+        <tr><td>Lojas de moda atendidas</td><td class="n">2</td><td class="n">6.480 no ICP</td><td class="n neg">0,031%</td></tr>
+        <tr><td>Receita de moda / ano</td><td class="n">~R$ 36 mil</td><td class="n">R$ 360 mi</td><td class="n neg">0,010%</td></tr>
+        <tr><td>Carteira inteira contra o mercado de moda</td><td class="n">R$ 186 mil/ano</td><td class="n">R$ 360 mi</td><td class="n neg">0,052%</td></tr>
+        <tr class="okrow"><td>Meta: teto do Simples</td><td class="n">144 clientes</td><td class="n">6.480</td><td class="n pos">2,2%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:18px"><b>Como ler isso sem desânimo.</b> Três centésimos de um por cento não é fracasso — é ponto de partida. <b>Não há nada a defender, só a conquistar</b>, e o maior concorrente conhecido tem 0,6%. Um mercado onde o líder tem menos de um por cento não tem líder: tem uma vaga aberta.</div>
+</section>
+
+<section>
+  <div class="eyebrow">3 · tráfego</div>
+  <h2>Não segmente por interesse. Suba a lista.</h2>
+  <p class="lede" style="max-width:66ch">Este é o achado operacional mais valioso deste documento. Segmentar por interesse "moda" traz <strong>consumidora</strong>, não lojista. E o público de melhor custo do Meta — lookalike de 1% sobre compradores reais, com CPL de 30% a 50% menor — exige uma lista-semente que vocês não têm.</p>
+  <p><strong>Mas ela é construível, de graça.</strong> A Receita Federal publica mensalmente a base completa de CNPJ: razão social, nome fantasia, CNAE, <strong>porte</strong>, endereço, cidade, situação cadastral. E porte é exatamente o filtro que define o ICP.</p>
+
+  <div class="steps" style="margin-top:22px">
+    <div class="step"><div class="step-n num">1</div><div>
+      <h3>Extrair da base pública</h3>
+      <p>Filtro: <code>CNAE 4781-4/00</code> + <code>porte = EPP</code> + <code>situação = ativa</code>. Resultado: <strong>~15 mil CNPJs</strong> com endereço e cidade. Custo: zero. É dado público.</p>
+      <div class="formula">CNAE 4781-4/00 · EPP · ativa        →  ~15.000 lojas
++ filtro de nome fantasia (fem/inf) →  ~9.000 lojas
++ recorte de porte por faixa        →  6.480 no ICP do EX1</div>
+    </div></div>
+    <div class="step"><div class="step-n num">2</div><div>
+      <h3>Enriquecer com telefone e e-mail</h3>
+      <p>O que a base pública <strong>não</strong> traz: e-mail, telefone, site, nome do decisor e faturamento real. Plataformas que enriquecem: <strong>Speedio, Econodata, Data Stone, CNPJ Base, DeepLeads, LeadCNPJ</strong>. Custo de centenas a poucos milhares de reais pela lista inteira — ordens de grandeza abaixo de descobrir as mesmas 6.500 no leilão do Meta.</p>
+    </div></div>
+    <div class="step"><div class="step-n num">3</div><div>
+      <h3>Subir como público personalizado</h3>
+      <p>Lista de telefone e e-mail vira <strong>Custom Audience</strong> no Meta. A partir dela, <strong>Lookalike de 1%</strong> — que é o público de menor CPL disponível, porque a Meta procura comportamento de compra, não de navegação.</p>
+    </div></div>
+    <div class="step"><div class="step-n num">4</div><div>
+      <h3>Camada geográfica sobre os polos</h3>
+      <p>Goiânia, Brás e Bom Retiro, Fortaleza, Blumenau e Brusque, Caruaru e Toritama, Divinópolis, Cianorte, Nova Friburgo. <strong>Densidade de loja real por quilômetro quadrado</strong> — o inverso de anunciar para o Brasil inteiro.</p>
+    </div></div>
+    <div class="step"><div class="step-n num">5</div><div>
+      <h3>Interesse só como camada de reforço, e nunca "moda"</h3>
+      <p>Se for usar interesse, use os que <strong>só o lojista tem</strong>: softwares de gestão de loja, maquininhas, feiras do setor, fornecedores de atacado, marketplaces de seller. <strong>Quem segue fornecedor é lojista; quem segue moda é consumidora.</strong></p>
+    </div></div>
+    <div class="step"><div class="step-n num">6</div><div>
+      <h3>Qualificar no formulário, sempre</h3>
+      <p>Segmentação por faturamento não existe no gerenciador. A pergunta de faturamento no formulário é o único filtro de porte que funciona de fato — e a skill <code>detalhamento-mql</code>, que já está construída e parada, classifica o CSV do Meta por faixa e devolve o produto certo por lead.</p>
+    </div></div>
+  </div>
+
+  <h3 style="margin-top:38px">O criativo por faixa</h3>
+  <div class="tw" style="margin-top:14px">
+    <table>
+      <thead><tr><th>Produto</th><th>A dor que ela sente</th><th>O criativo que fala com ela</th><th>Prova a usar</th></tr></thead>
+      <tbody>
+        <tr class="okrow"><td>EX1 · R$ 1.800<br><span style="font-weight:400;color:var(--ink-3)">loja R$ 40–100 mil/mês</span></td><td>"Tenho um monte de contato e não faço nada com eles"</td><td><strong>O número parado.</strong> "Você tem 2.140 clientes. 1.630 não compram há mais de um ano. São R$ 8.300 de venda parada no seu celular."</td><td>Ciés: R$ 5.000 em menos de um dia</td></tr>
+        <tr><td>EX2 · R$ 3.500<br><span style="font-weight:400;color:var(--ink-3)">loja R$ 100 mil+/mês</span></td><td>"Perco venda de madrugada e no domingo"</td><td><strong>A comparação com a vendedora.</strong> "Uma vendedora custa R$ 3.260 a R$ 4.410 carregada e trabalha das 9h às 18h. A gente custa o mesmo e trabalha das 19h às 9h, domingo e feriado."</td><td>Custo CLT verificável</td></tr>
+        <tr><td>EX3 · R$ 5.500<br><span style="font-weight:400;color:var(--ink-3)">loja R$ 140 mil+/mês</span></td><td>"Meu Instagram não parece de marca"</td><td><strong>Antes e depois de grade.</strong> Portfólio visual — é o único dos três em que o criativo bonito é o argumento.</td><td>Perfis atendidos</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note hot" style="margin-top:20px"><b>O timing manda esperar — e usar a espera.</b> Vocês estão dentro da janela eleitoral desde 16/08. Faltam <b>67 dias</b> até o segundo turno. Queimar verba em prospecção fria agora é pagar CPM de campanha política para achar lojista. <b>O certo é usar setembro e outubro para construir e enriquecer a lista — que custa quase nada e não depende de leilão nenhum — e ligar a máquina em 26/10, com o público pronto e a Black Friday a 32 dias.</b></div>
+</section>
+
+<section>
+  <div class="eyebrow">4 · o que ainda dá em 2026</div>
+  <h2>133 dias, dos quais 50 servem para vender</h2>
+  <p class="lede" style="max-width:66ch">Janela útil real: <strong>26/10 a 15/12</strong>. Setembro e outubro são de construção de lista; dezembro depois do dia 15 não fecha contrato B2B no Brasil.</p>
+
+  <div class="chartbox" style="margin-top:22px">
+    <div class="legend">
+      <span style="color:var(--s1)"><b style="background:var(--s1)"></b>Cenário realista</span>
+      <span style="color:var(--s3)"><b style="background:var(--s3)"></b>Cenário com a lista pronta em 26/10</span>
+      <span style="color:var(--s2)"><b style="background:var(--s2)"></b>Janela eleitoral</span>
+    </div>
+    <svg class="ch" viewBox="0 0 620 218" role="img" aria-label="Projeção de MRR de agosto a dezembro de 2026 em dois cenários">
+      <rect x="60" y="18" width="378" height="164" fill="var(--s2)" fill-opacity=".10"></rect>
+      <text x="249" y="32" text-anchor="middle" font-family="var(--mono)" font-size="10" letter-spacing="0.14em" fill="var(--s2)">CPM INFLADO ATÉ 25/10</text>
+      <line x1="46" y1="182" x2="600" y2="182" stroke="var(--line-strong)" stroke-width="1"></line>
+      <line x1="46" y1="46" x2="600" y2="46" stroke="var(--line)" stroke-width="1"></line>
+      <line x1="46" y1="91" x2="600" y2="91" stroke="var(--line)" stroke-width="1"></line>
+      <line x1="46" y1="136" x2="600" y2="136" stroke="var(--line)" stroke-width="1"></line>
+      <text x="38" y="50" text-anchor="end" font-family="var(--mono)" font-size="10" fill="var(--ink-3)">45k</text>
+      <text x="38" y="95" text-anchor="end" font-family="var(--mono)" font-size="10" fill="var(--ink-3)">30k</text>
+      <text x="38" y="140" text-anchor="end" font-family="var(--mono)" font-size="10" fill="var(--ink-3)">15k</text>
+      <text x="38" y="186" text-anchor="end" font-family="var(--mono)" font-size="10" fill="var(--ink-3)">0</text>
+      <path d="M60 135 L195 130 L330 124 L465 103 L570 86" fill="none" stroke="var(--s1)" stroke-width="2.5" stroke-linejoin="round"></path>
+      <path d="M60 135 L195 124 L330 113 L465 81 L570 54" fill="none" stroke="var(--s3)" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="6 4"></path>
+      <circle cx="60" cy="135" r="4" fill="var(--s1)" stroke="var(--ground)" stroke-width="2"></circle>
+      <circle cx="570" cy="86" r="4.5" fill="var(--s1)" stroke="var(--ground)" stroke-width="2"></circle>
+      <circle cx="570" cy="54" r="4.5" fill="var(--s3)" stroke="var(--ground)" stroke-width="2"></circle>
+      <text x="60" y="205" text-anchor="middle" font-family="var(--mono)" font-size="10.5" fill="var(--ink-3)">AGO</text>
+      <text x="195" y="205" text-anchor="middle" font-family="var(--mono)" font-size="10.5" fill="var(--ink-3)">SET</text>
+      <text x="330" y="205" text-anchor="middle" font-family="var(--mono)" font-size="10.5" fill="var(--ink-3)">OUT</text>
+      <text x="465" y="205" text-anchor="middle" font-family="var(--mono)" font-size="10.5" fill="var(--ink-3)">NOV</text>
+      <text x="570" y="205" text-anchor="middle" font-family="var(--mono)" font-size="10.5" fill="var(--ink-3)">DEZ</text>
+      <text x="60" y="127" text-anchor="middle" font-family="var(--mono)" font-size="10.5" font-weight="600" fill="var(--ink)">15,5k</text>
+      <text x="570" y="78" text-anchor="end" font-family="var(--mono)" font-size="11" font-weight="600" fill="var(--s1)">31,7k</text>
+      <text x="570" y="46" text-anchor="end" font-family="var(--mono)" font-size="11" font-weight="600" fill="var(--s3)">42,5k</text>
+    </svg>
+  </div>
+
+  <div class="tw" style="margin-top:22px">
+    <table>
+      <thead><tr><th>Mês</th><th>Vendas novas de EX1</th><th>Realista · MRR</th><th>Com a lista pronta · MRR</th></tr></thead>
+      <tbody>
+        <tr><td>Agosto (hoje)</td><td class="n">—</td><td class="n">R$ 15.483</td><td class="n">R$ 15.483</td></tr>
+        <tr><td>Setembro</td><td class="n">1 · 2</td><td class="n">R$ 17.283</td><td class="n">R$ 19.083</td></tr>
+        <tr><td>Outubro</td><td class="n">1 · 2</td><td class="n">R$ 19.083</td><td class="n">R$ 22.683</td></tr>
+        <tr><td>Novembro</td><td class="n">4 · 6</td><td class="n">R$ 26.283</td><td class="n">R$ 33.483</td></tr>
+        <tr class="okrow"><td>Dezembro</td><td class="n">3 · 5</td><td class="n">R$ 31.683</td><td class="n">R$ 42.483</td></tr>
+        <tr class="hl"><td><strong>Faturado set–dez</strong></td><td class="n">9 · 15</td><td class="n"><strong>R$ 94,3 mil</strong></td><td class="n"><strong>R$ 117,7 mil</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cards" style="margin-top:22px">
+    <div class="card"><div class="kl">Saída de 2026 · realista</div><div class="big">R$ 31,7 mil<span style="font-size:15px;color:var(--ink-3)">/mês</span></div><p>Dobro do MRR de hoje, com 9 vendas de EX1 em 4 meses.</p></div>
+    <div class="card"><div class="kl">Saída de 2026 · com a lista</div><div class="big" style="color:var(--ok)">R$ 42,5 mil<span style="font-size:15px;color:var(--ink-3)">/mês</span></div><p>2,7× o de hoje, com 15 vendas. A diferença é a lista, não a verba.</p></div>
+    <div class="card"><div class="kl">Horas que isso consome</div><div class="big">90 h<span style="font-size:15px;color:var(--ink-3)">/mês</span></div><p>15 EX1 × 6h. <strong>Cabe folgado no time atual</strong> — capacidade não é o limite.</p></div>
+    <div class="card"><div class="kl">O limite real</div><div class="big" style="color:var(--accent)">1</div><p>lead qualificado em julho. Chegar a 15 vendas exige um funil que hoje não existe.</p></div>
+  </div>
+
+  <div class="note hot" style="margin-top:20px"><b>A conclusão que importa.</b> Os dois cenários usam o mesmo time, o mesmo preço e verba parecida. A diferença de <b>R$ 23 mil no período e R$ 10,8 mil de MRR na saída</b> vem inteiramente de ter a lista pronta em 26/10. <b>Construir a lista é a atividade de maior retorno dos próximos 67 dias</b> — e é a única que não depende de leilão, de contratação nem de aprovação de ninguém.</div>
+</section>
+
+<section>
+  <div class="eyebrow">5 · 360 do mercado</div>
+  <h2>A folha de inteligência</h2>
+  <p class="lede" style="max-width:66ch">Todos os números que sustentam as decisões, num lugar só. É o que alimenta a inteligência da casa e o que deve ser reconferido nas cadências da Parte V do dossiê.</p>
+
+  <div class="tw" style="margin-top:22px">
+    <table>
+      <thead><tr><th>Domínio</th><th>Indicador</th><th>Valor</th><th>Fonte · data</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="5">Mercado do cliente</td><td>Varejo de vestuário Brasil</td><td class="n">R$ 314,9 bi</td><td>IEMI · 2025</td></tr>
+        <tr><td>Peças vendidas · temporada</td><td class="n">+0,65%</td><td>IEMI/ABIT · O-I 2026</td></tr>
+        <tr><td>Faturamento · temporada</td><td class="n">+4,2%</td><td>IEMI/ABIT · O-I 2026</td></tr>
+        <tr><td>Ticket médio e-commerce moda</td><td class="n">R$ 271</td><td>2026</td></tr>
+        <tr><td>Devolução em moda online</td><td class="n">25–40%</td><td>2026</td></tr>
+        <tr><td rowspan="4">Universo de lojas</td><td>CNAE 4781-4 ativas</td><td class="n">1.013.880</td><td>Receita Federal · jul/26</td></tr>
+        <tr><td>EPPs no varejo de vestuário</td><td class="n">~15.000</td><td>Sebrae</td></tr>
+        <tr><td>Lojas fem+inf no ICP do EX1</td><td class="n">6.480</td><td>estimativa própria</td></tr>
+        <tr><td>Franquias de moda · faturamento</td><td class="n">R$ 30,8 bi</td><td>ABF · 2025</td></tr>
+        <tr><td rowspan="4">Consumidora</td><td>Endividamento das famílias</td><td class="n">82%</td><td>CNC · jul/26 · recorde</td></tr>
+        <tr><td>Inadimplentes</td><td class="n">29,8%</td><td>CNC · jul/26</td></tr>
+        <tr><td>Renda liberada pela isenção do IR</td><td class="n">R$ 26,2 bi</td><td>2026</td></tr>
+        <tr><td>Selic</td><td class="n">14%</td><td>2026</td></tr>
+        <tr><td rowspan="5">Canais</td><td>TikTok Shop · crescimento em 12 meses</td><td class="n">102×</td><td>TikTok · mai/26</td></tr>
+        <tr><td>Live commerce Brasil</td><td class="n">R$ 7 bi</td><td>projeção 2026</td></tr>
+        <tr><td>Conversão em live</td><td class="n">10–30%</td><td>vs. 1,5% do e-commerce</td></tr>
+        <tr><td>WhatsApp em vendas de marcas de moda</td><td class="n">~50%</td><td>2026</td></tr>
+        <tr><td>Shein · receita BR vinda de lojistas nacionais</td><td class="n">55%</td><td>2026</td></tr>
+        <tr><td rowspan="4">Custo de operar</td><td>Aumento do Meta Ads no Brasil</td><td class="n">+12,15%</td><td>desde 01/01/26</td></tr>
+        <tr><td>CPM em pico eleitoral · referência 2022</td><td class="n">19×</td><td>R$ 5,03 → R$ 96,71</td></tr>
+        <tr><td>Mensagem de serviço no WhatsApp</td><td class="n">paga</td><td>a partir de 01/10/26</td></tr>
+        <tr><td>Queda de conversão acima de 5 min sem resposta</td><td class="n">−80%</td><td>2026</td></tr>
+        <tr><td rowspan="4">Mercado da Expansion</td><td>SAM · produtos EX no ICP</td><td class="n">R$ 360 mi/ano</td><td>estimativa própria</td></tr>
+        <tr><td>Participação atual</td><td class="n">0,031%</td><td>2 lojas de 6.480</td></tr>
+        <tr><td>Maior concorrente conhecido</td><td class="n">~0,6%</td><td>Cerberus, 207 lojas</td></tr>
+        <tr><td>Mercado de marketing digital BR</td><td class="n">R$ 45 bi/ano</td><td>2026 · fragmentado</td></tr>
+        <tr><td rowspan="3">Custo de mão de obra</td><td>Vendedora CLT carregada</td><td class="n">R$ 3.260–4.410</td><td>salario.com.br · 2026</td></tr>
+        <tr><td>SDR</td><td class="n">R$ 3.500–7.000</td><td>+ R$ 300–500 de ferramentas</td></tr>
+        <tr><td>Plataforma de atendimento WhatsApp</td><td class="n">R$ 99–500/mês</td><td>2026</td></tr>
+        <tr><td rowspan="3">Risco</td><td>Multas da ANPD por WhatsApp</td><td class="n">R$ 18 mi</td><td>já aplicadas</td></tr>
+        <tr><td>Teto de sanção LGPD</td><td class="n">2% · R$ 50 mi</td><td>+ suspensão da base</td></tr>
+        <tr><td>Varejo e marketing no radar da ANPD</td><td class="n">2026–27</td><td>declarado</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">6 · os 67 dias</div>
+  <h2>O que fazer até 25/10, enquanto o CPM está caro</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>#</th><th>Ação</th><th>Custo</th><th>Quem</th><th>Vale</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td>1</td><td>Extrair a lista das ~15 mil EPPs do CNAE 4781 da base pública da Receita</td><td class="n">R$ 0</td><td>Matheus</td><td class="pos">a semente do lookalike</td></tr>
+        <tr><td>2</td><td>Enriquecer com telefone e e-mail numa plataforma de dados B2B</td><td class="n">centenas a poucos milhares</td><td>Matheus</td><td class="pos">público personalizado pronto</td></tr>
+        <tr><td>3</td><td>Religar o CRM e travar o cadastro de todo lead que entrar</td><td class="n">mensalidade</td><td>Kauã</td><td class="pos">para de perder lead</td></tr>
+        <tr><td>4</td><td>Ligar a skill <code>detalhamento-mql</code> no roteamento por faixa de faturamento</td><td class="n">R$ 0</td><td>Nicolas</td><td class="pos">produto certo por lead</td></tr>
+        <tr><td>5</td><td>Produzir os três criativos por faixa, com o número da Ciés como prova</td><td class="n">tempo de edição</td><td>Débora + editores</td><td class="pos">pronto para 26/10</td></tr>
+        <tr><td>6</td><td>Fechar a camada de LGPD do EX1 — contrato de operador, opt-in, API Oficial</td><td class="n">1 sessão jurídica</td><td>Nicolas</td><td class="pos">destrava escalar</td></tr>
+        <tr class="okrow"><td>7</td><td><strong>26/10: ligar a máquina</strong> com público pronto, criativo pronto e Black Friday a 32 dias</td><td class="n">verba de mídia</td><td>Matheus</td><td class="pos">a janela do ano</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:18px"><b>Nenhuma das seis primeiras depende de verba de mídia, de contratação ou de aprovação de cliente.</b> São todas executáveis dentro da casa, nos 67 dias em que o leilão está caro de qualquer jeito. É a definição de usar bem um período ruim.</div>
+</section>
+
+<footer>
+  <p><b>Fontes internas.</b> MRR normalizado de R$ 15.483,33, contradições de receita e contagem de carteira: <code>business-model/01-FATOS-PREMISSAS-LACUNAS.md</code>. Leads no WeSales (4 em 07/07, 3 desqualificados) e CRM pausado por não pagamento em 06/07: <code>OPERACAO-REAL-EXPANSION-2026-07-26.md</code> §7. Ausência de canal de aquisição: <code>EXPANSION-360-2026-07-26.md</code>. Preços, horas, margens e ICP: manual de entrega de 08/08 e <code>business-model/</code> na branch <code>claude/new-session-nx502g</code>.</p>
+  <p><b>Fontes externas verificadas nesta sessão.</b> Base pública de CNPJ da Receita Federal (campos disponíveis, incluindo porte) e plataformas de enriquecimento B2B — Speedio, Econodata, Data Stone, CNPJ Base, DeepLeads, LeadCNPJ. Lookalike de 1% sobre compradores com CPL 30–50% menor, e Advantage+ superando segmentação manual quando há histórico. Demais números nos quatro documentos anteriores e no dossiê.</p>
+  <p><b>O que é estimativa minha.</b> A quebra das 15 mil EPPs por faixa de faturamento — premissa mais frágil de todo o dimensionamento. O filtro de nome fantasia para separar feminino e infantil é heurística, não classificação oficial: <b>vai errar para os dois lados e precisa de amostragem manual antes de virar público de mídia.</b> As duas projeções de 2026 assumem churn de ~1 cliente/mês e nenhuma venda de EX2 ou EX3 — deliberadamente conservador, porque o EX1 é o único que não depende de contratar ninguém.</p>
+  <p style="margin-top:14px"><b>Documento completo:</b> <code>360-COMERCIAL-EXPANSION-2026-08-19.md</code> · <b>Dossiê de mercado:</b> <code>DOSSIE-MERCADO-ECOSSISTEMA-EXPANSION-2026-08-08.md</code></p>
+</footer>
+
+</div>
