@@ -1,39 +1,43 @@
 # CLIENTES
 
-Uma pasta por cliente. Cada uma reúne o contexto que o Claude precisa para
-trabalhar naquela conta sem depender do Drive, do WhatsApp ou da memória de
-ninguém.
+Um diretório por cliente da Expansion. Cada pasta é o contexto completo daquela
+conta — quem é, o que pode e o que não pode, como a conta roda de fato — para
+que qualquer sessão do Claude Code entre já sabendo com quem está falando.
 
-| Cliente | Nicho | Status | Pasta |
-|---|---|---|---|
-| DiCastro / BBM | Missão empresarial — Macedônia e Bulgária | Ciclo abr–jul/2026 encerrado. Retomada em aberto | [`DICASTRO/`](DICASTRO/) |
+| Cliente | Nicho | Desde |
+|---|---|---|
+| [`ALBANOS/`](ALBANOS/) | Autismo e neurodesenvolvimento — ecossistema de 4 empresas | 27/05/2026 |
 
-## Padrão de cada pasta
+## Estrutura de uma pasta de cliente
 
-| Arquivo | Papel |
-|---|---|
-| `CONTEXTO-<CLIENTE>.md` | **Documento vivo.** Quem é, o que vende, para quem, posicionamento, elenco, status. Sem data no nome — é atualizado, não substituído |
-| `DIAGNOSTICO-<CLIENTE>-AAAA-MM-DD.md` | Análise datada de um ciclo. Rodadas novas viram `-RODADA2`, nunca edição destrutiva |
-| `ACERVO-DRIVE-<CLIENTE>.md` | Mapa do que existe no Drive, o que está vazio e o que se perdeu |
-| `ROTEIROS-<CLIENTE>-*.md` | Roteiros consolidados — o Drive é frágil, aqui é versionado |
-| `LEADS-*-AAAA-MM-DD.md` | Análise de base de leads, quando houver |
-| `_whatsapp/` | Transcrições dos grupos, **redigidas** (ver abaixo) |
+```
+CLIENTES/<CLIENTE>/
+├── README.md                        Cartão de visita: o que é, por onde começar,
+│                                    estado da conta
+├── <CLIENTE>-CONTEXTO.md            Documento VIVO. Sem data no nome — é atualizado
+│                                    no lugar. O que o cliente é, os produtos, as
+│                                    regras editoriais, o fluxo, o mapa do Drive
+├── <CLIENTE>-OPERACAO-AAAA-MM-DD.md Fotografia de um momento. Como a conta roda
+│                                    de fato, com evidência datada e achados
+└── _whatsapp/
+    └── <CLIENTE>-WHATSAPP-<de>-a-<até>.md
+```
+
+Vale a convenção da raiz do repositório: **documento vivo não leva data;
+fotografia de momento leva**. Rodada nova de análise vira arquivo novo, não
+edição destrutiva do anterior — o histórico é o valor.
 
 ## Regras
 
-1. **Português do Brasil**, como todo o repositório.
-2. **Nada de credencial.** Senha, token, chave de API não entram aqui em nenhuma
-   hipótese — nem em transcrição de WhatsApp. O documento de acessos guarda
-   *quem* tem acesso, não a credencial.
-3. **Nada de link de compartilhamento do Drive.** Um link de pasta compartilhada
-   como "qualquer pessoa com o link" é uma chave de acesso. Enquanto o
-   repositório for público, referenciar por nome.
-4. **Dado pessoal de terceiro** — nome e telefone de lead, por exemplo — fica
-   fora. Análise agregada pode; lista nominal não.
-5. **Transcrição de WhatsApp entra redigida.** Remover senha, telefone, payload
-   de PIX, endereço e link de compartilhamento antes de commitar. O original
-   fica no ZIP e nos backups do app.
+**Credencial não entra neste repositório.** Nem em transcrição, nem em documento
+de contexto, nem "só para não perder". Senha que aparecer em export de WhatsApp
+é redigida antes do commit. O documento de contexto pode dizer *onde* a
+credencial vive; nunca *qual* é.
 
-> ⚠️ **Este repositório está público no GitHub.** Todas as regras acima existem
-> por causa disso. Se ele for tornado privado, as regras 3 e 4 podem ser
-> relaxadas — as regras 2 e 5 valem de qualquer forma.
+**A transcrição é preservada, não resumida.** O resumo mora no documento de
+operação, com a data e a citação. O bruto fica no `_whatsapp/` porque, seis meses
+depois, a frase exata que o cliente usou é a evidência.
+
+**Mídia não vem no export do WhatsApp.** Áudio, vídeo, imagem, figurinha e
+documento saem como marcador. Toda leitura de transcrição declara isso — parte
+relevante da conversa costuma ser visual.

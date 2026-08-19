@@ -13,7 +13,7 @@ de nenhuma máquina em particular.
 | [`CLIENTES/`](CLIENTES/) | Um acervo por cliente — contexto de negócio, mapa do Drive, conversas e análises |
 | [`AEOS/`](AEOS/) | APEX Engineering Operating System — constituição de engenharia de produto, 12 volumes, 140 artigos |
 | [`AEOS/ORGANIFY/`](AEOS/ORGANIFY/) | Missões M001 (Digital Twin do app.organifybr.com) e M002 (OS interno da Expansion) |
-| [`CLIENTES/`](CLIENTES/) | Contexto por conta — quem é o cliente, o que foi entregue, o que falhou e o que existe de acervo |
+| [`CLIENTES/`](CLIENTES/) | Contexto de cada cliente da agência — quem é, regras editoriais, como a conta roda |
 | `PLATAFORMA-WEBLUXURY-*` | Análise da plataforma WebLuxury — pareceres, anexos e rodadas de revisão |
 | `CONSELHO-EXPANSION-*` | Conselho da Expansion e anexos |
 | `EXPANSION-360`, `OPERACAO-REAL`, `AUDITORIA-DRIVE` | Diagnóstico e operação real da agência |
@@ -23,9 +23,9 @@ de nenhuma máquina em particular.
 
 ## Por onde começar
 
-Para trabalhar num cliente, abra o dossiê dele em [`CLIENTES/`](CLIENTES/).
-A pasta do cliente deve bastar — sem depender de rolar o WhatsApp nem caçar
-arquivo no Drive.
+Para trabalhar numa conta de cliente, abra o `CONTEXTO` dela em
+[`CLIENTES/`](CLIENTES/) — ex.:
+[`CLIENTES/ALBANOS/ALBANOS-CONTEXTO.md`](CLIENTES/ALBANOS/ALBANOS-CONTEXTO.md).
 
 Para usar o AEOS numa missão nova, abra
 [`AEOS/VOL-XII-FORGE-MANUAL-DE-OPERACAO.md`](AEOS/VOL-XII-FORGE-MANUAL-DE-OPERACAO.md).

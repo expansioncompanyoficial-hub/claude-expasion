@@ -1,0 +1,255 @@
+{
+ "titulo": "Albanos Academy — Roteiros Virais",
+ "subtitulo": "Albanos Academy (@albanosacademy)",
+ "framework": "",
+ "roteiros": [
+  {
+   "titulo": "ROTEIRO 1 — \"O Mito Sobre Autismo Que Sai da Boca de Profissional\"",
+   "pilar": "🎯 TACO(H) | Pilar: TÉCNICO — MITOS E VERDADES SOBRE O AUTISMO",
+   "blocos": [
+    {
+     "rotulo": "GANCHO",
+     "tempo": "0:00 – 0:05",
+     "texto": "\"Mito sobre autismo não circula só em grupo de família. Tem mito que sai da boca de profissional. Todo dia.\"",
+     "destaque": "gancho"
+    },
+    {
+     "rotulo": "CONTEXTO",
+     "tempo": "0:05 – 0:15",
+     "texto": "\"E quando é o profissional que repete, o estrago é maior. Porque a família acredita, a escola acredita — e o plano terapêutico já nasce torto.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "ARGUMENTO",
+     "tempo": "0:15 – 0:40",
+     "texto": "\"Então vamos de mito e verdade. Mito: criança com autismo não faz contato visual. Verdade: o contato pode existir, e a necessidade de suporte também — sinal isolado não é critério. Mito: se a criança fala, não precisa de fono. Verdade: fala não é linguagem. Comunicação funcional vai muito além de emitir palavra. Mito: terapia serve pra deixar a criança 'igual às outras'. Verdade: terapia serve pra qualidade de vida, autonomia e participação. Quem trabalha com evidência revisa o que repete.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "CTA",
+     "tempo": "0:40 – 0:50",
+     "texto": "\"Segue a Albanos Academy pra mais conteúdo de quem atende criança no espectro todo dia — não de quem só leu sobre.\"",
+     "destaque": "cta"
+    }
+   ],
+   "hashtags": "#AlbanosAcademy #MitosEVerdades #Autismo #TEA #FormacaoClinica #TerapeutaEmFormacao #PraticaClinica"
+  },
+  {
+   "titulo": "ROTEIRO 2 — \"O Corpo Fala Antes da Fala\"",
+   "pilar": "🎯 TACO(H) | Pilar: TÉCNICO — COMUNICAÇÃO VERBAL E NÃO VERBAL",
+   "blocos": [
+    {
+     "rotulo": "GANCHO",
+     "tempo": "0:00 – 0:05",
+     "texto": "\"A criança já te respondeu três vezes nessa sessão. Sem falar uma palavra. Você registrou?\"",
+     "destaque": "gancho"
+    },
+    {
+     "rotulo": "CONTEXTO",
+     "tempo": "0:05 – 0:15",
+     "texto": "\"Antes da fala, existe comunicação: o olhar que busca, o corpo que se afasta, o apontar, o puxar pela mão. Isso é linguagem acontecendo — e muito profissional ainda espera a palavra pra começar a intervir.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "ARGUMENTO",
+     "tempo": "0:15 – 0:40",
+     "texto": "\"A implicação clínica é direta: quem só avalia fala, avalia pela metade. A intencionalidade comunicativa aparece primeiro no não verbal — atenção compartilhada, gesto, troca de turno. É ali que você mede onde a criança está. E é ali que a intervenção começa: respondendo a cada tentativa de comunicação como se fosse fala. Porque, pra criança, é. Quando o profissional aprende a ler o corpo, a sessão inteira muda de qualidade.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "CTA",
+     "tempo": "0:40 – 0:50",
+     "texto": "\"Quer treinar esse olhar na prática, com caso real? Os cursos da Academy estão no link da bio.\"",
+     "destaque": "cta"
+    }
+   ],
+   "hashtags": "#AlbanosAcademy #ComunicacaoNaoVerbal #TEA #Autismo #Fonoaudiologia #FormacaoClinica #TerapeutaEmFormacao #PraticaClinica"
+  },
+  {
+   "titulo": "ROTEIRO 3 — \"ABA Não É o Que Te Contaram\"",
+   "pilar": "🎯 TACO(H) | Pilar: OBJEÇÃO — PRINCÍPIOS DA CIÊNCIA ABA",
+   "blocos": [
+    {
+     "rotulo": "GANCHO",
+     "tempo": "0:00 – 0:05",
+     "texto": "\"ABA virou moda pra uns e vilã pra outros. E os dois lados costumam errar pelo mesmo motivo.\"",
+     "destaque": "gancho"
+    },
+    {
+     "rotulo": "CONTEXTO",
+     "tempo": "0:05 – 0:15",
+     "texto": "\"Pouca gente estudou o que a ciência ABA é de fato: análise do comportamento aplicada — entender a função do comportamento antes de intervir sobre ele. Não é tabela pronta. E não é adestramento.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "ARGUMENTO",
+     "tempo": "0:15 – 0:40",
+     "texto": "\"ABA de verdade tem três compromissos. Evidência: cada procedimento tem literatura por trás e dado sendo coletado em sessão. Individualização: o programa nasce da avaliação daquela criança, não de um pacote fechado. E ética: objetivos socialmente relevantes, definidos com a família, respeitando o assentimento da criança — o que ela aceita e o que ela recusa importa. Se o que você viu por aí não tinha essas três coisas, não era ciência ABA. Era má prática usando o nome.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "CTA",
+     "tempo": "0:40 – 0:50",
+     "texto": "\"Quer aprender ABA com quem aplica todo dia, com ética e com dado? O link tá na bio.\"",
+     "destaque": "cta"
+    }
+   ],
+   "hashtags": "#AlbanosAcademy #CienciaABA #TEA #Autismo #FormacaoClinica #PraticaBaseadaEmEvidencia #TerapeutaEmFormacao"
+  },
+  {
+   "titulo": "ROTEIRO 4 — \"Tá Só Brincando? Então Tá Trabalhando\"",
+   "pilar": "🎯 TACO(H) | Pilar: TÉCNICO — O BRINCAR COMO FERRAMENTA TERAPÊUTICA",
+   "blocos": [
+    {
+     "rotulo": "GANCHO",
+     "tempo": "0:00 – 0:05",
+     "texto": "\"Se a família olha sua sessão e pensa 'meu filho tá só brincando'... isso pode ser um ótimo sinal. Ou um problema.\"",
+     "destaque": "gancho"
+    },
+    {
+     "rotulo": "CONTEXTO",
+     "tempo": "0:05 – 0:15",
+     "texto": "\"O brincar é o contexto onde a criança mais se engaja, se motiva e aprende. Por isso ele é o principal instrumento terapêutico na infância — quando existe intenção clínica por trás.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "ARGUMENTO",
+     "tempo": "0:15 – 0:40",
+     "texto": "\"A diferença entre brincar-passatempo e brincar-ferramenta é planejamento. No brincar terapêutico, cada brinquedo naquela sala foi escolhido por um motivo. O terapeuta sabe qual objetivo está dentro daquela brincadeira: imitação, troca de turno, pedido, atenção compartilhada. E sabe registrar o que aconteceu. A criança vive uma brincadeira. O profissional conduz uma intervenção. Quem não domina essa ferramenta desperdiça exatamente o momento em que a criança mais aprende.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "CTA",
+     "tempo": "0:40 – 0:50",
+     "texto": "\"Quer aprender a transformar o brincar em instrumento clínico? O link tá na bio.\"",
+     "destaque": "cta"
+    }
+   ],
+   "hashtags": "#AlbanosAcademy #BrincarTerapeutico #TEA #Autismo #TerapiaOcupacional #Fonoaudiologia #FormacaoClinica #PraticaClinica"
+  },
+  {
+   "titulo": "ROTEIRO 5 — \"Habilidade Social Não Se Ensina no Improviso\"",
+   "pilar": "🎯 TACO(H) | Pilar: TÉCNICO — DESENVOLVIMENTO DE HABILIDADES SOCIAIS",
+   "blocos": [
+    {
+     "rotulo": "GANCHO",
+     "tempo": "0:00 – 0:05",
+     "texto": "\"'Vai lá brincar com os coleguinhas' não é intervenção. É torcida.\"",
+     "destaque": "gancho"
+    },
+    {
+     "rotulo": "CONTEXTO",
+     "tempo": "0:05 – 0:15",
+     "texto": "\"Habilidade social é uma das demandas mais frequentes no espectro — e uma das mais mal trabalhadas. Porque muita gente coloca a criança no grupo e espera acontecer.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "ARGUMENTO",
+     "tempo": "0:15 – 0:40",
+     "texto": "\"Em terapia, habilidade social se constrói em camadas. Primeiro no um-a-um: olhar, imitar, esperar a vez, iniciar um pedido. Depois em situação estruturada: uma brincadeira com regra clara, um parceiro por vez, o terapeuta mediando. Só então vem a generalização — grupo pequeno, escola, vida real, com um apoio que vai diminuindo de forma planejada. Cada camada tem objetivo mensurável. Pular etapa é expor a criança a se frustrar num contexto pra onde ela ainda não construiu repertório.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "CTA",
+     "tempo": "0:40 – 0:50",
+     "texto": "\"Quer aprender a estruturar esse trabalho passo a passo? Os cursos da Academy estão no link da bio.\"",
+     "destaque": "cta"
+    }
+   ],
+   "hashtags": "#AlbanosAcademy #HabilidadesSociais #TEA #Autismo #FormacaoClinica #TerapeutaEmFormacao #PsicologiaInfantil #PraticaClinica"
+  },
+  {
+   "titulo": "ROTEIRO 6 — \"Sua Sessão Tem 45 Minutos. A Semana Tem 168 Horas\"",
+   "pilar": "🎯 TACO(H) | Pilar: TÉCNICO — ESTRATÉGIAS PARA ROTINA DOMICILIAR",
+   "blocos": [
+    {
+     "rotulo": "GANCHO",
+     "tempo": "0:00 – 0:05",
+     "texto": "\"Sua sessão dura 45 minutos. A semana da criança tem 168 horas. Quem trabalha nas outras 167?\"",
+     "destaque": "gancho"
+    },
+    {
+     "rotulo": "CONTEXTO",
+     "tempo": "0:05 – 0:15",
+     "texto": "\"A resposta é: a família. E orientar essa família é competência clínica — não um recado dado com pressa na porta do consultório.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "ARGUMENTO",
+     "tempo": "0:15 – 0:40",
+     "texto": "\"Orientação domiciliar boa tem três marcas. É traduzida: a família recebe o objetivo em linguagem de casa, sem jargão — 'no banho, espera ela pedir a água' vale mais que 'estimule a comunicação funcional'. É encaixada na rotina que já existe: refeição, banho, hora de dormir — nada de lista de tarefa extra pra uma família que já está no limite. E é revisada: o que funcionou vira hábito, o que não funcionou se ajusta na sessão seguinte. Família orientada não substitui a terapia. Ela multiplica.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "CTA",
+     "tempo": "0:40 – 0:50",
+     "texto": "\"Quer aprender a fazer orientação parental que a família consegue seguir? O link tá na bio.\"",
+     "destaque": "cta"
+    }
+   ],
+   "hashtags": "#AlbanosAcademy #OrientacaoParental #RotinaDomiciliar #TEA #Autismo #FormacaoClinica #TerapeutaEmFormacao"
+  },
+  {
+   "titulo": "ROTEIRO 7 — \"Autonomia Não É a Última Página do Plano\"",
+   "pilar": "🎯 TACO(H) | Pilar: TÉCNICO — CONSTRUÇÃO DA AUTONOMIA",
+   "blocos": [
+    {
+     "rotulo": "GANCHO",
+     "tempo": "0:00 – 0:05",
+     "texto": "\"Pergunta honesta: o seu plano terapêutico termina onde? Se a resposta não for 'na vida real da criança', a gente precisa conversar.\"",
+     "destaque": "gancho"
+    },
+    {
+     "rotulo": "CONTEXTO",
+     "tempo": "0:05 – 0:15",
+     "texto": "\"Autonomia não é o bônus que vem depois das outras metas. É o objetivo central — o critério que diz se o resto do plano faz sentido.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "ARGUMENTO",
+     "tempo": "0:15 – 0:40",
+     "texto": "\"E autonomia se planeja por etapas. Escolhe uma habilidade da vida real: se vestir, comer, pedir ajuda. Quebra em passos pequenos, com análise de tarefa. Define o nível de apoio de cada passo — ajuda física, gesto, dica verbal. E retira o apoio de forma planejada, medindo semana a semana. E atenção ao que você mede: não é a execução com ajuda. É a independência. O dado que importa não é 'fez na sessão'. É 'fez sem você, fora daqui'.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "CTA",
+     "tempo": "0:40 – 0:50",
+     "texto": "\"Quer aprender a planejar autonomia com método? Os cursos da Academy estão no link da bio.\"",
+     "destaque": "cta"
+    }
+   ],
+   "hashtags": "#AlbanosAcademy #Autonomia #TEA #Autismo #TerapiaOcupacional #FormacaoClinica #PlanoTerapeutico #PraticaClinica"
+  },
+  {
+   "titulo": "ROTEIRO 8 — \"Dois Terapeutas, o Mesmo Protocolo, Dois Resultados\"",
+   "pilar": "🎯 TACO(H) | Pilar: AUTORIDADE — RACIOCÍNIO CLÍNICO",
+   "blocos": [
+    {
+     "rotulo": "GANCHO",
+     "tempo": "0:00 – 0:05",
+     "texto": "\"Duas terapeutas. O mesmo protocolo. Com uma, a criança engaja. Com a outra, trava. O protocolo não explica isso.\"",
+     "destaque": "gancho"
+    },
+    {
+     "rotulo": "CONTEXTO",
+     "tempo": "0:05 – 0:15",
+     "texto": "\"O que explica é o raciocínio clínico: ler a resposta da criança, levantar hipótese e ajustar a conduta em tempo real. Protocolo diz o que fazer. Raciocínio diz por quê, quando — e o que mudar.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "ARGUMENTO",
+     "tempo": "0:15 – 0:40",
+     "texto": "\"E raciocínio clínico não se forma assistindo aula. Se forma em prática supervisionada: você atende, alguém mais experiente observa, questiona sua hipótese e te faz justificar cada escolha. Foi por isso que a gente desenhou os cursos 360 desse jeito — a teoria você faz online, no seu tempo. A finalização é presencial, com caso real na sua frente e a equipe que atende todo dia do seu lado. Porque é no caso real que o raciocínio deixa de ser conceito e vira prática.\"",
+     "destaque": null
+    },
+    {
+     "rotulo": "CTA",
+     "tempo": "0:40 – 0:50",
+     "texto": "\"Quer formar o seu raciocínio clínico com caso real? O link tá na bio — entra na lista de espera do próximo 360.\"",
+     "destaque": "cta"
+    }
+   ],
+   "hashtags": "#AlbanosAcademy #RaciocinioClinico #Cursos360 #TEA #Autismo #FormacaoClinica #TerapeutaEmFormacao #PraticaClinica"
+  }
+ ]
+}
