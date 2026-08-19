@@ -6,9 +6,16 @@ numerada como no Drive (`Expansion Company › Assessoria › Clientes`).
 Cada sessão de Claude Code dedicada a um cliente começa lendo o
 `CONTEXTO-<CLIENTE>.md` da pasta dele.
 
-| Pasta | Cliente | Nicho | Status |
+| Pasta | Cliente | Nicho | Ponto de entrada |
 |---|---|---|---|
-| [`007-CLAUKIDS/`](007-CLAUKIDS/) | Clau Kids — Ana Cláudia | Moda infantil | Ativo |
+| [`007-CLAUKIDS/`](007-CLAUKIDS/) | Clau Kids — Ana Cláudia | Moda infantil, calçados, enxoval | `CONTEXTO-CLAUKIDS.md` |
+| [`ALBANOS/`](ALBANOS/) | Ecossistema Albanos | Autismo e neurodesenvolvimento (TEA) | `ALBANOS-CONTEXTO.md` |
+| [`CIES-BRAND/`](CIES-BRAND/) | Ciés Brand | Moda feminina — confecção própria | `CIES-DOSSIE.md` |
+| [`DICASTRO/`](DICASTRO/) | Cleomar Di Castro | Negócios Brasil–Europa Oriental | `CONTEXTO-DICASTRO.md` |
+| [`JANE-JQL-SEGUROS/`](JANE-JQL-SEGUROS/) | Jane — JQL Seguros | Seguros · saúde empresarial | `DOSSIE-JANE-JQL-SEGUROS.md` |
+| [`PRIME/`](PRIME/) | Prime Assessoria (Alphaville) | Crédito imobiliário | `CONTEXTO-PRIME.md` |
+| [`REINO-CONSORCIOS/`](REINO-CONSORCIOS/) | Reino Consórcios | Consórcio e estruturação de crédito | `CONTEXTO-REINO-CONSORCIOS.md` |
+| [`EXPANSION/`](EXPANSION/) | Expansion (conta própria) | Agência | `FICHA-CARROSSEL-EXPANSION.md` |
 
 ## Convenção
 

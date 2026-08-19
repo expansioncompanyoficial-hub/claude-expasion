@@ -21,12 +21,11 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 
 ```
 CLIENTES/             Um acervo por cliente (contexto, Drive, conversas)
+  PRIME/              Prime Assessoria (crédito imobiliário)
   REINO-CONSORCIOS/   Consórcio e estruturação de crédito
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
 BRANDSDECODED/        Acervo de produto da BrandsDecoded (prompts, skills, guias)
-CLIENTES/             Um diretório por cliente da Expansion
-  PRIME/              Prime Assessoria (crédito imobiliário)
 CARROSSEIS/           Registro das peças geradas (alimenta relatório e calibração)
 CALIBRACAO/           Régua de padrões por nicho, medida
 _audios/              Transcrições de áudios e reuniões
