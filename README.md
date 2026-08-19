@@ -18,8 +18,8 @@ de nenhuma máquina em particular.
 | `CONSELHO-EXPANSION-*` | Conselho da Expansion e anexos |
 | `EXPANSION-360`, `OPERACAO-REAL`, `AUDITORIA-DRIVE` | Diagnóstico e operação real da agência |
 | `POSICIONAMENTO-CONTEUDO-NICOLAS-*` | Posicionamento e estratégia de conteúdo |
-| `POP-SOCIAL-MEDIA-v0.1.md` | POP de social media — a rotina diária |
-| [`PLAYBOOK-SOCIAL-MIDIA-v2.md`](PLAYBOOK-SOCIAL-MIDIA-v2.md) | Playbook de posicionamento de perfil — 8 etapas, do onboarding à medição |
+| `ALBANOS-ACADEMY-*` | Produção de cursos da Albanos Academy — arquitetura, precificação e rota de expansão na conta |
+| `POP-SOCIAL-MEDIA-v0.1.md` | POP de social media |
 | [`_audios/`](_audios/) | Transcrições de áudios e reuniões |
 
 ## Por onde começar

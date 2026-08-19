@@ -1,0 +1,770 @@
+<title>Curso de Entrada — Albanos Academy</title>
+
+<style>
+  :root {
+    --paper:      #FDFBF7;
+    --paper-2:    #F6F1E9;
+    --ink:        #17140F;
+    --muted:      #6E655B;
+    --rule:       #E4DCD1;
+    --accent:     #E67E22;
+    --accent-txt: #A85610;
+    --accent-bg:  #FDF1E4;
+    --ok:         #2F7A4F;
+    --warn:       #B07213;
+    --no:         #9A8F84;
+
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+            "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+            "Liberation Mono", monospace;
+
+    --shell: 62rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:      #14110D;
+      --paper-2:    #1D1913;
+      --ink:        #F4EFE8;
+      --muted:      #A2988B;
+      --rule:       #2E2822;
+      --accent:     #E67E22;
+      --accent-txt: #F0A05A;
+      --accent-bg:  #241A11;
+      --ok:         #6FBF8F;
+      --warn:       #DFA94A;
+      --no:         #7C7268;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:      #14110D;
+    --paper-2:    #1D1913;
+    --ink:        #F4EFE8;
+    --muted:      #A2988B;
+    --rule:       #2E2822;
+    --accent:     #E67E22;
+    --accent-txt: #F0A05A;
+    --accent-bg:  #241A11;
+    --ok:         #6FBF8F;
+    --warn:       #DFA94A;
+    --no:         #7C7268;
+  }
+
+  :root[data-theme="light"] {
+    --paper:      #FDFBF7;
+    --paper-2:    #F6F1E9;
+    --ink:        #17140F;
+    --muted:      #6E655B;
+    --rule:       #E4DCD1;
+    --accent:     #E67E22;
+    --accent-txt: #A85610;
+    --accent-bg:  #FDF1E4;
+    --ok:         #2F7A4F;
+    --warn:       #B07213;
+    --no:         #9A8F84;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .shell {
+    max-width: var(--shell);
+    margin: 0 auto;
+    padding: 2.5rem 1.35rem 5rem;
+  }
+
+  p { max-width: 40rem; }
+
+  /* ---------- eyebrow / section rule ---------- */
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--accent-txt);
+  }
+
+  section { margin-top: 3.75rem; }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: .9rem;
+    border-top: 2px solid var(--accent);
+    padding-top: .8rem;
+    margin-bottom: 1.5rem;
+  }
+  .sec-head h2 {
+    font-size: clamp(1.35rem, 3.6vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -.02em;
+    text-wrap: balance;
+    margin: 0;
+  }
+  .sec-head .num {
+    font-family: var(--mono);
+    font-size: .8rem;
+    color: var(--muted);
+    flex: none;
+  }
+
+  /* ---------- header ---------- */
+
+  .masthead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: .75rem;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .masthead .who {
+    font-family: var(--mono);
+    font-size: .74rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .masthead .who b { color: var(--accent-txt); font-weight: 600; }
+
+  h1 {
+    font-size: clamp(2rem, 7vw, 3.15rem);
+    line-height: 1.05;
+    letter-spacing: -.035em;
+    font-weight: 800;
+    text-wrap: balance;
+    margin: 1.6rem 0 .9rem;
+  }
+  .standfirst {
+    font-size: clamp(1.02rem, 2.4vw, 1.16rem);
+    color: var(--muted);
+    max-width: 36rem;
+    margin: 0;
+  }
+
+  .stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 2.1rem;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .stat {
+    flex: 1 1 7.5rem;
+    padding: .85rem 1rem;
+    border-right: 1px solid var(--rule);
+  }
+  .stat:last-child { border-right: 0; }
+  .stat .k {
+    font-family: var(--mono);
+    font-size: .66rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+  }
+  .stat .v {
+    font-size: 1.22rem;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    font-variant-numeric: tabular-nums;
+    display: block;
+    margin-top: .15rem;
+  }
+  .stat .v.hot { color: var(--accent-txt); }
+
+  /* ---------- quotes ---------- */
+
+  .heard {
+    display: grid;
+    gap: .8rem;
+    margin: 0 0 1.4rem;
+    padding: 0;
+    list-style: none;
+  }
+  .heard li {
+    border-left: 2px solid var(--accent);
+    padding: .1rem 0 .1rem .95rem;
+    color: var(--muted);
+    font-style: italic;
+    max-width: 42rem;
+  }
+
+  /* ---------- theme options ---------- */
+
+  .themes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .7rem;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+  @media (min-width: 46rem) {
+    .themes { grid-template-columns: 1fr 1fr; }
+  }
+  .themes li {
+    display: flex;
+    gap: .85rem;
+    align-items: flex-start;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: .95rem 1.05rem;
+    background: var(--paper-2);
+  }
+  .themes .letter {
+    font-family: var(--mono);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--paper);
+    background: var(--accent);
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 3px;
+    display: grid;
+    place-items: center;
+    flex: none;
+  }
+  .themes .t { font-weight: 600; display: block; letter-spacing: -.01em; }
+  .themes .aud {
+    font-family: var(--mono);
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-top: .3rem;
+  }
+
+  /* ---------- course map ---------- */
+
+  .map {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 1.3rem;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 3.1rem 1fr 3.1rem;
+    align-items: center;
+    gap: .7rem;
+    padding: .5rem .9rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .row:last-child { border-bottom: 0; }
+
+  .row .id {
+    font-family: var(--mono);
+    font-size: .76rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .row .label { font-size: .95rem; }
+  .row .min {
+    font-family: var(--mono);
+    font-size: .78rem;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+  }
+  .bar {
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin-top: .3rem;
+    opacity: .5;
+  }
+
+  .row.mod {
+    background: var(--accent-bg);
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+  }
+  .row.mod .id { color: var(--accent-txt); font-weight: 700; }
+  .row.mod .label {
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: .78rem;
+  }
+  .row.edge .label { color: var(--muted); }
+  .row.total {
+    background: var(--paper-2);
+    font-weight: 700;
+  }
+  .row.total .label,
+  .row.total .min { font-weight: 700; color: var(--ink); }
+
+  /* ---------- plans ---------- */
+
+  .plans {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 52rem) {
+    .plans { grid-template-columns: repeat(3, 1fr); align-items: start; }
+  }
+
+  .plan {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.25rem 1.25rem 1.4rem;
+    background: var(--paper-2);
+    display: flex;
+    flex-direction: column;
+  }
+  .plan.pick {
+    border-color: var(--accent);
+    border-width: 2px;
+    background: var(--paper);
+    box-shadow: 0 1px 0 var(--rule), 0 14px 34px -22px rgba(0,0,0,.4);
+  }
+  .plan .name {
+    font-family: var(--mono);
+    font-size: .78rem;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+    color: var(--accent-txt);
+  }
+  .plan .tag {
+    font-size: 1.02rem;
+    font-weight: 600;
+    letter-spacing: -.015em;
+    margin: .3rem 0 .9rem;
+  }
+  .plan .price {
+    font-size: 1.85rem;
+    font-weight: 800;
+    letter-spacing: -.035em;
+    font-variant-numeric: tabular-nums;
+  }
+  .plan .after {
+    font-family: var(--mono);
+    font-size: .72rem;
+    color: var(--muted);
+    margin-top: .2rem;
+  }
+  .plan ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.05rem 0 0;
+    display: grid;
+    gap: .4rem;
+    font-size: .9rem;
+  }
+  .plan li {
+    display: grid;
+    grid-template-columns: 1.1rem 1fr;
+    gap: .5rem;
+    align-items: start;
+  }
+  .plan li .m { font-family: var(--mono); font-size: .85rem; line-height: 1.5; }
+  .plan li.yes .m { color: var(--ok); }
+  .plan li.no  { color: var(--no); }
+  .plan li.no .m { color: var(--no); }
+
+  .deadline {
+    margin-top: 1.1rem;
+    padding-top: .85rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: .74rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  .dot { width: .55rem; height: .55rem; border-radius: 50%; flex: none; }
+  .dot.ok   { background: var(--ok); }
+  .dot.warn { background: var(--warn); }
+  .dot.no   { background: var(--no); }
+
+  .callout {
+    margin-top: 1.5rem;
+    border-left: 2px solid var(--accent);
+    background: var(--accent-bg);
+    padding: 1rem 1.15rem;
+    border-radius: 0 3px 3px 0;
+  }
+  .callout p { margin: 0; max-width: 44rem; }
+
+  /* ---------- timeline ---------- */
+
+  .when { list-style: none; padding: 0; margin: 0; }
+  .when li {
+    display: grid;
+    grid-template-columns: 5.6rem 1fr;
+    gap: 1rem;
+    padding: .62rem 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .when li:last-child { border-bottom: 0; }
+  .when .d {
+    font-family: var(--mono);
+    font-size: .8rem;
+    color: var(--accent-txt);
+    font-variant-numeric: tabular-nums;
+  }
+  .when li.live .d,
+  .when li.live .w { font-weight: 700; }
+  .when li.live .w { color: var(--accent-txt); }
+
+  /* ---------- close ---------- */
+
+  .close {
+    margin-top: 3.75rem;
+    border-top: 2px solid var(--accent);
+    padding-top: 1.4rem;
+  }
+  .close h2 {
+    font-size: clamp(1.3rem, 4vw, 1.7rem);
+    letter-spacing: -.025em;
+    margin: 0 0 .7rem;
+    text-wrap: balance;
+  }
+  .ask {
+    display: grid;
+    gap: .55rem;
+    list-style: none;
+    padding: 0;
+    margin: 1.1rem 0 0;
+    max-width: 34rem;
+  }
+  .ask li {
+    display: grid;
+    grid-template-columns: 1.6rem 1fr;
+    gap: .6rem;
+    align-items: baseline;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: .7rem .9rem;
+  }
+  .ask .n {
+    font-family: var(--mono);
+    font-size: .8rem;
+    color: var(--accent-txt);
+    font-weight: 700;
+  }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem 1.2rem;
+    justify-content: space-between;
+  }
+
+  strong { font-weight: 700; }
+  em { font-style: italic; }
+</style>
+
+<div class="shell">
+
+  <header>
+    <div class="masthead">
+      <span class="who"><b>Expansion</b> &nbsp;para&nbsp; Albanos Academy</span>
+      <span class="who">Proposta &middot; 05.08.2026</span>
+    </div>
+
+    <h1>Produção do curso de entrada</h1>
+    <p class="standfirst">
+      Da estrutura ao ar. Você grava o que sabe — o resto é com a gente.
+    </p>
+
+    <div class="stat-row">
+      <div class="stat"><span class="k">Duração</span><span class="v">90 min</span></div>
+      <div class="stat"><span class="k">Módulos</span><span class="v">5</span></div>
+      <div class="stat"><span class="k">Aulas</span><span class="v">12</span></div>
+      <div class="stat"><span class="k">No ar em</span><span class="v hot">15.08</span></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <span class="num">01</span>
+      <h2>O que eu ouvi nos seus áudios</h2>
+    </div>
+
+    <ul class="heard">
+      <li>“É o primeiro que eu estou fazendo, eu estou totalmente perdida.”</li>
+      <li>“Já gravei, já regravei, já apaguei.”</li>
+      <li>“Não é uma coisa que dá para a gente ficar toda hora olhando, vendo.”</li>
+      <li>“Eu preciso subir esse curso no dia 15.”</li>
+    </ul>
+
+    <p>
+      Nenhuma dessas quatro coisas é problema de edição. São problemas de
+      <strong>estrutura, direção e revisão</strong> — e é isso que está nesta proposta.
+      A Ana sai da posição de revisora de vídeo.
+    </p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="num">02</span>
+      <h2>Primeiro passo: escolher o tema</h2>
+    </div>
+
+    <p>
+      Você não precisa descrever nada. Separei quatro caminhos que fazem sentido
+      para o que a Academy já é. <strong>Me responde só a letra.</strong>
+    </p>
+
+    <ul class="themes">
+      <li>
+        <span class="letter">A</span>
+        <span>
+          <span class="t">Os primeiros 90 dias atendendo uma criança com TEA</span>
+          <span class="aud">Profissional recém-chegado à área</span>
+        </span>
+      </li>
+      <li>
+        <span class="letter">B</span>
+        <span>
+          <span class="t">Avaliação inicial: o que observar antes de traçar o plano</span>
+          <span class="aud">Fono &middot; TO &middot; Psicólogo</span>
+        </span>
+      </li>
+      <li>
+        <span class="letter">C</span>
+        <span>
+          <span class="t">Como estruturar e precificar seu atendimento em TEA</span>
+          <span class="aud">Autônomo &middot; dono de clínica</span>
+        </span>
+      </li>
+      <li>
+        <span class="letter">D</span>
+        <span>
+          <span class="t">Recebi o diagnóstico. E agora?</span>
+          <span class="aud">Família, pós-diagnóstico</span>
+        </span>
+      </li>
+    </ul>
+
+    <div class="callout">
+      <p>
+        <strong>E uma pergunta só, que decide tudo: quem compra a mentoria lá no fim
+        da esteira?</strong> Se for profissional, o curso de entrada precisa ser para
+        profissional também. Se ele for para família, você atrai muita mãe e não vende
+        mentoria para ninguém. O tema D é excelente produto — e péssimo primeiro degrau.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="num">03</span>
+      <h2>Como os 90 minutos ficam</h2>
+    </div>
+
+    <p>
+      Você pensou em cinco ou seis aulas. A intuição está certa — só que são
+      <strong>cinco módulos</strong>, com aulas curtas dentro de cada um. Aula de 7
+      minutos a pessoa termina; aula de 15, abandona no meio. E quem abandona nunca
+      chega no final — que é justamente onde o curso vende o próximo passo.
+    </p>
+
+    <div class="map">
+      <div class="row edge">
+        <span class="id">00</span>
+        <span class="label">Abertura — a promessa, para quem é, como usar o material
+          <span class="bar" style="width:25%"></span></span>
+        <span class="min">2</span>
+      </div>
+
+      <div class="row mod"><span class="id">M1</span><span class="label">O problema</span><span class="min">14</span></div>
+      <div class="row"><span class="id">1.1</span><span class="label">Onde dói de verdade<span class="bar" style="width:87%"></span></span><span class="min">7</span></div>
+      <div class="row"><span class="id">1.2</span><span class="label">Por que o que você já tentou não funcionou<span class="bar" style="width:87%"></span></span><span class="min">7</span></div>
+
+      <div class="row mod"><span class="id">M2</span><span class="label">O mapa</span><span class="min">21</span></div>
+      <div class="row"><span class="id">2.1</span><span class="label">O conceito central<span class="bar" style="width:87%"></span></span><span class="min">7</span></div>
+      <div class="row"><span class="id">2.2</span><span class="label">As partes desse conceito<span class="bar" style="width:87%"></span></span><span class="min">7</span></div>
+      <div class="row"><span class="id">2.3</span><span class="label">Como reconhecer na prática<span class="bar" style="width:87%"></span></span><span class="min">7</span></div>
+
+      <div class="row mod"><span class="id">M3</span><span class="label">A prática</span><span class="min">24</span></div>
+      <div class="row"><span class="id">3.1</span><span class="label">Passo 1 — o que fazer e o que não fazer<span class="bar" style="width:100%"></span></span><span class="min">8</span></div>
+      <div class="row"><span class="id">3.2</span><span class="label">Passo 2 — o plano das primeiras semanas<span class="bar" style="width:100%"></span></span><span class="min">8</span></div>
+      <div class="row"><span class="id">3.3</span><span class="label">Passo 3 — a devolutiva<span class="bar" style="width:100%"></span></span><span class="min">8</span></div>
+
+      <div class="row mod"><span class="id">M4</span><span class="label">Os erros</span><span class="min">14</span></div>
+      <div class="row"><span class="id">4.1</span><span class="label">Os três erros mais comuns<span class="bar" style="width:87%"></span></span><span class="min">7</span></div>
+      <div class="row"><span class="id">4.2</span><span class="label">O que fazer quando não funciona<span class="bar" style="width:87%"></span></span><span class="min">7</span></div>
+
+      <div class="row mod"><span class="id">M5</span><span class="label">A aplicação</span><span class="min">12</span></div>
+      <div class="row"><span class="id">5.1</span><span class="label">Um caso real, do começo ao fim<span class="bar" style="width:75%"></span></span><span class="min">6</span></div>
+      <div class="row"><span class="id">5.2</span><span class="label">Seus próximos 7 dias<span class="bar" style="width:75%"></span></span><span class="min">6</span></div>
+
+      <div class="row edge">
+        <span class="id">99</span>
+        <span class="label">Encerramento — a ponte para o próximo passo
+          <span class="bar" style="width:37%"></span></span>
+        <span class="min">3</span>
+      </div>
+
+      <div class="row total"><span class="id">—</span><span class="label">14 peças no total</span><span class="min">90</span></div>
+    </div>
+
+    <p>
+      Os títulos finais entram depois que você escolher o tema. O que está fixo é a
+      <strong>forma</strong>: cada aula abre e fecha sozinha, o que deixa você reaproveitar
+      qualquer uma delas como conteúdo de Instagram depois — sem regravar nada.
+    </p>
+
+    <div class="callout">
+      <p>
+        <strong>A regra que acaba com o “gravei, regravei, apaguei”:</strong> se você
+        errar no meio, não pare de gravar. Fique três segundos em silêncio, volte para o
+        começo da frase e repita. O corte acontece no silêncio. Você não vai mais precisar
+        apagar nada.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="num">04</span>
+      <h2>Três formas de fazer</h2>
+    </div>
+
+    <div class="plans">
+
+      <div class="plan">
+        <span class="name">Método</span>
+        <span class="tag">Você faz, com o nosso mapa</span>
+        <span class="price">R$&nbsp;2.900</span>
+        <span class="after">&nbsp;</span>
+        <ul>
+          <li class="yes"><span class="m">✓</span><span>Arquitetura e roteiro do curso</span></li>
+          <li class="yes"><span class="m">✓</span><span>Guia de gravação</span></li>
+          <li class="yes"><span class="m">✓</span><span>Uma call de direção, 60 min</span></li>
+          <li class="no"><span class="m">—</span><span>Gravação</span></li>
+          <li class="no"><span class="m">—</span><span>Edição das 14 peças</span></li>
+          <li class="no"><span class="m">—</span><span>Padrão visual e capas</span></li>
+          <li class="no"><span class="m">—</span><span>Legendas revisadas</span></li>
+          <li class="no"><span class="m">—</span><span>Caderno em PDF</span></li>
+          <li class="no"><span class="m">—</span><span>Revisão final por nós</span></li>
+          <li class="no"><span class="m">—</span><span>Publicação na plataforma</span></li>
+        </ul>
+        <div class="deadline"><span class="dot no"></span> Dia 15 por sua conta</div>
+      </div>
+
+      <div class="plan">
+        <span class="name">Produção</span>
+        <span class="tag">Você grava, a gente produz</span>
+        <span class="price">R$&nbsp;6.900</span>
+        <span class="after">a partir do 2º curso: R$ 4.400</span>
+        <ul>
+          <li class="yes"><span class="m">✓</span><span>Arquitetura e roteiro do curso</span></li>
+          <li class="yes"><span class="m">✓</span><span>Guia de gravação</span></li>
+          <li class="no"><span class="m">—</span><span>Gravação</span></li>
+          <li class="yes"><span class="m">✓</span><span>Edição das 14 peças</span></li>
+          <li class="yes"><span class="m">✓</span><span>Padrão visual e 14 capas</span></li>
+          <li class="yes"><span class="m">✓</span><span>Legendas revisadas</span></li>
+          <li class="yes"><span class="m">✓</span><span>Caderno em PDF</span></li>
+          <li class="yes"><span class="m">✓</span><span>Revisão final — a Ana não revisa</span></li>
+          <li class="yes"><span class="m">✓</span><span>Publicação na plataforma</span></li>
+          <li class="no"><span class="m">—</span><span>Plano de lançamento</span></li>
+        </ul>
+        <div class="deadline"><span class="dot warn"></span> Dia 15 depende da sua gravação</div>
+      </div>
+
+      <div class="plan pick">
+        <span class="name">Estúdio &nbsp;·&nbsp; indicado</span>
+        <span class="tag">A gente faz</span>
+        <span class="price">R$&nbsp;8.900</span>
+        <span class="after">a partir do 2º curso: R$ 6.400</span>
+        <ul>
+          <li class="yes"><span class="m">✓</span><span>Arquitetura e roteiro do curso</span></li>
+          <li class="yes"><span class="m">✓</span><span>Guia de gravação</span></li>
+          <li class="yes"><span class="m">✓</span><span><strong>Um dia de gravação, com direção</strong></span></li>
+          <li class="yes"><span class="m">✓</span><span>Edição das 14 peças</span></li>
+          <li class="yes"><span class="m">✓</span><span>Padrão visual e 14 capas</span></li>
+          <li class="yes"><span class="m">✓</span><span>Legendas revisadas</span></li>
+          <li class="yes"><span class="m">✓</span><span>Caderno em PDF</span></li>
+          <li class="yes"><span class="m">✓</span><span>Revisão final — a Ana não revisa</span></li>
+          <li class="yes"><span class="m">✓</span><span>Publicação na plataforma</span></li>
+          <li class="yes"><span class="m">✓</span><span>Plano de lançamento</span></li>
+        </ul>
+        <div class="deadline"><span class="dot ok"></span> Dia 15 por nossa conta</div>
+      </div>
+
+    </div>
+
+    <div class="callout">
+      <p>
+        <strong>Por que eu indico o Estúdio:</strong> faltam dez dias e você ainda está
+        gravando e apagando. É o único plano em que a data do dia 15 depende de mim, e
+        não de você. E tem uma coisa técnica: junto com as aulas a gente grava
+        <strong>imagens de apoio da clínica</strong> — é isso que faz o corte ficar
+        invisível. Aquele vídeo da Gabi arrumando o cabelo não teria aparecido.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="num">05</span>
+      <h2>O caminho até o dia 15</h2>
+    </div>
+
+    <ul class="when">
+      <li><span class="d">06 · qui</span><span class="w">Você escolhe o tema e o plano</span></li>
+      <li><span class="d">08 · sáb</span><span class="w">Dia de gravação — as 14 peças, com direção</span></li>
+      <li><span class="d">10 · seg</span><span class="w">Todo o material fechado</span></li>
+      <li><span class="d">10–12</span><span class="w">Edição, legendas, capas e caderno</span></li>
+      <li><span class="d">13 · qui</span><span class="w">Você e a Ana veem — uma rodada de ajustes</span></li>
+      <li><span class="d">14 · sex</span><span class="w">Ajustes e publicação na plataforma</span></li>
+      <li class="live"><span class="d">15 · sáb</span><span class="w">No ar</span></li>
+    </ul>
+
+    <p style="margin-top:1.3rem">
+      Se a gravação escorregar para depois de segunda, a gente combina agora um
+      lançamento em duas partes: <strong>Módulos 1 e 2 no ar dia 15</strong>, o restante
+      até dia 20. Prefiro combinar isso hoje do que te avisar na véspera.
+    </p>
+  </section>
+
+  <div class="close">
+    <span class="eyebrow">Próximo passo</span>
+    <h2>Três respostas e eu já ponho o time em campo</h2>
+
+    <ul class="ask">
+      <li><span class="n">1</span><span>A letra do tema — <strong>A, B, C ou D</strong></span></li>
+      <li><span class="n">2</span><span>Quem compra a mentoria lá no fim</span></li>
+      <li><span class="n">3</span><span>O plano — e se for Estúdio, <strong>sábado 08 ou segunda 10</strong></span></li>
+    </ul>
+
+    <p style="margin-top:1.4rem">
+      Pagamento em duas partes: metade na confirmação, metade na entrega.
+    </p>
+  </div>
+
+  <footer>
+    <span>Expansion Company</span>
+    <span>Proposta válida até 08.08.2026</span>
+  </footer>
+
+</div>

@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Curso de Entrada — Albanos Academy</title>
+<style>
+  @page { size: A4; margin: 0; }
+
+  :root {
+    --ink:        #17140F;
+    --muted:      #6E655B;
+    --faint:      #93887C;
+    --rule:       #E6DED3;
+    --accent:     #E67E22;
+    --accent-txt: #A85610;
+    --accent-bg:  #FDF2E6;
+    --wash:       #FAF7F2;
+    --ok:         #2F7A4F;
+    --ok-bg:      #EDF4EF;
+
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+            "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+            "Liberation Mono", monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #fff;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 9.4pt;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 13mm 14mm 11mm;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+  }
+  /* nada pode encolher: sem isso o flex column esmaga os blocos com overflow */
+  .page > * { flex: 0 0 auto; }
+  .page + .page { page-break-before: always; }
+
+  /* ---------- masthead ---------- */
+
+  .brandbar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6mm;
+    border-bottom: .9pt solid var(--ink);
+    padding-bottom: 2.2mm;
+  }
+  .brandbar .b {
+    font-family: var(--mono);
+    font-size: 7.3pt;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .brandbar .b strong { color: var(--accent-txt); font-weight: 700; }
+
+  h1 {
+    font-size: 21pt;
+    line-height: 1.02;
+    letter-spacing: -.035em;
+    font-weight: 800;
+    margin-top: 4.5mm;
+  }
+  .kicker {
+    font-size: 9.5pt;
+    color: var(--muted);
+    max-width: 116mm;
+    margin-top: 2.2mm;
+  }
+
+  .chips {
+    display: flex;
+    margin-top: 4.6mm;
+    border: .7pt solid var(--rule);
+    border-radius: 1.2mm;
+    overflow: hidden;
+  }
+  .chip {
+    flex: 1;
+    padding: 1.9mm 3.2mm;
+    border-right: .7pt solid var(--rule);
+  }
+  .chip:last-child { border-right: 0; }
+  .chip .k {
+    display: block;
+    font-family: var(--mono);
+    font-size: 6.6pt;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .chip .v {
+    display: block;
+    font-size: 11.5pt;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
+    margin-top: .5mm;
+  }
+  .chip .v em { font-style: normal; color: var(--accent-txt); }
+
+  /* ---------- section heads ---------- */
+
+  .sh {
+    display: flex;
+    align-items: baseline;
+    gap: 3.5mm;
+    border-top: 1.6pt solid var(--accent);
+    padding-top: 1.9mm;
+    margin-top: 5.4mm;
+    margin-bottom: 2.8mm;
+  }
+  .sh .n {
+    font-family: var(--mono);
+    font-size: 7.2pt;
+    color: var(--faint);
+  }
+  .sh h2 {
+    font-size: 12pt;
+    font-weight: 700;
+    letter-spacing: -.022em;
+  }
+
+  /* ---------- status ---------- */
+
+  .status { display: flex; flex-direction: column; gap: 1.6mm; }
+  .status .it {
+    display: grid;
+    grid-template-columns: 5mm 1fr;
+    gap: 2.6mm;
+    border: .7pt solid var(--rule);
+    border-radius: 1.2mm;
+    padding: 2.2mm 3mm;
+    background: var(--wash);
+  }
+  .status .it.done { background: var(--ok-bg); border-color: #D6E5DC; }
+  .status .mk {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 10pt;
+    line-height: 1.25;
+    color: var(--accent-txt);
+  }
+  .status .it.done .mk { color: var(--ok); }
+  .status .h { font-weight: 700; display: block; letter-spacing: -.012em; font-size: 9.4pt; }
+  .status .s { display: block; color: var(--muted); margin-top: .4mm; max-width: 158mm; font-size: 8.8pt; line-height: 1.4; }
+
+  /* ---------- map ---------- */
+
+  .maps { display: grid; grid-template-columns: 1fr 1fr; gap: 4.2mm; align-items: start; }
+  .map {
+    border: .7pt solid var(--rule);
+    border-radius: 1.2mm;
+    overflow: hidden;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 8mm 1fr 6mm;
+    align-items: center;
+    gap: 1.6mm;
+    padding: 1.1mm 2.4mm;
+    border-bottom: .5pt solid var(--rule);
+  }
+  .row:last-child { border-bottom: 0; }
+  .row .id {
+    font-family: var(--mono);
+    font-size: 7pt;
+    color: var(--faint);
+    font-variant-numeric: tabular-nums;
+  }
+  .row .lb { font-size: 7.9pt; line-height: 1.28; }
+  .row .mn {
+    font-family: var(--mono);
+    font-size: 7.4pt;
+    text-align: right;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .bar {
+    display: block;
+    height: .8mm;
+    background: var(--accent);
+    opacity: .45;
+    border-radius: .4mm;
+    margin-top: .6mm;
+  }
+  .row.mod { background: var(--accent-bg); }
+  .row.mod .id { color: var(--accent-txt); font-weight: 700; }
+  .row.mod .lb {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-size: 6.9pt;
+  }
+  .row.mod .mn { color: var(--accent-txt); font-weight: 700; }
+  .row.edge .lb { color: var(--muted); }
+  .row.total { background: var(--ink); }
+  .row.total .id { color: #8C8175; }
+  .row.total .lb { color: #fff; font-weight: 700; font-size: 8pt; }
+  .row.total .mn { color: #fff; font-weight: 700; }
+
+  .note {
+    border-left: 1.6pt solid var(--accent);
+    background: var(--accent-bg);
+    padding: 2.4mm 3.2mm;
+    border-radius: 0 1.2mm 1.2mm 0;
+    margin-top: 4mm;
+  }
+  .note .t {
+    font-family: var(--mono);
+    font-size: 6.7pt;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--accent-txt);
+    display: block;
+    margin-bottom: 1.2mm;
+  }
+  .note p { font-size: 8.3pt; line-height: 1.42; }
+
+  .foot {
+    margin-top: auto;
+    padding-top: 3mm;
+    border-top: .7pt solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 6.7pt;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  /* ---------- asks ---------- */
+
+  .blocks { display: flex; flex-direction: column; gap: 5.2mm; }
+  .bh {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4mm;
+    border-bottom: .7pt solid var(--rule);
+    padding-bottom: 1.6mm;
+    margin-bottom: 2.6mm;
+  }
+  .bh h3 { font-size: 10.4pt; font-weight: 700; letter-spacing: -.015em; }
+  .stamp {
+    font-family: var(--mono);
+    font-size: 6.6pt;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--accent);
+    padding: .8mm 2.2mm;
+    border-radius: .8mm;
+    white-space: nowrap;
+  }
+  .asks { display: flex; flex-direction: column; gap: 2.4mm; }
+  .ask {
+    display: grid;
+    grid-template-columns: 6mm 1fr;
+    gap: 2mm;
+    align-items: start;
+  }
+  .ask .n {
+    font-family: var(--mono);
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--accent-txt);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.35;
+  }
+  .ask .q {
+    display: block;
+    font-weight: 700;
+    font-size: 9.5pt;
+    letter-spacing: -.012em;
+  }
+  .ask .w {
+    display: block;
+    color: var(--muted);
+    font-size: 8.5pt;
+    line-height: 1.42;
+    margin-top: .4mm;
+    max-width: 165mm;
+  }
+  .letters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4mm 4mm;
+    margin-top: 1.6mm;
+  }
+  .letters div {
+    display: grid;
+    grid-template-columns: 4.6mm 1fr;
+    gap: 1.6mm;
+    align-items: start;
+    font-size: 8.5pt;
+    line-height: 1.34;
+  }
+  .letters b {
+    font-family: var(--mono);
+    color: #fff;
+    background: var(--accent);
+    border-radius: .7mm;
+    text-align: center;
+    font-size: 7.4pt;
+    padding: .3mm 0;
+  }
+
+  .close {
+    margin-top: 6mm;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 1.4mm;
+    padding: 4.4mm 5mm;
+  }
+  .close .t {
+    font-family: var(--mono);
+    font-size: 6.8pt;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 1.6mm;
+  }
+  .close p { font-size: 9.2pt; line-height: 1.5; color: #F0EAE2; max-width: 160mm; }
+  .close p + p { margin-top: 1.8mm; }
+  .close strong { color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- ============ PÁGINA 1 ============ -->
+<div class="page">
+
+  <div class="brandbar">
+    <span class="b"><strong>Expansion</strong> &nbsp;para&nbsp; Albanos Academy</span>
+    <span class="b">Cristiane Albano &middot; 05.08.2026</span>
+  </div>
+
+  <h1>Curso de entrada:<br>o que já está de pé</h1>
+  <p class="kicker">
+    Cris, adiantei o que dava para adiantar sem você. Aqui está a estrutura — e,
+    na página seguinte, o que eu preciso de você para fechar o resto.
+  </p>
+
+  <div class="chips">
+    <div class="chip"><span class="k">Duração</span><span class="v">90 min</span></div>
+    <div class="chip"><span class="k">Módulos</span><span class="v">5</span></div>
+    <div class="chip"><span class="k">Aulas</span><span class="v">12</span></div>
+    <div class="chip"><span class="k">Peças no total</span><span class="v">14</span></div>
+    <div class="chip"><span class="k">No ar em</span><span class="v"><em>15.08</em></span></div>
+  </div>
+
+  <div class="sh"><span class="n">01</span><h2>O que já andou</h2></div>
+
+  <div class="status">
+    <div class="it done">
+      <span class="mk">✓</span>
+      <span>
+        <span class="h">Editor fechado</span>
+        <span class="s">Falei com o meu editor de vídeos longos e fechei a edição. Ele é
+          especialista nesse formato — não é quem edita Reels de um minuto.</span>
+      </span>
+    </div>
+    <div class="it done">
+      <span class="mk">✓</span>
+      <span>
+        <span class="h">Estrutura do curso montada</span>
+        <span class="s">Peguei seus 90 minutos e transformei em módulos e aulas — está aqui embaixo.</span>
+      </span>
+    </div>
+    <div class="it">
+      <span class="mk">→</span>
+      <span>
+        <span class="h">Falta a estratégia — e essa é a parte que eu não faço sozinho</span>
+        <span class="s">Estrutura eu monto. Mas para esse curso vender o próximo degrau da sua
+          esteira, preciso de informações que só você tem — estão na página 2.</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="sh"><span class="n">02</span><h2>Seus 90 minutos, em 14 peças</h2></div>
+
+  <p style="color:var(--muted); max-width:176mm; margin-bottom:2.8mm; font-size:8.5pt; line-height:1.45">
+    Você pensou em cinco ou seis aulas — a intuição estava certa, só que são
+    <strong style="color:var(--ink)">cinco módulos</strong>, com aulas curtas dentro de cada
+    um. Aula de 7 minutos a pessoa termina; de 15, abandona no meio. E quem abandona nunca
+    chega no final — que é exatamente onde o curso convida para o próximo passo.
+  </p>
+
+  <div class="maps">
+
+    <div class="map">
+      <div class="row edge">
+        <span class="id">00</span>
+        <span class="lb">Abertura — a promessa, para quem é, como usar o material
+          <span class="bar" style="width:25%"></span></span>
+        <span class="mn">2</span>
+      </div>
+      <div class="row mod"><span class="id">M1</span><span class="lb">O problema</span><span class="mn">14</span></div>
+      <div class="row"><span class="id">1.1</span><span class="lb">Onde dói de verdade<span class="bar" style="width:87%"></span></span><span class="mn">7</span></div>
+      <div class="row"><span class="id">1.2</span><span class="lb">Por que o que você já tentou não funcionou<span class="bar" style="width:87%"></span></span><span class="mn">7</span></div>
+      <div class="row mod"><span class="id">M2</span><span class="lb">O mapa</span><span class="mn">21</span></div>
+      <div class="row"><span class="id">2.1</span><span class="lb">O conceito central<span class="bar" style="width:87%"></span></span><span class="mn">7</span></div>
+      <div class="row"><span class="id">2.2</span><span class="lb">As partes desse conceito<span class="bar" style="width:87%"></span></span><span class="mn">7</span></div>
+      <div class="row"><span class="id">2.3</span><span class="lb">Como reconhecer na prática<span class="bar" style="width:87%"></span></span><span class="mn">7</span></div>
+      <div class="row mod"><span class="id">M3</span><span class="lb">A prática</span><span class="mn">24</span></div>
+      <div class="row"><span class="id">3.1</span><span class="lb">Passo 1 — o que fazer e o que não fazer<span class="bar" style="width:100%"></span></span><span class="mn">8</span></div>
+      <div class="row"><span class="id">3.2</span><span class="lb">Passo 2 — o plano das primeiras semanas<span class="bar" style="width:100%"></span></span><span class="mn">8</span></div>
+      <div class="row"><span class="id">3.3</span><span class="lb">Passo 3 — a devolutiva<span class="bar" style="width:100%"></span></span><span class="mn">8</span></div>
+    </div>
+
+    <div>
+      <div class="map">
+        <div class="row mod"><span class="id">M4</span><span class="lb">Os erros</span><span class="mn">14</span></div>
+        <div class="row"><span class="id">4.1</span><span class="lb">Os três erros mais comuns<span class="bar" style="width:87%"></span></span><span class="mn">7</span></div>
+        <div class="row"><span class="id">4.2</span><span class="lb">O que fazer quando não funciona<span class="bar" style="width:87%"></span></span><span class="mn">7</span></div>
+        <div class="row mod"><span class="id">M5</span><span class="lb">A aplicação</span><span class="mn">12</span></div>
+        <div class="row"><span class="id">5.1</span><span class="lb">Um caso real, do começo ao fim<span class="bar" style="width:75%"></span></span><span class="mn">6</span></div>
+        <div class="row"><span class="id">5.2</span><span class="lb">Seus próximos 7 dias<span class="bar" style="width:75%"></span></span><span class="mn">6</span></div>
+        <div class="row edge">
+          <span class="id">99</span>
+          <span class="lb">Encerramento — a ponte para o próximo passo
+            <span class="bar" style="width:37%"></span></span>
+          <span class="mn">3</span>
+        </div>
+        <div class="row total"><span class="id">—</span><span class="lb">14 peças</span><span class="mn">90</span></div>
+      </div>
+
+      <div class="note">
+        <span class="t">A regra que acaba com o “gravei, regravei, apaguei”</span>
+        <p>
+          Errou no meio? <strong>Não pare de gravar.</strong> Fique três segundos em
+          silêncio, volte para o começo da frase e repita — o corte acontece no silêncio.
+          E grave <strong>uma aula por arquivo</strong>: errou na 3.2, você refaz só a
+          3.2, não os 90 minutos.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <span>Expansion Company</span>
+    <span>Estrutura do curso &middot; página 1 de 2</span>
+  </div>
+
+</div>
+
+<!-- ============ PÁGINA 2 ============ -->
+<div class="page">
+
+  <div class="brandbar">
+    <span class="b"><strong>Expansion</strong> &nbsp;para&nbsp; Albanos Academy</span>
+    <span class="b">Cristiane Albano &middot; 05.08.2026</span>
+  </div>
+
+  <div class="sh" style="margin-top:6mm"><span class="n">03</span><h2>O que eu preciso de você</h2></div>
+
+  <p style="color:var(--muted); max-width:172mm; margin-bottom:5.4mm; font-size:9pt">
+    Nove respostas. Nenhuma é longa — pode mandar por áudio, do jeito que ficar mais fácil
+    para você. Embaixo de cada uma eu coloquei <strong style="color:var(--ink)">por que
+    preciso</strong>, para você saber o que está em jogo.
+  </p>
+
+  <div class="blocks">
+
+    <div>
+      <div class="bh">
+        <h3>Isso destrava a sua gravação</h3>
+        <span class="stamp">hoje</span>
+      </div>
+      <div class="asks">
+
+        <div class="ask">
+          <span class="n">1</span>
+          <span>
+            <span class="q">O tema — me fala só a letra</span>
+            <div class="letters">
+              <div><b>A</b><span>Os primeiros 90 dias atendendo uma criança com TEA</span></div>
+              <div><b>B</b><span>Avaliação inicial: o que observar antes de traçar o plano</span></div>
+              <div><b>C</b><span>Como estruturar e precificar seu atendimento em TEA</span></div>
+              <div><b>D</b><span>Recebi o diagnóstico. E agora?</span></div>
+            </div>
+          </span>
+        </div>
+
+        <div class="ask">
+          <span class="n">2</span>
+          <span>
+            <span class="q">“Ao final desse curso, a pessoa vai conseguir ______.”</span>
+            <span class="w">Só completar a frase. É ela que define o que entra e o que fica
+              de fora de cada uma das 12 aulas.</span>
+          </span>
+        </div>
+
+        <div class="ask">
+          <span class="n">3</span>
+          <span>
+            <span class="q">Quem compra a mentoria lá no fim da esteira?</span>
+            <span class="w">É a mais importante das nove. Se a mentoria é para profissional,
+              o curso de entrada precisa ser para profissional também — senão você atrai
+              muita gente e não vende mentoria para ninguém.</span>
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="bh">
+        <h3>Isso me deixa montar a estratégia</h3>
+        <span class="stamp">até amanhã</span>
+      </div>
+      <div class="asks">
+
+        <div class="ask">
+          <span class="n">4</span>
+          <span>
+            <span class="q">A mentoria já existe hoje, com formato e preço?</span>
+            <span class="w">Se já existe, o encerramento do curso convida para ela. Se ainda
+              está em construção, vira lista de espera — funciona igual e ainda te mostra o
+              tamanho da demanda antes de você montar.</span>
+          </span>
+        </div>
+
+        <div class="ask">
+          <span class="n">5</span>
+          <span>
+            <span class="q">Quantas pessoas você consegue atender por mês, de verdade?</span>
+            <span class="w">O número real é o que dá força ao convite. Não precisa inventar
+              escassez quando ela já existe.</span>
+          </span>
+        </div>
+
+        <div class="ask">
+          <span class="n">6</span>
+          <span>
+            <span class="q">Quais degraus você imagina entre este curso e a mentoria?</span>
+            <span class="w">Mesmo que ainda esteja só na sua cabeça. Preciso saber para onde
+              o encerramento aponta.</span>
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="bh">
+        <h3>Isso a produção precisa</h3>
+        <span class="stamp">até sexta</span>
+      </div>
+      <div class="asks">
+
+        <div class="ask">
+          <span class="n">7</span>
+          <span>
+            <span class="q">Qual é a plataforma — e ela mostra quem concluiu o curso?</span>
+            <span class="w">Quem termina o curso é a sua melhor lista. Se a plataforma der
+              esse dado, dá para usar.</span>
+          </span>
+        </div>
+
+        <div class="ask">
+          <span class="n">8</span>
+          <span>
+            <span class="q">O padrão que você e a Ana estão montando — me manda o que já tem</span>
+            <span class="w">Você falou das faixas de curso, do tempo de aula e do material em
+              PDF. Mesmo rascunho serve: eu construo em cima em vez de começar do zero.</span>
+          </span>
+        </div>
+
+        <div class="ask">
+          <span class="n">9</span>
+          <span>
+            <span class="q">Os três cursos que já estão no ar — me manda o acesso</span>
+            <span class="w">Quero ver por dentro o que está incomodando vocês. É o jeito mais
+              rápido de eu entender o padrão que não pode se repetir.</span>
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="close">
+    <span class="t">Para eu fechar o cronograma</span>
+    <p>
+      Me diz também <strong>onde e quando você consegue gravar</strong> e
+      <strong>quem aprova no final</strong> — você, a Ana, ou as duas.
+    </p>
+    <p>
+      Com essas respostas eu fecho a estratégia do curso, ponho o editor em campo e te mando
+      o plano completo até o dia 15.
+    </p>
+  </div>
+
+  <div class="foot">
+    <span>Expansion Company</span>
+    <span>O que eu preciso de você &middot; página 2 de 2</span>
+  </div>
+
+</div>
+
+</body>
+</html>
