@@ -22,6 +22,7 @@ de nenhuma máquina em particular.
 | `POSICIONAMENTO-CONTEUDO-NICOLAS-*` | Posicionamento e estratégia de conteúdo |
 | `ALBANOS-ACADEMY-*` | Produção de cursos da Albanos Academy — arquitetura, precificação e rota de expansão na conta |
 | `POP-SOCIAL-MEDIA-v0.1.md` | POP de social media |
+| [`business-model/`](business-model/) | Estruturação, custeio e precificação da Expansion — fonte única da verdade econômica |
 | [`_audios/`](_audios/) | Transcrições de áudios e reuniões |
 
 ## Por onde começar
