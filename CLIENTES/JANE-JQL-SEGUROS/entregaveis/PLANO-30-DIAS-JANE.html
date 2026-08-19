@@ -1,0 +1,639 @@
+<title>Jane Queiroz — O plano dos próximos 30 dias</title>
+<style>
+  :root {
+    --paper:      #F1F3EF;
+    --paper-2:    #E7EBE5;
+    --ink:        #22282A;
+    --ink-soft:   #4C5754;
+    --stone:      #6B7671;
+    --rule:       #CBD3C9;
+    --brass:      #9C6B33;
+    --brass-soft: #C09A62;
+    --deep:       #26362E;
+    --deep-2:     #1B2721;
+    --on-deep:    #EBEFE8;
+    --shadow:     rgba(34,40,42,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:      #171C1A;
+      --paper-2:    #1F2624;
+      --ink:        #E8EDE7;
+      --ink-soft:   #B6C0BA;
+      --stone:      #8E9A94;
+      --rule:       #333D39;
+      --brass:      #D0A468;
+      --brass-soft: #8A6537;
+      --deep:       #0F1613;
+      --deep-2:     #0A0F0D;
+      --on-deep:    #E8EDE7;
+      --shadow:     rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:#171C1A; --paper-2:#1F2624; --ink:#E8EDE7; --ink-soft:#B6C0BA;
+    --stone:#8E9A94; --rule:#333D39; --brass:#D0A468; --brass-soft:#8A6537;
+    --deep:#0F1613; --deep-2:#0A0F0D; --on-deep:#E8EDE7; --shadow:rgba(0,0,0,.4);
+  }
+  :root[data-theme="light"] {
+    --paper:#F1F3EF; --paper-2:#E7EBE5; --ink:#22282A; --ink-soft:#4C5754;
+    --stone:#6B7671; --rule:#CBD3C9; --brass:#9C6B33; --brass-soft:#C09A62;
+    --deep:#26362E; --deep-2:#1B2721; --on-deep:#EBEFE8; --shadow:rgba(34,40,42,.07);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .serif {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino,
+                 "Book Antiqua", Georgia, serif;
+  }
+
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.5rem; }
+  .wide { max-width: 60rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ---------- capa ---------- */
+  .capa {
+    background: var(--deep);
+    color: var(--on-deep);
+    padding: clamp(3.5rem, 9vw, 6.5rem) 0 clamp(3rem, 7vw, 5rem);
+    border-bottom: 3px solid var(--brass);
+  }
+  .capa .eyebrow {
+    font-size: .72rem; letter-spacing: .19em; text-transform: uppercase;
+    color: var(--brass-soft); margin: 0 0 1.6rem;
+  }
+  .capa h1 {
+    font-size: clamp(2.3rem, 6.5vw, 3.9rem);
+    line-height: 1.08; font-weight: 400; margin: 0 0 1.5rem;
+    text-wrap: balance; letter-spacing: -.01em;
+  }
+  .capa h1 em { font-style: italic; color: var(--brass-soft); }
+  .capa .lede {
+    font-size: 1.1rem; max-width: 34rem; margin: 0 0 2.5rem;
+    color: var(--on-deep); opacity: .82;
+  }
+  .meta {
+    display: flex; flex-wrap: wrap; gap: 1.6rem 2.6rem;
+    padding-top: 1.8rem; border-top: 1px solid rgba(192,154,98,.28);
+  }
+  .meta div { min-width: 7rem; }
+  .meta dt {
+    font-size: .66rem; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--brass-soft); margin: 0 0 .35rem;
+  }
+  .meta dd {
+    margin: 0; font-size: .95rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- seções ---------- */
+  section { padding: clamp(2.8rem, 6vw, 4.5rem) 0; }
+  section + section { border-top: 1px solid var(--rule); }
+
+  .num {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: .7rem; letter-spacing: .14em; color: var(--brass);
+    display: block; margin-bottom: .7rem;
+  }
+  h2 {
+    font-size: clamp(1.5rem, 3.6vw, 2.05rem); font-weight: 400;
+    line-height: 1.2; margin: 0 0 1.4rem; text-wrap: balance;
+    letter-spacing: -.005em;
+  }
+  h3 {
+    font-size: 1.05rem; font-weight: 600; margin: 2.2rem 0 .7rem;
+    letter-spacing: .005em;
+  }
+  p { margin: 0 0 1.1rem; max-width: 40rem; }
+  strong { font-weight: 600; }
+  .dim { color: var(--ink-soft); }
+
+  blockquote {
+    margin: 1.8rem 0; padding: .2rem 0 .2rem 1.4rem;
+    border-left: 2px solid var(--brass);
+    font-size: 1.22rem; line-height: 1.5; font-style: italic;
+    color: var(--ink); max-width: 36rem;
+  }
+  blockquote cite {
+    display: block; margin-top: .7rem; font-style: normal;
+    font-size: .78rem; letter-spacing: .04em; color: var(--stone);
+  }
+
+  /* ---------- perfil ---------- */
+  .campo {
+    display: grid; grid-template-columns: 8.5rem 1fr; gap: .5rem 1.4rem;
+    padding: .95rem 0; border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+  .campo:first-of-type { border-top: 1px solid var(--rule); }
+  .campo dt {
+    font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--stone); padding-top: .28rem;
+  }
+  .campo dd { margin: 0; }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: .92rem;
+  }
+  .bio {
+    background: var(--paper-2); border-left: 2px solid var(--brass);
+    padding: 1rem 1.2rem; margin: .2rem 0 0; border-radius: 2px;
+    font-size: .97rem; line-height: 1.55;
+  }
+  @media (max-width: 34rem) {
+    .campo { grid-template-columns: 1fr; gap: .2rem; }
+    .campo dt { padding-top: 0; }
+  }
+
+  /* ---------- grade / pilares ---------- */
+  .barra {
+    display: flex; height: 2.4rem; margin: 1.6rem 0 .9rem;
+    border-radius: 2px; overflow: hidden; border: 1px solid var(--rule);
+  }
+  .barra span {
+    display: flex; align-items: center; justify-content: center;
+    font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+  }
+  .b-pessoa     { flex: 40; background: var(--paper-2); color: var(--ink-soft); }
+  .b-especialista { flex: 60; background: var(--deep); color: var(--on-deep); }
+
+  .pilares { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 2px; }
+  .pilar {
+    background: var(--paper); padding: 1rem 1.2rem;
+    display: grid; grid-template-columns: 1fr auto; gap: .3rem 1rem; align-items: baseline;
+  }
+  .pilar b { font-weight: 600; font-size: .97rem; }
+  .pilar .qtd {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: .78rem; color: var(--brass); white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .pilar small { grid-column: 1 / -1; color: var(--ink-soft); font-size: .87rem; line-height: 1.45; }
+
+  /* ---------- cronograma ---------- */
+  .semana { margin-bottom: 2.4rem; }
+  .semana-cab {
+    display: flex; align-items: baseline; gap: .9rem; flex-wrap: wrap;
+    padding-bottom: .6rem; margin-bottom: .9rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .semana-cab h3 { margin: 0; font-size: .74rem; letter-spacing: .16em;
+                   text-transform: uppercase; color: var(--brass); }
+  .semana-cab .periodo {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: .8rem; color: var(--stone); font-variant-numeric: tabular-nums;
+  }
+  .post {
+    display: grid; grid-template-columns: 4.6rem 1fr; gap: .35rem 1.2rem;
+    padding: .85rem 0; border-bottom: 1px solid var(--rule);
+  }
+  .post:last-child { border-bottom: none; }
+  .post .quando {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: .82rem; color: var(--ink-soft); padding-top: .12rem;
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  .post .o-que { font-weight: 600; font-size: 1rem; }
+  .post .fonte { grid-column: 2; font-size: .85rem; color: var(--ink-soft); }
+  .tag {
+    display: inline-block; font-size: .63rem; letter-spacing: .11em;
+    text-transform: uppercase; padding: .18rem .5rem; border-radius: 2px;
+    vertical-align: .1em; margin-left: .5rem; white-space: nowrap;
+  }
+  .t-reels  { background: var(--deep); color: var(--on-deep); }
+  .t-collab { background: var(--brass); color: #fff; }
+  .t-carro  { background: var(--paper-2); color: var(--ink-soft); border: 1px solid var(--rule); }
+  @media (max-width: 34rem) {
+    .post { grid-template-columns: 1fr; }
+    .post .fonte { grid-column: 1; }
+  }
+
+  .aviso {
+    background: var(--paper-2); border-left: 2px solid var(--brass);
+    padding: 1.1rem 1.3rem; margin: 2rem 0 0; border-radius: 2px;
+    font-size: .95rem;
+  }
+  .aviso p { margin: 0; max-width: none; }
+  .aviso p + p { margin-top: .6rem; }
+
+  /* ---------- roteiros ---------- */
+  .roteiros { display: grid; gap: 1px; background: var(--rule);
+              border: 1px solid var(--rule); border-radius: 2px; margin-top: 1.6rem; }
+  .rot { background: var(--paper); padding: .95rem 1.2rem;
+         display: grid; grid-template-columns: 2.6rem 1fr; gap: .25rem .9rem; }
+  .rot .n {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: .8rem; color: var(--brass); padding-top: .15rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .rot .tit { font-weight: 600; font-size: .98rem; }
+  .rot .pil { grid-column: 2; font-size: .78rem; letter-spacing: .09em;
+              text-transform: uppercase; color: var(--stone); }
+
+  /* ---------- pedidos ---------- */
+  ol.pedidos { margin: 1.4rem 0 0; padding: 0; list-style: none;
+               counter-reset: p; display: grid; gap: 1px;
+               background: var(--rule); border: 1px solid var(--rule); border-radius: 2px; }
+  ol.pedidos li {
+    background: var(--paper); padding: 1rem 1.2rem 1rem 3.2rem;
+    position: relative; counter-increment: p;
+  }
+  ol.pedidos li::before {
+    content: counter(p); position: absolute; left: 1.2rem; top: 1rem;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: .78rem; color: var(--brass);
+  }
+  ol.pedidos b { display: block; font-weight: 600; margin-bottom: .15rem; }
+  ol.pedidos small { color: var(--ink-soft); font-size: .89rem; line-height: 1.5; display: block; }
+
+  /* ---------- escada ---------- */
+  .escada { display: grid; gap: 1rem; margin-top: 1.6rem; }
+  .degrau {
+    display: grid; grid-template-columns: auto 1fr; gap: .2rem 1.1rem;
+    padding-left: 1.2rem; border-left: 2px solid var(--rule);
+  }
+  .degrau.ativo { border-left-color: var(--brass); }
+  .degrau .fase {
+    font-size: .66rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--stone); grid-column: 1 / -1;
+  }
+  .degrau.ativo .fase { color: var(--brass); }
+  .degrau b { grid-column: 1 / -1; font-size: 1.08rem; font-weight: 600; }
+  .degrau small { grid-column: 1 / -1; color: var(--ink-soft); font-size: .9rem; }
+
+  footer {
+    background: var(--deep-2); color: var(--on-deep);
+    padding: 2.8rem 0; margin-top: 0;
+    border-top: 3px solid var(--brass);
+  }
+  @media print {
+    :root {
+      --paper:#FFFFFF; --paper-2:#EFF2ED; --ink:#1B211F; --ink-soft:#4C5754;
+      --stone:#636E69; --rule:#C4CDC2; --brass:#8A5D2B; --brass-soft:#C09A62;
+      --deep:#26362E; --deep-2:#1B2721; --on-deep:#EBEFE8;
+    }
+    body { font-size: 10.5pt; }
+    .wrap, .wide { max-width: none; padding: 0 14mm; }
+    section { padding: 9mm 0; }
+    .capa { padding: 16mm 0 12mm; }
+    .post, .rot, .pilar, .degrau, ol.pedidos li,
+    blockquote, .aviso, .bio, .semana, .campo { break-inside: avoid; }
+    h2, h3, .semana-cab, .num { break-after: avoid; }
+    section { break-inside: auto; }
+    footer { break-inside: avoid; }
+    a[href] { color: inherit; text-decoration: none; }
+  }
+
+  footer p { opacity: .72; font-size: .88rem; margin: 0; max-width: none; }
+  footer .assinatura {
+    font-size: .7rem; letter-spacing: .19em; text-transform: uppercase;
+    color: var(--brass-soft); margin-bottom: .7rem;
+  }
+  footer .dominio {
+    display: inline-block; margin-top: 1.4rem; opacity: 1;
+    font-size: .82rem; letter-spacing: .06em; color: var(--brass-soft);
+    text-decoration: none; border-bottom: 1px solid var(--brass-soft);
+    padding-bottom: .1rem;
+  }
+  footer .dominio:hover, footer .dominio:focus-visible { color: var(--on-deep); border-bottom-color: var(--on-deep); }
+  a:focus-visible { outline: 2px solid var(--brass-soft); outline-offset: 3px; }
+</style>
+
+<header class="capa">
+  <div class="wrap">
+    <p class="eyebrow">Jane Queiroz &nbsp;×&nbsp; Expansion Assessoria</p>
+    <h1 class="serif">O plano dos<br>próximos <em>30 dias</em></h1>
+    <p class="lede">
+      O que já foi gravado, o que vai ao ar, em que dia, e o que ainda
+      precisamos de você.
+    </p>
+    <dl class="meta">
+      <div><dt>Ciclo</dt><dd>25/07 — 24/08</dd></div>
+      <div><dt>Publicações</dt><dd>3 por semana</dd></div>
+      <div><dt>Gravações feitas</dt><dd>2 diárias</dd></div>
+      <div><dt>Alinhamento</dt><dd>24 de agosto</dd></div>
+    </dl>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="wrap">
+    <span class="num">01 — O PONTO DE PARTIDA</span>
+    <h2 class="serif">A pergunta é sua, e ela organiza tudo</h2>
+    <blockquote class="serif">
+      Plano de saúde é tabelado. Todo corretor tem o mesmo preço. O que faz
+      você fechar comigo e não com outro?
+      <cite>Jane Queiroz — reunião de onboarding, 25 de julho</cite>
+    </blockquote>
+    <p>
+      Se o produto é igual e o preço é igual, conteúdo <em>sobre o produto</em>
+      não diferencia nada — qualquer concorrente publica o mesmo amanhã. O que
+      diferencia é o que acontece <strong>depois</strong> da assinatura.
+    </p>
+    <p>
+      Por isso todo post do seu perfil passa por uma régua só:
+      <strong>se um outro corretor pudesse assinar esse conteúdo, ele não
+      vai.</strong> O que sobra é exatamente o que só você tem — o aviso de
+      reajuste com 60 dias, o boleto que chega antes de você lembrar, o
+      telefonema para a operadora que você não precisou dar.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="num">02 — O PERFIL</span>
+    <h2 class="serif">Como o perfil fica estruturado</h2>
+    <p>
+      Quem chega no seu Instagram precisa entender em dois segundos o que você
+      faz e para quem. Hoje a busca do Instagram não lê a bio — ela lê o campo
+      <em>Nome</em>. É por isso que ele carrega a palavra que o seu cliente
+      digita.
+    </p>
+
+    <dl class="campo">
+      <dt>Usuário</dt>
+      <dd class="mono">@janequeirozseguros</dd>
+    </dl>
+    <dl class="campo">
+      <dt>Nome</dt>
+      <dd class="mono">Jane Queiroz | Plano de Saúde Empresarial</dd>
+    </dl>
+    <dl class="campo">
+      <dt>Bio</dt>
+      <dd>
+        <div class="bio">
+          Plano de saúde empresarial, sem susto no reajuste.<br>
+          Corretora desde 2012 · +5.000 vidas protegidas<br>
+          Cuido da apólice depois da assinatura, não só antes.<br>
+          📍 SP · RJ · BH
+        </div>
+      </dd>
+    </dl>
+    <dl class="campo">
+      <dt>Link</dt>
+      <dd>WhatsApp com mensagem pronta, para sabermos quem chegou pelo perfil</dd>
+    </dl>
+
+    <h3>Os cinco destaques</h3>
+    <p class="dim">
+      São as páginas que vendem sozinhas — quem visita olha para elas antes de
+      decidir seguir. Nesta ordem, porque a prova precisa vir cedo.
+    </p>
+    <div class="pilares">
+      <div class="pilar"><b>Quem sou</b><span class="qtd">1</span>
+        <small>De recepcionista a corretora. A Marinha do Brasil, a foto no submarino, 2012.</small></div>
+      <div class="pilar"><b>Casos reais</b><span class="qtd">2</span>
+        <small>O que o seu concierge resolveu. É o destaque mais importante do perfil.</small></div>
+      <div class="pilar"><b>Empresas</b><span class="qtd">3</span>
+        <small>A carteira, com autorização de cada uma.</small></div>
+      <div class="pilar"><b>Dúvidas</b><span class="qtd">4</span>
+        <small>Carência, portabilidade, reajuste, remissão, falsos coletivos.</small></div>
+      <div class="pilar"><b>Depoimentos</b><span class="qtd">5</span>
+        <small>Clientes falando, e as suas avaliações 5 estrelas no Google.</small></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="num">03 — A GRADE</span>
+    <h2 class="serif">Quarenta por cento você, sessenta por cento o seu trabalho</h2>
+    <p>
+      Só história pessoal conecta mas não qualifica. Só conteúdo técnico
+      qualifica mas vira igual a todo mundo. A proporção existe para as duas
+      coisas acontecerem ao mesmo tempo.
+    </p>
+    <div class="barra">
+      <span class="b-pessoa">40% &nbsp;Jane pessoa</span>
+      <span class="b-especialista">60% &nbsp;Jane especialista</span>
+    </div>
+    <div class="pilares">
+      <div class="pilar"><b>Casos de concierge</b><span class="qtd">3 / mês</span>
+        <small>O que você resolveu essa semana. É o pilar que nenhum concorrente consegue copiar — por isso ele nunca sai da grade.</small></div>
+      <div class="pilar"><b>Educação</b><span class="qtd">2 / mês</span>
+        <small>Carência, portabilidade, falsos coletivos, reajuste, rol da ANS.</small></div>
+      <div class="pilar"><b>Custo e benefício oculto</b><span class="qtd">1 / mês</span>
+        <small>O preço do outro lado, e o que já vem no plano e ninguém usa.</small></div>
+      <div class="pilar"><b>Autoridade para empresa</b><span class="qtd">1 / mês</span>
+        <small>NR-1, gestão de risco, mapeamento de saúde. É o que fala direto com dono e RH de 30 a 99 vidas.</small></div>
+      <div class="pilar"><b>Você</b><span class="qtd">5 / mês</span>
+        <small>A história, a rotina real, a família, a bike, os eventos. É o que faz alguém parar de rolar a tela.</small></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wide">
+    <span class="num">04 — CRONOGRAMA</span>
+    <h2 class="serif">Agosto, dia a dia</h2>
+    <p style="max-width:40rem">
+      Tudo abaixo sai do material gravado nos dias 29 e 30 de julho, na
+      Agrotools e no seu escritório. Publicação às segundas, quartas e sextas.
+    </p>
+
+    <div class="semana">
+      <div class="semana-cab">
+        <h3>Semana 1</h3><span class="periodo">05 — 07 de agosto</span>
+      </div>
+      <div class="post">
+        <span class="quando">Qua 05</span>
+        <span class="o-que">O plano é apenas o começo<span class="tag t-reels">Reels</span></span>
+        <span class="fonte">Roteiro 03 · abre a série com o seu diferencial</span>
+      </div>
+      <div class="post">
+        <span class="quando">Sex 07</span>
+        <span class="o-que">Jane × Agrotools<span class="tag t-collab">Collab</span></span>
+        <span class="fonte">Roteiro 05 · publicado nos dois perfis, entra no feed da Agrotools</span>
+      </div>
+    </div>
+
+    <div class="semana">
+      <div class="semana-cab">
+        <h3>Semana 2</h3><span class="periodo">10 — 14 de agosto</span>
+      </div>
+      <div class="post">
+        <span class="quando">Seg 10</span>
+        <span class="o-que">A importância da vacinação empresarial<span class="tag t-reels">Reels</span></span>
+        <span class="fonte">Roteiro 02 · com as imagens da campanha</span>
+      </div>
+      <div class="post">
+        <span class="quando">Qua 12</span>
+        <span class="o-que">O que acontece depois que você assina<span class="tag t-carro">Carrossel</span></span>
+        <span class="fonte">Fotos da campanha · você dentro da empresa, com as pessoas</span>
+      </div>
+      <div class="post">
+        <span class="quando">Sex 14</span>
+        <span class="o-que">Agrotools, cliente desde 2022<span class="tag t-reels">Reels</span></span>
+        <span class="fonte">Roteiro 04 · a prova de que a parceria se sustenta</span>
+      </div>
+    </div>
+
+    <div class="semana">
+      <div class="semana-cab">
+        <h3>Semana 3</h3><span class="periodo">17 — 21 de agosto</span>
+      </div>
+      <div class="post">
+        <span class="quando">Seg 17</span>
+        <span class="o-que">Experiência e diferenciais<span class="tag t-reels">Reels</span></span>
+        <span class="fonte">Roteiro 01 · desde 2012, mais de 5.000 vidas</span>
+      </div>
+      <div class="post">
+        <span class="quando">Qua 19</span>
+        <span class="o-que">Os números que sustentam o seu nome<span class="tag t-carro">Estático</span></span>
+        <span class="fonte">Retrato da sessão · desde 2012 · +5.000 vidas · SUSEP plena</span>
+      </div>
+      <div class="post">
+        <span class="quando">Sex 21</span>
+        <span class="o-que">Bastidor da campanha<span class="tag t-carro">Carrossel</span></span>
+        <span class="fonte">Fotos dos dois dias · o dia por dentro</span>
+      </div>
+    </div>
+
+    <div class="semana">
+      <div class="semana-cab">
+        <h3>Semana 4</h3><span class="periodo">24 — 28 de agosto</span>
+      </div>
+      <div class="post">
+        <span class="quando">Seg 24</span>
+        <span class="o-que">Primeiro vídeo da nova leva<span class="tag t-reels">Reels</span></span>
+        <span class="fonte">Da próxima gravação · e no mesmo dia, nossa reunião de alinhamento</span>
+      </div>
+      <div class="post">
+        <span class="quando">Qua 26</span>
+        <span class="o-que">Segundo vídeo da nova leva<span class="tag t-reels">Reels</span></span>
+        <span class="fonte">Da próxima gravação</span>
+      </div>
+      <div class="post">
+        <span class="quando">Sex 28</span>
+        <span class="o-que">Terceiro vídeo da nova leva<span class="tag t-reels">Reels</span></span>
+        <span class="fonte">Da próxima gravação</span>
+      </div>
+    </div>
+
+    <div class="aviso" style="max-width:40rem">
+      <p><strong>O material de julho cobre até 21 de agosto.</strong></p>
+      <p class="dim">
+        A partir do dia 24 o feed roda com a próxima gravação — por isso ela
+        precisa acontecer antes disso. Um dia de gravação bem planejado rende
+        de oito a dez vídeos, e isso sustenta cerca de um mês inteiro de perfil.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="num">05 — OS PRÓXIMOS ROTEIROS</span>
+    <h2 class="serif">Nove roteiros prontos para você gravar</h2>
+    <p>
+      Os cinco primeiros, gravados na Agrotools, mostram o seu trabalho. Estes
+      nove mostram <strong>você</strong> — a sua história, os seus valores, e as
+      respostas que só quem tem quinze anos de mercado sabe dar.
+    </p>
+    <p class="dim">
+      Estão no documento <em>Jane Queiroz</em>, na sua pasta do Drive, com
+      gancho, tempo e texto de fala prontos.
+    </p>
+    <div class="roteiros">
+      <div class="rot"><span class="n">06</span><span class="tit">Eu entrei como recepcionista</span><span class="pil">Conexão — história de origem</span></div>
+      <div class="rot"><span class="n">07</span><span class="tit">Meu plano tá caro</span><span class="pil">Objeção — custo</span></div>
+      <div class="rot"><span class="n">08</span><span class="tit">Todo corretor tem o mesmo preço</span><span class="pil">Objeção — diferencial</span></div>
+      <div class="rot"><span class="n">09</span><span class="tit">Você sabe se o seu plano tem remissão?</span><span class="pil">Técnico — benefício oculto</span></div>
+      <div class="rot"><span class="n">10</span><span class="tit">Falsos coletivos</span><span class="pil">Técnico — alerta de mercado</span></div>
+      <div class="rot"><span class="n">11</span><span class="tit">NR-1: o que o seu plano tem a ver com isso</span><span class="pil">Pauta do momento — fala com o cliente ideal</span></div>
+      <div class="rot"><span class="n">12</span><span class="tit">O dia que ninguém vê</span><span class="pil">Conexão — rotina</span></div>
+      <div class="rot"><span class="n">13</span><span class="tit">O curativo de dez mil reais</span><span class="pil">Autoridade — case de concierge</span></div>
+      <div class="rot"><span class="n">14</span><span class="tit">Eu já disse a um cliente para não trocar de plano</span><span class="pil">Conexão — valores</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="num">06 — DO SEU LADO</span>
+    <h2 class="serif">O que precisamos de você</h2>
+    <p>São coisas rápidas, e cada uma destrava uma parte do plano.</p>
+    <ol class="pedidos">
+      <li>
+        <b>Aceitar o convite de colaboração da Agrotools</b>
+        <small>Pelo perfil da JQL. Sem o aceite, o post não aparece no feed deles — e é ali que está a audiência que a gente quer alcançar.</small>
+      </li>
+      <li>
+        <b>Confirmar dois números</b>
+        <small>“Mais de 5.000 vidas” e “desde 2012”. Vão para a bio e para as artes, então queremos publicar com segurança.</small>
+      </li>
+      <li>
+        <b>Acesso ao Instagram</b>
+        <small>De preferência por convite no Meta Business Suite, no lugar de login e senha — é mais seguro para você.</small>
+      </li>
+      <li>
+        <b>Guardar a autorização da Agrotools</b>
+        <small>Aquela que você mesma pediu por escrito. É o que nos deixa usar o material daquela gravação com tranquilidade.</small>
+      </li>
+      <li>
+        <b>Ler os nove roteiros</b>
+        <small>Se algum não soar como você falando, a gente reescreve. É a sua voz, e ela tem que estar certa.</small>
+      </li>
+      <li>
+        <b>Marcar a próxima gravação até o dia 21</b>
+        <small>De preferência dentro de um cliente da sua carteira — rende conteúdo, prova e alcance ao mesmo tempo.</small>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="num">07 — COMO MEDIMOS</span>
+    <h2 class="serif">O que a gente olha, e quando</h2>
+    <p>
+      Você foi clara na nossa reunião: nesse primeiro momento não é engajamento
+      e não é lead — é se reconhecer ali. A medida acompanha isso e vai
+      subindo junto.
+    </p>
+    <div class="escada">
+      <div class="degrau ativo">
+        <span class="fase">Agora · até 24 de agosto</span>
+        <b>Reconhecimento</b>
+        <small>Você se vê no perfil. Aprova sem ressalva e compartilha porque quer, não porque pedimos.</small>
+      </div>
+      <div class="degrau">
+        <span class="fase">Ciclo seguinte</span>
+        <b>Conversa</b>
+        <small>Gente chegando no direct com pergunta de verdade. Não é número de seguidor.</small>
+      </div>
+      <div class="degrau">
+        <span class="fase">Depois</span>
+        <b>Cliente que diz “vi seu vídeo”</b>
+        <small>Quando o perfil vira porta de entrada e a venda começa antes da primeira conversa.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="assinatura">Expansion Assessoria</p>
+    <p>
+      Documento vivo — atualizado a cada ciclo. Qualquer dúvida, é só chamar
+      no nosso grupo.
+    </p>
+    <a class="dominio" href="https://expansionassessoria.com">expansionassessoria.com</a>
+  </div>
+</footer>

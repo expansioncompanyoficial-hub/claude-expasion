@@ -13,12 +13,13 @@ de nenhuma máquina em particular.
 | [`CLIENTES/`](CLIENTES/) | Um acervo por cliente — contexto de negócio, mapa do Drive, conversas e análises |
 | [`AEOS/`](AEOS/) | APEX Engineering Operating System — constituição de engenharia de produto, 12 volumes, 140 artigos |
 | [`AEOS/ORGANIFY/`](AEOS/ORGANIFY/) | Missões M001 (Digital Twin do app.organifybr.com) e M002 (OS interno da Expansion) |
-| [`CLIENTES/`](CLIENTES/) | Contexto de cada cliente da agência — quem é, regras editoriais, como a conta roda |
+| [`CLIENTES/`](CLIENTES/) | Dossiê de contexto por cliente — quem é, o que quer, o que está pendente |
 | `PLATAFORMA-WEBLUXURY-*` | Análise da plataforma WebLuxury — pareceres, anexos e rodadas de revisão |
 | `CONSELHO-EXPANSION-*` | Conselho da Expansion e anexos |
 | `EXPANSION-360`, `OPERACAO-REAL`, `AUDITORIA-DRIVE` | Diagnóstico e operação real da agência |
 | `POSICIONAMENTO-CONTEUDO-NICOLAS-*` | Posicionamento e estratégia de conteúdo |
-| `POP-SOCIAL-MEDIA-v0.1.md` | POP de social media |
+| `POP-SOCIAL-MEDIA-v0.1.md` | POP de social media — a rotina diária |
+| [`PLAYBOOK-SOCIAL-MIDIA-v2.md`](PLAYBOOK-SOCIAL-MIDIA-v2.md) | Playbook de posicionamento de perfil — 8 etapas, do onboarding à medição |
 | [`_audios/`](_audios/) | Transcrições de áudios e reuniões |
 
 ## Por onde começar

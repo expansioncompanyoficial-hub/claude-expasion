@@ -24,8 +24,7 @@ CLIENTES/             Um acervo por cliente (contexto, Drive, conversas)
   REINO-CONSORCIOS/   Consórcio e estruturação de crédito
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
-CLIENTES/             Um diretório por cliente da agência
-  ALBANOS/            Ecossistema Albanos (4 empresas, nicho autismo)
+CLIENTES/             Um dossiê de contexto por cliente da agência
 _audios/              Transcrições de áudios e reuniões
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
@@ -33,19 +32,20 @@ _audios/              Transcrições de áudios e reuniões
   reference/          Originais preservados da migração
 ```
 
-## CLIENTES — contexto por conta
+## CLIENTES — como usar
 
-Cada cliente tem uma pasta em `CLIENTES/<NOME>/` com tudo que é preciso saber
-para trabalhar naquela conta sem depender do Drive nem da memória de ninguém.
-`CLIENTES/README.md` traz o padrão de arquivos e as regras.
+`CLIENTES/` guarda o contexto de cada cliente da agência: quem é, o que quer, o que
+já foi prometido, o que está travado. Cada cliente tem um grupo de WhatsApp, uma pasta
+no Drive e uma sessão do Claude; esta pasta é onde isso vira memória entre sessões.
 
-Duas coisas para ter na cabeça antes de escrever em qualquer pasta de cliente:
+**Antes de trabalhar num cliente, ler o dossiê dele.** Antes de montar um cliente
+novo, ler `CLIENTES/README.md` — traz a estrutura, o passo a passo e as três regras
+não negociáveis (credencial nunca é versionada; dado de terceiro só com autorização;
+fala da cliente vai entre aspas, com data).
 
-1. **`CONTEXTO-<CLIENTE>.md` é documento vivo** — sem data, atualizado no lugar.
-   Diagnóstico é datado e não se edita: rodada nova é arquivo novo.
-2. **O repositório está público.** Não entram credenciais, links de
-   compartilhamento do Drive nem dado pessoal de terceiro (nome/telefone de
-   lead). Transcrição de WhatsApp entra redigida.
+Fontes de um cliente: **Fathom** (call de onboarding — ler a transcrição inteira, não
+só o resumo), **Google Drive** (pasta do cliente) e **export de WhatsApp** do privado
+e do grupo.
 
 ## AEOS — como usar
 
