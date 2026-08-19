@@ -1,50 +1,39 @@
 # CLIENTES
 
-Um acervo por cliente da Expansion. Cada pasta reúne tudo o que é preciso saber
-sobre aquele cliente — contexto de negócio, mapa do material no Drive, histórico
-de conversas e as análises feitas ao longo do tempo.
+Uma pasta por cliente. Cada uma reúne o contexto que o Claude precisa para
+trabalhar naquela conta sem depender do Drive, do WhatsApp ou da memória de
+ninguém.
 
-O objetivo é que **qualquer sessão nova consiga trabalhar um cliente sem
-precisar refazer o levantamento.**
+| Cliente | Nicho | Status | Pasta |
+|---|---|---|---|
+| DiCastro / BBM | Missão empresarial — Macedônia e Bulgária | Ciclo abr–jul/2026 encerrado. Retomada em aberto | [`DICASTRO/`](DICASTRO/) |
 
-## Clientes
+## Padrão de cada pasta
 
-| Cliente | Nicho | Contexto |
-|---|---|---|
-| [`REINO-CONSORCIOS/`](REINO-CONSORCIOS/) | Consórcio e estruturação de crédito | [Contexto](REINO-CONSORCIOS/CONTEXTO-REINO-CONSORCIOS.md) |
+| Arquivo | Papel |
+|---|---|
+| `CONTEXTO-<CLIENTE>.md` | **Documento vivo.** Quem é, o que vende, para quem, posicionamento, elenco, status. Sem data no nome — é atualizado, não substituído |
+| `DIAGNOSTICO-<CLIENTE>-AAAA-MM-DD.md` | Análise datada de um ciclo. Rodadas novas viram `-RODADA2`, nunca edição destrutiva |
+| `ACERVO-DRIVE-<CLIENTE>.md` | Mapa do que existe no Drive, o que está vazio e o que se perdeu |
+| `ROTEIROS-<CLIENTE>-*.md` | Roteiros consolidados — o Drive é frágil, aqui é versionado |
+| `LEADS-*-AAAA-MM-DD.md` | Análise de base de leads, quando houver |
+| `_whatsapp/` | Transcrições dos grupos, **redigidas** (ver abaixo) |
 
-## Estrutura de cada pasta
+## Regras
 
-```
-NOME-DO-CLIENTE/
-  CONTEXTO-NOME-DO-CLIENTE.md    Documento vivo — o ponto de entrada
-  INVENTARIO-DRIVE-NOME.md       Mapa do Drive com os IDs dos arquivos
-  LEITURA-*-AAAA-MM-DD.md        Análises datadas (não se editam, se empilham)
-  PARECER-*-AAAA-MM-DD.md        Pareceres formais, quando houver
-  _whatsapp/                     Transcrições dos grupos
-  _audios/                       Transcrições de áudios e reuniões
-```
+1. **Português do Brasil**, como todo o repositório.
+2. **Nada de credencial.** Senha, token, chave de API não entram aqui em nenhuma
+   hipótese — nem em transcrição de WhatsApp. O documento de acessos guarda
+   *quem* tem acesso, não a credencial.
+3. **Nada de link de compartilhamento do Drive.** Um link de pasta compartilhada
+   como "qualquer pessoa com o link" é uma chave de acesso. Enquanto o
+   repositório for público, referenciar por nome.
+4. **Dado pessoal de terceiro** — nome e telefone de lead, por exemplo — fica
+   fora. Análise agregada pode; lista nominal não.
+5. **Transcrição de WhatsApp entra redigida.** Remover senha, telefone, payload
+   de PIX, endereço e link de compartilhamento antes de commitar. O original
+   fica no ZIP e nos backups do app.
 
-Vale aqui a mesma convenção do resto do acervo (ver
-[`../CLAUDE.md`](../CLAUDE.md)): nomes em CAIXA-ALTA com hífen, análises
-sufixadas com a data, documentos vivos sem data. Rodada nova de análise vira
-arquivo novo — o histórico é o valor.
-
-## Como abrir um cliente novo
-
-1. Criar a pasta com o nome do cliente.
-2. Ler tudo no Drive pelo conector do Google Drive — `drive.google.com` está
-   bloqueado por HTTP neste ambiente, não adianta tentar baixar direto.
-3. Escrever o `INVENTARIO-DRIVE-*.md` com os IDs **antes** de qualquer análise.
-   É o que evita garimpar de novo na próxima sessão.
-4. Arquivar as conversas em `_whatsapp/`.
-5. Só então escrever o `CONTEXTO-*.md`.
-
-## 🔒 Credenciais
-
-**Senha, token ou login de cliente não entra neste repositório** — nem em
-transcrição, nem em documento, nem em exemplo. O repositório vive no GitHub.
-
-Quando aparecer credencial numa fonte (é comum em grupo de WhatsApp), redigir
-na hora e apontar para o documento de acessos no Drive. Se a credencial já
-circulou em texto claro, vale avisar o cliente e trocar.
+> ⚠️ **Este repositório está público no GitHub.** Todas as regras acima existem
+> por causa disso. Se ele for tornado privado, as regras 3 e 4 podem ser
+> relaxadas — as regras 2 e 5 valem de qualquer forma.

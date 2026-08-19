@@ -13,6 +13,7 @@ de nenhuma máquina em particular.
 | [`CLIENTES/`](CLIENTES/) | Um acervo por cliente — contexto de negócio, mapa do Drive, conversas e análises |
 | [`AEOS/`](AEOS/) | APEX Engineering Operating System — constituição de engenharia de produto, 12 volumes, 140 artigos |
 | [`AEOS/ORGANIFY/`](AEOS/ORGANIFY/) | Missões M001 (Digital Twin do app.organifybr.com) e M002 (OS interno da Expansion) |
+| [`CLIENTES/`](CLIENTES/) | Contexto por conta — quem é o cliente, o que foi entregue, o que falhou e o que existe de acervo |
 | `PLATAFORMA-WEBLUXURY-*` | Análise da plataforma WebLuxury — pareceres, anexos e rodadas de revisão |
 | `CONSELHO-EXPANSION-*` | Conselho da Expansion e anexos |
 | `EXPANSION-360`, `OPERACAO-REAL`, `AUDITORIA-DRIVE` | Diagnóstico e operação real da agência |

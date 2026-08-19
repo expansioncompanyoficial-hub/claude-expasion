@@ -24,6 +24,8 @@ CLIENTES/             Um acervo por cliente (contexto, Drive, conversas)
   REINO-CONSORCIOS/   Consórcio e estruturação de crédito
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
+CLIENTES/             Uma pasta por cliente — contexto, diagnóstico, acervo
+  DICASTRO/           BBM, missão empresarial Macedônia e Bulgária
 _audios/              Transcrições de áudios e reuniões
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
@@ -31,18 +33,19 @@ _audios/              Transcrições de áudios e reuniões
   reference/          Originais preservados da migração
 ```
 
-## CLIENTES — como usar
+## CLIENTES — contexto por conta
 
-Cada cliente tem uma pasta. O ponto de entrada é sempre o
-`CONTEXTO-<CLIENTE>.md` — documento vivo com quem é, o que vende, público,
-estado da operação e perguntas em aberto. O `INVENTARIO-DRIVE-*.md` traz os IDs
-dos arquivos no Drive para não ter que garimpar de novo.
+Cada cliente tem uma pasta em `CLIENTES/<NOME>/` com tudo que é preciso saber
+para trabalhar naquela conta sem depender do Drive nem da memória de ninguém.
+`CLIENTES/README.md` traz o padrão de arquivos e as regras.
 
-Convenções e passo a passo para abrir um cliente novo em
-[`CLIENTES/README.md`](CLIENTES/README.md).
+Duas coisas para ter na cabeça antes de escrever em qualquer pasta de cliente:
 
-🔒 **Credencial de cliente não entra neste repositório** — nem em transcrição
-de WhatsApp. Redigir na hora e apontar para o documento de acessos no Drive.
+1. **`CONTEXTO-<CLIENTE>.md` é documento vivo** — sem data, atualizado no lugar.
+   Diagnóstico é datado e não se edita: rodada nova é arquivo novo.
+2. **O repositório está público.** Não entram credenciais, links de
+   compartilhamento do Drive nem dado pessoal de terceiro (nome/telefone de
+   lead). Transcrição de WhatsApp entra redigida.
 
 ## AEOS — como usar
 
