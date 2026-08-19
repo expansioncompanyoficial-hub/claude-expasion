@@ -24,7 +24,8 @@ CLIENTES/             Um acervo por cliente (contexto, Drive, conversas)
   REINO-CONSORCIOS/   Consórcio e estruturação de crédito
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
-CLIENTES/             Um dossiê de contexto por cliente da agência
+CLIENTES/             Contexto consolidado por cliente (uma pasta por cliente)
+  007-CLAUKIDS/       Clau Kids — moda infantil
 _audios/              Transcrições de áudios e reuniões
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
@@ -34,18 +35,15 @@ _audios/              Transcrições de áudios e reuniões
 
 ## CLIENTES — como usar
 
-`CLIENTES/` guarda o contexto de cada cliente da agência: quem é, o que quer, o que
-já foi prometido, o que está travado. Cada cliente tem um grupo de WhatsApp, uma pasta
-no Drive e uma sessão do Claude; esta pasta é onde isso vira memória entre sessões.
+Cada cliente tem uma pasta `CLIENTES/NNN-NOME/`, numerada como no Drive. O
+ponto de entrada é sempre o `CONTEXTO-NOME.md`: documento **vivo**, sem data,
+que consolida onboarding, marca, números, operação e pendências. Entregas e
+análises são arquivos novos datados ao lado dele — nunca edição destrutiva.
 
-**Antes de trabalhar num cliente, ler o dossiê dele.** Antes de montar um cliente
-novo, ler `CLIENTES/README.md` — traz a estrutura, o passo a passo e as três regras
-não negociáveis (credencial nunca é versionada; dado de terceiro só com autorização;
-fala da cliente vai entre aspas, com data).
+Ver [`CLIENTES/README.md`](CLIENTES/README.md) para a convenção completa.
 
-Fontes de um cliente: **Fathom** (call de onboarding — ler a transcrição inteira, não
-só o resumo), **Google Drive** (pasta do cliente) e **export de WhatsApp** do privado
-e do grupo.
+**Credenciais nunca entram no repositório.** Os docs de `Acessos` ficam no
+Drive. Aqui se registra qual acesso existe e qual está pendente, nunca o valor.
 
 ## AEOS — como usar
 

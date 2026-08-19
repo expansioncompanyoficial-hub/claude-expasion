@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Clau Kids — Cronograma Integrado de Agosto</title>
+<style>
+  :root{
+    --paper:#FAF9F6; --ink:#1C1A17; --ink-soft:#5B5650; --ink-faint:#8A8478;
+    --line:#E4E0D8; --line-strong:#D2CCC0; --card:#FFFFFF;
+    --accent:#E67E22; --accent-ink:#7A3E0E; --accent-soft:#FBE7D2; --accent-line:#F0C393;
+    --verde:#6F8F35; --verde-ink:#3F5419; --verde-soft:#E7EEDA; --verde-line:#C4D6A0;
+    --critical:#B8442E; --critical-soft:#F6E1DC; --critical-line:#E7B4A4;
+    --azul:#3B6E91; --azul-soft:#E2EDF3; --azul-line:#B7D2E2;
+    --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper); color:var(--ink); font-family:var(--font-body);
+    font-size:11px; line-height:1.5; -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  @page{ size: A4; margin: 15mm 13mm; }
+  .wrap{ max-width: 760px; margin:0 auto; }
+
+  h1,h2,h3{font-family:var(--font-display); margin:0; letter-spacing:-.01em;}
+  .eyebrow{
+    font-family:var(--font-mono); font-size:9.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-faint); display:flex; gap:8px; align-items:center;
+  }
+  .eyebrow .dot{width:4px;height:4px;border-radius:50%;background:var(--ink-faint);}
+  h1{font-size:25px; font-weight:700; margin:8px 0 6px 0;}
+  h1 em{font-style:italic; color:var(--accent-ink);}
+  .lede{color:var(--ink-soft); font-size:12px; max-width:66ch; margin:0 0 14px 0;}
+
+  header.top{border-bottom:2px solid var(--accent); padding-bottom:12px; margin-bottom:18px;}
+
+  .statrow{display:flex; gap:8px; flex-wrap:wrap;}
+  .stat{background:var(--card); border:1px solid var(--line); border-radius:3px; padding:7px 11px; flex:1 1 90px;}
+  .stat .n{font-family:var(--font-mono); font-weight:700; font-size:15px; color:var(--ink);}
+  .stat .l{font-size:9px; color:var(--ink-soft); margin-top:1px;}
+
+  section{margin: 18px 0; page-break-inside: avoid;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:9px; border-bottom:1px solid var(--line); padding-bottom:5px;}
+  h2{font-size:14.5px; font-weight:700; color:var(--accent-ink);}
+  .section-note{font-family:var(--font-mono); font-size:9px; color:var(--ink-faint); white-space:nowrap;}
+
+  p{margin:0 0 7px 0;}
+
+  table{border-collapse:collapse; width:100%; font-size:10.3px;}
+  th{
+    text-align:left; font-family:var(--font-mono); font-size:8.5px; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--ink-faint); font-weight:600; padding:5px 7px; border-bottom:1px solid var(--line-strong);
+  }
+  td{padding:6px 7px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .mono{font-family:var(--font-mono); font-size:9.5px; color:var(--ink-soft);}
+
+  .pill{
+    display:inline-block; font-family:var(--font-mono); font-weight:700; font-size:9px;
+    border-radius:3px; padding:1px 6px;
+  }
+  .pill.a{background:var(--accent-soft); color:var(--accent-ink); border:1px solid var(--accent-line);}
+  .pill.done{background:var(--verde-soft); color:var(--verde-ink); border:1px solid var(--verde-line);}
+
+  .risk-list{list-style:none; margin:0; padding:0;}
+  .risk-list li{
+    display:flex; gap:9px; padding:8px 0; border-bottom:1px dashed var(--line); align-items:flex-start;
+  }
+  .risk-list li:last-child{border-bottom:none;}
+  .risk-list .badge{
+    font-family:var(--font-mono); font-size:8.5px; font-weight:700; border-radius:3px; padding:1px 6px;
+    white-space:nowrap; margin-top:1px;
+  }
+  .badge.resolved{background:var(--verde-soft); color:var(--verde-ink); border:1px solid var(--verde-line);}
+  .badge.open{background:var(--critical-soft); color:var(--critical); border:1px solid var(--critical-line);}
+  .risk-list .t{font-size:10.5px; line-height:1.45;}
+  .risk-list .t b{font-weight:700;}
+
+  .week-block{margin-bottom:14px; page-break-inside: avoid;}
+  .week-title{
+    font-family:var(--font-mono); font-size:9.5px; font-weight:700; color:var(--ink-faint);
+    text-transform:uppercase; letter-spacing:.05em; margin-bottom:5px; display:flex; align-items:center; gap:8px;
+  }
+  .week-title .line{flex:1; height:1px; background:var(--line);}
+  .week-title .tag{color:var(--accent-ink); font-weight:700;}
+
+  .flow{display:flex; align-items:stretch; gap:0; font-size:9.3px; margin-top:6px;}
+  .flow-step{flex:1; border:1px solid var(--line); background:var(--card); padding:7px 8px; position:relative;}
+  .flow-step + .flow-step{border-left:none;}
+  .flow-step .k{font-family:var(--font-mono); color:var(--accent-ink); font-size:8px; text-transform:uppercase; letter-spacing:.03em;}
+  .flow-step .v{margin-top:2px; line-height:1.3;}
+  .flow-step:not(:last-child)::after{
+    content:"→"; position:absolute; right:-6px; top:50%; transform:translateY(-50%);
+    color:var(--ink-faint); font-size:10px; background:var(--paper); width:12px; text-align:center; z-index:2;
+  }
+
+  .cardgrid{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  .idea{background:var(--card); border:1px solid var(--line); border-radius:4px; padding:9px 11px;}
+  .idea .t{font-weight:700; font-size:10.8px; margin-bottom:3px; color:var(--ink);}
+  .idea .d{font-size:9.8px; color:var(--ink-soft); line-height:1.4;}
+  .idea.backlog{border-style:dashed;}
+
+  .system-list{margin:0; padding-left:16px;}
+  .system-list li{margin-bottom:6px; font-size:10.3px; line-height:1.45;}
+  .system-list b{color:var(--accent-ink);}
+
+  footer{margin-top:22px; border-top:1px solid var(--line); padding-top:9px;}
+  footer p{font-size:8.5px; color:var(--ink-faint); font-family:var(--font-mono); margin:0; line-height:1.5;}
+
+  .page-break{page-break-before:always;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">CLAU KIDS <span class="dot"></span> CRONOGRAMA INTEGRADO <span class="dot"></span> AGOSTO/2026</div>
+  <h1>O mês inteiro, <em>com a lógica por trás de cada peça</em></h1>
+  <p class="lede">Três blocos de conteúdo (já gravado, escrito e não gravado, e o eixo do lagarto/tráfego) organizados num calendário só — auditado por um processo adversarial que encontrou e corrigiu 5 conflitos antes de fechar.</p>
+  <div class="statrow">
+    <div class="stat"><div class="n">27</div><div class="l">peças no mês</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">pools de conteúdo</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">semanas</div></div>
+    <div class="stat"><div class="n">5</div><div class="l">conflitos corrigidos na auditoria</div></div>
+  </div>
+</header>
+
+<section>
+  <div class="section-head"><h2>Os três blocos em jogo</h2><span class="section-note">A · B · C</span></div>
+  <table>
+    <thead><tr><th>Pool</th><th>Status</th><th>Conteúdo</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill a">A</span></td><td><span class="pill done">gravado</span> organizado por roteiro no Drive da Bianca</td><td>7 destaques (A01–A07) + 6 reels (A08–A13)</td></tr>
+      <tr><td><span class="pill a">B</span></td><td>escrito, não gravado</td><td>Roteiros 14–20 — arco Deserto + Pula Bula corrigido</td></tr>
+      <tr><td><span class="pill a">C</span></td><td>escrito, não gravado</td><td>Roteiros 21–23 + Tráfego 04 + 4 carrosséis — eixo lagarto do deserto</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="section-head"><h2>Riscos — o que já foi resolvido, o que segue em aberto</h2><span class="section-note">checagem de 04/08</span></div>
+  <ul class="risk-list">
+    <li><span class="badge resolved">resolvido</span><span class="t">Atraso da Bianca — <b>material existe e está organizado</b>, 12 pastas por roteiro. Risco virou logístico (transferência interna), não mais de produção.</span></li>
+    <li><span class="badge resolved">resolvido</span><span class="t">Duplicidade de handle — <b>@claukidstore</b> confirmado. <span class="mono">@claukidistory</span> é histórico, não usar.</span></li>
+    <li><span class="badge resolved">resolvido</span><span class="t">Brinde "lagarto do deserto" — <b>confirmado como resposta oficial</b>, já incorporado na estratégia. Asset formal vem depois, no grupo.</span></li>
+    <li><span class="badge resolved">resolvido</span><span class="t">R$ 1.500 do contrato (vence 09/08) — <b>acompanhado</b>, financeiro interno avisado.</span></li>
+    <li><span class="badge open">em aberto</span><span class="t">Ela opera sozinha (vende, atende, embala) — limite explícito de <b>no máximo 2 gravações próprias por semana</b>, além dos stories diários que já faz.</span></li>
+    <li><span class="badge open">em aberto</span><span class="t">Dois erros de conteúdo escaparam pra roteiros prontos (A02 "duas lojas", A13 posicionamento do Pula Bula) — <b>checklist de divergência roteiro × gravação agora obrigatório</b> antes de qualquer publicação do Pool A.</span></li>
+  </ul>
+</section>
+
+<section>
+  <div class="section-head"><h2>Calendário do mês</h2><span class="section-note">terça a segunda, 4 semanas</span></div>
+
+  <div class="week-block">
+    <div class="week-title"><span class="tag">Semana 1</span> · 04–10/08 — Fundação<div class="line"></div></div>
+    <table>
+      <tbody>
+        <tr><td class="mono">Ter 04</td><td>Atualização do post da mecânica do lagarto</td><td>Débora/Adryel — só após confirmação</td></tr>
+        <tr><td class="mono">Qua 05</td><td>C21 — "Eu queria dar uma ampulheta, não coube"</td><td>Pool C, gravado no celular</td></tr>
+        <tr><td class="mono">Qui 06</td><td>Carrossel 03 — "Entra na loja comigo"</td><td>Pool C, fotos já prontas</td></tr>
+        <tr><td class="mono">Sex 07</td><td>1º "Sexta de Bastidor"</td><td>Recorte dos stories da semana</td></tr>
+        <tr><td class="mono">Semana</td><td>Transferir material da Bianca, checklist de divergência, montar Destaques A01–A07</td><td>Pool A — prioridade máxima</td></tr>
+        <tr><td class="mono">06–07/08</td><td>Peças da Pula Bula chegam — capturar em fotos simples assim que chegarem</td><td>Não perder a janela</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="week-block">
+    <div class="week-title"><span class="tag">Semana 2</span> · 11–17/08<div class="line"></div></div>
+    <table>
+      <tbody>
+        <tr><td class="mono">Ter 11</td><td>A12 — Lançamento Coleção Deserto</td><td>Pool A, já filmado + unboxing 31/07</td></tr>
+        <tr><td class="mono">Qua 12</td><td>C22 — "Se seu filho não para as mãos, assiste isso"</td><td>Pool C, alcance amplo</td></tr>
+        <tr><td class="mono">Qui 13</td><td>Tráfego 04 no ar</td><td>Pool C — após revisar julho com o Matheus</td></tr>
+        <tr><td class="mono">Sex 14</td><td>Carrossel 01 — "7 peças, um verão inteiro resolvido"</td><td>Pool C, capsule wardrobe</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="week-block">
+    <div class="week-title"><span class="tag">Semana 3</span> · 18–24/08<div class="line"></div></div>
+    <table>
+      <tbody>
+        <tr><td class="mono">Ter 18</td><td>B16 — "O que eu deixei pra trás nessa coleção"</td><td>Pool B, curadoria de compra</td></tr>
+        <tr><td class="mono">Qua 19</td><td>C23 — "Todo mundo espera desconto, eu vou fazer o contrário"</td><td>Pool C</td></tr>
+        <tr><td class="mono">Qui 20</td><td>Carrossel 02 — "O que as mães falam"</td><td>Pool C + depoimento em vídeo</td></tr>
+        <tr><td class="mono">Sex 21</td><td>A09 — "Seu filho tem 9 anos e não cabe mais"</td><td>Pool A — abre o funil sequencial</td></tr>
+        <tr><td class="mono">Sáb 22</td><td>A08 — "Entra comigo" (tour da loja)</td><td>Pool A — fim de semana, família</td></tr>
+        <tr><td class="mono">Seg 24</td><td>A13 — Lançamento Pula Bula (teaser "chegando")</td><td>Pool A — fecha a semana, sem peça em mãos</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="week-block">
+    <div class="week-title"><span class="tag">Semana 4</span> · 25–31/08<div class="line"></div></div>
+    <table>
+      <tbody>
+        <tr><td class="mono">Ter 25</td><td>B19 — "Sua filha cresceu e o vestido de festa sumiu" + reabordagem VIP</td><td>Pool B, Pula Bula corrigido</td></tr>
+        <tr><td class="mono">Qua 26</td><td>Carrossel 04 — "Guia do vestido pra menina grande"</td><td>Pool C</td></tr>
+        <tr><td class="mono">Qui 27</td><td>B17 — "Roupa clarinha em criança? Eu também achava"</td><td>Pool B, quebra de objeção</td></tr>
+        <tr><td class="mono">Sex 28</td><td>A11 — "O grupo onde tudo chega primeiro"</td><td>Pool A — puxa pro canal direto</td></tr>
+        <tr><td class="mono">Dom 30</td><td>A10 — "Eu não vendo pra todo mundo"</td><td>Pool A — fecha o mês, diferencial</td></tr>
+        <tr><td class="mono">Gatilho</td><td>B18 — "A areia escorreu"</td><td>Publicar só quando o estoque começar a esvaziar de verdade</td></tr>
+        <tr><td class="mono">Reserva</td><td>B20 — Resgate do Acervo</td><td>Pra qualquer semana que render menos</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2>Funil sequencial "Cresceu, mas não perdeu a ocasião"</h2><span class="section-note">A09 → Pula Bula</span></div>
+  <div class="flow">
+    <div class="flow-step"><div class="k">Sex 21</div><div class="v">A09 abre a dor: "não cabe mais"</div></div>
+    <div class="flow-step"><div class="k">Reage/salva</div><div class="v">Vira candidato à Ficha de Estilo</div></div>
+    <div class="flow-step"><div class="k">Seg 24</div><div class="v">A13 anuncia a chegada, sem peça</div></div>
+    <div class="flow-step"><div class="k">Ter 25</div><div class="v">B19 mostra a solução com peça em mãos</div></div>
+    <div class="flow-step"><div class="k">Mesmo dia</div><div class="v">Reabordagem segmentada no grupo VIP</div></div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<section>
+  <div class="section-head"><h2>Ideias novas que entram no mês</h2><span class="section-note">curadas de 18 propostas, 3 lentes independentes</span></div>
+  <div class="cardgrid">
+    <div class="idea"><div class="t">Modo Arquivo + Resgate do Acervo</div><div class="d">Rede de segurança contra atraso de terceiros — usa material já pronto (28 fotos, unboxing, feedbacks, ~45 vídeos parados).</div></div>
+    <div class="idea"><div class="t">Ficha de Estilo</div><div class="d">Registro leve das 4 perguntas por cliente — vira base de segmentação pro funil A09 → Pula Bula.</div></div>
+    <div class="idea"><div class="t">Funil "Cresceu, mas não perdeu a ocasião"</div><div class="d">Conecta os dois nichos de tamanho grande que a loja já domina e que hoje não se conversam.</div></div>
+    <div class="idea"><div class="t">Diário da Reforma</div><div class="d">Arco de médio prazo amarrando cada venda ao sonho da reforma física — nunca envolve desconto.</div></div>
+    <div class="idea"><div class="t">Sexta de Bastidor</div><div class="d">Sistema semanal que transforma stories que ela já grava sozinha em Reel/Carrossel de feed.</div></div>
+  </div>
+
+  <p style="margin-top:12px; font-family:var(--font-mono); font-size:9px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint);">Backlog pra setembro — não cabem em agosto, mas valem nascer agora</p>
+  <div class="cardgrid">
+    <div class="idea backlog"><div class="t">"Bichos do Deserto"</div><div class="d">O chaveiro sensorial vira linha de produto própria. Julho já provou demanda independente (leads perguntaram pelo brinquedo, não só pela roupa).</div></div>
+    <div class="idea backlog"><div class="t">Lista "Quero Ser Lojista Assim"</div><div class="d">Canaliza o contato quase diário de outras lojistas inspiradas na jornada dela pra uma lista passiva, sem competir com o foco comercial.</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2>Sistema recorrente — além de agosto</h2><span class="section-note">rotina, não crise</span></div>
+  <ol class="system-list">
+    <li><b>Domingo/segunda:</b> pauta de 3–5 momentos enviada por WhatsApp, a partir do Menu de Gatilhos Naturais (mercadoria chega → unboxing; atendimento → curadoria ao vivo; embalagem → bastidor; elogio → depoimento na hora).</li>
+    <li><b>Bloco fixo de 15–20 min</b>, no dia de menor movimento, só pra gravar o que não sai naturalmente do atendimento.</li>
+    <li><b>Diariamente:</b> ela marca os 2–3 melhores momentos dos stories que já grava — parar de deixar sumir em 24h.</li>
+    <li><b>Toda sexta 18h–19h:</b> editor monta o "Sexta de Bastidor" a partir do que foi favoritado.</li>
+    <li><b>Checkpoint semanal (segunda):</b> status de fornecedores externos, com SLA de escalonamento — D+2 cobra, D+4 escala, D+5 aciona Modo Arquivo automaticamente.</li>
+    <li><b>Checklist de divergência</b> roteiro × gravação, obrigatório antes de qualquer publicação — é o que teria pego A02 e A13 antes desta auditoria.</li>
+    <li><b>Diário de Bordo</b> atualizado no mesmo dia de qualquer correção ou decisão — pra nunca mais uma correção se perder como em 28/07.</li>
+  </ol>
+</section>
+
+<footer>
+  <p>Construído com um workflow de 4 agentes: três lentes independentes (crescimento/algoritmo, negócio/receita, operação/sistema) propuseram 18 ideias; um auditor final revisou contra o fato-base completo, encontrou 5 conflitos reais e curou as melhores. Fonte: CRONOGRAMA-AGOSTO-2026-08-04.md · DIARIO-DE-BORDO-CLAUKIDS.md. Gerado 04/08/2026.</p>
+</footer>
+
+</div>
+</body>
+</html>

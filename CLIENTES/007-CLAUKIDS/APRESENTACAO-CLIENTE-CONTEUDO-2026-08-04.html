@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Clau Kids — Plano de Conteúdo</title>
+<style>
+  :root{
+    --paper:#FAF9F6; --ink:#1C1A17; --ink-soft:#5B5650; --ink-faint:#8A8478;
+    --line:#E4E0D8; --line-strong:#D2CCC0; --card:#FFFFFF;
+    --accent:#E67E22; --accent-ink:#7A3E0E; --accent-soft:#FBE7D2; --accent-line:#F0C393;
+    --verde:#6F8F35; --verde-ink:#3F5419; --verde-soft:#E7EEDA; --verde-line:#C4D6A0;
+    --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper); color:var(--ink); font-family:var(--font-body);
+    font-size:11.5px; line-height:1.55; -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  @page{ size: A4; margin: 0; }
+  .wrap{ max-width: 760px; margin:0 auto; padding: 16mm 14mm; }
+
+  h1,h2,h3{font-family:var(--font-display); margin:0; letter-spacing:-.01em;}
+
+  /* ---- Cover ---- */
+  .cover{
+    background: linear-gradient(160deg, #2A1B0E 0%, #4A2E14 55%, var(--accent) 130%);
+    color:#FBEEDD; padding: 26mm 16mm 20mm 16mm; position:relative; overflow:hidden;
+    page-break-after: always;
+  }
+  .cover::after{
+    content:""; position:absolute; right:-60px; bottom:-60px; width:260px; height:260px;
+    border-radius:50%; background:rgba(255,255,255,.06);
+  }
+  .cover .brand{font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.75; margin-bottom:60px;}
+  .cover h1{font-size:38px; color:#fff; font-weight:700; line-height:1.15; max-width:11ch;}
+  .cover .sub{font-size:14px; color:#F3D9B8; max-width:36ch; margin-top:14px; line-height:1.5;}
+  .cover .foot{margin-top:90px; font-family:var(--font-mono); font-size:10px; color:#F3D9B8; opacity:.85; display:flex; gap:18px;}
+
+  .eyebrow{
+    font-family:var(--font-mono); font-size:9.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-faint); display:flex; gap:8px; align-items:center; margin-bottom:6px;
+  }
+  .eyebrow .dot{width:4px;height:4px;border-radius:50%;background:var(--ink-faint);}
+
+  .greeting{font-size:13px; color:var(--ink-soft); max-width:64ch; margin:14px 0 22px 0; line-height:1.65;}
+  .greeting b{color:var(--ink);}
+
+  section{margin: 20px 0; page-break-inside: avoid;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:10px; border-bottom:1px solid var(--line); padding-bottom:5px;}
+  h2{font-size:15px; font-weight:700; color:var(--accent-ink);}
+  .section-note{font-family:var(--font-mono); font-size:9px; color:var(--ink-faint); white-space:nowrap;}
+
+  p{margin:0 0 8px 0;}
+
+  .cardgrid{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  .dcard{background:var(--card); border:1px solid var(--line); border-radius:5px; padding:11px 13px;}
+  .dcard .cat{font-family:var(--font-mono); font-size:9.5px; font-weight:700; color:var(--accent-ink); text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px;}
+  .dcard .q{font-size:10px; color:var(--ink-soft); font-style:italic; margin-bottom:6px;}
+  .dcard .items{font-size:10.3px; line-height:1.5;}
+
+  table{border-collapse:collapse; width:100%; font-size:10.5px;}
+  th{text-align:left; font-family:var(--font-mono); font-size:8.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-weight:600; padding:6px 8px; border-bottom:1px solid var(--line-strong);}
+  td{padding:7px 8px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+
+  .week-block{margin-bottom:15px; page-break-inside: avoid;}
+  .week-title{font-family:var(--font-mono); font-size:9.5px; font-weight:700; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px; display:flex; align-items:center; gap:8px;}
+  .week-title .line{flex:1; height:1px; background:var(--line);}
+  .timeline-row{display:grid; grid-template-columns:56px 1fr; gap:12px; align-items:start; padding:9px 0; border-bottom:1px dashed var(--line);}
+  .timeline-row:last-child{border-bottom:none;}
+  .timeline-row .date{font-family:var(--font-mono); font-size:10.5px; color:var(--accent-ink); font-weight:700; padding-top:1px;}
+  .timeline-row .t{font-size:11.5px; font-weight:600;}
+  .timeline-row .r{font-size:10.3px; color:var(--ink-soft); margin-top:3px; line-height:1.45;}
+
+  .callout{border:1px solid var(--verde-line); background:var(--verde-soft); border-radius:5px; padding:13px 15px;}
+  .callout .mark{font-family:var(--font-mono); font-weight:700; color:var(--verde-ink); font-size:10px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:5px; display:block;}
+
+  .next{border:1px dashed var(--accent-line); background:var(--accent-soft); border-radius:5px; padding:13px 15px;}
+  .next .mark{font-family:var(--font-mono); font-weight:700; color:var(--accent-ink); font-size:10px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:5px; display:block;}
+
+  footer{margin-top:26px; border-top:1px solid var(--line); padding-top:10px;}
+  footer p{font-size:9px; color:var(--ink-faint); font-family:var(--font-mono); margin:0;}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="brand">Clau Kids × Expansion</div>
+  <h1>Plano de conteúdo — o que já está gravado</h1>
+  <p class="sub">Como vamos aplicar o material da gravação de 29/07 no Instagram ao longo de agosto, e o que vem depois.</p>
+  <div class="foot"><span>Agosto / 2026</span><span>Preparado por Expansion</span></div>
+</div>
+
+<div class="wrap">
+
+<div class="eyebrow">CLAU KIDS <span class="dot"></span> AGOSTO 2026</div>
+<p class="greeting">Oi, Clau! Esse é o plano de como vamos usar os vídeos que gravamos com você no dia 29/07. Já organizamos tudo o que veio — <b>7 vídeos para os Destaques do perfil</b> e <b>6 Reels para o feed</b> — e montamos o calendário de quando cada um vai ao ar, e por quê. Depois que esse conteúdo estiver rodando, seguimos para pensar juntos a estratégia de tráfego.</p>
+
+<section>
+  <div class="section-head"><h2>O que já temos em mãos</h2><span class="section-note">13 vídeos, todos gravados</span></div>
+  <p>São 13 vídeos ao todo, já organizados por assunto: 7 vão virar os Destaques fixos do seu perfil, e 6 vão rodar como Reels no feed, um a um, ao longo do mês.</p>
+</section>
+
+<section>
+  <div class="section-head"><h2>Os Destaques do perfil</h2><span class="section-note">sobem juntos, é a primeira coisa que quem visita seu perfil vê</span></div>
+  <p>Os Destaques não têm data — eles sobem todos de uma vez, assim que a revisão final terminar, porque são a vitrine permanente do seu perfil.</p>
+  <div class="cardgrid">
+    <div class="dcard"><div class="cat">Quem Somos</div><div class="q">Quem é a Clau, por que confiar na loja</div><div class="items">"Oi, eu sou a Clau" · "Começou no quarto do meu filho" · a árvore da logo</div></div>
+    <div class="dcard"><div class="cat">Como Comprar</div><div class="q">Como funciona comprar com você</div><div class="items">Como funciona a compra · As quatro perguntas que você faz pra cada cliente</div></div>
+    <div class="dcard"><div class="cat">Meninos</div><div class="q">Serve pro meu filho?</div><div class="items">Vestir Menino</div></div>
+    <div class="dcard"><div class="cat">Meninas</div><div class="q">Serve pra minha filha?</div><div class="items">Vestir Meninas</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2>O calendário dos Reels</h2><span class="section-note">agosto, um por semana</span></div>
+
+  <div class="week-block">
+    <div class="week-title">Semana de 11 a 17/08<div class="line"></div></div>
+    <div class="timeline-row">
+      <span class="date">Ter 11</span>
+      <div><div class="t">Lançamento da Coleção Deserto</div><div class="r">Abre o mês com o lançamento — já tem o unboxing pronto pra reforçar logo depois.</div></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-title">Semana de 18 a 24/08<div class="line"></div></div>
+    <div class="timeline-row">
+      <span class="date">Sex 21</span>
+      <div><div class="t">"Seu filho tem 9 anos e não cabe mais"</div><div class="r">Fala direto com uma dor que muita mãe sente e pouca loja resolve — quem se identificar aqui, a gente reaborda mais pra frente com a Pula Bula.</div></div>
+    </div>
+    <div class="timeline-row">
+      <span class="date">Sáb 22</span>
+      <div><div class="t">"Entra comigo" — tour pela loja</div><div class="r">Fim de semana é quando a família está planejando sair de casa — ótimo momento pra mostrar o espaço físico.</div></div>
+    </div>
+    <div class="timeline-row">
+      <span class="date">Seg 24</span>
+      <div><div class="t">Lançamento Pula Bula — prévia</div><div class="r">Anuncia que a coleção está chegando, gerando expectativa, um dia antes de mostrar a peça em mãos.</div></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-title">Semana de 25 a 31/08<div class="line"></div></div>
+    <div class="timeline-row">
+      <span class="date">Sex 28</span>
+      <div><div class="t">"O grupo onde tudo chega primeiro"</div><div class="r">Fecha o mês convidando pro seu grupo VIP — de quem viu os Reels pro contato direto.</div></div>
+    </div>
+    <div class="timeline-row">
+      <span class="date">Dom 30</span>
+      <div><div class="t">"Eu não vendo para todo mundo"</div><div class="r">Reforça o que diferencia sua loja — a curadoria — antes de virar setembro.</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="callout">
+    <span class="mark">Antes de publicar</span>
+    <p style="margin:0;">Vamos fazer uma última checagem de precisão em cada vídeo, comparando com o que foi realmente dito na gravação — pra garantir que tudo saia exatamente como você contou, sem nenhuma informação desatualizada.</p>
+  </div>
+</section>
+
+<section>
+  <div class="next">
+    <span class="mark">Próximo passo</span>
+    <p style="margin:0;">Com os Destaques e os Reels rodando, a gente senta pra pensar a estratégia de <b>tráfego pago</b> em cima desse mesmo conteúdo — trazendo mais gente pra ver o que você já gravou.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Clau Kids × Expansion — plano de conteúdo, agosto/2026.</p>
+</footer>
+
+</div>
+</body>
+</html>

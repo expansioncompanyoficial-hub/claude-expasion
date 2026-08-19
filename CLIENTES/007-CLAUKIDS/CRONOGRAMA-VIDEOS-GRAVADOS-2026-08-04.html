@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Clau Kids — Cronograma dos Vídeos Gravados</title>
+<style>
+  :root{
+    --paper:#FAF9F6; --ink:#1C1A17; --ink-soft:#5B5650; --ink-faint:#8A8478;
+    --line:#E4E0D8; --line-strong:#D2CCC0; --card:#FFFFFF;
+    --accent:#E67E22; --accent-ink:#7A3E0E; --accent-soft:#FBE7D2; --accent-line:#F0C393;
+    --verde:#6F8F35; --verde-soft:#E7EEDA; --verde-line:#C4D6A0;
+    --critical:#B8442E; --critical-soft:#F6E1DC; --critical-line:#E7B4A4;
+    --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper); color:var(--ink); font-family:var(--font-body);
+    font-size:11.5px; line-height:1.55; -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  @page{ size: A4; margin: 16mm 14mm; }
+  .page{ padding: 0; }
+  .wrap{ max-width: 720px; margin:0 auto; }
+
+  h1,h2,h3{font-family:var(--font-display); margin:0; letter-spacing:-.01em;}
+  .eyebrow{
+    font-family:var(--font-mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-faint); display:flex; gap:8px; align-items:center;
+  }
+  .eyebrow .dot{width:4px;height:4px;border-radius:50%;background:var(--ink-faint);}
+  h1{font-size:26px; font-weight:700; margin:8px 0 6px 0;}
+  h1 em{font-style:italic; color:var(--accent-ink);}
+  .lede{color:var(--ink-soft); font-size:12.5px; max-width:62ch; margin:0 0 16px 0;}
+
+  header.top{border-bottom:2px solid var(--accent); padding-bottom:14px; margin-bottom:20px;}
+
+  .statrow{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:4px;}
+  .stat{
+    background:var(--card); border:1px solid var(--line); border-radius:3px; padding:8px 12px; flex:1 1 100px;
+  }
+  .stat .n{font-family:var(--font-mono); font-weight:700; font-size:16px; color:var(--ink);}
+  .stat .l{font-size:9.5px; color:var(--ink-soft); margin-top:1px;}
+
+  section{margin: 22px 0; page-break-inside: avoid;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:10px; border-bottom:1px solid var(--line); padding-bottom:5px;}
+  h2{font-size:15.5px; font-weight:700; color:var(--accent-ink);}
+  .section-note{font-family:var(--font-mono); font-size:9.5px; color:var(--ink-faint);}
+
+  p{margin:0 0 8px 0;}
+
+  .callout{
+    border:1px solid var(--critical-line); background:var(--critical-soft); border-radius:4px;
+    padding:12px 14px; display:flex; gap:10px; align-items:flex-start;
+  }
+  .callout .mark{
+    font-family:var(--font-mono); font-weight:700; color:var(--critical); font-size:11px;
+    border:1px solid var(--critical-line); border-radius:3px; padding:1px 6px; white-space:nowrap;
+  }
+  .callout ul{margin:6px 0 0 0; padding-left:16px;}
+  .callout li{margin-bottom:5px;}
+
+  table{border-collapse:collapse; width:100%; font-size:10.8px;}
+  th{
+    text-align:left; font-family:var(--font-mono); font-size:9px; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--ink-faint); font-weight:600; padding:6px 8px; border-bottom:1px solid var(--line-strong);
+  }
+  td{padding:7px 8px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .mono{font-family:var(--font-mono); font-size:10px; color:var(--ink-soft);}
+
+  .destaques-grid{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  .dcard{background:var(--card); border:1px solid var(--line); border-radius:4px; padding:10px 12px;}
+  .dcard .cat{
+    font-family:var(--font-mono); font-size:9.5px; font-weight:700; color:var(--accent-ink);
+    text-transform:uppercase; letter-spacing:.04em; margin-bottom:3px;
+  }
+  .dcard .q{font-size:10px; color:var(--ink-soft); font-style:italic; margin-bottom:4px;}
+  .dcard .items{font-size:10.5px;}
+
+  .week-block{margin-bottom:14px; page-break-inside: avoid;}
+  .week-title{
+    font-family:var(--font-mono); font-size:9.5px; font-weight:700; color:var(--ink-faint);
+    text-transform:uppercase; letter-spacing:.05em; margin-bottom:5px; display:flex; align-items:center; gap:8px;
+  }
+  .week-title .line{flex:1; height:1px; background:var(--line);}
+
+  .timeline-row{
+    display:grid; grid-template-columns:58px 40px 1fr; gap:10px; align-items:start;
+    padding:7px 0; border-bottom:1px dashed var(--line);
+  }
+  .timeline-row:last-child{border-bottom:none;}
+  .timeline-row .date{font-family:var(--font-mono); font-size:10.5px; color:var(--ink); font-weight:700;}
+  .timeline-row .code{
+    font-family:var(--font-mono); font-size:9.5px; font-weight:700; color:var(--accent-ink);
+    background:var(--accent-soft); border-radius:3px; padding:2px 5px; text-align:center; height:fit-content;
+  }
+  .timeline-row .t{font-size:11px; font-weight:600;}
+  .timeline-row .r{font-size:10px; color:var(--ink-soft); margin-top:2px;}
+
+  .flow{display:flex; align-items:stretch; gap:0; font-size:9.8px; margin-top:6px;}
+  .flow-step{flex:1; border:1px solid var(--line); background:var(--card); padding:8px 9px; position:relative;}
+  .flow-step + .flow-step{border-left:none;}
+  .flow-step .k{font-family:var(--font-mono); color:var(--accent-ink); font-size:8.5px; text-transform:uppercase; letter-spacing:.03em;}
+  .flow-step .v{margin-top:2px; line-height:1.35;}
+  .flow-step:not(:last-child)::after{
+    content:"→"; position:absolute; right:-7px; top:50%; transform:translateY(-50%);
+    color:var(--ink-faint); font-size:11px; background:var(--paper); width:13px; text-align:center; z-index:2;
+  }
+
+  footer{margin-top:26px; border-top:1px solid var(--line); padding-top:10px;}
+  footer p{font-size:9px; color:var(--ink-faint); font-family:var(--font-mono); margin:0;}
+</style>
+</head>
+<body>
+<div class="page"><div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">CLAU KIDS <span class="dot"></span> GRAVAÇÃO PRESENCIAL 29/07/2026 <span class="dot"></span> 04/08/2026</div>
+  <h1>Cronograma dos vídeos <em>já gravados</em></h1>
+  <p class="lede">Confirmado por print: a Bianca organizou tudo em 12 pastas, uma por roteiro. Aqui está onde cada uma entra no ar — e por quê, nessa ordem.</p>
+  <div class="statrow">
+    <div class="stat"><div class="n">7</div><div class="l">destaques (perfil)</div></div>
+    <div class="stat"><div class="n">6</div><div class="l">reels (feed)</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">pastas de apoio</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">correções obrigatórias</div></div>
+  </div>
+</header>
+
+<section>
+  <div class="section-head"><h2>O que já está em mãos</h2><span class="section-note">12 pastas · Drive da Bianca</span></div>
+  <table>
+    <thead><tr><th>Pasta (no print)</th><th>Roteiro</th><th>Destino</th></tr></thead>
+    <tbody>
+      <tr><td>Destaques</td><td class="mono">A01–A04</td><td>Perfil — Quem Somos / Como Comprar</td></tr>
+      <tr><td>As quatro perguntas</td><td class="mono">A05</td><td>Perfil — Como Comprar</td></tr>
+      <tr><td>Vestir Menino</td><td class="mono">A06</td><td>Perfil — Meninos</td></tr>
+      <tr><td>Vestir Meninas</td><td class="mono">A07</td><td>Perfil — Meninas</td></tr>
+      <tr><td>Entra comigo tour loja</td><td class="mono">A08</td><td>Feed</td></tr>
+      <tr><td>Seu filho tem 9 anos</td><td class="mono">A09</td><td>Feed</td></tr>
+      <tr><td>Eu não vendo para todo mundo</td><td class="mono">A10</td><td>Feed</td></tr>
+      <tr><td>O grupo onde tudo chega primeiro</td><td class="mono">A11</td><td>Feed</td></tr>
+      <tr><td>Lançamento Coleção Deserto</td><td class="mono">A12</td><td>Feed</td></tr>
+      <tr><td>Lançamento Coleção Pula Bulla</td><td class="mono">A13</td><td>Feed (teaser)</td></tr>
+      <tr><td>Fachada Loja</td><td class="mono">—</td><td>Apoio / banco de imagem</td></tr>
+      <tr><td>Vídeos detalhes produtos</td><td class="mono">—</td><td>Apoio / corte de B-roll</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="section-head"><h2>Portão de qualidade — antes de qualquer publicação</h2><span class="section-note">obrigatório</span></div>
+  <div class="callout">
+    <span class="mark">QC</span>
+    <div>
+      <p style="margin-bottom:6px;">Dois roteiros já tinham erro conhecido no texto escrito. Checar contra o que foi <strong>realmente falado</strong> na gravação antes de publicar:</p>
+      <ul>
+        <li><strong>A02</strong> ("Começou no quarto do meu filho") — o roteiro escrito ainda diz "hoje são duas lojas". A Clau é dona de <strong>uma loja</strong> só. Se ela leu a versão errada, recortar ou regravar.</li>
+        <li><strong>A13</strong> (Lançamento Pula Bula) — o roteiro escrito descreve roupa de dia a dia. Na gravação, a Clau <strong>ajustou a fala na hora</strong> pro correto: ocasião especial, numeração até 18. Legendar pelo que foi falado, não pelo texto antigo.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2>Arquitetura dos destaques</h2><span class="section-note">vai ao ar junto, prioridade máxima</span></div>
+  <p style="margin-bottom:10px;">Os 7 destaques não entram no calendário de feed — viram os Highlights fixos do perfil, e sobem <strong>juntos</strong>, assim que a transferência e o QC terminarem. É o que qualquer pessoa vê antes de decidir seguir ou comprar.</p>
+  <div class="destaques-grid">
+    <div class="dcard"><div class="cat">Quem Somos</div><div class="q">Quem é essa mulher? Por que confiar?</div><div class="items mono">A01 · A02 · A03</div></div>
+    <div class="dcard"><div class="cat">Como Comprar</div><div class="q">Como funciona na prática?</div><div class="items mono">A04 · A05</div></div>
+    <div class="dcard"><div class="cat">Meninos</div><div class="q">Serve pro meu filho?</div><div class="items mono">A06</div></div>
+    <div class="dcard"><div class="cat">Meninas</div><div class="q">Serve pra minha filha?</div><div class="items mono">A07</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2>Calendário dos reels</h2><span class="section-note">agosto/2026</span></div>
+
+  <div class="week-block">
+    <div class="week-title">Semana 2 · 11–17/08<div class="line"></div></div>
+    <div class="timeline-row">
+      <span class="date">Ter 11</span><span class="code">A12</span>
+      <div><div class="t">Lançamento Coleção Deserto</div><div class="r">Primeiro reel gravado a ir ao ar. Coincide com o unboxing real de 31/07 já disponível como corte de apoio — o lançamento do mês começa aqui.</div></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-title">Semana 3 · 18–24/08<div class="line"></div></div>
+    <div class="timeline-row">
+      <span class="date">Sex 21</span><span class="code">A09</span>
+      <div><div class="t">"Seu filho tem 9 anos e não cabe mais"</div><div class="r">Abre o funil de aquisição — a dor mais específica e menos disputada do nicho. Quem reage aqui é reabordado depois, quando a Pula Bula chegar.</div></div>
+    </div>
+    <div class="timeline-row">
+      <span class="date">Sáb 22</span><span class="code">A08</span>
+      <div><div class="t">"Entra comigo" (tour da loja)</div><div class="r">Fim de semana, família planejando passeio ou compra — o melhor momento pra mostrar o espaço físico.</div></div>
+    </div>
+    <div class="timeline-row">
+      <span class="date">Seg 24</span><span class="code">A13</span>
+      <div><div class="t">Lançamento Pula Bula (teaser)</div><div class="r">Anuncia sem a peça em mãos ainda — mantém a expectativa. No dia seguinte sai o roteiro corrigido, já com a peça física.</div></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-title">Semana 4 · 25–31/08<div class="line"></div></div>
+    <div class="timeline-row">
+      <span class="date">Sex 28</span><span class="code">A11</span>
+      <div><div class="t">"O grupo onde tudo chega primeiro"</div><div class="r">Fecha o mês puxando pro canal direto — quem chegou até aqui pelo feed vira contato no WhatsApp.</div></div>
+    </div>
+    <div class="timeline-row">
+      <span class="date">Dom 30</span><span class="code">A10</span>
+      <div><div class="t">"Eu não vendo pra todo mundo"</div><div class="r">Fecha reforçando o diferencial — curadoria consultiva — antes de virar setembro.</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2>A lógica por trás da ordem</h2><span class="section-note">o funil, em uma linha por etapa</span></div>
+  <div class="flow">
+    <div class="flow-step"><div class="k">A12</div><div class="v">Marco do mês — o lançamento que puxa atenção</div></div>
+    <div class="flow-step"><div class="k">A09</div><div class="v">Aquisição — a dor mais específica do nicho</div></div>
+    <div class="flow-step"><div class="k">A08</div><div class="v">Confiança — mostra o espaço físico de verdade</div></div>
+    <div class="flow-step"><div class="k">A13</div><div class="v">Expectativa — anuncia o que vem a seguir</div></div>
+    <div class="flow-step"><div class="k">A11</div><div class="v">Conversão — fecha puxando pro direct/grupo</div></div>
+    <div class="flow-step"><div class="k">A10</div><div class="v">Reforço — fixa o diferencial pro mês seguinte</div></div>
+  </div>
+</section>
+
+<footer>
+  <p>Fonte: CRONOGRAMA-AGOSTO-2026-08-04.md (plano completo do mês, incluindo Pool B e C). Este documento isola só o que já foi gravado em 29/07. Gerado 04/08/2026.</p>
+</footer>
+
+</div></div>
+</body>
+</html>
