@@ -752,3 +752,87 @@ antes de liberar horas · mexer no preço do EX3 · prometer resultado com base 
 `D-041` (aceite da direção), `D-042` (renovação antes de prospecção), `D-043` (renovação
 por escopo, não por preço). Novas em aberto: `A-049` (`ALERTA-09`), `A-050` (o calendário
 de vencimentos), `A-051` (quanto a Clau Kids paga).
+
+---
+
+## Rodada 19/08/2026 (2) — O EX1 redesenhado e a plataforma como entregável
+
+**Entregues:**
+- `33-EX1-REDESENHADO.md` — https://claude.ai/code/artifact/11db6aba-b364-41ed-a85e-825581629e22
+- `35-A-PLATAFORMA-COMO-ENTREGAVEL.md` — https://claude.ai/code/artifact/1db23fd2-8718-4358-8cf9-23115867fa14
+
+O `34` (manual de exportação, disparo e tráfego) segue **em pesquisa**.
+
+### O escopo novo do EX1 não cabia em R$ 1.800
+
+Nicolas desenhou um EX1 maior: playbook de posicionamento no Instagram, 6 rodadas de
+tráfego, roteiros para a lojista gravar, análise de vendas e atendimento, e templates de
+postagem — mantendo R$ 1.800.
+
+| | Horas/mês | Lucro a R$ 1.800 | Com custo Meta |
+|---|---:|---:|---:|
+| EX1 no papel hoje | 6,00 h | 47,2% | 38,9% |
+| **Com o escopo novo** | **11,33 h** | 34,6% | **26,3%** ❌ |
+| Se playbook e peças forem mensais | 15,03 h | 25,9% | **17,6%** ❌ |
+
+**Recomendação: R$ 2.400 com implantação de R$ 1.500** (`D-046` fixa isso depois, já com
+a plataforma dentro). A R$ 900 o setup de 11,75 h fecha em 5,9%.
+
+### A promessa central
+
+> **"Um plano comercial por mês, e o número toda segunda."**
+
+Defensável porque disparo é comoditizável — Take Blip × Claro a R$ 179,90 — e **decisão
+não é.** O argumento é do Nicolas e está certo.
+
+### A escada muda de eixo
+
+De **faturamento da loja** para **escopo**. BASE R$ 1.800 / 7,5 h / 35,4% · GIRO
+R$ 2.400 / 12 h / 33,9% · PLANO R$ 2.900 / 15,7 h / 33,2%. **Margem constante ao longo da
+escada** — o comercial sobe degrau sem pedir autorização.
+
+### A plataforma como entregável — validada, com três correções e dois bloqueios
+
+**A dobradiça é `A-034`**, aberta desde 08/08:
+
+| Se a ferramenta for | Ganho da plataforma própria | Por ano, 15 clientes |
+|---|---:|---:|
+| Por conta | +0,8 p.p. | R$ 3.564 |
+| **Por número** | **+12,4 p.p.** | **R$ 53.460** |
+
+**Correção importante:** a plataforma própria **não elimina o custo de mensagem da
+Meta** — substitui a orquestração, não o canal. O `ALERTA-08` continua de pé.
+
+Três mecânicas mudadas: **`D-044`** — "inclusa", nunca "de graça" nem "bônus";
+**`D-045`** — fase 1 é painel de **leitura**, a lojista não preenche nada, porque login
+contradiz a promessa do produto (`23`); **`D-046`** — R$ 2.400, não R$ 2.200, porque a
+plataforma **adiciona** suporte.
+
+**`ALERTA-10` (`A-052`)** — o suporte da plataforma não está em hora nenhuma: 30 a 60
+min/cliente/mês, **7,5 a 15 h com 15 clientes.** Terceira vez que o padrão aparece.
+
+### 🔺 Uma correção minha, no mesmo turno
+
+Escrevi que o painel caberia dentro de `D-021`. **Fui conferir o texto e não cabe** —
+`D-021` proíbe, literalmente, *"construir aplicação para o cliente usar"*. O que ela
+libera é o **módulo interno**, que é onde está o ativo e pode começar amanhã. **A tela com
+login precisa de aceite do conselho** (`A-055`).
+
+### `A-039` e `A-031` agravadas
+
+Com a base dos clientes morando na plataforma, a **cessão de IP** deixa de ser boa prática
+e vira condição de partida: vende-se acesso a um ativo que pode não ser da casa, e um
+rompimento com o desenvolvedor deixa do outro lado **a base de 15 lojistas.** E o papel na
+LGPD muda de **operadora para controladora** (`A-053`), o que exige base legal própria e
+cláusula assinada **antes do primeiro registro**.
+
+### A escala real do dado
+
+15 lojas × 2.000 contatos = **30.000 registros = 0,15%** da base da Dito CRM. Não é ativo
+negociável. **Mas o benchmark próprio é** — 5 lojas × 6 meses = 30 campanhas medidas, e a
+casa hoje tem **zero caso com número.**
+
+### Decisões
+`D-044`, `D-045`, `D-046`. Novas em aberto: `A-052` (`ALERTA-10`), `A-053` (LGPD
+controladora), `A-054` (portão do conselho), `A-055` (aceite do conselho para a tela).
+`A-039` e `A-031` marcadas como agravadas.

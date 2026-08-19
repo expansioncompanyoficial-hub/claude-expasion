@@ -20,6 +20,7 @@
 
 | Arquivo | O que responde | Status |
 |---|---|---|
+| **`35-A-PLATAFORMA-COMO-ENTREGAVEL.md`** | **👉 O CRM DENTRO DO PRODUTO.** Validação da ideia, as 3 mecânicas que mudam, e as 2 coisas que travam a partida | **v1.0 — proposta** |
 | **`33-EX1-REDESENHADO.md`** | **👉 O EX1 NOVO.** A promessa central, o escopo entregável por entregável, e por que o preço tem que ir para R$ 2.400 | **v1.0 — proposta** |
 | **`32-O-QUE-FAZER-AGORA.md`** | **👉 O PLANO.** O relógio da carteira (12 dias), a carteira a 157–166% da capacidade, os 5 movimentos desta semana e o que **não** fazer | **v1.0 — 19/08** |
 | **`31-OS-TRES-PRODUTOS-PARA-ESTUDAR.md`** | **👉 A FOLHA DE ESTUDO.** Os 3 produtos e **todos os entregáveis** numa peça só — o que entrega, o que **não** entrega, a conta, a qualificação e o que dá para negociar | **v1.0 — para estudar com o Kauã** |
@@ -65,6 +66,7 @@
 | **`28-EXPANSION-360.md`** | **O consolidado de tudo.** Nove seções, incluindo o status honesto de cada afirmação | **v1.0 — 10/08** |
 | **`29-CATALOGO-DE-PRODUTOS.md`** | **Ficha de cada produto** + a conversa sobre o EX1 + o calendário de 12 campanhas | **v1.0 — 10/08** |
 | **`30-ESTUDO-REVISADO-DURACAO-E-PRODUTOS.md`** | **Duração por produto** (6 · 6 · 12 meses), a revisão do estudo de mercado com verificação adversarial, o **veredito sobre a IA de atendimento** e o **`ALERTA-08`** | **v1.0 — 11/08** |
+| **`35-A-PLATAFORMA-COMO-ENTREGAVEL.md`** | **A plataforma como entregável do EX1.** A dobradiça de `A-034` (R$ 3.564 ou R$ 53.460/ano), o painel só-leitura, o `ALERTA-10` e por que `A-039` virou existencial | **v1.0 — 19/08** |
 | **`33-EX1-REDESENHADO.md`** | **O EX1 com o escopo do Nicolas.** A promessa central (*um plano comercial por mês, e o número toda segunda*), a escada por escopo em vez de por faturamento, e a conta que joga o preço para R$ 2.400 | **v1.0 — 19/08** |
 | **`32-O-QUE-FAZER-AGORA.md`** | **O plano de 30 dias.** A carteira cliente a cliente contra o custo real, a migração para os produtos novos, os 5 movimentos da semana, as 3 coisas sem volta e o que não fazer | **v1.0 — 19/08** |
 | **`31-OS-TRES-PRODUTOS-PARA-ESTUDAR.md`** | **A folha de estudo do Kauã.** Os 3 produtos com todos os entregáveis destrinchados, o que **não** entra, as combinações, a qualificação em 3 perguntas e as moedas de troca. **Consolida `16` + `18` + `19` + `29` + `30`** | **v1.0 — 11/08** |
