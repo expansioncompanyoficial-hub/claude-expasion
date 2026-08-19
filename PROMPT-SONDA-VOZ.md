@@ -173,7 +173,7 @@ ROTA B — canal relacional (ticket alto, sala fechada, sigilo):
 6. TRÊS TERRITÓRIOS DE CONVERSA, em vez de linhas editoriais.
 7. DUAS PEÇAS ESCRITAS: a página única de posicionamento que eu mando antes da
    reunião, e a carta "como eu trabalho", anexo da proposta. Mesma regra de voz.
-8. ROTEIRO DE DIAGNÓSTICO E MAPA DE OBJEÇÕES: as perguntas que eu faço, na ordem
+8. ROTEIRO DE DIAGNóSTICO E MAPA DE OBJEÇÕES: as perguntas que eu faço, na ordem
    em que eu faço, com o que eu olho primeiro; e cada objeção que eu ouço → o que
    há por trás dela → a minha resposta, com um caso anexado. É o que permite
    outra pessoa vender sem mim.
