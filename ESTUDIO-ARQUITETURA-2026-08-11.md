@@ -30,12 +30,21 @@ sozinha, e a seguinte só começa quando a anterior estiver rodando com cliente 
 
 | Fase | Entrega | Destrava |
 |---|---|---|
-| **0 — hoje** | Skill + renderizador + ficha de cliente, dentro do repo | Já produz peça pronta |
-| **1** | Banco de dados + render fora da sessão | Vários operadores, sem depender de quem abriu o Claude |
-| **2** | Portal de aprovação | Fim da aprovação por WhatsApp, que é frágil e sem rastro |
+| **0 — feita** | Skill + renderizador + ficha de cliente, dentro do repo | Já produz peça pronta |
+| **1 — feita** | Render fora da sessão + esquema do banco | Vários operadores, sem depender de quem abriu o Claude |
+| **2 — feita** | Portal de aprovação | Fim da aprovação por WhatsApp, que é frágil e sem rastro |
 | **3** | Publicação automática pós-aceite | Tira o passo manual do social media |
 | **4** | Coleta de desempenho | Relatório de segunda deixa de ser trabalho manual |
 | **5** | Recalibração por nicho | O ativo que a BrandsDecoded não consegue vender |
+
+**Estado em 19/08:** fases 1 e 2 construídas em `SERVICO/` — serviço de render,
+portal de aprovação e o esquema em `SERVICO/migracoes/001-inicial.sql`. Testadas
+ponta a ponta: peça criada por HTTP, nove PNGs em 1080×1350, portal aberto,
+aprovação registrada com quem e quando.
+
+Duas lacunas conhecidas e escritas em `SERVICO/README.md`: o link de aprovação
+não valida quem clicou (o campo existe no esquema, falta ligar) e o aceite ainda
+não dispara publicação — isso é a fase 3.
 
 **A fase 2 é a mais urgente e a menos óbvia.** Não é a mais tecnológica — é a que resolve
 o problema que quase custou a Prime em 16/07 (ausência de relatório) e o que gerou o

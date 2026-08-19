@@ -28,3 +28,6 @@ venv/
 
 # Node
 node_modules/
+
+# Estúdio — peças renderizadas pelo serviço (estado local)
+SERVICO/dados/

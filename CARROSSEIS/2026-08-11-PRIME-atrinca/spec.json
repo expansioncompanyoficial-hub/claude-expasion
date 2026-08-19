@@ -1,21 +1,46 @@
 {
-  "marca": "Prime Assessoria",
+  "marca": "PRIME ASSESSORIA",
   "handle": "@prime.alphaville",
   "copyright": "2026 ®",
   "verificado": true,
+  "template": "expansion-01",
+  "capa_estilo": "impacto",
+  "capa_scrim": "medio",
   "tokens": {
     "dark": "#191818",
     "accent": "#e14414",
     "claro": "#F0EEEC",
     "texto": "#FFFFFF",
+    "barra_opacidade": 0.45,
+    "gradiente": "linear-gradient(180deg,#e14414 0%,#c2380f 50%,#e14414 100%)",
     "fonte_head": "Montserrat",
     "fonte_body": "Poppins"
   },
   "fontes": [
     {
       "family": "Montserrat",
-      "weight": 800,
-      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-800-normal.woff2"
+      "weight": 600,
+      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-600-normal.woff2"
+    },
+    {
+      "family": "Montserrat",
+      "weight": 600,
+      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-600-normal.woff2"
+    },
+    {
+      "family": "Montserrat",
+      "weight": 700,
+      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff2"
+    },
+    {
+      "family": "Montserrat",
+      "weight": 700,
+      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-700-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 400,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-400-normal.woff2"
     },
     {
       "family": "Poppins",
@@ -24,89 +49,107 @@
     },
     {
       "family": "Poppins",
-      "weight": 600,
-      "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-600-normal.woff2"
+      "weight": 500,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-500-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 500,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-500-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 700,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-700-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 700,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-700-normal.woff2"
     }
   ],
   "slides": [
     {
       "tipo": "capa",
-      "fundo": "capa",
       "headline": "R$ 15 bilhões não cabem em um *troféu*",
-      "sub": "A Prime na primeira edição do Prêmio ATRINCA Real Estate"
+      "imagem_brief": "Equipe da Prime no Espaço Unimed, na noite do Prêmio ATRINCA"
     },
     {
       "tipo": "texto",
       "fundo": "claro",
-      "tag": "O que aconteceu",
-      "h1": "10 de agosto",
+      "foto_pos": "topo",
+      "imagem_brief": "Fachada ou palco do Espaço Unimed na noite do prêmio",
+      "h1": "10 de agosto, Espaço Unimed",
       "paragrafos": [
-        "O Espaço Unimed recebeu a primeira edição do **Prêmio ATRINCA Real Estate**, idealizado por Flávio Augusto, Joel Jota, Caio Carneiro e Cezar Haik. A Prime estava entre os nomes da categoria de crédito imobiliário."
+        "O Espaço Unimed recebeu a primeira edição do **Prêmio ATRINCA Real Estate**, idealizado por Flávio Augusto, Joel Jota, Caio Carneiro e Cezar Haik. A Prime estava entre os nomes indicados na categoria de *crédito imobiliário*."
       ]
     },
     {
       "tipo": "texto",
       "fundo": "destaque",
-      "tag": "A indicação",
-      "h1": "Ninguém *comprou* essa indicação",
+      "foto_pos": "meio",
+      "imagem_brief": "Corretores e profissionais do setor conversando no evento",
+      "h1": "Ninguém comprou essa indicação",
       "paragrafos": [
-        "As indicações saíram de pesquisa com o próprio mercado: corretores, imobiliárias e profissionais do setor. Aparecer ali custa uma coisa só — **ter feito o trabalho**."
+        "As indicações saíram de **pesquisa com o próprio mercado**: corretores, imobiliárias e profissionais do setor. Não teve inscrição paga nem votação aberta. Aparecer numa lista dessas custa uma coisa só — ter feito o trabalho antes de alguém perguntar."
+      ]
+    },
+    {
+      "tipo": "texto",
+      "fundo": "claro",
+      "foto_pos": "base",
+      "imagem_brief": "Corretor com cliente diante da tela de simulação de crédito",
+      "h1": "O banco nega e a venda para",
+      "paragrafos": [
+        "É o ponto em que mais negócio morre no mercado imobiliário: a proposta estava fechada na cabeça do cliente e trava numa política de crédito. *A recusa de um banco não é a recusa do mercado* — é a recusa daquela política."
       ]
     },
     {
       "tipo": "texto",
       "fundo": "escuro",
-      "tag": "O que uma assessoria faz",
-      "h1": "O banco nega e a venda *para*",
+      "foto_pos": "topo",
+      "imagem_brief": "Mesa de análise: documentos, notebook e simulação lado a lado",
+      "h1": "Score não é sentença",
       "paragrafos": [
-        "A Prime opera como correspondente de várias instituições ao mesmo tempo e reenquadra o perfil do cliente na política de crédito que aprova."
+        "A Prime opera como correspondente de várias instituições ao mesmo tempo e reenquadra o perfil do cliente na política que aprova. **O que um banco recusa por score, outro analisa por patrimônio, por renda comprovada de outra forma, ou por composição.**"
       ]
     },
     {
-      "tipo": "stat",
-      "fundo": "destaque",
-      "tag": "Os números",
-      "numero": "R$ 15 BI",
-      "label": "financiados até aqui, em 165 unidades pelo país",
+      "tipo": "texto",
+      "fundo": "escuro",
+      "h1": "A conta do corretor muda quando o crédito é bem estruturado",
+      "paragrafos": [
+        "Cliente negado no banco ainda tem caminho em outra política, e segue com o corretor que o levou até ali — a comissão também segue.",
+        "Antes da visita já dá para saber o que ele aguenta pagar de parcela, o que evita apresentar imóvel fora do alcance e perder o dia. E cliente bem estruturado compra imóvel melhor: *imóvel melhor é comissão maior*. **Banco isolado limita o poder de compra; olhar várias políticas ao mesmo tempo amplia.**"
+      ]
+    },
+    {
+      "tipo": "texto",
+      "fundo": "claro",
+      "foto_pos": "meio",
+      "imagem_brief": "Aperto de mãos entre corretor e assessor, chaves na mesa",
+      "h1": "Quem indica assina junto",
+      "paragrafos": [
+        "Indicar uma assessoria é colocar o próprio nome junto do serviço dela. Por isso a indicação que vem de **pesquisa com o setor** vale diferente: o que está sendo medido ali não é marketing, é *trabalho entregue* — e quem respondeu conhece o resultado de perto."
+      ]
+    },
+    {
+      "tipo": "texto",
+      "fundo": "escuro",
+      "foto_pos": "base",
+      "imagem_brief": "Vista de obra ou empreendimento entregue, sem pessoas identificáveis",
+      "h1": "R$ 15 bilhões em 165 unidades",
+      "paragrafos": [
+        "É o volume financiado pela Prime até aqui, distribuído em 165 unidades pelo país. **Número não é prêmio** — é o registro de quantas vezes uma venda que ia travar chegou até a escritura."
+      ],
       "fonte": "Prime Assessoria"
     },
     {
-      "tipo": "declaracao",
-      "fundo": "escuro",
-      "tag": "A virada",
-      "h1": "Score não é *sentença*",
-      "paragrafos": [
-        "O que um banco recusa por score, outro aprova por patrimônio."
-      ]
-    },
-    {
-      "tipo": "bullets",
-      "fundo": "destaque",
-      "tag": "O que muda para o corretor",
-      "h1": "A conta do corretor *muda*",
-      "itens": [
-        "Cliente negado ainda tem caminho em outra política",
-        "**O cliente segue com o corretor.** A comissão também",
-        "Banco isolado limita; análise integrada amplia",
-        "Parceria em crédito fecha o negócio que ia travar"
-      ]
-    },
-    {
-      "tipo": "declaracao",
-      "fundo": "escuro",
-      "tag": "Na prática",
-      "h1": "Quem indica *assina* junto",
-      "paragrafos": [
-        "Quando a indicação vem de pesquisa com o setor, o que está sendo medido é trabalho entregue."
-      ]
-    },
-    {
       "tipo": "cta",
-      "fundo": "claro",
-      "tag": "Parceria",
-      "ponte": "A venda que trava no crédito é a que mais dói, porque já estava **fechada na cabeça do cliente**.",
-      "instrucao": "Comenta a palavra abaixo:",
-      "palavra": "PRIME"
+      "fundo": "escuro",
+      "h1": "A venda que trava no crédito é a que mais dói",
+      "ponte": "Ela já estava fechada na cabeça do cliente. O corretor já tinha feito a visita, a proposta e a negociação — e a conta some numa linha de política que ninguém leu antes.",
+      "chamada": "Para analisar o crédito dos seus clientes antes da visita, comenta **PRIME**."
     }
   ]
 }

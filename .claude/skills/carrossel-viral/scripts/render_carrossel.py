@@ -314,9 +314,8 @@ def slide_html(spec, s, i, total):
             classe = "foto vaga"
         partes.append(f'<div class="{classe}" style="top:{g["foto"]}px">{dentro}</div>')
 
-    avanco = '<div class="avanco">→</div>' if fundo == "destaque" and i + 1 < total else ""
     return (f'<div class="slide f-{fundo}">{fundo_foto(s)}'
-            f'{"".join(partes)}{barra(spec)}{avanco}</div>')
+            f'{"".join(partes)}{barra(spec)}</div>')
 
 
 def chip_html(spec):
@@ -520,10 +519,6 @@ font-size:40px;line-height:1.02;letter-spacing:-.033em}}
 .row em{{font-style:normal;color:var(--destaque)}}
 .seta{{flex:none;font-weight:600;color:var(--destaque)}}
 .f-destaque .seta{{color:#000}}
-
-.avanco{{position:absolute;right:108px;bottom:76px;width:78px;height:78px;border-radius:50%;
-background:#fff;color:#000;display:flex;align-items:center;justify-content:center;
-font-family:var(--body);font-size:36px;font-weight:600;z-index:20}}
 
 /* ── capa · geometria da página 1 ──────────────────────────────────────
    foto cobre o slide em opacidade cheia — quem escurece são os dois scrims,
