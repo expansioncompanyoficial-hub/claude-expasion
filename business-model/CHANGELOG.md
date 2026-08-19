@@ -675,3 +675,80 @@ existe**, não generosidade.
 ### Decisões
 Nenhuma nova. A folha consolida `D-036` a `D-040` e expõe as nove pendências
 (`A-006`, `A-027`, `A-029`, `A-042`, `A-043`, `A-046`, `A-047`, `A-048`, `D-039`).
+
+---
+
+## Rodada 19/08/2026 — O plano: a renovação vem antes da prospecção
+
+**Entregue:** `32-O-QUE-FAZER-AGORA.md` e a versão visual
+(https://claude.ai/code/artifact/e9960928-cbc7-4927-9c4c-2c11bcb67dbf).
+
+Nicolas: *"decidimos seguir. O que você acha que preciso fazer agora?"* — registrado
+como **`D-041`**, o aceite da direção sobre os três produtos, a escada, as durações e a
+franquia de disparos.
+
+### O que mudou a resposta
+
+Antes de montar o plano, olhei o calendário da carteira. **Hoje é 19/08.**
+
+| Cliente | Vence | Situação |
+|---|---|---|
+| Prime · Ciés | **31/08** | **12 dias** |
+| Dr. Fred · Jane JQL | 05/08 | **venceram há 14 dias**, sem renovação registrada |
+| **Albanos — 51,7% da receita** | — | **sem data em documento nenhum** |
+
+### `ALERTA-09` — a carteira opera a 157–166% da capacidade
+
+Reconstruí as horas de cada contrato a partir do escopo declarado no CSV, ao custo-hora
+de R$ 42,55:
+
+| Cliente | Paga | Horas | Lucro | Piso do escopo |
+|---|---:|---:|---:|---:|
+| Prime | R$ 3.000 | 43 h | **0,4%** | R$ 5.823 |
+| Prime, com o grupo | R$ 3.000 | 53 h | **−13,8%** | R$ 7.177 |
+| Ciés | R$ 1.667 | 34 h | **−25,4%** | R$ 4.604 |
+| Jane JQL | R$ 1.400 | 34 h | **−41,9%** | R$ 4.604 |
+| **Dr. Fred** | R$ 1.750 | 113,5 h | **−214,5%** | R$ 15.369 |
+| Albanos (4 perfis) | R$ 8.000 | 95–114 h | 0,8% a 10,9% | R$ 12.864–15.437 |
+
+**Total: 319 a 338 h contra 204 h de capacidade.** Nenhum contrato da casa atinge o
+alvo de 30%. Isso explica sozinho três coisas que já estavam no acervo e pareciam
+desconexas: o editor a 168,9%, a ausência de horas para o Kauã vender, e a receita por
+pessoa de R$ 1.935 contra o piso de R$ 12.000 do conselho.
+
+> **A renovação não é uma operação de preço — é uma operação de capacidade** (`D-042`).
+> Vender agora é vender o que não se pode entregar, que é exatamente como a Prime quase
+> cancelou em 16/07.
+
+### A migração da carteira
+
+```
+MRR hoje ....... R$ 15.817     Horas hoje ...... 319 a 338 h   (157–166%)
+MRR migrado .... R$ 20.600     Horas migradas .. 146 a 165 h   ( 72– 81%)
+                 +R$ 4.783                       sobram 39 a 58 h → 6 a 9 EX1 novos
+```
+
+**E nenhuma dessas conversas é pedido de aumento** (`D-043`). Em 4 dos 5 casos o preço
+quase não muda — o que muda é o escopo, para menos, com o Placar entrando em troca.
+Ciés: R$ 1.667 → R$ 1.800 devolvendo **28 h**. Prime: R$ 3.000 → R$ 3.200 devolvendo
+**28,75 h**. Dr. Fred devolve **99,25 h**.
+
+### Os cinco movimentos desta semana
+
+1. **Descobrir a data do Albanos** — hoje · Nicolas
+2. **Ligar para Prime e Ciés** e marcar a renovação — hoje · Nicolas + Kauã
+3. **Confirmar se Dr. Fred e Jane seguem ativos** — quinta · Nicolas
+4. **Começar a cronometragem** (`A-029`) — quinta · Débora, Adryel, Matheus
+5. **Duas cotações**: ferramenta por conta ou por número · custo Meta por categoria — sexta
+
+Os três primeiros são telefone e somam menos de duas horas de trabalho.
+
+### E a lista do que NÃO fazer
+
+Construir o módulo BASE · contratar para o EX2 · reprecificar o Albanos · prospectar
+antes de liberar horas · mexer no preço do EX3 · prometer resultado com base na Ciés.
+
+### Decisões
+`D-041` (aceite da direção), `D-042` (renovação antes de prospecção), `D-043` (renovação
+por escopo, não por preço). Novas em aberto: `A-049` (`ALERTA-09`), `A-050` (o calendário
+de vencimentos), `A-051` (quanto a Clau Kids paga).
