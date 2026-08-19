@@ -146,7 +146,8 @@
       "fundo": "escuro",
       "h1": "A campanha certa chega antes do dinheiro",
       "ponte": "Novembro e dezembro não são o mesmo mês comercial. Tratar os dois igual entrega a metade mais cara da decisão para outra loja, e é justamente a metade que compra sem desconto. O calendário das duas datas se monta em uma tarde e vale para todo ano, porque as datas não mudam.",
-      "chamada": "Para montar esse calendário na sua loja, comenta **13**."
+      "chamada": "Para montar o calendário das duas datas na sua loja, comenta **DIAGNÓSTICO**."
     }
-  ]
+  ],
+  "capa_scrim": "medio"
 }

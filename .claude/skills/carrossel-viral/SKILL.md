@@ -220,6 +220,14 @@ Regras que mais quebram, então conferir sempre:
 - `document.fonts.ready` antes de capturar.
 - Contraste mínimo 4.5:1. Sem seta de swipe.
 
+**A capa se escolhe, não se aposta.** Gerar dez headlines cobrindo pelo menos
+cinco padrões diferentes e renderizar as dez lado a lado com
+`scripts/gerar_capas.py` — régua e padrões em `references/capas.md`.
+
+**O formato é o Template 01**, que é o padrão da casa — estrutura dos 9 slides,
+grade, modelo de escrita, régua da capa e formato do CTA em
+`references/template-01.md`. Muda por cliente só cor, fonte e a palavra do CTA.
+
 **O render é feito pelos scripts da skill**, não à mão:
 
 ```bash

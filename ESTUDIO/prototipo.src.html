@@ -140,6 +140,23 @@ label.rot{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1
 .fundo-op:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
 
 /* ---------- templates ---------- */
+.modos{display:flex;gap:6px;margin-bottom:14px}
+.modo{background:var(--campo);border:1px solid var(--linha);color:var(--meio);
+  font-family:var(--ui);font-size:12.5px;font-weight:550;padding:8px 15px;border-radius:7px;
+  cursor:pointer}
+.modo[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion));
+  color:var(--texto);background:color-mix(in srgb,var(--pt-accent,var(--expansion)) 14%,var(--campo))}
+.modo:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
+
+.grade-capas{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px;
+  padding:4px 0 10px}
+.capa-cartao{background:none;border:2px solid transparent;border-radius:9px;padding:0;
+  cursor:pointer;overflow:hidden;position:relative;line-height:0}
+.capa-cartao:hover{border-color:var(--linha-forte)}
+.capa-cartao .selo-n{position:absolute;left:7px;top:6px;z-index:30;font-family:var(--mono);
+  font-size:9px;color:#fff;opacity:.75;line-height:1}
+.capa-cartao .car{position:absolute;right:7px;top:6px;z-index:30;font-family:var(--mono);
+  font-size:9px;line-height:1}
 .tpls{display:flex;flex-direction:column;gap:7px}
 .tpl{display:flex;gap:11px;align-items:center;background:var(--campo);border:1px solid var(--linha);
   border-radius:8px;padding:9px;cursor:pointer;text-align:left;color:inherit;width:100%}
@@ -267,6 +284,10 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
   </aside>
 
   <main class="col-meio">
+    <div class="modos" id="modos">
+      <button class="modo" type="button" data-m="carrossel" aria-pressed="true">Carrossel</button>
+      <button class="modo" type="button" data-m="capas" aria-pressed="false">Capas virais</button>
+    </div>
     <div class="pecas" id="pecas"></div>
     <div class="canvas-topo">
       <div class="canvas-info"><b id="info-tpl">—</b> · <span id="info-n">—</span> · 1080 × 1350</div>
@@ -277,6 +298,7 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
     </div>
     <div class="palco"><div class="moldura" id="moldura"></div></div>
     <div class="tiras" id="tiras"></div>
+    <div class="grade-capas oculto" id="grade-capas"></div>
   </main>
 
   <aside class="col col-dir">
@@ -287,9 +309,14 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
         <button class="btn btn-forte" id="btn-gerar" type="button">Gerar com IA</button>
         <button class="btn" id="btn-exemplo" type="button">Exemplo</button>
       </div>
-      <div class="aviso">
+      <div class="aviso" id="aviso-carrossel">
         Um bloco por linha, no formato <b>texto N -</b>. Ímpar vira headline, par vira apoio.
         Dois blocos por slide.
+      </div>
+      <div class="aviso oculto" id="aviso-capas">
+        Uma headline por linha. Marque com <b>*asterisco*</b> o trecho que carrega a virada —
+        é ele que a pessoa lê primeiro. Cobrir <b>cinco padrões diferentes</b> na mesma rodada
+        é o que transforma a escolha em informação.
       </div>
       <div class="contagem" id="contagem"></div>
     </div>
@@ -420,8 +447,10 @@ const CLIENTES = [
 
 /* ============ estado ============ */
 let cli = null, peca = null, tpl = TEMPLATES[0], blocos = [], atual = 0;
+let modo = 'carrossel', capas = [], capaVista = 0;
 
 const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
 const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 const acha = id => TEMPLATES.find(t => t.id === id) || TEMPLATES[0];
 
@@ -702,6 +731,81 @@ function abrir(x){
   pintar();
 }
 
+/* ── modo capas ───────────────────────────────────────────────────────────
+   A capa é o único slide que decide se o carrossel vai ser lido. Gerar uma só
+   é apostar; gerar dez e escolher é trabalhar. Aqui elas saem lado a lado, na
+   mesma imagem e nos mesmos tokens: a comparação é só de texto. */
+const CAPAS_EXEMPLO = `A *morte* da campanha de dezembro
+O 13º não cai de uma vez: *cai em duas*
+Metade do dinheiro chega em novembro. *A sua vitrine, em dezembro.*
+Investigando as *duas datas* que decidem o fim de ano da sua loja
+Quantas vendas a sua loja perdeu *esperando dezembro*?
+A Lei 4.090 marcou o seu calendário *antes de você*`;
+
+function lerCapas(txt){
+  return txt.split('\n').map(l => l.trim()).filter(Boolean);
+}
+
+function capaHtml(texto){
+  const rico = esc(texto).replace(/\*([^*]+)\*/g,
+    `<span style="color:${cli.accent}">$1</span>`);
+  return `<div class="slide" style="background:${cli.escuro}">
+    <div style="position:absolute;inset:0;background:${foto(1)}"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,
+      rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 18%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.80) 66%,
+      rgba(0,0,0,.95) 84%,#000 100%)"></div>
+    ${barra('rgba(255,255,255,.30)')}
+    <div style="position:absolute;top:748.3px;left:0;right:0;z-index:10;display:flex;
+      align-items:center;justify-content:center;gap:11px">${chip()}</div>
+    <div class="capa-h1" style="position:absolute;bottom:110.3px;left:108px;width:864px;z-index:10;
+      font-family:'Montserrat',var(--ui);font-size:111.5px;font-weight:700;line-height:.92;
+      letter-spacing:-.087em;color:#fff;text-align:center">${rico}</div></div>`;
+}
+
+function pintarCapas(){
+  const g = $('#grade-capas'); g.innerHTML = '';
+  if (!capas.length){
+    g.innerHTML = `<div class="mini" style="grid-column:1/-1;padding:20px 2px">
+      Uma headline por linha, no editor à direita.</div>`;
+    return;
+  }
+  capas.forEach((h, i) => {
+    const b = document.createElement('button');
+    b.className = 'capa-cartao'; b.type = 'button';
+    // Faixa de trabalho medida: 45 a 70 caracteres. Acima de 85 a headline
+    // encolhe demais para o feed e tem de ser reescrita.
+    const nu = h.replace(/\*/g,'').length;
+    const cor = nu > 85 ? '#E2574C' : nu > 70 ? '#E8A33D' : 'var(--ok)';
+    b.innerHTML = `<span class="selo-n">${String(i+1).padStart(2,'0')}</span>
+      <span class="car" style="color:${cor}">${nu}</span>${capaHtml(h)}`;
+    b.onclick = () => { capaVista = i; modo = 'carrossel'; /* ver grande */
+      $('#moldura').innerHTML = capaHtml(h); fitCapa($('#moldura'));
+      const d = escala($('#moldura').firstElementChild, 360);
+      $('#moldura').style.width = d.w+'px'; $('#moldura').style.height = d.h+'px';
+      modo = 'capas'; };
+    g.appendChild(b);
+    fitCapa(b);
+    const s = b.querySelector('.slide'); escala(s, 168); s.style.pointerEvents = 'none';
+    b.style.width = '168px'; b.style.height = Math.round(168*1350/1080)+'px';
+  });
+}
+
+function trocaModo(m){
+  modo = m;
+  $$('#modos .modo').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.m === m)));
+  const capa = m === 'capas';
+  $('#grade-capas').classList.toggle('oculto', !capa);
+  document.querySelector('.palco').classList.toggle('oculto', capa);
+  $('#tiras').classList.toggle('oculto', capa);
+  $('#pecas').classList.toggle('oculto', capa);
+  $('#aviso-carrossel').classList.toggle('oculto', capa);
+  $('#aviso-capas').classList.toggle('oculto', !capa);
+  $('#editor').value = capa ? capas.join('\n') : (peca ? peca.txt : '');
+  $('#info-tpl').textContent = capa ? 'Capas virais' : tpl.nome;
+  $('#info-n').textContent = capa ? `${capas.length} capas` : `slide ${atual+1} de ${nSlides()}`;
+  if (capa) pintarCapas(); else pintar();
+}
+
 function pintar(){
   document.documentElement.style.setProperty('--pt-accent', cli.accent);
   document.documentElement.style.setProperty('--brilho', cli.accent);
@@ -858,6 +962,8 @@ function montarPecas(){
 
 /* ============ eventos ============ */
 $('#btn-exemplo').onclick = () => {
+  if (modo === 'capas'){ $('#editor').value = CAPAS_EXEMPLO; capas = lerCapas(CAPAS_EXEMPLO);
+    pintarCapas(); $('#info-n').textContent = `${capas.length} capas`; return; }
   $('#editor').value = EXEMPLO; peca.txt = EXEMPLO; blocos = parse(EXEMPLO); pintar(); montarPecas();
 };
 $('#btn-gerar').onclick = () => {
@@ -866,7 +972,11 @@ $('#btn-gerar').onclick = () => {
 };
 $('#btn-prev').onclick = () => { atual=(atual-1+nSlides())%nSlides(); pintar(); };
 $('#btn-next').onclick = () => { atual=(atual+1)%nSlides(); pintar(); };
+$$('#modos .modo').forEach(b => b.onclick = () => trocaModo(b.dataset.m));
+
 $('#editor').oninput = () => {
+  if (modo === 'capas'){ capas = lerCapas($('#editor').value); pintarCapas();
+    $('#info-n').textContent = `${capas.length} capas`; return; }
   blocos = parse($('#editor').value); if(peca) peca.txt = $('#editor').value; pintar();
 };
 [['handle','handle'],['nome','marca'],['direito','direito']].forEach(([campo,chave]) => {

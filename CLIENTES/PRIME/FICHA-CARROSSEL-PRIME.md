@@ -172,6 +172,28 @@ nomeada) → **A LEITURA DA PRIME** → **O QUE MUDA PARA O CORRETOR** → **O I
 
 ---
 
+## CTA — palavra fixa
+
+**`PRIME`**
+
+Formato, sempre o mesmo, em toda peça:
+
+> Para [ganho concreto], comenta **PRIME**.
+
+O parágrafo inteiro na cor de destaque, a palavra em bold. Não é caixa nem
+botão — é o último parágrafo do slide 9. A palavra não muda de peça para peça:
+é por ela que o disparo automático reconhece o lead.
+
+## Template
+
+Template 01, 9 slides, conforme
+`.claude/skills/carrossel-viral/references/template-01.md`. Do template muda só
+cor, fonte e a palavra do CTA — estrutura e modelo de escrita são os mesmos de
+todos os clientes.
+
+> **Divergência de cor a resolver:** o manual de marca traz `#e14414` e os
+> carrosséis no Canva usam `#f94c00`. A ficha segue o manual até alguém decidir.
+
 ## Aprovação e publicação — inegociável
 
 Em **24/07** um post foi publicado sem aprovação. Laura: *"Não autorizei esse. Muito menos

@@ -2,6 +2,10 @@
 
 Dois passos, um spec JSON no meio. Genéricos — servem qualquer cliente.
 
+Três scripts: `render_carrossel.py` monta o HTML, `export_png.py` captura os
+PNGs, e `gerar_capas.py` rende N capas do mesmo tema para escolher a que vai pro
+feed (ver `../references/capas.md`).
+
 ```bash
 python3 render_carrossel.py spec.json carrossel.html
 python3 export_png.py carrossel.html slides/

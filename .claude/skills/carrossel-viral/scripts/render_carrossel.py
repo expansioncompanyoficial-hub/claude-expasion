@@ -194,7 +194,8 @@ def slide_html(spec, s, i, total):
         sub_html = (f'<div class="capa-sub">{rich(s["sub"])}</div>'
                     if s.get("sub") else "")
 
-        corpo = f"""{bg}<div class="capa-grad"></div>
+        dose = s.get("scrim") or spec.get("capa_scrim", "medio")
+        corpo = f"""{bg}<div class="capa-grad grad-{dose}"></div>""" + f"""
         <div class="chip">
           <span class="chip-dot">{inicial}</span>
           <span class="chip-col">
@@ -419,9 +420,25 @@ font-family:var(--body);font-size:36px;font-weight:600;z-index:20}}
    um longo a partir de y 160 e outro reforçando a base a partir de y 1111.
    É isso que deixa a imagem legível atrás sem apagá-la. */
 .capa-foto{{opacity:1}}
-.capa-grad{{position:absolute;inset:0;background:linear-gradient(to bottom,
+.capa-grad{{position:absolute;inset:0}}
+
+/* Dosagem do scrim. A régua: **a metade de cima da capa tem que continuar
+   sendo imagem**, e o texto só precisa de fundo escuro de y 700 para baixo.
+   Escurecer o slide inteiro resolve a legibilidade e mata a foto — e a foto é
+   o que faz alguém parar no feed.
+
+   leve   foto já escura, ou de pouco detalhe no pé
+   medio  medida da página 1 — o padrão
+   forte  foto clara, contrastada ou com muita informação embaixo */
+.grad-leve{{background:linear-gradient(to bottom,
+rgba(0,0,0,.10) 0%,rgba(0,0,0,.02) 24%,rgba(0,0,0,.26) 50%,rgba(0,0,0,.64) 68%,
+rgba(0,0,0,.88) 86%,rgba(0,0,0,.96) 100%)}}
+.grad-medio{{background:linear-gradient(to bottom,
 rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 18%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.80) 66%,
 rgba(0,0,0,.95) 84%,#000 100%)}}
+.grad-forte{{background:linear-gradient(to bottom,
+rgba(0,0,0,.30) 0%,rgba(0,0,0,.16) 16%,rgba(0,0,0,.58) 42%,rgba(0,0,0,.90) 62%,
+#000 80%,#000 100%)}}
 
 .slide:has(.capa-banho) .capa-h1{{bottom:130px}}
 
