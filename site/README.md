@@ -1,95 +1,57 @@
-# site/ — expansionassessoria.com
+# Landing page — Expansion Produções
 
-Pasta pública. É **só isto aqui** que vai para o ar quando o domínio estiver ligado.
+Landing page cinematográfica da produtora, construída com **Vite + React +
+TypeScript**, CSS próprio (design system "Orange Signal") e zero dependência
+pesada de runtime.
 
----
-
-## 🚨 A regra que não pode ser quebrada
-
-> **Nunca aponte a hospedagem para a raiz do repositório.**
-
-Este repositório guarda material confidencial: dossiês de cliente, transcrições de
-WhatsApp, estratégia comercial, valor de contrato. Publicar a raiz colocaria tudo isso
-na internet aberta.
-
-Na configuração do host, o **Root Directory / Publish directory tem que ser `site`**.
-Nada fora desta pasta é publicado.
-
-Antes de subir qualquer arquivo aqui, a pergunta é uma só: **isso pode ser lido por
-qualquer pessoa que descubra a URL?** Se a resposta tiver um "depende", não sobe.
-
-Link de documento não é senha. Quem tem o link, lê.
-
----
-
-## O que tem aqui
-
-```
-site/
-├── CNAME                      expansionassessoria.com
-├── index.html                 índice dos documentos
-└── jane/
-    └── plano-30-dias.html     plano de 30 dias da Jane — 04/08/2026
-```
-
----
-
-## Como ligar o domínio
-
-O repositório é privado, então GitHub Pages sairia pago. **Vercel ou Cloudflare Pages
-resolvem de graça, mesmo com repositório privado.** Passo a passo pela Vercel:
-
-1. **vercel.com** → *Add New* → *Project* → importar `expansioncompanyoficial-hub/claude-expasion`
-2. Em *Configure Project*:
-   - **Framework Preset:** `Other`
-   - **Root Directory:** `site` ← 🚨 **o passo que protege o resto do repositório**
-   - Build Command e Install Command: deixar em branco
-3. *Deploy*
-4. *Settings → Domains* → adicionar `expansionassessoria.com`
-5. No painel do registrador do domínio, criar os registros que a Vercel indicar:
-   - `A` do apex `@` → `76.76.21.21`
-   - `CNAME` de `www` → `cname.vercel-dns.com`
-   - *(a Vercel mostra os valores atualizados na tela — usar os de lá, não estes)*
-6. Esperar a propagação. Costuma levar de minutos a algumas horas.
-
-O `CNAME` desta pasta serve ao GitHub Pages. A Vercel ignora — não atrapalha, e deixa a
-porta aberta caso o repositório vire público um dia.
-
----
-
-## Como publicar um documento novo
-
-1. Salvar o HTML aqui dentro, em pasta por cliente: `site/<cliente>/<documento>.html`
-2. Adicionar a linha correspondente no `index.html`
-3. Commit e push — o deploy é automático a cada push
-
-**O arquivo tem que ser um HTML completo**, com `<!doctype html>`, `<html>` e `<head>`.
-Os documentos publicados como Artifact da Claude são *fragmentos*: eles ganham esse
-esqueleto na hora da publicação. Ao trazer um para cá, embrulhe:
+## Como executar
 
 ```bash
-{ echo '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">'
-  echo '<meta name="viewport" content="width=device-width,initial-scale=1">'
-  cat fragmento.html
-  echo '</head></html>'
-} > site/<cliente>/<documento>.html
+cd site
+npm install
+npm run dev        # desenvolvimento em http://localhost:5173
+npm run build      # build de produção em site/dist
+npm run preview    # serve o build em http://localhost:4173
 ```
 
-Tudo tem que ser **autocontido** — CSS embutido, imagem em `data:` URI. Sem CDN, sem
-fonte externa, sem script de terceiro.
+O build gera arquivos estáticos em `site/dist` — pode ser publicado em
+Vercel, Netlify, Cloudflare Pages ou qualquer hospedagem estática.
 
----
+## Onde editar o conteúdo
 
-## Gerar o PDF de um documento
+**Tudo que é texto, contato, vídeo, depoimento e FAQ vive em um único
+arquivo: [`src/config/site.ts`](src/config/site.ts).** Os pontos que
+aguardam dado real estão marcados com `[EDITAR]`:
 
-Para mandar no WhatsApp, PDF costuma abrir melhor no celular do cliente que link:
+| O quê | Onde |
+| --- | --- |
+| WhatsApp (número real) | `contact.whatsapp.number` e `.display` |
+| Instagram (handle real) | `contact.instagram` |
+| Domínio do site | `siteUrl` + `index.html` (canonical/OG) + `public/robots.txt` + `public/sitemap.xml` |
+| Cidade-base | `brand.city` |
+| Vídeo de fundo do hero | `hero.backgroundVideo` (coloque um mp4 leve em `public/media/hero.mp4`) |
+| Logos das marcas atendidas | `clients[]` (arquivos em `public/clients/`) |
+| Projetos do portfólio | `portfolio.items[]` |
+| Depoimentos (nomes, empresas, fotos) | `testimonials.videos[]`, `.quotes[]`, `.results[]` |
+| Endpoint do formulário | `cta.formEndpoint` (enquanto `null`, o envio abre o WhatsApp com o briefing formatado) |
 
-```bash
-CHR=/opt/pw-browsers/chromium-1194/chrome-linux/chrome
-"$CHR" --headless --disable-gpu --no-sandbox --force-color-profile=srgb \
-  --print-to-pdf=saida.pdf --no-pdf-header-footer --virtual-time-budget=4000 \
-  "file:///caminho/do/documento.html"
-```
+## Vídeos
 
-Os documentos já trazem um bloco `@media print` que força o tema claro e evita que
-tabela, card ou citação quebrem no meio da página.
+Os vídeos apontam para os arquivos do Google Drive enviados pela equipe
+(showreel/aftermovie, evento, tempo real e 3 depoimentos), abertos em modal
+via player do Drive. **Para o player funcionar para visitantes, cada
+arquivo precisa estar compartilhado como "Qualquer pessoa com o link".**
+
+Para trocar por YouTube/Vimeo/arquivo próprio, basta mudar o campo `video`
+no config: `{ type: 'youtube', id: '...' }`, `{ type: 'vimeo', id: '...' }`
+ou `{ type: 'file', url: '/media/video.mp4' }`.
+
+## Materiais que ainda faltam
+
+- Número real de WhatsApp e handle do Instagram;
+- Logos das marcas/eventos atendidos (para a faixa de autoridade);
+- Nomes completos, cargos, empresas e fotos dos 3 depoimentos em vídeo;
+- Depoimentos escritos reais e cases com resultados comprováveis;
+- Vídeo de fundo do hero (mp4 sem áudio, ~10 s, ideal < 4 MB);
+- Thumbnails reais dos projetos (opcional — sem elas o site gera posters);
+- Domínio definitivo.

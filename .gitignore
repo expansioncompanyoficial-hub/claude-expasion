@@ -28,3 +28,5 @@ venv/
 
 # Node
 node_modules/
+site/dist/
+site/dist-preview/

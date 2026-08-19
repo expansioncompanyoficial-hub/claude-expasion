@@ -1,0 +1,59 @@
+.showreel {
+  background: linear-gradient(to bottom, var(--bg-0), var(--bg-1) 60%, var(--bg-0));
+}
+
+.showreel__head {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.showreel__head .kicker {
+  justify-content: center;
+}
+
+.showreel__head .kicker::after {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--orange);
+  box-shadow: 0 0 8px var(--orange-glow);
+}
+
+.showreel__stage {
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+.showreel__poster {
+  box-shadow: 0 40px 120px -40px rgba(0, 0, 0, 0.9), 0 0 80px -50px var(--orange-glow);
+}
+
+.showreel__points {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 0;
+  list-style: none;
+  padding: 0;
+  margin: 26px 0 0;
+}
+
+.showreel__points li {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--gray-2);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+}
+
+.showreel__points li + li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--orange);
+  margin: 0 clamp(12px, 2.4vw, 26px);
+  opacity: 0.7;
+}

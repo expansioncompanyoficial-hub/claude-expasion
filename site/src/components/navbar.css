@@ -1,0 +1,228 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background 0.35s var(--ease), border-color 0.35s var(--ease),
+    backdrop-filter 0.35s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+
+.nav.is-scrolled {
+  background: rgba(5, 5, 5, 0.82);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--line);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: var(--nav-h);
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav__logo img {
+  height: 26px;
+  width: auto;
+}
+
+.nav__links {
+  display: flex;
+  gap: 4px;
+}
+
+.nav__link {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gray);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  transition: color 0.25s;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--orange);
+  box-shadow: 0 0 10px var(--orange-glow);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease);
+}
+
+.nav__link:hover {
+  color: var(--white);
+}
+
+.nav__link.is-active {
+  color: var(--white);
+}
+
+.nav__link.is-active::after {
+  transform: scaleX(1);
+}
+
+/* Depoimentos com destaque no menu */
+.nav__link.is-featured {
+  color: var(--orange-2);
+}
+
+.nav__link.is-featured::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  margin-right: 8px;
+  vertical-align: middle;
+  box-shadow: 0 0 8px var(--orange-glow);
+  animation: rec-pulse 1.8s ease-in-out infinite;
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav__cta {
+  padding: 11px 20px;
+  min-height: 42px;
+  font-size: 12.5px;
+}
+
+/* ---------- hambúrguer ---------- */
+
+.nav__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 46px;
+  height: 46px;
+  padding: 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: rgba(13, 13, 13, 0.7);
+  cursor: pointer;
+}
+
+.nav__burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--white);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease), opacity 0.2s;
+}
+
+.nav__burger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav__burger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.nav__burger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---------- menu mobile ---------- */
+
+.nav__mobile {
+  position: fixed;
+  inset: var(--nav-h) 0 0 0;
+  background: rgba(5, 5, 5, 0.97);
+  backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 24px 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease);
+}
+
+.nav__mobile.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav__mobile nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav__mobile-link {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(26px, 7vw, 34px);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  text-decoration: none;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--line);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+}
+
+.nav__mobile.is-open .nav__mobile-link {
+  opacity: 1;
+  transform: none;
+}
+
+.nav__mobile-link.is-featured {
+  color: var(--orange-2);
+}
+
+.nav__mobile-index {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--orange);
+}
+
+.nav__mobile-cta {
+  width: 100%;
+}
+
+@media (max-width: 920px) {
+  .nav__links,
+  .nav__cta {
+    display: none;
+  }
+
+  .nav__burger {
+    display: flex;
+  }
+}
+
+@media (min-width: 921px) {
+  .nav__mobile {
+    display: none;
+  }
+}

@@ -1,0 +1,72 @@
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 6px;
+  background: rgba(13, 13, 13, 0.7);
+  width: fit-content;
+  max-width: 100%;
+}
+
+.tabs__tab {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gray);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 10px 18px;
+  min-height: 42px;
+  cursor: pointer;
+  transition: color 0.25s, background 0.25s, border-color 0.25s, box-shadow 0.25s;
+  white-space: nowrap;
+}
+
+.tabs__tab:hover {
+  color: var(--white);
+}
+
+.tabs__tab.is-active {
+  color: #0a0400;
+  background: linear-gradient(180deg, var(--orange-2), var(--orange));
+  box-shadow: 0 6px 22px -8px var(--orange-glow);
+}
+
+.tabs__tab.is-featured:not(.is-active) {
+  color: var(--orange-2);
+  border-color: rgba(255, 90, 0, 0.35);
+}
+
+/* painel com entrada suave a cada troca */
+.tabpanel {
+  animation: tabpanel-in 0.4s var(--ease);
+}
+
+@keyframes tabpanel-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .tabs {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+}

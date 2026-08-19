@@ -1,0 +1,196 @@
+.portfolio {
+  background: var(--bg-0);
+}
+
+/* régua de timeline entre as abas e o conteúdo */
+.portfolio__ruler {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  justify-content: space-between;
+  height: 22px;
+  margin: 26px 0 30px;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.portfolio__ruler span {
+  width: 1px;
+  height: 7px;
+  background: rgba(255, 255, 255, 0.16);
+  flex-shrink: 0;
+}
+
+.portfolio__ruler span.is-major {
+  height: 14px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.portfolio__playhead {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 2px !important;
+  height: 100% !important;
+  background: var(--orange) !important;
+  box-shadow: 0 0 12px var(--orange-glow);
+  animation: playhead-run 14s linear infinite;
+}
+
+@keyframes playhead-run {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+/* ---------- destaque estilo "ilha de edição" ---------- */
+
+.portfolio__featured {
+  display: grid;
+  grid-template-columns: minmax(0, 7.2fr) minmax(0, 4.8fr);
+  gap: clamp(20px, 3vw, 40px);
+  align-items: stretch;
+}
+
+.portfolio__featured > * {
+  min-width: 0;
+}
+
+.portfolio__meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, var(--bg-1), var(--bg-0) 70%);
+  padding: clamp(22px, 3vw, 36px);
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio__meta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), transparent);
+}
+
+.portfolio__meta-label {
+  color: var(--orange-2);
+  margin-bottom: 14px;
+}
+
+.portfolio__meta-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 2.6vw, 32px);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.portfolio__meta-specs {
+  display: flex;
+  gap: clamp(18px, 2.6vw, 36px);
+  margin: 22px 0 0;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.portfolio__meta-specs dt {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray-2);
+  margin-bottom: 4px;
+}
+
+.portfolio__meta-specs dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--white);
+}
+
+.portfolio__meta-desc {
+  color: var(--gray);
+  font-size: 15px;
+  margin-top: 18px;
+}
+
+.portfolio__meta-btn {
+  margin-top: 26px;
+  align-self: flex-start;
+}
+
+.portfolio__meta-waiting {
+  margin-top: 26px;
+  color: var(--gray-2);
+}
+
+.portfolio__empty {
+  padding: 60px 0;
+  text-align: center;
+}
+
+/* ---------- trilho de projetos extras ---------- */
+
+.portfolio__rail {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.portfolio__card-desc {
+  margin-top: 12px;
+  color: var(--gray);
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.portfolio__card-cat {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange-2);
+}
+
+/* ---------- mobile: carrossel de toque ---------- */
+
+@media (max-width: 900px) {
+  .portfolio__featured {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio__rail {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    margin-inline: -20px;
+    padding: 4px 20px 14px;
+    scrollbar-width: none;
+  }
+
+  .portfolio__rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .portfolio__card {
+    flex: 0 0 82%;
+    scroll-snap-align: center;
+  }
+}

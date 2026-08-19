@@ -1,0 +1,351 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: calc(var(--nav-h) + 40px) 0 96px;
+}
+
+/* ---------- fundo ---------- */
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero__bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__art {
+  position: absolute;
+  inset: -4%;
+  width: 108%;
+  height: 108%;
+  object-fit: cover;
+  opacity: 0.5;
+  animation: hero-kenburns 26s ease-in-out infinite alternate;
+}
+
+@keyframes hero-kenburns {
+  from {
+    transform: scale(1) translateX(0);
+  }
+  to {
+    transform: scale(1.08) translateX(-1.5%);
+  }
+}
+
+/* feixes de luz laranja em movimento lento */
+.hero__beam {
+  position: absolute;
+  top: -20%;
+  height: 140%;
+  width: 32%;
+  filter: blur(60px);
+  opacity: 0.16;
+  background: linear-gradient(180deg, transparent, var(--orange), transparent);
+  transform: skewX(-14deg);
+}
+
+.hero__beam--1 {
+  left: 6%;
+  animation: hero-beam-drift 18s ease-in-out infinite alternate;
+}
+
+.hero__beam--2 {
+  right: 2%;
+  opacity: 0.1;
+  animation: hero-beam-drift 24s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes hero-beam-drift {
+  from {
+    transform: skewX(-14deg) translateX(-6%);
+  }
+  to {
+    transform: skewX(-10deg) translateX(10%);
+  }
+}
+
+.hero__scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 3px,
+    rgba(255, 255, 255, 0.014) 3px,
+    rgba(255, 255, 255, 0.014) 4px
+  );
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(90% 70% at 30% 40%, rgba(5, 5, 5, 0.42) 0%, rgba(5, 5, 5, 0.82) 100%),
+    linear-gradient(to top, var(--bg-0) 2%, transparent 34%),
+    linear-gradient(to bottom, rgba(5, 5, 5, 0.65) 0%, transparent 24%);
+}
+
+/* ---------- HUD ---------- */
+
+.hero__hud {
+  position: absolute;
+  inset: calc(var(--nav-h) + 18px) clamp(16px, 3vw, 40px) 26px;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.66);
+  z-index: 2;
+}
+
+.hero__hud-item {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero__hud-rec {
+  top: 8px;
+  left: 8px;
+}
+
+.hero__timecode {
+  color: var(--orange-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero__hud-cam {
+  top: 8px;
+  right: 8px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.hero__onair {
+  color: var(--orange-2);
+  border: 1px solid rgba(255, 90, 0, 0.55);
+  border-radius: 4px;
+  padding: 3px 8px;
+  box-shadow: 0 0 14px -4px var(--orange-glow);
+  animation: rec-pulse 2.4s ease-in-out infinite;
+}
+
+.hero__hud-audio {
+  bottom: 8px;
+  right: 8px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hero__vu {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 16px;
+}
+
+.hero__vu i {
+  width: 3px;
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(to top, var(--orange) 0%, var(--orange-2) 70%, #ffd2b0 100%);
+  transform-origin: bottom;
+  animation: hero-vu 1s ease-in-out infinite alternate;
+}
+
+@keyframes hero-vu {
+  from {
+    transform: scaleY(0.25);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.hero__corner {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+}
+
+.hero__corner.tl {
+  top: 0;
+  left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+.hero__corner.tr {
+  top: 0;
+  right: 0;
+  border-left: 0;
+  border-bottom: 0;
+}
+.hero__corner.bl {
+  bottom: 0;
+  left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+.hero__corner.br {
+  bottom: 0;
+  right: 0;
+  border-left: 0;
+  border-top: 0;
+}
+
+/* ---------- conteúdo ---------- */
+
+.hero__content {
+  position: relative;
+  z-index: 3;
+  will-change: transform, opacity;
+}
+
+.hero .rv {
+  opacity: 0;
+  transform: translateY(26px);
+  animation: hero-in 0.85s var(--ease) forwards;
+  animation-delay: var(--d, 0s);
+  transition: none;
+}
+
+@keyframes hero-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 1.3vw, 12px);
+  letter-spacing: 0.24em;
+  color: var(--gray);
+  border: 1px solid var(--line);
+  background: rgba(13, 13, 13, 0.6);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  padding: 10px 18px;
+  margin-bottom: 28px;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(34px, 7vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  max-width: 15ch;
+  text-wrap: balance;
+}
+
+.hero__title > span {
+  display: block;
+}
+
+.hero__title-hl {
+  font-style: italic;
+  color: var(--orange);
+  text-shadow: 0 0 34px rgba(255, 90, 0, 0.45);
+}
+
+.hero__sub {
+  color: var(--gray);
+  font-size: clamp(15px, 1.6vw, 19px);
+  max-width: 58ch;
+  margin-top: 26px;
+}
+
+.hero__ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+
+.hero__proof {
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 1.2vw, 12px);
+  letter-spacing: 0.2em;
+  color: var(--gray-2);
+  margin-top: 40px;
+}
+
+/* ---------- indicador de rolagem ---------- */
+
+.hero__scroll-hint {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 30px;
+  height: 52px;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  padding-top: 9px;
+}
+
+.hero__scroll-line {
+  width: 2px;
+  height: 12px;
+  border-radius: 2px;
+  background: var(--orange);
+  animation: hero-scroll 1.8s ease-in-out infinite;
+}
+
+@keyframes hero-scroll {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero__hud-audio,
+  .hero__hud-cam,
+  .hero__corner.bl {
+    display: none;
+  }
+
+  .hero__hud {
+    font-size: 10px;
+  }
+
+  .hero__ctas .btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .rv {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero__art {
+    animation: none;
+  }
+}
