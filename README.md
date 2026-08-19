@@ -17,7 +17,8 @@ de nenhuma máquina em particular.
 | `PLATAFORMA-WEBLUXURY-*` | Análise da plataforma WebLuxury — pareceres, anexos e rodadas de revisão |
 | `CONSELHO-EXPANSION-*` | Conselho da Expansion e anexos |
 | `EXPANSION-360`, `OPERACAO-REAL`, `AUDITORIA-DRIVE` | Diagnóstico e operação real da agência |
-| `FINANCEIRO-EXPANSION-*` | Financeiro: regime PJ, calendário de pagamentos, societário e tributário |
+| `CASO-GESTOR-TRAFEGO-*` | Parecer + anexos sobre o vínculo com o gestor de tráfego e os alinhamentos de agosto/2026 |
+| `POLITICA-PAGAMENTO-EXPANSION-*` | Análise e decisão sobre a data de pagamento do time |
 | `POSICIONAMENTO-CONTEUDO-NICOLAS-*` | Posicionamento e estratégia de conteúdo |
 | `ALBANOS-ACADEMY-*` | Produção de cursos da Albanos Academy — arquitetura, precificação e rota de expansão na conta |
 | `POP-SOCIAL-MEDIA-v0.1.md` | POP de social media |
