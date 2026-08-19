@@ -20,7 +20,7 @@ de nenhuma máquina em particular.
 | `CASO-GESTOR-TRAFEGO-*` | Parecer + anexos sobre o vínculo com o gestor de tráfego e os alinhamentos de agosto/2026 |
 | `POLITICA-PAGAMENTO-EXPANSION-*` | Análise e decisão sobre a data de pagamento do time |
 | `POSICIONAMENTO-CONTEUDO-NICOLAS-*` | Posicionamento e estratégia de conteúdo |
-| `ALBANOS-ACADEMY-*` | Produção de cursos da Albanos Academy — arquitetura, precificação e rota de expansão na conta |
+| `POSICIONAMENTO-INSTAGRAM-EXPANSION-*` | Posição do perfil da empresa no Instagram, bio 3L e mapa do mercado |
 | `POP-SOCIAL-MEDIA-v0.1.md` | POP de social media |
 | [`business-model/`](business-model/) | Estruturação, custeio e precificação da Expansion — fonte única da verdade econômica |
 | [`_audios/`](_audios/) | Transcrições de áudios e reuniões |
