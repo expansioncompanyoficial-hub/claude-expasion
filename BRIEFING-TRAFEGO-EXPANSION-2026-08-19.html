@@ -1,0 +1,318 @@
+<title>Briefing de mercado — para o gestor de tráfego</title>
+<style>
+:root{
+  color-scheme: light;
+  --ground:#FFFFFF; --surface:#F5F3F8; --surface-2:#EDEAF3;
+  --line:#DDD8E6; --line-strong:#C4BCD6;
+  --ink:#191420; --ink-2:#4E465C; --ink-3:#7A7189;
+  --accent:#D6004F; --accent-soft:#FDE7EF;
+  --warn:#A65200; --warn-soft:#FBEEDD;
+  --ok:#0F7A52; --ok-soft:#E3F5EC;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#141019; --surface:#1D1925; --surface-2:#262031;
+    --line:#302939; --line-strong:#453C52;
+    --ink:#F0ECF5; --ink-2:#B0A7BE; --ink-3:#847A93;
+    --accent:#FF3D78; --accent-soft:#3A1122;
+    --warn:#E0922F; --warn-soft:#33240F;
+    --ok:#3DD68C; --ok-soft:#0E2A1E;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#141019; --surface:#1D1925; --surface-2:#262031;
+  --line:#302939; --line-strong:#453C52;
+  --ink:#F0ECF5; --ink-2:#B0A7BE; --ink-3:#847A93;
+  --accent:#FF3D78; --accent-soft:#3A1122;
+  --warn:#E0922F; --warn-soft:#33240F;
+  --ok:#3DD68C; --ok-soft:#0E2A1E;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+}
+:root{
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.num{font-variant-numeric:tabular-nums}
+.mast{border-bottom:1px solid var(--line);padding:46px 0 32px;margin-bottom:42px}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.kicker span:not(:first-child){color:var(--ink-3)}
+h1{font-family:var(--mono);font-weight:600;font-size:clamp(28px,4.8vw,44px);line-height:1.08;letter-spacing:-.03em;margin:0 0 20px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.dek{font-size:clamp(17px,2.1vw,20px);color:var(--ink-2);max-width:64ch;margin:0}
+.dek strong{color:var(--ink);font-weight:600}
+section{margin:0 0 62px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:12px;margin:0 0 18px}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+h2{font-family:var(--mono);font-weight:600;font-size:clamp(21px,3vw,28px);letter-spacing:-.02em;line-height:1.2;margin:0 0 16px;text-wrap:balance}
+h3{font-family:var(--mono);font-weight:600;font-size:16px;margin:0 0 9px}
+p{margin:0 0 16px;max-width:66ch}
+p:last-child{margin-bottom:0}
+.lede{font-size:19px;color:var(--ink-2)}
+strong{font-weight:600}
+code{font-family:var(--mono);font-size:.9em;background:var(--surface-2);padding:1px 5px;border-radius:2px}
+.tw{overflow-x:auto;border-radius:4px}
+table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:13.5px;min-width:660px}
+th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;padding:10px 13px;background:var(--surface);border:1px solid var(--line)}
+td{padding:11px 13px;border:1px solid var(--line);vertical-align:top;line-height:1.45;color:var(--ink-2)}
+td:first-child{color:var(--ink);font-weight:600}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+td.pos{color:var(--ok);font-weight:600}
+td.neg{color:var(--accent);font-weight:600}
+tr.hl td{background:var(--accent-soft)}
+tr.okrow td{background:var(--ok-soft)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.card{background:var(--ground);padding:20px}
+.kl{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);line-height:1.35;margin-bottom:7px}
+.big{font-family:var(--mono);font-size:clamp(24px,3.2vw,31px);font-weight:600;letter-spacing:-.035em;line-height:1.05;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.card p{font-family:var(--sans);font-size:12.5px;line-height:1.5;color:var(--ink-2);margin:6px 0 0}
+.pull{border-left:3px solid var(--accent);padding:4px 0 4px 22px;margin:26px 0;font-size:19px;line-height:1.5;max-width:60ch}
+.pull small{display:block;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.5}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:16px 18px;font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.note b{color:var(--ink)}
+.note.hot{border-color:var(--accent);background:var(--accent-soft)}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.steps{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.step{background:var(--ground);padding:20px;display:grid;grid-template-columns:36px 1fr;gap:16px}
+.step-n{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent);line-height:1.15;font-variant-numeric:tabular-nums}
+.step h3{margin-bottom:7px}
+.step p{font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--ink-2);max-width:72ch;margin-bottom:9px}
+.step p strong{color:var(--ink)}
+.formula{font-family:var(--mono);font-size:12.5px;background:var(--surface);border-left:3px solid var(--accent);padding:12px 15px;margin:12px 0;border-radius:0 3px 3px 0;overflow-x:auto;white-space:pre;line-height:1.6;color:var(--ink)}
+.chartbox{border:1px solid var(--line);border-radius:4px;padding:18px 18px 12px;background:var(--ground)}
+svg.ch{display:block;width:100%;height:auto}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:12px;color:var(--ink-2);padding:0 4px 10px}
+.legend b{display:inline-block;width:16px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+footer{border-top:1px solid var(--line);padding:30px 0 60px;margin-top:20px;font-family:var(--sans);font-size:13px;color:var(--ink-3);line-height:1.6}
+footer p{max-width:70ch}
+footer b{color:var(--ink-2)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker"><span>Briefing para o gestor de tráfego</span><span>Matheus</span><span>19/08/2026</span></div>
+  <h1>Nosso mercado tem<br><em>6.480 lojas</em>. Não 6 milhões.</h1>
+  <p class="dek">Matheus — este documento é para você ler antes da nossa reunião. Ele explica o mercado onde a Expansion decidiu jogar, por que a nossa segmentação atual não funciona, e o plano que eu quero decidir com você. <strong>Não precisa concordar com nada agora.</strong> Precisa ler, discordar do que achar errado, e trazer isso na reunião.</p>
+</header>
+
+<section>
+  <div class="eyebrow">Comece por aqui</div>
+  <h2>O mercado em seis números</h2>
+  <div class="cards">
+    <div class="card"><div class="kl">Lojas de roupa no Brasil</div><div class="big">1,01 mi</div><p>CNAE 4781. Mas 84% são microempresa e a maioria não pode pagar nada.</p></div>
+    <div class="card"><div class="kl">Lojas que podem nos pagar</div><div class="big" style="color:var(--accent)">6.480</div><p>Moda feminina e infantil, faturando R$ 40 mil/mês ou mais. <strong>Esse é o mercado inteiro.</strong></p></div>
+    <div class="card"><div class="kl">Quantas atendemos hoje</div><div class="big">2</div><p>Ciés e Clau Kids. Isso é <strong>0,031%</strong> do mercado.</p></div>
+    <div class="card"><div class="kl">Maior concorrente conhecido</div><div class="big">207</div><p>lojas. Cerca de 0,6% do mercado. <strong>Não existe líder aqui.</strong></p></div>
+    <div class="card"><div class="kl">Para bater o teto do Simples</div><div class="big" style="color:var(--ok)">144</div><p>clientes. São <strong>2,2%</strong> do mercado. Não 20%.</p></div>
+    <div class="card"><div class="kl">Leads qualificados em julho</div><div class="big" style="color:var(--accent)">1</div><p>De 4 que entraram, 3 foram desqualificados. É o nosso problema real.</p></div>
+  </div>
+
+  <div class="pull">
+    O mercado nunca foi o problema. O problema é que a gente não sabe quem são as 6.480.
+    <small>Isso muda a natureza do seu trabalho: <strong>num mercado de seis mil empresas, você não precisa de alcance — precisa de precisão.</strong> Anunciar para "mulheres interessadas em moda" é gastar dinheiro para falar com a consumidora, quando a gente quer falar com a dona da loja.</small>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Quem a gente quer</div>
+  <h2>Três faixas, três produtos, três dores</h2>
+  <p class="lede" style="max-width:66ch">O que define quem compra o quê é <strong>o faturamento da loja</strong>. Marketing costuma consumir de 5% a 10% do faturamento de um varejo — então o preço do produto revela o tamanho mínimo da loja.</p>
+  <div class="tw" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Produto</th><th>Preço</th><th>A loja precisa faturar</th><th>Quantas existem</th><th>A dor que ela sente</th></tr></thead>
+      <tbody>
+        <tr class="okrow"><td><strong>EX1 · BASE</strong><br><span style="font-weight:400;color:var(--ink-3)">reativa a base de clientes dela</span></td><td class="n">R$ 1.800</td><td class="n">R$ 40–100 mil/mês</td><td class="n">3.780</td><td>"Tenho um monte de contato no celular e não faço nada com eles"</td></tr>
+        <tr><td><strong>EX2 · VENDA</strong><br><span style="font-weight:400;color:var(--ink-3)">cobre o WhatsApp fora do horário</span></td><td class="n">R$ 3.500</td><td class="n">R$ 100 mil+/mês</td><td class="n">2.700</td><td>"Perco venda de madrugada e no domingo"</td></tr>
+        <tr><td><strong>EX3 · MARCA</strong><br><span style="font-weight:400;color:var(--ink-3)">conteúdo, gravação e tráfego</span></td><td class="n">R$ 5.500</td><td class="n">R$ 140 mil+/mês</td><td class="n">1.620</td><td>"Meu Instagram não parece de marca"</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note hot" style="margin-top:20px"><b>O EX1 é a nossa prioridade comercial, e é contraintuitivo.</b> Ele é o mais barato dos três, mas dá <b>R$ 142 de lucro por hora de time</b> contra R$ 44 do EX3 — 3,2 vezes mais. E tem o maior público. Três clientes de EX1 dão o mesmo faturamento de um EX3, com metade das horas e quase o dobro do lucro. <b>Sua meta de campanha é EX1, não faturamento.</b></div>
+</section>
+
+<section>
+  <div class="eyebrow">O diagnóstico</div>
+  <h2>Por que a segmentação de hoje não acha essa gente</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>O que costumamos fazer</th><th>Por que não funciona</th></tr></thead>
+      <tbody>
+        <tr><td>Segmentar por interesse "moda", "roupa feminina"</td><td class="neg">Traz <strong>consumidora</strong>, não lojista. É o público errado por definição</td></tr>
+        <tr><td>Segmentar por "empreendedorismo", "pequenas empresas"</td><td class="neg">Amplo demais — mistura MEI de R$ 3 mil/mês com indústria. <strong>Faturamento não é segmentável no gerenciador</strong></td></tr>
+        <tr><td>Lookalike de quem visitou o site</td><td class="neg">Lookalike de visitante tem <strong>CPL 30% a 50% pior</strong> que lookalike de comprador real</td></tr>
+        <tr><td>Lookalike de comprador</td><td class="neg">Seria o ideal — mas <strong>a gente só tem 6 clientes.</strong> Não dá semente</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note warn" style="margin-top:18px"><b>A conclusão é dura mas simples:</b> hoje a gente não tem como fazer o Meta encontrar dono de loja de roupa de porte certo. Não é falta de verba nem de criativo. <b>É falta de lista.</b></div>
+</section>
+
+<section>
+  <div class="eyebrow">O plano</div>
+  <h2>Construir a lista, e só depois ligar a mídia</h2>
+  <p class="lede" style="max-width:66ch">A Receita Federal publica a base completa de CNPJ de graça — e ela tem um campo que resolve nosso problema: <strong>porte da empresa</strong>. EPP é exatamente a faixa de R$ 30 mil a R$ 400 mil por mês, que é onde nossos três ICPs vivem.</p>
+
+  <div class="steps" style="margin-top:22px">
+    <div class="step"><div class="step-n num">1</div><div>
+      <h3>Extrair ~15 mil CNPJs de lojas de roupa porte EPP</h3>
+      <p>Filtro: <code>CNAE 4781-4/00</code> + <code>porte = EPP</code> + <code>situação = ativa</code>. Custo zero, é dado público. <strong>E a base da Receita já traz telefone e e-mail em muitos registros.</strong></p>
+    </div></div>
+    <div class="step"><div class="step-n num">2</div><div>
+      <h3>Filtrar feminino e infantil, e conferir na mão</h3>
+      <p>Por nome fantasia. <strong>Isso é heurística e vai errar</strong> — por isso o passo obrigatório é abrir 100 registros no Instagram e conferir. Se acertar acima de 70%, seguimos; abaixo disso, mudamos o filtro.</p>
+    </div></div>
+    <div class="step"><div class="step-n num">3</div><div>
+      <h3>Completar telefone e e-mail onde faltar</h3>
+      <p>Plataformas de dados B2B: Speedio, Econodata, Data Stone, CNPJ Base, DeepLeads. Custo de centenas a poucos milhares pela lista inteira.</p>
+    </div></div>
+    <div class="step"><div class="step-n num">4</div><div>
+      <h3>Subir como Público Personalizado e gerar Lookalike de 1%</h3>
+      <p>Aqui é com você. <strong>Atenção à taxa de correspondência</strong> — telefone comercial costuma casar entre 20% e 50%. De 6.500 uploads, esperamos 1.300 a 3.000 correspondências, que é suficiente para lookalike. <strong>Se vier abaixo de 1.000, o lookalike não presta e a gente muda de rota.</strong></p>
+    </div></div>
+    <div class="step"><div class="step-n num">5</div><div>
+      <h3>Camada geográfica nos polos de moda</h3>
+      <p>Goiânia, Brás e Bom Retiro, Fortaleza, Blumenau e Brusque, Caruaru e Toritama, Divinópolis, Cianorte, Nova Friburgo. Densidade de loja real por quilômetro quadrado.</p>
+    </div></div>
+    <div class="step"><div class="step-n num">6</div><div>
+      <h3>Interesse só como reforço, e nunca "moda"</h3>
+      <p>Se usar interesse, usa os que <strong>só o lojista tem</strong>: software de gestão de loja, maquininha, feiras do setor, fornecedor de atacado, ferramentas de seller. <strong>Quem segue fornecedor é lojista; quem segue moda é consumidora.</strong></p>
+    </div></div>
+  </div>
+  <p style="margin-top:20px">O passo a passo técnico, com script pronto e o que pedir para cada plataforma, está no documento separado da lista.</p>
+</section>
+
+<section>
+  <div class="eyebrow">A oferta do anúncio</div>
+  <h2 style="color:var(--accent)">Não anuncie o EX1. Anuncie a auditoria.</h2>
+  <p class="lede" style="max-width:66ch">Esse é o ponto que muda o desenho da campanha inteira, e vale discutir na reunião.</p>
+  <p>O EX1 exige que a lojista <strong>entregue a base de clientes dela para a gente</strong>. Isso é uma barreira de confiança muito maior que assinar um contrato de social media. <strong>Ninguém entrega o cadastro dos próprios clientes para um anúncio que viu no Instagram.</strong></p>
+  <p>Mas o próprio runbook do EX1 já resolve isso sem saber: o primeiro entregável é uma <strong>auditoria de base de 45 minutos</strong> que produz uma frase como esta —</p>
+  <div class="pull">
+    "Você tem 2.140 clientes. 1.630 não compram há mais de um ano. Isso é R$ 8.300 de venda parada."
+    <small>O runbook diz, com todas as letras: <strong>"É este número que fecha a venda."</strong> Então a oferta do anúncio não é o produto — é o diagnóstico. A pessoa clica para descobrir quanto dinheiro está parado na base dela, e o número faz a venda sozinho.</small>
+  </div>
+  <div class="tw" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Desenho de campanha</th><th>O que a pessoa vê</th><th>Por que</th></tr></thead>
+      <tbody>
+        <tr><td class="neg">O que NÃO fazer</td><td>"Contrate a Expansion — R$ 1.800/mês"</td><td>Pede confiança e dinheiro antes de provar qualquer coisa</td></tr>
+        <tr class="okrow"><td>O que fazer</td><td>"Descubra quanto dinheiro está parado na sua base de clientes — diagnóstico gratuito"</td><td>Pede só uma conversa. O número entregue faz a venda</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:18px"><b>Custo dessa oferta para a casa:</b> 45 minutos por diagnóstico, segundo o runbook. Se a taxa de fechamento for de 30%, cada cliente novo custa ~2,5 horas de trabalho comercial. <b>É o CAC mais barato que a gente consegue montar</b> — e é o único formato em que o produto se vende sozinho.</div>
+</section>
+
+<section>
+  <div class="eyebrow">O que você pode gastar</div>
+  <h2>Você tem muito mais folga do que imagina</h2>
+  <p class="lede" style="max-width:66ch">Gestor de tráfego costuma brigar por centavo de CPL. Aqui a conta é outra, e vale você ver o número antes da reunião.</p>
+  <div class="tw" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Conta do EX1</th><th>Valor</th></tr></thead>
+      <tbody>
+        <tr><td>Preço mensal</td><td class="n">R$ 1.800</td></tr>
+        <tr><td>Margem</td><td class="n">47,2%</td></tr>
+        <tr><td>Lucro por mês</td><td class="n">R$ 850</td></tr>
+        <tr><td>Se o cliente ficar 12 meses</td><td class="n">R$ 10.200 de lucro</td></tr>
+        <tr class="okrow"><td><strong>CAC máximo saudável (LTV ÷ 3)</strong></td><td class="n pos"><strong>R$ 3.400</strong></td></tr>
+        <tr class="hl"><td>Se 10% dos leads qualificados fecharem</td><td class="n"><strong>até R$ 340 por lead qualificado</strong></td></tr>
+        <tr><td>Se 20% fecharem</td><td class="n">até R$ 680 por lead qualificado</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note hot" style="margin-top:18px"><b>Leia de novo: R$ 340 por lead qualificado ainda fecha a conta.</b> A gente não está num jogo de volume barato — está num jogo de precisão cara. <b>Prefira 30 leads certos a R$ 200 do que 300 leads errados a R$ 20.</b> Isso muda como você otimiza: otimize por qualificação no formulário, não por custo por lead bruto.</div>
+</section>
+
+<section>
+  <div class="eyebrow">O calendário</div>
+  <h2>Por que a gente não deve gastar agora</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Data</th><th>O que acontece</th><th>O que fazemos</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td class="n">16/08 → 25/10</td><td><strong>Janela eleitoral.</strong> Em 2022 o CPM do Facebook saiu de R$ 5,03 para R$ 96,71 em 15 dias</td><td>Não fazer prospecção fria. Construir a lista</td></tr>
+        <tr><td class="n">01/09</td><td>Meta publica a tarifa brasileira de mensagem de serviço</td><td>Recalcular custo de atendimento</td></tr>
+        <tr><td class="n">01/10</td><td><strong>WhatsApp passa a cobrar toda mensagem de serviço</strong> — inclusive resposta humana dentro da janela de 24h</td><td>Muda a conta de todo cliente com volume de conversa</td></tr>
+        <tr><td class="n">25/10</td><td>Segundo turno. Fim da inflação de CPM</td><td>—</td></tr>
+        <tr class="okrow"><td class="n">26/10</td><td><strong>Ligar a máquina</strong>, com público e criativo prontos</td><td>Black Friday a 32 dias</td></tr>
+        <tr><td class="n">27/11</td><td>Black Friday</td><td>Pico de urgência do lojista</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:18px"><b>Somos 67 dias de janela cara.</b> Gastar agora em prospecção fria é pagar CPM de campanha política para achar lojista. O certo é usar setembro e outubro para montar tudo — <b>o que a gente montar nesses 67 dias não custa CPM nenhum</b> — e ligar no dia 26/10 com a máquina pronta.</div>
+</section>
+
+<section>
+  <div class="eyebrow">O que isso vale</div>
+  <h2>A diferença entre ter e não ter a lista</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Mês</th><th>Sem a lista · MRR</th><th>Com a lista pronta em 26/10 · MRR</th></tr></thead>
+      <tbody>
+        <tr><td>Agosto (hoje)</td><td class="n">R$ 15.483</td><td class="n">R$ 15.483</td></tr>
+        <tr><td>Setembro</td><td class="n">R$ 17.283</td><td class="n">R$ 19.083</td></tr>
+        <tr><td>Outubro</td><td class="n">R$ 19.083</td><td class="n">R$ 22.683</td></tr>
+        <tr><td>Novembro</td><td class="n">R$ 26.283</td><td class="n">R$ 33.483</td></tr>
+        <tr class="okrow"><td><strong>Dezembro</strong></td><td class="n">R$ 31.683</td><td class="n pos"><strong>R$ 42.483</strong></td></tr>
+        <tr class="hl"><td><strong>Faturado set–dez</strong></td><td class="n">R$ 94,3 mil</td><td class="n pos"><strong>R$ 117,7 mil</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:18px"><b>Mesmo time, mesmo preço, verba parecida.</b> A diferença de R$ 23 mil no período vem só de ter a lista. E entregar 15 clientes de EX1 custa 90 horas por mês — <b>cabe folgado no time de hoje. Capacidade não é o limite; lead é.</b></div>
+</section>
+
+<section>
+  <div class="eyebrow">A pauta</div>
+  <h2>O que eu quero decidir com você</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>#</th><th>Decisão</th><th>Minha inclinação</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Pausar prospecção fria até 25/10 e usar o período para montar a lista?</td><td>Sim</td></tr>
+        <tr><td>2</td><td>Quem extrai e trata a lista, e em que prazo?</td><td>Você, até 15/09</td></tr>
+        <tr><td>3</td><td>Caminho da lista: script na base da Receita, ou plataforma paga pronta?</td><td>Testar plataforma primeiro pela velocidade</td></tr>
+        <tr><td>4</td><td>A oferta do anúncio é a auditoria gratuita, e não o produto?</td><td>Sim — e isso muda os criativos</td></tr>
+        <tr><td>5</td><td>Meta de campanha em <strong>EX1 vendidos</strong>, não em faturamento nem em CPL?</td><td>Sim</td></tr>
+        <tr><td>6</td><td>Teto de CAC por cliente novo — travamos em quanto?</td><td>R$ 1.500, com folga até R$ 3.400</td></tr>
+        <tr><td>7</td><td>Religar o CRM (pausado desde 06/07) antes de qualquer campanha</td><td>Inegociável</td></tr>
+        <tr><td>8</td><td>Ligar a skill <code>detalhamento-mql</code> para rotear lead por faixa de faturamento</td><td>Sim — já está construída e parada</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Antes de você discordar</div>
+  <h2>O que neste documento é chute meu</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Item</th><th>O quanto confiar</th></tr></thead>
+      <tbody>
+        <tr><td>1,01 milhão de lojas · 15 mil EPPs · R$ 314,9 bi de varejo</td><td class="pos">Dado público — Receita Federal, Sebrae, IEMI</td></tr>
+        <tr><td>Preços, horas e margens dos produtos</td><td class="pos">Nosso próprio <code>business-model/</code></td></tr>
+        <tr><td>CPM eleitoral de 2022 e regra do WhatsApp de 01/10</td><td class="pos">Verificado</td></tr>
+        <tr class="hl"><td><strong>As 6.480 lojas do ICP</strong></td><td class="neg"><strong>Estimativa.</strong> O Sebrae publica o total de EPPs do setor, não a quebra por faixa de faturamento. Fiz a quebra por estimativa — <strong>é o número mais frágil daqui e o que mais muda a conclusão</strong></td></tr>
+        <tr><td>Filtro de feminino e infantil por nome fantasia</td><td class="neg">Heurística. Precisa de conferência manual de 100 registros antes de virar público</td></tr>
+        <tr><td>Projeção de set–dez</td><td class="neg">Assume churn de ~1 cliente/mês e nenhuma venda de EX2 ou EX3. Conservador de propósito</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:18px"><b>Traz discordância para a reunião.</b> Este documento vale mais se você achar erro nele do que se concordar com tudo. Especialmente na linha destacada — se a quebra por faixa estiver errada, o tamanho do mercado muda e o plano muda junto.</div>
+</section>
+
+<footer>
+  <p><b>Documento complementar:</b> <a href="https://claude.ai/code/artifact/d7e86fba-1e6a-43a9-b82d-0c7b89cf6205">A lista do ICP — como construir e como usar</a> — o passo a passo técnico, com script pronto, o que pedir para cada plataforma, como virar público no Meta e as regras de LGPD.</p>
+  <p><b>De onde vêm os números.</b> Varejo de vestuário e temporada: IEMI. Lojas ativas por CNAE: Receita Federal, jul/2026. EPPs no setor: Sebrae. CPM eleitoral de 2022 e reajuste de 12,15% do Meta: imprensa especializada. Cobrança de mensagem de serviço a partir de 01/10/2026: Meta. Preços, horas, margens, ICP e o caso Ciés: <code>business-model/</code>, branch <code>claude/new-session-nx502g</code>. Carteira, MRR de R$ 15.483 e os 4 leads de 07/07: <code>OPERACAO-REAL-EXPANSION-2026-07-26.md</code> e <code>business-model/01</code>.</p>
+</footer>
+
+</div>

@@ -1,0 +1,265 @@
+<title>A lista do ICP — como construir e como usar</title>
+<style>
+:root{
+  color-scheme: light;
+  --ground:#FFFFFF; --surface:#F5F3F8; --surface-2:#EDEAF3;
+  --line:#DDD8E6; --line-strong:#C4BCD6;
+  --ink:#191420; --ink-2:#4E465C; --ink-3:#7A7189;
+  --accent:#D6004F; --accent-soft:#FDE7EF;
+  --warn:#A65200; --warn-soft:#FBEEDD;
+  --ok:#0F7A52; --ok-soft:#E3F5EC;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#141019; --surface:#1D1925; --surface-2:#262031;
+    --line:#302939; --line-strong:#453C52;
+    --ink:#F0ECF5; --ink-2:#B0A7BE; --ink-3:#847A93;
+    --accent:#FF3D78; --accent-soft:#3A1122;
+    --warn:#E0922F; --warn-soft:#33240F;
+    --ok:#3DD68C; --ok-soft:#0E2A1E;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#141019; --surface:#1D1925; --surface-2:#262031;
+  --line:#302939; --line-strong:#453C52;
+  --ink:#F0ECF5; --ink-2:#B0A7BE; --ink-3:#847A93;
+  --accent:#FF3D78; --accent-soft:#3A1122;
+  --warn:#E0922F; --warn-soft:#33240F;
+  --ok:#3DD68C; --ok-soft:#0E2A1E;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+}
+:root{
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.num{font-variant-numeric:tabular-nums}
+.mast{border-bottom:1px solid var(--line);padding:46px 0 32px;margin-bottom:42px}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.kicker span:not(:first-child){color:var(--ink-3)}
+h1{font-family:var(--mono);font-weight:600;font-size:clamp(28px,4.8vw,44px);line-height:1.08;letter-spacing:-.03em;margin:0 0 20px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.dek{font-size:clamp(17px,2.1vw,20px);color:var(--ink-2);max-width:64ch;margin:0}
+.dek strong{color:var(--ink);font-weight:600}
+section{margin:0 0 62px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:12px;margin:0 0 18px}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+h2{font-family:var(--mono);font-weight:600;font-size:clamp(21px,3vw,28px);letter-spacing:-.02em;line-height:1.2;margin:0 0 16px;text-wrap:balance}
+h3{font-family:var(--mono);font-weight:600;font-size:16px;margin:0 0 9px}
+p{margin:0 0 16px;max-width:66ch}
+p:last-child{margin-bottom:0}
+.lede{font-size:19px;color:var(--ink-2)}
+strong{font-weight:600}
+code{font-family:var(--mono);font-size:.9em;background:var(--surface-2);padding:1px 5px;border-radius:2px}
+.tw{overflow-x:auto;border-radius:4px}
+table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:13.5px;min-width:660px}
+th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;padding:10px 13px;background:var(--surface);border:1px solid var(--line)}
+td{padding:11px 13px;border:1px solid var(--line);vertical-align:top;line-height:1.45;color:var(--ink-2)}
+td:first-child{color:var(--ink);font-weight:600}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+td.pos{color:var(--ok);font-weight:600}
+td.neg{color:var(--accent);font-weight:600}
+tr.hl td{background:var(--accent-soft)}
+tr.okrow td{background:var(--ok-soft)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.card{background:var(--ground);padding:20px}
+.kl{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);line-height:1.35;margin-bottom:7px}
+.big{font-family:var(--mono);font-size:clamp(24px,3.2vw,31px);font-weight:600;letter-spacing:-.035em;line-height:1.05;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.card p{font-family:var(--sans);font-size:12.5px;line-height:1.5;color:var(--ink-2);margin:6px 0 0}
+.pull{border-left:3px solid var(--accent);padding:4px 0 4px 22px;margin:26px 0;font-size:19px;line-height:1.5;max-width:60ch}
+.pull small{display:block;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.5}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:16px 18px;font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.note b{color:var(--ink)}
+.note.hot{border-color:var(--accent);background:var(--accent-soft)}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.steps{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.step{background:var(--ground);padding:20px;display:grid;grid-template-columns:36px 1fr;gap:16px}
+.step-n{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent);line-height:1.15;font-variant-numeric:tabular-nums}
+.step h3{margin-bottom:7px}
+.step p{font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--ink-2);max-width:72ch;margin-bottom:9px}
+.step p strong{color:var(--ink)}
+.formula{font-family:var(--mono);font-size:12.5px;background:var(--surface);border-left:3px solid var(--accent);padding:12px 15px;margin:12px 0;border-radius:0 3px 3px 0;overflow-x:auto;white-space:pre;line-height:1.6;color:var(--ink)}
+.chartbox{border:1px solid var(--line);border-radius:4px;padding:18px 18px 12px;background:var(--ground)}
+svg.ch{display:block;width:100%;height:auto}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:12px;color:var(--ink-2);padding:0 4px 10px}
+.legend b{display:inline-block;width:16px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+footer{border-top:1px solid var(--line);padding:30px 0 60px;margin-top:20px;font-family:var(--sans);font-size:13px;color:var(--ink-3);line-height:1.6}
+footer p{max-width:70ch}
+footer b{color:var(--ink-2)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker"><span>Documento técnico</span><span>A lista do ICP</span><span>19/08/2026</span></div>
+  <h1>A lista vale mais<br>que a <em>verba</em>.</h1>
+  <p class="dek">Num mercado de 6.480 empresas, não existe "público-alvo" — existe <strong>uma lista de nomes</strong>. Este documento mostra de onde ela vem, como montar, como conferir, como virar público no Meta e o que a lei permite fazer com ela. Os dois scripts estão no repositório, prontos e testados.</p>
+</header>
+
+<section>
+  <div class="note hot"><b>Antes de tudo: a lista ainda não existe.</b> O que existe é o método e o script. Ninguém baixou nem processou a base — os domínios da Receita e do gov.br estão bloqueados no ambiente onde este documento foi escrito. <b>O primeiro passo é alguém rodar isso numa máquina com internet aberta.</b> Leva de uma a três horas, contando o download.</div>
+</section>
+
+<section>
+  <div class="eyebrow">Por que</div>
+  <h2>O que a lista resolve que a verba não resolve</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Problema</th><th>Com verba</th><th>Com lista</th></tr></thead>
+      <tbody>
+        <tr><td>Achar dono de loja de roupa</td><td class="neg">Segmentar por interesse traz consumidora</td><td class="pos">CNAE 4781 é a definição legal de loja de roupa</td></tr>
+        <tr><td>Filtrar por porte</td><td class="neg">Faturamento não é segmentável no Meta</td><td class="pos">A base traz o campo <code>porte</code> — EPP é o ICP</td></tr>
+        <tr><td>Rodar o público de melhor custo</td><td class="neg">Sem semente não há lookalike de comprador</td><td class="pos">6.500 contatos viram semente e lookalike de 1%</td></tr>
+        <tr><td>Prospecção ativa</td><td class="neg">Impossível — anúncio não liga para ninguém</td><td class="pos">Telefone na mão. O comercial liga</td></tr>
+        <tr><td>Custo</td><td class="neg">CPM eleitoral até 25/10</td><td class="pos">Base da Receita é gratuita</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:18px"><b>E tem um uso que ninguém pensou.</b> Com 6.500 CNPJs e telefone, o canal principal deste mercado provavelmente <b>não é tráfego — é ligação</b>. Seis mil e quinhentas empresas é um universo que cabe em prospecção ativa. Tráfego vira o canal que aquece e reduz o atrito da ligação, não o que descobre o cliente.</div>
+</section>
+
+<section>
+  <div class="eyebrow">Como conseguir</div>
+  <h2>Dois caminhos — comece pelo A</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="kl">Caminho A · plataforma pronta</div>
+      <div class="big">1 dia</div>
+      <p><strong>Speedio, Econodata, Data Stone, CNPJ Base, DeepLeads, LeadCNPJ, Casa dos Dados.</strong> Filtro por CNAE, porte, UF e cidade direto na tela, exporta CSV com telefone e e-mail já enriquecidos.</p>
+      <p><strong>Custo:</strong> centenas a poucos milhares pela lista inteira. <strong>Vantagem:</strong> não precisa de ninguém técnico e o enriquecimento já vem junto.</p>
+    </div>
+    <div class="card">
+      <div class="kl">Caminho B · base pública da Receita</div>
+      <div class="big">1–3 h</div>
+      <p>Baixar os arquivos de <code>Empresas</code> e <code>Estabelecimentos</code> e rodar os dois scripts. <strong>Custo: zero.</strong> A base já traz telefone e e-mail em boa parte dos registros.</p>
+      <p><strong>Desvantagem:</strong> download pesado, exige alguém que rode Python, e a cobertura de contato é parcial — o que sobrar precisa de enriquecimento pago mesmo assim.</p>
+    </div>
+  </div>
+  <div class="note" style="margin-top:20px"><b>Recomendação:</b> comece pelo <b>A</b>, com um teste pequeno — peça a contagem de <i>CNAE 4781-4/00 + porte EPP + ativa</i> antes de comprar qualquer coisa. <b>Esse número confirma ou derruba a estimativa de 15 mil que sustenta todo o dimensionamento.</b> Se a plataforma devolver algo muito diferente disso, pare e me avise: o modelo de mercado precisa ser refeito.</div>
+</section>
+
+<section>
+  <div class="eyebrow">Caminho B, passo a passo</div>
+  <h2>Os dois scripts</h2>
+
+  <div class="steps">
+    <div class="step"><div class="step-n num">1</div><div>
+      <h3>Baixar a base</h3>
+      <p>Arquivos mensais em <code>arquivos.receitafederal.gov.br/dados/cnpj/dados_abertos_cnpj/&lt;AAAA-MM&gt;/</code>. Pegue todos os <code>Empresas*.zip</code> e <code>Estabelecimentos*.zip</code> e descompacte numa pasta só.</p>
+    </div></div>
+    <div class="step"><div class="step-n num">2</div><div>
+      <h3><code>extrai_icp.py</code> — filtra o universo</h3>
+      <p>Lê os arquivos de Empresas, guarda quem tem <strong>porte EPP</strong>, e depois varre os Estabelecimentos filtrando <strong>CNAE 4781-4/00 + situação ativa</strong>. Devolve CNPJ, razão social, nome fantasia, município, UF, bairro, CEP, telefone com DDI e e-mail.</p>
+      <div class="formula">python3 extrai_icp.py /pasta/dos/csv saida.csv</div>
+      <p><strong>O script imprime uma amostra rotulada de propósito.</strong> Se a Receita mudar a ordem das colunas, você vê na hora que os rótulos não batem — em vez de descobrir depois com a lista errada na mão.</p>
+    </div></div>
+    <div class="step"><div class="step-n num">3</div><div>
+      <h3><code>prepara_publico.py</code> — separa moda e prepara o Meta</h3>
+      <p>Classifica por palavra no nome fantasia e na razão social em <strong>feminino</strong>, <strong>infantil</strong>, <strong>excluído</strong> (masculino, calçados, óptica, joalheria, cama-mesa-banho) e <strong>indefinido</strong>. Gera três arquivos.</p>
+      <div class="formula">python3 prepara_publico.py saida.csv
+
+  icp_feminino_infantil.csv   a lista de trabalho, com a classe e o motivo
+  meta_custom_audience.csv    telefone e e-mail em SHA-256, pronto para subir
+  amostra_conferencia.csv     100 registros sorteados para conferir na mão</div>
+      <p>O arquivo do Meta sai <strong>com hash aplicado localmente</strong> — nenhum telefone ou e-mail em texto claro sai do computador de quem rodou.</p>
+    </div></div>
+    <div class="step"><div class="step-n num">4</div><div>
+      <h3>A conferência — este passo não é opcional</h3>
+      <p>Abra <code>amostra_conferencia.csv</code>, procure os 100 no Instagram e marque sim ou não na coluna. <strong>Acima de 70% de acerto, segue. Abaixo, ajuste as listas de palavras e rode de novo.</strong></p>
+      <p>A classificação por nome fantasia é heurística e <strong>vai errar para os dois lados</strong>: perde loja com nome neutro ("Loja da Ana") e pega loja que não é do nicho. Subir um público sem conferir é gastar verba falando com quem não interessa — e contaminar o lookalike, que é o ativo mais valioso do processo.</p>
+    </div></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">No gerenciador</div>
+  <h2>Como a lista vira público</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>#</th><th>O que fazer</th><th>O que observar</th></tr></thead>
+      <tbody>
+        <tr><td class="n">1</td><td>Subir <code>meta_custom_audience.csv</code> como <strong>Público Personalizado → Lista de clientes</strong></td><td>Marcar que os dados já estão em hash</td></tr>
+        <tr class="hl"><td class="n">2</td><td>Anotar a <strong>taxa de correspondência</strong></td><td><strong>É o número que decide o plano.</strong> Telefone comercial costuma casar entre 20% e 50%. De 6.500, espere 1.300 a 3.000</td></tr>
+        <tr><td class="n">3</td><td>Se der acima de 1.000 correspondências: criar <strong>Lookalike de 1%</strong></td><td>1% para precisão; 2–3% só depois, para escalar</td></tr>
+        <tr><td class="n">4</td><td>Se der abaixo de 1.000: <strong>não force o lookalike</strong></td><td>Enriquecer mais contatos primeiro, ou ir de prospecção ativa e remarketing</td></tr>
+        <tr><td class="n">5</td><td>Sobrepor camada geográfica dos polos</td><td>Goiânia, Brás e Bom Retiro, Fortaleza, Blumenau e Brusque, Caruaru e Toritama, Divinópolis, Cianorte, Nova Friburgo</td></tr>
+        <tr><td class="n">6</td><td>Excluir a lista de clientes atuais de tudo</td><td>Não pagar para falar com quem já paga</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note warn" style="margin-top:18px"><b>O passo 2 é o portão de decisão.</b> Toda a tese de tráfego depende da taxa de correspondência. <b>Meça e traga esse número antes de aprovar qualquer verba</b> — se vier baixo, a rota muda de mídia para prospecção ativa, e é melhor descobrir isso com zero reais gastos.</div>
+</section>
+
+<section>
+  <div class="eyebrow">O uso</div>
+  <h2>Quatro frentes com a mesma lista</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Frente</th><th>O que faz</th><th>Quando</th><th>Custo</th></tr></thead>
+      <tbody>
+        <tr class="okrow"><td><strong>1 · Prospecção ativa</strong></td><td>Kauã liga e manda mensagem, oferecendo a auditoria de base gratuita</td><td><strong>Agora</strong> — não depende de CPM</td><td>tempo</td></tr>
+        <tr><td><strong>2 · Público personalizado</strong></td><td>Anúncio direto para a lista, com a oferta da auditoria</td><td>a partir de 26/10</td><td>mídia</td></tr>
+        <tr><td><strong>3 · Lookalike de 1%</strong></td><td>Achar as lojas que a lista não pegou — nome neutro, cadastro desatualizado</td><td>a partir de 26/10</td><td>mídia</td></tr>
+        <tr><td><strong>4 · Exclusão</strong></td><td>Tirar clientes atuais e desqualificados de toda campanha</td><td>sempre</td><td>zero</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note hot" style="margin-top:18px"><b>A frente 1 começa hoje e é a mais subestimada.</b> Enquanto o CPM está inflado até 25/10, a lista já permite prospecção ativa a custo zero de mídia. <b>Num mercado de 6.500 empresas, ligar é viável — e é o que nenhum concorrente que depende só de anúncio consegue fazer.</b></div>
+</section>
+
+<section>
+  <div class="eyebrow">A lei</div>
+  <h2>O que pode e o que não pode</h2>
+  <p class="lede" style="max-width:66ch">A boa notícia: esta lista é muito mais segura que a base de clientes do EX1, porque é <strong>dado de empresa</strong>, não de consumidor.</p>
+  <div class="tw" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Ponto</th><th>Situação</th></tr></thead>
+      <tbody>
+        <tr class="okrow"><td>Dado de CNPJ é dado pessoal?</td><td class="pos">Não. A LGPD trata de pessoa natural. Razão social, CNAE, porte e endereço de PJ estão fora</td></tr>
+        <tr><td>E o telefone e o e-mail de contato?</td><td class="neg">Podem ser de pessoa natural (o sócio). Aí <strong>é dado pessoal</strong> e precisa de base legal</td></tr>
+        <tr><td>Que base legal usar</td><td><strong>Legítimo interesse</strong> para prospecção B2B — defensável, e é o que o mercado usa. Registre a decisão por escrito</td></tr>
+        <tr class="okrow"><td>Estamos filtrando MEI?</td><td class="pos">Não. O filtro é porte EPP, e <strong>MEI fica de fora</strong> — o que reduz muito a exposição, porque CNPJ de MEI está atrelado a CPF</td></tr>
+        <tr><td>Obrigações mínimas</td><td>Dizer de onde veio o dado quando perguntarem · opt-out fácil e respeitado · não usar para finalidade diferente de prospecção</td></tr>
+        <tr><td>Hash antes de subir</td><td class="pos">Já feito pelo script. Reduz exposição, mas <strong>não substitui base legal</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note warn" style="margin-top:18px"><b>Não confunda esta lista com a base do EX1.</b> Esta é de empresas e é de baixo risco. A base de clientes que a lojista entrega no EX1 é de <b>consumidor final</b>, é dado pessoal puro, e a ANPD já aplicou R$ 18 milhões em multas por uso indevido de dados em WhatsApp — com varejo e marketing no radar declarado para 2026 e 2027. <b>São dois regimes diferentes e só um deles está resolvido.</b></div>
+</section>
+
+<section>
+  <div class="eyebrow">Depois</div>
+  <h2>Manutenção e o que a lista vira</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Quando</th><th>O quê</th></tr></thead>
+      <tbody>
+        <tr><td>Mensal</td><td>A Receita republica a base. Rodar de novo e comparar: <strong>quem abriu, quem baixou, quem mudou de porte</strong></td></tr>
+        <tr class="okrow"><td>Mensal</td><td><strong>Loja que acabou de virar EPP é o melhor lead que existe</strong> — acabou de crescer, e é exatamente quando passa a poder pagar</td></tr>
+        <tr><td>Trimestral</td><td>Reconferir a amostra de 100 e recalibrar as palavras do filtro</td></tr>
+        <tr><td>Contínuo</td><td>Marcar na lista quem virou lead, quem virou cliente e quem recusou — <strong>é isso que transforma a lista num CRM de verdade</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pull">
+    Loja que mudou de porte para EPP no mês passado acabou de entrar no seu ICP — e ninguém está falando com ela.
+    <small>Esse é o sinal mais barato e mais preciso deste mercado, e ele só aparece para quem roda a base todo mês e compara com a anterior. <strong>É um canal de aquisição que não depende de leilão, de criativo nem de algoritmo</strong> — depende de uma rotina de trinta minutos por mês.</small>
+  </div>
+</section>
+
+<footer>
+  <p><b>Os scripts.</b> <code>ferramentas/extrai_icp.py</code> e <code>ferramentas/prepara_publico.py</code>, no repositório. Foram testados com dados sintéticos: o filtro de porte, o de CNAE e o de situação cadastral funcionam, o telefone sai com DDI e o CNPJ é remontado corretamente. <b>Não foram testados contra a base real</b>, porque os domínios da Receita e do gov.br estão bloqueados no ambiente onde foram escritos.</p>
+  <p><b>O layout das colunas</b> está declarado no topo do <code>extrai_icp.py</code> e deve ser conferido contra <code>gov.br/receitafederal/dados/cnpj-metadados.pdf</code> antes do primeiro uso. O script imprime uma amostra rotulada para que qualquer desalinhamento apareça na primeira execução.</p>
+  <p><b>Plataformas citadas</b> como alternativa ao caminho técnico: Speedio, Econodata, Data Stone, CNPJ Base, DeepLeads, LeadCNPJ, Casa dos Dados. Nenhuma foi testada nem tem relação com a Expansion — são os nomes que aparecem no mercado brasileiro de dados B2B.</p>
+  <p style="margin-top:14px"><b>Documento companheiro:</b> <a href="https://claude.ai/code/artifact/b60387ef-0d08-4521-a0a5-087b88d36964">Briefing de mercado para o gestor de tráfego</a> — o mercado, o ICP, os criativos e a pauta da reunião.</p>
+</footer>
+
+</div>
