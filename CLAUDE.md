@@ -20,8 +20,8 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 ## Estrutura
 
 ```
-CLIENTES/             Um dossiê por cliente da Expansion
-  CIES-BRAND/         Moda feminina, confecção própria — ativo desde 26/05/2026
+CLIENTES/             Um acervo por cliente (contexto, Drive, conversas)
+  REINO-CONSORCIOS/   Consórcio e estruturação de crédito
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
 _audios/              Transcrições de áudios e reuniões
@@ -31,22 +31,18 @@ _audios/              Transcrições de áudios e reuniões
   reference/          Originais preservados da migração
 ```
 
-## CLIENTES — como trabalhar
+## CLIENTES — como usar
 
-Cada cliente tem uma pasta em `CLIENTES/` com o mesmo esqueleto: dossiê vivo,
-onboarding, linha do tempo, parecer, mapa do Drive e a exportação do grupo de
-WhatsApp. **Abrir a pasta do cliente deve bastar para trabalhar nele.**
+Cada cliente tem uma pasta. O ponto de entrada é sempre o
+`CONTEXTO-<CLIENTE>.md` — documento vivo com quem é, o que vende, público,
+estado da operação e perguntas em aberto. O `INVENTARIO-DRIVE-*.md` traz os IDs
+dos arquivos no Drive para não ter que garimpar de novo.
 
-`CLIENTES/README.md` traz a convenção completa. Os três pontos que não podem ser
-violados:
+Convenções e passo a passo para abrir um cliente novo em
+[`CLIENTES/README.md`](CLIENTES/README.md).
 
-1. **Fato e leitura em arquivos separados.** Linha do tempo só carrega fato e
-   citação com data. Diagnóstico e recomendação moram no parecer.
-2. **Marcar o que não foi apurado.** Áudio e imagem não vêm na exportação do
-   WhatsApp. Conclusão apoiada em trecho ausente é inferência e precisa estar
-   sinalizada. Todo parecer termina com uma seção de lacunas.
-3. **Nunca versionar credencial.** Senha, código 2FA e token saem do arquivo
-   antes do commit, substituídos por `[REMOVIDO NO ARQUIVAMENTO]`.
+🔒 **Credencial de cliente não entra neste repositório** — nem em transcrição
+de WhatsApp. Redigir na hora e apontar para o documento de acessos no Drive.
 
 ## AEOS — como usar
 
