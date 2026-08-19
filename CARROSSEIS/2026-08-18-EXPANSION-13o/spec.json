@@ -1,0 +1,153 @@
+{
+  "marca": "EXPANSION",
+  "handle": "@assessoriaexpansion",
+  "copyright": "2026 ®",
+  "verificado": true,
+  "capa_estilo": "impacto",
+  "tokens": {
+    "dark": "#000000",
+    "accent": "#ff9901",
+    "claro": "#F0EEEC",
+    "texto": "#FFFFFF",
+    "barra_opacidade": 0.3,
+    "fonte_head": "Montserrat",
+    "fonte_body": "Poppins",
+    "gradiente": "linear-gradient(180deg,#fa7e01 0%,#ff6522 50%,#fa7e01 100%)"
+  },
+  "fontes": [
+    {
+      "family": "Montserrat",
+      "weight": 600,
+      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-600-normal.woff2"
+    },
+    {
+      "family": "Montserrat",
+      "weight": 600,
+      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-600-normal.woff2"
+    },
+    {
+      "family": "Montserrat",
+      "weight": 700,
+      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff2"
+    },
+    {
+      "family": "Montserrat",
+      "weight": 700,
+      "file": "node_modules/@fontsource/montserrat/files/montserrat-latin-ext-700-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 400,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-400-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 400,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-400-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 500,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-500-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 500,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-500-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 700,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-700-normal.woff2"
+    },
+    {
+      "family": "Poppins",
+      "weight": 700,
+      "file": "node_modules/@fontsource/poppins/files/poppins-latin-ext-700-normal.woff2"
+    }
+  ],
+  "slides": [
+    {
+      "tipo": "capa",
+      "headline": "Duas datas do 13º que devem entrar no *calendário da sua loja*",
+      "imagem_brief": "Vitrine de loja feminina, cliente olhando peça de valor mais alto"
+    },
+    {
+      "tipo": "texto",
+      "fundo": "claro",
+      "foto_pos": "topo",
+      "imagem_brief": "Calendário de parede da loja com 30/11 e 20/12 marcados",
+      "h1": "A lei já marcou as suas duas datas",
+      "paragrafos": [
+        "A primeira parcela do 13º cai *até 30 de novembro* e a segunda *até 20 de dezembro*. Não é sazonalidade de varejo, é a Lei 4.090: vale para todo mundo de carteira assinada e se repete nas mesmas datas todo ano. **Dá para montar o calendário com um ano de antecedência.**"
+      ]
+    },
+    {
+      "tipo": "texto",
+      "fundo": "destaque",
+      "foto_pos": "meio",
+      "imagem_brief": "Cliente provando com calma no provador, atendimento consultivo",
+      "h1": "São dois momentos de compra, não um",
+      "paragrafos": [
+        "Quem trata o 13º como evento único trabalha metade dele. A parcela de novembro chega sem disputa de data comemorativa e vira **compra pensada** — a cliente escolhe para si. A de dezembro chega junto do Natal, quando a lista de presentes já comeu a maior parte do valor."
+      ]
+    },
+    {
+      "tipo": "texto",
+      "fundo": "claro",
+      "foto_pos": "base",
+      "imagem_brief": "Duas cenas lado a lado: peça de valor alto e sacola de presente",
+      "h1": "O que muda de novembro para dezembro",
+      "paragrafos": [
+        "Em novembro ela compra *para ela*, com calma e ticket mais alto. Em dezembro compra *para os outros*, com pressa e ticket menor. São duas clientes dentro da mesma pessoa, e **a vitrine não pode ser a mesma nas duas.**"
+      ]
+    },
+    {
+      "tipo": "texto",
+      "fundo": "escuro",
+      "foto_pos": "topo",
+      "imagem_brief": "Balcão da loja no fim de novembro, movimento tranquilo",
+      "h1": "Metade do dinheiro chega antes",
+      "paragrafos": [
+        "A primeira parcela é o *adiantamento de metade* do salário. Em 30 de novembro, metade do 13º da sua cliente já está na conta dela; a outra metade só entra até 20 de dezembro. **Campanha que começa em dezembro chega atrasada na metade mais cara.**"
+      ]
+    },
+    {
+      "tipo": "texto",
+      "fundo": "escuro",
+      "h1": "Novembro é a data que quase ninguém trabalha",
+      "paragrafos": [
+        "O varejo de moda concentra o esforço de fim de ano em dezembro, quando a disputa por atenção está no pico e o desconto vira a única linguagem possível.",
+        "Novembro é o oposto: o dinheiro já caiu, a cliente ainda não comprometeu o valor com presente e a decisão dela não tem prazo. É quando a peça que ela vem adiando o ano inteiro encontra alguém com dinheiro e sem pressa. **Quem chega primeiro nessa janela não precisa competir por preço.**"
+      ]
+    },
+    {
+      "tipo": "texto",
+      "fundo": "claro",
+      "foto_pos": "meio",
+      "imagem_brief": "Arara organizada com etiqueta de reserva e nome da cliente",
+      "h1": "O que fazer com cada uma das datas",
+      "paragrafos": [
+        "**Novembro:** a peça de valor mais alto, atendimento consultivo, provador reservado. **Dezembro:** presente pronto, kit montado, embalagem resolvida, ticket menor. **Entre as duas:** lista de espera e reserva, para ela escolher antes de o dinheiro cair."
+      ]
+    },
+    {
+      "tipo": "texto",
+      "fundo": "escuro",
+      "foto_pos": "base",
+      "imagem_brief": "Conversa de WhatsApp da loja com a cliente, semanas antes do pagamento",
+      "h1": "A decisão acontece antes do pagamento",
+      "paragrafos": [
+        "Quem só aparece no dia em que o dinheiro cai disputa uma escolha que já foi feita. A cliente decide onde vai gastar enquanto espera o pagamento, e decide olhando quem apareceu **nas semanas anteriores** — não quem apareceu no dia."
+      ]
+    },
+    {
+      "tipo": "cta",
+      "fundo": "escuro",
+      "h1": "A campanha certa chega antes do dinheiro",
+      "ponte": "Novembro e dezembro não são o mesmo mês comercial. Tratar os dois igual entrega a metade mais cara da decisão para outra loja, e é justamente a metade que compra sem desconto. O calendário das duas datas se monta em uma tarde e vale para todo ano, porque as datas não mudam.",
+      "chamada": "Para montar o calendário das duas datas na sua loja, comenta **DIAGNÓSTICO**."
+    }
+  ],
+  "capa_scrim": "medio"
+}

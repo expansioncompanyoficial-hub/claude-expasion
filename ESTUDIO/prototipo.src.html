@@ -1,0 +1,1517 @@
+<title>Estúdio Expansion</title>
+<script type="application/json" id="estado-salvo">null</script>
+<style id="faces">/*__FACES__*/</style>
+<style>
+
+/* Chrome escuro de ferramenta, de propósito: o canvas é do cliente,
+   a interface sai da frente. Tema único, tudo pintado explicitamente. */
+:root{
+  --app:#0E1015; --painel:#161A21; --campo:#1D222B; --linha:#262C37;
+  --linha-forte:#38404E; --texto:#E7EBF2; --meio:#8E97A8; --fraco:#5F6878;
+  --expansion:#E67E22; --ok:#3FB88F; --brilho:var(--expansion);
+  --ui:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--app);color:var(--texto);font-family:var(--ui);font-size:14px;
+  line-height:1.5;-webkit-font-smoothing:antialiased;position:relative;min-height:100vh}
+/* banho ambiente com a cor do cliente ativo — some na galeria */
+body::before{content:"";position:fixed;inset:0 0 auto;height:420px;pointer-events:none;z-index:0;
+  background:radial-gradient(120% 100% at 50% -34%,
+    color-mix(in srgb,var(--brilho) 22%,transparent) 0%,transparent 68%);
+  opacity:var(--banho,0);transition:opacity .5s ease}
+.topo,.tela-clientes,.grade{position:relative;z-index:1}
+button{font-family:inherit}
+
+/* ---------- topo ---------- */
+.topo{border-bottom:1px solid var(--linha);background:var(--painel);position:sticky;top:0;z-index:50}
+.topo-linha{display:flex;align-items:center;gap:18px;padding:0 22px;min-height:56px;flex-wrap:wrap}
+.marca-app{display:flex;align-items:baseline;gap:9px;padding:12px 0}
+.marca-app strong{font-size:15px;letter-spacing:.14em;text-transform:uppercase;font-weight:650}
+.marca-app span{font-family:var(--mono);font-size:10px;color:var(--fraco);letter-spacing:.1em}
+.trilha{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--meio);min-width:0}
+.trilha .sep{color:var(--fraco)}
+.trilha b{color:var(--texto);font-weight:550;display:flex;align-items:center;gap:8px}
+.voltar{appearance:none;border:1px solid var(--linha-forte);background:var(--campo);
+  color:var(--meio);font-size:12.5px;padding:6px 12px;border-radius:7px;cursor:pointer}
+.voltar:hover{color:var(--texto);border-color:var(--meio)}
+.voltar:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
+.ponto{width:9px;height:9px;border-radius:50%;flex:none;border:1px solid rgba(255,255,255,.20)}
+
+/* ---------- tela 1: clientes ---------- */
+.tela-clientes{padding:52px 26px 80px;max-width:1220px;margin:0 auto}
+.titulo-tela{font-family:'Montserrat',var(--ui);font-size:34px;font-weight:800;
+  letter-spacing:-.035em;margin-bottom:8px;line-height:1.05}
+.sub-tela{color:var(--meio);font-size:14.5px;margin-bottom:34px;max-width:58ch;line-height:1.55}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:17px}
+.card{background:var(--painel);border:1px solid var(--linha);border-radius:15px;overflow:hidden;
+  cursor:pointer;text-align:left;padding:0;color:inherit;display:flex;flex-direction:column;
+  position:relative;isolation:isolate;
+  transition:border-color .2s,transform .2s,box-shadow .25s}
+.card::after{content:"";position:absolute;inset:0;border-radius:15px;pointer-events:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.card:hover{border-color:color-mix(in srgb,var(--c-accent,var(--expansion)) 52%,var(--linha));
+  transform:translateY(-3px);
+  box-shadow:0 16px 40px -14px color-mix(in srgb,var(--c-accent,#000) 55%,transparent)}
+.card:focus-visible{outline:2px solid var(--expansion);outline-offset:2px}
+
+/* a marca ocupa a tampa do card — logo grande, gradiente da paleta */
+.card-topo{height:142px;position:relative;display:flex;align-items:center;justify-content:center;
+  padding:20px;overflow:hidden}
+.card-topo::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(78% 62% at 50% 118%,rgba(0,0,0,.42),transparent 72%)}
+.card-logo{position:relative;z-index:2;max-width:74%;max-height:76px;object-fit:contain;
+  filter:drop-shadow(0 3px 12px rgba(0,0,0,.42))}
+.card-inicial{position:relative;z-index:2;width:60px;height:60px;border-radius:16px;display:flex;
+  align-items:center;justify-content:center;font-family:'Montserrat',var(--ui);font-size:27px;font-weight:800;
+  color:#fff;background:rgba(0,0,0,.30);border:1.5px solid rgba(255,255,255,.26);
+  backdrop-filter:blur(3px)}
+.card-corpo{padding:15px 16px 17px;display:flex;flex-direction:column;gap:3px}
+.card-nome{font-size:15px;font-weight:600;letter-spacing:-.012em}
+.card-nicho{font-size:12.5px;color:var(--meio)}
+.card-rodape{display:flex;align-items:center;justify-content:space-between;margin-top:11px;
+  padding-top:11px;border-top:1px solid var(--linha);
+  font-family:var(--mono);font-size:10px;color:var(--fraco);letter-spacing:.06em}
+.swatches{display:flex;gap:4px}
+.sw{width:12px;height:12px;border-radius:4px;border:1px solid rgba(255,255,255,.18)}
+
+.card-novo{background:transparent;border:1.5px dashed var(--linha-forte);align-items:center;
+  justify-content:center;min-height:236px;gap:11px;color:var(--meio)}
+.card-novo:hover{border-color:var(--expansion);color:var(--texto);transform:translateY(-3px);
+  box-shadow:none}
+.mais{width:42px;height:42px;border-radius:50%;border:1.5px solid currentColor;display:flex;
+  align-items:center;justify-content:center;font-size:21px;line-height:1}
+
+/* ---------- formulário de cliente ---------- */
+.modal-fundo{position:fixed;inset:0;background:rgba(0,0,0,.66);display:flex;align-items:center;
+  justify-content:center;z-index:100;padding:22px}
+.modal{background:var(--painel);border:1px solid var(--linha-forte);border-radius:14px;
+  width:min(430px,100%);max-height:88vh;overflow-y:auto;padding:24px}
+.modal h2{font-size:17px;font-weight:600;margin-bottom:4px}
+.modal p.dica{color:var(--meio);font-size:12.5px;margin-bottom:20px}
+
+/* ---------- grade do estúdio ----------
+   Quatro colunas: trilho das etapas, painel do contexto, palco e editor.
+   O trilho encolhe para 58px e vira só ícone. */
+.grade{display:grid;grid-template-columns:var(--trilho,204px) 262px minmax(0,1fr) var(--editor,336px);
+  height:calc(100vh - 57px);min-height:600px;transition:grid-template-columns .16s ease}
+
+/* ---------- trilho das etapas ----------
+   As etapas não são ferramentas separadas: são estágios da mesma peça. A capa
+   escolhida vira o slide 1, a legenda sai do que já está escrito, e a aprovação
+   só abre quando há o que aprovar. Por isso o trilho mostra estado, não só nome. */
+.trilho{background:#12151B;border-right:1px solid var(--linha);display:flex;
+  flex-direction:column;padding:14px 10px;gap:4px;overflow:hidden}
+.encolher{align-self:flex-end;background:none;border:1px solid var(--linha);color:var(--meio);
+  width:26px;height:26px;border-radius:7px;cursor:pointer;font-size:13px;line-height:1;
+  margin-bottom:8px;flex:none}
+.encolher:hover{border-color:var(--linha-forte);color:var(--texto)}
+.etapas{display:flex;flex-direction:column;gap:3px}
+.etapa{display:flex;align-items:center;gap:11px;background:none;border:1px solid transparent;
+  border-radius:9px;padding:9px 10px;cursor:pointer;text-align:left;color:var(--meio);
+  font-family:var(--ui);width:100%}
+.etapa:hover:not(:disabled){background:var(--campo)}
+.etapa[aria-current="true"]{background:var(--campo);border-color:var(--pt-accent,var(--expansion));
+  color:var(--texto)}
+.etapa:disabled{opacity:.42;cursor:not-allowed}
+.etapa:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
+.et-ico{width:26px;height:26px;border-radius:7px;background:var(--campo);display:flex;
+  align-items:center;justify-content:center;font-size:13px;flex:none;
+  border:1px solid var(--linha)}
+.etapa[aria-current="true"] .et-ico{background:var(--pt-accent,var(--expansion));
+  border-color:transparent}
+.et-txt{display:flex;flex-direction:column;min-width:0}
+.et-nome{font-size:12.5px;font-weight:550;line-height:1.3;white-space:nowrap}
+.et-est{font-family:var(--mono);font-size:9px;color:var(--fraco);letter-spacing:.05em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.etapa[aria-current="true"] .et-est{color:var(--pt-accent,var(--expansion))}
+.grade.encolhido{--trilho:58px}
+.grade.sem-editor{--editor:0px}
+.grade.encolhido .et-txt,.grade.encolhido .encolher{display:none}
+.grade.encolhido .etapa{justify-content:center;padding:9px 0}
+
+/* painéis contextuais e telas de etapa */
+.opcoes{display:flex;gap:5px}
+.op{flex:1;background:var(--campo);border:1px solid var(--linha);color:var(--meio);
+  font-family:var(--ui);font-size:12px;padding:7px 0;border-radius:7px;cursor:pointer}
+.op[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion));color:var(--texto)}
+.lista-pad{display:flex;flex-direction:column;gap:5px;margin-bottom:8px}
+.pad{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;color:var(--meio);
+  padding:5px 8px;border-radius:6px;background:var(--campo)}
+.pad b{color:var(--texto);font-weight:550}
+.passos{margin:0 0 8px 15px;color:var(--meio);font-size:12px;line-height:1.65}
+.checa{display:flex;flex-direction:column;gap:7px}
+.item-ck{display:flex;gap:9px;align-items:flex-start;font-size:12px;line-height:1.45;
+  color:var(--meio)}
+.item-ck b{color:var(--texto);font-weight:550}
+.mk{flex:none;width:15px;height:15px;border-radius:4px;display:flex;align-items:center;
+  justify-content:center;font-size:9px;margin-top:1px}
+.mk.ok{background:var(--ok);color:#0E1015}
+.mk.no{background:var(--campo);border:1px solid var(--linha-forte);color:var(--fraco)}
+
+.tela-et{flex:1;min-height:0;overflow-y:auto}
+.cartao-et{background:var(--painel);border:1px solid var(--linha);border-radius:12px;
+  padding:20px;margin-bottom:13px}
+.cartao-et h3{font-size:14px;font-weight:600;margin-bottom:7px}
+.cartao-et p{font-size:13px;color:var(--meio);line-height:1.6}
+.legenda-vista{white-space:pre-wrap;font-size:13.5px;line-height:1.65;color:#C6CDD9}
+.trava{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:11px;text-align:center;padding:60px 24px;color:var(--meio)}
+.trava b{color:var(--texto);font-size:14.5px;font-weight:600}
+.trava span{font-size:13px;line-height:1.6;max-width:44ch}
+.usar{position:absolute;left:7px;right:7px;bottom:7px;z-index:30;background:var(--pt-accent,var(--expansion));
+  color:#fff;border:none;border-radius:6px;font-family:var(--ui);font-size:10.5px;font-weight:600;
+  padding:6px 0;cursor:pointer;opacity:0;transition:opacity .12s}
+.capa-cartao:hover .usar,.capa-cartao:focus-within .usar{opacity:1}
+.capa-cartao.escolhida{border-color:var(--ok)}
+.capa-cartao.escolhida .usar{opacity:1;background:var(--ok);color:#0E1015}
+.col{overflow-y:auto;padding:20px}
+.col-esq{border-right:1px solid var(--linha);background:var(--painel)}
+.col-dir{border-left:1px solid var(--linha);background:var(--painel)}
+.col-meio{background:var(--app);display:flex;flex-direction:column;gap:14px;padding:18px 20px}
+
+.bloco{margin-bottom:25px}
+.rotulo{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--fraco);margin-bottom:11px;display:flex;justify-content:space-between;align-items:center}
+
+/* ---------- marca ---------- */
+.cores{display:flex;flex-direction:column;gap:8px}
+.cor{display:flex;align-items:center;gap:11px;background:var(--campo);border:1px solid var(--linha);
+  border-radius:7px;padding:8px 10px}
+.cor input[type=color]{appearance:none;border:0;width:30px;height:30px;border-radius:6px;
+  background:transparent;cursor:pointer;padding:0;flex:none}
+.cor input[type=color]::-webkit-color-swatch{border:1px solid rgba(255,255,255,.22);border-radius:6px}
+.cor input[type=color]::-moz-color-swatch{border:1px solid rgba(255,255,255,.22);border-radius:6px}
+.cor-txt{flex:1;min-width:0}
+.cor-nome{font-size:12px;font-weight:500}
+.cor-hex{font-family:var(--mono);font-size:11px;color:var(--meio)}
+
+.campo{background:var(--campo);border:1px solid var(--linha);border-radius:7px;
+  padding:9px 11px;color:var(--texto);font-family:var(--ui);font-size:13px;width:100%}
+.campo:focus{outline:0;border-color:var(--linha-forte)}
+.campo::placeholder{color:var(--fraco)}
+.dupla{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+label.rot{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--fraco);margin:14px 0 6px}
+.mini{font-family:var(--mono);font-size:10px;color:var(--fraco);margin-top:7px;display:block}
+
+.logo-caixa{border:1px solid var(--linha);border-radius:9px;background:var(--campo);
+  padding:11px;display:flex;align-items:center;gap:11px}
+.logo-vitrine{width:56px;height:44px;border-radius:6px;flex:none;display:flex;align-items:center;
+  justify-content:center;overflow:hidden}
+.logo-vitrine img{max-width:88%;max-height:88%;object-fit:contain}
+.logo-vazio{font-family:var(--mono);font-size:9px;color:var(--fraco);text-align:center;
+  line-height:1.3}
+.logo-lado{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.arquivo{position:relative;overflow:hidden;display:inline-block}
+.arquivo input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.fundos{display:flex;gap:4px;flex-wrap:wrap}
+.fundo-op{appearance:none;border:1px solid var(--linha);background:var(--campo);color:var(--meio);
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.04em;text-transform:uppercase;
+  padding:4px 6px;border-radius:5px;cursor:pointer;flex:1;min-width:0}
+.fundo-op[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion));color:var(--texto)}
+.fundo-op:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
+
+/* ---------- templates ---------- */
+/* Salvar publica uma nova versão da própria página, com o estado dentro.
+   Quem abrir a mesma URL em outro dispositivo pega de onde parou. */
+.salvar-caixa{margin-left:auto;display:flex;align-items:center;gap:10px}
+.salvar-est{font-family:var(--mono);font-size:10px;color:var(--fraco);letter-spacing:.05em}
+.salvar-est.sujo{color:var(--expansion)}
+.salvar-est.erro{color:#E2574C}
+#btn-salvar[disabled]{opacity:.5;cursor:default}
+
+.modos{display:flex;gap:6px;margin-bottom:14px}
+.modo{background:var(--campo);border:1px solid var(--linha);color:var(--meio);
+  font-family:var(--ui);font-size:12.5px;font-weight:550;padding:8px 15px;border-radius:7px;
+  cursor:pointer}
+.modo[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion));
+  color:var(--texto);background:color-mix(in srgb,var(--pt-accent,var(--expansion)) 14%,var(--campo))}
+.modo:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
+
+.grade-capas{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px;
+  padding:4px 0 10px}
+.capa-cartao{background:none;border:2px solid transparent;border-radius:9px;padding:0;
+  cursor:pointer;overflow:hidden;position:relative;line-height:0}
+.capa-cartao:hover{border-color:var(--linha-forte)}
+.capa-cartao .selo-n{position:absolute;left:7px;top:6px;z-index:30;font-family:var(--mono);
+  font-size:9px;color:#fff;opacity:.75;line-height:1}
+.capa-cartao .car{position:absolute;right:7px;top:6px;z-index:30;font-family:var(--mono);
+  font-size:9px;line-height:1}
+.tpls{display:flex;flex-direction:column;gap:7px}
+.tpl{display:flex;gap:11px;align-items:center;background:var(--campo);border:1px solid var(--linha);
+  border-radius:8px;padding:9px;cursor:pointer;text-align:left;color:inherit;width:100%}
+.tpl:hover{border-color:var(--linha-forte)}
+.tpl[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion));
+  background:color-mix(in srgb,var(--pt-accent,var(--expansion)) 11%,var(--campo))}
+.tpl:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
+.tpl-mini{width:34px;height:43px;border-radius:3px;flex:none;overflow:hidden;position:relative;
+  border:1px solid rgba(255,255,255,.10)}
+.tpl-nome{display:block;font-size:12px;font-weight:550;line-height:1.25}
+.tpl-sub{display:block;font-family:var(--mono);font-size:9.5px;color:var(--fraco);
+  letter-spacing:.05em;margin-top:2px}
+
+/* ---------- carrosséis do cliente ---------- */
+.pecas{display:flex;gap:8px;overflow-x:auto;padding:1px 1px 4px}
+.peca{flex:none;display:flex;align-items:center;gap:9px;background:var(--painel);
+  border:1px solid var(--linha);border-radius:9px;padding:7px 12px 7px 8px;cursor:pointer;
+  color:inherit;white-space:nowrap}
+.peca:hover{border-color:var(--linha-forte)}
+.peca[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion));
+  background:color-mix(in srgb,var(--pt-accent,var(--expansion)) 10%,var(--painel))}
+.peca:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
+.peca-mini{width:20px;height:25px;border-radius:2px;overflow:hidden;position:relative;flex:none;
+  border:1px solid rgba(255,255,255,.12)}
+.peca-nome{font-size:12.5px;font-weight:500}
+.peca-tpl{font-family:var(--mono);font-size:9px;color:var(--fraco);letter-spacing:.05em}
+.peca-nova{border-style:dashed;color:var(--meio);padding:7px 14px}
+
+/* ---------- canvas ---------- */
+.canvas-topo{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.canvas-info{font-family:var(--mono);font-size:11px;color:var(--fraco);letter-spacing:.06em}
+.canvas-info b{color:var(--meio);font-weight:500}
+.palco{flex:1;display:flex;align-items:flex-start;justify-content:center;overflow:auto;
+  background:
+    linear-gradient(45deg,#1A1A20 25%,transparent 25%,transparent 75%,#1A1A20 75%),
+    linear-gradient(45deg,#1A1A20 25%,#191920 25%,#191920 75%,#1A1A20 75%);
+  background-size:22px 22px;background-position:0 0,11px 11px;
+  border:1px solid var(--linha);border-radius:12px;padding:20px}
+.moldura{border-radius:4px;overflow:hidden;flex:none;position:relative;
+  box-shadow:0 18px 54px -12px rgba(0,0,0,.72),
+             0 0 0 1px rgba(255,255,255,.05),
+             0 0 70px -18px color-mix(in srgb,var(--pt-accent,var(--expansion)) 62%,transparent)}
+
+.tiras{display:flex;gap:8px;overflow-x:auto;padding:2px 1px 6px}
+.tira{flex:none;border:2px solid transparent;border-radius:5px;overflow:hidden;cursor:pointer;
+  background:transparent;padding:0;position:relative;line-height:0}
+.tira[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion))}
+.tira:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
+.tira-n{position:absolute;left:3px;top:2px;font-family:var(--mono);font-size:8px;
+  color:rgba(255,255,255,.75);text-shadow:0 1px 3px rgba(0,0,0,.9);z-index:5;line-height:1}
+
+/* o slide real: 1080x1350, escalado por transform */
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;transform-origin:top left;
+  font-family:'Poppins',var(--ui)}
+
+/* ---------- conteúdo ---------- */
+textarea.editor{background:var(--campo);border:1px solid var(--linha);border-radius:8px;
+  padding:12px;color:var(--texto);font-family:var(--mono);font-size:11.5px;line-height:1.7;
+  width:100%;min-height:320px;resize:vertical}
+textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
+.acoes{display:flex;gap:8px;margin-top:11px;flex-wrap:wrap}
+.btn{appearance:none;border:1px solid var(--linha-forte);background:var(--campo);color:var(--texto);
+  font-size:12.5px;font-weight:550;padding:9px 15px;border-radius:7px;cursor:pointer}
+.btn:hover{border-color:var(--meio)}
+.btn:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
+.btn-forte{background:var(--pt-accent,var(--expansion));border-color:transparent;color:#fff}
+.btn-forte:hover{filter:brightness(1.08)}
+.btn-largo{width:100%;justify-content:center;text-align:center}
+
+.aviso{border-left:2px solid var(--expansion);background:rgba(230,126,34,.08);
+  padding:10px 13px;border-radius:0 6px 6px 0;font-size:12px;color:var(--meio);margin-top:13px}
+.aviso b{color:var(--texto);font-weight:600}
+.contagem{display:flex;flex-direction:column;gap:5px;margin-top:12px}
+.linha-c{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);
+  font-size:10.5px;color:var(--fraco);gap:10px}
+.linha-c .val{color:var(--meio)}
+.linha-c .val.alerta{color:var(--expansion)}
+.linha-c .val.bom{color:var(--ok)}
+
+.oculto{display:none !important}
+
+@media(max-width:1180px){
+  .grade{grid-template-columns:1fr;height:auto}
+  .trilho{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--linha)}
+  .etapas{flex-direction:row}
+  .encolher{display:none}
+  .col{max-height:none;border:0;border-bottom:1px solid var(--linha)}
+  .palco{min-height:500px}
+}
+</style>
+
+<div class="topo">
+  <div class="topo-linha">
+    <div class="marca-app"><strong>Estúdio</strong><span>EXPANSION · v0</span></div>
+    <div class="trilha" id="trilha"></div>
+  <div class="salvar-caixa">
+    <span class="salvar-est" id="salvar-est"></span>
+    <button class="btn" id="btn-salvar" type="button" hidden>Salvar</button>
+  </div>
+  </div>
+</div>
+
+<!-- ============ TELA 1 — clientes ============ -->
+<section class="tela-clientes" id="tela-clientes">
+  <h1 class="titulo-tela">Clientes</h1>
+  <p class="sub-tela">Cada cliente guarda a própria marca, os próprios templates e os
+    carrosséis já feitos. Entra num deles pra criar.</p>
+  <div class="cards" id="cards"></div>
+</section>
+
+<!-- ============ TELA 2 — estúdio do cliente ============ -->
+<div class="grade oculto" id="tela-estudio">
+
+  <!-- trilho das etapas — a peça é uma só e atravessa todas -->
+  <nav class="trilho" id="trilho" aria-label="Etapas da peça">
+    <button class="encolher" id="btn-encolher" type="button" aria-label="Encolher trilho">‹</button>
+    <div class="etapas" id="etapas"></div>
+  </nav>
+
+  <aside class="col col-esq" id="painel">
+    <!-- MARCA -->
+    <div class="painel-et" data-et="marca">
+      <div class="bloco">
+        <span class="rotulo">Marca</span>
+        <div class="logo-caixa" id="logo-caixa"></div>
+        <div class="cores" id="cores" style="margin-top:9px"></div>
+        <span class="mini" id="fontes-info"></span>
+      </div>
+      <div class="bloco">
+        <span class="rotulo">Assinatura</span>
+        <input class="campo" id="handle" aria-label="@ do Instagram">
+        <div class="dupla" style="margin-top:8px">
+          <input class="campo" id="nome" aria-label="Nome da marca">
+          <input class="campo" id="direito" aria-label="Rodapé">
+        </div>
+      </div>
+      <div class="bloco">
+        <span class="rotulo">CTA fixo</span>
+        <input class="campo" id="cta-palavra" aria-label="Palavra do CTA">
+        <span class="mini">A palavra que a pessoa comenta. Não muda de peça pra peça —
+          é por ela que o disparo automático reconhece o lead.</span>
+      </div>
+    </div>
+
+    <!-- CAPAS -->
+    <div class="painel-et oculto" data-et="capas">
+      <div class="bloco">
+        <span class="rotulo">Dose do scrim</span>
+        <div class="opcoes" id="doses">
+          <button class="op" type="button" data-v="leve">leve</button>
+          <button class="op" type="button" data-v="medio" aria-pressed="true">médio</button>
+          <button class="op" type="button" data-v="forte">forte</button>
+        </div>
+        <span class="mini">A metade de cima tem que continuar sendo imagem. Escurecer o
+          slide inteiro resolve a legibilidade e mata a foto — que é o que faz alguém parar.</span>
+      </div>
+      <div class="bloco">
+        <span class="rotulo">Padrões de hook</span>
+        <div class="lista-pad" id="padroes"></div>
+        <span class="mini">Cobrir cinco padrões diferentes na mesma rodada. Dez headlines
+          do mesmo padrão são uma headline testada dez vezes.</span>
+      </div>
+    </div>
+
+    <!-- CARROSSEL -->
+    <div class="painel-et oculto" data-et="carrossel">
+      <div class="bloco">
+        <span class="rotulo">Template</span>
+        <div class="tpls" id="tpls"></div>
+      </div>
+    </div>
+
+    <!-- LEGENDA -->
+    <div class="painel-et oculto" data-et="legenda">
+      <div class="bloco">
+        <span class="rotulo">Estrutura</span>
+        <ol class="passos">
+          <li>Gancho, até 125 caracteres — é o que aparece antes do "mais"</li>
+          <li>Contexto e análise</li>
+          <li>Fontes, quando houver número</li>
+          <li>CTA com a palavra fixa</li>
+          <li>5 a 12 hashtags</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- APROVAÇÃO -->
+    <div class="painel-et oculto" data-et="aprovacao">
+      <div class="bloco">
+        <span class="rotulo">A ordem</span>
+        <ol class="passos">
+          <li>peça gerada</li>
+          <li>revisão interna</li>
+          <li>link pro cliente</li>
+          <li>aceite</li>
+          <li>publica</li>
+          <li>grava o <code>media_id</code></li>
+        </ol>
+        <span class="mini">O aceite do cliente é o que dispara a publicação — nunca a
+          geração. Foi a ausência de rastro nessa etapa que quase custou a Prime em 16/07.</span>
+      </div>
+    </div>
+
+    <!-- DESEMPENHO -->
+    <div class="painel-et oculto" data-et="desempenho">
+      <div class="bloco">
+        <span class="rotulo">O que se mede</span>
+        <div class="lista-pad">
+          <div class="pad"><b>Salvamentos</b><span>o que mais pesa</span></div>
+          <div class="pad"><b>Compartilhamentos</b><span>alcance ganho</span></div>
+          <div class="pad"><b>Retenção até o 7</b><span>onde está o prático</span></div>
+          <div class="pad"><b>Alcance</b><span>contexto, não nota</span></div>
+        </div>
+        <span class="mini">Salvamento antes de curtida. Peça de calendário que funciona é
+          a que a pessoa guarda pra voltar depois — e é salvamento que a recalibração lê.</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="col-meio">
+    <div class="pecas" id="pecas"></div>
+    <div class="canvas-topo">
+      <div class="canvas-info"><b id="info-tpl">—</b> · <span id="info-n">—</span> · 1080 × 1350</div>
+      <div class="acoes" style="margin:0">
+        <button class="btn" id="btn-prev" type="button" aria-label="Slide anterior">‹</button>
+        <button class="btn" id="btn-next" type="button" aria-label="Próximo slide">›</button>
+      </div>
+    </div>
+    <div class="palco"><div class="moldura" id="moldura"></div></div>
+    <div class="tiras" id="tiras"></div>
+    <div class="grade-capas oculto" id="grade-capas"></div>
+    <div class="tela-et oculto" id="c-legenda"></div>
+    <div class="tela-et oculto" id="c-aprovacao"></div>
+    <div class="tela-et oculto" id="c-desempenho"></div>
+  </main>
+
+  <aside class="col col-dir" id="coluna-dir">
+    <div class="bloco">
+      <span class="rotulo">Conteúdo <span id="nome-peca" style="text-transform:none;letter-spacing:0"></span></span>
+      <textarea class="editor" id="editor" spellcheck="false" aria-label="Blocos de texto"></textarea>
+      <div class="acoes">
+        <button class="btn btn-forte" id="btn-gerar" type="button">Gerar com IA</button>
+        <button class="btn" id="btn-exemplo" type="button">Exemplo</button>
+      </div>
+      <div class="aviso" id="aviso-carrossel">
+        Um bloco por linha, no formato <b>texto N -</b>. Ímpar vira headline, par vira apoio.
+        Dois blocos por slide.
+      </div>
+      <div class="aviso oculto" id="aviso-capas">
+        Uma headline por linha. Marque com <b>*asterisco*</b> o trecho que carrega a virada —
+        é ele que a pessoa lê primeiro. Cobrir <b>cinco padrões diferentes</b> na mesma rodada
+        é o que transforma a escolha em informação.
+      </div>
+      <div class="aviso oculto" id="aviso-legenda">
+        O gancho tem até <b>125 caracteres</b> — é o que aparece antes do "mais".
+        Termina com a palavra do CTA e 5 a 12 hashtags.
+      </div>
+      <div class="contagem" id="contagem"></div>
+    </div>
+  </aside>
+</div>
+
+<!-- ============ modal ============ -->
+<div class="modal-fundo oculto" id="modal-fundo">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <h2 id="modal-titulo">Novo cliente</h2>
+    <p class="dica">O que entrar aqui vale pra todos os carrosséis desse cliente.</p>
+    <label class="rot" for="f-nome">Nome</label>
+    <input class="campo" id="f-nome" placeholder="Clínica Albanos">
+    <label class="rot" for="f-nicho">Nicho</label>
+    <input class="campo" id="f-nicho" placeholder="Autismo">
+    <label class="rot" for="f-handle">@ do Instagram</label>
+    <input class="campo" id="f-handle" placeholder="@clinicaalbanos">
+    <label class="rot">Cores da marca</label>
+    <div class="dupla" style="grid-template-columns:1fr 1fr 1fr">
+      <input type="color" class="campo" id="f-escuro" value="#1A1A1F" aria-label="Fundo" style="height:40px;padding:4px">
+      <input type="color" class="campo" id="f-accent" value="#E67E22" aria-label="Destaque" style="height:40px;padding:4px">
+      <input type="color" class="campo" id="f-claro" value="#F0EEEC" aria-label="Claro" style="height:40px;padding:4px">
+    </div>
+    <span class="mini">fundo · destaque · claro</span>
+    <label class="rot">Logo</label>
+    <div class="logo-caixa">
+      <div class="logo-vitrine" id="f-logo-vitrine" style="background:#0F1116">
+        <span class="logo-vazio">sem<br>logo</span></div>
+      <div class="logo-lado">
+        <span class="btn arquivo" style="padding:7px 12px;font-size:11.5px;text-align:center">
+          Escolher arquivo<input type="file" id="f-logo" accept="image/png,image/jpeg,image/svg+xml"></span>
+        <div class="fundos" id="f-fundos">
+          <button class="fundo-op" type="button" data-v="auto" aria-pressed="true">auto</button>
+          <button class="fundo-op" type="button" data-v="claro" aria-pressed="false">claro</button>
+          <button class="fundo-op" type="button" data-v="escuro" aria-pressed="false">escuro</button>
+        </div>
+      </div>
+    </div>
+    <span class="mini">PNG com fundo transparente cai melhor. Se o arquivo já vier com fundo
+      preto, escolhe <b>escuro</b> que a moldura acompanha.</span>
+    <div class="acoes" style="margin-top:20px">
+      <button class="btn btn-forte" id="f-criar" type="button">Criar cliente</button>
+      <button class="btn" id="f-cancelar" type="button">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============ dados ============ */
+/* Os cinco templates da casa. Só o EXPANSION 01 foi medido no Canva elemento a
+   elemento; os outros são modelados a partir da régua dele. */
+const TEMPLATES = [
+  { id:'meio', nome:'EXPANSION 01', etapa:'MEIO DE FUNIL · 9 SLIDES',
+    ritmo:['capa','claro','destaque','claro','escuro','escuro','claro','escuro','cta'] },
+  { id:'exp02', nome:'EXPANSION 02', etapa:'TOPO · TÍTULO À ESQUERDA', n:9,
+    align:'left',   fonte:"'Montserrat',var(--ui)", peso:700, tam:88.3, lh:.92, tr:'-.087em' },
+  { id:'exp03', nome:'EXPANSION 03', etapa:'TOPO · SERIFA CENTRALIZADA', n:9,
+    align:'center', fonte:"'Source Serif 4',Georgia,serif", peso:600, tam:84, lh:1.02, tr:'-.02em' },
+  { id:'exp04', nome:'EXPANSION 04', etapa:'TOPO · TÍTULO CENTRALIZADO', n:9,
+    align:'center', fonte:"'Montserrat',var(--ui)", peso:700, tam:100, lh:.92, tr:'-.087em' },
+  { id:'twitter', nome:'EXPANSION TWITTER', etapa:'TOPO · CARTÃO DE POST', n:9 },
+];
+
+const EXEMPLO = `texto 1 - O banco nega e a venda para
+texto 2 - O que muda quando o crédito do cliente é bem estruturado
+texto 3 - Ninguém comprou
+texto 4 - As indicações saíram de pesquisa com o próprio mercado: corretores, imobiliárias e profissionais do setor.
+texto 5 - O crédito define o teto
+texto 6 - Antes da visita, já dá pra saber o que o cliente aguenta pagar de parcela.
+texto 7 - Score não é sentença
+texto 8 - O que um banco recusa por score, outro aprova por patrimônio.
+texto 9 - A conta muda
+texto 10 - Cliente bem estruturado compra imóvel melhor, e imóvel melhor é comissão maior.
+texto 11 - O cliente continua
+texto 12 - Negado no banco, ele ainda tem caminho, e segue com o corretor que o levou até ali.
+texto 13 - Análise integrada
+texto 14 - Banco isolado limita o poder de compra. Olhar várias políticas ao mesmo tempo amplia.
+texto 15 - Quem indica assina
+texto 16 - Indicar uma assessoria é colocar o próprio nome junto do serviço dela.
+texto 17 - Chama no direct
+texto 18 - Quer a análise de crédito dos seus clientes? Manda mensagem.`;
+
+const EXEMPLO_13 = `texto 1 - Duas datas do 13º que devem entrar no calendário da sua loja
+texto 2 - O dinheiro da cliente tem calendário. A campanha também deveria ter.
+texto 3 - A lei já marcou as datas pra você
+texto 4 - A primeira parcela cai até 30 de novembro. A segunda, até 20 de dezembro. É a Lei 4.090, e é assim todo ano.
+texto 5 - São dois momentos, não um
+texto 6 - Quem trata o 13º como um evento só trabalha metade dele. A primeira parcela é a compra pensada.
+texto 7 - O que muda de uma para a outra
+texto 8 - Em novembro ela compra para ela. Em dezembro compra para os outros, e o que sobra vira presente de última hora.
+texto 9 - 50%
+texto 10 - do 13º já está na conta da sua cliente em novembro. A outra metade só entra até o dia 20 de dezembro.
+texto 11 - Campanha que começa em dezembro chega atrasada em metade do dinheiro
+texto 12 - A vitrine não pode ser a mesma nas duas datas.
+texto 13 - O que fazer com cada data
+texto 14 - Novembro é a peça de valor mais alto. Dezembro é presente, kit e embalagem pronta, com ticket menor.
+texto 15 - Quem só aparece no dia do pagamento disputa uma decisão que já foi tomada
+texto 16 - Entre as duas datas: reserva e lista de espera, para ela escolher antes de o dinheiro cair.
+texto 17 - A campanha certa é a que chega antes do dinheiro
+texto 18 - Para montar o calendário das duas datas na sua loja, comenta 13.`;
+
+const nova = (nome,tpl,txt) => ({ id:Math.random().toString(36).slice(2,8), nome, tpl,
+  txt:txt||'', capas:[], capa:null, legenda:'', scrim:'medio', status:'rascunho' });
+
+const LEGENDA_EXEMPLO = `Duas datas. Não uma.
+
+O 13º da sua cliente não cai de uma vez: a primeira parcela sai até 30 de novembro e a segunda até 20 de dezembro. Está na Lei 4.090, e é assim todo ano.
+
+Metade do dinheiro já está na conta dela em novembro — e é aí que ela compra pra ela, a peça de valor mais alto que ficou adiando o ano inteiro. Em dezembro muda: o que entra já chega comprometido com presente.
+
+Quem monta uma campanha só, em dezembro, chega atrasado em metade do dinheiro. E é justamente a metade que compra sem desconto.
+
+Para montar o calendário das duas datas na sua loja, comenta DIAGNÓSTICO aqui embaixo.
+
+#lojaderoupas #modafeminina #varejodemoda #13osalario #marketingparalojas`;
+
+/* Moldura do logo. 'auto' deixa transparente; 'claro' e 'escuro' põem um fundo
+   atrás, pra logo monocromático não sumir sobre a cor da marca. */
+const molde = c => c.logoFundo==='claro' ? '#FFFFFF'
+               : c.logoFundo==='escuro' ? '#101216'
+               : 'transparent';
+
+let CLIENTES = [
+  { id:'expansion', nome:'Expansion', handle:'@assessoriaexpansion', marca:'EXPANSION', cta:'DIAGNÓSTICO',
+    direito:'2026 ®', nicho:'Marketing para lojas de roupas femininas', escuro:'#000000',
+    accent:'#FF9901', claro:'#F0EEEC', head:'Montserrat', body:'Poppins', logo:null,
+    logoFundo:'auto', grad:'linear-gradient(180deg,#fa7e01 0%,#ff6522 50%,#fa7e01 100%)',
+    pecas:[ nova('As duas datas do 13º','meio',EXEMPLO_13) ] },
+  { id:'prime', nome:'Prime Alphaville', handle:'@prime.alphaville', marca:'Prime Assessoria',
+    direito:'2026 ®', nicho:'Crédito imobiliário', escuro:'#191818', accent:'#E14414',
+    claro:'#F0EEEC', head:'Montserrat', body:'Poppins', logo:null, logoFundo:'auto',
+    pecas:[ nova('Prêmio ATRINCA','meio',EXEMPLO), nova('Portabilidade','brands1','') ] },
+  { id:'albanos', nome:'Clínica Albanos', handle:'@clinicaalbanos', marca:'Clínica Albanos',
+    direito:'2026 ®', nicho:'Autismo', escuro:'#12212E', accent:'#2E9BC4',
+    claro:'#EEF4F7', head:'Montserrat', body:'Poppins', logo:null, logoFundo:'auto', pecas:[ nova('Sinais precoces','meio','') ] },
+  { id:'cies', nome:'Ciés Brand', handle:'@ciesbrand', marca:'Ciés', direito:'2026 ®',
+    nicho:'Moda feminina', escuro:'#1E1519', accent:'#C4728A', claro:'#F6F0F1',
+    head:'Montserrat', body:'Poppins', logo:null, logoFundo:'auto', pecas:[ nova('Coleção nova','brands2','') ] },
+  { id:'clau', nome:'Clau Kids', handle:'@claukids', marca:'Clau Kids', direito:'2026 ®',
+    nicho:'Moda infantil', escuro:'#1B2233', accent:'#F2A93B', claro:'#FDF6EA',
+    head:'Montserrat', body:'Poppins', logo:null, logoFundo:'auto', pecas:[ nova('Volta às aulas','twitter','') ] },
+  { id:'fred', nome:'Dr. Fred', handle:'@drfredoficial', marca:'Dr. Fred', direito:'2026 ®',
+    nicho:'Saúde', escuro:'#101C1A', accent:'#1E9E7E', claro:'#EEF6F3',
+    head:'Montserrat', body:'Poppins', logo:null, logoFundo:'auto', pecas:[ nova('Check-up anual','brands3','') ] },
+];
+
+/* ============ estado ============ */
+let cli = null, peca = null, tpl = TEMPLATES[0], blocos = [], atual = 0;
+let etapa = 'carrossel';
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const acha = id => TEMPLATES.find(t => t.id === id) || TEMPLATES[0];
+
+function parse(txt){
+  const out = [];
+  txt.split('\n').forEach(l => {
+    const m = l.match(/^\s*texto\s+(\d+)\s*-\s*(.*)$/i);
+    if (m) out[+m[1]-1] = m[2].trim();
+  });
+  for (let i=0;i<out.length;i++) if (out[i]===undefined) out[i]='';
+  return out;
+}
+const nSlides = () => tpl.ritmo ? tpl.ritmo.length : (tpl.n || 7);
+const par = i => ({ h: blocos[i*2] || '', c: blocos[i*2+1] || '' });
+/* O degradê é do FUNDO do slide de destaque, não da escrita — foi o que sete
+   páginas do Canva mostraram. A escrita em destaque é a cor chapada. */
+function grad(){
+  return cli.grad || cli.accent;
+}
+function EM(txt){
+  return `<span style="color:${cli.accent}">${esc(txt)}</span>`;
+}
+function foto(seed){
+  return `linear-gradient(${140+seed*24}deg, ${cli.escuro} 0%, ${cli.accent} 62%, ${cli.claro} 140%)`;
+}
+
+/* ============ render dos templates ============ */
+function barra(cor){
+  return `<div style="position:absolute;top:49.7px;left:56.1px;right:56.1px;display:flex;
+    justify-content:space-between;z-index:20;font-size:15.8px;font-weight:700;line-height:1.4;
+    letter-spacing:0;text-transform:uppercase;color:${cor}"><span>${esc(cli.handle)}</span>
+    <span>${esc(cli.marca)}</span><span>${esc(cli.direito)}</span></div>`;
+}
+function chip(){
+  // Página 1: avatar 46,2 · nome 21,4 medium · @ 10,6 a 49% de opacidade.
+  const selo = cli.logo
+    ? `<span style="width:46.2px;height:46.2px;border-radius:50%;background:${
+        cli.logoFundo==='claro' ? '#fff' : cli.logoFundo==='escuro' ? '#101216' : 'rgba(255,255,255,.10)'
+      };display:flex;align-items:center;justify-content:center;overflow:hidden;flex:none">
+      <img src="${cli.logo}" alt="" style="max-width:78%;max-height:78%;object-fit:contain"></span>`
+    : `<span style="width:46.2px;height:46.2px;border-radius:50%;background:${cli.accent};
+      display:flex;align-items:center;justify-content:center;font-family:'Montserrat',var(--ui);
+      font-size:23px;font-weight:700;color:#fff;flex:none">${esc(cli.marca[0]||'?')}</span>`;
+  return `${selo}<span style="display:flex;flex-direction:column">
+    <span style="display:flex;align-items:center;gap:7px;font-size:21.4px;font-weight:500;
+      line-height:1.4;letter-spacing:-.084em;color:#fff">${esc(cli.marca)}
+      <span style="width:16px;height:16px;border-radius:50%;background:#1d9bf0;color:#fff;
+        display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;
+        flex:none">✓</span></span>
+    <span style="font-size:10.6px;font-weight:500;line-height:1.4;letter-spacing:-.084em;
+      color:#fff;opacity:.49">${esc(cli.handle)}</span></span>`;
+}
+
+/* O degradê é do FUNDO do slide de destaque, não da escrita — foi o que sete
+   páginas do Canva mostraram. A escrita em destaque é a cor chapada. */
+function grad(){
+  return cli.grad || cli.accent;
+}
+function EM(txt){
+  return `<span style="color:${cli.accent}">${esc(txt)}</span>`;
+}
+function foto(seed){
+  return `linear-gradient(${140+seed*24}deg, ${cli.escuro} 0%, ${cli.accent} 62%, ${cli.claro} 140%)`;
+}
+
+/* ============ render dos templates ============ */
+function barra(cor){
+  return `<div style="position:absolute;top:49.7px;left:56.1px;right:56.1px;display:flex;
+    justify-content:space-between;z-index:20;font-size:15.8px;font-weight:700;line-height:1.4;
+    letter-spacing:0;text-transform:uppercase;color:${cor}"><span>${esc(cli.handle)}</span>
+    <span>${esc(cli.marca)}</span><span>${esc(cli.direito)}</span></div>`;
+}
+function chip(){
+  const selo = cli.logo
+    ? `<span style="width:48.7px;height:48.7px;border-radius:50%;background:${
+        cli.logoFundo==='claro' ? '#fff' : cli.logoFundo==='escuro' ? '#101216' : 'rgba(255,255,255,.10)'
+      };display:flex;align-items:center;justify-content:center;overflow:hidden">
+      <img src="${cli.logo}" alt="" style="max-width:78%;max-height:78%;object-fit:contain"></span>`
+    : `<span style="width:48.7px;height:48.7px;border-radius:50%;background:${cli.accent};display:flex;
+      align-items:center;justify-content:center;font-family:'Montserrat',var(--ui);font-size:24px;
+      font-weight:700;color:#fff">${esc(cli.marca[0]||'?')}</span>`;
+  return `<div style="display:inline-flex;align-items:center;gap:14px">
+    ${selo}
+    <span style="font-size:31.8px;font-weight:500;line-height:1.4;letter-spacing:-.084em;
+    color:#fff">${esc(cli.handle)}</span>
+    <span style="width:27.8px;height:27.8px;border-radius:50%;background:#1d9bf0;color:#fff;display:flex;
+    align-items:center;justify-content:center;font-size:16px;font-weight:700">✓</span></div>`;
+}
+const H = (t,sz,cor,extra='') => `<div style="font-family:'Montserrat',var(--ui);font-size:${sz}px;
+  font-weight:600;line-height:1.06;letter-spacing:-.056em;color:${cor};
+  ${extra}">${esc(t)}</div>`;
+
+function render(i){
+  const {h,c} = par(i); const T = tpl.id;
+
+  if (T === 'meio'){
+    const f = tpl.ritmo[i];
+    if (f === 'capa') return `<div class="slide" style="background:${cli.escuro}">
+      <div style="position:absolute;inset:0;background:${foto(0)}"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,
+        rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 18%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.80) 66%,
+        rgba(0,0,0,.95) 84%,#000 100%)"></div>
+      ${barra('rgba(255,255,255,.30)')}
+      <div style="position:absolute;top:748.3px;left:0;right:0;z-index:10;display:flex;
+        align-items:center;justify-content:center;gap:11px">${chip()}</div>
+      <div class="capa-h1" style="position:absolute;bottom:110.3px;left:108px;width:864px;z-index:10;
+        font-family:'Montserrat',var(--ui);font-size:111.5px;font-weight:700;line-height:.92;
+        letter-spacing:-.087em;color:#fff;text-align:center">${esc(h||'Headline da capa')}</div></div>`;
+
+    const bg = f==='destaque'?grad() : f==='escuro'?cli.escuro : cli.claro;
+    const cl = (f==='claro'||f==='cta');
+    const corH = cl ? '#000' : '#fff';
+    const corC = cl ? '#000' : '#fff';
+    const corB = cl ? 'rgba(0,0,0,.30)' : 'rgba(255,255,255,.30)';
+    const seta = f==='destaque' ? `<div style="position:absolute;right:108px;bottom:76px;width:78px;
+      height:78px;border-radius:50%;background:#fff;color:#000;display:flex;align-items:center;
+      justify-content:center;font-size:36px;font-weight:600;z-index:20">→</div>` : '';
+    // A grade medida do Canva: cada bloco no seu `top`, não em fluxo. Quatro
+    // arquétipos, conforme onde a foto entra. Sem foto, é o slide de virada.
+    const GRADE = {
+      topo: {foto:207.9, h1:717.0, corpo:1005.8},
+      meio: {h1:161.0, foto:453.9, corpo:951.1},
+      base: {h1:230.5, corpo:534.9, foto:799.8},
+      nada: {h1:298.9, corpo:641.9},
+    };
+    const posFoto = ['','topo','meio','base','topo','nada','meio','base','nada'][i] || 'nada';
+    const g = GRADE[posFoto] || GRADE.nada;
+    const bloco = (top, html) =>
+      `<div style="position:absolute;top:${top}px;left:108px;width:864px;z-index:2">${html}</div>`;
+
+    const vaga = (posFoto==='nada') ? '' : bloco(g.foto,
+      `<div style="height:442.2px;border-radius:13px;border:2px dashed ${cl?cli.accent:'#fff'};
+        background:${cl?'rgba(0,0,0,.03)':'rgba(255,255,255,.06)'};display:flex;
+        flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center">
+        <span style="font-size:16px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+          color:${cl?cli.accent:'#fff'}">Imagem · ${posFoto}</span>
+        <span style="font-size:15px;letter-spacing:.1em;opacity:.5;color:${corC}">864 × 442 · canto 13</span>
+      </div>`);
+
+    const corpoHtml = f==='cta'
+      ? `<div style="font-size:45.4px;line-height:.96;letter-spacing:-.033em">${EM(c||'Comenta a palavra.')}</div>`
+      : `<div style="font-size:${cl?36.6:45.4}px;line-height:.96;letter-spacing:-.033em;
+          color:${corC}">${esc(c||'Texto de apoio do slide.')}</div>`;
+
+    return `<div class="slide" style="background:${bg}">${barra(corB)}
+      ${bloco(g.h1, H(h||'Headline',75.7,corH,f==='cta'?'font-weight:700':''))}
+      ${vaga}
+      ${bloco(g.corpo, corpoHtml)}${seta}</div>`;
+  }
+
+  // EXPANSION 02 · 03 · 04 — foto sangrada, texto apoiado na base. O que muda
+  // entre os três é só o título: alinhamento, família e tamanho.
+  if (T === 'exp02' || T === 'exp03' || T === 'exp04'){
+    const centro = tpl.align === 'center';
+    const chipHtml = i === 0
+      ? `<div style="display:flex;align-items:center;gap:11px;margin-bottom:4px">${chip()}</div>` : '';
+    return `<div class="slide" style="background:${cli.escuro}">
+      <div style="position:absolute;inset:0;background:${foto(i)}"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,
+        rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 18%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.80) 66%,
+        rgba(0,0,0,.95) 84%,#000 100%)"></div>
+      ${barra('rgba(255,255,255,.30)')}
+      <div class="sang-area" style="position:absolute;left:108px;right:108px;bottom:104px;
+        z-index:10;display:flex;flex-direction:column;gap:26px;
+        align-items:${centro?'center':'flex-start'};text-align:${tpl.align}">
+        ${chipHtml}
+        <div class="sang-h1" style="font-family:${tpl.fonte};font-weight:${tpl.peso};
+          font-size:${tpl.tam}px;line-height:${tpl.lh};letter-spacing:${tpl.tr};color:#fff">
+          ${esc(h||'Headline da capa')}</div>
+        <div style="font-size:31px;line-height:1.18;letter-spacing:-.02em;color:#fff;
+          opacity:.86;max-width:92%">${esc(c||'Linha de apoio abaixo da headline.')}</div>
+      </div></div>`;
+  }
+
+  // EXPANSION TWITTER — o post citado, em cartão claro. Empresta a
+  // credibilidade da rede: por isso nada de cor de marca no texto.
+  return `<div class="slide" style="background:#fff">
+    ${barra('rgba(0,0,0,.30)')}
+    <div style="position:absolute;top:186px;left:108px;display:flex;align-items:center;gap:20px">
+      <span style="width:82px;height:82px;border-radius:50%;background:${cli.accent};display:flex;
+        align-items:center;justify-content:center;font-family:'Montserrat',var(--ui);
+        font-size:38px;font-weight:700;color:#fff">${esc(cli.marca[0]||'?')}</span>
+      <span style="display:flex;flex-direction:column;gap:2px">
+        <span style="display:flex;align-items:center;gap:9px;font-size:34px;font-weight:600;
+          color:#0F1419;letter-spacing:-.02em">${esc(cli.marca)}
+          <span style="width:26px;height:26px;border-radius:50%;background:#1d9bf0;color:#fff;
+            display:flex;align-items:center;justify-content:center;font-size:15px">✓</span></span>
+        <span style="font-size:28px;color:#536471;letter-spacing:-.02em">${esc(cli.handle)}</span>
+      </span></div>
+    <div style="position:absolute;top:318px;left:108px;right:108px;bottom:108px;display:flex;
+      flex-direction:column;gap:30px">
+      <div style="font-size:41px;font-weight:500;line-height:1.24;letter-spacing:-.022em;
+        color:#0F1419">${esc(h||'A frase principal do post.')}</div>
+      <div style="height:442.2px;border-radius:13px;background:${foto(i+6)}"></div>
+      <div style="font-size:41px;font-weight:500;line-height:1.24;letter-spacing:-.022em;
+        color:#0F1419">${esc(c||'O parágrafo de apoio, logo abaixo.')}</div>
+    </div></div>`;
+}
+
+/* ============ pintura ============ */
+/* A capa cresce da base para cima e tem 439,2px de altura útil. Se passar
+   disso, a headline encolhe — é o que impede o texto de subir por cima do
+   chip. Mede por `offsetHeight`, que é linhas x entrelinha exato; medir por
+   `scrollHeight` mente quando a entrelinha é menor que 1. */
+function fitCapa(raiz){
+  raiz.querySelectorAll('.slide').forEach(function(s){
+    const h = s.querySelector('.capa-h1');
+    if (h){
+      let fs = parseFloat(getComputedStyle(h).fontSize);
+      while (h.offsetHeight > 440 && fs > 62) { fs -= 1; h.style.fontSize = fs+'px'; }
+    }
+    // EXPANSION 02/03/04: o bloco de baixo não pode passar de 620px, senão sobe
+    // por cima da foto e some o motivo de ela estar ali.
+    const a = s.querySelector('.sang-area'), sh = s.querySelector('.sang-h1');
+    if (a && sh){
+      let fs = parseFloat(getComputedStyle(sh).fontSize);
+      while (a.offsetHeight > 620 && fs > 46) { fs -= 1; sh.style.fontSize = fs+'px'; }
+    }
+  });
+}
+
+function escala(el, alvo){
+  const s = alvo / 1080;
+  el.style.transform = `scale(${s})`;
+  return { w: Math.round(1080*s), h: Math.round(1350*s) };
+}
+
+function telaClientes(){
+  $('#tela-clientes').classList.remove('oculto');
+  $('#tela-estudio').classList.add('oculto');
+  $('#trilha').innerHTML = '';
+  document.documentElement.style.setProperty('--pt-accent', 'var(--expansion)');
+  document.documentElement.style.setProperty('--banho', '0');
+
+  const c = $('#cards'); c.innerHTML = '';
+  CLIENTES.forEach(x => {
+    const b = document.createElement('button');
+    b.className = 'card'; b.type = 'button';
+    b.style.setProperty('--c-accent', x.accent);
+    const tampa = x.logo
+      ? `<img class="card-logo" src="${x.logo}" alt="" style="${x.logoFundo!=='auto'
+          ? `background:${molde(x)};padding:9px 13px;border-radius:9px` : ''}">`
+      : `<span class="card-inicial">${esc(x.marca[0]||'?')}</span>`;
+    b.innerHTML = `
+      <div class="card-topo" style="background:linear-gradient(146deg,${x.escuro} 0%,${x.accent} 132%)">
+        ${tampa}</div>
+      <div class="card-corpo">
+        <span class="card-nome">${esc(x.nome)}</span>
+        <span class="card-nicho">${esc(x.nicho)}</span>
+        <span class="card-rodape">
+          <span>${x.pecas.length} ${x.pecas.length===1?'carrossel':'carrosséis'}</span>
+          <span class="swatches">
+            <span class="sw" style="background:${x.escuro}"></span>
+            <span class="sw" style="background:${x.accent}"></span>
+            <span class="sw" style="background:${x.claro}"></span></span></span></div>`;
+    b.onclick = () => abrir(x);
+    c.appendChild(b);
+  });
+
+  const n = document.createElement('button');
+  n.className = 'card card-novo'; n.type = 'button';
+  n.innerHTML = `<span class="mais">+</span><span style="font-size:13px;font-weight:500">Novo cliente</span>`;
+  n.onclick = () => $('#modal-fundo').classList.remove('oculto');
+  c.appendChild(n);
+}
+
+function abrir(x){
+  cli = x;
+  peca = x.pecas[0] || (x.pecas.push(nova('Sem título','meio','')), x.pecas[0]);
+  tpl = acha(peca.tpl); blocos = parse(peca.txt); atual = 0;
+  $('#tela-clientes').classList.add('oculto');
+  $('#tela-estudio').classList.remove('oculto');
+  $('#trilha').innerHTML = `<button class="voltar" type="button" id="btn-voltar">‹ Clientes</button>
+    <span class="sep">/</span><b><span class="ponto" style="background:${cli.accent}"></span>
+    ${esc(cli.nome)}</b>`;
+  $('#btn-voltar').onclick = telaClientes;
+  camposMarca(); montarTpls(); montarPecas();
+  $('#cta-palavra').value = cli.cta || '';
+  etapa = null; trocaEtapa('carrossel');
+}
+
+/* ── as etapas ────────────────────────────────────────────────────────────
+   Não são ferramentas separadas que se comunicam: são estágios da mesma peça.
+   A capa escolhida vira o slide 1, a legenda sai do que já está escrito, e a
+   aprovação só abre quando existe o que aprovar. Foi por isso que preferi
+   estágio a aba — aba sugere paralelo, e aqui a ordem importa. */
+const ETAPAS = [
+  { id:'marca',      ico:'◆', nome:'Marca' },
+  { id:'capas',      ico:'✦', nome:'Capas' },
+  { id:'carrossel',  ico:'▤', nome:'Carrossel' },
+  { id:'legenda',    ico:'¶', nome:'Legenda' },
+  { id:'aprovacao',  ico:'✓', nome:'Aprovação' },
+  { id:'desempenho', ico:'↗', nome:'Desempenho' },
+];
+
+const CAPAS_EXEMPLO = `A *morte* da campanha de dezembro
+O 13º não cai de uma vez: *cai em duas*
+Metade do dinheiro chega em novembro. *A sua vitrine, em dezembro.*
+Investigando as *duas datas* que decidem o fim de ano da sua loja
+Quantas vendas a sua loja perdeu *esperando dezembro*?
+A Lei 4.090 marcou o seu calendário *antes de você*`;
+
+const PADROES = [
+  ['Morte / Fim','A morte de X'],
+  ['Geracional','Por que [geração] está…?'],
+  ['Investigando','Investigando [fenômeno]'],
+  ['Contraste','duas metades que se negam'],
+  ['Dois-pontos','[Afirmação]: [reviravolta]'],
+  ['Provocação','pergunta que ela já se fez'],
+];
+
+const lerCapas = txt => txt.split('\n').map(l => l.trim()).filter(Boolean);
+
+/* O editor é um só e serve três etapas. Antes de trocar, o que estava nele
+   volta pro campo certo da peça — senão o texto do carrossel some quando
+   alguém passa pelas capas. */
+function guardaEditor(){
+  if (!peca) return;
+  const v = $('#editor').value;
+  if (etapa === 'capas')     peca.capas = lerCapas(v);
+  else if (etapa === 'legenda') peca.legenda = v;
+  else if (etapa === 'carrossel') peca.txt = v;
+}
+const semMarca = s => (s||'').replace(/\*/g,'');
+
+/* Estado de cada etapa. É o que o trilho mostra, e é o que decide o que está
+   travado — travar sem dizer por quê é o que faz gente clicar duas vezes. */
+function estado(id){
+  const blocosOk = blocos.filter(Boolean).length;
+  if (id === 'marca')      return { txt: cli ? cli.nicho : '—' };
+  if (id === 'capas')      return { txt: peca?.capa ? 'escolhida' : (peca?.capas?.length ? peca.capas.length+' geradas' : '—') };
+  if (id === 'carrossel')  return { txt: blocosOk ? blocosOk+'/18 blocos' : '—' };
+  if (id === 'legenda')    return { txt: peca?.legenda ? 'pronta' : '—',
+                                    trava: blocosOk < 2 ? 'Escreva o carrossel primeiro — a legenda sai dele.' : null };
+  if (id === 'aprovacao')  return { txt: peca?.status || 'rascunho',
+                                    trava: !peca?.legenda ? 'A legenda vai junto no link do cliente.' : null };
+  return { txt: peca?.status === 'publicado' ? 'coletando' : '—',
+           trava: peca?.status !== 'publicado' ? 'Só existe depois que a peça for publicada.' : null };
+}
+
+function montarPadroes(){
+  $('#padroes').innerHTML = PADROES
+    .map(([nome, forma]) => `<div class="pad"><b>${nome}</b><span>${esc(forma)}</span></div>`)
+    .join('');
+}
+
+function montarTrilho(){
+  const c = $('#etapas'); c.innerHTML = '';
+  ETAPAS.forEach(e => {
+    const st = estado(e.id);
+    const b = document.createElement('button');
+    b.className = 'etapa'; b.type = 'button';
+    b.setAttribute('aria-current', String(e.id === etapa));
+    if (st.trava){ b.disabled = true; b.title = st.trava; }
+    b.innerHTML = `<span class="et-ico">${e.ico}</span>
+      <span class="et-txt"><span class="et-nome">${e.nome}</span>
+      <span class="et-est">${esc(st.trava ? 'travado' : st.txt)}</span></span>`;
+    b.onclick = () => trocaEtapa(e.id);
+    c.appendChild(b);
+  });
+}
+
+function trocaEtapa(id){
+  const st = estado(id);
+  if (st.trava) return;
+  guardaEditor();
+  etapa = id;
+  $$('.painel-et').forEach(p => p.classList.toggle('oculto', p.dataset.et !== id));
+  const noCarrossel = id === 'carrossel', nasCapas = id === 'capas';
+  document.querySelector('.palco').classList.toggle('oculto', !noCarrossel);
+  $('#tiras').classList.toggle('oculto', !noCarrossel);
+  $('#pecas').classList.toggle('oculto', !(noCarrossel || nasCapas));
+  $('.canvas-topo').classList.toggle('oculto', !(noCarrossel || nasCapas));
+  $('#grade-capas').classList.toggle('oculto', !nasCapas);
+  ['legenda','aprovacao','desempenho'].forEach(k =>
+    $('#c-'+k).classList.toggle('oculto', id !== k));
+
+  const editavel = ['carrossel','capas','legenda'].includes(id);
+  $('#coluna-dir').classList.toggle('oculto', !editavel);
+  $('#tela-estudio').classList.toggle('sem-editor', !editavel);
+  $('#aviso-carrossel').classList.toggle('oculto', id !== 'carrossel');
+  $('#aviso-capas').classList.toggle('oculto', id !== 'capas');
+  $('#aviso-legenda').classList.toggle('oculto', id !== 'legenda');
+  if (id === 'capas')     $('#editor').value = (peca?.capas || []).join('\n');
+  if (id === 'carrossel') $('#editor').value = peca ? peca.txt : '';
+  if (id === 'legenda')   $('#editor').value = peca?.legenda || '';
+
+  if (nasCapas){ montarPadroes(); pintarCapas(); }
+  else if (noCarrossel) pintar();
+  else if (id === 'legenda') pintarLegenda();
+  else if (id === 'aprovacao') pintarAprovacao();
+  else if (id === 'desempenho') pintarDesempenho();
+  montarTrilho();
+  $('#info-tpl').textContent = nasCapas ? 'Capas virais' : tpl.nome;
+  $('#info-n').textContent = nasCapas ? `${(peca?.capas||[]).length} capas`
+                                      : `slide ${atual+1} de ${nSlides()}`;
+}
+
+/* ── capas ─────────────────────────────────────────────────────────────── */
+function capaHtml(texto){
+  const rico = esc(texto).replace(/\*([^*]+)\*/g, `<span style="color:${cli.accent}">$1</span>`);
+  return `<div class="slide" style="background:${cli.escuro}">
+    <div style="position:absolute;inset:0;background:${foto(1)}"></div>
+    <div style="position:absolute;inset:0;background:${SCRIM[peca?.scrim||'medio']}"></div>
+    ${barra('rgba(255,255,255,.30)')}
+    <div style="position:absolute;top:748.3px;left:0;right:0;z-index:10;display:flex;
+      align-items:center;justify-content:center;gap:11px">${chip()}</div>
+    <div class="capa-h1" style="position:absolute;bottom:110.3px;left:108px;width:864px;z-index:10;
+      font-family:'Montserrat',var(--ui);font-size:111.5px;font-weight:700;line-height:.92;
+      letter-spacing:-.087em;color:#fff;text-align:center">${rico}</div></div>`;
+}
+
+const SCRIM = {
+  leve:`linear-gradient(to bottom,rgba(0,0,0,.10) 0%,rgba(0,0,0,.02) 24%,rgba(0,0,0,.26) 50%,rgba(0,0,0,.64) 68%,rgba(0,0,0,.88) 86%,rgba(0,0,0,.96) 100%)`,
+  medio:`linear-gradient(to bottom,rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 18%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.80) 66%,rgba(0,0,0,.95) 84%,#000 100%)`,
+  forte:`linear-gradient(to bottom,rgba(0,0,0,.30) 0%,rgba(0,0,0,.16) 16%,rgba(0,0,0,.58) 42%,rgba(0,0,0,.90) 62%,#000 80%,#000 100%)`,
+};
+
+function pintarCapas(){
+  const g = $('#grade-capas'); g.innerHTML = '';
+  const lista = peca?.capas || [];
+  if (!lista.length){
+    g.innerHTML = `<div class="mini" style="grid-column:1/-1;padding:20px 2px">
+      Uma headline por linha, no editor à direita.</div>`;
+    return;
+  }
+  lista.forEach((h, i) => {
+    const b = document.createElement('div');
+    b.className = 'capa-cartao' + (peca.capa === h ? ' escolhida' : '');
+    // Faixa medida: 45 a 70 caracteres. Acima de 85 encolhe demais pro feed.
+    const nu = semMarca(h).length;
+    const cor = nu > 85 ? '#E2574C' : nu > 70 ? '#E8A33D' : 'var(--ok)';
+    b.innerHTML = `<span class="selo-n">${String(i+1).padStart(2,'0')}</span>
+      <span class="car" style="color:${cor}">${nu}</span>${capaHtml(h)}
+      <button class="usar" type="button">${peca.capa === h ? '✓ é esta' : 'Usar esta capa'}</button>`;
+    b.querySelector('.usar').onclick = () => escolheCapa(h);
+    g.appendChild(b);
+    fitCapa(b);
+    const s = b.querySelector('.slide'); escala(s, 168); s.style.pointerEvents = 'none';
+    b.style.width = '168px'; b.style.height = Math.round(168*1350/1080)+'px';
+  });
+}
+
+/* A conexão entre as duas etapas: a capa escolhida **é** o slide 1. Ela entra
+   no bloco `texto 1` e o carrossel passa a começar por ela. Sem isso, escolher
+   a capa seria só marcar um favorito. */
+function escolheCapa(h){
+  marcaSujo();
+  peca.capa = h;
+  const linhas = (peca.txt || '').split('\n');
+  const nova = 'texto 1 - ' + semMarca(h);
+  if (linhas[0] && /^texto\s*1\s*-/i.test(linhas[0])) linhas[0] = nova;
+  else linhas.unshift(nova);
+  peca.txt = linhas.join('\n');
+  blocos = parse(peca.txt);
+  trocaEtapa('carrossel');
+  montarPecas();
+}
+
+/* ── legenda ───────────────────────────────────────────────────────────── */
+function pintarLegenda(){
+  const txt = peca?.legenda || '';
+  const gancho = txt.split('\n')[0] || '';
+  const palavra = (cli.cta || 'DIAGNÓSTICO').toUpperCase();
+  const temCta = txt.toUpperCase().includes(palavra);
+  const tags = (txt.match(/#[\wÀ-ÿ]+/g) || []).length;
+  $('#c-legenda').innerHTML = `
+    <div class="cartao-et"><h3>Como vai aparecer no feed</h3>
+      <p class="legenda-vista">${esc(txt) || '<span style="color:var(--fraco)">Escreva a legenda no editor à direita. O que já está no carrossel é o material — a legenda não repete, ela estende.</span>'}</p></div>
+    <div class="cartao-et"><h3>Conferência</h3>
+      <div class="checa">
+        ${ck(gancho.length > 0 && gancho.length <= 125, `Gancho com ${gancho.length} caracteres`, 'até 125, que é o que aparece antes do “mais”')}
+        ${ck(temCta, `CTA com a palavra <b>${esc(palavra)}</b>`, 'é por ela que o disparo reconhece o lead')}
+        ${ck(tags >= 5 && tags <= 12, `${tags} hashtags`, 'entre 5 e 12')}
+      </div></div>`;
+}
+const ck = (ok, titulo, nota) =>
+  `<div class="item-ck"><span class="mk ${ok?'ok':'no'}">${ok?'✓':'·'}</span>
+   <span><b>${titulo}</b><br>${nota}</span></div>`;
+
+/* ── aprovação ─────────────────────────────────────────────────────────── */
+function pintarAprovacao(){
+  const blocosOk = blocos.filter(Boolean).length;
+  const palavra = (cli.cta || 'DIAGNÓSTICO').toUpperCase();
+  const pronto = peca?.capa && blocosOk >= 18 && peca?.legenda;
+  const semFoto = !peca?.capa;
+  $('#c-aprovacao').innerHTML = `
+    <div class="cartao-et"><h3>Antes de mandar pro cliente</h3>
+      <div class="checa">
+        ${ck(!!peca?.capa, 'Capa escolhida', semFoto ? 'volte em Capas e clique em “usar esta capa”' : esc(semMarca(peca.capa)))}
+        ${ck(blocosOk >= 18, `${blocosOk} de 18 blocos`, 'dois por slide, nove slides')}
+        ${ck(!!peca?.legenda, 'Legenda escrita', `com a palavra ${esc(palavra)}`)}
+        ${ck(false, 'Vagas de imagem preenchidas', 'peça não vai pro cliente com vaga aberta')}
+      </div></div>
+    <div class="cartao-et"><h3>O link do cliente</h3>
+      <p>Moldura de Instagram com os slides deslizáveis, a legenda e dois botões.
+      O “pedir alteração” abre campo de comentário, e <b>o comentário volta como insumo
+      da próxima rodada</b>.</p>
+      <div class="acoes"><button class="btn btn-forte" ${pronto?'':'disabled'} id="b-enviar-cli">
+        ${pronto ? 'Gerar link de aprovação' : 'Faltam itens acima'}</button></div>
+      <p style="margin-top:11px;font-size:12px;color:var(--fraco)">
+      O aceite do cliente é o que dispara a publicação. Nunca a geração.</p></div>`;
+  const b = $('#b-enviar-cli');
+  if (b && pronto) b.onclick = () => {
+    peca.status = 'revisao';
+    b.textContent = 'Link gerado — /a/' + Math.random().toString(36).slice(2,12);
+    b.disabled = true; montarTrilho();
+  };
+}
+
+/* ── desempenho ────────────────────────────────────────────────────────── */
+function pintarDesempenho(){
+  $('#c-desempenho').innerHTML = `
+    <div class="trava"><b>Ainda não há o que medir</b>
+      <span>O desempenho aparece aqui depois que a peça for publicada e o
+      <code>media_id</code> voltar. É ele que liga a peça ao número — e sem essa ligação
+      a recalibração por nicho não existe.</span></div>`;
+}
+
+function pintar(){
+  document.documentElement.style.setProperty('--pt-accent', cli.accent);
+  document.documentElement.style.setProperty('--brilho', cli.accent);
+  document.documentElement.style.setProperty('--banho', '1');
+  const n = nSlides();
+  if (atual >= n) atual = n-1;
+
+  const largura = Math.min(360, Math.max(220, window.innerWidth * 0.25));
+  const m = $('#moldura');
+  m.innerHTML = render(atual);
+  fitCapa(m);
+  const d = escala(m.firstElementChild, largura);
+  m.style.width = d.w+'px'; m.style.height = d.h+'px';
+
+  $('#info-tpl').textContent = tpl.nome;
+  $('#info-n').textContent = `slide ${atual+1} de ${n}`;
+  $('#nome-peca').textContent = peca ? '· ' + peca.nome : '';
+
+  const t = $('#tiras'); t.innerHTML = '';
+  for (let i=0;i<n;i++){
+    const b = document.createElement('button');
+    b.className='tira'; b.type='button';
+    b.setAttribute('aria-pressed', i===atual);
+    b.setAttribute('aria-label', `Slide ${i+1}`);
+    b.innerHTML = `<span class="tira-n">${String(i+1).padStart(2,'0')}</span>` + render(i);
+    b.style.width='68px'; b.style.height='85px';
+    b.onclick = () => { atual=i; pintar(); };
+    t.appendChild(b);
+    const s = b.querySelector('.slide'); fitCapa(b); escala(s,64); s.style.pointerEvents='none';
+  }
+  contar();
+}
+
+function contar(){
+  const n = nSlides(); const el = $('#contagem'); el.innerHTML='';
+  const add = (k,v,cls='') => {
+    const d = document.createElement('div'); d.className='linha-c';
+    d.innerHTML = `<span>${k}</span><span class="val ${cls}">${v}</span>`; el.appendChild(d);
+  };
+  const usados = blocos.filter(b=>b && b.trim()).length;
+  add('blocos preenchidos', `${usados} / ${n*2}`, usados>=n*2?'bom':'');
+  let longas=0, pior=0;
+  for (let i=1;i<n;i++){ const h=(par(i).h||'').length; if(h>26) longas++; if(h>pior) pior=h; }
+  add('headlines acima de 26', longas, longas?'alerta':'bom');
+  add('maior headline interna', pior+' car.', pior>26?'alerta':'bom');
+}
+
+function painelLogo(){
+  const c = $('#logo-caixa');
+  c.innerHTML = `
+    <div class="logo-vitrine" style="background:${cli.logoFundo==='auto' ? 'var(--app)' : molde(cli)}">
+      ${cli.logo ? `<img src="${cli.logo}" alt="">`
+                 : `<span class="logo-vazio">sem<br>logo</span>`}</div>
+    <div class="logo-lado">
+      <span class="btn arquivo" style="padding:6px 10px;font-size:11px;text-align:center">
+        ${cli.logo ? 'Trocar' : 'Enviar logo'}
+        <input type="file" accept="image/png,image/jpeg,image/svg+xml"></span>
+      <div class="fundos">
+        ${['auto','claro','escuro'].map(v =>
+          `<button class="fundo-op" type="button" data-v="${v}"
+            aria-pressed="${cli.logoFundo===v}">${v}</button>`).join('')}
+      </div>
+    </div>`;
+  c.querySelector('input[type=file]').onchange = e => {
+    const f = e.target.files[0]; if(!f) return;
+    const r = new FileReader();
+    r.onload = () => { cli.logo = r.result; painelLogo(); pintar(); };
+    r.readAsDataURL(f);
+  };
+  c.querySelectorAll('.fundo-op').forEach(b => {
+    b.onclick = () => { cli.logoFundo = b.dataset.v; painelLogo(); pintar(); };
+  });
+}
+
+function camposMarca(){
+  painelLogo();
+  const defs = [['escuro','Fundo'],['accent','Destaque'],['claro','Claro']];
+  const c = $('#cores'); c.innerHTML='';
+  defs.forEach(([k,nome]) => {
+    const d = document.createElement('div'); d.className='cor';
+    d.innerHTML = `<input type="color" value="${cli[k]}" aria-label="${nome}">
+      <div class="cor-txt"><div class="cor-nome">${nome}</div>
+      <div class="cor-hex">${cli[k].toUpperCase()}</div></div>`;
+    d.querySelector('input').oninput = e => {
+      cli[k]=e.target.value; d.querySelector('.cor-hex').textContent=e.target.value.toUpperCase(); pintar();
+    };
+    c.appendChild(d);
+  });
+  $('#fontes-info').textContent = `${cli.head} · ${cli.body} — ${cli.nicho}`;
+  $('#handle').value=cli.handle; $('#nome').value=cli.marca; $('#direito').value=cli.direito;
+}
+
+function montarTpls(){
+  const c = $('#tpls'); c.innerHTML='';
+  TEMPLATES.forEach(t => {
+    const b = document.createElement('button');
+    b.className='tpl'; b.type='button';
+    b.setAttribute('aria-pressed', t.id===tpl.id);
+    b.innerHTML = `<span class="tpl-mini" id="mini-${t.id}"></span>
+      <span><span class="tpl-nome">${t.nome}</span><span class="tpl-sub">${t.etapa}</span></span>`;
+    b.onclick = () => {
+      tpl=t; peca.tpl=t.id; atual=0;
+      [...c.children].forEach(k=>k.setAttribute('aria-pressed','false'));
+      b.setAttribute('aria-pressed','true');
+      pintar(); miniaturas(); montarPecas();
+    };
+    c.appendChild(b);
+  });
+  miniaturas();
+}
+function miniaturas(){
+  const g = tpl;
+  TEMPLATES.forEach(t => {
+    const alvo = document.getElementById('mini-'+t.id); if(!alvo) return;
+    tpl = t; alvo.innerHTML = render(0);
+    const s = alvo.querySelector('.slide'); escala(s,34); s.style.pointerEvents='none';
+  });
+  tpl = g;
+}
+
+function montarPecas(){
+  const c = $('#pecas'); c.innerHTML='';
+  cli.pecas.forEach(p => {
+    const b = document.createElement('button');
+    b.className='peca'; b.type='button';
+    b.setAttribute('aria-pressed', p.id===peca.id);
+    b.innerHTML = `<span class="peca-mini" id="pm-${p.id}"></span>
+      <span><span class="peca-nome">${esc(p.nome)}</span><br>
+      <span class="peca-tpl">${acha(p.tpl).nome.toUpperCase()}</span></span>`;
+    b.onclick = () => {
+      guardaEditor();
+      const alvo = etapa; etapa = null;
+      peca = p; tpl = acha(p.tpl); blocos = parse(p.txt); atual = 0;
+      montarTpls(); montarPecas(); trocaEtapa(alvo);
+    };
+    c.appendChild(b);
+    const g = tpl, gb = blocos;
+    tpl = acha(p.tpl); blocos = parse(p.txt);
+    const alvo = b.querySelector('.peca-mini'); alvo.innerHTML = render(0);
+    const s = alvo.querySelector('.slide'); escala(s,20); s.style.pointerEvents='none';
+    tpl = g; blocos = gb;
+  });
+  const n = document.createElement('button');
+  n.className='peca peca-nova'; n.type='button'; n.textContent='+ Novo carrossel';
+  n.onclick = () => {
+    guardaEditor();
+    etapa = null;
+    const p = nova('Sem título', tpl.id, '');
+    cli.pecas.push(p); peca = p; blocos = []; atual = 0;
+    montarPecas(); trocaEtapa('capas');
+  };
+  c.appendChild(n);
+}
+
+/* ── persistência ──────────────────────────────────────────────────────────
+   O Estúdio publica uma nova versão da própria página, com o estado dentro
+   dela. Quem abrir a mesma URL em outro dispositivo pega exatamente de onde
+   parou — não é cache do navegador, é o conteúdo da página.
+
+   Por que botão e não salvamento automático: publicar recarrega toda view
+   aberta. Salvar a cada tecla deixaria a página recarregando no meio da
+   digitação. Então o gesto é explícito, e o rótulo avisa quando há mudança
+   pendente. */
+let sujo = false, artefato = null;
+
+function marcaSujo(){
+  if (sujo) return;
+  sujo = true;
+  const e = $('#salvar-est');
+  e.textContent = 'alterações não salvas'; e.className = 'salvar-est sujo';
+}
+
+function estadoAtual(){
+  guardaEditor();
+  return { versao: 1, salvo_em: new Date().toISOString(), clientes: CLIENTES };
+}
+
+function paginaNova(){
+  // Cuidado que custou três tentativas: este código é PARTE da página que ele
+  // reescreve. Qualquer marcador que apareça aqui como texto — inclusive dentro
+  // de um comentário — é encontrado ANTES da tag de verdade lá embaixo, e o
+  // replace corta o próprio script ao meio. Por isso nada aqui pode se parecer
+  // com as tags alvo: elas são montadas em pedaços, a partir do nome e do id.
+  const molde = new TextDecoder().decode(
+    Uint8Array.from(atob(document.getElementById('molde').textContent), c => c.charCodeAt(0)));
+
+  const dentro = (html, tag, id, conteudo) =>
+    html.replace(
+      new RegExp('(<' + tag + '[^>]*id="' + id + '"[^>]*>)[\\s\\S]*?(<\\/' + tag + '>)'),
+      (_, a, z) => a + conteudo + z);
+
+  // Uma cópia só das fontes: o molde vem sem elas e recebe o CSS que já está
+  // vivo na página. Embuti-las duas vezes dobraria o arquivo à toa.
+  let html = dentro(molde, 'style', 'faces',
+                    document.getElementById('faces').textContent);
+  // O molde guarda uma cópia de si para que a versão publicada saiba se
+  // republicar. Sem isso, salvar funcionaria uma vez só.
+  html = dentro(html, 'script', 'molde',
+                document.getElementById('molde').textContent);
+  return dentro(html, 'script', 'estado-salvo',
+                JSON.stringify(estadoAtual())
+                  .replace(/</g, '\\u003c').replace(/-->/g, '--\\u003e'));
+}
+
+async function salvar(){
+  const b = $('#btn-salvar'), e = $('#salvar-est');
+  if (!artefato) return;
+  b.disabled = true; e.textContent = 'salvando…'; e.className = 'salvar-est';
+  try {
+    await artefato.publish(paginaNova());
+    sujo = false;                       // a view recarrega na versão nova
+    e.textContent = 'salvo';
+  } catch (err) {
+    b.disabled = false;
+    const c = err && err.code;
+    if (c === 'conflict'){
+      // Rotina: alguém publicou antes. A view já está recarregando na versão
+      // vencedora — não há erro a pedir desculpa por.
+      e.textContent = 'outra versão chegou primeiro'; e.className = 'salvar-est';
+    } else if (c === 'not_writer' || c === 'not_granted' || c === 'not_declared'
+               || c === 'capability_disabled' || c === 'consent_required'){
+      soLeitura();
+    } else if (c === 'too_large'){
+      e.textContent = 'peça grande demais pra salvar'; e.className = 'salvar-est erro';
+    } else if (c === 'rate_limited'){
+      e.textContent = 'salvando rápido demais — espere alguns segundos';
+      e.className = 'salvar-est erro';
+    } else {
+      e.textContent = 'não consegui salvar'; e.className = 'salvar-est erro';
+    }
+  }
+}
+
+function soLeitura(){
+  $('#btn-salvar').hidden = true;
+  const e = $('#salvar-est');
+  e.textContent = 'somente leitura'; e.className = 'salvar-est';
+}
+
+async function ligaPersistencia(){
+  const salvo = JSON.parse(document.getElementById('estado-salvo').textContent || 'null');
+  if (salvo && Array.isArray(salvo.clientes) && salvo.clientes.length){
+    CLIENTES = salvo.clientes;
+  }
+  telaClientes();
+
+  artefato = window.claude && claude.use ? await claude.use('artifact') : null;
+  if (!artefato){
+    // Fora do claude.ai não há onde publicar. Dizer isso é melhor que um botão
+    // que não faz nada.
+    $('#salvar-est').textContent = salvo ? 'sem sincronização aqui' : '';
+    return;
+  }
+  $('#btn-salvar').hidden = false;
+  $('#btn-salvar').onclick = salvar;
+  $('#salvar-est').textContent = salvo && salvo.salvo_em
+    ? 'salvo em ' + salvo.salvo_em.slice(0,16).replace('T',' ') : 'pronto pra salvar';
+  addEventListener('beforeunload', ev => { if (sujo){ ev.preventDefault(); ev.returnValue = ''; } });
+}
+
+/* ============ eventos ============ */
+$('#btn-exemplo').onclick = () => {
+  if (etapa === 'capas'){
+    $('#editor').value = CAPAS_EXEMPLO; peca.capas = lerCapas(CAPAS_EXEMPLO);
+    pintarCapas(); montarTrilho();
+    $('#info-n').textContent = `${peca.capas.length} capas`; return;
+  }
+  if (etapa === 'legenda'){
+    peca.legenda = LEGENDA_EXEMPLO; $('#editor').value = LEGENDA_EXEMPLO;
+    pintarLegenda(); montarTrilho(); return;
+  }
+  $('#editor').value = EXEMPLO; peca.txt = EXEMPLO; blocos = parse(EXEMPLO); pintar(); montarPecas();
+};
+$('#btn-gerar').onclick = () => {
+  alert('No sistema real, este botão chama a skill carrossel-viral: ela lê a ficha do cliente, '
+    + 'gera as headlines e devolve os 18 blocos já preenchidos.\n\nNo protótipo, use "Exemplo".');
+};
+$('#btn-prev').onclick = () => { atual=(atual-1+nSlides())%nSlides(); pintar(); };
+$('#btn-next').onclick = () => { atual=(atual+1)%nSlides(); pintar(); };
+$$('#doses .op').forEach(b => b.onclick = () => {
+  $$('#doses .op').forEach(o => o.setAttribute('aria-pressed', String(o === b)));
+  if (peca){ marcaSujo(); peca.scrim = b.dataset.v; pintarCapas(); }
+});
+
+$('#cta-palavra').oninput = e => {
+  marcaSujo();
+  cli.cta = e.target.value.toUpperCase();
+  if (etapa === 'legenda') pintarLegenda();
+};
+
+$('#btn-encolher').onclick = () => {
+  const g = $('#tela-estudio'); g.classList.toggle('encolhido');
+  $('#btn-encolher').textContent = g.classList.contains('encolhido') ? '›' : '‹';
+};
+
+$('#editor').oninput = () => {
+  marcaSujo();
+  const v = $('#editor').value;
+  if (etapa === 'capas'){
+    peca.capas = lerCapas(v); pintarCapas(); montarTrilho();
+    $('#info-n').textContent = `${peca.capas.length} capas`; return;
+  }
+  if (etapa === 'legenda'){ peca.legenda = v; pintarLegenda(); montarTrilho(); return; }
+  blocos = parse(v); if(peca) peca.txt = v; pintar(); montarTrilho();
+};
+[['handle','handle'],['nome','marca'],['direito','direito']].forEach(([campo,chave]) => {
+  $('#'+campo).oninput = e => { marcaSujo(); cli[chave]=e.target.value; pintar(); };
+});
+
+let fLogo = null, fFundo = 'auto';
+$('#f-logo').onchange = e => {
+  const f = e.target.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    fLogo = r.result;
+    $('#f-logo-vitrine').innerHTML = `<img src="${fLogo}" alt="">`;
+  };
+  r.readAsDataURL(f);
+};
+$('#f-fundos').querySelectorAll('.fundo-op').forEach(b => {
+  b.onclick = () => {
+    fFundo = b.dataset.v;
+    $('#f-fundos').querySelectorAll('.fundo-op').forEach(k => k.setAttribute('aria-pressed', k===b));
+    $('#f-logo-vitrine').style.background =
+      fFundo==='claro' ? '#FFFFFF' : fFundo==='escuro' ? '#101216' : '#0F1116';
+  };
+});
+
+$('#f-cancelar').onclick = () => $('#modal-fundo').classList.add('oculto');
+$('#modal-fundo').onclick = e => { if(e.target === $('#modal-fundo')) $('#modal-fundo').classList.add('oculto'); };
+$('#f-criar').onclick = () => {
+  const nome = $('#f-nome').value.trim() || 'Cliente sem nome';
+  const x = { id:Math.random().toString(36).slice(2,8), nome,
+    marca:nome, handle:$('#f-handle').value.trim() || '@cliente',
+    direito:'2026 ®', nicho:$('#f-nicho').value.trim() || 'Nicho a definir',
+    escuro:$('#f-escuro').value, accent:$('#f-accent').value, claro:$('#f-claro').value,
+    head:'Montserrat', body:'Poppins', logo:null, logoFundo:'auto', pecas:[ nova('Primeiro carrossel','meio','') ] };
+  CLIENTES.push(x);
+  $('#modal-fundo').classList.add('oculto');
+  ['f-nome','f-nicho','f-handle'].forEach(k => $('#'+k).value = '');
+  fLogo = null; fFundo = 'auto';
+  $('#f-logo-vitrine').innerHTML = '<span class="logo-vazio">sem<br>logo</span>';
+  $('#f-logo-vitrine').style.background = '#0F1116';
+  abrir(x);
+};
+
+let t0; window.onresize = () => { if(cli){ clearTimeout(t0); t0=setTimeout(pintar,120); } };
+
+ligaPersistencia();
+</script>

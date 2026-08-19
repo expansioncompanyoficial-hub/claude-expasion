@@ -24,12 +24,16 @@ CLIENTES/             Um acervo por cliente (contexto, Drive, conversas)
   REINO-CONSORCIOS/   Consórcio e estruturação de crédito
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
+BRANDSDECODED/        Acervo de produto da BrandsDecoded (prompts, skills, guias)
 CLIENTES/             Um diretório por cliente da Expansion
   PRIME/              Prime Assessoria (crédito imobiliário)
+CARROSSEIS/           Registro das peças geradas (alimenta relatório e calibração)
+CALIBRACAO/           Régua de padrões por nicho, medida
 _audios/              Transcrições de áudios e reuniões
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
   settings.json       Permissões versionadas — sincroniza entre máquinas
+  skills/             Skills do repo — carregam sozinhas, sem instalação
   reference/          Originais preservados da migração
 ```
 
@@ -49,6 +53,8 @@ de parte a parte e riscos abertos. Os demais arquivos são as fontes:
 | `<CLIENTE>-ALINHAMENTO-AAAA-MM-DD.md` | Reunião: notas de decisão + transcrição integral |
 | `<CLIENTE>-WHATSAPP-<CANAL>-AAAA-MM-DD.md` | Transcrição exportada do WhatsApp |
 | `<CLIENTE>-DRIVE-INVENTARIO-AAAA-MM-DD.md` | Mapa da pasta do cliente no Drive |
+| `FICHA-CARROSSEL-<CLIENTE>.md` | Ficha operacional que a skill `carrossel-viral` lê |
+| `identidade/` | Ativos de marca: paleta, referências de layout, logo |
 
 **Regra de credencial:** senha nunca entra neste repositório. Ao trazer transcrição de
 WhatsApp, substituir por `[SENHA REDIGIDA]` e apontar para o documento de acessos no
@@ -79,108 +85,40 @@ de análise* — um conjunto fixo de perguntas obrigatórias e um poder de veto.
 Nunca personas com biografia ou anos de experiência. Um papel só existe no
 AEOS se consegue reprovar alguma coisa.
 
-## Como trabalhar comigo (Nicolas) — regra permanente
+## BRANDSDECODED — como usar
 
-Somos parceiros de trabalho, não pergunta-e-resposta. **Não entregue diagnóstico e
-pare.** Se identificou um problema, entregue o problema *e* a solução montada,
-pronta para executar. Eu não deveria precisar pedir a segunda parte.
+Acervo de produto de terceiro (BrandsDecoded), recebido em 2026-08-06. **Ponto de
+entrada: `BRANDSDECODED/README.md`**, que mapeia tudo e registra as lacunas conhecidas.
 
-Em toda situação de cliente, crise, campanha, evento ou entrega, assuma que o
-escopo inclui, sem eu pedir:
+Duas regras próprias desta pasta, que sobrepõem as convenções gerais abaixo:
 
-1. **O panorama** — o que está acontecendo, com evidência e data.
-2. **O cálculo** — o prazo dá? a verba dá? o time dá? Faça as contas com os
-   números reais da operação e mostre as premissas. Se não der, diga o que
-   precisa mudar para dar.
-3. **A solução montada** — oferta, mecânica, estratégia, cronograma dia a dia
-   com dono e prazo, peças necessárias, estrutura de campanha, verba distribuída.
-4. **O que dizer ao cliente** — mensagem pronta, no canal certo, para a pessoa
-   certa.
-5. **O porquê da resposta** — a lógica por trás da recomendação, para eu
-   conseguir defender e adaptar sozinho.
-6. **O que fazer no meio do caminho** — as frentes paralelas que correm junto.
-7. **Os riscos e o plano B** — o que mata o plano e o que fazer se matar.
+- **`originais/` é imutável.** PDFs e ZIPs como chegaram — fonte da verdade para
+  conferir qualquer transcrição.
+- **Os `.md` de `CONTENT-MACHINE/prompts/` e de `SKILLS/` não são editáveis nem
+  renomeáveis.** São arquivos de produto, em minúsculas, que a FAQ nomeia um a um e
+  que precisam subir com o nome exato. Melhoria vira arquivo novo ao lado, nunca
+  edição no original.
 
-**Cenários sempre em três faixas** (conservador / base / otimista), com as
-premissas explícitas e editáveis. Números modelados vêm rotulados como
-estimativa; números medidos vêm com a fonte.
+## Máquina de carrosséis — como usar
 
-**Não me pergunte o que dá para descobrir no material.** Faça a análise completa
-primeiro; guarde as perguntas para o fim e só as que mudam a decisão.
+A skill `carrossel-viral` (em `.claude/skills/`) roda o método da BrandsDecoded adaptado
+pra agência. **Não precisa instalar nada** — carrega sozinha quando o assunto é carrossel.
 
-**Dimensione ao que a operação aguenta.** Plano pequeno cumprido vale mais que
-plano grande furado — foi o excesso de promessa que criou os problemas que já
-temos documentados aqui.
+Pedir um carrossel é uma frase: *"carrossel pra Prime sobre [tema]"*. A skill lê
+`CLIENTES/<CLIENTE>/FICHA-CARROSSEL-<CLIENTE>.md`, gera as headlines, monta o carrossel,
+renderiza os PNGs e registra a peça em `CARROSSEIS/`.
 
-**Vocabulário:** evento/campanha com data e oferta = **mini lançamento**. Trate
-como lançamento: fases de aquecimento, conversão e urgência, com funil calculado
-de trás para frente a partir da meta de faturamento.
+São **três modos**, não um: `topo` (viral), `meio` (educativo) e `newsroom` (capa de
+notícia). Cada um tem régua editorial própria — inclusive anti-slop, que se contradiz
+entre eles. Ver `.claude/skills/carrossel-viral/references/modos.md`.
 
-### Minha voz nas mensagens — regra absoluta, sem exceção
+Duas regras que sustentam o sistema:
 
-**Toda mensagem que eu vou enviar sai na minha escrita, não na sua.** Cliente,
-sócio, time, fornecedor, WhatsApp, e-mail, legenda, roteiro de gravação: tudo.
-Não existe caso em que você escreve no seu tom e eu adapto depois. Se não soar
-como eu, quem lê percebe que alguém escreveu por mim.
-
-**`VOZ-NICOLAS.md` é a fonte.** Leia antes de escrever qualquer mensagem minha.
-Ele foi levantado sobre 1.029 mensagens reais minhas nos três exports de
-WhatsApp — traz as contagens, os dois registros, os nove sinais que denunciam
-texto de IA e o checklist de saída. Achou uma marca nova da minha escrita?
-Atualize o arquivo.
-
-O resumo que não pode faltar:
-
-- **Duas linhas por mensagem, no máximo.** Assunto maior vira 2 ou 3 mensagens
-  picadas, não um bloco. Minha mensagem mais longa em 3 meses tem 205 caracteres.
-- **Zero travessão.** Nunca usei um. Zero negrito no meio de frase. Zero bullet.
-- **"para" por extenso** (uso 158x contra 10x "pra"), mas "to" e "tá" são meus.
-- **Ortografia imperfeita passa.** Eu erro acento e sigo. Texto impecável demais
-  é a maior denúncia de que não fui eu.
-- **Pedido sempre com contrapartida minha junto** ("me manda que amanhã te
-  entrego"). É o que soa sócio em vez de fornecedor.
-- **Eu não mando áudio** — 1 em 1.029. Não me sugira áudio.
-
-Eu escrevo diferente conforme a pessoa:
-
-- **Com sócio, parceiro, interlocutor próximo (ex.: Kauan):** "irmão", "mano",
-  "kkkk", negativa dupla ("não vai esperar não"), linha de 2 a 4 palavras,
-  mensagem picada em várias.
-- **Com o dono do negócio / cliente (ex.: Sabrina):** apelido curto quando já
-  existe ("Sa" / "Sá"), "Beleza!" de abertura, "Ai/Aí" puxando a segunda frase,
-  reticências "…", pergunta curta e direta no fim ("acha uma boa?", "fica bom?"),
-  💪🏻 e ✅, vogal repetida quando animo ("Boooa!", "Issooo"). Sem "mano",
-  sem "irmão", sem "kkkk".
-
-Em momento sério eu continuo informal, só corto "kkkk", figurinha e emoji.
-Virar corporativo é tão errado quanto ficar de brincadeira.
-
-### Antecipação — obrigatório, sem eu pedir
-
-`CLIENTES-CONTEXTO.md` é a ficha das contas. **Carregue antes de qualquer
-análise, campanha, roteiro ou mensagem de cliente.** Se a conta não estiver lá,
-crie a ficha antes de começar — não depois. Nunca me pergunte o que já está na
-ficha (o que a loja vende, quem decide, qual o gargalo).
-
-Em toda campanha ou evento, rode esta checagem **antes** de apresentar o plano:
-
-1. **O que mais cai nessa janela?** Feriado, data comemorativa, pagamento,
-   volta às aulas, fim de estação, eleição. Liste tudo entre hoje e a data.
-2. **Para cada evento encontrado, responda três perguntas — nunca só a primeira:**
-   - *Atrapalha?* (carteira, atenção, leilão de mídia, agenda do cliente)
-   - *Ajuda?* **Sempre procure o ângulo indireto.** Data de público masculino
-     pode ter compradora feminina; data infantil tem mãe comprando. Quem paga
-     nem sempre é quem usa.
-   - *Dá para usar como degrau?* A data anterior pode virar a fase de aquisição
-     da data seguinte, e a narrativa de uma pode preparar a outra.
-3. **Concorrência de leilão:** janela cara trabalha no orgânico, janela barata
-   recebe a verba. Nunca distribua verba linearmente pelo calendário.
-4. **Arquitetura de preço contra o momento de caixa do cliente final.** Semana
-   pós-gasto pede ticket baixo e parcelamento, não peça cara.
-5. **Teste em vez de assumir.** Se a premissa de custo é suposição, gaste pouco
-   por dois dias, meça, e só então escale.
-
-Errar por não ter olhado o calendário é erro meu, não lacuna de briefing.
+1. **Origem do dado declarada.** Os números da BrandsDecoded (+155% Brasil, +119%
+   Fim/Morte) são da conta do Leonardo Varricchio, não do cliente. Enquanto não existir
+   `CALIBRACAO/{nicho}.md`, a skill usa esses padrões **e avisa que são emprestados**.
+2. **Registro não é opcional.** Sem a ficha em `CARROSSEIS/` não existe relatório semanal
+   nem recalibração. Foi ausência de relatório que quase custou a Prime em 16/07.
 
 ## Convenções
 
