@@ -1,0 +1,773 @@
+<title>Briefing Prime Assessoria — Expansion</title>
+<style>
+  :root{
+    --bg:#F1F3F2; --surface:#FFFFFF; --surface-2:#E7ECEA; --surface-3:#DDE4E2;
+    --ink:#11201F; --ink-2:#465A5A; --ink-3:#6F8484; --line:#D2DAD8; --line-2:#BCC7C5;
+    --accent:#0F6D63; --accent-soft:#DBEBE8; --accent-line:#9FC9C3;
+    --crit:#A32219; --crit-soft:#F8E3E1; --crit-line:#E0B0AB;
+    --warn:#845605; --warn-soft:#F7ECD6; --warn-line:#DFC48A;
+    --ok:#28613D; --ok-soft:#DCEEE2; --ok-line:#A6CBB2;
+    --font-display:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;
+    --font-body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+    --font-mono:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace;
+    --measure:68ch;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0C1514; --surface:#131F1D; --surface-2:#1A2926; --surface-3:#22332F;
+      --ink:#E3ECEA; --ink-2:#A5B9B6; --ink-3:#7A8F8C; --line:#253835; --line-2:#314744;
+      --accent:#53C1B1; --accent-soft:#11322D; --accent-line:#215048;
+      --crit:#F0897F; --crit-soft:#331815; --crit-line:#5C2A24;
+      --warn:#DBAC50; --warn-soft:#2D2413; --warn-line:#4E3D1B;
+      --ok:#79C795; --ok-soft:#132A1D; --ok-line:#25492F;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0C1514; --surface:#131F1D; --surface-2:#1A2926; --surface-3:#22332F;
+    --ink:#E3ECEA; --ink-2:#A5B9B6; --ink-3:#7A8F8C; --line:#253835; --line-2:#314744;
+    --accent:#53C1B1; --accent-soft:#11322D; --accent-line:#215048;
+    --crit:#F0897F; --crit-soft:#331815; --crit-line:#5C2A24;
+    --warn:#DBAC50; --warn-soft:#2D2413; --warn-line:#4E3D1B;
+    --ok:#79C795; --ok-soft:#132A1D; --ok-line:#25492F;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--font-body); font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px 96px;}
+
+  /* ---------- masthead ---------- */
+  .masthead{
+    border-bottom:2px solid var(--ink); padding:56px 0 24px; margin-bottom:0;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .eyebrow{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--accent); display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .eyebrow span:not(:last-child)::after{content:" ·"; color:var(--ink-3);}
+  h1{
+    font-family:var(--font-display); font-weight:600; font-size:clamp(38px,6vw,60px);
+    line-height:1.02; margin:0; letter-spacing:-.015em; text-wrap:balance;
+  }
+  .standfirst{
+    font-family:var(--font-display); font-size:clamp(17px,2.2vw,20px); line-height:1.5;
+    color:var(--ink-2); max-width:var(--measure); margin:0;
+  }
+
+  /* ---------- stat band ---------- */
+  .stats{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    border-bottom:1px solid var(--line); margin-bottom:40px;
+  }
+  .stat{padding:20px 20px 22px 0; border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat b{
+    display:block; font-family:var(--font-display); font-size:26px; font-weight:600;
+    line-height:1.1; letter-spacing:-.01em; font-variant-numeric:tabular-nums;
+  }
+  .stat span{
+    display:block; margin-top:4px; font-size:12px; color:var(--ink-3);
+    letter-spacing:.03em;
+  }
+
+  /* ---------- layout ---------- */
+  .cols{display:grid; grid-template-columns:186px 1fr; gap:48px; align-items:start;}
+  @media (max-width:860px){ .cols{grid-template-columns:1fr; gap:0;} nav.toc{display:none;} }
+
+  nav.toc{position:sticky; top:24px; display:flex; flex-direction:column; gap:2px;}
+  nav.toc a{
+    font-size:13px; color:var(--ink-3); text-decoration:none; padding:5px 10px;
+    border-left:2px solid var(--line); line-height:1.35;
+  }
+  nav.toc a:hover{color:var(--accent); border-left-color:var(--accent); background:var(--accent-soft);}
+  nav.toc a:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  main{display:flex; flex-direction:column; gap:56px; min-width:0;}
+  section{display:flex; flex-direction:column; gap:18px; scroll-margin-top:24px; min-width:0;}
+  h2{
+    font-family:var(--font-display); font-size:clamp(24px,3.4vw,31px); font-weight:600;
+    margin:0; letter-spacing:-.012em; line-height:1.15; text-wrap:balance;
+    padding-bottom:10px; border-bottom:1px solid var(--line-2);
+  }
+  h3{
+    font-family:var(--font-body); font-size:13px; font-weight:700; margin:0;
+    text-transform:uppercase; letter-spacing:.09em; color:var(--accent);
+  }
+  h4{font-family:var(--font-display); font-size:19px; font-weight:600; margin:0; letter-spacing:-.005em;}
+  p{margin:0; max-width:var(--measure);}
+  ul{margin:0; padding-left:20px; max-width:var(--measure); display:flex; flex-direction:column; gap:7px;}
+  a{color:var(--accent);}
+  strong{font-weight:650;}
+  em{font-style:italic; color:var(--ink-2);}
+  .sub{color:var(--ink-2);}
+
+  .block{display:flex; flex-direction:column; gap:12px;}
+
+  /* ---------- tables ---------- */
+  .scroller{overflow-x:auto; border:1px solid var(--line); background:var(--surface);}
+  table{border-collapse:collapse; width:100%; font-size:14.5px; min-width:520px;}
+  th,td{text-align:left; padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top;}
+  thead th{
+    background:var(--surface-2); font-size:11px; text-transform:uppercase;
+    letter-spacing:.08em; color:var(--ink-2); font-weight:700; white-space:nowrap;
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  td.num{font-family:var(--font-mono); font-variant-numeric:tabular-nums; white-space:nowrap;}
+  td.k{font-weight:650; white-space:nowrap;}
+
+  /* ---------- pills ---------- */
+  .pill{
+    display:inline-block; font-family:var(--font-mono); font-size:10.5px; font-weight:600;
+    letter-spacing:.07em; text-transform:uppercase; padding:3px 8px; white-space:nowrap;
+    border:1px solid; border-radius:2px;
+  }
+  .p-crit{color:var(--crit); background:var(--crit-soft); border-color:var(--crit-line);}
+  .p-warn{color:var(--warn); background:var(--warn-soft); border-color:var(--warn-line);}
+  .p-ok{color:var(--ok); background:var(--ok-soft); border-color:var(--ok-line);}
+  .p-neutral{color:var(--ink-2); background:var(--surface-2); border-color:var(--line-2);}
+
+  /* ---------- callouts ---------- */
+  .note{
+    border-left:3px solid var(--accent); background:var(--accent-soft);
+    padding:14px 18px; display:flex; flex-direction:column; gap:8px; max-width:var(--measure);
+  }
+  .note.crit{border-left-color:var(--crit); background:var(--crit-soft);}
+  .note.warn{border-left-color:var(--warn); background:var(--warn-soft);}
+  .note .lbl{
+    font-family:var(--font-mono); font-size:10.5px; letter-spacing:.1em;
+    text-transform:uppercase; font-weight:700; color:var(--accent);
+  }
+  .note.crit .lbl{color:var(--crit);}
+  .note.warn .lbl{color:var(--warn);}
+  .note p{max-width:none;}
+
+  /* ---------- quote ---------- */
+  blockquote{
+    margin:0; padding:2px 0 2px 20px; border-left:2px solid var(--accent-line);
+    font-family:var(--font-display); font-size:18px; line-height:1.5;
+    color:var(--ink); max-width:var(--measure);
+  }
+  blockquote cite{
+    display:block; margin-top:8px; font-family:var(--font-mono); font-size:11px;
+    font-style:normal; letter-spacing:.05em; color:var(--ink-3);
+  }
+
+  /* ---------- cards ---------- */
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px;}
+  .card{
+    background:var(--surface); border:1px solid var(--line); padding:18px;
+    display:flex; flex-direction:column; gap:9px;
+  }
+  .card .hd{display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+  .card p{font-size:14.5px; max-width:none;}
+
+  /* ---------- timeline ---------- */
+  .tl{display:flex; flex-direction:column;}
+  .tl .row{
+    display:grid; grid-template-columns:74px 1fr; gap:18px;
+    padding:11px 0; border-bottom:1px solid var(--line);
+  }
+  .tl .row:last-child{border-bottom:none;}
+  .tl .d{
+    font-family:var(--font-mono); font-size:12.5px; color:var(--ink-3);
+    font-variant-numeric:tabular-nums; padding-top:2px;
+  }
+  .tl .row.mark .d{color:var(--crit); font-weight:700;}
+  .tl .row.mark .t{font-weight:600;}
+  .tl .t{font-size:14.5px; line-height:1.5;}
+  @media (max-width:520px){ .tl .row{grid-template-columns:1fr; gap:3px;} }
+
+  footer{
+    margin-top:72px; padding-top:22px; border-top:2px solid var(--ink);
+    font-size:13px; color:var(--ink-3); display:flex; flex-direction:column; gap:8px;
+  }
+  footer code{font-family:var(--font-mono); font-size:12px; color:var(--ink-2);}
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">
+      <span>Briefing de cliente</span><span>Expansion ®</span><span>Atualizado 30 · 07 · 2026</span>
+    </div>
+    <h1>Prime Assessoria<br>Alphaville</h1>
+    <p class="standfirst">Tudo que a operação precisa saber para atender a conta sem
+    perguntar a ninguém: o negócio, os públicos, o que a cliente busca, o histórico,
+    os números, o que está aberto e o que já deu errado.</p>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><b>R$ 15 bi</b><span>financiados pela Prime</span></div>
+    <div class="stat"><b>+165</b><span>unidades no país</span></div>
+    <div class="stat"><b>3</b><span>unidades atendidas</span></div>
+    <div class="stat"><b>15 · 04 · 26</b><span>contrato assinado</span></div>
+    <div class="stat"><b>17</b><span>pendências abertas</span></div>
+  </div>
+
+  <div class="cols">
+    <nav class="toc">
+      <a href="#negocio">O negócio</a>
+      <a href="#publicos">Públicos</a>
+      <a href="#busca">O que a Prime busca</a>
+      <a href="#pessoas">Quem é quem</a>
+      <a href="#contrato">Contrato e escopo</a>
+      <a href="#historico">Histórico</a>
+      <a href="#numeros">Números</a>
+      <a href="#frentes">Frentes abertas</a>
+      <a href="#atender">Como atender</a>
+      <a href="#pendencias">Pendências</a>
+      <a href="#riscos">Riscos</a>
+      <a href="#fontes">Fontes</a>
+    </nav>
+
+    <main>
+
+      <!-- ============ NEGÓCIO ============ -->
+      <section id="negocio">
+        <h2>O negócio</h2>
+        <p>A Prime Assessoria é <strong>correspondente bancário multi-bancos</strong> — não é
+        banco. Acessa várias instituições ao mesmo tempo e reenquadra o perfil do cliente
+        na política de crédito que aprova. A frase que resume tudo é da própria Laura:</p>
+
+        <blockquote>O que um recusa por score, outro aprova por patrimônio. O que um
+        recusa por renda formal, outro analisa pelo faturamento PJ.</blockquote>
+
+        <p>A Expansion atende a <strong>franquia de Alphaville</strong>, cuja responsável é
+        Laura Guimarães Vilela — e, por extensão, as unidades que ela puxa.</p>
+
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Dado</th><th>Valor</th></tr></thead>
+            <tbody>
+              <tr><td class="k">Instagram atendido</td><td>@prime.alphaville</td></tr>
+              <tr><td class="k">Endereço</td><td>Av. Copacabana, 268 — 16º andar, sala 1606, Ed. Trend Tower, Alphaville</td></tr>
+              <tr><td class="k">E-mail da unidade</td><td class="num">alphaville@primeassessoria.net</td></tr>
+              <tr><td class="k">Telefone</td><td class="num">(34) 99692-2631</td></tr>
+              <tr><td class="k">WhatsApp dos leads</td><td class="num">(11) 91183-3588</td></tr>
+              <tr><td class="k">Outros perfis</td><td>@primeassessoria_imobiliaria (matriz) · @lucaspabloprime e @pamelaoliveiraprime (São José) · Prime Elas</td></tr>
+              <tr><td class="k">Unidades atendidas</td><td>Alphaville (principal) · São José dos Campos · São Bernardo (citada em 06/07)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Produtos</h3>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Produto</th><th>Do que se trata</th></tr></thead>
+            <tbody>
+              <tr><td class="k">Financiamento imobiliário</td><td>Carro-chefe do canal com corretores e imobiliárias</td></tr>
+              <tr><td class="k">CGI / Home Equity</td><td>Crédito com garantia de imóvel — até 240 meses, LTV até 60%, taxa a partir de 0,79% a.m.</td></tr>
+              <tr><td class="k">Crédito empresarial</td><td>Alternativa a capital de giro caro</td></tr>
+              <tr><td class="k">Término de Construção</td><td>Libera recurso conforme o executado da obra</td></tr>
+              <tr><td class="k">Portabilidade / troca de dívida</td><td>Troca dívida cara por operação com garantia de imóvel</td></tr>
+              <tr><td class="k">Operações estruturadas</td><td>Casos de dezenas de milhões</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note warn">
+          <span class="lbl">Cuidado de nomenclatura</span>
+          <p>O nome correto é <strong>“Término de Construção”</strong> — não “Termino”, não
+          “Terminio”. A Laura corrigiu isso em 15/06 e cobra escrita técnica correta.</p>
+        </div>
+      </section>
+
+      <!-- ============ PÚBLICOS ============ -->
+      <section id="publicos">
+        <h2>Públicos</h2>
+        <p>São três públicos com dor, promessa e tom distintos — e uma regra rígida de
+        não misturar.</p>
+
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Público</th><th>Dor</th><th>Promessa</th><th>Tom</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="k">Corretor / imobiliária<br><span class="pill p-neutral">B2B</span></td>
+                <td>Perdeu a venda porque o banco negou o crédito do cliente</td>
+                <td>“A venda que você achou que não ia fechar — a gente fecha. O cliente continua seu, a comissão é sua.”</td>
+                <td>Parceria, nunca concorrência</td>
+              </tr>
+              <tr>
+                <td class="k">Empresário<br><span class="pill p-neutral">Top</span></td>
+                <td>Precisa de liquidez e acha que a saída é vender patrimônio</td>
+                <td>“Seu imóvel é um ativo que pode trabalhar por você — sem precisar vendê-lo.”</td>
+                <td>Técnico. ROI e segurança — não compra emoção</td>
+              </tr>
+              <tr>
+                <td class="k">Cliente final</td>
+                <td>Dívida cara, cheque especial, crédito negado</td>
+                <td>“Troque a dívida cara por uma operação com garantia de imóvel.”</td>
+                <td>Direto e específico</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note">
+          <span class="lbl">Regra fixada pela Laura em 27/07</span>
+          <p>Conteúdo de <strong>parceria</strong> (corretor → correspondente) e conteúdo de
+          <strong>cliente final</strong> não se misturam. Ela usou os dois vídeos da Mayara
+          para explicar: o primeiro é parceria, o último é cliente final. Criativo que
+          mistura os dois não converte nenhum.</p>
+        </div>
+
+        <h3>As quatro frentes de tráfego pago</h3>
+        <div class="cards">
+          <div class="card"><h4>Cliente final</h4><p>Troca de dívida. Empresários, autônomos, quem está no cheque especial.</p></div>
+          <div class="card"><h4>Reconhecimento de marca</h4><p>Segue sendo frente <strong>paga</strong>, não só orgânica.</p></div>
+          <div class="card"><h4>Empresário</h4><p>Liquidez via CGI sem vender patrimônio.</p></div>
+          <div class="card"><h4>Corretor</h4><p>Existe para <strong>levar gente ao presencial</strong> — não converte sozinha.</p></div>
+        </div>
+      </section>
+
+      <!-- ============ O QUE BUSCA ============ -->
+      <section id="busca">
+        <h2>O que a Prime busca</h2>
+        <p>Em 27/07 a Laura fez o balanço do primeiro trimestre e redefiniu o objetivo da
+        conta. É a informação mais importante deste briefing.</p>
+
+        <blockquote>Até agora, pra mim, teve resultado pra gente fortalecer posicionamento
+        da marca e audiência. Aí eu acho que agora a gente tem que trabalhar essa parte de
+        conversão. Esses três meses ajudou a gente a criar caras, colocar pessoas ali e
+        posicionamento. Agora, o que a gente precisa é criar essas estratégias de conversão.
+        <cite>Laura Guimarães · alinhamento de 27/07/2026</cite></blockquote>
+
+        <p><strong>A fase de posicionamento foi aprovada por ela.</strong> O que muda é o
+        critério de avaliação daqui pra frente: <strong>ROI, não alcance.</strong></p>
+
+        <div class="cards">
+          <div class="card">
+            <div class="hd"><h4>Rota A — Corretor</h4><span class="pill p-ok">Validada</span></div>
+            <p>Replicar no digital o que já funciona no presencial: a Prime entra na
+            imobiliária oferecendo <strong>palestra gratuita de mentalidade com o Daniel
+            Muniz</strong> — não treinamento de crédito. Entra pela dor do gestor, e no meio
+            da palestra apresenta a Prime.</p>
+            <p><em>“Aquilo gera mais retorno do que mídia paga, até então, no meu ver.”</em></p>
+            <p>Campanha: anúncio para gestor/dono de imobiliária → treinamento gratuito →
+            cadastro → a Prime leva a palestra → fecha a parceria.</p>
+          </div>
+          <div class="card">
+            <div class="hd"><h4>Rota B — Cliente final</h4><span class="pill p-ok">Validada</span></div>
+            <p>Narrativa de <strong>troca de dívida</strong>, no molde do último vídeo da
+            Mayara. Público: empresário, autônomo, quem está no cheque especial.</p>
+            <p><em>“É bem específico e vai trazer ali a base. E não conflita com o corretor.”</em></p>
+          </div>
+        </div>
+
+        <h3>Ritmo e produção acordados</h3>
+        <ul>
+          <li><strong>3 publicações por semana</strong> — Reels segunda · Carrossel quarta · Reels sexta</li>
+          <li><strong>Conteúdo linkado por tema</strong> — o Reels abre, o carrossel aprofunda, os stories alimentam</li>
+          <li><strong>Cronograma com datas fixas</strong> de postagem e de gravação no escritório</li>
+          <li><strong>Portal de aprovação</strong> (login por CPF/CNPJ, botão aprovar/refazer) — aprovado para teste</li>
+        </ul>
+
+        <h3>As três fontes de verdade do conteúdo</h3>
+        <ul>
+          <li><strong>Apresentação de corretores</strong> — PDF de 17 páginas que ela mesma fez.
+          <em>“Podem usar de olho fechado, porque fui eu que fiz. Tá tudo validado por mim.”</em></li>
+          <li><strong>Tabelas de taxas dos bancos</strong> — ela vai enviar. Existem porque roteiro
+          com número errado gera retrabalho de validação: <em>“aí eu fico nervosa.”</em></li>
+          <li><strong>InfoPrime</strong> — boletim semanal do mercado que <strong>ela própria
+          escreve</strong>, sempre com notícia da semana corrente.</li>
+        </ul>
+
+        <div class="note">
+          <span class="lbl">Arquitetura pretendida</span>
+          <p>Tabelas de taxas e InfoPrime não são só insumo de roteiro: entram no
+          <strong>“cérebro”</strong> da Expansion, e o carrossel semanal deve sair dele
+          automatizado. Modelar o InfoPrime como formato de entrada faz parte do trabalho.
+          <span class="pill p-ok">Aprovado para teste</span></p>
+        </div>
+
+        <div class="note crit">
+          <span class="lbl">A apresentação de corretores não está no Drive</span>
+          <p>O PDF de 17 páginas — a fonte de verdade do conteúdo — só existe dentro do
+          WhatsApp, enviado em 27/07 às 14h06. <strong>Subir para a raiz da pasta Prime.</strong></p>
+        </div>
+      </section>
+
+      <!-- ============ PESSOAS ============ -->
+      <section id="pessoas">
+        <h2>Quem é quem</h2>
+
+        <h3>Lado Prime</h3>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Pessoa</th><th>Papel</th><th>O que você precisa saber</th></tr></thead>
+            <tbody>
+              <tr><td class="k">Laura Guimarães Vilela</td><td>Decisora e ponto único de aprovação</td><td>Aprova tudo. Detalhista e tecnicamente rigorosa — valida número, nome de produto e nome de empresa. Trabalha por áudio. Some em semanas de pico.</td></tr>
+              <tr><td class="k">Mayara</td><td>Gestora do time (PJ)</td><td>Contrata e demite pela Laura. Aparece em criativos — os vídeos dela são os que mais converteram.</td></tr>
+              <tr><td class="k">Frank</td><td>Sócio / time Alphaville</td><td>Entra em criativos. Viaja bastante.</td></tr>
+              <tr><td class="k">José Breno</td><td>—</td><td><span class="pill p-crit">Imagem vetada</span> Em 22/04 a Laura vetou o uso da imagem dele em Alphaville. Em 14/07 liberou <strong>um</strong> vídeo específico. Não é liberação geral — pergunte antes.</td></tr>
+              <tr><td class="k">Saulo</td><td>Financeiro da matriz</td><td>Quem aprova verba de evento. Todo orçamento de cobertura passa por ele via Laura.</td></tr>
+              <tr><td class="k">Daniel Muniz</td><td>Palestrante de mentalidade</td><td>Peça central da estratégia de conversão B2B.</td></tr>
+              <tr><td class="k">Joaquim</td><td>Operação</td><td>Agenda gravações no escritório. Estará no evento de 10/08.</td></tr>
+              <tr><td class="k">Nathalia</td><td>Sócia da nova empresa da Laura</td><td>Projeto paralelo. Entregáveis nunca definidos — aberto desde 28/04.</td></tr>
+              <tr><td class="k">Alfredo</td><td>Chegada em 23/07</td><td>Conteúdo travado: contrato em assinatura, “meio interno ainda”.</td></tr>
+              <tr><td class="k">Lucas Pablo · Pamela Oliveira</td><td>Prime São José dos Campos</td><td>Usados em collab de Reels.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Lado Expansion — quem já passou pela conta</h3>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Função</th><th>Histórico</th></tr></thead>
+            <tbody>
+              <tr><td class="k">Fixos</td><td>Nicolas Nascimento · Kaua Catini</td></tr>
+              <tr><td class="k">Social media</td><td>Kaua → Mateus Ferreira (04/05, saiu 21/05) → <strong>Débora Bueno</strong> (07/05, atual)</td></tr>
+              <tr><td class="k">Edição</td><td>Adryel Silva · Bernardo Molinari · Daniel Pereira</td></tr>
+              <tr><td class="k">Tráfego</td><td>HL Mídias — Heitor / Esther / Kaio (16/04 a 01/06) → <strong>Matheus Felipi</strong> (01/06, atual)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="sub"><strong>Quatro trocas de interlocutor em quatro meses.</strong> A Laura
+        nunca reclamou disso diretamente, mas é o pano de fundo de boa parte do atrito.</p>
+      </section>
+
+      <!-- ============ CONTRATO ============ -->
+      <section id="contrato">
+        <h2>Contrato e escopo</h2>
+        <ul>
+          <li><strong>15/04/2026</strong> — contrato assinado (<code>Contrato_Expansion_PrimeAssessoria_assinado.pdf</code>)</li>
+          <li><strong>Custo de mídia é da Prime.</strong> Toda recarga de conta de anúncio vai por PIX para a Laura</li>
+        </ul>
+
+        <h3>Plano proposto por unidade — 05/05, R$ 3.000,00 por Prime</h3>
+        <ul>
+          <li>Treinamento / playbook de social media para publicações</li>
+          <li>Editor de vídeos</li>
+          <li>Criação de roteiros e conteúdo a cada 15 dias</li>
+          <li>20 posts prontos por mês entre Reels e carrosséis</li>
+          <li>Gestão de tráfego pago</li>
+        </ul>
+
+        <div class="note crit">
+          <span class="lbl">Buraco de escopo — landing page</span>
+          <p>A Laura pediu LP ao Kaio em 16/04 (reunião não gravada, resposta desconhecida) e
+          repetiu para o Nicolas em 05/05. A resposta veio 1h13 depois com o plano acima —
+          <strong>que não inclui LP, e sem recusa explícita.</strong> Em 27/07 ela contou o
+          desfecho: <em>“o que eu tinha pedido, eu fiz por conta própria lá… tá me atendendo,
+          o que eu fiz.”</em></p>
+          <p><strong>Não há registro de promessa</strong> — mas houve pedido sem resposta, e do
+          lado dela isso é pendência, não recusa. É a <strong>segunda vez</strong> que ela diz
+          “pedi, não fizeram, fiz eu” (a primeira é o ManyChat, pedido em 17/06 e nunca ativado).</p>
+          <p><strong>Recomendação:</strong> absorver o ajuste (fotos, textos de serviço,
+          apresentação na página que ela já montou) e cobrar como projeto à parte só se ela
+          quiser LP nova de verdade — conversão, copy de venda, formulário integrado ao
+          tráfego e ao CRM, domínio, hospedagem.</p>
+          <p><strong>Falta verificar:</strong> o contrato de 15/04 só existe no WhatsApp e é ele
+          que resolve o escopo em definitivo; e o que o Kaio respondeu em 16/04 — ele saiu da
+          operação em 01/06.</p>
+        </div>
+      </section>
+
+      <!-- ============ HISTÓRICO ============ -->
+      <section id="historico">
+        <h2>Histórico da relação</h2>
+        <p class="sub">Em vermelho, os momentos que mudaram alguma coisa.</p>
+        <div class="tl">
+          <div class="row"><div class="d">07 · 04</div><div class="t">Grupo criado. Acesso ao Instagram entregue no mesmo dia.</div></div>
+          <div class="row"><div class="d">08 · 04</div><div class="t">Primeira cobertura presencial no escritório de Alphaville.</div></div>
+          <div class="row"><div class="d">14–15 · 04</div><div class="t">Call de onboarding. Contrato emitido e assinado. Meta: ManyChat + IA.</div></div>
+          <div class="row"><div class="d">16 · 04</div><div class="t">Entra a equipe de tráfego (HL Mídias). Conta de TikTok criada.</div></div>
+          <div class="row"><div class="d">20–22 · 04</div><div class="t">Primeira campanha no ar. ManyChat implementado.</div></div>
+          <div class="row mark"><div class="d">22 · 04</div><div class="t">Laura veta a imagem do Breno em Alphaville.</div></div>
+          <div class="row"><div class="d">23 · 04</div><div class="t">Kaio entrega 10 roteiros de tráfego — 5 liquidez/empresário, 5 recuperação de venda/corretor.</div></div>
+          <div class="row"><div class="d">27 · 04</div><div class="t">Laura manda o dado da ABECIP e pede carrossel viral.</div></div>
+          <div class="row"><div class="d">28 · 04</div><div class="t">Nova bio: “A maior assessoria de crédito imobiliário do Brasil · R$ 15BI financiados | +165 unidades”.</div></div>
+          <div class="row"><div class="d">29 · 04</div><div class="t">3 mil seguidores.</div></div>
+          <div class="row"><div class="d">04 · 05</div><div class="t">Mateus institui a rotina semanal (seg roteiros · ter métricas · qua cobrança · qui alinhamento · sex relatório). <strong>Não sobreviveu.</strong></div></div>
+          <div class="row"><div class="d">07 · 05</div><div class="t">Débora Bueno assume a social media.</div></div>
+          <div class="row mark"><div class="d">19 · 05</div><div class="t">Laura, no privado: <em>“Mandei no grupo perguntando que horas vocês vêm hoje e ninguém respondeu. Pedi o roteiro e nada.”</em> Sobre o roteiro: <em>“não gostei, ficou muito fora de contexto.”</em></div></div>
+          <div class="row"><div class="d">21 · 05</div><div class="t">Erro: nome da empresa escrito errado na legenda.</div></div>
+          <div class="row mark"><div class="d">26 · 05</div><div class="t">Erro: legenda diz “5 bilhões” onde o vídeo fala 15. Capa errada também. <em>“Não é o primeiro erro pessoal.”</em></div></div>
+          <div class="row"><div class="d">01 · 06</div><div class="t">Laura: <em>“Parou de chegar os leads.”</em> Troca da equipe de tráfego no mesmo dia.</div></div>
+          <div class="row"><div class="d">04 · 06 → 17 · 07</div><div class="t">Sequência de PIX para recarregar a conta de anúncios. Campanha para toda vez que o saldo zera.</div></div>
+          <div class="row"><div class="d">22–25 · 06</div><div class="t">Laura cobra material de São José <strong>com urgência</strong>, duas vezes.</div></div>
+          <div class="row"><div class="d">03 · 07</div><div class="t">Sobre qualificação: <em>“os que vieram são pessoas querendo saber como funciona a parceria mas não têm clientes para enviar.”</em></div></div>
+          <div class="row mark"><div class="d">16 · 07</div><div class="t">Áudio interno do Nicolas: <strong>“A Prime quase cancelou”</strong> — por ausência de relatório, não por qualidade de conteúdo.</div></div>
+          <div class="row"><div class="d">21 · 07</div><div class="t">Laura: <em>“precisamos movimentar o Instagram, está bem parado.”</em></div></div>
+          <div class="row mark"><div class="d">24 · 07</div><div class="t">Post publicado sem aprovação. <em>“Não autorizei esse. Muito menos no insta do escritório.”</em></div></div>
+          <div class="row"><div class="d">25 · 07</div><div class="t">A Prime apaga um post da Expansion sem avisar no grupo.</div></div>
+          <div class="row mark"><div class="d">27 · 07</div><div class="t"><strong>Reunião de alinhamento.</strong> Vira para conversão. Laura entrega os brutos do café da manhã e a apresentação de corretores.</div></div>
+          <div class="row"><div class="d">27 · 07</div><div class="t">Campanha de 20/07 a 27/07: <strong>1 lead.</strong></div></div>
+          <div class="row"><div class="d">30 · 07</div><div class="t">Elevare Day — Prime patrocinadora, 30 min de palco.</div></div>
+        </div>
+      </section>
+
+      <!-- ============ NÚMEROS ============ -->
+      <section id="numeros">
+        <h2>Números</h2>
+
+        <h3>Tráfego pago — a curva que importa</h3>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Período</th><th>Investido</th><th>Impressões</th><th>Leads</th><th>CPL</th></tr></thead>
+            <tbody>
+              <tr><td>7 dias até 04/05</td><td class="num">R$ 151,35</td><td class="num">2.169</td><td class="num">9</td><td class="num">R$ 16,82</td></tr>
+              <tr><td>7 dias até 11/05</td><td class="num">R$ 103,23</td><td class="num">1.442</td><td class="num">17</td><td class="num"><strong>R$ 6,07</strong> <span class="pill p-ok">melhor</span></td></tr>
+              <tr><td>7 dias até 18/05</td><td class="num">R$ 287,63</td><td class="num">3.295</td><td class="num">10 wpp + 5 form</td><td class="num">R$ 14,83 / R$ 27,86</td></tr>
+              <tr><td>Junho inteiro</td><td class="num">R$ 793,49</td><td class="num">9.733</td><td class="num">19</td><td class="num">R$ 41,76</td></tr>
+              <tr><td>20 a 27/07</td><td class="num">—</td><td class="num">—</td><td class="num"><strong>1</strong></td><td class="num"><span class="pill p-crit">colapso</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note crit">
+          <span class="lbl">A leitura</span>
+          <p>O CPL multiplicou por <strong>~7</strong> entre maio e junho e a geração praticamente
+          parou em julho. Duas causas visíveis no histórico: <strong>saldo zerado com
+          frequência</strong> — a campanha desliga e o aprendizado da Meta reinicia — e
+          <strong>criativo velho</strong>. O próprio Matheus alertou em 09/07 que a Meta exige
+          criativo novo a cada 7 a 14 dias.</p>
+          <p>Meta declarada para julho: qualificação acima de 30%.</p>
+        </div>
+
+        <h3>Instagram</h3>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Período</th><th>Visualizações</th><th>Interações</th><th>Seguidores</th><th>Publicações</th></tr></thead>
+            <tbody>
+              <tr><td>12/04 a 11/05</td><td class="num">24.000</td><td class="num">609</td><td class="num">+57</td><td class="num">30</td></tr>
+              <tr><td>Mês até 22/05</td><td class="num">29.500</td><td class="num">821</td><td class="num">+88</td><td class="num">35</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="sub">Marco: 3 mil seguidores em 29/04.</p>
+      </section>
+
+      <!-- ============ FRENTES ============ -->
+      <section id="frentes">
+        <h2>Frentes abertas</h2>
+
+        <div class="cards">
+          <div class="card">
+            <div class="hd"><h4>Elevare Day</h4><span class="pill p-crit">30 · 07 — hoje</span></div>
+            <p>Av. Cauaxi, 350 — sala 601 · 14h às 18h · gratuito · Sympla.
+            Organizador <strong>Gustavo Rangel</strong>. Também presente: Sandra Canella.</p>
+            <p>A Prime é <strong>patrocinadora e tem 30 minutos de palco</strong>. 150 a 200
+            corretores. Sem stand. Foco local.</p>
+            <p><strong>Objetivo:</strong> fortalecer a imagem do patrocínio, captar depoimentos
+            de parceiros, gravar roteiros no ambiente. <strong>Transmitir ao vivo no Instagram</strong>,
+            com três ângulos: por que ser parceiro da Prime · corretores parceiros presentes ·
+            por que os corretores escolhem a Prime.</p>
+            <p><strong>Possível lançamento:</strong> campanha de bonificação para corretores —
+            R$ 1 mi em financiamento = iPhone · R$ 5 mi = bolsa de marca · escalando até viagem
+            internacional. Não é sorteio, é por desempenho. Modelo inspirado na Cash Me.</p>
+          </div>
+
+          <div class="card">
+            <div class="hd"><h4>Prêmio A Trinca</h4><span class="pill p-warn">10 · 08</span></div>
+            <p>Espaço Unimed, SP. Portões às 16h30. Criada por <strong>Flávio Augusto, Joel Jota
+            e Caio Carneiro</strong>. Gravação de podcast do Joel Jota no local. Organizadores
+            querem <strong>5 mil pessoas</strong>.</p>
+            <p>Primeira edição. Indicação por pesquisa de mercado — <strong>a Prime não pagou
+            nada</strong>. Está em <strong>1º lugar</strong> na categoria de crédito imobiliário
+            (22º no ranking geral; o 2º da categoria está em 45º). Votação até 06/08.</p>
+            <p><strong>Escopo: Prime nacional</strong>, não só Alphaville. 10 a 15 unidades presentes.</p>
+            <p><strong>Formato pedido:</strong> filmmaker dedicado às unidades · fotógrafo ·
+            after movie / mini-documentário · social media dedicada em real time · microfone com
+            a marca Prime para formato “jornal” · roteiros pré-prontos para as ~10 unidades ·
+            <strong>iluminação própria</strong> · entrega final em <strong>pendrive dentro de caixa
+            personalizada</strong> · pasta organizada no Drive com um log responsável ·
+            premiação de ingressos para seguidores.</p>
+          </div>
+
+          <div class="card">
+            <div class="hd"><h4>Prime Elas</h4><span class="pill p-warn">até 10 · 08</span></div>
+            <p>Movimento de posicionamento das mulheres da Prime no crédito imobiliário. Já rodou
+            projeto de 21 dias no início do ano, com plataforma própria. A Laura quer
+            <strong>lançar ao mercado no evento de 10/08</strong>.</p>
+            <p>O que ela pede: roteiros de mulheres contando a <strong>trajetória delas dentro do
+            crédito</strong> e como ele transformou a vida delas, em collab com o perfil.
+            O verbo nas notas é <strong>“estruturar”</strong> — não é só produzir peça.</p>
+          </div>
+
+          <div class="card">
+            <div class="hd"><h4>Convenção Prime</h4><span class="pill p-neutral">a definir</span></div>
+            <p>Uberlândia, dois dias. Drone e helicóptero. Palestrantes em cotação. Jantar com
+            premiação de encerramento. Conteúdo para a matriz e para as unidades.</p>
+            <p><em>“É outro projeto, uma outra coisa.”</em> Ordem dela: <strong>só depois do dia 10.</strong></p>
+          </div>
+
+          <div class="card">
+            <div class="hd"><h4>CRM e atendimento</h4><span class="pill p-neutral">em aberto</span></div>
+            <p>CRM <strong>proprietário, código-fonte da Prime, com API liberável</strong> — mas
+            <strong>só ~25% do time usa</strong>. O lead só entra depois de convertido. A operação
+            real roda no WhatsApp e o comercial é forte no presencial.</p>
+            <p><strong>Objetivo:</strong> acompanhar a chegada dos leads → verificar o atendimento
+            → aumentar a conversão, com relatórios. A Laura concorda com o mérito, mas quer
+            desenhar o fluxo interno antes.</p>
+          </div>
+
+          <div class="card">
+            <div class="hd"><h4>Landing page</h4><span class="pill p-warn">zona cinzenta</span></div>
+            <p>A página <strong>já existe e foi a Laura quem fez</strong>, depois de pedir e não
+            receber. O formulário funciona: <em>“tá me atendendo, o que eu fiz.”</em></p>
+            <p>Falta: apresentação dos serviços, fotos do escritório, mais texto. O verbo é
+            <strong>ajustar</strong>, não criar. Ver §Contrato para a recomendação comercial.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ COMO ATENDER ============ -->
+      <section id="atender">
+        <h2>Como atender</h2>
+        <p>Quatro meses de histórico mostram que a Laura reclama sempre das mesmas cinco
+        coisas. <strong>Nenhuma delas é sobre criatividade.</strong></p>
+
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Reclamação</th><th>Evidência</th></tr></thead>
+            <tbody>
+              <tr><td class="k">Erro factual ou de grafia</td><td>Nome da empresa errado (21/05) · “5 bilhões” onde é 15 (26/05) · nome do produto (15/06) · capa errada · legenda do vídeo 105 (07/07)</td></tr>
+              <tr><td class="k">Publicação sem aprovação</td><td>24/07 — <em>“Não autorizei esse. Muito menos no insta do escritório.”</em></td></tr>
+              <tr><td class="k">Ausência de relatório</td><td>16/07 — quase custou o cliente</td></tr>
+              <tr><td class="k">Silêncio e falta de cronograma</td><td>19/05 — pediu horário e roteiro, ninguém respondeu</td></tr>
+              <tr><td class="k">Ritmo irregular de postagem</td><td>21/07 — <em>“está bem parado.”</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <blockquote>Eu sei que não é vocês. Se vocês fizessem isso eu não ia contratar vocês.
+        O maior desafio de todos é a gente replicar nós mesmos — fazer vários Cauãs, fazer
+        vários Nicolas. Mas não é impossível. Só que não adianta, precisa ter feedback.
+        <cite>Laura Guimarães · 27/07/2026</cite></blockquote>
+
+        <p>Ela <strong>separa os sócios do time de execução</strong> e acredita na parceria.
+        O crédito de confiança existe; o que está em risco é a execução.</p>
+
+        <h3>O perfil dela</h3>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Como ela é</th><th>Como atender</th></tr></thead>
+            <tbody>
+              <tr><td>Detalhista — percebe cada detalhe</td><td>Suporte próximo e contínuo</td></tr>
+              <tr><td>Exigente com qualidade e prazo</td><td>Proatividade: antecipar o que ela pediria</td></tr>
+              <tr><td>Tem ideias — precisa de execução junto</td><td>Olhar clínico sobre o negócio dela</td></tr>
+              <tr><td>Quer acompanhamento, não só entrega</td><td>Transformar as ideias dela em execução estruturada</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note warn">
+          <span class="lbl">Duas regras editoriais que ela cobra</span>
+          <p><strong>O banco não é vilão.</strong> Em 27/07 ela corrigiu uma legenda: trocar
+          “quantas comissões o banco já tirou de você?” por “quantas comissões você já perdeu
+          por crédito reprovado?”. A culpa vai para o processo, nunca para a instituição.</p>
+          <p><strong>Não misturar públicos.</strong> Parceria e cliente final são narrativas
+          separadas.</p>
+        </div>
+      </section>
+
+      <!-- ============ PENDÊNCIAS ============ -->
+      <section id="pendencias">
+        <h2>Pendências</h2>
+
+        <h3>Expansion → Prime</h3>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Pendência</th><th>Prazo</th></tr></thead>
+            <tbody>
+              <tr><td>Orçamento da cobertura do Prêmio Trinca — incluindo pendrive + caixa</td><td><span class="pill p-crit">vencido</span> era 27/07</td></tr>
+              <tr><td>Transmissão ao vivo do Elevare Day</td><td><span class="pill p-crit">hoje</span></td></tr>
+              <tr><td>Roteiros extraídos da apresentação de corretores</td><td>esta semana</td></tr>
+              <tr><td>Roteiros pré-prontos para as ~10 unidades no evento</td><td>até 10/08</td></tr>
+              <tr><td>Estruturar o Prime Elas e os roteiros das mulheres</td><td>até 10/08</td></tr>
+              <tr><td>Definir pendrive + caixa personalizada (lead time de gráfica)</td><td>até 10/08</td></tr>
+              <tr><td>Log / responsável pela organização da pasta no Drive</td><td>até 10/08</td></tr>
+              <tr><td>Campanha de tráfego: palestra de mentalidade (corretor)</td><td>desenhar</td></tr>
+              <tr><td>Campanha de tráfego: troca de dívida (cliente final)</td><td>desenhar</td></tr>
+              <tr><td>Dividir verba nas 4 frentes</td><td>desenhar</td></tr>
+              <tr><td>Cronograma com datas de postagem e de gravação</td><td>definir</td></tr>
+              <tr><td>Portal de aprovação em produção</td><td><span class="pill p-ok">em teste</span></td></tr>
+              <tr><td>Modelar o InfoPrime como entrada do “cérebro” + carrossel automatizado</td><td><span class="pill p-ok">aprovado p/ teste</span></td></tr>
+              <tr><td>Landing page da Prime Alphaville</td><td><span class="pill p-warn">aberto desde 05/05</span></td></tr>
+              <tr><td>Ativar ManyChat de saudação a novo seguidor</td><td><span class="pill p-warn">pedido em 17/06</span></td></tr>
+              <tr><td>Retomar o relatório semanal</td><td>causa do quase-cancelamento</td></tr>
+              <tr><td>Mais stories e mais carrosséis</td><td>contínuo</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Prime → Expansion</h3>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Pendência</th><th>Para quê</th></tr></thead>
+            <tbody>
+              <tr><td>Tabelas de taxas dos bancos</td><td>Roteiro tecnicamente correto sem retrabalho dela</td></tr>
+              <tr><td>Base de clientes — nome, e-mail, telefone (100+)</td><td>Público semelhante no tráfego</td></tr>
+              <tr><td>InfoPrime semanal</td><td>Pauta de conteúdo</td></tr>
+              <tr><td>Emissão dos ingressos do dia 10/08</td><td>Depende do orçamento</td></tr>
+              <tr><td>Definição da campanha de bonificação de corretores</td><td>Lançamento em 30/07, se der tempo</td></tr>
+              <tr><td>Decisão sobre acesso ao CRM / API</td><td>Análise de atendimento</td></tr>
+              <tr><td>Entregáveis do projeto da nova empresa (com a Nathalia)</td><td>Aberto desde 28/04</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============ RISCOS ============ -->
+      <section id="riscos">
+        <h2>Riscos abertos</h2>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Risco</th><th>Grav.</th><th>Por quê</th></tr></thead>
+            <tbody>
+              <tr><td class="k">Orçamento do 10/08 não entregue</td><td><span class="pill p-crit">alta</span></td><td>Perde-se o evento e a confiança logo após uma call de reconciliação. Sem orçamento o Saulo não aprova a verba; sem verba, não há ingresso emitido</td></tr>
+              <tr><td class="k">Conta de anúncios zerada de forma recorrente</td><td><span class="pill p-crit">alta</span></td><td>Campanha desliga, aprendizado da Meta reinicia, CPL explode</td></tr>
+              <tr><td class="k">Colapso da geração de leads</td><td><span class="pill p-crit">alta</span></td><td>1 lead em 7 dias. É o número que ela vai cobrar agora que o combinado virou conversão</td></tr>
+              <tr><td class="k">Novo erro factual em legenda</td><td><span class="pill p-warn">média</span></td><td>É reincidência — a próxima tem peso diferente</td></tr>
+              <tr><td class="k">Publicação sem aprovação</td><td><span class="pill p-warn">média</span></td><td>Já aconteceu em 24/07 e ela foi explícita</td></tr>
+              <tr><td class="k">Aprovação por WhatsApp</td><td><span class="pill p-warn">média</span></td><td>Frágil e sem rastro. O portal existe para resolver isso</td></tr>
+              <tr><td class="k">Conteúdo do Alfredo</td><td><span class="pill p-ok">baixa</span></td><td>Travado por contrato em assinatura — só aguardar</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============ FONTES ============ -->
+      <section id="fontes">
+        <h2>Fontes</h2>
+        <div class="scroller">
+          <table>
+            <thead><tr><th>Fonte</th><th>Onde</th></tr></thead>
+            <tbody>
+              <tr><td class="k">Alinhamento 27/07 — gravação</td><td>fathom.video/calls/762581532 · notas e transcrição em <code>PRIME-ALINHAMENTO-2026-07-27.md</code></td></tr>
+              <tr><td class="k">Alinhamento 27/07 — notas do Nicolas</td><td><code>PRIME-ALINHAMENTO-2026-07-27-NOTAS-NICOLAS.md</code> — 7 decisões que a gravação perdeu</td></tr>
+              <tr><td class="k">WhatsApp — grupo (07/04 a 29/07)</td><td><code>PRIME-WHATSAPP-GRUPO-2026-07-29.md</code></td></tr>
+              <tr><td class="k">WhatsApp — privado com a Laura</td><td><code>PRIME-WHATSAPP-LAURA-2026-07-27.md</code></td></tr>
+              <tr><td class="k">Pasta do cliente no Drive</td><td><code>PRIME-DRIVE-INVENTARIO-2026-07-29.md</code></td></tr>
+              <tr><td class="k">Documento de onboarding</td><td>Drive → <code>Onboarding_PrimeAlphaville</code></td></tr>
+              <tr><td class="k">Credenciais</td><td>Drive → <code>Acessos_PrimeAlphaville</code> — nunca replicar em repositório</td></tr>
+              <tr><td class="k">Contexto da operação Expansion</td><td><code>OPERACAO-REAL-EXPANSION-2026-07-26.md</code> · <code>EXPANSION-360-2026-07-26.md</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note warn">
+          <span class="lbl">Lacuna conhecida</span>
+          <p>As exportações de WhatsApp vieram <strong>sem mídia</strong> — são cerca de 60 áudios
+          ocultados, e boa parte da negociação passou por eles: o veto da imagem do Breno em
+          22/04, os feedbacks de 26/05, o retorno sobre as gravações. Reexportar com “Anexar
+          mídia” fecharia esses buracos.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <div>Dossiê vivo em <code>CLIENTES/PRIME/CONTEXTO-PRIME.md</code> — esta página é a
+    versão de leitura. Quando divergirem, o markdown é a fonte.</div>
+    <div>Expansion ® · briefing interno · Prime Assessoria Alphaville</div>
+  </footer>
+
+</div>

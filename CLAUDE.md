@@ -24,8 +24,8 @@ CLIENTES/             Um acervo por cliente (contexto, Drive, conversas)
   REINO-CONSORCIOS/   Consórcio e estruturação de crédito
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
-CLIENTES/             Contexto consolidado por cliente (uma pasta por cliente)
-  007-CLAUKIDS/       Clau Kids — moda infantil
+CLIENTES/             Um diretório por cliente da Expansion
+  PRIME/              Prime Assessoria (crédito imobiliário)
 _audios/              Transcrições de áudios e reuniões
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
@@ -35,15 +35,24 @@ _audios/              Transcrições de áudios e reuniões
 
 ## CLIENTES — como usar
 
-Cada cliente tem uma pasta `CLIENTES/NNN-NOME/`, numerada como no Drive. O
-ponto de entrada é sempre o `CONTEXTO-NOME.md`: documento **vivo**, sem data,
-que consolida onboarding, marca, números, operação e pendências. Entregas e
-análises são arquivos novos datados ao lado dele — nunca edição destrutiva.
+Cada cliente da Expansion tem um diretório em `CLIENTES/<CLIENTE>/`. A ideia é que
+uma sessão do Claude Code possa ser aberta para um cliente só e ter contexto completo
+sem depender do que ficou na cabeça de alguém.
 
-Ver [`CLIENTES/README.md`](CLIENTES/README.md) para a convenção completa.
+**Ponto de entrada de cada cliente: `CONTEXTO-<CLIENTE>.md`.** É documento vivo — quem
+é o cliente, quem é quem dos dois lados, contrato, linha do tempo, números, pendências
+de parte a parte e riscos abertos. Os demais arquivos são as fontes:
 
-**Credenciais nunca entram no repositório.** Os docs de `Acessos` ficam no
-Drive. Aqui se registra qual acesso existe e qual está pendente, nunca o valor.
+| Padrão | O que é |
+|---|---|
+| `CONTEXTO-<CLIENTE>.md` | Dossiê mestre. Documento vivo, sem data no nome |
+| `<CLIENTE>-ALINHAMENTO-AAAA-MM-DD.md` | Reunião: notas de decisão + transcrição integral |
+| `<CLIENTE>-WHATSAPP-<CANAL>-AAAA-MM-DD.md` | Transcrição exportada do WhatsApp |
+| `<CLIENTE>-DRIVE-INVENTARIO-AAAA-MM-DD.md` | Mapa da pasta do cliente no Drive |
+
+**Regra de credencial:** senha nunca entra neste repositório. Ao trazer transcrição de
+WhatsApp, substituir por `[SENHA REDIGIDA]` e apontar para o documento de acessos no
+Drive. Códigos 2FA já expirados podem ficar — fazem parte do registro operacional.
 
 ## AEOS — como usar
 
