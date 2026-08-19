@@ -28,5 +28,6 @@ venv/
 
 # Node
 node_modules/
-site/dist/
-site/dist-preview/
+
+# PDFs gerados a partir dos markdown (regeraveis)
+EXPANSION-Posicionamento-e-Estrategia-Instagram.pdf
