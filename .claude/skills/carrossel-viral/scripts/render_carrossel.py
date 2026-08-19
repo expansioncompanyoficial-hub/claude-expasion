@@ -49,6 +49,38 @@ GRADE = {
 }
 
 
+# Os cinco templates da casa. Só o EXPANSION 01 foi medido no Canva elemento a
+# elemento; os outros quatro são modelados a partir da régua dele mais as
+# capas da plataforma da BrandsDecoded. O que muda entre eles é a **capa** —
+# alinhamento, família e tamanho do título. O miolo é o mesmo em todos, porque
+# é o único que tem medida real por trás.
+TEMPLATES = {
+    "expansion-01": {
+        "nome": "EXPANSION 01 (MEIO FUNIL)", "familia": "grade",
+        "sobre": "9 slides · caixa de imagem · o padrão da casa",
+    },
+    "expansion-02": {
+        "nome": "EXPANSION 02", "familia": "sangrada", "align": "left",
+        "fonte": "var(--head)", "peso": 700, "tam": 88.3, "lh": .92, "tr": "-.087em",
+        "sobre": "foto sangrada · título à esquerda",
+    },
+    "expansion-03": {
+        "nome": "EXPANSION 03", "familia": "sangrada", "align": "center",
+        "fonte": "var(--serif)", "peso": 600, "tam": 84, "lh": 1.02, "tr": "-.02em",
+        "sobre": "foto sangrada · serifa centralizada",
+    },
+    "expansion-04": {
+        "nome": "EXPANSION 04", "familia": "sangrada", "align": "center",
+        "fonte": "var(--head)", "peso": 700, "tam": 100, "lh": .92, "tr": "-.087em",
+        "sobre": "foto sangrada · título centralizado",
+    },
+    "expansion-twitter": {
+        "nome": "EXPANSION TWITTER", "familia": "cartao",
+        "sobre": "cartão de post · fundo claro",
+    },
+}
+
+
 def limites(pos):
     """Altura máxima de cada bloco: até onde o próximo começa."""
     g = GRADE[pos]
@@ -169,6 +201,11 @@ def fundo_foto(s):
 
 
 def slide_html(spec, s, i, total):
+    tpl = TEMPLATES.get(spec.get("template", "expansion-01"), TEMPLATES["expansion-01"])
+    if tpl["familia"] == "sangrada":
+        return slide_sangrado(spec, s, i, tpl)
+    if tpl["familia"] == "cartao":
+        return slide_cartao(spec, s, i)
     tipo = s.get("tipo", "texto")
     fundo = s.get("fundo") or ("capa" if tipo == "capa" else "escuro")
     if s.get("foto_fundo") and tipo != "capa":
@@ -282,6 +319,74 @@ def slide_html(spec, s, i, total):
             f'{"".join(partes)}{barra(spec)}{avanco}</div>')
 
 
+def chip_html(spec):
+    selo = '<span class="selo">✓</span>' if spec.get("verificado", True) else ""
+    inicial = esc(spec.get("marca", "?")[:1].upper())
+    return (f'<div class="chip-linha"><span class="chip-dot">{inicial}</span>'
+            f'<span class="chip-col"><span class="chip-nome">{esc(spec.get("marca",""))}'
+            f'{selo}</span><span class="chip-handle">{esc(spec.get("handle",""))}'
+            f'</span></span></div>')
+
+
+def slide_sangrado(spec, s, i, tpl):
+    """EXPANSION 02, 03 e 04 — a foto cobre o slide e o texto se apoia na base.
+
+    Três dos quatro designs reais são assim, e é o enquadramento que mais
+    aguenta texto curto: sem foto, um título de duas linhas fica solto no meio
+    do nada; com a foto ocupando tudo, ele fecha a composição."""
+    img = s.get("foto_fundo") or s.get("imagem")
+    if img:
+        bg = f'<div class="bg-foto capa-foto" style="background-image:url({b64_img(img)})"></div>'
+    else:
+        vaga = esc(s.get("imagem_brief", "Imagem a definir"))
+        bg = ('<div class="capa-banho"></div>'
+              f'<div class="vaga-sangrada"><span class="vaga-rot">Imagem de fundo</span>'
+              f'<span class="vaga-brief">{vaga}</span></div>')
+    dose = s.get("scrim") or spec.get("capa_scrim", "medio")
+    chip = chip_html(spec) if i == 0 else ""
+    head = s.get("headline") or s.get("h1") or ""
+    apoio = s.get("sub") or " ".join(s.get("paragrafos", []))
+    sub_html = f'<div class="sang-sub">{rich(apoio)}</div>' if apoio else ""
+    return (f'<div class="slide f-capa tpl-sangrada">{bg}'
+            f'<div class="capa-grad grad-{dose}"></div>'
+            f'<div class="sang-area">{chip}'
+            f'<div class="sang-h1 fit">{rich(head)}</div>{sub_html}</div>'
+            f'{barra(spec)}</div>')
+
+
+def slide_cartao(spec, s, i):
+    """EXPANSION TWITTER — o post citado, em cartão de fundo claro.
+
+    O formato empresta a credibilidade da rede: lê como algo que alguém
+    publicou, não como peça de agência. Por isso o cabeçalho vem primeiro e o
+    texto sem ênfase de cor — cor de marca aqui denuncia o anúncio."""
+    selo = '<span class="selo-tw">✓</span>' if spec.get("verificado", True) else ""
+    inicial = esc(spec.get("marca", "?")[:1].upper())
+    head = s.get("headline") or s.get("h1") or ""
+    pars = s.get("paragrafos", [])
+    if s.get("sub"):
+        pars = pars + [s["sub"]]
+
+    meio = ""
+    if s.get("imagem"):
+        meio = f'<div class="tw-foto"><img src="{b64_img(s["imagem"])}" alt=""></div>'
+    elif s.get("foto_pos") or s.get("imagem_brief"):
+        meio = ('<div class="tw-foto vaga"><span class="vaga-rot">Imagem</span>'
+                f'<span class="vaga-brief">{esc(s.get("imagem_brief","Imagem a definir"))}'
+                '</span></div>')
+
+    corpo = f'<div class="tw-texto">{rich(head)}</div>' if head else ""
+    corpo += meio
+    for par in pars:
+        corpo += f'<div class="tw-texto">{rich(par)}</div>'
+
+    return (f'<div class="slide f-claro tpl-cartao">'
+            f'<div class="tw-cabeca"><span class="tw-avatar">{inicial}</span>'
+            f'<span class="tw-ident"><span class="tw-nome">{esc(spec.get("marca",""))}{selo}</span>'
+            f'<span class="tw-handle">{esc(spec.get("handle",""))}</span></span></div>'
+            f'<div class="tw-corpo">{corpo}</div>{barra(spec)}</div>')
+
+
 def build(spec):
     t = spec["tokens"]
     confere_fontes(spec["fontes"])
@@ -290,6 +395,10 @@ def build(spec):
                      for i, s in enumerate(spec["slides"]))
     claro = t.get("claro", "#F0F0F0")
     op_barra = t.get("barra_opacidade", 0.30)
+    tpl = TEMPLATES.get(spec.get("template", "expansion-01"), TEMPLATES["expansion-01"])
+    sang = {"fonte": "var(--head)", "peso": 700, "tam": 88.3, "lh": .92,
+            "tr": "-.087em", "align": "left"}
+    sang.update({k: v for k, v in tpl.items() if k in sang})
 
     return f"""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <title>{esc(spec['marca'])} — carrossel</title><style>
@@ -297,6 +406,7 @@ def build(spec):
 *{{margin:0;padding:0;box-sizing:border-box}}
 :root{{--escuro:{t['dark']};--destaque:{t['accent']};--claro:{claro};--texto:{t.get('texto','#FFFFFF')};
 --head:'{t['fonte_head']}',sans-serif;--body:'{t['fonte_body']}',sans-serif;
+--serif:'{t.get('fonte_serif', 'Source Serif 4')}',Georgia,serif;
 --grad:{t.get('gradiente', 'linear-gradient(180deg,#fa7e01 0%,#ff6522 50%,#fa7e01 100%)')}}}
 
 /* O degradê é do FUNDO do slide de destaque, não da escrita. A escrita em
@@ -474,6 +584,55 @@ z-index:10;font-family:var(--head);color:#fff;text-align:center}}
 font-family:var(--body);font-size:21.2px;font-weight:400;line-height:1.06;
 letter-spacing:-.056em;color:#fff;text-align:center;opacity:.72}}
 .capa-sub em{{font-style:normal;color:var(--destaque)}}
+
+/* ── EXPANSION 02 · 03 · 04 — foto sangrada ────────────────────────────
+   O texto se apoia na base e a foto ocupa tudo. O que muda entre os três é
+   só a capa: alinhamento, família e tamanho do título. */
+.sang-area{{position:absolute;left:{MARGEM}px;right:{MARGEM}px;bottom:104px;z-index:10;
+display:flex;flex-direction:column;gap:26px;align-items:{'center' if sang['align'] == 'center' else 'flex-start'};
+text-align:{sang['align']}}}
+.sang-h1{{font-family:{sang['fonte']};font-weight:{sang['peso']};font-size:{sang['tam']}px;
+line-height:{sang['lh']};letter-spacing:{sang['tr']};color:#fff;max-width:100%}}
+.sang-h1 em{{font-style:normal;color:var(--destaque)}}
+.sang-h1 b{{font-weight:700}}
+.sang-sub{{font-family:var(--body);font-size:31px;font-weight:400;line-height:1.18;
+letter-spacing:-.02em;color:#fff;opacity:.86;max-width:92%}}
+.sang-sub em{{font-style:normal;color:var(--destaque);opacity:1}}
+.chip-linha{{display:flex;align-items:center;gap:11px;margin-bottom:4px}}
+
+.vaga-sangrada{{position:absolute;inset:{MARGEM}px {MARGEM}px 620px;z-index:5;
+border:2px dashed var(--destaque);border-radius:{FOTO_R}px;display:flex;
+flex-direction:column;align-items:center;justify-content:center;gap:12px;
+text-align:center;padding:0 60px}}
+
+/* ── EXPANSION TWITTER — cartão de post ────────────────────────────────
+   Empresta a credibilidade da rede: lê como algo que alguém publicou, não
+   como peça de agência. Por isso nada de cor de marca no texto. */
+.tpl-cartao{{background:#fff}}
+.tw-cabeca{{position:absolute;top:186px;left:{MARGEM}px;display:flex;align-items:center;
+gap:20px;z-index:2}}
+.tw-avatar{{width:82px;height:82px;border-radius:50%;background:var(--destaque);
+display:flex;align-items:center;justify-content:center;font-family:var(--head);
+font-size:38px;font-weight:700;color:#fff;flex:none}}
+.tw-ident{{display:flex;flex-direction:column;gap:2px}}
+.tw-nome{{display:flex;align-items:center;gap:9px;font-family:var(--body);font-size:34px;
+font-weight:600;color:#0F1419;letter-spacing:-.02em}}
+.tw-handle{{font-family:var(--body);font-size:28px;color:#536471;letter-spacing:-.02em}}
+.selo-tw{{width:26px;height:26px;border-radius:50%;background:#1d9bf0;color:#fff;
+display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}}
+.tw-corpo{{position:absolute;top:318px;left:{MARGEM}px;right:{MARGEM}px;bottom:{MARGEM}px;
+display:flex;flex-direction:column;gap:30px;z-index:2}}
+.tw-texto{{font-family:var(--body);font-size:41px;font-weight:500;line-height:1.24;
+letter-spacing:-.022em;color:#0F1419}}
+.tw-texto em{{font-style:normal;font-weight:600;color:#0F1419}}
+.tw-texto b{{font-weight:700}}
+.tw-foto{{height:{FOTO_H}px;border-radius:{FOTO_R}px;overflow:hidden;flex:none}}
+.tw-foto img{{width:100%;height:100%;object-fit:cover;display:block}}
+.tw-foto.vaga{{display:flex;flex-direction:column;align-items:center;justify-content:center;
+gap:12px;text-align:center;padding:0 60px;border:2px dashed var(--destaque);
+background:rgba(0,0,0,.03)}}
+.tpl-cartao .vaga-brief{{color:#0F1419}}
+.tpl-cartao .barra{{color:#0F1419}}
 </style></head><body>
 {slides}
 <script>
@@ -505,6 +664,14 @@ document.fonts.ready.then(function () {{
         corpos.forEach(function (c) {{ if (px(c) > 22) c.style.fontSize = (px(c) - 1) + 'px'; }});
       }}
     }});
+    // EXPANSION 02/03/04: o bloco de baixo não pode passar de 620px, senão
+    // sobe por cima da foto e some o motivo de ela estar ali.
+    var sang = slide.querySelector('.sang-area');
+    if (sang) {{
+      var sh = sang.querySelector('.sang-h1');
+      while (sh && sang.offsetHeight > 620 && px(sh) > 46)
+        sh.style.fontSize = (px(sh) - 1) + 'px';
+    }}
     // A capa tem 439,2 de altura útil e cresce da base para cima.
     var capa = slide.querySelector('.capa-h1');
     if (capa) {{

@@ -25,7 +25,8 @@ FAIXAS = {
 }
 
 FAMILIAS = [("Montserrat", "montserrat", [600, 700]),
-            ("Poppins", "poppins", [400, 500, 700])]
+            ("Poppins", "poppins", [400, 500, 700]),
+            ("Source Serif 4", "source-serif-4", [600])]
 
 
 def faces():

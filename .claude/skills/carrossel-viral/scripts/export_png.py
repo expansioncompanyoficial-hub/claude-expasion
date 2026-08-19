@@ -46,7 +46,7 @@ with sync_playwright() as p:
     # uma pilha de fallback puro. Se a largura bater, a fonte não está valendo.
     fontes = page.evaluate(
         """() => {
-            const alvos = [...document.querySelectorAll('.capa-h1,.h1,.corpo')];
+            const alvos = [...document.querySelectorAll('.capa-h1,.h1,.corpo,.sang-h1,.sang-sub,.tw-texto')];
             const vistos = new Map();
             for (const el of alvos) {
               const c = getComputedStyle(el);

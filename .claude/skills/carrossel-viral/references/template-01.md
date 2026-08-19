@@ -1,6 +1,10 @@
-# Template 01 — o padrão da casa
+# EXPANSION 01 (MEIO FUNIL) — o padrão da casa
 
-Este é o formato de todo carrossel da Expansion e dos clientes. **O que é padrão
+`template: "expansion-01"`
+
+Este é o formato de todo carrossel de meio de funil da Expansion e dos clientes,
+e é o único medido no Canva elemento a elemento. Os outros quatro
+(`references/templates.md`) são modelados a partir da régua dele. **O que é padrão
 é a estrutura e o modelo de escrita; o que muda por cliente são as cores, as
 fontes e a palavra do CTA.**
 

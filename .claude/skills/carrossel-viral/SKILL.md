@@ -224,9 +224,12 @@ Regras que mais quebram, então conferir sempre:
 cinco padrões diferentes e renderizar as dez lado a lado com
 `scripts/gerar_capas.py` — régua e padrões em `references/capas.md`.
 
-**O formato é o Template 01**, que é o padrão da casa — estrutura dos 9 slides,
-grade, modelo de escrita, régua da capa e formato do CTA em
-`references/template-01.md`. Muda por cliente só cor, fonte e a palavra do CTA.
+**São cinco templates** — `references/templates.md`. O padrão é o
+**EXPANSION 01 (MEIO FUNIL)**, detalhado em `references/template-01.md`:
+estrutura dos 9 slides, grade, modelo de escrita, régua da capa e formato do CTA.
+EXPANSION 02/03/04 são a família de foto sangrada, para topo de funil, e
+EXPANSION TWITTER é o cartão de post. Muda por cliente só cor, fonte e a palavra
+do CTA.
 
 **O render é feito pelos scripts da skill**, não à mão:
 
