@@ -51,32 +51,59 @@ Cinco checagens antes de subir:
 **Handle:** `@janequeirozseguros`
 *Sai o "JQL" — sigla não decodificável por quem não é cliente. Confirmar disponibilidade.*
 
-**Nome** (campo buscável do Instagram — é aqui que mora o SEO):
+**Nome** (campo buscável do Instagram — é aqui que mora o SEO). O campo tem
+**30 caracteres** (Etapa 02 do playbook), e a versão anterior tinha 41 — o Instagram
+cortaria. Como o `@` já carrega "queiroz" e "seguros", o sobrenome sai e a
+palavra-chave inteira fica:
 ```
-Jane Queiroz | Plano de Saúde Empresarial
+Jane | Plano Saúde Empresarial
 ```
+*30/30 caracteres. Alternativa, se ela fizer questão do sobrenome no Nome:
+`Jane Queiroz | Plano de Saúde` (29/30) — perde "empresarial", que é o
+qualificador que o ICP digita. Recomendação: a primeira.*
 
-**Bio** — proposta:
-```
-Plano de saúde empresarial, sem susto no reajuste.
-Corretora desde 2012 · +5.000 vidas protegidas
-Cuido da apólice depois da assinatura, não só antes.
-📍 SP · RJ · BH
-```
+**Bio** — reformulada em 12/08 na direção do Nicolas: espelhar a estrutura do
+posicionamento pessoal dele (*"Faço empresários crescerem unindo o que o mercado
+separa"*) — **quem é → o que faz, destrinchado e com a prova dentro da frase →
+CTA**. As funções do Método 3L
+([playbook, Etapa 03](../../PLAYBOOK-SOCIAL-MIDIA-v2.md)) continuam todas
+presentes; o que muda é que a autoridade deixa de ser uma linha solta de números
+e passa a viver dentro da frase que descreve o trabalho.
 
-> *"Sem susto no reajuste"* é fala dela, do onboarding: *"você não precisa tomar susto
-> no seu boleto"*. E a terceira linha é o diferencial inteiro em oito palavras.
+```
+Fundadora da JQL Seguros
+Protejo +5.000 vidas cuidando do plano de saúde da sua empresa antes e depois da assinatura
+👇 Cote seu plano no WhatsApp
+```
+*145/150 caracteres (146 se o Instagram contar o emoji em dobro).*
 
-**Alternativa mais direta ao ICP**, se a preferência for qualificar antes de conectar:
-```
-Plano de saúde empresarial · 30 a 99 vidas
-Corretora desde 2012 · SUSEP plena · +5.000 vidas
-O que a operadora nega, a gente resolve.
-```
+| Linha | Função | Por quê |
+|---|---|---|
+| 1 | **Quem é** | "Fundadora" pesa mais que "corretora": ela é dona do negócio. O "JQL Seguros" volta aqui como marca institucional — precedido de "Fundadora da", a sigla comunica sem precisar ser decodificada. O `@` segue `janequeirozseguros` |
+| 2 | **O que faz + prova, na mesma frase** | Verbo em primeira pessoa, como no posicionamento do Nicolas. "+5.000 vidas" deixa de ser número parado e vira ação ("protejo"); e *"antes e depois da assinatura"* é a régua da §1 inteira: o mercado separa a venda do pós-venda — ela não |
+| 3 | **CTA único** | Uma ação (cotar), um destino (o 👇 aponta para o link do WhatsApp logo abaixo). "Seu plano" já foi qualificado pela linha 2: "da sua empresa" |
+
+> ⚠️ **É "sem susto", nunca "sem custo".** Numa revisão de 12/08 a bio quase foi
+> ao ar como *"sem custo no reajuste"* — promessa que não existe (reajuste sempre tem
+> custo) e que em nicho regulado configura propaganda enganosa. O diferencial dela é
+> **previsibilidade**: avisar com 60 dias, sem surpresa no boleto. A expressão saiu
+> da bio, mas segue viva em destaque, post fixado e artes — conferir essa palavra
+> antes de qualquer publicação.
+
+**Para onde foi o que saiu da bio** (nada se perde, muda de casa):
+
+- *"Sem susto no reajuste"* → gancho do **post fixado** de apresentação e capa do
+  destaque **Casos reais**, junto do detalhamento do pós-venda (aviso de reajuste
+  com 60 dias, o que a operadora nega). O ⚠️ acima segue valendo para toda peça.
+- *"Desde 2012"* → destaque **Quem sou** (recepcionista → Marinha → 2012) e a arte
+  *"Os números que sustentam o seu nome"*, já prevista no cronograma de agosto.
+- *"📍 SP · RJ · BH"* → **mensagem pré-preenchida do WhatsApp** (o lead chega
+  dizendo a cidade — a triagem acontece na conversa) e destaque **Quem sou**.
 
 **Link:** WhatsApp com mensagem pré-preenchida por origem
-(`?text=Vim pelo Instagram e queria entender sobre...`). Sem isso, não há como medir
-a escada de KPI da §8.
+(`?text=Vim pelo Instagram e quero cotar o plano da minha empresa em [cidade]`).
+Sem isso, não há como medir a escada de KPI da §8 — e a cidade na mensagem faz a
+triagem de praça (SP · RJ · BH) que saiu da bio.
 
 **Foto:** ela gosta de estar arrumada e maquiada — é parte da identidade declarada, não
 vaidade. Usar foto da diária, fundo limpo, enquadramento de rosto.
