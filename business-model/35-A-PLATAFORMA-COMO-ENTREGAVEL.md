@@ -114,7 +114,20 @@ plataforma custa X."*
 
 ---
 
-## 4 — Mecânica que eu mudo, nº 2: R$ 2.200 anda para o lado errado
+## 4 — Mecânica que eu mudo, nº 2
+
+> 🟡 **RESSALVA DE 19/08/2026 (`34` §7 e `A-056`).** As magnitudes de custo Meta usadas
+> aqui — R$ 0,31–0,38 por mensagem de marketing, R$ 0,034–0,05 por utilidade, e os
+> R$ 620–760 por campanha de 2.000 contatos — **caíram para `A VERIFICAR`.** O
+> US$ 0,0625 de marketing foi **REFUTADO como número oficial** (cadeia de citação
+> circular; existe rate card oficial em BRL desde 01/07/2026). **O mecanismo continua:**
+> marketing custa muito mais que utilidade e **não tem desconto por volume**. As
+> magnitudes só fecham com a fatura na mão.
+>
+> ⚠️ **E a arbitragem marketing → utilidade é violação de política da Meta** — ver
+> `D-047`. Substituída por fluxos genuinamente transacionais e pela janela de 24 h.
+
+: R$ 2.200 anda para o lado errado
 
 Você disse *"com a plataforma sai, sei lá, dois mil e duzentos"*. Mas o `33` fechou em
 **R$ 2.400 sem plataforma nenhuma** — e a plataforma **adiciona** horas de suporte, não

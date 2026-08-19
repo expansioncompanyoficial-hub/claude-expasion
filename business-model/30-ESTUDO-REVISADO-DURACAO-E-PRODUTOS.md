@@ -244,7 +244,20 @@ margem é pior que crescer 6% a 65%.
 
 ---
 
-## 4 — `ALERTA-08`: o custo Meta pode zerar o EX1
+## 4 — `ALERTA-08`
+
+> 🟡 **RESSALVA DE 19/08/2026 (`34` §7 e `A-056`).** As magnitudes de custo Meta usadas
+> aqui — R$ 0,31–0,38 por mensagem de marketing, R$ 0,034–0,05 por utilidade, e os
+> R$ 620–760 por campanha de 2.000 contatos — **caíram para `A VERIFICAR`.** O
+> US$ 0,0625 de marketing foi **REFUTADO como número oficial** (cadeia de citação
+> circular; existe rate card oficial em BRL desde 01/07/2026). **O mecanismo continua:**
+> marketing custa muito mais que utilidade e **não tem desconto por volume**. As
+> magnitudes só fecham com a fatura na mão.
+>
+> ⚠️ **E a arbitragem marketing → utilidade é violação de política da Meta** — ver
+> `D-047`. Substituída por fluxos genuinamente transacionais e pela janela de 24 h.
+
+: o custo Meta pode zerar o EX1
 
 O achado mais urgente da pesquisa. **Agrava o `ALERTA-06`.**
 
@@ -288,9 +301,18 @@ domínio estava bloqueado. **Conferir antes de fechar contrato**)*:
 **Abertura de reunião:** *"de cada 10 clientes no seu cadastro, quase 8 não compram há
 mais de um ano — e você já pagou para adquirir todas elas."*
 
-A aritmética fecha na frente do lojista: ticket médio do vestuário **R$ 190** *(IEMI —
+A aritmética fecha na frente do lojista: ~~ticket médio do vestuário **R$ 190** *(IEMI —
 `ALTA`)*. Reativar 200 clientes inativas a 15% de conversão ≈ **R$ 5.700** — mais de
-3× o preço do EX1.
+3× o preço do EX1.~~
+
+> 🟡 **REBAIXADO EM 19/08/2026 (`34` §7, `A-060`).** O R$ 190 atribuído ao IEMI **não tem
+> URL, ano de referência, nome de estudo nem recorte de canal** — é atribuição nua, não
+> citação. **Cai de `ALTA` para `A CONFIRMAR`.** Uma busca sugeriu valor divergente
+> (R$ 265), **mas com exatamente o mesmo defeito — não substitui.**
+>
+> **Use o ticket médio DA LOJA**, que sai da auditoria da base e é o único número que
+> não depende de benchmark de ninguém. O cálculo dos R$ 5.700 fica **ilustrativo**, não
+> projeção.
 
 E **clientes já na base são 46,22% dos compradores mas geram 60,37% da receita**
 *(Dito — `MEDIA`)*. **Isso reordena a venda: EX1 antes de EX3, não o contrário.**

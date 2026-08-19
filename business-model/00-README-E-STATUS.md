@@ -16,10 +16,11 @@
 
 ## Como ler este acervo
 
-**Para SABER O QUE FAZER AGORA: `32` — é o plano.** Para ESTUDAR os produtos e entregáveis: `31`. Para a DURAÇÃO e o futuro do EX2/EX3: `30`. Para a VISÃO: `21`. Para OPERAR: `22` e `23`. Para vender: `16` e `19`. Para ENTREGAR: `18`. Para ENTENDER a conta: `17`. Depois `14` e `15` — o `15` corrige duas seções do `14`. Os outros treze são a memória de cálculo que o sustenta.
+**Para OPERAR a entrega do EX1: `34` — é o manual.** Para SABER O QUE FAZER AGORA: `32` — é o plano. Para ESTUDAR os produtos e entregáveis: `31`. Para a DURAÇÃO e o futuro do EX2/EX3: `30`. Para a VISÃO: `21`. Para OPERAR: `22` e `23`. Para vender: `16` e `19`. Para ENTREGAR: `18`. Para ENTENDER a conta: `17`. Depois `14` e `15` — o `15` corrige duas seções do `14`. Os outros treze são a memória de cálculo que o sustenta.
 
 | Arquivo | O que responde | Status |
 |---|---|---|
+| **`34-MANUAL-EXPORTAR-DISPARAR-ANUNCIAR.md`** | **👉 O MANUAL OPERACIONAL.** Exportar a base, disparar no WhatsApp e rodar tráfego — passo a passo, com selo de confiança em cada número | **v1.0 — manual** |
 | **`35-A-PLATAFORMA-COMO-ENTREGAVEL.md`** | **👉 O CRM DENTRO DO PRODUTO.** Validação da ideia, as 3 mecânicas que mudam, e as 2 coisas que travam a partida | **v1.0 — proposta** |
 | **`33-EX1-REDESENHADO.md`** | **👉 O EX1 NOVO.** A promessa central, o escopo entregável por entregável, e por que o preço tem que ir para R$ 2.400 | **v1.0 — proposta** |
 | **`32-O-QUE-FAZER-AGORA.md`** | **👉 O PLANO.** O relógio da carteira (12 dias), a carteira a 157–166% da capacidade, os 5 movimentos desta semana e o que **não** fazer | **v1.0 — 19/08** |
@@ -66,6 +67,7 @@
 | **`28-EXPANSION-360.md`** | **O consolidado de tudo.** Nove seções, incluindo o status honesto de cada afirmação | **v1.0 — 10/08** |
 | **`29-CATALOGO-DE-PRODUTOS.md`** | **Ficha de cada produto** + a conversa sobre o EX1 + o calendário de 12 campanhas | **v1.0 — 10/08** |
 | **`30-ESTUDO-REVISADO-DURACAO-E-PRODUTOS.md`** | **Duração por produto** (6 · 6 · 12 meses), a revisão do estudo de mercado com verificação adversarial, o **veredito sobre a IA de atendimento** e o **`ALERTA-08`** | **v1.0 — 11/08** |
+| **`34-MANUAL-EXPORTAR-DISPARAR-ANUNCIAR.md`** | **Manual de operação e base de cláusula.** As 9 fases, exportação por fonte, higienização, disparo, tráfego e LGPD. **Revoga a arbitragem de `D-040`, revisa `D-018` e rebaixa os preços da Meta para `A VERIFICAR`** | **v1.0 — 19/08** |
 | **`35-A-PLATAFORMA-COMO-ENTREGAVEL.md`** | **A plataforma como entregável do EX1.** A dobradiça de `A-034` (R$ 3.564 ou R$ 53.460/ano), o painel só-leitura, o `ALERTA-10` e por que `A-039` virou existencial | **v1.0 — 19/08** |
 | **`33-EX1-REDESENHADO.md`** | **O EX1 com o escopo do Nicolas.** A promessa central (*um plano comercial por mês, e o número toda segunda*), a escada por escopo em vez de por faturamento, e a conta que joga o preço para R$ 2.400 | **v1.0 — 19/08** |
 | **`32-O-QUE-FAZER-AGORA.md`** | **O plano de 30 dias.** A carteira cliente a cliente contra o custo real, a migração para os produtos novos, os 5 movimentos da semana, as 3 coisas sem volta e o que não fazer | **v1.0 — 19/08** |

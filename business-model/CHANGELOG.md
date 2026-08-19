@@ -836,3 +836,84 @@ casa hoje tem **zero caso com número.**
 `D-044`, `D-045`, `D-046`. Novas em aberto: `A-052` (`ALERTA-10`), `A-053` (LGPD
 controladora), `A-054` (portão do conselho), `A-055` (aceite do conselho para a tela).
 `A-039` e `A-031` marcadas como agravadas.
+
+---
+
+## Rodada 19/08/2026 (3) — O manual operacional, e três correções no acervo
+
+**Entregue:** `34-MANUAL-EXPORTAR-DISPARAR-ANUNCIAR.md` —
+https://claude.ai/code/artifact/055812d8-24cc-4fba-84aa-8f3748d36909
+
+Pesquisa de **16 agentes**, 5 frentes, verificação adversarial. Responde ao pedido de
+*"destrinchar na prática como exportar os dados da base e acionar os disparos e a campanha
+de tráfego"*.
+
+### 🔴 Correção nº 1 — a arbitragem de categoria que EU recomendei é violação de política
+
+Em 11/08 registrei `D-040` dizendo que a arbitragem marketing → utilidade era *"a alavanca
+de margem do EX1"*. **Está errado.** A Meta classifica pelo **conteúdo**, não pela
+declaração, e **"template misclassification" está listado pela própria Meta ao lado de
+álcool, apostas, drogas e conteúdo adulto** entre as violações que disparam escalada de
+punição.
+
+**`D-047` substitui por duas alavancas legítimas:** desenhar fluxos genuinamente
+transacionais na operação da loja (que é entregável vendável), e a janela de atendimento de
+24 h — **que vence em 30/09/2026.**
+
+### 🔴 Correção nº 2 — `D-018` (não-oficial como reserva) revisada
+
+O risco não é perder o número. O termo de uso permite **proibir a pessoa física e a
+organização de todo uso futuro de produtos Meta** — alcança **Business Manager, pixel,
+contas de anúncio e Instagram.** No EX1 GIRO há uma rodada de tráfego por mês: manter canal
+não-oficial é **apostar o canal de aquisição inteiro do cliente.** `D-048` troca a reserva
+por **fila com reenvio na própria oficial.**
+
+### 🟡 Correção nº 3 — os preços da Meta caem para `A VERIFICAR`
+
+| Número | Status |
+|---|---|
+| US$ 0,0625 marketing (~R$ 0,32–0,35) | **REFUTADO** como número oficial |
+| US$ 0,0068 utilidade | **NÃO VERIFICÁVEL** — pode ser preço de revenda de BSP |
+| Match rate 40–60% · taxa de leitura 68% | **NÃO VERIFICÁVEL** |
+| **Ticket médio R$ 190 (IEMI)** | **A CONFIRMAR** — sem URL, ano ou nome de estudo |
+
+**Existe rate card oficial em BRL publicado pela Meta desde 01/07/2026** — logo toda
+conversão de blog está errada por construção. **O mecanismo do `ALERTA-08` continua**
+(marketing custa muito mais, e **não tem desconto por volume — nenhum**); **as magnitudes
+saem.** Banners de ressalva em `30`, `33` e `35`.
+
+> **A fonte primária mais forte não é documentação — é a fatura.**
+
+### Os achados que mudam a operação
+
+- **A verificação de negócio no Meta leva semanas e é o passo 1, não o passo 8**
+- **O WhatsApp Business não tem exportação nativa de contatos nem etiquetas.** O caminho real é a agenda do celular. **O Kauã não pode dizer "a gente puxa a sua base do WhatsApp"**
+- **O extrato Pix é a fonte brasileira que ninguém usa** — nome real, data e valor
+- **Limite é de destinatários únicos, e por Business Portfolio desde 07/10/2025.** Número novo **herda o limite na hora** — o aquecimento é feito uma vez para todos (`A-059`)
+- **Degraus: 250 → 2.000 → 10.000 → 100.000 → ilimitado.** A escada de 250→1.000 que circula está desatualizada
+- **O maior valor da base no tráfego é EXCLUIR**, não anunciar para ela
+- **Retargeting de Instagram sem pixel, 365 dias, se atualiza sozinho** — quase sempre maior e mais fresco que a base de compradores
+- **Click-to-WhatsApp não exige API**, custa R$ 0 no app, e abre **72 h grátis** que sobrevivem à mudança de outubro
+- **Imposto Meta de +12,15% desde 01/01/2026**, e o Gerenciador não mostra
+- **Meta Business Agent cobrado por token desde 01/08/2026** — 6 a 7× uma mensagem de serviço. **Quarto motivo para `D-039`, e o primeiro de custo**
+- **01/09/2026:** a Meta publica as tarifas de outubro. **Data marcada** (`A-057`)
+
+### LGPD — duas correções ao que estava escrito
+
+**A LGPD não tem artigo listando cláusulas obrigatórias de contrato controlador–operador
+— isso é o art. 28 do GDPR.** As 12 cláusulas de `24` §5 continuam boas, **como boa
+prática, não como imposição legal.**
+
+E: **a qualificação de papéis decorre da atuação concreta, não do rótulo.** No EX1 a
+Expansion define segmentação e oferta — **isso puxa para controladoria conjunta, e assumir
+é mais seguro que negar.**
+
+**O risco financeiro real não é a ANPD** (única multa privada pública: R$ 14.400) — **é o
+Procon-SP**, com R$ 260 milhões em multas de telemarketing e a Lei Estadual SP 17.334/2021
+estendendo o "Não Me Ligue" a mensagens por aplicativo.
+
+### Decisões
+`D-047` (as duas alavancas legítimas), `D-048` (`D-018` revisada). Novas em aberto:
+`A-056` (ler a fatura e o rate card), `A-057` (01/09), `A-058` (verificação de negócio),
+`A-059` (portfólio único ou separado), `A-060` (ticket médio). `D-040` parcialmente
+revogada.

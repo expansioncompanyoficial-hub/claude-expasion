@@ -133,6 +133,19 @@ Sem elas, o escopo abre e a margem some:
 
 ## 3 — A conta, e o que eu recomendo
 
+> 🟡 **RESSALVA DE 19/08/2026 (`34` §7 e `A-056`).** As magnitudes de custo Meta usadas
+> aqui — R$ 0,31–0,38 por mensagem de marketing, R$ 0,034–0,05 por utilidade, e os
+> R$ 620–760 por campanha de 2.000 contatos — **caíram para `A VERIFICAR`.** O
+> US$ 0,0625 de marketing foi **REFUTADO como número oficial** (cadeia de citação
+> circular; existe rate card oficial em BRL desde 01/07/2026). **O mecanismo continua:**
+> marketing custa muito mais que utilidade e **não tem desconto por volume**. As
+> magnitudes só fecham com a fatura na mão.
+>
+> ⚠️ **E a arbitragem marketing → utilidade é violação de política da Meta** — ver
+> `D-047`. Substituída por fluxos genuinamente transacionais e pela janela de 24 h.
+
+
+
 Testei o escopo em quatro preços, com o custo Meta de uma campanha segmentada real
 (R$ 150/mês) já descontado:
 
