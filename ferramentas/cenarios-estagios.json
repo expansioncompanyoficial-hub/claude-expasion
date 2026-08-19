@@ -1,0 +1,52 @@
+{
+  "conservador": {
+    "bolsa_media": 1075, "auxilio_transporte": 250, "seguro": 3,
+    "taxa_modelo": "percentual", "taxa_percentual": 0.08, "taxa_fixa": 0,
+    "taxa_ocupacao": 0.60, "aliquota_tributos": 0.1633,
+    "custo_backoffice_por_estagiario": 28, "custo_plataforma_por_estagiario": 6,
+    "custo_por_vaga_preenchida": 320, "turnover_anual": 1.2,
+    "custo_fixo_mensal": 60000, "prazo_recebimento_dias": 60,
+    "adianta_bolsa": false, "dias_retencao_repasse": 10,
+    "rotulo": "Conservador: taxa 8%, ocupacao 60%, Lucro Presumido"
+  },
+  "provavel": {
+    "bolsa_media": 1075, "auxilio_transporte": 250, "seguro": 3,
+    "taxa_modelo": "percentual", "taxa_percentual": 0.10, "taxa_fixa": 0,
+    "taxa_ocupacao": 0.75, "aliquota_tributos": 0.1633,
+    "custo_backoffice_por_estagiario": 20, "custo_plataforma_por_estagiario": 4,
+    "custo_por_vaga_preenchida": 250, "turnover_anual": 0.9,
+    "custo_fixo_mensal": 45000, "prazo_recebimento_dias": 45,
+    "adianta_bolsa": false, "dias_retencao_repasse": 10,
+    "rotulo": "Provavel: taxa 10% (Nonoai), ocupacao 75%"
+  },
+  "agressivo": {
+    "bolsa_media": 1075, "auxilio_transporte": 250, "seguro": 3,
+    "taxa_modelo": "percentual", "taxa_percentual": 0.1467, "taxa_fixa": 0,
+    "taxa_ocupacao": 0.90, "aliquota_tributos": 0.1633,
+    "custo_backoffice_por_estagiario": 14, "custo_plataforma_por_estagiario": 3,
+    "custo_por_vaga_preenchida": 180, "turnover_anual": 0.7,
+    "custo_fixo_mensal": 35000, "prazo_recebimento_dias": 30,
+    "adianta_bolsa": false, "dias_retencao_repasse": 10,
+    "rotulo": "Agressivo: taxa 14,67% (teto de referencia), ocupacao 90%"
+  },
+  "fixo_tjce_16_50": {
+    "bolsa_media": 1075, "auxilio_transporte": 250, "seguro": 3,
+    "taxa_modelo": "fixo", "taxa_percentual": 0, "taxa_fixa": 16.50,
+    "taxa_ocupacao": 0.75, "aliquota_tributos": 0.1633,
+    "custo_backoffice_por_estagiario": 20, "custo_plataforma_por_estagiario": 4,
+    "custo_por_vaga_preenchida": 250, "turnover_anual": 0.9,
+    "custo_fixo_mensal": 45000, "prazo_recebimento_dias": 45,
+    "adianta_bolsa": false, "dias_retencao_repasse": 10,
+    "rotulo": "Replica TJCE: R$ 16,50 fixo por estagiario/mes (seguro embutido)"
+  },
+  "fixo_cofen_7_34": {
+    "bolsa_media": 1075, "auxilio_transporte": 250, "seguro": 3,
+    "taxa_modelo": "fixo", "taxa_percentual": 0, "taxa_fixa": 7.34,
+    "taxa_ocupacao": 0.75, "aliquota_tributos": 0.1633,
+    "custo_backoffice_por_estagiario": 20, "custo_plataforma_por_estagiario": 4,
+    "custo_por_vaga_preenchida": 250, "turnover_anual": 0.9,
+    "custo_fixo_mensal": 45000, "prazo_recebimento_dias": 45,
+    "adianta_bolsa": false, "dias_retencao_repasse": 10,
+    "rotulo": "Replica COFEN: R$ 7,34 fixo por estagiario/mes"
+  }
+}
