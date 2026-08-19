@@ -1,0 +1,596 @@
+<title>Quanto desse bolo é seu — TAM/SAM/SOM da Expansion</title>
+<style>
+:root{
+  color-scheme: light;
+  --ground:#FFFFFF; --surface:#F5F3F8; --surface-2:#EDEAF3;
+  --line:#DDD8E6; --line-strong:#C4BCD6;
+  --ink:#191420; --ink-2:#4E465C; --ink-3:#7A7189;
+  --accent:#D6004F; --accent-soft:#FDE7EF;
+  --warn:#A65200; --warn-soft:#FBEEDD;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#141019; --surface:#1D1925; --surface-2:#262031;
+    --line:#302939; --line-strong:#453C52;
+    --ink:#F0ECF5; --ink-2:#B0A7BE; --ink-3:#847A93;
+    --accent:#FF3D78; --accent-soft:#3A1122;
+    --warn:#E0922F; --warn-soft:#33240F;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#141019; --surface:#1D1925; --surface-2:#262031;
+  --line:#302939; --line-strong:#453C52;
+  --ink:#F0ECF5; --ink-2:#B0A7BE; --ink-3:#847A93;
+  --accent:#FF3D78; --accent-soft:#3A1122;
+  --warn:#E0922F; --warn-soft:#33240F;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+}
+:root{
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.narrow{max-width:660px}
+.num{font-variant-numeric:tabular-nums}
+
+.mast{border-bottom:1px solid var(--line);padding:44px 0 30px;margin-bottom:44px}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.kicker span:not(:first-child){color:var(--ink-3)}
+h1{font-family:var(--mono);font-weight:600;font-size:clamp(29px,5.2vw,48px);line-height:1.07;letter-spacing:-.03em;margin:0 0 20px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.dek{font-size:clamp(17px,2.1vw,20px);color:var(--ink-2);max-width:62ch;margin:0}
+.dek strong{color:var(--ink);font-weight:600}
+
+section{margin:0 0 66px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:12px;margin:0 0 18px}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+h2{font-family:var(--mono);font-weight:600;font-size:clamp(21px,3vw,28px);letter-spacing:-.02em;line-height:1.2;margin:0 0 16px;text-wrap:balance}
+h3{font-family:var(--mono);font-weight:600;font-size:16px;letter-spacing:-.01em;margin:0 0 9px}
+p{margin:0 0 16px;max-width:66ch}
+p:last-child{margin-bottom:0}
+.lede{font-size:19px;color:var(--ink-2)}
+strong{font-weight:600}
+code{font-family:var(--mono);font-size:.92em;background:var(--surface-2);padding:1px 5px;border-radius:2px}
+
+/* erro vs certo */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.vs>div{background:var(--ground);padding:24px 22px}
+.vs-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:4px 9px;border-radius:2px;display:inline-block;margin-bottom:14px}
+.vs-bad{background:var(--warn-soft);color:var(--warn);border:1px solid var(--warn)}
+.vs-good{background:var(--accent);color:#fff}
+.vs .stat-v{font-family:var(--mono);font-size:clamp(26px,3.6vw,34px);font-weight:600;letter-spacing:-.035em;line-height:1.05;margin-bottom:6px;font-variant-numeric:tabular-nums}
+.vs p{font-family:var(--sans);font-size:14px;line-height:1.55;color:var(--ink-2)}
+@media(max-width:720px){.vs{grid-template-columns:1fr}}
+
+/* funil */
+.funnel{border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.fn-h{background:var(--surface-2);padding:12px 18px;font-family:var(--mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-2);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.fn-h em{font-style:normal;color:var(--ink-3);letter-spacing:.05em;text-transform:none}
+.fstep{display:grid;grid-template-columns:30px 1fr 200px;gap:18px;padding:16px 18px;border-bottom:1px solid var(--line);align-items:center}
+.fstep:last-child{border-bottom:none}
+.fstep.term{background:var(--accent-soft)}
+.f-n{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.f-l{font-family:var(--sans);font-size:14.5px;line-height:1.4}
+.f-l b{font-weight:600;display:block;margin-bottom:2px}
+.f-l i{font-style:normal;color:var(--ink-3);font-size:12.5px}
+.f-v{text-align:right}
+.f-v b{font-family:var(--mono);font-size:19px;font-weight:600;letter-spacing:-.02em;display:block;font-variant-numeric:tabular-nums}
+.f-bar{height:5px;background:var(--surface-2);border-radius:3px;margin-top:6px;overflow:hidden}
+.f-bar i{display:block;height:100%;border-radius:3px}
+@media(max-width:720px){.fstep{grid-template-columns:26px 1fr;gap:8px 12px}.f-v{grid-column:1/-1;text-align:left}}
+
+/* calculadora */
+.calc{border:1px solid var(--line-strong);border-radius:4px;overflow:hidden}
+.calc-h{background:var(--accent);color:#fff;padding:15px 20px;font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.calc-h em{font-style:normal;text-transform:none;letter-spacing:.03em;opacity:.85;font-size:12px}
+.calc-body{display:grid;grid-template-columns:330px 1fr;gap:1px;background:var(--line)}
+.inputs{background:var(--surface);padding:20px}
+.out{background:var(--ground);padding:22px 24px}
+@media(max-width:860px){.calc-body{grid-template-columns:1fr}}
+.fld{margin-bottom:15px}
+.fld:last-child{margin-bottom:0}
+.fld label{display:block;font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--ink-2);margin-bottom:5px}
+.fld label i{font-style:normal;font-weight:400;color:var(--ink-3);display:block;font-size:11.5px;margin-top:1px}
+.fld-row{display:flex;align-items:center;gap:10px}
+.fld input[type=range]{flex:1;accent-color:var(--accent);min-width:0}
+.fld output{font-family:var(--mono);font-size:15px;font-weight:600;min-width:82px;text-align:right;font-variant-numeric:tabular-nums}
+.fld input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.verdict{border:1px solid var(--line);border-radius:3px;padding:15px 17px;margin-bottom:20px;background:var(--surface)}
+.verdict .vl{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:7px}
+.verdict .vt{font-family:var(--mono);font-size:17px;font-weight:600;line-height:1.3;letter-spacing:-.015em}
+.verdict .vt b{color:var(--accent)}
+.verdict .vx{font-family:var(--sans);font-size:13.5px;color:var(--ink-2);margin-top:8px;line-height:1.5}
+
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;margin-bottom:20px}
+.kpi{background:var(--ground);padding:14px 15px}
+.kpi .kl{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);line-height:1.35;margin-bottom:6px}
+.kpi .kv{font-family:var(--mono);font-size:23px;font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.kpi .kn{font-family:var(--sans);font-size:11.5px;color:var(--ink-3);margin-top:4px;line-height:1.4}
+
+.chartbox{border:1px solid var(--line);border-radius:3px;padding:14px 14px 8px;background:var(--ground)}
+.chart-t{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px;padding:0 4px}
+.legend{display:flex;gap:15px;flex-wrap:wrap;font-family:var(--sans);font-size:12px;color:var(--ink-2);padding:0 4px 8px}
+.legend b{display:inline-block;width:16px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.legend b.dash{background:none;border-top:2px dashed currentColor;height:0}
+svg.ch{display:block;width:100%;height:auto}
+
+/* passos do método */
+.steps{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.step{background:var(--ground);padding:22px;display:grid;grid-template-columns:44px 1fr;gap:18px}
+.step-n{font-family:var(--mono);font-size:24px;font-weight:600;color:var(--accent);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.step h3{margin-bottom:8px}
+.step p{font-family:var(--sans);font-size:14.5px;line-height:1.58;color:var(--ink-2);max-width:70ch;margin-bottom:9px}
+.step p strong{color:var(--ink)}
+.formula{font-family:var(--mono);font-size:14px;background:var(--surface);border-left:3px solid var(--accent);padding:12px 15px;margin:12px 0;border-radius:0 3px 3px 0;overflow-x:auto;white-space:pre;line-height:1.6;color:var(--ink)}
+@media(max-width:640px){.step{grid-template-columns:1fr;gap:8px}.step-n{font-size:19px}}
+
+/* tabela */
+.tw{overflow-x:auto;border-radius:4px}
+table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:14px;min-width:640px}
+th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;padding:10px 14px;background:var(--surface);border:1px solid var(--line)}
+td{padding:12px 14px;border:1px solid var(--line);vertical-align:top;line-height:1.45;color:var(--ink-2)}
+td:first-child{color:var(--ink);font-weight:600}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+tr.hl td{background:var(--accent-soft)}
+
+.pull{border-left:3px solid var(--accent);padding:4px 0 4px 22px;margin:26px 0;font-size:19px;line-height:1.5;max-width:60ch}
+.pull small{display:block;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.5}
+
+.note{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:16px 18px;font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.note b{color:var(--ink)}
+
+footer{border-top:1px solid var(--line);padding:30px 0 60px;margin-top:20px;font-family:var(--sans);font-size:13px;color:var(--ink-3);line-height:1.6}
+footer p{max-width:70ch}
+footer b{color:var(--ink-2)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker"><span>Dimensionamento de mercado</span><span>Expansion · moda feminina + infantil</span><span>08/08/2026</span></div>
+  <h1>Você não vai pegar uma fatia<br>de <em>R$ 314,9 bilhões</em>.</h1>
+  <p class="dek">Esse é o dinheiro que a consumidora gasta em roupa. Nenhum centavo dele passa por você. O seu bolo é outro — <strong>R$ 1,15 bilhão, cerca de 270 vezes menor</strong> — e a boa notícia é que ninguém domina ele. O maior concorrente conhecido tem menos de 1%.</p>
+</header>
+
+<section>
+  <div class="eyebrow">O erro que quase todo mundo comete</div>
+  <div class="vs">
+    <div>
+      <span class="vs-tag vs-bad">Conta errada</span>
+      <div class="stat-v" style="color:var(--warn)">R$ 170 bi</div>
+      <p style="margin-bottom:14px"><strong>"O mercado de moda feminina e infantil é R$ 170 bi. Se eu pegar 0,1%, faturo R$ 170 milhões."</strong></p>
+      <p>Está errado porque esse número é <strong>venda de roupa</strong>. Quem recebe é a lojista, não você. Você nunca vai capturar um percentual dele — nem 0,001%. É como um fornecedor de sacola calcular o próprio mercado sobre o faturamento das lojas.</p>
+    </div>
+    <div>
+      <span class="vs-tag vs-good">Conta certa</span>
+      <div class="stat-v" style="color:var(--accent)">R$ 0,9 – 1,4 bi</div>
+      <p style="margin-bottom:14px"><strong>Quanto as donas dessas lojas gastam por ano contratando serviço de marketing.</strong></p>
+      <p>Esse é o bolo de verdade. É <strong>1 caixa de dinheiro diferente</strong>: sai do bolso da lojista como despesa, não como venda. E o cálculo dele não parte de reais — parte de <strong>quantas lojas existem</strong>.</p>
+    </div>
+  </div>
+  <p class="lede" style="margin-top:26px;max-width:66ch">A regra que resolve isso para sempre: <strong>comece sempre por quem te paga, nunca pelo que o mercado movimenta.</strong> Quem te paga é a dona da loja. Então a sua unidade de conta é <em>loja</em>, não <em>peça de roupa</em>.</p>
+</section>
+
+<section>
+  <div class="eyebrow">Caminho 1 · de cima para baixo</div>
+  <h2>Do bolo grande até o seu</h2>
+  <p class="lede" style="max-width:66ch">Cinco cortes. Cada um tem uma fonte ou uma premissa declarada — premissa sem etiqueta é chute com aparência de dado.</p>
+  <div class="funnel" style="margin-top:22px">
+    <div class="fn-h"><span>Top-down</span><em>base: IEMI, varejo de vestuário 2025</em></div>
+    <div class="fstep">
+      <div class="f-n">01</div>
+      <div class="f-l"><b>Varejo de vestuário no Brasil</b><i>R$ 314,9 bi em 2025 · projetado a +6,8% nominal para 2026</i></div>
+      <div class="f-v"><b>R$ 336 bi</b><div class="f-bar"><i style="width:100%;background:var(--ink-3)"></i></div></div>
+    </div>
+    <div class="fstep">
+      <div class="f-n">02</div>
+      <div class="f-l"><b>× 54% — seu recorte</b><i>42% feminino adulto + 12% infantil, conforme seu dado (soma 54%, não 53%)</i></div>
+      <div class="f-v"><b>R$ 181,4 bi</b><div class="f-bar"><i style="width:54%;background:var(--s1)"></i></div></div>
+    </div>
+    <div class="fstep">
+      <div class="f-n">03</div>
+      <div class="f-l"><b>× 60% — só loja independente</b><i>tira Renner, Riachuelo, C&amp;A, Zara, Shein e marketplace. Você não atende essas</i></div>
+      <div class="f-v"><b>R$ 108,8 bi</b><div class="f-bar"><i style="width:32%;background:var(--s1)"></i></div></div>
+    </div>
+    <div class="fstep">
+      <div class="f-n">04</div>
+      <div class="f-l"><b>× 2,5% — o que vira gasto com marketing</b><i>56,1% das empresas investem até 5%; média efetiva menor porque muita loja gasta zero</i></div>
+      <div class="f-v"><b>R$ 2,72 bi</b><div class="f-bar"><i style="width:0.8%;background:var(--s2)"></i></div></div>
+    </div>
+    <div class="fstep term">
+      <div class="f-n">05</div>
+      <div class="f-l"><b>× 50% — o que vira honorário, não verba de mídia</b><i>metade vai para a Meta como verba. Só a outra metade é receita de agência</i></div>
+      <div class="f-v"><b style="color:var(--accent)">R$ 1,36 bi</b><div class="f-bar"><i style="width:0.4%;background:var(--accent)"></i></div></div>
+    </div>
+  </div>
+  <p style="margin-top:20px"><strong>Do passo 1 ao passo 5, o número encolheu 247 vezes.</strong> Essa distância é exatamente o erro que você cometeria se tivesse partido dos R$ 314,9 bi.</p>
+</section>
+
+<section>
+  <div class="eyebrow">Caminho 2 · de baixo para cima</div>
+  <h2>Contando lojas, uma por uma</h2>
+  <p class="lede" style="max-width:66ch">Agora o contrário: parte do número de negócios e multiplica pelo seu preço. Se os dois caminhos derem números parecidos, o modelo está de pé. Se derem números muito diferentes, uma premissa está errada — e você precisa achar qual antes de decidir qualquer coisa.</p>
+  <div class="funnel" style="margin-top:22px">
+    <div class="fn-h"><span>Bottom-up</span><em>base: CNAE 4781-4/00 ativo, Receita Federal, jul/2026</em></div>
+    <div class="fstep">
+      <div class="f-n">01</div>
+      <div class="f-l"><b>Lojas de vestuário com CNPJ ativo</b><i>1.013.880 estabelecimentos · 84% microempresa</i></div>
+      <div class="f-v"><b>1.013.880</b><div class="f-bar"><i style="width:100%;background:var(--ink-3)"></i></div></div>
+    </div>
+    <div class="fstep">
+      <div class="f-n">02</div>
+      <div class="f-l"><b>× 60% — feminino ou infantil</b><i>premissa: a proporção de lojas segue a de consumo, com viés para cima em boutique feminina</i></div>
+      <div class="f-v"><b>608.300</b><div class="f-bar"><i style="width:60%;background:var(--s1)"></i></div></div>
+    </div>
+    <div class="fstep">
+      <div class="f-n">03</div>
+      <div class="f-l"><b>× 10% — tem porte para pagar</b><i>o teto do MEI é R$ 81 mil por <em>ano</em>. Quem fatura isso não paga R$ 5 mil/mês de assessoria</i></div>
+      <div class="f-v"><b>60.830</b><div class="f-bar"><i style="width:6%;background:var(--s2)"></i></div></div>
+    </div>
+    <div class="fstep">
+      <div class="f-n">04</div>
+      <div class="f-l"><b>× 25% — contrataria assessoria</b><i>o resto faz sozinha, usa a sobrinha, ou contrata freela avulso</i></div>
+      <div class="f-v"><b>15.200</b><div class="f-bar"><i style="width:1.5%;background:var(--s2)"></i></div></div>
+    </div>
+    <div class="fstep term">
+      <div class="f-n">05</div>
+      <div class="f-l"><b>× R$ 5.000/mês × 12</b><i>ticket estimado a partir da sua meta de R$ 30 mil com 6 clientes</i></div>
+      <div class="f-v"><b style="color:var(--accent)">R$ 0,91 bi</b><div class="f-bar"><i style="width:0.3%;background:var(--accent)"></i></div></div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:22px">
+    <b>Os dois caminhos bateram.</b> Top-down deu R$ 1,36 bi, bottom-up deu R$ 0,91 bi — diferença de 1,5×, dentro da margem de premissa. <b>Se a diferença tivesse passado de 3×, o modelo estaria quebrado</b> e a regra é: não decide nada, volta e acha a premissa errada. Trabalho com a faixa <b>R$ 0,9 a 1,4 bi por ano</b>, centro em R$ 1,15 bi.
+  </div>
+
+  <div class="pull">
+    Cerberus, que se declara o maior ecossistema de marketing para lojas de moda da América Latina, tem 207 lojas. A R$ 3 mil de ticket, são R$ 7,4 milhões por ano — <strong>0,6% do mercado</strong>.
+    <small>Não existe líder neste mercado. Existe um mercado de R$ 1,15 bilhão pulverizado entre freelancers e agências pequenas, onde o maior jogador conhecido tem menos de um centésimo. Ser "a maior do Brasil" não exige tomar mercado de ninguém — exige apenas existir de forma organizada num espaço onde quase ninguém está organizado.</small>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">A parte que ninguém te conta</div>
+  <h2>Seu teto não é o mercado. É a sua capacidade.</h2>
+  <div class="narrow">
+    <p class="lede">Aqui é onde o raciocínio de "fatia de mercado" para de funcionar para negócio de serviço, e quase todo dono de agência quebra a cara.</p>
+    <p>Uma fábrica de camiseta pode vender 10 mil peças ou 10 milhões — a fábrica não se importa com quem compra. Assessoria não é assim. <strong>Cada cliente novo consome horas de gente.</strong> Então o seu limite não é quantas lojas existem no Brasil: é quantas você consegue atender sem quebrar a entrega, e quantas ficam depois de entrar.</p>
+    <p>São dois tetos, e <strong>vale sempre o menor dos dois</strong>:</p>
+    <div class="formula">TETO DE ENTREGA   = profissionais de criação × clientes por profissional
+TETO DE CHURN     = vendas novas por mês ÷ churn mensal
+
+SEU TETO REAL     = o MENOR dos dois</div>
+    <p>O segundo é o que quase ninguém calcula, e é o mais brutal. Ele diz que <strong>uma carteira para de crescer sozinha</strong>: a certa altura, o número de clientes que você perde por mês iguala o número que você vende, e a carteira congela. Não importa quanto você venda depois disso.</p>
+    <p>Com 3 vendas por mês e 20% de churn, o teto é <code>3 ÷ 0,20 = 15 clientes</code>. Para sempre. Se você contratar mais três pessoas de criação, o teto continua 15 — você só terá pagado três salários para não crescer nada.</p>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Mexa nos números</div>
+  <h2>Calculadora do seu teto</h2>
+  <p class="lede" style="max-width:66ch">Os valores abertos são estimativas a partir do que está registrado no acervo — meta de R$ 30 mil com 6 clientes, giro de 17 nomes em 90 dias, uma social media. <strong>Troque pelos seus números reais</strong> e veja o teto se mover.</p>
+
+  <div class="calc" style="margin-top:22px">
+    <div class="calc-h"><span>Simulador de teto e receita</span><em id="bindLabel">calculando…</em></div>
+    <div class="calc-body">
+      <div class="inputs">
+        <div class="fld">
+          <label for="i-ticket">Ticket médio mensal por cliente <i>quanto cada loja te paga por mês</i></label>
+          <div class="fld-row"><input type="range" id="i-ticket" min="1000" max="15000" step="250" value="5000"><output id="o-ticket"></output></div>
+        </div>
+        <div class="fld">
+          <label for="i-vendas">Clientes novos por mês <i>quantos contratos o comercial fecha</i></label>
+          <div class="fld-row"><input type="range" id="i-vendas" min="1" max="15" step="1" value="3"><output id="o-vendas"></output></div>
+        </div>
+        <div class="fld">
+          <label for="i-churn">Churn mensal <i>% da carteira que sai todo mês. Bom é abaixo de 5%</i></label>
+          <div class="fld-row"><input type="range" id="i-churn" min="2" max="30" step="1" value="20"><output id="o-churn"></output></div>
+        </div>
+        <div class="fld">
+          <label for="i-prof">Profissionais de criação <i>social media, editor, designer — quem produz entrega</i></label>
+          <div class="fld-row"><input type="range" id="i-prof" min="1" max="12" step="1" value="1"><output id="o-prof"></output></div>
+        </div>
+        <div class="fld">
+          <label for="i-cap">Clientes por profissional <i>seu time definiu 20–25. Hoje, sem POP, é ~8</i></label>
+          <div class="fld-row"><input type="range" id="i-cap" min="4" max="30" step="1" value="8"><output id="o-cap"></output></div>
+        </div>
+        <div class="fld">
+          <label for="i-marg">Margem de contribuição <i>o que sobra do ticket depois do custo de entregar</i></label>
+          <div class="fld-row"><input type="range" id="i-marg" min="10" max="70" step="5" value="40"><output id="o-marg"></output></div>
+        </div>
+      </div>
+      <div class="out">
+        <div class="verdict">
+          <div class="vl">Diagnóstico</div>
+          <div class="vt" id="v-title">—</div>
+          <div class="vx" id="v-text">—</div>
+        </div>
+        <div class="grid4">
+          <div class="kpi"><div class="kl">Teto real</div><div class="kv num" id="k-teto">—</div><div class="kn">clientes simultâneos</div></div>
+          <div class="kpi"><div class="kl">Receita no teto</div><div class="kv num" id="k-rec">—</div><div class="kn" id="k-recano">—</div></div>
+          <div class="kpi"><div class="kl">Fatia do mercado</div><div class="kv num" id="k-share">—</div><div class="kn">de R$ 1,15 bi/ano</div></div>
+          <div class="kpi"><div class="kl">LTV por cliente</div><div class="kv num" id="k-ltv">—</div><div class="kn" id="k-meses">—</div></div>
+        </div>
+        <div class="chartbox">
+          <div class="chart-t">Trajetória da carteira · 24 meses, partindo de 6 clientes</div>
+          <div class="legend">
+            <span style="color:var(--s1)"><b style="background:var(--s1)"></b>Sua carteira</span>
+            <span style="color:var(--s2)"><b class="dash"></b>Teto de entrega</span>
+            <span style="color:var(--s3)"><b class="dash"></b>Teto de churn</span>
+          </div>
+          <svg class="ch" id="chart" viewBox="0 0 620 260" role="img" aria-label="Projeção da carteira de clientes ao longo de 24 meses contra os dois tetos"></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Quatro cenários</div>
+  <h2>O que cada alavanca vale, em reais</h2>
+  <p class="lede" style="max-width:66ch">Mesmo ticket de R$ 5.000 nos quatro. Muda só churn, vendas e time. Repare que <strong>a alavanca de maior retorno não é vender mais</strong>.</p>
+  <div class="tw" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Cenário</th><th>Churn</th><th>Vendas/mês</th><th>Criação</th><th>Teto</th><th>Receita/mês</th><th>Fatia</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Hoje, nada muda</td>
+          <td class="n">20%</td><td class="n">3</td><td class="n">1</td>
+          <td class="n">8</td><td class="n">R$ 40 mil</td><td class="n">0,04%</td>
+        </tr>
+        <tr>
+          <td>Contrata sem arrumar o churn</td>
+          <td class="n">20%</td><td class="n">3</td><td class="n">3</td>
+          <td class="n">15</td><td class="n">R$ 75 mil</td><td class="n">0,08%</td>
+        </tr>
+        <tr class="hl">
+          <td>Arruma entrega <em>e</em> retenção</td>
+          <td class="n">6%</td><td class="n">4</td><td class="n">3</td>
+          <td class="n">60</td><td class="n">R$ 300 mil</td><td class="n">0,31%</td>
+        </tr>
+        <tr>
+          <td>"A maior do Brasil"</td>
+          <td class="n">4%</td><td class="n">6</td><td class="n">7</td>
+          <td class="n">150</td><td class="n">R$ 750 mil</td><td class="n">0,78%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:20px">
+    <b>Leia a linha 2 com atenção.</b> Contratar dois profissionais a mais sem mexer no churn leva o teto de 8 para 15 — e para aí. Você teria adicionado uns R$ 10 mil de custo mensal para ganhar R$ 35 mil de receita, com margem pior e o mesmo problema de retenção. <b>Já cair de 20% para 6% de churn, sem vender um cliente a mais que os 4/mês, multiplica a receita por 7,5.</b> É a mesma empresa, com a entrega funcionando.
+  </div>
+  <div class="note" style="margin-top:14px;border-color:var(--warn)">
+    <b>O cenário 4 esbarra no teto do Simples.</b> R$ 750 mil/mês são R$ 9 milhões/ano, quase o dobro do limite de R$ 4,8 milhões. A partir de R$ 400 mil/mês você sai do Simples e cai no IVA de 26,5%–28% — com clientes que, sendo 90,5% Simples, não creditam nada. Isso está detalhado no radar de tendências; aqui basta saber que <b>o cenário 3 cabe no Simples e o 4 não</b>, e que a virada precisa ser modelada antes de acontecer.
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">O método, para você repetir sozinho</div>
+  <h2>Como dimensionar qualquer mercado</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">01</div><div>
+      <h3>Ache a unidade certa</h3>
+      <p>Nunca comece perguntando "quanto o mercado movimenta". Comece por <strong>quem assina o cheque para você</strong>. Se quem paga é a dona da loja, sua unidade é <em>loja</em>. Se fosse a consumidora, seria <em>pessoa</em>. Errar aqui contamina tudo depois.</p>
+    </div></div>
+    <div class="step"><div class="step-n">02</div><div>
+      <h3>Conte as unidades e filtre em cascata</h3>
+      <p>Quantas existem no total? Aplique filtros na ordem, sempre do mais objetivo para o mais subjetivo: <strong>segmento</strong> (é do meu nicho?), <strong>porte</strong> (consegue pagar?), <strong>propensão</strong> (compraria?). Cada filtro precisa de fonte ou de premissa escrita.</p>
+      <div class="formula">total × segmento × porte × propensão = clientes possíveis</div>
+    </div></div>
+    <div class="step"><div class="step-n">03</div><div>
+      <h3>Multiplique pelo seu preço, não pelo preço deles</h3>
+      <p>Clientes possíveis × seu ticket anual = o bolo. Note: <strong>é o seu preço que define o tamanho do seu mercado</strong>. Se você dobra o ticket, o bolo dobra — mas o filtro de porte encolhe, porque menos lojas conseguem pagar. As duas coisas se movem juntas, sempre.</p>
+    </div></div>
+    <div class="step"><div class="step-n">04</div><div>
+      <h3>Faça o caminho contrário e confira</h3>
+      <p>Refaça pelo topo: mercado total → seu recorte → % que é seu tipo de cliente → % que vira gasto na sua categoria → % que vira sua receita. <strong>Se os dois números ficarem a menos de 3× um do outro, pode trabalhar.</strong> Se a distância for maior, tem premissa errada — ache antes de decidir qualquer coisa.</p>
+    </div></div>
+    <div class="step"><div class="step-n">05</div><div>
+      <h3>Pare de pensar em "fatia" e calcule capacidade</h3>
+      <p>Em serviço, sua participação não é uma escolha estratégica — é uma consequência aritmética de quanta gente você tem e de quanto tempo o cliente fica. <strong>Fatia de mercado é resultado, nunca meta.</strong> Meta é número de clientes atendidos com qualidade.</p>
+      <div class="formula">teto = MENOR( profissionais × clientes por profissional ,
+              vendas por mês ÷ churn mensal )</div>
+    </div></div>
+    <div class="step"><div class="step-n">06</div><div>
+      <h3>Descubra qual dos dois tetos está te travando</h3>
+      <p>Só um dos dois manda por vez, e <strong>investir no que não está travando é dinheiro jogado fora</strong>. Se o teto de churn é menor, contratar não adianta: arrume a retenção. Se o teto de entrega é menor, vender mais não adianta: você só vai acelerar o churn entregando mal. A calculadora acima diz qual dos dois é o seu, agora.</p>
+    </div></div>
+    <div class="step"><div class="step-n">07</div><div>
+      <h3>Cheque se o cliente se paga</h3>
+      <p>Um teto alto não serve se cada cliente dá prejuízo. O LTV precisa ser pelo menos <strong>três vezes</strong> o custo de aquisição. Com churn de 20% o cliente fica 5 meses; com 6%, fica quase 17. <strong>O mesmo cliente vale três vezes mais só por ficar mais tempo</strong> — e é por isso que retenção é a alavanca financeira mais barata que existe.</p>
+      <div class="formula">LTV = ticket × margem × (1 ÷ churn)</div>
+    </div></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Cronograma</div>
+  <h2>De R$ 30 mil a R$ 265 mil por mês em 24 meses</h2>
+  <p class="lede" style="max-width:66ch">Rota do cenário 3 — a única que cabe no Simples e não depende de milagre comercial. As contratações estão amarradas a gatilho de carteira, não a data: <strong>contrata quando o número de clientes chega, nunca antes.</strong></p>
+  <div class="tw" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Janela</th><th>Foco único</th><th>Gatilho de contratação</th><th>Carteira</th><th>Receita/mês</th></tr></thead>
+      <tbody>
+        <tr><td>Mês 1–3</td><td>Medir churn de verdade e escrever o POP de entrega. Sem POP, capacidade por pessoa não passa de 8</td><td>nenhuma</td><td class="n">6 → 16</td><td class="n">R$ 80 mil</td></tr>
+        <tr><td>Mês 4–6</td><td>Relatório toda segunda, sem exceção. É o que quase custou a Prime</td><td>2ª criação ao passar de 18</td><td class="n">16 → 25</td><td class="n">R$ 125 mil</td></tr>
+        <tr><td>Mês 7–12</td><td>Índice de Vazamento em toda a carteira; upsell de atendimento</td><td>3ª criação ao passar de 40</td><td class="n">25 → 38</td><td class="n">R$ 190 mil</td></tr>
+        <tr><td>Mês 13–18</td><td>Painel do Nicho publicado; benchmark vira canal de entrada</td><td>4ª criação ao passar de 60</td><td class="n">38 → 47</td><td class="n">R$ 235 mil</td></tr>
+        <tr class="hl"><td>Mês 19–24</td><td>Modelar a saída do Simples antes de encostar em R$ 400 mil/mês</td><td>CS dedicado ao passar de 50</td><td class="n">47 → 53</td><td class="n">R$ 265 mil</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:20px">
+    <b>Por que a curva desacelera no fim.</b> Não é pessimismo — é a matemática do estado estacionário. Quanto maior a carteira, mais gente sai em termos absolutos com o mesmo percentual de churn: 6% de 50 clientes são 3 saídas por mês, contra 6% de 10, que é meia. <b>A carteira freia sozinha à medida que cresce</b>, e só cai de churn ou aumento de vendas empurram o teto para cima. Chegar a 150 clientes com 4% de churn leva perto de cinco anos — "a maior do Brasil" é projeto de prazo longo, não de doze meses.
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">O que falta para fechar</div>
+  <h2>Três números que só você tem</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Dado</th><th>Por que muda a conta</th><th>O que usei enquanto isso</th></tr></thead>
+      <tbody>
+        <tr><td>Sua tabela de preços real</td><td>Define o ticket e, junto com ele, o filtro de porte — quanto mais caro, menos lojas cabem</td><td>R$ 5.000/mês, deduzido da meta de R$ 30 mil com 6 clientes</td></tr>
+        <tr><td>Churn medido, não estimado</td><td>É o que define o teto. Entre 20% e 6% a receita varia 7,5×</td><td>20%/mês, inferido dos 17 nomes em 90 dias</td></tr>
+        <tr><td>Custo real de entregar um cliente</td><td>Sem ele não há margem, e sem margem o teto não significa lucro</td><td>40% de margem de contribuição, referência de mercado</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:18px">Com esses três, o modelo deixa de ser estimativa e vira o orçamento da empresa. Os dois primeiros você tem hoje, no extrato e no Organify. O terceiro exige uma hora com o Kauã.</p>
+</section>
+
+<footer>
+  <p><b>Fontes.</b> Varejo de vestuário R$ 314,9 bi em 2025 e 6,4 bi de peças: IEMI. Lojas com CNAE 4781-4/00 ativas em julho de 2026 (1.013.880, 84% microempresa): Receita Federal via consultas de CNPJ. Investimento em marketing por porte: pesquisas de mercado brasileiras de 2026. Faixas de honorário de social media e tráfego para PME: tabelas de precificação de 2026. Churn saudável abaixo de 5% ao mês: benchmark de agências. Números internos da Expansion: <code>OPERACAO-REAL-EXPANSION-2026-07-26.md</code> e o áudio-360 de 26/07.</p>
+  <p><b>O que não consegui verificar.</b> A divisão exata de 42% feminino adulto e 12% infantil é sua, vinda do IEMI — os relatórios são pagos e o domínio está bloqueado neste ambiente. O que é público e bate na ordem de grandeza: produtos infantis representam cerca de 16% do setor têxtil, e o Dia das Crianças de 2025 movimentou R$ 4,97 bi em moda infantil. <b>Mantive os seus 54% e vale registrar que a resposta quase não depende disso:</b> mesmo que o recorte fosse 40% ou 70%, o seu teto continuaria sendo capacidade e churn, não tamanho de mercado.</p>
+  <p><b>Premissas minhas, sujeitas a contestação.</b> 60% do varejo em lojas independentes; 10% das lojas com porte para pagar; 25% de propensão a contratar assessoria; 50% do gasto de marketing virando honorário. Todas estão explícitas nos funis acima justamente para poderem ser trocadas.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var TAM = 1.15e9;              // centro da faixa R$ 0,9–1,4 bi/ano
+  var N0 = 6, MESES = 24;
+
+  var ids = ["ticket","vendas","churn","prof","cap","marg"];
+  var el = {};
+  ids.forEach(function(k){ el[k] = document.getElementById("i-"+k); el["o"+k] = document.getElementById("o-"+k); });
+
+  function brl(v){
+    if(v >= 1e6) return "R$ " + (v/1e6).toFixed(v/1e6 >= 10 ? 1 : 2).replace(".",",") + " mi";
+    if(v >= 1000) return "R$ " + Math.round(v/1000) + " mil";
+    return "R$ " + Math.round(v);
+  }
+  function brlFull(v){ return "R$ " + Math.round(v).toLocaleString("pt-BR"); }
+
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(t,a){ var n=document.createElementNS(NS,t); for(var k in a) n.setAttribute(k,a[k]); return n; }
+
+  function draw(serie, capTeto, churnTeto){
+    var svg = document.getElementById("chart");
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    var W=620, H=260, L=42, R=86, T=16, B=30;
+    var maxY = Math.max(capTeto, churnTeto, serie[serie.length-1]) * 1.15;
+    maxY = Math.max(maxY, 10);
+    function px(i){ return L + i/MESES * (W-L-R); }
+    function py(v){ return H-B - (v/maxY) * (H-B-T); }
+
+    // grade e eixo Y
+    var ticks = 4;
+    for(var g=0; g<=ticks; g++){
+      var val = maxY * g/ticks, y = py(val);
+      svg.appendChild(mk("line",{x1:L,y1:y,x2:W-R,y2:y,stroke:"var(--line)","stroke-width":1}));
+      var tl = mk("text",{x:L-8,y:y+4,"text-anchor":"end","font-family":"var(--mono)","font-size":10,fill:"var(--ink-3)"});
+      tl.textContent = Math.round(val);
+      svg.appendChild(tl);
+    }
+    // eixo X
+    [0,6,12,18,24].forEach(function(m){
+      var tx = mk("text",{x:px(m),y:H-10,"text-anchor":"middle","font-family":"var(--mono)","font-size":10,fill:"var(--ink-3)"});
+      tx.textContent = m === 0 ? "hoje" : "m" + m;
+      svg.appendChild(tx);
+    });
+
+    // linhas de teto — rótulo dentro da área do gráfico, à esquerda,
+    // para nunca disputar espaço com o fim da curva (que converge no teto menor)
+    var tops = [{v:capTeto,c:"var(--s2)",l:"Teto de entrega"},{v:churnTeto,c:"var(--s3)",l:"Teto de churn"}]
+      .sort(function(a,b){ return b.v - a.v; });
+    var yHigh = py(Math.min(tops[0].v, maxY)), yLow = py(Math.min(tops[1].v, maxY));
+    var tight = Math.abs(yLow - yHigh) < 20;
+    tops.forEach(function(o, idx){
+      if(o.v > maxY) return;
+      var y = py(o.v);
+      svg.appendChild(mk("line",{x1:L,y1:y,x2:W-R,y2:y,stroke:o.c,"stroke-width":2,"stroke-dasharray":"5 4","stroke-opacity":.9}));
+      // o de baixo desce o rótulo quando os dois ficam colados
+      var ly = (idx === 1 && tight) ? y + 13 : y - 6;
+      var t1 = mk("text",{x:L+7,y:ly,"font-family":"var(--mono)","font-size":10.5,"font-weight":600,fill:o.c});
+      t1.textContent = o.l + " · " + Math.round(o.v);
+      svg.appendChild(t1);
+    });
+
+    // curva
+    var d = serie.map(function(v,i){ return (i?"L":"M") + px(i).toFixed(1) + " " + py(v).toFixed(1); }).join(" ");
+    svg.appendChild(mk("path",{d:d,fill:"none",stroke:"var(--s1)","stroke-width":2.5,"stroke-linejoin":"round","stroke-linecap":"round"}));
+    var last = serie[serie.length-1];
+    var ly2 = py(last);
+    svg.appendChild(mk("circle",{cx:px(MESES),cy:ly2,r:4,fill:"var(--s1)",stroke:"var(--ground)","stroke-width":2}));
+    var lb = mk("text",{x:px(MESES)+8,y:ly2+4,"font-family":"var(--mono)","font-size":11.5,"font-weight":600,fill:"var(--s1)"});
+    lb.textContent = Math.round(last);
+    svg.appendChild(lb);
+    var lb2 = mk("text",{x:px(MESES)+8,y:ly2+16,"font-family":"var(--sans)","font-size":9.5,fill:"var(--ink-3)"});
+    lb2.textContent = "no mês 24";
+    svg.appendChild(lb2);
+  }
+
+  function run(){
+    var ticket = +el.ticket.value, vendas = +el.vendas.value,
+        churn = +el.churn.value/100, prof = +el.prof.value,
+        cap = +el.cap.value, marg = +el.marg.value/100;
+
+    el.oticket.textContent = brlFull(ticket);
+    el.ovendas.textContent = vendas + "/mês";
+    el.ochurn.textContent = (churn*100).toFixed(0) + "%";
+    el.oprof.textContent = prof;
+    el.ocap.textContent = cap;
+    el.omarg.textContent = (marg*100).toFixed(0) + "%";
+
+    var capTeto = prof * cap;
+    var churnTeto = vendas / churn;
+    var teto = Math.min(capTeto, churnTeto);
+    var receita = teto * ticket;
+    var share = receita * 12 / TAM * 100;
+    var ltv = ticket * marg / churn;
+    var vidaMeses = 1/churn;
+
+    // trajetória, limitada pela capacidade de entrega
+    var serie = [N0], n = N0;
+    for(var m=1; m<=MESES; m++){
+      n = n * (1-churn) + vendas;
+      if(n > capTeto) n = capTeto;
+      serie.push(n);
+    }
+
+    document.getElementById("k-teto").textContent = Math.round(teto);
+    document.getElementById("k-rec").textContent = brl(receita);
+    document.getElementById("k-recano").textContent = brl(receita*12) + " por ano";
+    document.getElementById("k-share").textContent = share.toFixed(share < 1 ? 2 : 1).replace(".",",") + "%";
+    document.getElementById("k-ltv").textContent = brl(ltv);
+    document.getElementById("k-meses").textContent = "cliente fica " + vidaMeses.toFixed(1) + " meses";
+
+    var gargalo = capTeto <= churnTeto ? "entrega" : "churn";
+    var vt = document.getElementById("v-title"), vx = document.getElementById("v-text");
+    var bl = document.getElementById("bindLabel");
+
+    if(gargalo === "entrega"){
+      vt.innerHTML = 'Seu gargalo é a <b>ENTREGA</b>';
+      vx.innerHTML = "Você aguenta " + Math.round(capTeto) + " clientes e a retenção comportaria " +
+        Math.round(churnTeto) + ". Vender mais agora só acelera o churn — o cliente entra, é mal atendido e sai. " +
+        "<strong>Contratar ou criar POP levanta o teto para " + Math.round(Math.min(churnTeto, capTeto + cap)) + ".</strong>";
+      bl.textContent = "gargalo: entrega";
+    } else {
+      vt.innerHTML = 'Seu gargalo é o <b>CHURN</b>';
+      var alvo = vendas / Math.max(0.02, churn - 0.05);
+      vx.innerHTML = "Sua estrutura aguenta " + Math.round(capTeto) + " clientes, mas a retenção trava em " +
+        Math.round(churnTeto) + ". <strong>Contratar não muda nada</strong> — o teto continua " + Math.round(churnTeto) +
+        ". Cair 5 pontos de churn levaria a " + Math.round(Math.min(alvo, capTeto)) + " sem vender um cliente a mais.";
+      bl.textContent = "gargalo: churn";
+    }
+
+    draw(serie, capTeto, churnTeto);
+  }
+
+  ids.forEach(function(k){ el[k].addEventListener("input", run); });
+  run();
+})();
+</script>

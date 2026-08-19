@@ -1,0 +1,345 @@
+<title>Mercado × Produtos × Capacidade — o teto de 2026</title>
+<style>
+:root{
+  color-scheme: light;
+  --ground:#FFFFFF; --surface:#F5F3F8; --surface-2:#EDEAF3;
+  --line:#DDD8E6; --line-strong:#C4BCD6;
+  --ink:#191420; --ink-2:#4E465C; --ink-3:#7A7189;
+  --accent:#D6004F; --accent-soft:#FDE7EF;
+  --warn:#A65200; --warn-soft:#FBEEDD;
+  --ok:#0F7A52; --ok-soft:#E3F5EC;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#141019; --surface:#1D1925; --surface-2:#262031;
+    --line:#302939; --line-strong:#453C52;
+    --ink:#F0ECF5; --ink-2:#B0A7BE; --ink-3:#847A93;
+    --accent:#FF3D78; --accent-soft:#3A1122;
+    --warn:#E0922F; --warn-soft:#33240F;
+    --ok:#3DD68C; --ok-soft:#0E2A1E;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#141019; --surface:#1D1925; --surface-2:#262031;
+  --line:#302939; --line-strong:#453C52;
+  --ink:#F0ECF5; --ink-2:#B0A7BE; --ink-3:#847A93;
+  --accent:#FF3D78; --accent-soft:#3A1122;
+  --warn:#E0922F; --warn-soft:#33240F;
+  --ok:#3DD68C; --ok-soft:#0E2A1E;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+}
+:root{
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.narrow{max-width:660px}
+.num{font-variant-numeric:tabular-nums}
+.mast{border-bottom:1px solid var(--line);padding:44px 0 30px;margin-bottom:44px}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.kicker span:not(:first-child){color:var(--ink-3)}
+h1{font-family:var(--mono);font-weight:600;font-size:clamp(28px,5vw,46px);line-height:1.07;letter-spacing:-.03em;margin:0 0 20px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.dek{font-size:clamp(17px,2.1vw,20px);color:var(--ink-2);max-width:63ch;margin:0}
+.dek strong{color:var(--ink);font-weight:600}
+section{margin:0 0 64px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:12px;margin:0 0 18px}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+h2{font-family:var(--mono);font-weight:600;font-size:clamp(21px,3vw,28px);letter-spacing:-.02em;line-height:1.2;margin:0 0 16px;text-wrap:balance}
+h3{font-family:var(--mono);font-weight:600;font-size:16px;margin:0 0 9px}
+p{margin:0 0 16px;max-width:66ch}
+p:last-child{margin-bottom:0}
+.lede{font-size:19px;color:var(--ink-2)}
+strong{font-weight:600}
+code{font-family:var(--mono);font-size:.92em;background:var(--surface-2);padding:1px 5px;border-radius:2px}
+
+.tw{overflow-x:auto;border-radius:4px}
+table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:14px;min-width:680px}
+th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;padding:10px 13px;background:var(--surface);border:1px solid var(--line)}
+td{padding:12px 13px;border:1px solid var(--line);vertical-align:top;line-height:1.45;color:var(--ink-2)}
+td:first-child{color:var(--ink);font-weight:600}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+td.neg{color:var(--accent);font-weight:600}
+td.pos{color:var(--ok);font-weight:600}
+tr.hl td{background:var(--accent-soft)}
+tr.okrow td{background:var(--ok-soft)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.card{background:var(--ground);padding:22px 20px}
+.ptag{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;padding:4px 9px;border-radius:2px;display:inline-block;margin-bottom:13px;font-weight:600}
+.t-ok{background:var(--ok-soft);color:var(--ok);border:1px solid var(--ok)}
+.t-bad{background:var(--accent);color:#fff}
+.t-warn{background:var(--warn-soft);color:var(--warn);border:1px solid var(--warn)}
+.big{font-family:var(--mono);font-size:clamp(25px,3.4vw,32px);font-weight:600;letter-spacing:-.035em;line-height:1.05;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.card p{font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--ink-2);margin-bottom:9px}
+.card dl{margin:12px 0 0;font-family:var(--sans);font-size:13px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px}
+.card dt{color:var(--ink-3)}
+.card dd{margin:0;text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink-2)}
+
+.flow{border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.flow-h{background:var(--surface-2);padding:12px 18px;font-family:var(--mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-2);border-bottom:1px solid var(--line)}
+.frow{display:grid;grid-template-columns:118px 1fr 132px 108px;gap:16px;padding:15px 18px;border-bottom:1px solid var(--line);align-items:center}
+.frow:last-child{border-bottom:none}
+.frow.head{background:var(--surface);font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);padding-top:9px;padding-bottom:9px}
+.fp{font-family:var(--mono);font-size:14px;font-weight:600}
+.fd{font-family:var(--sans);font-size:13.5px;line-height:1.42;color:var(--ink-2)}
+.fn{font-family:var(--mono);font-size:14px;text-align:right;font-variant-numeric:tabular-nums}
+@media(max-width:800px){.frow{grid-template-columns:1fr 1fr;gap:6px 12px}.frow.head{display:none}.fd{grid-column:1/-1}}
+
+.pull{border-left:3px solid var(--accent);padding:4px 0 4px 22px;margin:26px 0;font-size:19px;line-height:1.5;max-width:60ch}
+.pull small{display:block;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.5}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:16px 18px;font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.note b{color:var(--ink)}
+.note.hot{border-color:var(--accent)}
+.note.warn{border-color:var(--warn)}
+.formula{font-family:var(--mono);font-size:13.5px;background:var(--surface);border-left:3px solid var(--accent);padding:12px 15px;margin:14px 0;border-radius:0 3px 3px 0;overflow-x:auto;white-space:pre;line-height:1.6;color:var(--ink)}
+svg.ch{display:block;width:100%;height:auto}
+.chartbox{border:1px solid var(--line);border-radius:4px;padding:16px 16px 10px;background:var(--ground)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:12px;color:var(--ink-2);padding:0 4px 10px}
+.legend b{display:inline-block;width:16px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+footer{border-top:1px solid var(--line);padding:30px 0 60px;margin-top:20px;font-family:var(--sans);font-size:13px;color:var(--ink-3);line-height:1.6}
+footer p{max-width:70ch}
+footer b{color:var(--ink-2)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker"><span>Concatenação</span><span>Mercado × Produtos × Capacidade</span><span>08/08/2026</span></div>
+  <h1>Seu teto de 2026 não é o mercado.<br>É <em>um designer</em>.</h1>
+  <p class="dek">Cruzei o estudo de mercado com o <code>business-model/</code> que você já construiu. O nicho comporta muito mais do que você vende. O time atual comporta <strong>nove clientes</strong>. E dois dos três produtos, nos preços que você me passou, <strong>perdem dinheiro a cada venda</strong>.</p>
+</header>
+
+<section>
+  <div class="eyebrow">Primeiro, uma divergência que precisa ser resolvida</div>
+  <h2>Os preços que você falou não são os do plano</h2>
+  <p class="lede" style="max-width:66ch">Você me passou 1.800 / 3.500 / 5.500. O <code>14-PLANO-DE-PRODUTOS-E-PRECOS.md</code>, de 05/08, chegou em outros números — por três métodos independentes que convergiram.</p>
+  <div class="tw" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Produto</th><th>Você falou</th><th>Piso do plano</th><th>Alvo do plano</th><th>Diferença para o piso</th></tr></thead>
+      <tbody>
+        <tr><td>X1 · Método</td><td class="n">R$ 1.800</td><td class="n">R$ 1.500</td><td class="n">R$ 2.500</td><td class="n pos">+R$ 300 acima</td></tr>
+        <tr class="hl"><td>X2 · Operação</td><td class="n">R$ 3.500</td><td class="n">R$ 5.000</td><td class="n">R$ 6.000</td><td class="n neg">−R$ 1.500 abaixo</td></tr>
+        <tr class="hl"><td>X3 · Performance</td><td class="n">R$ 5.500</td><td class="n">R$ 8.000</td><td class="n">R$ 10.000</td><td class="n neg">−R$ 2.500 abaixo</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:18px">O X1 está bem posicionado. <strong>O X2 e o X3 estão um degrau inteiro abaixo do que o próprio plano definiu</strong> — e o plano não chutou esses pisos: o Conselho de 13/07, a regra dos 30% do Alfredo e a faixa de mercado brasileira caíram todos na mesma faixa de R$ 5.000–6.000 para o nível "eu faço para você".</p>
+  <div class="note hot" style="margin-top:16px"><b>Trabalhei com os seus números</b>, porque são a decisão mais recente e é o que você quer ver. Mas o resto deste documento mostra o que eles produzem — e é por isso que o plano tinha colocado o piso onde colocou.</div>
+</section>
+
+<section>
+  <div class="eyebrow">A pergunta do lucro</div>
+  <h2>O que sobra de cada produto</h2>
+  <p class="lede" style="max-width:66ch">Custo montado pela razão de atendimento de cada função no plano — quantos perfis cada profissional carrega — vezes o custo mensal carregado dele. A estrutura de despesa é a do próprio orçamento de cima para baixo do plano.</p>
+
+  <div class="formula">custo de entrega por cliente = Σ ( custo do profissional ÷ quantos perfis ele carrega )
+
+demais despesas = 33,58% da receita
+   impostos 15,58% · ferramentas 8% · comercial 10%</div>
+
+  <p>Razões de atendimento vindas do plano: social media carrega 6 perfis no X2 e 15 no X1; editor carrega 4,6; designer carrega 3,9; tráfego carrega 22; operador de conversa do X3 carrega 1,5.</p>
+
+  <div class="cards" style="margin-top:22px">
+    <div class="card">
+      <span class="ptag t-ok">Lucrativo</span>
+      <h3>X1 · Método — R$ 1.800</h3>
+      <div class="big" style="color:var(--ok)">+R$ 896</div>
+      <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)">de lucro por cliente/mês · <b style="color:var(--ok)">49,8%</b></p>
+      <p>Bate com os 47% que você mediu — o que valida o modelo inteiro. Só consome estrategista, a 15 clientes por pessoa. Sem designer, sem editor, sem filmagem.</p>
+      <dl>
+        <dt>Custo de entrega</dt><dd>R$ 300</dd>
+        <dt>Demais despesas</dt><dd>R$ 604</dd>
+        <dt>Sobra</dt><dd style="color:var(--ok)">R$ 896</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <span class="ptag t-bad">Prejuízo</span>
+      <h3>X2 · Operação — R$ 3.500</h3>
+      <div class="big" style="color:var(--accent)">−R$ 762</div>
+      <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)">por cliente/mês, a salário de mercado</p>
+      <p>Só a mão de obra direta consome <strong>88% do preço</strong>. Cada cliente novo de X2 aumenta o faturamento e diminui o caixa. A R$ 5.000 vira +R$ 234; a R$ 6.000, +R$ 898.</p>
+      <dl>
+        <dt>Custo de entrega</dt><dd>R$ 3.087</dd>
+        <dt>Demais despesas</dt><dd>R$ 1.175</dd>
+        <dt>Sobra</dt><dd style="color:var(--accent)">−R$ 762</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <span class="ptag t-bad">Prejuízo</span>
+      <h3>X3 · Performance — R$ 5.500</h3>
+      <div class="big" style="color:var(--accent)">−R$ 2.434</div>
+      <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)">por cliente/mês, a salário de mercado</p>
+      <p>É o X2 mais um operador de conversa que carrega 1,5 cliente. Só esse operador custa R$ 3.000 por cliente. A mão de obra sozinha passa de <strong>111% do preço</strong>.</p>
+      <dl>
+        <dt>Custo de entrega</dt><dd>R$ 6.087</dd>
+        <dt>Demais despesas</dt><dd>R$ 1.847</dd>
+        <dt>Sobra</dt><dd style="color:var(--accent)">−R$ 2.434</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="note warn" style="margin-top:20px"><b>A ressalva que muda o sinal.</b> Isso é a salário de mercado, cerca de R$ 4.500 carregados por profissional. Pagando júnior a R$ 3.000, o custo do X2 cai para R$ 2.058 e ele vira <b>+R$ 269</b> por cliente — positivo, mas magro. É literalmente o que o CFO do conselho escreveu em 13/07: <em>"o modelo só fecha contratando gente barata e júnior. Gente barata e júnior não dá conta. Não dá conta, sai."</em> <b>O giro do time é o preço do ticket.</b> Você não está escolhendo entre margem e salário — está escolhendo entre margem e rotatividade.</div>
+</section>
+
+<section>
+  <div class="eyebrow">A pergunta do teto</div>
+  <h2>Quanto dá para faturar até 31/12/2026</h2>
+  <p class="lede" style="max-width:66ch">Restam <strong>4,7 meses</strong>. O limite não é demanda — é quantas entregas cabem no time, e o time tem um gargalo só.</p>
+
+  <div class="flow" style="margin-top:22px">
+    <div class="flow-h">Capacidade instalada hoje · razões do plano §6</div>
+    <div class="frow head"><div>Função</div><div>Quantos perfis cada um carrega</div><div>Time atual</div><div>Capacidade</div></div>
+    <div class="frow"><div class="fp">Editor</div><div class="fd">4,6 perfis de X2/X3 por editor</div><div class="fn">3 pessoas</div><div class="fn" style="color:var(--ok)">13,8</div></div>
+    <div class="frow"><div class="fp" style="color:var(--accent)">Designer</div><div class="fd">3,9 perfis por designer — <strong>e há 1, a R$ 650/mês</strong></div><div class="fn">1 pessoa</div><div class="fn" style="color:var(--accent)">3,9</div></div>
+    <div class="frow"><div class="fp">Social media</div><div class="fd">6 perfis de X2, ou 15 de X1</div><div class="fn">1 pessoa</div><div class="fn">6,0</div></div>
+    <div class="frow"><div class="fp">Tráfego</div><div class="fd">22 perfis por gestor</div><div class="fn">1 pessoa</div><div class="fn" style="color:var(--ok)">22,0</div></div>
+  </div>
+
+  <div class="pull">
+    O editor comporta 14 clientes. O tráfego comporta 22. O designer comporta 4.
+    <small>Você tem três editores ociosos em capacidade e um designer estrangulado, ganhando R$ 650 por mês — 64% abaixo do piso júnior de mercado. <strong>Todo o seu crescimento de 2026 passa por essa única cadeira.</strong> E como o X1 não consome designer nenhum, ele é a única coisa que você pode vender hoje sem esbarrar nela.</small>
+  </div>
+
+  <div class="tw" style="margin-top:24px">
+    <table>
+      <thead><tr><th>Configuração</th><th>X2/X3 possíveis</th><th>X1 possíveis</th><th>Clientes</th><th>Receita/mês</th><th>Lucro/mês</th></tr></thead>
+      <tbody>
+        <tr><td>Time de hoje</td><td class="n">4</td><td class="n">5</td><td class="n">9</td><td class="n">R$ 23.000</td><td class="n pos">+R$ 1,4 mil</td></tr>
+        <tr class="hl"><td>+1 designer, usando a capacidade nova</td><td class="n">6</td><td class="n">0</td><td class="n">6</td><td class="n">R$ 21.000</td><td class="n neg">−R$ 4,6 mil</td></tr>
+        <tr class="okrow"><td>+1 designer +1 social media</td><td class="n">8</td><td class="n">10</td><td class="n">18</td><td class="n">R$ 46.000</td><td class="n pos">+R$ 2,9 mil</td></tr>
+        <tr class="okrow"><td>Mesmo time, X2 a R$ 6.000</td><td class="n">8</td><td class="n">10</td><td class="n">18</td><td class="n">R$ 66.000</td><td class="n pos">+R$ 16,1 mil</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note warn" style="margin-top:18px"><b>Leia a linha 2, que é contraintuitiva.</b> Contratar um designer e usar a capacidade nova <b>piora o lucro</b> — de +R$ 1,4 mil para −R$ 4,6 mil. Porque o designer só destrava X2, e cada X2 dá prejuízo; para entregá-los, a social media abandona as vagas de X1, que são as lucrativas. <b>Você trocaria cinco clientes que dão dinheiro por dois que tiram.</b> Enquanto o X2 estiver a R$ 3.500, a decisão racional é não usar a capacidade que você acabou de comprar — o que é a definição de contratar cedo demais.</div>
+
+  <div class="note hot" style="margin-top:14px"><b>Agora compare as duas últimas linhas.</b> Mesmo time, mesma capacidade, mesmos 18 clientes. A única diferença é o X2 sair de R$ 3.500 para R$ 6.000 — o alvo que o próprio plano já tinha definido. <b>O lucro vai de R$ 2,9 mil para R$ 16,1 mil por mês.</b> Contratar duas pessoas te dá R$ 23 mil de receita; corrigir um preço te dá R$ 13 mil de lucro. A segunda é de graça — e sem ela a primeira trabalha contra você.</div>
+</section>
+
+<section>
+  <div class="eyebrow">Onde o calendário entra</div>
+  <h2>Você tem 2,5 meses de venda, não 4,7</h2>
+  <p class="lede" style="max-width:66ch">Aqui o estudo de mercado encosta no plano de produtos. De 16/08 a 25/10 o leilão do Meta está tomado pela eleição, e dezembro não fecha contrato B2B. A janela real é <strong>esta semana, novembro e a primeira quinzena de dezembro</strong>.</p>
+
+  <div class="chartbox" style="margin-top:22px">
+    <div class="legend">
+      <span style="color:var(--s1)"><b style="background:var(--s1)"></b>Receita mensal projetada</span>
+      <span style="color:var(--s2)"><b style="background:var(--s2)"></b>Janela eleitoral · aquisição cara</span>
+    </div>
+    <svg class="ch" viewBox="0 0 620 230" role="img" aria-label="Projeção de receita mensal de agosto a dezembro de 2026 com a janela eleitoral destacada">
+      <rect x="147" y="16" width="207" height="158" fill="var(--s2)" fill-opacity=".1"></rect>
+      <text x="250" y="30" text-anchor="middle" font-family="var(--mono)" font-size="10" letter-spacing="0.12em" fill="var(--s2)">CPM INFLADO</text>
+      <line x1="46" y1="174" x2="600" y2="174" stroke="var(--line-strong)" stroke-width="1"></line>
+      <line x1="46" y1="42" x2="600" y2="42" stroke="var(--line)" stroke-width="1"></line>
+      <line x1="46" y1="86" x2="600" y2="86" stroke="var(--line)" stroke-width="1"></line>
+      <line x1="46" y1="130" x2="600" y2="130" stroke="var(--line)" stroke-width="1"></line>
+      <text x="38" y="46" text-anchor="end" font-family="var(--mono)" font-size="10" fill="var(--ink-3)">40k</text>
+      <text x="38" y="90" text-anchor="end" font-family="var(--mono)" font-size="10" fill="var(--ink-3)">27k</text>
+      <text x="38" y="134" text-anchor="end" font-family="var(--mono)" font-size="10" fill="var(--ink-3)">13k</text>
+      <text x="38" y="178" text-anchor="end" font-family="var(--mono)" font-size="10" fill="var(--ink-3)">0</text>
+      <path d="M64 115 L198 112 L332 112 L466 82 L570 62" fill="none" stroke="var(--s1)" stroke-width="2.5" stroke-linejoin="round"></path>
+      <circle cx="64" cy="115" r="4" fill="var(--s1)" stroke="var(--ground)" stroke-width="2"></circle>
+      <circle cx="198" cy="112" r="4" fill="var(--s1)" stroke="var(--ground)" stroke-width="2"></circle>
+      <circle cx="332" cy="112" r="4" fill="var(--s1)" stroke="var(--ground)" stroke-width="2"></circle>
+      <circle cx="466" cy="82" r="4" fill="var(--s1)" stroke="var(--ground)" stroke-width="2"></circle>
+      <circle cx="570" cy="62" r="5" fill="var(--s1)" stroke="var(--ground)" stroke-width="2"></circle>
+      <text x="64" y="200" text-anchor="middle" font-family="var(--mono)" font-size="10.5" fill="var(--ink-3)">AGO</text>
+      <text x="198" y="200" text-anchor="middle" font-family="var(--mono)" font-size="10.5" fill="var(--ink-3)">SET</text>
+      <text x="332" y="200" text-anchor="middle" font-family="var(--mono)" font-size="10.5" fill="var(--ink-3)">OUT</text>
+      <text x="466" y="200" text-anchor="middle" font-family="var(--mono)" font-size="10.5" fill="var(--ink-3)">NOV</text>
+      <text x="570" y="200" text-anchor="middle" font-family="var(--mono)" font-size="10.5" fill="var(--ink-3)">DEZ</text>
+      <text x="64" y="106" text-anchor="middle" font-family="var(--mono)" font-size="10.5" font-weight="600" fill="var(--ink)">18k</text>
+      <text x="198" y="103" text-anchor="middle" font-family="var(--mono)" font-size="10.5" font-weight="600" fill="var(--ink)">19k</text>
+      <text x="332" y="103" text-anchor="middle" font-family="var(--mono)" font-size="10.5" font-weight="600" fill="var(--ink)">19k</text>
+      <text x="466" y="73" text-anchor="middle" font-family="var(--mono)" font-size="10.5" font-weight="600" fill="var(--ink)">28k</text>
+      <text x="570" y="53" text-anchor="middle" font-family="var(--mono)" font-size="10.5" font-weight="600" fill="var(--accent)">34k</text>
+    </svg>
+  </div>
+
+  <div class="cards" style="margin-top:22px">
+    <div class="card">
+      <span class="ptag t-warn">Soma do período</span>
+      <div class="big">R$ 118 mil</div>
+      <p>Faturado entre agosto e dezembro de 2026, no cenário realista — designer contratado em setembro, preços como estão, churn de 12%.</p>
+    </div>
+    <div class="card">
+      <span class="ptag t-warn">Saída de 2026</span>
+      <div class="big">R$ 34 mil<span style="font-size:16px;color:var(--ink-3)">/mês</span></div>
+      <p>MRR de dezembro, com cerca de 12 clientes. É o dobro dos R$ 16 mil de julho — e ainda menos da metade do teto de R$ 66 mil que o preço corrigido destravaria.</p>
+    </div>
+    <div class="card">
+      <span class="ptag t-bad">Se corrigir o X2 agora</span>
+      <div class="big" style="color:var(--ok)">R$ 152 mil</div>
+      <p>Mesmo cenário, X2 a R$ 6.000 nos contratos novos. <strong>+R$ 34 mil no período</strong> sem vender um cliente a mais nem contratar ninguém além do designer.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">A pergunta do ICP</div>
+  <h2>Quem atrair no tráfego, por produto</h2>
+  <p class="lede" style="max-width:66ch">A régua é a mesma do plano: marketing consome de 5% a 10% do faturamento de um varejo. Invertendo, o preço do produto revela o faturamento mínimo da loja. Cruzei com a base de 608 mil lojas de moda feminina e infantil do estudo de mercado.</p>
+
+  <div class="tw" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Produto</th><th>A loja precisa faturar</th><th>Porte</th><th>Lojas no Brasil</th><th>Sinal para segmentar</th></tr></thead>
+      <tbody>
+        <tr><td>X1 · R$ 1.800</td><td class="n">R$ 18–36 mil/mês</td><td>ME saindo do MEI</td><td class="n">~50 mil</td><td>1 loja física, Instagram de 3–15 mil, vende por direct, sem site</td></tr>
+        <tr><td>X2 · R$ 3.500</td><td class="n">R$ 35–70 mil/mês</td><td>ME consolidada</td><td class="n">~28 mil</td><td>2+ pontos ou loja + e-commerce, já roda anúncio, tem quem responda o WhatsApp</td></tr>
+        <tr><td>X3 · R$ 5.500</td><td class="n">R$ 55–110 mil/mês</td><td>EPP</td><td class="n">~15 mil</td><td>equipe de vendas própria, verba de mídia acima de R$ 3 mil, marca com nome no polo</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note hot" style="margin-top:20px"><b>A conclusão desconfortável que já estava no seu plano, agora com o número do mercado.</b> A Ciés paga R$ 1.333/mês e não sustenta R$ 1.000 de verba. Uma loja assim fatura bem abaixo de R$ 35 mil/mês — <b>ela não é ICP do X2, é ICP do X1.</b> O mesmo provavelmente vale para a Clau Kids. Você não tem um problema de entrega com essas duas contas: tem um problema de produto errado vendido para o porte errado.</div>
+
+  <h3 style="margin-top:34px">Como achar essas lojas no Meta</h3>
+  <p>Segmentação por faturamento não existe no gerenciador. Então a estratégia é <strong>atrair largo e qualificar no formulário</strong> — e você já tem a ferramenta para isso.</p>
+  <div class="flow" style="margin-top:18px">
+    <div class="flow-h">Parâmetros de campanha por camada</div>
+    <div class="frow head"><div>Camada</div><div>O que usar</div><div>Por quê</div><div>Custo relativo</div></div>
+    <div class="frow"><div class="fp">Geografia</div><div class="fd">Polos de moda: Goiânia, Brás e Bom Retiro, Fortaleza, Blumenau e Brusque, Caruaru e Toritama, Divinópolis, Cianorte, Nova Friburgo</div><div class="fn">densidade de loja real por km²</div><div class="fn" style="color:var(--ok)">baixo</div></div>
+    <div class="frow"><div class="fp">Interesse</div><div class="fd">Softwares de gestão de loja, maquininhas, feiras do setor, fornecedores de atacado — não "moda"</div><div class="fd">quem segue fornecedor é lojista; quem segue moda é consumidora</div><div class="fn" style="color:var(--ok)">baixo</div></div>
+    <div class="frow"><div class="fp">Qualificação</div><div class="fd">Pergunta de faturamento no formulário, com as três faixas da tabela acima</div><div class="fd">é o único filtro de porte que funciona de fato</div><div class="fn">—</div></div>
+    <div class="frow"><div class="fp">Roteamento</div><div class="fd">Skill <code>detalhamento-mql</code> classifica o CSV do Meta por faixa e devolve o produto certo por lead</div><div class="fd">você já tem construída — está parada</div><div class="fn" style="color:var(--ok)">zero</div></div>
+  </div>
+  <div class="note" style="margin-top:18px"><b>O ajuste de calendário.</b> Rodar aquisição fria entre 16/08 e 25/10 é pagar CPM eleitoral para achar lojista. Nesta janela, o certo é <b>captar lista com o X1 como isca</b> — produto barato, sem designer, que cabe na capacidade de hoje — e usar novembro, com o leilão normalizado, para subir a base de X1 para X2.</div>
+</section>
+
+<section>
+  <div class="eyebrow">A ordem das coisas</div>
+  <h2>O que fazer, em ordem de retorno</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>#</th><th>Ação</th><th>Custo</th><th>Vale</th><th>Quando</th></tr></thead>
+      <tbody>
+        <tr class="okrow"><td>1</td><td>Travar X2 em R$ 6.000 e X3 em R$ 8.000 nos contratos novos</td><td class="n">R$ 0</td><td class="n pos">+R$ 13 mil/mês</td><td>esta semana</td></tr>
+        <tr><td>2</td><td>Captar lista com X1 antes de 16/08, quando o CPM eleitoral sobe</td><td class="n">verba atual</td><td class="n">janela de 8 dias</td><td>até 15/08</td></tr>
+        <tr><td>3</td><td>Reclassificar Ciés e Clau Kids de X2 para X1 — produto certo para o porte delas</td><td class="n">R$ 0</td><td class="n pos">para de sangrar</td><td>na renovação</td></tr>
+        <tr><td>4</td><td>Contratar o 2º designer — é a única cadeira que trava tudo</td><td class="n">~R$ 4 mil/mês</td><td class="n pos">+4 perfis de X2</td><td>setembro</td></tr>
+        <tr><td>5</td><td>Contratar a 2ª social media</td><td class="n">~R$ 3,9 mil/mês</td><td class="n pos">+10 vagas de X1</td><td>outubro</td></tr>
+        <tr><td>6</td><td>Ligar a skill <code>detalhamento-mql</code> no roteamento por faixa de faturamento</td><td class="n">R$ 0</td><td class="n pos">produto certo por lead</td><td>setembro</td></tr>
+        <tr><td>7</td><td>Cronometrar horas por produto — as duas tabelas do <code>04</code> resolvem em 15 min</td><td class="n">R$ 0</td><td class="n">troca estimativa por medição</td><td>esta semana</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note" style="margin-top:18px"><b>A número 1 é a de maior retorno da lista e custa zero.</b> As contratações vêm depois porque, aos preços de hoje, contratar para entregar X2 aumenta o prejuízo em vez de reduzir. <b>Primeiro o preço, depois a capacidade.</b> Na ordem inversa você financia o próprio buraco.</div>
+</section>
+
+<footer>
+  <p><b>De onde vem cada número.</b> Preços, razões de atendimento, estrutura de orçamento, célula-alvo e o ICP por faixa de faturamento: <code>business-model/14-PLANO-DE-PRODUTOS-E-PRECOS.md</code>, de 05/08/2026, na branch <code>claude/new-session-nx502g</code>. Base de 608 mil lojas de moda feminina e infantil e o mercado de R$ 1,15 bi: <code>DIMENSIONAMENTO-MERCADO-EXPANSION-2026-08-08.md</code>. Janela eleitoral de 16/08 a 25/10 e o efeito no CPM: <code>MERCADO-MODA-FEMININA-RADAR-2026-08-08.md</code>. Faixas salariais e a tese de que o giro do time é o preço do ticket: <code>CONSELHO-EXPANSION-ANEXOS-2026-07-13.md</code>. Receita de julho, carteira e verba da Ciés: <code>OPERACAO-REAL-EXPANSION-2026-07-26.md</code>.</p>
+  <p><b>O que ainda é estimativa.</b> As razões de atendimento nunca foram cronometradas — o próprio plano registra isso como lacuna nº 1 e nº 2. Se o ratio real do X2 for 1,5 em vez de 2–3, o prejuízo por cliente é maior que os R$ 762 calculados aqui. O custo carregado de R$ 4.500 por profissional é o meio das faixas de mercado do conselho, não a folha real da casa. <b>Nenhum número deste documento substitui a medição de 15 minutos que destrava os dois.</b></p>
+  <p><b>O que muda o sinal do X2.</b> A conta de prejuízo pressupõe salário de mercado. A junior, o X2 fica levemente positivo — e é exatamente esse o trade-off que o conselho já tinha nomeado: margem ou rotatividade, não os dois.</p>
+</footer>
+
+</div>
