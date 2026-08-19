@@ -1,6 +1,7 @@
 <title>Estúdio Expansion</title>
+<script type="application/json" id="estado-salvo">null</script>
+<style id="faces">/*__FACES__*/</style>
 <style>
-/*__FACES__*/
 
 /* Chrome escuro de ferramenta, de propósito: o canvas é do cliente,
    a interface sai da frente. Tema único, tudo pintado explicitamente. */
@@ -212,6 +213,14 @@ label.rot{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1
 .fundo-op:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
 
 /* ---------- templates ---------- */
+/* Salvar publica uma nova versão da própria página, com o estado dentro.
+   Quem abrir a mesma URL em outro dispositivo pega de onde parou. */
+.salvar-caixa{margin-left:auto;display:flex;align-items:center;gap:10px}
+.salvar-est{font-family:var(--mono);font-size:10px;color:var(--fraco);letter-spacing:.05em}
+.salvar-est.sujo{color:var(--expansion)}
+.salvar-est.erro{color:#E2574C}
+#btn-salvar[disabled]{opacity:.5;cursor:default}
+
 .modos{display:flex;gap:6px;margin-bottom:14px}
 .modo{background:var(--campo);border:1px solid var(--linha);color:var(--meio);
   font-family:var(--ui);font-size:12.5px;font-weight:550;padding:8px 15px;border-radius:7px;
@@ -324,6 +333,10 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
   <div class="topo-linha">
     <div class="marca-app"><strong>Estúdio</strong><span>EXPANSION · v0</span></div>
     <div class="trilha" id="trilha"></div>
+  <div class="salvar-caixa">
+    <span class="salvar-est" id="salvar-est"></span>
+    <button class="btn" id="btn-salvar" type="button" hidden>Salvar</button>
+  </div>
   </div>
 </div>
 
@@ -603,7 +616,7 @@ const molde = c => c.logoFundo==='claro' ? '#FFFFFF'
                : c.logoFundo==='escuro' ? '#101216'
                : 'transparent';
 
-const CLIENTES = [
+let CLIENTES = [
   { id:'expansion', nome:'Expansion', handle:'@assessoriaexpansion', marca:'EXPANSION', cta:'DIAGNÓSTICO',
     direito:'2026 ®', nicho:'Marketing para lojas de roupas femininas', escuro:'#000000',
     accent:'#FF9901', claro:'#F0EEEC', head:'Montserrat', body:'Poppins', logo:null,
@@ -1080,6 +1093,7 @@ function pintarCapas(){
    no bloco `texto 1` e o carrossel passa a começar por ela. Sem isso, escolher
    a capa seria só marcar um favorito. */
 function escolheCapa(h){
+  marcaSujo();
   peca.capa = h;
   const linhas = (peca.txt || '').split('\n');
   const nova = 'texto 1 - ' + semMarca(h);
@@ -1305,6 +1319,112 @@ function montarPecas(){
   c.appendChild(n);
 }
 
+/* ── persistência ──────────────────────────────────────────────────────────
+   O Estúdio publica uma nova versão da própria página, com o estado dentro
+   dela. Quem abrir a mesma URL em outro dispositivo pega exatamente de onde
+   parou — não é cache do navegador, é o conteúdo da página.
+
+   Por que botão e não salvamento automático: publicar recarrega toda view
+   aberta. Salvar a cada tecla deixaria a página recarregando no meio da
+   digitação. Então o gesto é explícito, e o rótulo avisa quando há mudança
+   pendente. */
+let sujo = false, artefato = null;
+
+function marcaSujo(){
+  if (sujo) return;
+  sujo = true;
+  const e = $('#salvar-est');
+  e.textContent = 'alterações não salvas'; e.className = 'salvar-est sujo';
+}
+
+function estadoAtual(){
+  guardaEditor();
+  return { versao: 1, salvo_em: new Date().toISOString(), clientes: CLIENTES };
+}
+
+function paginaNova(){
+  // Cuidado que custou três tentativas: este código é PARTE da página que ele
+  // reescreve. Qualquer marcador que apareça aqui como texto — inclusive dentro
+  // de um comentário — é encontrado ANTES da tag de verdade lá embaixo, e o
+  // replace corta o próprio script ao meio. Por isso nada aqui pode se parecer
+  // com as tags alvo: elas são montadas em pedaços, a partir do nome e do id.
+  const molde = new TextDecoder().decode(
+    Uint8Array.from(atob(document.getElementById('molde').textContent), c => c.charCodeAt(0)));
+
+  const dentro = (html, tag, id, conteudo) =>
+    html.replace(
+      new RegExp('(<' + tag + '[^>]*id="' + id + '"[^>]*>)[\\s\\S]*?(<\\/' + tag + '>)'),
+      (_, a, z) => a + conteudo + z);
+
+  // Uma cópia só das fontes: o molde vem sem elas e recebe o CSS que já está
+  // vivo na página. Embuti-las duas vezes dobraria o arquivo à toa.
+  let html = dentro(molde, 'style', 'faces',
+                    document.getElementById('faces').textContent);
+  // O molde guarda uma cópia de si para que a versão publicada saiba se
+  // republicar. Sem isso, salvar funcionaria uma vez só.
+  html = dentro(html, 'script', 'molde',
+                document.getElementById('molde').textContent);
+  return dentro(html, 'script', 'estado-salvo',
+                JSON.stringify(estadoAtual())
+                  .replace(/</g, '\\u003c').replace(/-->/g, '--\\u003e'));
+}
+
+async function salvar(){
+  const b = $('#btn-salvar'), e = $('#salvar-est');
+  if (!artefato) return;
+  b.disabled = true; e.textContent = 'salvando…'; e.className = 'salvar-est';
+  try {
+    await artefato.publish(paginaNova());
+    sujo = false;                       // a view recarrega na versão nova
+    e.textContent = 'salvo';
+  } catch (err) {
+    b.disabled = false;
+    const c = err && err.code;
+    if (c === 'conflict'){
+      // Rotina: alguém publicou antes. A view já está recarregando na versão
+      // vencedora — não há erro a pedir desculpa por.
+      e.textContent = 'outra versão chegou primeiro'; e.className = 'salvar-est';
+    } else if (c === 'not_writer' || c === 'not_granted' || c === 'not_declared'
+               || c === 'capability_disabled' || c === 'consent_required'){
+      soLeitura();
+    } else if (c === 'too_large'){
+      e.textContent = 'peça grande demais pra salvar'; e.className = 'salvar-est erro';
+    } else if (c === 'rate_limited'){
+      e.textContent = 'salvando rápido demais — espere alguns segundos';
+      e.className = 'salvar-est erro';
+    } else {
+      e.textContent = 'não consegui salvar'; e.className = 'salvar-est erro';
+    }
+  }
+}
+
+function soLeitura(){
+  $('#btn-salvar').hidden = true;
+  const e = $('#salvar-est');
+  e.textContent = 'somente leitura'; e.className = 'salvar-est';
+}
+
+async function ligaPersistencia(){
+  const salvo = JSON.parse(document.getElementById('estado-salvo').textContent || 'null');
+  if (salvo && Array.isArray(salvo.clientes) && salvo.clientes.length){
+    CLIENTES = salvo.clientes;
+  }
+  telaClientes();
+
+  artefato = window.claude && claude.use ? await claude.use('artifact') : null;
+  if (!artefato){
+    // Fora do claude.ai não há onde publicar. Dizer isso é melhor que um botão
+    // que não faz nada.
+    $('#salvar-est').textContent = salvo ? 'sem sincronização aqui' : '';
+    return;
+  }
+  $('#btn-salvar').hidden = false;
+  $('#btn-salvar').onclick = salvar;
+  $('#salvar-est').textContent = salvo && salvo.salvo_em
+    ? 'salvo em ' + salvo.salvo_em.slice(0,16).replace('T',' ') : 'pronto pra salvar';
+  addEventListener('beforeunload', ev => { if (sujo){ ev.preventDefault(); ev.returnValue = ''; } });
+}
+
 /* ============ eventos ============ */
 $('#btn-exemplo').onclick = () => {
   if (etapa === 'capas'){
@@ -1326,10 +1446,11 @@ $('#btn-prev').onclick = () => { atual=(atual-1+nSlides())%nSlides(); pintar(); 
 $('#btn-next').onclick = () => { atual=(atual+1)%nSlides(); pintar(); };
 $$('#doses .op').forEach(b => b.onclick = () => {
   $$('#doses .op').forEach(o => o.setAttribute('aria-pressed', String(o === b)));
-  if (peca){ peca.scrim = b.dataset.v; pintarCapas(); }
+  if (peca){ marcaSujo(); peca.scrim = b.dataset.v; pintarCapas(); }
 });
 
 $('#cta-palavra').oninput = e => {
+  marcaSujo();
   cli.cta = e.target.value.toUpperCase();
   if (etapa === 'legenda') pintarLegenda();
 };
@@ -1340,6 +1461,7 @@ $('#btn-encolher').onclick = () => {
 };
 
 $('#editor').oninput = () => {
+  marcaSujo();
   const v = $('#editor').value;
   if (etapa === 'capas'){
     peca.capas = lerCapas(v); pintarCapas(); montarTrilho();
@@ -1349,7 +1471,7 @@ $('#editor').oninput = () => {
   blocos = parse(v); if(peca) peca.txt = v; pintar(); montarTrilho();
 };
 [['handle','handle'],['nome','marca'],['direito','direito']].forEach(([campo,chave]) => {
-  $('#'+campo).oninput = e => { cli[chave]=e.target.value; pintar(); };
+  $('#'+campo).oninput = e => { marcaSujo(); cli[chave]=e.target.value; pintar(); };
 });
 
 let fLogo = null, fFundo = 'auto';
@@ -1391,5 +1513,5 @@ $('#f-criar').onclick = () => {
 
 let t0; window.onresize = () => { if(cli){ clearTimeout(t0); t0=setTimeout(pintar,120); } };
 
-telaClientes();
+ligaPersistencia();
 </script>

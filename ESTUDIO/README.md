@@ -79,3 +79,47 @@ peça.** Foi a escolha de desenho, e ela muda o comportamento em três pontos:
 
 O trilho encolhe para 58px e vira só ícone. E a coluna do editor some nas etapas
 que não escrevem — não faz sentido reservar 336px de espaço morto.
+
+## Salvar e abrir de outro dispositivo
+
+O Estúdio publicado guarda o estado **dentro da própria página**: clientes,
+peças, capas geradas, capa escolhida, legenda e a palavra do CTA. Quem abrir a
+mesma URL em outro aparelho pega de onde parou — não é cache do navegador, é o
+conteúdo da página.
+
+O botão **Salvar** publica uma nova versão do artefato pela capacidade
+`artifact`. Fora do claude.ai a capacidade não existe: o botão some e o rótulo
+diz "sem sincronização aqui", em vez de fingir que salvou.
+
+**Por que botão e não salvamento automático:** publicar recarrega toda view
+aberta. Salvar a cada tecla deixaria a página recarregando no meio da digitação.
+Então o gesto é explícito, e o rótulo avisa quando há mudança pendente.
+
+### Como a página se reescreve
+
+`gerar.py` emite duas coisas do mesmo fonte:
+
+| | |
+|---|---|
+| `pagina` | o fragmento que a ferramenta de Artifact recebe — fontes já embutidas |
+| `molde` | o documento completo, em base64, com três buracos: as fontes, o estado e ele próprio |
+
+Ao salvar, a página decodifica o molde, injeta as fontes que já estão vivas no
+DOM, o estado atual e uma cópia do próprio molde, e publica. As fontes existem
+uma vez só no arquivo — embuti-las duas vezes dobraria o tamanho à toa. O molde
+guarda uma cópia de si porque, sem isso, salvar funcionaria uma vez só.
+
+### A armadilha, que custou três tentativas
+
+Esse código é **parte da página que ele reescreve**. Qualquer marcador que
+apareça nele como texto — inclusive dentro de um comentário — é encontrado antes
+da tag de verdade, e o `replace` corta o próprio script ao meio. As duas
+primeiras versões falharam exatamente assim: uma acertou o literal
+`__MOLDE64__` na função, a outra acertou uma tag escrita por extenso num
+comentário.
+
+Hoje as tags são montadas em pedaços, a partir do nome e do id, e `gerar.py`
+confere que nenhuma tag alvo aparece literal no corpo do script.
+
+Testado em três gerações seguidas: editar, publicar, reabrir, publicar de novo.
+O estado sobrevive e o arquivo não cresce.

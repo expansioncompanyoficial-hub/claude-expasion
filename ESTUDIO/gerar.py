@@ -44,7 +44,29 @@ def faces():
     return "\n".join(out)
 
 
-corpo = pathlib.Path(sys.argv[1]).read_text(encoding="utf-8")
+fonte = pathlib.Path(sys.argv[1]).read_text(encoding="utf-8")
 saida = pathlib.Path(sys.argv[2])
-saida.write_text(corpo.replace("/*__FACES__*/", faces()), encoding="utf-8")
-print(f"{saida}  ·  {saida.stat().st_size / 1024:.0f} KB")
+
+# Duas saídas do mesmo fonte:
+#
+#   `pagina`  o fragmento que a ferramenta de Artifact recebe — ela mesma
+#             embrulha em <!doctype html>. Fontes já embutidas.
+#   `molde`   o documento COMPLETO, com três buracos: as fontes, o estado e
+#             ele próprio. É o que a página publica quando alguém clica em
+#             Salvar, e por isso precisa começar em <!doctype html>.
+#
+# O molde guarda um buraco pra si mesmo (`__MOLDE64__`) porque a versão
+# publicada tem de saber se republicar. Sem isso, salvar funcionaria uma vez.
+molde = f"""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+{fonte.replace('<script type="application/json" id="estado-salvo">null</script>',
+               '<script type="application/json" id="estado-salvo">"__ESTADO__"</script>')}
+<script type="text/plain" id="molde">__MOLDE64__</script>
+</body></html>"""
+molde64 = base64.b64encode(molde.encode("utf-8")).decode()
+
+pagina = fonte.replace("/*__FACES__*/", faces(), 1)
+pagina += f'\n<script type="text/plain" id="molde">{molde64}</script>\n'
+saida.write_text(pagina, encoding="utf-8")
+print(f"{saida}  ·  {saida.stat().st_size / 1024:.0f} KB"
+      f"  ·  molde {len(molde64) / 1024:.0f} KB")
