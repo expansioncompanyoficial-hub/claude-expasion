@@ -28,6 +28,14 @@ export interface PageSummary {
   name?: string;
   category?: string;
   tasks?: string[];
+  /** De onde veio: me/accounts, owned_pages ou client_pages. */
+  origem?: string;
+  __simulado?: boolean;
+}
+
+export interface BusinessSummary {
+  id: string;
+  name?: string;
   __simulado?: boolean;
 }
 
@@ -198,6 +206,57 @@ export class MetaGateway {
     return response.data ?? [];
   }
 
+  async listBusinesses(limit = 50): Promise<BusinessSummary[]> {
+    if (!this.canRead) {
+      this.client.recordSimulated('GET', 'me/businesses', { limit });
+      return [];
+    }
+    const response = await this.client.get<MetaListResponse<BusinessSummary>>('me/businesses', {
+      fields: 'id,name',
+      limit,
+    });
+    return response.data ?? [];
+  }
+
+  /**
+   * Paginas visiveis pelo Business Manager.
+   *
+   * `me/accounts` so devolve Paginas onde a PESSOA tem papel direto. Numa
+   * agencia, a Pagina da cliente costuma chegar pelo Business Manager — como
+   * ativo proprio (`owned_pages`) ou compartilhado pela cliente
+   * (`client_pages`). Sem consultar os dois, a Pagina da cliente simplesmente
+   * nao aparece.
+   */
+  async listBusinessPages(businessId: string): Promise<PageSummary[]> {
+    if (!this.canRead) {
+      this.client.recordSimulated('GET', `${businessId}/owned_pages`, {});
+      return [];
+    }
+
+    const encontradas = new Map<string, PageSummary>();
+
+    for (const borda of ['owned_pages', 'client_pages'] as const) {
+      try {
+        const response = await this.client.get<MetaListResponse<PageSummary>>(
+          `${businessId}/${borda}`,
+          { fields: 'id,name,category', limit: 100 },
+        );
+        for (const pagina of response.data ?? []) {
+          encontradas.set(pagina.id, { ...pagina, origem: borda });
+        }
+      } catch (error) {
+        // Uma borda pode estar indisponivel sem que a outra esteja: seguir.
+        this.logger.debug('Borda de Paginas do negocio indisponivel.', {
+          businessId,
+          borda,
+          erro: (error as Error).message,
+        });
+      }
+    }
+
+    return [...encontradas.values()];
+  }
+
   async listInstagramAccounts(pageId: string): Promise<InstagramAccountSummary[]> {
     if (!this.canRead) {
       this.client.recordSimulated('GET', pageId, { fields: 'instagram_business_account' });
@@ -213,13 +272,19 @@ export class MetaGateway {
 
     const accounts: InstagramAccountSummary[] = [];
     if (response.instagram_business_account) {
-      accounts.push({ ...response.instagram_business_account, origem: 'instagram_business_account' });
+      accounts.push({
+        ...response.instagram_business_account,
+        origem: 'instagram_business_account',
+      });
     }
     if (
       response.connected_instagram_account &&
       response.connected_instagram_account.id !== response.instagram_business_account?.id
     ) {
-      accounts.push({ ...response.connected_instagram_account, origem: 'connected_instagram_account' });
+      accounts.push({
+        ...response.connected_instagram_account,
+        origem: 'connected_instagram_account',
+      });
     }
     return accounts;
   }
@@ -350,12 +415,16 @@ export class MetaGateway {
     this.assertWriteAllowed('upload de imagem');
     const response = await this.client.postMultipart<{
       images: Record<string, { hash: string; url?: string }>;
-    }>(`${adAccountId}/adimages`, {}, {
-      field: file.filename,
-      filename: file.filename,
-      contentType: file.contentType,
-      data: file.data,
-    });
+    }>(
+      `${adAccountId}/adimages`,
+      {},
+      {
+        field: file.filename,
+        filename: file.filename,
+        contentType: file.contentType,
+        data: file.data,
+      },
+    );
 
     const entry = Object.values(response.images ?? {})[0];
     if (!entry?.hash) {

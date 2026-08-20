@@ -113,6 +113,55 @@ describe('servidor MCP meta-ads', () => {
     await s.close();
   });
 
+  it('a descoberta encontra a Pagina da cliente pelo Business Manager', async () => {
+    const s = await conectar({ META_ACCESS_TOKEN: 'EAAtoken-de-teste-1234567890' });
+    // me/accounts so devolve Paginas com papel direto — a da cliente nao esta la.
+    s.metaTransport.on({
+      match: '/me/accounts',
+      method: 'GET',
+      body: { data: [{ id: '800496993149352', name: 'Forum TEIA 2025' }] },
+    });
+    s.metaTransport.on({
+      match: '/me/businesses',
+      method: 'GET',
+      body: { data: [{ id: '989418320930409', name: 'Agencia' }] },
+    });
+    s.metaTransport.on({
+      match: '/owned_pages',
+      method: 'GET',
+      body: { data: [] },
+    });
+    s.metaTransport.on({
+      match: '/client_pages',
+      method: 'GET',
+      body: { data: [{ id: '111222333444555', name: 'Loja da Cliente' }] },
+    });
+
+    const paginas = await s.ctx.meta.listBusinessPages('989418320930409');
+    expect(paginas.map((p) => p.id)).toContain('111222333444555');
+    expect(paginas[0]?.origem).toBe('client_pages');
+    await s.close();
+  });
+
+  it('uma borda de Paginas indisponivel nao derruba a outra', async () => {
+    const s = await conectar({ META_ACCESS_TOKEN: 'EAAtoken-de-teste-1234567890' });
+    s.metaTransport.on({
+      match: '/owned_pages',
+      method: 'GET',
+      status: 400,
+      body: { error: { message: 'Sem permissao para owned_pages.', code: 200 } },
+    });
+    s.metaTransport.on({
+      match: '/client_pages',
+      method: 'GET',
+      body: { data: [{ id: '111222333444555', name: 'Loja da Cliente' }] },
+    });
+
+    const paginas = await s.ctx.meta.listBusinessPages('989418320930409');
+    expect(paginas.map((p) => p.id)).toEqual(['111222333444555']);
+    await s.close();
+  });
+
   it('meta_validate_access lista as contas que o token enxerga', async () => {
     const s = await conectar({ META_ACCESS_TOKEN: 'EAAtoken-de-teste-1234567890' });
     s.metaTransport.on({

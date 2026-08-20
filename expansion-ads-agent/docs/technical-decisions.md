@@ -314,3 +314,24 @@ interface da Meta em nenhum momento depois do token:
 `meta:validate-access` → `meta:discover` → escreve `config.json` →
 `campaign:dry-run`. O Instagram é consultado por Página, então a busca é
 limitada às primeiras 25 Páginas e avisa quando trunca — sem cap silencioso.
+
+---
+
+## D20 — Descoberta de Páginas pelo Business Manager
+
+**Decisão.** `meta:discover` consulta `me/accounts`, `me/businesses`,
+`{business}/owned_pages` e `{business}/client_pages`, unindo por id e marcando
+a origem de cada Página.
+
+**Por quê.** *Encontrado ao conectar a primeira cliente real.* A conta de
+anúncios da cliente aparecia, mas nenhuma Página dela — e sem `page_id` não
+existe criativo, logo não existe anúncio. A causa era a implementação:
+`me/accounts` só devolve Páginas onde a **pessoa** tem papel direto. Numa
+agência, a Página da cliente chega pelo Business Manager, como ativo próprio
+ou compartilhado pela cliente. Consultar só `me/accounts` torna a Página da
+cliente invisível — o caso mais comum de todos numa operação de agência.
+
+**Consequência.** Uma borda indisponível (permissão faltando em `owned_pages`,
+por exemplo) não derruba a outra: cada uma é consultada em `try` isolado, e o
+que falhou vira log de debug em vez de erro fatal. Dois testes cobrem: Página
+encontrada só via `client_pages`, e uma borda com erro sem afetar a outra.

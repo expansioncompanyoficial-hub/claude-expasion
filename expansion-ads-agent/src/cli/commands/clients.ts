@@ -166,7 +166,22 @@ export async function comandoDescobrirAtivos(ctx: AgentContext, cli: ParsedCli):
   }
 
   const conta = flagOptional(cli, 'account');
-  const paginas = await ctx.meta.listPages(MAX_PAGINAS_DESCOBERTA * 2);
+  const negocios = await ctx.meta.listBusinesses().catch(() => []);
+
+  // me/accounts so traz Paginas com papel direto; a Pagina da cliente costuma
+  // vir pelo Business Manager. Consultar as duas origens e unir por id.
+  const porId = new Map<string, (typeof diretas)[number]>();
+  const diretas = await ctx.meta.listPages(MAX_PAGINAS_DESCOBERTA * 2);
+  for (const pagina of diretas) porId.set(pagina.id, { ...pagina, origem: 'me/accounts' });
+
+  for (const negocio of negocios) {
+    const doNegocio = await ctx.meta.listBusinessPages(negocio.id).catch(() => []);
+    for (const pagina of doNegocio) {
+      if (!porId.has(pagina.id)) porId.set(pagina.id, pagina);
+    }
+  }
+
+  const paginas = [...porId.values()];
   const alvo = paginas.slice(0, MAX_PAGINAS_DESCOBERTA);
 
   const comInstagram = await Promise.all(
@@ -179,16 +194,24 @@ export async function comandoDescobrirAtivos(ctx: AgentContext, cli: ParsedCli):
   const pixels = conta ? await ctx.meta.listPixels(conta).catch(() => []) : [];
 
   if (flagBool(cli, 'json')) {
-    json({ paginas: comInstagram, pixels, contaConsultada: conta ?? null });
+    json({ negocios, paginas: comInstagram, pixels, contaConsultada: conta ?? null });
     return EXIT.OK;
   }
+
+  titulo(`NEGOCIOS (${negocios.length})`);
+  for (const negocio of negocios) {
+    linha(`  ${negocio.id.padEnd(18)} ${negocio.name ?? '(sem nome)'}`);
+  }
+  if (negocios.length === 0) item('Nenhum Business Manager visivel por este token.');
+  linha('');
 
   titulo(`PAGINAS (${paginas.length})`);
   if (paginas.length === 0) {
     item('Nenhuma Pagina visivel por este token.');
   }
   for (const { pagina, instagram } of comInstagram) {
-    linha(`  ${pagina.id.padEnd(18)} ${pagina.name ?? '(sem nome)'}`);
+    const origem = pagina.origem ? `  [${pagina.origem}]` : '';
+    linha(`  ${pagina.id.padEnd(18)} ${pagina.name ?? '(sem nome)'}${origem}`);
     for (const conta of instagram) {
       linha(`     └ instagram ${conta.id.padEnd(18)} @${conta.username ?? '?'}`);
     }
