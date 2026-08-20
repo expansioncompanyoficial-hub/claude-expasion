@@ -405,6 +405,7 @@ mesmo com as flags `AUTO_*` ligadas.
 | Comando | O que faz |
 |---|---|
 | `npm run db:init` | cria o banco local |
+| `npm run meta:validate-access` | confere se o token funciona e o que ele enxerga |
 | `npm run client:list` | lista clientes cadastradas |
 | `npm run client:validate` | valida o cadastro de uma cliente |
 | `npm run campaign:validate` | valida um briefing sem simular |
@@ -473,8 +474,8 @@ Trilha completa na tabela `action_logs` do banco.
 
 1. Business Manager → *Usuários do sistema* → **Gerar novo token**.
 2. Atualize `META_ACCESS_TOKEN` no `.env`.
-3. Confirme com `meta_validate_access` no Claude Code, ou rode
-   `npm run client:validate -- --client <id>`.
+3. Confirme com `npm run meta:validate-access` (ou a ferramenta
+   `meta_validate_access` no Claude Code).
 4. Revogue o token antigo no Business Manager.
 
 O token nunca é gravado em disco pelo sistema, nunca aparece em log, nunca vai

@@ -20,7 +20,15 @@ async function conectar(envOverrides: Record<string, string | undefined> = {}) {
   const client = new Client({ name: 'teste', version: '1.0.0' });
   await Promise.all([client.connect(clientTransport), server.connect(serverTransport)]);
 
-  return { client, ctx, metaTransport, close: async () => { await client.close(); ctx.close(); } };
+  return {
+    client,
+    ctx,
+    metaTransport,
+    close: async () => {
+      await client.close();
+      ctx.close();
+    },
+  };
 }
 
 describe('servidor MCP meta-ads', () => {
@@ -95,11 +103,80 @@ describe('servidor MCP meta-ads', () => {
 
   it('meta_validate_access nao vaza o token, so a marca dele', async () => {
     const s = await conectar({ META_ACCESS_TOKEN: 'EAAtoken-secreto-de-teste-1234567890' });
+    s.metaTransport.on({ match: '/adaccounts', method: 'GET', body: { data: [] } });
+
     const resposta = await s.client.callTool({ name: 'meta_validate_access', arguments: {} });
     const texto = JSON.stringify(resposta);
 
     expect(texto).not.toContain('EAAtoken-secreto-de-teste-1234567890');
     expect(texto).toMatch(/len=|REDIGIDO|\*\*\*/);
+    await s.close();
+  });
+
+  it('meta_validate_access lista as contas que o token enxerga', async () => {
+    const s = await conectar({ META_ACCESS_TOKEN: 'EAAtoken-de-teste-1234567890' });
+    s.metaTransport.on({
+      match: '/adaccounts',
+      method: 'GET',
+      body: {
+        data: [
+          { id: 'act_100000000000001', name: 'Conta da Loja', currency: 'BRL' },
+          { id: 'act_200000000000002', name: 'Outra Conta', currency: 'BRL' },
+        ],
+      },
+    });
+
+    const resposta = (await s.client.callTool({
+      name: 'meta_validate_access',
+      arguments: {},
+    })) as { content: Array<{ text: string }> };
+    const corpo = JSON.parse(resposta.content[0]!.text) as {
+      ok: boolean;
+      contasVisiveis: Array<{ id: string }>;
+    };
+
+    expect(corpo.ok).toBe(true);
+    expect(corpo.contasVisiveis.map((c) => c.id)).toEqual([
+      'act_100000000000001',
+      'act_200000000000002',
+    ]);
+    await s.close();
+  });
+
+  it('token invalido vira diagnostico legivel, nao excecao', async () => {
+    const s = await conectar({ META_ACCESS_TOKEN: 'EAAtoken-invalido-1234567890' });
+    s.metaTransport.on({
+      match: '/adaccounts',
+      method: 'GET',
+      status: 400,
+      body: { error: { message: 'Invalid OAuth access token.', code: 190 } },
+    });
+
+    const resposta = (await s.client.callTool({
+      name: 'meta_validate_access',
+      arguments: {},
+    })) as { content: Array<{ text: string }>; isError?: boolean };
+    const corpo = JSON.parse(resposta.content[0]!.text) as { ok: boolean; problemas: string[] };
+
+    expect(corpo.ok).toBe(false);
+    expect(corpo.problemas.join(' ')).toMatch(/recusou a consulta/i);
+    // O diagnostico ensina o caminho da correcao em vez de so falhar.
+    expect(corpo.problemas.join(' ')).toMatch(/usuario de sistema|token/i);
+    await s.close();
+  });
+
+  it('avisa quando o token e valido mas nao enxerga nenhuma conta', async () => {
+    const s = await conectar({ META_ACCESS_TOKEN: 'EAAtoken-sem-ativos-1234567890' });
+    s.metaTransport.on({ match: '/adaccounts', method: 'GET', body: { data: [] } });
+
+    const resposta = (await s.client.callTool({
+      name: 'meta_validate_access',
+      arguments: {},
+    })) as { content: Array<{ text: string }> };
+    const corpo = JSON.parse(resposta.content[0]!.text) as { ok: boolean; problemas: string[] };
+
+    expect(corpo.ok).toBe(false);
+    expect(corpo.problemas.join(' ')).toMatch(/nenhuma conta/i);
     await s.close();
   });
 
@@ -199,7 +276,11 @@ describe('servidor MCP meta-ads', () => {
     const s = await conectar();
     const resposta = await s.client.callTool({
       name: 'meta_validate_destination',
-      arguments: { clientId: 'example-client', tipo: 'site', valor: 'https://site-invasor.com/promo' },
+      arguments: {
+        clientId: 'example-client',
+        tipo: 'site',
+        valor: 'https://site-invasor.com/promo',
+      },
     });
     expect(JSON.stringify(resposta)).toMatch(/allowlist/i);
     await s.close();
@@ -238,7 +319,9 @@ describe('servidor MCP meta-ads', () => {
   it('as ferramentas de leitura sao marcadas como readOnly', async () => {
     const s = await conectar();
     const tools = (await s.client.listTools()).tools;
-    const leitura = tools.filter((t) => t.name.startsWith('meta_list') || t.name.startsWith('meta_get'));
+    const leitura = tools.filter(
+      (t) => t.name.startsWith('meta_list') || t.name.startsWith('meta_get'),
+    );
 
     expect(leitura.length).toBeGreaterThan(0);
     for (const tool of leitura) {

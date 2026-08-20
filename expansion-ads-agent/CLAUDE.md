@@ -64,7 +64,8 @@ segmentacao da Meta. Nao chute ID.
 ## Comandos principais
 
 ```bash
-npm run client:validate -- --client <id>
+npm run meta:validate-access                     # o token funciona? o que ele enxerga?
+npm run client:validate   -- --client <id>
 npm run campaign:validate -- --brief briefs/<arquivo>.md
 npm run campaign:dry-run  -- --brief briefs/<arquivo>.md
 npm run campaign:create   -- --brief briefs/<arquivo>.md --confirmar

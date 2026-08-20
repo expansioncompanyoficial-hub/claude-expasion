@@ -268,3 +268,29 @@ e mais uma coisa para manter.
 
 **Consequência.** `fetch`, `FormData`, `node:sqlite`, `node:crypto` e
 `util.parseArgs` nativos.
+
+---
+
+## D18 — Diagnóstico de acesso: comando de terminal + erro como resposta
+
+**Decisão.** `verificarAcesso()` em `src/meta/access.ts`, compartilhado pela
+ferramenta MCP `meta_validate_access` e pelo comando
+`npm run meta:validate-access`. Uma falha na consulta à Meta vira item em
+`problemas`, não exceção.
+
+**Por quê.** *Encontrado ao guiar a primeira integração real.* Depois de
+colocar o token no `.env`, a única forma de saber se ele funcionava era subir o
+MCP — duas coisas novas de uma vez, e quando falha não dá para saber qual das
+duas quebrou. Um comando de terminal isola "a credencial está boa?" de "o MCP
+está ligado?".
+
+E numa ferramenta de diagnóstico, erro da Meta **é** a resposta: token
+inválido, expirado ou sem permissão é exatamente o que ela existe para
+relatar. Estourar exceção transformava o diagnóstico em mais um problema para
+diagnosticar. Agora o código 190 vira "A Meta recusou a consulta com este
+token" seguido do caminho de correção.
+
+**Consequência.** Sem `--client`, o comando também lista as contas que o token
+enxerga — é assim que se descobre o `adAccountId` para o cadastro, sem caçar ID
+na interface do Gerenciador. Quatro testes cobrem: token ausente, token válido,
+token inválido e token sem ativos.

@@ -2,8 +2,6 @@ import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import path from 'node:path';
 import type { AgentContext } from '../../context.js';
-import { describeConfig } from '../../config/env.js';
-import { fingerprintSecret } from '../../security/secrets.js';
 import { assertAdAccountAllowed, checkDestinationUrl } from '../../security/allowlist.js';
 import { readCreativeFile } from '../../creatives/files.js';
 import { validarCriativos } from '../../creatives/validate.js';
@@ -11,6 +9,7 @@ import { validarBriefing } from '../../campaigns/service.js';
 import { campaignIdempotencyKey, creativesHash } from '../../security/idempotency.js';
 import { loadBriefFile } from '../../campaigns/brief-parser.js';
 import { getTemplate, listTemplates } from '../../campaigns/templates/index.js';
+import { verificarAcesso } from '../../meta/access.js';
 import { adAccountField, clientIdField, registerTool } from '../helpers.js';
 
 function resolverBriefing(ctx: AgentContext, caminho: string): string {
@@ -27,51 +26,7 @@ export function registerValidationTools(server: McpServer, ctx: AgentContext): v
     readOnly: true,
     inputSchema: { clientId: clientIdField.optional() },
     async handler(args, context) {
-      const problemas: string[] = [];
-      const ambiente = describeConfig(context.config);
-
-      if (!context.config.meta.hasCredentials) {
-        problemas.push(
-          'META_ACCESS_TOKEN nao configurado. O sistema opera apenas em dry-run com dados simulados.',
-        );
-      }
-
-      const resposta: Record<string, unknown> = {
-        ambiente,
-        tokenConfigurado: context.config.meta.hasCredentials,
-        tokenImpressaoDigital: fingerprintSecret(context.config.meta.accessToken),
-        problemas,
-      };
-
-      if (args.clientId) {
-        const client = context.clients.load(args.clientId);
-        resposta.cliente = {
-          id: client.config.id,
-          nome: client.config.nome,
-          status: client.config.status,
-          origemDoCadastro: client.isExample ? 'config.example.json' : 'config.json',
-          conta: client.config.meta.adAccountId,
-        };
-
-        if (client.isExample) {
-          problemas.push(
-            `A cliente "${client.config.id}" veio de config.example.json. Crie clients/${client.config.id}/config.json para operar de verdade.`,
-          );
-        }
-
-        if (context.meta.hasCredentials) {
-          const contas = await context.meta.listAdAccounts(200);
-          const visivel = contas.some((conta) => conta.id === client.config.meta.adAccountId);
-          resposta.contaVisivelPeloToken = visivel;
-          if (!visivel) {
-            problemas.push(
-              `O token nao enxerga a conta ${client.config.meta.adAccountId}. Confira o acesso do usuario de sistema no Business Manager.`,
-            );
-          }
-        }
-      }
-
-      return { ...resposta, ok: problemas.length === 0 };
+      return verificarAcesso(context, args.clientId);
     },
   });
 
@@ -339,7 +294,12 @@ export function registerValidationTools(server: McpServer, ctx: AgentContext): v
         else if (digitosInformados !== digitosCadastrados) {
           problemas.push('O numero informado nao e o numero cadastrado para a cliente.');
         }
-        return { ok: problemas.length === 0, tipo: args.tipo, numeroCadastrado: cadastrado, problemas };
+        return {
+          ok: problemas.length === 0,
+          tipo: args.tipo,
+          numeroCadastrado: cadastrado,
+          problemas,
+        };
       }
 
       const problemas = /^\d+$/.test(args.valor)
@@ -364,7 +324,10 @@ export function registerValidationTools(server: McpServer, ctx: AgentContext): v
     readOnly: true,
     inputSchema: {
       clientId: clientIdField,
-      arquivos: z.array(z.string().trim().min(1)).min(1).describe('Nomes dos arquivos dentro de creatives/<cliente>/.'),
+      arquivos: z
+        .array(z.string().trim().min(1))
+        .min(1)
+        .describe('Nomes dos arquivos dentro de creatives/<cliente>/.'),
     },
     async handler(args, context) {
       const client = context.clients.loadActive(args.clientId);

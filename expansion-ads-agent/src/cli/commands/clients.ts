@@ -1,3 +1,4 @@
+import { verificarAcesso } from '../../meta/access.js';
 import type { AgentContext } from '../../context.js';
 import { formatMoney } from '../../shared/money.js';
 import { flagBool, flagOptional } from '../args.js';
@@ -91,4 +92,57 @@ export async function comandoClientValidate(ctx: AgentContext, cli: ParsedCli): 
 
   linha('');
   return houveProblema ? EXIT.VALIDACAO : EXIT.OK;
+}
+
+/**
+ * `npm run meta:validate-access` — primeiro comando a rodar depois de colocar
+ * o token no .env. Confere se a credencial funciona e o que ela enxerga,
+ * sem depender do MCP estar conectado. Somente leitura.
+ */
+export async function comandoValidarAcesso(ctx: AgentContext, cli: ParsedCli): Promise<number> {
+  const clientId = flagOptional(cli, 'client') ?? undefined;
+  const resultado = await verificarAcesso(ctx, clientId);
+
+  if (flagBool(cli, 'json')) {
+    json(resultado);
+    return resultado.ok ? EXIT.OK : EXIT.CONFIG;
+  }
+
+  titulo('ACESSO A META');
+  item(`Versao da Graph API: ${resultado.ambiente.graphApiVersion}`);
+  item(`Dry-run: ${resultado.ambiente.dryRun === true ? 'LIGADO (nada e criado)' : 'DESLIGADO'}`);
+  item(`Token configurado: ${resultado.tokenConfigurado ? 'sim' : 'nao'}`);
+  item(`Impressao digital do token: ${resultado.tokenImpressaoDigital}`);
+
+  if (resultado.contasVisiveis) {
+    linha('');
+    titulo(`CONTAS QUE O TOKEN ENXERGA (${resultado.contasVisiveis.length})`);
+    for (const conta of resultado.contasVisiveis) {
+      linha(`  ${conta.id.padEnd(22)} ${(conta.moeda ?? '---').padEnd(5)} ${conta.nome ?? ''}`);
+    }
+  }
+
+  if (resultado.cliente) {
+    linha('');
+    titulo('CLIENTE');
+    item(`${resultado.cliente.id} — ${resultado.cliente.nome} (${resultado.cliente.status})`);
+    item(`Conta cadastrada: ${resultado.cliente.conta}`);
+    item(`Origem do cadastro: ${resultado.cliente.origemDoCadastro}`);
+    if (resultado.contaVisivelPeloToken !== null) {
+      item(`Conta visivel pelo token: ${resultado.contaVisivelPeloToken ? 'sim' : 'NAO'}`);
+    }
+  }
+
+  linha('');
+  if (resultado.problemas.length > 0) {
+    for (const problema of resultado.problemas) aviso(problema);
+    linha('');
+    falha('Acesso incompleto. Resolva os pontos acima antes de seguir.');
+    linha('');
+    return EXIT.CONFIG;
+  }
+
+  ok('Acesso valido. O token enxerga o que precisa.');
+  linha('');
+  return EXIT.OK;
 }

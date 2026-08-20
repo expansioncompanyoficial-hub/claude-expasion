@@ -3,7 +3,11 @@ import { createContext, type AgentContext } from '../context.js';
 import { getConfig } from '../config/env.js';
 import { parseCli, flagBool, type ParsedCli } from './args.js';
 import { EXIT, linha, reportarErro, titulo } from './output.js';
-import { comandoClientList, comandoClientValidate } from './commands/clients.js';
+import {
+  comandoClientList,
+  comandoClientValidate,
+  comandoValidarAcesso,
+} from './commands/clients.js';
 import {
   comandoAprovar,
   comandoAtivar,
@@ -29,6 +33,10 @@ const COMANDOS: Record<string, { descricao: string; executar: Comando; escrita?:
       linha('');
       return EXIT.OK;
     },
+  },
+  'meta:validate-access': {
+    descricao: 'Confere se o token da Meta funciona e o que ele enxerga.',
+    executar: comandoValidarAcesso,
   },
   'client:list': { descricao: 'Lista as clientes cadastradas.', executar: comandoClientList },
   'client:validate': {
@@ -61,7 +69,11 @@ const COMANDOS: Record<string, { descricao: string; executar: Comando; escrita?:
     executar: comandoAtivar,
     escrita: true,
   },
-  'campaign:pause': { descricao: 'Pausa a campanha na Meta.', executar: comandoPausar, escrita: true },
+  'campaign:pause': {
+    descricao: 'Pausa a campanha na Meta.',
+    executar: comandoPausar,
+    escrita: true,
+  },
   'campaign:audit': {
     descricao: 'Auditoria somente leitura de uma campanha.',
     executar: comandoAuditar,
@@ -122,8 +134,7 @@ export async function run(argv: readonly string[]): Promise<number> {
   try {
     const config = getConfig();
     // Sair do dry-run e uma decisao explicita do operador, nunca do modelo.
-    const dryRunOverride =
-      comando.escrita && flagBool(cli, 'confirmar') ? false : undefined;
+    const dryRunOverride = comando.escrita && flagBool(cli, 'confirmar') ? false : undefined;
 
     ctx = createContext({
       config,
