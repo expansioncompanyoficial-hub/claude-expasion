@@ -172,9 +172,16 @@ describe('cliente da Graph API', () => {
 
   it('desiste depois de esgotar as tentativas configuradas', async () => {
     const transport = new MockTransport([
-      { match: '/campaigns', status: 500, body: { error: { message: 'boom', code: 2 } }, times: 10 },
+      {
+        match: '/campaigns',
+        status: 500,
+        body: { error: { message: 'boom', code: 2 } },
+        times: 10,
+      },
     ]);
-    await expect(client(transport, { META_MAX_RETRIES: '2' }).get('act_1/campaigns')).rejects.toThrow();
+    await expect(
+      client(transport, { META_MAX_RETRIES: '2' }).get('act_1/campaigns'),
+    ).rejects.toThrow();
     expect(transport.requests).toHaveLength(3);
   });
 

@@ -20,7 +20,11 @@ function sandboxCreative(nome: string, bytes: Buffer): { dir: string; clientId: 
 
 describe('leitura e validacao de criativos', () => {
   it('le os criativos de exemplo e calcula hash e dimensoes', () => {
-    const arquivo = readCreativeFile(creativesDir, 'example-client', 'vestido-primavera-quadrado.png');
+    const arquivo = readCreativeFile(
+      creativesDir,
+      'example-client',
+      'vestido-primavera-quadrado.png',
+    );
     expect(arquivo.hash).toMatch(/^[a-f0-9]{64}$/);
     expect(arquivo.kind).toBe('image');
     expect(arquivo.largura).toBeGreaterThan(0);
@@ -67,7 +71,11 @@ describe('leitura e validacao de criativos', () => {
   });
 
   it('detecta o mesmo arquivo repetido no lote pelo hash', () => {
-    const arquivo = readCreativeFile(creativesDir, 'example-client', 'vestido-primavera-quadrado.png');
+    const arquivo = readCreativeFile(
+      creativesDir,
+      'example-client',
+      'vestido-primavera-quadrado.png',
+    );
     const resultado = validarCriativos([arquivo, { ...arquivo, arquivo: 'copia.png' }], policy);
     expect(resultado.duplicados.length).toBeGreaterThan(0);
   });

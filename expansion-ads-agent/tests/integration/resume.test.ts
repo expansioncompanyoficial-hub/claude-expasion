@@ -92,7 +92,8 @@ describe('retomada depois de falha parcial', () => {
     expect(primeira.criacao.sucesso).toBe(false);
 
     const criacoesCampanha = () =>
-      c.transport.requests.filter((r) => r.method === 'POST' && r.url.endsWith('/campaigns')).length;
+      c.transport.requests.filter((r) => r.method === 'POST' && r.url.endsWith('/campaigns'))
+        .length;
     const criacoesConjunto = () =>
       c.transport.requests.filter((r) => r.method === 'POST' && r.url.endsWith('/adsets')).length;
 
@@ -113,7 +114,9 @@ describe('retomada depois de falha parcial', () => {
     // Nao recriou o que ja existia.
     expect(criacoesCampanha()).toBe(1);
     expect(criacoesConjunto()).toBe(1);
-    expect(segunda.criacao.passos.filter((p) => p.acao === 'reaproveitado').length).toBeGreaterThan(0);
+    expect(segunda.criacao.passos.filter((p) => p.acao === 'reaproveitado').length).toBeGreaterThan(
+      0,
+    );
     expect(c.ctx.db.campaigns.findById(segunda.campaignId)!.state).toBe('CREATED_PAUSED');
     c.ctx.close();
   });

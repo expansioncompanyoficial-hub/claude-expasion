@@ -9,6 +9,8 @@ import {
   comandoDescobrirAtivos,
   comandoValidarAcesso,
 } from './commands/clients.js';
+import { comandoCriarUsuario, comandoListarUsuarios } from './commands/users.js';
+import { comandoWeb } from './commands/web.js';
 import {
   comandoAprovar,
   comandoAtivar,
@@ -35,6 +37,9 @@ const COMANDOS: Record<string, { descricao: string; executar: Comando; escrita?:
       return EXIT.OK;
     },
   },
+  web: { descricao: 'Sobe a plataforma EXPANSION ADS.', executar: comandoWeb },
+  'user:create': { descricao: 'Cadastra um usuario da plataforma.', executar: comandoCriarUsuario },
+  'user:list': { descricao: 'Lista os usuarios da plataforma.', executar: comandoListarUsuarios },
   'meta:validate-access': {
     descricao: 'Confere se o token da Meta funciona e o que ele enxerga.',
     executar: comandoValidarAcesso,

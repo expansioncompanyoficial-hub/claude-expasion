@@ -1,0 +1,159 @@
+/* ==========================================================================
+   EXPANSION ADS — sistema visual
+   Preto e grafite de base, laranja como destaque, branco no texto principal.
+   Alto contraste de propósito: a tela é operada sob pressão, com dinheiro
+   real em jogo. Nada decorativo compete com a informação.
+   ========================================================================== */
+
+:root {
+  /* Superfícies — do mais fundo ao mais elevado */
+  --preto: #08080a;
+  --grafite-900: #0c0c0e;
+  --grafite-850: #111114;
+  --grafite-800: #16161a;
+  --grafite-700: #1d1d22;
+  --grafite-600: #26262d;
+  --grafite-500: #34343d;
+
+  /* Laranja Expansion */
+  --laranja: #ff6a13;
+  --laranja-claro: #ff8a45;
+  --laranja-escuro: #d9520a;
+  --laranja-vidro: rgba(255, 106, 19, 0.12);
+  --laranja-borda: rgba(255, 106, 19, 0.32);
+
+  /* Texto */
+  --texto: #f5f5f7;
+  --texto-secundario: #a1a1ab;
+  --texto-terciario: #6e6e78;
+
+  /* Estados */
+  --sucesso: #2ecc71;
+  --sucesso-vidro: rgba(46, 204, 113, 0.12);
+  --atencao: #f5b800;
+  --atencao-vidro: rgba(245, 184, 0, 0.12);
+  --erro: #ff4d4f;
+  --erro-vidro: rgba(255, 77, 79, 0.12);
+  --info: #3d9dff;
+  --info-vidro: rgba(61, 157, 255, 0.12);
+
+  --borda: #26262d;
+  --borda-suave: #1d1d22;
+
+  --raio: 14px;
+  --raio-sm: 9px;
+  --raio-lg: 20px;
+
+  --sombra: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.28);
+  --sombra-alta: 0 2px 4px rgba(0, 0, 0, 0.5), 0 20px 48px rgba(0, 0, 0, 0.45);
+
+  --fonte:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --fonte-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  --largura-lateral: 244px;
+  --altura-topo: 64px;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--preto);
+  color: var(--texto);
+  font-family: var(--fonte);
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Nenhuma tela pode rolar na horizontal. */
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 650;
+  letter-spacing: -0.018em;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+h2 {
+  font-size: 1.125rem;
+}
+h3 {
+  font-size: 0.95rem;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--laranja);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--laranja-claro);
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Foco visível em tudo que é operável — exigência de acessibilidade e de
+   quem opera no teclado o dia inteiro. */
+:focus-visible {
+  outline: 2px solid var(--laranja);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--laranja);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--grafite-900);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--grafite-600);
+  border-radius: 6px;
+  border: 2px solid var(--grafite-900);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--grafite-500);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

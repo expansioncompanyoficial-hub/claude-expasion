@@ -7,7 +7,11 @@ import type { NormalizedMetrics } from '../../src/reports/insights.js';
 
 const policy = loadPolicies(path.join(PROJECT_ROOT, 'policies'), false).optimization;
 
-const desligado = { autoPauseEnabled: false, autoScaleEnabled: false, autoReactivateEnabled: false };
+const desligado = {
+  autoPauseEnabled: false,
+  autoScaleEnabled: false,
+  autoReactivateEnabled: false,
+};
 const ligado = { autoPauseEnabled: true, autoScaleEnabled: true, autoReactivateEnabled: true };
 
 function metrics(patch: Partial<NormalizedMetrics> = {}): NormalizedMetrics {
@@ -60,17 +64,13 @@ describe('motor de otimizacao', () => {
   });
 
   it('recomenda PAUSAR quando o CPA passa muito da meta', () => {
-    const reco = engine.avaliar(
-      input({ metrics: metrics({ cpl: 40, cpa: 40 }) }),
-    );
+    const reco = engine.avaliar(input({ metrics: metrics({ cpl: 40, cpa: 40 }) }));
     expect(reco.acao).toBe('PAUSAR');
     expect(reco.motivos.join(' ')).toMatch(/acima da meta/i);
   });
 
   it('recomenda REDUZIR quando o CPA esta acima mas recuperavel', () => {
-    expect(engine.avaliar(input({ metrics: metrics({ cpl: 32, cpa: 32 }) })).acao).toBe(
-      'REDUZIR',
-    );
+    expect(engine.avaliar(input({ metrics: metrics({ cpl: 32, cpa: 32 }) })).acao).toBe('REDUZIR');
   });
 
   it('recomenda ESCALAR quando o CPA esta bem abaixo da meta com volume', () => {
@@ -92,7 +92,14 @@ describe('motor de otimizacao', () => {
   it('recomenda REVISAR_CRIATIVO quando ha entrega zero depois de 24h', () => {
     const reco = engine.avaliar(
       input({
-        metrics: metrics({ impressoes: 0, investimento: 0, leads: 0, conversas: 0, cpl: null, cpa: null }),
+        metrics: metrics({
+          impressoes: 0,
+          investimento: 0,
+          leads: 0,
+          conversas: 0,
+          cpl: null,
+          cpa: null,
+        }),
         horasDesdeAtivacao: 30,
       }),
     );
@@ -145,9 +152,7 @@ describe('motor de otimizacao', () => {
   });
 
   it('bloqueia quando faltam dados que a Meta nao devolveu', () => {
-    const reco = engine.avaliar(
-      input({ metrics: metrics({ indisponiveis: ['leads', 'cpl'] }) }),
-    );
+    const reco = engine.avaliar(input({ metrics: metrics({ indisponiveis: ['leads', 'cpl'] }) }));
     expect(reco.bloqueadoPor.join(' ')).toMatch(/Metricas ausentes/i);
   });
 

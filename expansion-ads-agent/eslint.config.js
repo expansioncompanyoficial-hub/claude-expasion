@@ -5,7 +5,18 @@ import prettier from 'eslint-config-prettier';
 
 export default tseslint.config(
   {
-    ignores: ['dist/**', 'node_modules/**', 'coverage/**', 'logs/**', 'reports/**', 'data/**'],
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      'coverage/**',
+      'logs/**',
+      'reports/**',
+      'data/**',
+      // O frontend tem tsconfig e build proprios; dist/ e saida de build.
+      'web/**',
+      // Ferramenta de verificacao visual: roda no navegador via Playwright.
+      'scripts/**',
+    ],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,

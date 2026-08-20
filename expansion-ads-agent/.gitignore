@@ -34,3 +34,6 @@ creatives/**/*
 .DS_Store
 Thumbs.db
 *.tmp
+
+# Usuarios da plataforma (senhas com hash) — NUNCA versionar
+users.json

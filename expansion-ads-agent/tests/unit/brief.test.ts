@@ -22,13 +22,15 @@ describe('parser e validacao do briefing', () => {
   });
 
   it('converte R$ 50,00 para 5000 centavos', () => {
-    expect(build(briefWhatsApp({ orcamento_diario: 'R$ 50,00' })).brief.orcamentoDiarioCents).toBe(5_000);
+    expect(build(briefWhatsApp({ orcamento_diario: 'R$ 50,00' })).brief.orcamentoDiarioCents).toBe(
+      5_000,
+    );
   });
 
   it('converte valor com separador de milhar', () => {
-    expect(build(briefWhatsApp({ orcamento_diario: 'R$ 1.250,50' })).brief.orcamentoDiarioCents).toBe(
-      125_050,
-    );
+    expect(
+      build(briefWhatsApp({ orcamento_diario: 'R$ 1.250,50' })).brief.orcamentoDiarioCents,
+    ).toBe(125_050);
   });
 
   it.each([

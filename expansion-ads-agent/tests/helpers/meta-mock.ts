@@ -47,7 +47,9 @@ export class MockTransport implements HttpTransport {
       return {
         status: 400,
         headers: {},
-        body: { error: { message: `Sem regra no mock para ${request.method} ${request.url}`, code: 100 } },
+        body: {
+          error: { message: `Sem regra no mock para ${request.method} ${request.url}`, code: 100 },
+        },
         rawText: '',
       };
     }

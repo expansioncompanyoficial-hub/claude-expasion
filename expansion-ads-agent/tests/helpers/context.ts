@@ -183,7 +183,10 @@ export function realClient(clientsDir: string, id = 'cliente-real', creativesDir
 }
 
 /** Relogio controlavel para testar validade de aprovacao. */
-export function fakeClock(startIso: string): { clock: () => Date; advanceHours: (h: number) => void } {
+export function fakeClock(startIso: string): {
+  clock: () => Date;
+  advanceHours: (h: number) => void;
+} {
   let current = new Date(startIso).getTime();
   return {
     clock: () => new Date(current),

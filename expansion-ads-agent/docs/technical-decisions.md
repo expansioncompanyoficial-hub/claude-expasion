@@ -335,3 +335,70 @@ cliente invisível — o caso mais comum de todos numa operação de agência.
 por exemplo) não derruba a outra: cada uma é consultada em `try` isolado, e o
 que falhou vira log de debug em vez de erro fatal. Dois testes cobrem: Página
 encontrada só via `client_pages`, e uma borda com erro sem afetar a outra.
+
+---
+
+## D21 — Plataforma web sobre o backend existente
+
+**Decisão.** Três adições, nada removido: camada HTTP (`src/api/`),
+autenticação com papéis, e compositor de briefing. Todo o resto — validação,
+políticas, criação, aprovação, insights, otimização — é reaproveitado sem
+alteração.
+
+**O compositor foi a decisão central.** Todo o caminho de escrita do backend
+fala `briefPath`. O assistente produz dados estruturados. Havia duas saídas:
+dar à interface a própria validação de briefing, ou serializar os dados no
+mesmo markdown canônico e seguir pelo caminho existente. A primeira criaria
+duas verdades que divergiriam na primeira mudança de regra. Escolhida a
+segunda: `comporBriefingMarkdown` gera o arquivo, `parseBriefMarkdown` o lê, e
+daí em diante o fluxo é idêntico ao da CLI. Efeito colateral desejado: todo
+briefing feito pela interface vira arquivo em `briefs/`, inspecionável e
+reexecutável pelo terminal.
+
+**Sem framework HTTP.** O projeto já evita dependência em todo lugar
+(`parseArgs` na CLI, `node:sqlite` no banco, `fetch` nativo na Meta). Um
+roteador de ~180 linhas sobre `node:http` mantém essa linha; trazer Express
+para servir 30 rotas seria a dependência mais pesada do repositório.
+
+**Autenticação criada do zero** porque não existia: o backend nascera para um
+operador só, via CLI e MCP stdio. Sessão em SQLite, senha com `scrypt`,
+`users.json` fora do git, quatro papéis hierárquicos. Nenhum papel apaga nada
+— a operação não existe no backend, então também não existe na interface.
+
+## D22 — Erro de schema é 422, não 500
+
+**Decisão.** `respostaDeErro` converte `ZodError` em `ValidationError` antes
+de mapear para HTTP.
+
+**Por quê.** *Encontrado pelos testes de integração da API.* Um corpo
+malformado subia como exceção crua e virava 500 — culpando o servidor por um
+erro de quem chamou, e sem dizer qual campo estava errado. Agora devolve 422
+com a lista de campos e problemas.
+
+## D23 — A redação de log apagava a marca do token
+
+**Decisão.** O campo virou `impressaoDigital` em vez de `marcaDoToken`.
+
+**Por quê.** *Encontrado pelos testes.* O redator apaga qualquer chave que
+contenha "token" — proteção correta e deliberadamente grosseira. Só que o
+valor (`EAA***ab (len=210)`) existe justamente para ser exibido: ele já nasce
+sem revelar o segredo. A rede de segurança continua tão estrita quanto era; o
+nome do campo é que parou de tropeçar nela. Renomear foi preferível a abrir
+exceção na redação — exceção em rede de segurança é como ela deixa de proteger.
+
+## D24 — O que a interface valida e o que o backend valida
+
+**Decisão.** A interface valida para não deixar o operador andar até uma
+parede. O backend valida porque é ele quem recusa.
+
+**Por quê.** *Dois defeitos encontrados pelo teste E2E.* O primeiro: o campo de
+WhatsApp exibia o número do cadastro por *fallback visual*, sem colocá-lo no
+estado do formulário — resultado, campo visivelmente preenchido e erro dizendo
+que faltava preencher. Corrigido semeando o estado, não a aparência. O
+segundo: `meta` é obrigatório em `CAMPOS_OBRIGATORIOS`, mas o assistente
+deixava chegar à etapa 10 sem ele; o backend recusava corretamente, só que
+depois de dez etapas preenchidas.
+
+A regra que ficou: quando o backend exige um campo, o assistente exige na etapa
+onde ele aparece. A autoridade continua sendo o backend — uma requisição
+forjada bate na mesma parede.

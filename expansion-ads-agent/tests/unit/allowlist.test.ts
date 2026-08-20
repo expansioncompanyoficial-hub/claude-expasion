@@ -8,7 +8,11 @@ import {
 import { ClientRegistry } from '../../src/clients/registry.js';
 import { loadPolicies } from '../../src/policies/loader.js';
 import { PROJECT_ROOT } from '../../src/config/env.js';
-import { AuthorizationError, PolicyViolationError, NotFoundError } from '../../src/shared/errors.js';
+import {
+  AuthorizationError,
+  PolicyViolationError,
+  NotFoundError,
+} from '../../src/shared/errors.js';
 
 const registry = new ClientRegistry(path.join(PROJECT_ROOT, 'clients'));
 const client = registry.load('example-client');
@@ -41,7 +45,9 @@ describe('allowlist de conta de anuncios', () => {
 
 describe('allowlist de destino', () => {
   it('aceita URL do dominio da cliente', () => {
-    expect(checkDestinationUrl(client, 'https://lojaexemplo.com.br/produto/1', policy).ok).toBe(true);
+    expect(checkDestinationUrl(client, 'https://lojaexemplo.com.br/produto/1', policy).ok).toBe(
+      true,
+    );
   });
 
   it('aceita subdominio do dominio cadastrado', () => {

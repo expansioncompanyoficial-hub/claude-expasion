@@ -151,7 +151,11 @@ describe('bloqueios de validacao antes de qualquer criacao', () => {
 
   it('bloqueia modelo nao autorizado para a cliente', async () => {
     const sandbox = sandboxDirs();
-    const brief = writeBrief(sandbox.briefs, 'modelo.md', briefWhatsApp({ modelo: 'modelo_inventado' }));
+    const brief = writeBrief(
+      sandbox.briefs,
+      'modelo.md',
+      briefWhatsApp({ modelo: 'modelo_inventado' }),
+    );
     const ctx = makeContext(sandbox.overrides, { transport: new MockTransport() });
     await expect(executarDryRun(ctx, brief)).rejects.toThrow();
     ctx.close();

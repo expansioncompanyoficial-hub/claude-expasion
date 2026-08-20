@@ -65,7 +65,11 @@ function metaMock(): MockTransport {
     {
       match: '/adsets',
       method: 'GET',
-      body: { data: [{ id: CONJUNTO, campaign_id: CAMPANHA, status: 'PAUSED', effective_status: 'PAUSED' }] },
+      body: {
+        data: [
+          { id: CONJUNTO, campaign_id: CAMPANHA, status: 'PAUSED', effective_status: 'PAUSED' },
+        ],
+      },
     },
     {
       match: '/ads',
@@ -118,9 +122,11 @@ describe('criacao real: tudo nasce PAUSED', () => {
     const c = cenario();
     const campaignId = await criarEConfirmar(c);
 
-    const criacoes = c.transport
-      .requests.map((r, i) => ({ r, body: c.transport.bodies()[i]! }))
-      .filter(({ r }) => r.method === 'POST' && /\/(campaigns|adsets|ads)$/.test(new URL(r.url).pathname));
+    const criacoes = c.transport.requests
+      .map((r, i) => ({ r, body: c.transport.bodies()[i]! }))
+      .filter(
+        ({ r }) => r.method === 'POST' && /\/(campaigns|adsets|ads)$/.test(new URL(r.url).pathname),
+      );
 
     expect(criacoes.length).toBeGreaterThanOrEqual(4);
     for (const { body } of criacoes) {
@@ -212,9 +218,9 @@ describe('ativacao exige aprovacao valida', () => {
     const check = verificarAprovacao(c.ctx, campaignId, aprovacao.approval_token);
     expect(check.ok).toBe(false);
     expect(check.problemas.join(' ')).toMatch(/vencida/i);
-    await expect(ativarCampanha(c.ctx, campaignId, aprovacao.approval_token)).rejects.toBeInstanceOf(
-      ApprovalError,
-    );
+    await expect(
+      ativarCampanha(c.ctx, campaignId, aprovacao.approval_token),
+    ).rejects.toBeInstanceOf(ApprovalError);
     c.ctx.close();
   });
 
