@@ -135,6 +135,29 @@ button{font-family:inherit}
 .op{flex:1;background:var(--campo);border:1px solid var(--linha);color:var(--meio);
   font-family:var(--ui);font-size:12px;padding:7px 0;border-radius:7px;cursor:pointer}
 .op[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion));color:var(--texto)}
+/* controles do slide */
+.linha-ct{display:flex;align-items:center;justify-content:space-between;gap:8px;
+  margin-bottom:9px;font-size:12px;color:var(--meio)}
+.passo{display:flex;align-items:center;gap:4px}
+.passo button{width:24px;height:24px;border-radius:6px;border:1px solid var(--linha);
+  background:var(--campo);color:var(--texto);cursor:pointer;font-size:13px;line-height:1}
+.passo button:hover{border-color:var(--linha-forte)}
+.passo b{font-family:var(--mono);font-size:11px;min-width:34px;text-align:center;
+  color:var(--texto)}
+.encolheu{font-family:var(--mono);font-size:9.5px;color:#E8A33D;margin:-4px 0 9px}
+.foto-cx{border:1px solid var(--linha);border-radius:8px;overflow:hidden;background:var(--campo);
+  aspect-ratio:864/442;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.foto-cx img{width:100%;height:100%;object-fit:cover;display:block}
+.foto-cx span{font-family:var(--mono);font-size:9.5px;color:var(--fraco)}
+.foco{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:9px}
+.foco button{aspect-ratio:1;border:1px solid var(--linha);background:var(--campo);
+  border-radius:5px;cursor:pointer}
+.foco button[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion));
+  background:color-mix(in srgb,var(--pt-accent,var(--expansion)) 26%,var(--campo))}
+.arquivo-btn{position:relative;overflow:hidden;display:inline-flex;justify-content:center;
+  width:100%}
+.arquivo-btn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+
 .lista-pad{display:flex;flex-direction:column;gap:5px;margin-bottom:8px}
 .pad{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;color:var(--meio);
   padding:5px 8px;border-radius:6px;background:var(--campo)}
@@ -404,6 +427,10 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
 
     <!-- CARROSSEL -->
     <div class="painel-et oculto" data-et="carrossel">
+      <div class="bloco">
+        <span class="rotulo">Slide <span id="sl-n" style="text-transform:none">—</span></span>
+        <div id="sl-painel"></div>
+      </div>
       <div class="bloco">
         <span class="rotulo">Template</span>
         <div class="tpls" id="tpls"></div>
@@ -734,9 +761,81 @@ function chip(){
     <span style="width:27.8px;height:27.8px;border-radius:50%;background:#1d9bf0;color:#fff;display:flex;
     align-items:center;justify-content:center;font-size:16px;font-weight:700">✓</span></div>`;
 }
-const H = (t,sz,cor,extra='') => `<div style="font-family:'Montserrat',var(--ui);font-size:${sz}px;
-  font-weight:600;line-height:1.06;letter-spacing:-.056em;color:${cor};
+const H = (t,sz,cor,extra='') => `<div class="ft-h1" style="font-family:'Montserrat',var(--ui);
+  font-size:${sz}px;font-weight:600;line-height:1.06;letter-spacing:-.056em;color:${cor};
   ${extra}">${esc(t)}</div>`;
+
+/* ── a grade e o auto-ajuste ───────────────────────────────────────────────
+   Mesma régua do renderizador em Python: cada bloco tem um `top` medido no
+   Canva e um teto — até onde o próximo começa. O texto encolhe DENTRO da
+   própria fatia, sem empurrar o slide. É isso que mantém os nove alinhados
+   entre si e impede a headline de cair em cima da imagem. */
+const GRADE = {
+  topo: {foto:207.9, h1:717.0, corpo:1005.8},
+  meio: {h1:161.0, foto:453.9, corpo:951.1},
+  base: {h1:230.5, corpo:534.9, foto:799.8},
+  nada: {h1:298.9, corpo:641.9},
+};
+const RITMO_FOTO = ['','topo','meio','base','topo','nada','meio','base','nada'];
+const posFoto = i => (peca && peca.ajustes && peca.ajustes[i] && peca.ajustes[i].pos)
+  || RITMO_FOTO[i] || 'nada';
+
+const BASE_Y = 1242, FOLGA = 24, FOTO_H = 442.2;
+function tetos(pos){
+  const g = GRADE[pos] || GRADE.nada;
+  const ordem = Object.entries(g).sort((a,b) => a[1] - b[1]);
+  const out = {};
+  ordem.forEach(([nome, y], k) => {
+    if (nome === 'foto') { out[nome] = FOTO_H; return; }
+    const fim = k + 1 < ordem.length ? ordem[k+1][1] - FOLGA : BASE_Y;
+    out[nome] = Math.round((fim - y) * 10) / 10;
+  });
+  return out;
+}
+
+/* Ajustes por slide: imagem, enquadramento e tamanhos pedidos à mão. */
+function ajuste(i){
+  if (!peca) return {foco:'50% 50%'};
+  peca.ajustes = peca.ajustes || {};
+  peca.ajustes[i] = peca.ajustes[i] || {foco:'50% 50%'};
+  return peca.ajustes[i];
+}
+
+/* O tamanho pedido à mão é o PONTO DE PARTIDA, não a palavra final: o
+   auto-ajuste ainda encolhe se não couber. Assim dá pra aumentar o texto sem
+   nunca conseguir quebrar o slide — e o painel avisa quando teve de ceder. */
+let ajustou = {};
+function fitBlocos(raiz){
+  raiz.querySelectorAll('.slide .bl').forEach(b => {
+    const teto = parseFloat(b.dataset.teto);
+    const dentro = b.firstElementChild;
+    if (!dentro || !teto) return;
+    const passa = () => dentro.offsetHeight > teto + 1;
+    const cabeca = dentro.querySelector('.ft-h1');
+    if (cabeca){
+      let fs = parseFloat(getComputedStyle(cabeca).fontSize);
+      while (passa() && fs > 34) { fs -= 1; cabeca.style.fontSize = fs + 'px'; }
+    }
+    const corpos = dentro.querySelectorAll('.ft-corpo');
+    let guarda = 0;
+    while (corpos.length && passa() && guarda++ < 90){
+      corpos.forEach(c => {
+        const fs = parseFloat(getComputedStyle(c).fontSize);
+        if (fs > 22) c.style.fontSize = (fs - 1) + 'px';
+      });
+    }
+  });
+}
+
+/* Quanto o slide atual teve de encolher — é o que o painel mostra. */
+function medeSlide(){
+  const s = $('#moldura .slide'); if (!s) return null;
+  const h = s.querySelector('.ft-h1'), c = s.querySelector('.ft-corpo');
+  return {
+    h1: h ? Math.round(parseFloat(getComputedStyle(h).fontSize)) : null,
+    corpo: c ? Math.round(parseFloat(getComputedStyle(c).fontSize)) : null,
+  };
+}
 
 function render(i){
   const {h,c} = par(i); const T = tpl.id;
@@ -760,40 +859,45 @@ function render(i){
     const corH = cl ? '#000' : '#fff';
     const corC = cl ? '#000' : '#fff';
     const corB = cl ? 'rgba(0,0,0,.30)' : 'rgba(255,255,255,.30)';
-    const seta = f==='destaque' ? `<div style="position:absolute;right:108px;bottom:76px;width:78px;
-      height:78px;border-radius:50%;background:#fff;color:#000;display:flex;align-items:center;
-      justify-content:center;font-size:36px;font-weight:600;z-index:20">→</div>` : '';
+
     // A grade medida do Canva: cada bloco no seu `top`, não em fluxo. Quatro
     // arquétipos, conforme onde a foto entra. Sem foto, é o slide de virada.
-    const GRADE = {
-      topo: {foto:207.9, h1:717.0, corpo:1005.8},
-      meio: {h1:161.0, foto:453.9, corpo:951.1},
-      base: {h1:230.5, corpo:534.9, foto:799.8},
-      nada: {h1:298.9, corpo:641.9},
-    };
-    const posFoto = ['','topo','meio','base','topo','nada','meio','base','nada'][i] || 'nada';
-    const g = GRADE[posFoto] || GRADE.nada;
-    const bloco = (top, html) =>
-      `<div style="position:absolute;top:${top}px;left:108px;width:864px;z-index:2">${html}</div>`;
+    const g = GRADE[posFoto(i)] || GRADE.nada;
+    const teto = tetos(posFoto(i));
+    const aj = ajuste(i);
 
-    const vaga = (posFoto==='nada') ? '' : bloco(g.foto,
-      `<div style="height:442.2px;border-radius:13px;border:2px dashed ${cl?cli.accent:'#fff'};
-        background:${cl?'rgba(0,0,0,.03)':'rgba(255,255,255,.06)'};display:flex;
-        flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center">
-        <span style="font-size:16px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-          color:${cl?cli.accent:'#fff'}">Imagem · ${posFoto}</span>
-        <span style="font-size:15px;letter-spacing:.1em;opacity:.5;color:${corC}">864 × 442 · canto 13</span>
-      </div>`);
+    // `data-teto` é o que impede o texto de invadir o vizinho. O bloco declara
+    // até onde pode crescer e o auto-ajuste encolhe dentro da própria fatia —
+    // sem isso a headline longa passa por cima da imagem, que era o problema.
+    const bloco = (nome, html) =>
+      `<div class="bl" data-teto="${teto[nome]}" style="position:absolute;top:${g[nome]}px;
+        left:108px;width:864px;z-index:2"><div>${html}</div></div>`;
+
+    const cx = posFoto(i)==='nada' ? '' : `<div style="position:absolute;top:${g.foto}px;
+      left:108px;width:864px;height:442.2px;border-radius:13px;overflow:hidden;z-index:2">${
+        aj.img
+          ? `<img src="${aj.img}" alt="" style="width:100%;height:100%;object-fit:cover;
+              object-position:${aj.foco};display:block">`
+          : `<div style="width:100%;height:100%;border:2px dashed ${cl?cli.accent:'#fff'};
+              border-radius:13px;background:${cl?'rgba(0,0,0,.03)':'rgba(255,255,255,.06)'};
+              display:flex;flex-direction:column;align-items:center;justify-content:center;
+              gap:14px;text-align:center">
+              <span style="font-size:16px;font-weight:700;letter-spacing:.18em;
+                text-transform:uppercase;color:${cl?cli.accent:'#fff'}">Imagem · ${posFoto(i)}</span>
+              <span style="font-size:15px;letter-spacing:.1em;opacity:.5;color:${corC}">
+                864 × 442 · canto 13</span></div>`
+      }</div>`;
 
     const corpoHtml = f==='cta'
-      ? `<div style="font-size:45.4px;line-height:.96;letter-spacing:-.033em">${EM(c||'Comenta a palavra.')}</div>`
-      : `<div style="font-size:${cl?36.6:45.4}px;line-height:.96;letter-spacing:-.033em;
-          color:${corC}">${esc(c||'Texto de apoio do slide.')}</div>`;
+      ? `<div class="ft-corpo" style="font-size:${aj.corpo || 45.4}px;line-height:.96;
+          letter-spacing:-.033em">${EM(c||'Comenta a palavra.')}</div>`
+      : `<div class="ft-corpo" style="font-size:${aj.corpo || (cl?36.6:45.4)}px;line-height:.96;
+          letter-spacing:-.033em;color:${corC}">${esc(c||'Texto de apoio do slide.')}</div>`;
 
     return `<div class="slide" style="background:${bg}">${barra(corB)}
-      ${bloco(g.h1, H(h||'Headline',75.7,corH,f==='cta'?'font-weight:700':''))}
-      ${vaga}
-      ${bloco(g.corpo, corpoHtml)}${seta}</div>`;
+      ${bloco('h1', H(h||'Headline', aj.h1 || 75.7, corH, f==='cta'?'font-weight:700':''))}
+      ${cx}
+      ${bloco('corpo', corpoHtml)}</div>`;
   }
 
   // EXPANSION 02 · 03 · 04 — foto sangrada, texto apoiado na base. O que muda
@@ -1175,7 +1279,7 @@ function pintar(){
   const largura = Math.min(360, Math.max(220, window.innerWidth * 0.25));
   const m = $('#moldura');
   m.innerHTML = render(atual);
-  fitCapa(m);
+  fitCapa(m); fitBlocos(m); painelSlide();
   const d = escala(m.firstElementChild, largura);
   m.style.width = d.w+'px'; m.style.height = d.h+'px';
 
@@ -1193,7 +1297,8 @@ function pintar(){
     b.style.width='68px'; b.style.height='85px';
     b.onclick = () => { atual=i; pintar(); };
     t.appendChild(b);
-    const s = b.querySelector('.slide'); fitCapa(b); escala(s,64); s.style.pointerEvents='none';
+    const s = b.querySelector('.slide'); fitCapa(b); fitBlocos(b);
+    escala(s,64); s.style.pointerEvents='none';
   }
   contar();
 }
@@ -1280,6 +1385,7 @@ function miniaturas(){
   TEMPLATES.forEach(t => {
     const alvo = document.getElementById('mini-'+t.id); if(!alvo) return;
     tpl = t; alvo.innerHTML = render(0);
+    fitCapa(alvo); fitBlocos(alvo);
     const s = alvo.querySelector('.slide'); escala(s,34); s.style.pointerEvents='none';
   });
   tpl = g;
@@ -1304,6 +1410,7 @@ function montarPecas(){
     const g = tpl, gb = blocos;
     tpl = acha(p.tpl); blocos = parse(p.txt);
     const alvo = b.querySelector('.peca-mini'); alvo.innerHTML = render(0);
+    fitCapa(alvo); fitBlocos(alvo);
     const s = alvo.querySelector('.slide'); escala(s,20); s.style.pointerEvents='none';
     tpl = g; blocos = gb;
   });
@@ -1317,6 +1424,124 @@ function montarPecas(){
     montarPecas(); trocaEtapa('capas');
   };
   c.appendChild(n);
+}
+
+/* ── painel do slide ───────────────────────────────────────────────────────
+   Onde a imagem entra e onde o tamanho se ajusta. O tamanho pedido aqui é o
+   ponto de partida: o auto-ajuste ainda encolhe se não couber, e o aviso em
+   âmbar diz quando teve de ceder. Assim dá pra aumentar o texto sem conseguir
+   quebrar o slide. */
+const FOCOS = [['esquerda em cima','0% 0%'],['centro em cima','50% 0%'],['direita em cima','100% 0%'],
+               ['esquerda','0% 50%'],['centro','50% 50%'],['direita','100% 50%'],
+               ['esquerda embaixo','0% 100%'],['centro embaixo','50% 100%'],['direita embaixo','100% 100%']];
+
+function painelSlide(){
+  const cx = $('#sl-painel'); if (!cx || !peca) return;
+  $('#sl-n').textContent = `${atual+1} de ${nSlides()}`;
+  if (tpl.id !== 'meio'){
+    cx.innerHTML = `<span class="mini">Ajuste por slide só no EXPANSION 01 por enquanto.</span>`;
+    return;
+  }
+  const aj = ajuste(atual), pos = posFoto(atual), temFoto = pos !== 'nada';
+  const real = medeSlide() || {};
+  const pedidoH1 = aj.h1 || 75.7, pedidoC = aj.corpo || 45.4;
+
+  cx.innerHTML = `
+    ${temFoto ? `
+      <div class="foto-cx" id="sl-vitrine">${aj.img
+        ? `<img src="${aj.img}" alt="" style="object-position:${aj.foco}">`
+        : `<span>sem imagem</span>`}</div>
+      <div class="acoes" style="margin:0 0 9px">
+        <span class="btn arquivo-btn" style="padding:7px 10px;font-size:11.5px">
+          ${aj.img ? 'Trocar imagem' : 'Enviar imagem'}
+          <input type="file" id="sl-arq" accept="image/png,image/jpeg,image/webp"></span>
+        ${aj.img ? `<button class="btn" id="sl-tirar" type="button"
+           style="padding:7px 10px;font-size:11.5px">Tirar</button>` : ''}
+      </div>
+      ${aj.img ? `<span class="rotulo" style="margin-bottom:6px">Enquadramento</span>
+      <div class="foco" id="sl-foco">${FOCOS.map(([t,v]) =>
+        `<button type="button" data-v="${v}" title="${t}"
+          aria-pressed="${aj.foco === v}"></button>`).join('')}</div>` : ''}
+      <span class="rotulo" style="margin-bottom:6px">Onde a imagem entra</span>
+      <div class="opcoes" style="margin-bottom:12px" id="sl-pos">
+        ${['topo','meio','base','nada'].map(v =>
+          `<button class="op" type="button" data-v="${v}"
+            aria-pressed="${pos === v}">${v === 'nada' ? 'sem' : v}</button>`).join('')}
+      </div>` : `
+      <span class="rotulo" style="margin-bottom:6px">Onde a imagem entra</span>
+      <div class="opcoes" style="margin-bottom:12px" id="sl-pos">
+        ${['topo','meio','base','nada'].map(v =>
+          `<button class="op" type="button" data-v="${v}"
+            aria-pressed="${pos === v}">${v === 'nada' ? 'sem' : v}</button>`).join('')}
+      </div>`}
+
+    <div class="linha-ct"><span>Título</span>
+      <span class="passo"><button type="button" data-t="h1" data-d="-2">−</button>
+      <b>${Math.round(pedidoH1)}px</b>
+      <button type="button" data-t="h1" data-d="2">+</button></span></div>
+    ${real.h1 && real.h1 < Math.round(pedidoH1) - 1
+      ? `<div class="encolheu">encolhido para ${real.h1}px pra caber</div>` : ''}
+
+    <div class="linha-ct"><span>Corpo</span>
+      <span class="passo"><button type="button" data-t="corpo" data-d="-2">−</button>
+      <b>${Math.round(pedidoC)}px</b>
+      <button type="button" data-t="corpo" data-d="2">+</button></span></div>
+    ${real.corpo && real.corpo < Math.round(pedidoC) - 1
+      ? `<div class="encolheu">encolhido para ${real.corpo}px pra caber</div>` : ''}
+
+    <button class="btn" id="sl-zerar" type="button"
+      style="width:100%;padding:7px;font-size:11.5px">Voltar ao padrão</button>`;
+
+  cx.querySelectorAll('.passo button').forEach(b => b.onclick = () => {
+    const a = ajuste(atual), campo = b.dataset.t;
+    const base = campo === 'h1' ? 75.7 : 45.4;
+    a[campo] = Math.max(24, Math.min(160, (a[campo] || base) + Number(b.dataset.d)));
+    marcaSujo(); pintar();
+  });
+  const foco = cx.querySelector('#sl-foco');
+  if (foco) foco.querySelectorAll('button').forEach(b => b.onclick = () => {
+    ajuste(atual).foco = b.dataset.v; marcaSujo(); pintar();
+  });
+  cx.querySelectorAll('#sl-pos .op').forEach(b => b.onclick = () => {
+    ajuste(atual).pos = b.dataset.v; marcaSujo(); pintar();
+  });
+  const zerar = cx.querySelector('#sl-zerar');
+  if (zerar) zerar.onclick = () => {
+    const a = ajuste(atual);
+    delete a.h1; delete a.corpo; delete a.pos; a.foco = '50% 50%';
+    marcaSujo(); pintar();
+  };
+  const tirar = cx.querySelector('#sl-tirar');
+  if (tirar) tirar.onclick = () => { delete ajuste(atual).img; marcaSujo(); pintar(); };
+  const arq = cx.querySelector('#sl-arq');
+  if (arq) arq.onchange = e => {
+    const f = e.target.files && e.target.files[0];
+    if (f) reduzImagem(f).then(url => { ajuste(atual).img = url; marcaSujo(); pintar(); });
+  };
+}
+
+/* A imagem entra reduzida. O quadro é 864 × 442 no arquivo final, então mais
+   de 1000px de largura não melhora nada — e o estado da página vai junto no
+   Salvar, então cada MB a mais é MB que atravessa a rede toda vez. */
+function reduzImagem(arquivo, larguraMax = 1000, qualidade = 0.82){
+  return new Promise((ok, falha) => {
+    const leitor = new FileReader();
+    leitor.onerror = () => falha(new Error('não consegui ler o arquivo'));
+    leitor.onload = () => {
+      const im = new Image();
+      im.onerror = () => falha(new Error('arquivo não é uma imagem'));
+      im.onload = () => {
+        const escala = Math.min(1, larguraMax / im.width);
+        const c = document.createElement('canvas');
+        c.width = Math.round(im.width * escala);
+        c.height = Math.round(im.height * escala);
+        c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+        ok(c.toDataURL('image/jpeg', qualidade));
+      };
+      im.src = leitor.result;
+    };
+    leitor.readAsDataURL(arquivo);
+  });
 }
 
 /* ── persistência ──────────────────────────────────────────────────────────
@@ -1388,7 +1613,9 @@ async function salvar(){
                || c === 'capability_disabled' || c === 'consent_required'){
       soLeitura();
     } else if (c === 'too_large'){
-      e.textContent = 'peça grande demais pra salvar'; e.className = 'salvar-est erro';
+      // Quase sempre são as imagens: elas entram no estado da página, e o
+      // estado viaja inteiro a cada salvamento.
+      e.textContent = 'grande demais — tire alguma imagem'; e.className = 'salvar-est erro';
     } else if (c === 'rate_limited'){
       e.textContent = 'salvando rápido demais — espere alguns segundos';
       e.className = 'salvar-est erro';

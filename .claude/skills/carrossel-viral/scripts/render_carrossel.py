@@ -219,7 +219,8 @@ def slide_html(spec, s, i, total):
         # se apoia na base e deixa a imagem respirar em cima.
         img = s.get("foto_fundo") or s.get("imagem")
         if img:
-            bg = f'<div class="bg-foto capa-foto" style="background-image:url({b64_img(img)})"></div>'
+            bg = (f'<div class="bg-foto capa-foto" style="background-image:url({b64_img(img)});'
+                  f'background-position:{s.get("foco", "50% 50%")}"></div>')
         else:
             bg = '<div class="capa-banho"></div>'
         selo = '<span class="selo">✓</span>' if verificado else ""
@@ -304,7 +305,12 @@ def slide_html(spec, s, i, total):
     # de uma foto que ninguém pediu.
     if pos:
         if s.get("imagem"):
-            dentro = f'<img src="{b64_img(s["imagem"])}" alt="">'
+            # A caixa é 864 × 442 e a foto quase nunca tem essa proporção: algo
+            # é cortado. `foco` diz o que fica — sem isso o corte é sempre pelo
+            # centro, e o assunto da foto costuma não estar lá.
+            foco = s.get("foco", "50% 50%")
+            dentro = (f'<img src="{b64_img(s["imagem"])}" alt="" '
+                      f'style="object-position:{foco}">')
             classe = "foto"
         else:
             brief = s.get("imagem_brief", "Imagem a definir")
