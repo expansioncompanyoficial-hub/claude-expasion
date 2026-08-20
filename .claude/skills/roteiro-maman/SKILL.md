@@ -227,5 +227,8 @@ de renderizar.
 4. **Assinaturas do Maman ficam com ele:** a dobradiça dele, os bordões, as
    palavras-chave dele, o código visual (terno/set escuro/legenda dourada) e o
    enquadramento religioso (só se for convicção autêntica do cliente).
+   *Exceção registrada (20/08): para a marca Expansion, o Nicolas definiu
+   "comenta DIAGNÓSTICO" como CTA padrão de todos os vídeos — decisão do dono,
+   documentada na DIRETRIZ-EXPANSION com o custo anotado.*
 5. **Calibre a expectativa sempre** (seção 7 da entrega). O método melhora o
    processo; não garante o resultado de um perfil com 1,5 milhão de seguidores.

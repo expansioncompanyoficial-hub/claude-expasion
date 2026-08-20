@@ -48,6 +48,15 @@ volta), que a maioria das agências não constrói porque para na atração.
   extrapolar a promessa para loja de R$ 80 mil/mês. Confirmar números reais de
   Ciés e Clau Kids antes de qualquer case público.
 
+## CTA padrão da marca (decisão do Nicolas, 20/08)
+
+**Todo vídeo da Expansion fecha com "comenta DIAGNÓSTICO"** → direct → agendar o
+diagnóstico gratuito. Uma palavra, uma automação, um funil. Isso substitui a
+regra de palavra inédita por vídeo (registro do custo: perde-se o rastreio de
+origem por vídeo; a palavra coincide com a assinatura do Maman e a isca da
+Cerberus — decisão consciente do dono). CTA social no pico continua antes do
+comercial.
+
 ## Réguas que continuam valendo (do posicionamento, confirmadas)
 
 - Sem promessa de faturamento/multiplicador; anti-milagre é identidade.
