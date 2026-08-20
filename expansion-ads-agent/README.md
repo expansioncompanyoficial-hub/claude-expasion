@@ -405,6 +405,82 @@ mesmo com as flags `AUTO_*` ligadas.
 | Comando | O que faz |
 |---|---|
 | `npm run db:init` | cria o banco local |
+
+## EXPANSION ADS — a plataforma visual
+
+Central de Inteligência e Gestão de Tráfego. Interface web sobre o mesmo
+backend da CLI e do MCP: as três portas falam com os mesmos serviços e
+respeitam as mesmas travas.
+
+### Subir
+
+```bash
+npm run web:build     # instala e compila o frontend (uma vez, ou após git pull)
+npm run web           # sobe a plataforma em http://localhost:4000
+```
+
+Antes do primeiro acesso, crie um usuário. A senha entra por variável de
+ambiente, nunca por argumento — argumento fica no histórico do shell:
+
+```bash
+EXPANSION_USER_PASSWORD='sua-senha-longa' npm run user:create   --email voce@agencia.com --nome "Seu Nome" --papel admin
+```
+
+Papéis, do menor para o maior: `visualizador` (só lê) · `operador` (rascunho,
+upload, dry-run, criar pausada) · `gestor` (aprovar, ativar, pausar) · `admin`
+(usuários e configuração). Nenhum papel exclui nada — a operação não existe no
+backend, então também não existe na interface.
+
+### O caminho na tela
+
+Selecionar cliente → Nova campanha → objetivo comercial → estratégia → destino
+→ criativos → copy → público → posicionamentos → orçamento → revisão →
+dry-run → criar pausada → aprovar → ativar.
+
+A pergunta da etapa 2 é **"o que esta campanha precisa gerar para a cliente?"**,
+não "qual optimization_goal você quer". A tradução para a estrutura da Meta vem
+do backend: se um modelo mudar de objetivo técnico, a interface acompanha sem
+alteração. Objetivo sem modelo implementado aparece como indisponível, com o
+motivo — nunca como opção que falha depois.
+
+### O que a plataforma não faz
+
+- **Não cria campanha ativa.** Não existe caminho no código que faça isso.
+- **Não ativa sem aprovação.** O código de aprovação vale uma vez, expira, e é
+  recusado se a campanha mudou depois de assinada.
+- **Não inventa métrica.** Sem credencial ou sem entrega, o número aparece como
+  `—` com o motivo, nunca como zero.
+- **Não manda token para o navegador.** O `META_ACCESS_TOKEN` fica no `.env` do
+  servidor. A tela mostra só a marca dele (`EAA***ab (len=210)`).
+- **Não analisa criativo por visão computacional.** Proporção, formato e
+  tamanho são lidos do arquivo; gancho, legibilidade e clareza da oferta são
+  declarados como *não avaliados* em vez de simulados.
+
+### Gestor IA
+
+Camada determinística: mesma entrada, mesma recomendação. Avalia estrutura,
+verba, público e compatibilidade de criativo com regras de gestor de tráfego,
+sobre dados reais do cadastro e do briefing.
+
+Toda saída é carimbada com a origem — **dado real**, **cálculo**,
+**recomendação** ou **inferência** —, para o operador saber, sem esforço, o que
+é número da Meta e o que é palpite. Um adaptador de modelo de linguagem pode
+ser plugado em `src/advisor/` sem que nenhuma tela mude.
+
+### Verificação visual
+
+```bash
+node scripts/verificacao-visual.mjs <pasta-de-saida>   # telas + overflow em 7 larguras
+node scripts/fluxo-e2e.mjs <pasta-de-saida>            # fluxo completo até o dry-run
+```
+
+Ambos exigem o servidor no ar. Nenhum toca a Meta.
+
+
+| `npm run web` | sobe a plataforma EXPANSION ADS |
+| `npm run web:build` | compila o frontend |
+| `npm run user:create` | cadastra um acesso à plataforma |
+| `npm run user:list` | lista os acessos |
 | `npm run meta:validate-access` | confere se o token funciona e o que ele enxerga |
 | `npm run meta:discover` | lista Páginas, Instagram e pixels para preencher o cadastro |
 | `npm run client:list` | lista clientes cadastradas |
