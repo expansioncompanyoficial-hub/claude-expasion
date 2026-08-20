@@ -31,6 +31,23 @@ volta), que a maioria das agências não constrói porque para na atração.
 3. *Contraste:* "O que separa loja movimentada de loja lucrativa não é aparecer
    mais. É o que acontece depois que a cliente aparece."
 
+## ICP canônico (desde 20/08 — fonte: `ICP-EXPANSION-FAIXAS-2026-08-20.md`)
+
+- **Loja de roupa feminina OU INFANTIL**, porte EPP (R$ 30–400 mil/mês; piso
+  prático R$ 40 mil), vende por Instagram + WhatsApp, **tem cadastro de
+  clientes e não usa** — esse cadastro parado é o ativo que a casa monetiza
+  (EX1). A dona decide sozinha.
+- Faixas: EX1 R$1.800 (40–100k) · EX2 R$3.500 (100k+) · EX3 R$5.500 (140k+) ·
+  360 R$10.800 (250k+).
+- **Consequência para roteiros:** a qualificação em voz alta pode incluir
+  infantil; o tema "a lista/cadastro que você já tem" ganha prioridade (é o
+  ativo central do ICP); antiperfil não é atacado em vídeo — o filtro é feito
+  pela qualificação positiva, nunca humilhando quem está fora.
+- **⚠ Alerta herdado do doc:** o case 30→100k (Lica) pode ter nascido ABAIXO do
+  piso do ICP — ao usar o case (R14), manter o disclaimer reforçado e nunca
+  extrapolar a promessa para loja de R$ 80 mil/mês. Confirmar números reais de
+  Ciés e Clau Kids antes de qualquer case público.
+
 ## Réguas que continuam valendo (do posicionamento, confirmadas)
 
 - Sem promessa de faturamento/multiplicador; anti-milagre é identidade.
