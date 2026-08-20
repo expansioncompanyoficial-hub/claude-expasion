@@ -210,6 +210,45 @@ describe('travas de negócio', () => {
     expect(r.status).toBe(422);
   });
 
+  it('DRY_RUN=true impede a plataforma de criar, ativar ou pausar', async () => {
+    // O ambiente de teste roda com DRY_RUN=true. A plataforma precisa honrar
+    // a mesma trava que a CLI honra: sem isto, a barra lateral exibia
+    // "Dry-run ligado" enquanto o botão criava campanha de verdade.
+    const criar = await chamar('/api/campaigns', {
+      metodo: 'POST',
+      papel: 'operador',
+      corpo: { form: {}, confirmacao: true },
+    });
+    expect(criar.status).toBe(422);
+    expect(criar.corpo.erro.codigo).toBe('DRY_RUN_LIGADO');
+
+    const ativar = await chamar('/api/campaigns/x/activate', {
+      metodo: 'POST',
+      papel: 'gestor',
+      corpo: { codigo: 'APV-AAAAA-BBBBB-CCCCC-DDDDD', confirmacaoDeCobranca: true },
+    });
+    expect(ativar.status).toBe(422);
+    expect(ativar.corpo.erro.codigo).toBe('DRY_RUN_LIGADO');
+
+    const pausar = await chamar('/api/campaigns/x/pause', {
+      metodo: 'POST',
+      papel: 'gestor',
+      corpo: { motivo: 'teste de trava' },
+    });
+    expect(pausar.status).toBe(422);
+    expect(pausar.corpo.erro.codigo).toBe('DRY_RUN_LIGADO');
+  });
+
+  it('o dry-run continua liberado com DRY_RUN=true', async () => {
+    // Só a ESCRITA é barrada: validar e simular são o uso normal do modo.
+    const r = await chamar('/api/campaigns/dry-run', {
+      metodo: 'POST',
+      papel: 'operador',
+      corpo: {},
+    });
+    expect(r.corpo.erro?.codigo).not.toBe('DRY_RUN_LIGADO');
+  });
+
   it('ativação exige código de aprovação e confirmação de cobrança', async () => {
     const semCodigo = await chamar('/api/campaigns/x/activate', {
       metodo: 'POST',

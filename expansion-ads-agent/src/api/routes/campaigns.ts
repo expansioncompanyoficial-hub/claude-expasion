@@ -75,6 +75,22 @@ export function rotasCampaigns(api: ApiContexto): Rota[] {
    * AgentContext global (que serve a leitura o tempo todo), monta-se um
    * contexto proprio, explicito, so para esta requisicao.
    */
+  /**
+   * DRY_RUN e a trava mais barata do sistema, e a plataforma precisa honra-la
+   * como a CLI honra. Sem isto, a barra lateral exibia "Dry-run ligado"
+   * enquanto o botao criava campanha de verdade — a tela dizendo uma coisa e
+   * fazendo outra, no unico lugar onde isso custa dinheiro.
+   */
+  const assertEscritaPermitida = (operacao: string): void => {
+    if (!agent.config.dryRun) return;
+    throw new HttpError(
+      422,
+      'DRY_RUN_LIGADO',
+      `DRY_RUN=true no servidor: a plataforma nao executa ${operacao}.`,
+      { operacao },
+    );
+  };
+
   const contextoDeEscrita = (actor: string) =>
     createContext({
       config: agent.config,
@@ -238,6 +254,10 @@ export function rotasCampaigns(api: ApiContexto): Rota[] {
       caminho: '/api/campaigns',
       papel: 'operador',
       handler: async (req) => {
+        // Antes de olhar o corpo: se o servidor nao cria nada, o formulario
+        // nao importa, e dizer "seu formulario esta errado" seria enganoso.
+        assertEscritaPermitida('criacao de campanha');
+
         const corpo = z
           .object({
             form: briefFormSchema,
@@ -348,6 +368,8 @@ export function rotasCampaigns(api: ApiContexto): Rota[] {
       caminho: '/api/campaigns/:id/activate',
       papel: 'gestor',
       handler: async (req) => {
+        assertEscritaPermitida('ativacao de campanha');
+
         const corpo = z
           .object({
             codigo: z.string().trim().min(1, 'Informe o codigo da aprovacao.'),
@@ -374,6 +396,7 @@ export function rotasCampaigns(api: ApiContexto): Rota[] {
       caminho: '/api/campaigns/:id/pause',
       papel: 'gestor',
       handler: async (req) => {
+        assertEscritaPermitida('pausa de campanha');
         const corpo = z.object({ motivo: z.string().trim().min(3) }).parse(req.corpo);
         const escrita = contextoDeEscrita(req.sessao!.email);
         try {

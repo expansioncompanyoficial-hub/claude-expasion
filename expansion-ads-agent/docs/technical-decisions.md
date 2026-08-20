@@ -442,3 +442,31 @@ já tratava o caso.* Falta de token é situação esperada — a tela mostra o a
 e degrada os seletores para campos de texto, para o cadastro seguir à mão. Um
 `503` transformava isso em erro registrado no navegador. `/api/insights` já
 usava o contrato de estado; agora a descoberta usa o mesmo.
+
+---
+
+## D27 — A plataforma honra DRY_RUN como a CLI honra
+
+**Decisão.** `POST /api/campaigns`, `/activate` e `/pause` recusam com `422
+DRY_RUN_LIGADO` enquanto `DRY_RUN=true`. A verificação vem **antes** do parse
+do corpo.
+
+**Por quê.** *Encontrado ao escrever o passo a passo da primeira publicação
+real.* A camada HTTP montava o contexto de escrita com `dryRunOverride: false`
+para que a criação fosse real — e com isso a plataforma passou a criar campanha
+de verdade mesmo com `DRY_RUN=true` no `.env`.
+
+O sintoma era pior que o bug: a barra lateral exibia **"Dry-run ligado"**
+enquanto o botão criava na Meta. A tela dizendo uma coisa e fazendo outra, no
+único lugar do sistema onde isso custa dinheiro. O escopo original pedia
+dry-run ativo por padrão justamente para que essa linha no `.env` fosse a trava
+mais barata do sistema; a interface a estava ignorando.
+
+O guarda vem antes de validar o formulário porque, se o servidor não cria nada,
+o formulário não importa — e responder "seu formulário está errado" quando a
+resposta certa é "este servidor não cria nada" manda o operador consertar a
+coisa errada.
+
+**Só a escrita é barrada.** Validar e simular seguem liberados: é o uso normal
+do modo. E a etapa de revisão do assistente agora avisa antes do clique, em vez
+de deixar montar dez etapas para levar erro no fim.

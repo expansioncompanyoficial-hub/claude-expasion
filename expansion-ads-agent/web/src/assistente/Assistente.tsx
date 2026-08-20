@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { api } from '../lib/api';
-import { useCliente, useSessao } from '../lib/contexto';
+import { useCliente, useEstadoMeta, useSessao } from '../lib/contexto';
 import { moeda, paraCents } from '../lib/formato';
 import {
   AchadoItem,
@@ -114,9 +114,7 @@ export function Assistente() {
       <PassoAPasso etapa={estado.etapa} aoIr={irPara} />
 
       <div style={{ marginTop: 20 }}>
-        {estado.etapa === 1 && (
-          <EtapaCliente clientes={clientes} estado={estado} mudar={mudar} />
-        )}
+        {estado.etapa === 1 && <EtapaCliente clientes={clientes} estado={estado} mudar={mudar} />}
         {estado.etapa === 2 && (
           <EtapaObjetivo
             objetivos={templates?.objetivosComerciais ?? []}
@@ -127,15 +125,17 @@ export function Assistente() {
         )}
         {estado.etapa === 3 && <EtapaEstrategia estado={estado} mudar={mudar} />}
         {estado.etapa === 4 && <EtapaDestino estado={estado} cliente={cliente} mudar={mudar} />}
-        {estado.etapa === 5 && (
-          <EtapaCriativos estado={estado} mudar={mudar} />
-        )}
+        {estado.etapa === 5 && <EtapaCriativos estado={estado} mudar={mudar} />}
         {estado.etapa === 6 && <EtapaCopy estado={estado} mudar={mudar} />}
         {estado.etapa === 7 && <EtapaPublico estado={estado} mudar={mudar} />}
         {estado.etapa === 8 && <EtapaPosicionamentos estado={estado} />}
         {estado.etapa === 9 && <EtapaOrcamento estado={estado} cliente={cliente} mudar={mudar} />}
         {estado.etapa === 10 && (
-          <EtapaRevisao estado={estado} cliente={cliente} aoConcluir={(id) => navegar(`/campanhas/${id}`)} />
+          <EtapaRevisao
+            estado={estado}
+            cliente={cliente}
+            aoConcluir={(id) => navegar(`/campanhas/${id}`)}
+          />
         )}
       </div>
 
@@ -201,7 +201,11 @@ function PassoAPasso({ etapa, aoIr }: { etapa: number; aoIr: (n: number) => void
                 : concluida
                   ? 'var(--grafite-800)'
                   : 'transparent',
-              color: atual ? 'var(--laranja-claro)' : concluida ? 'var(--texto)' : 'var(--texto-terciario)',
+              color: atual
+                ? 'var(--laranja-claro)'
+                : concluida
+                  ? 'var(--texto)'
+                  : 'var(--texto-terciario)',
               borderRadius: 'var(--raio-sm)',
               cursor: e.numero > etapa ? 'not-allowed' : 'pointer',
               textAlign: 'left',
@@ -407,7 +411,11 @@ function EtapaEstrategia({ estado, mudar }: { estado: EstadoAssistente; mudar: M
   return (
     <>
       <Card titulo="A oferta">
-        <Campo rotulo="Nome da campanha" obrigatorio ajuda="Como você vai reconhecer no Gerenciador.">
+        <Campo
+          rotulo="Nome da campanha"
+          obrigatorio
+          ajuda="Como você vai reconhecer no Gerenciador."
+        >
           <input
             type="text"
             value={estado.nomeCampanha}
@@ -442,7 +450,11 @@ function EtapaEstrategia({ estado, mudar }: { estado: EstadoAssistente; mudar: M
           />
         </Campo>
 
-        <Campo rotulo="Quem é o público" obrigatorio ajuda="Em palavras, não em segmentação técnica.">
+        <Campo
+          rotulo="Quem é o público"
+          obrigatorio
+          ajuda="Em palavras, não em segmentação técnica."
+        >
           <textarea
             value={estado.publico}
             onChange={(e) => mudar('publico', e.target.value)}
@@ -647,10 +659,17 @@ function EtapaDestino({
                 </ul>
               </Aviso>
             )}
-            {validacao.data?.ok && <Aviso tipo="sucesso">URL dentro da allowlist da cliente.</Aviso>}
+            {validacao.data?.ok && (
+              <Aviso tipo="sucesso">URL dentro da allowlist da cliente.</Aviso>
+            )}
 
             <div className="grade-2" style={{ marginTop: 14 }}>
-              <Campo rotulo="Pixel" ajuda={cliente?.pixelId ? `Cadastrado: ${cliente.pixelId}` : 'Sem pixel no cadastro.'}>
+              <Campo
+                rotulo="Pixel"
+                ajuda={
+                  cliente?.pixelId ? `Cadastrado: ${cliente.pixelId}` : 'Sem pixel no cadastro.'
+                }
+              >
                 <input
                   type="text"
                   value={estado.pixelId}
@@ -719,7 +738,13 @@ function EtapaCopy({ estado, mudar }: { estado: EstadoAssistente; mudar: Mudar }
     mutationFn: () =>
       api.post<{
         conselho: {
-          sugestoes: Array<{ ref: string; titulo: string; descricao: string; texto: string; modelo: string }>;
+          sugestoes: Array<{
+            ref: string;
+            titulo: string;
+            descricao: string;
+            texto: string;
+            modelo: string;
+          }>;
           achados: Achado[];
           geradoPorModelo: boolean;
         };
@@ -803,7 +828,10 @@ function EtapaCopy({ estado, mudar }: { estado: EstadoAssistente; mudar: Mudar }
                             titulo: s.titulo,
                             descricao: s.descricao,
                             texto: s.texto,
-                            criativo: estado.criativos[estado.copies.length % Math.max(estado.criativos.length, 1)]?.arquivo ?? '',
+                            criativo:
+                              estado.criativos[
+                                estado.copies.length % Math.max(estado.criativos.length, 1)
+                              ]?.arquivo ?? '',
                           },
                         ])
                       }
@@ -811,8 +839,12 @@ function EtapaCopy({ estado, mudar }: { estado: EstadoAssistente; mudar: Mudar }
                       Usar como base
                     </button>
                   </div>
-                  <div style={{ fontWeight: 650, marginTop: 8, fontSize: '0.85rem' }}>{s.titulo}</div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--texto-secundario)', marginTop: 4 }}>
+                  <div style={{ fontWeight: 650, marginTop: 8, fontSize: '0.85rem' }}>
+                    {s.titulo}
+                  </div>
+                  <div
+                    style={{ fontSize: '0.8rem', color: 'var(--texto-secundario)', marginTop: 4 }}
+                  >
                     {s.texto}
                   </div>
                 </div>
@@ -837,11 +869,19 @@ function EtapaCopy({ estado, mudar }: { estado: EstadoAssistente; mudar: Mudar }
                   background: 'var(--grafite-900)',
                 }}
               >
-                <div className="linha-flex" style={{ justifyContent: 'space-between', marginBottom: 12 }}>
+                <div
+                  className="linha-flex"
+                  style={{ justifyContent: 'space-between', marginBottom: 12 }}
+                >
                   <strong>Anúncio {i + 1}</strong>
                   <button
                     className="botao botao--pequeno botao--fantasma"
-                    onClick={() => mudar('copies', estado.copies.filter((_, idx) => idx !== i))}
+                    onClick={() =>
+                      mudar(
+                        'copies',
+                        estado.copies.filter((_, idx) => idx !== i),
+                      )
+                    }
                   >
                     Remover
                   </button>
@@ -938,8 +978,14 @@ function EtapaPublico({ estado, mudar }: { estado: EstadoAssistente; mudar: Muda
         cliente: estado.cliente,
         faixaEtaria: estado.faixaEtaria,
         generos: estado.generos,
-        interesses: estado.interesses.split(',').map((i) => i.trim()).filter(Boolean),
-        regioes: estado.regioes.split(',').map((r) => r.trim()).filter(Boolean),
+        interesses: estado.interesses
+          .split(',')
+          .map((i) => i.trim())
+          .filter(Boolean),
+        regioes: estado.regioes
+          .split(',')
+          .map((r) => r.trim())
+          .filter(Boolean),
         remarketing: estado.remarketing,
       }),
   });
@@ -1200,8 +1246,8 @@ function EtapaOrcamento({
         {acimaDoLimite && (
           <div style={{ marginTop: 14 }}>
             <Aviso tipo="bloqueio" titulo="Acima do teto da cliente">
-              O backend vai recusar. Reduza o valor ou altere o limite no cadastro da cliente — que é
-              uma decisão consciente, não um ajuste de tela.
+              O backend vai recusar. Reduza o valor ou altere o limite no cadastro da cliente — que
+              é uma decisão consciente, não um ajuste de tela.
             </Aviso>
           </div>
         )}
@@ -1275,7 +1321,14 @@ function RecomendacaoGestor({ conselho }: { conselho: ConselhoEstrategia }) {
       {conselho.oQueObservar.length > 0 && (
         <div style={{ marginTop: 16 }}>
           <div className="secao__titulo">O que observar depois de ativar</div>
-          <ul style={{ margin: 0, paddingLeft: 18, fontSize: '0.83rem', color: 'var(--texto-secundario)' }}>
+          <ul
+            style={{
+              margin: 0,
+              paddingLeft: 18,
+              fontSize: '0.83rem',
+              color: 'var(--texto-secundario)',
+            }}
+          >
             {conselho.oQueObservar.map((o, i) => (
               <li key={i} style={{ marginBottom: 4 }}>
                 {o}
@@ -1329,6 +1382,10 @@ function EtapaRevisao({
 }) {
   const [confirmado, setConfirmado] = useState(false);
   const [passoAtual, setPassoAtual] = useState(-1);
+  const { data: ambiente } = useEstadoMeta();
+  // Com DRY_RUN ligado o servidor recusa criar. Melhor dizer isso antes do
+  // clique do que deixar o operador montar tudo e levar um erro no fim.
+  const dryRunLigado = ambiente?.dryRun === true;
 
   const dryRun = useMutation({
     mutationFn: () => api.post<RespostaDryRun>('/api/campaigns/dry-run', paraFormularioApi(estado)),
@@ -1368,14 +1425,23 @@ function EtapaRevisao({
     <>
       <Card titulo="Revisão">
         <div className="grade-indicadores">
-          <Indicador rotulo="Cliente" valor={cliente?.nome ?? '—'} nota={cliente?.conta} tom="destaque" />
+          <Indicador
+            rotulo="Cliente"
+            valor={cliente?.nome ?? '—'}
+            nota={cliente?.conta}
+            tom="destaque"
+          />
           <Indicador rotulo="Modelo" valor={estado.modelo} nota={estado.destino} tecnico />
           <Indicador
             rotulo="Orçamento diário"
             valor={estado.orcamentoDiario || '—'}
             nota={estado.dataInicio ? `a partir de ${estado.dataInicio}` : undefined}
           />
-          <Indicador rotulo="Anúncios" valor={estado.copies.length} nota={`${estado.criativos.length} criativo(s)`} />
+          <Indicador
+            rotulo="Anúncios"
+            valor={estado.copies.length}
+            nota={`${estado.criativos.length} criativo(s)`}
+          />
         </div>
 
         <div style={{ marginTop: 18 }}>
@@ -1476,7 +1542,24 @@ function EtapaRevisao({
         </Card>
       </div>
 
-      {validado && (
+      {validado && dryRunLigado && (
+        <div style={{ marginTop: 14 }}>
+          <Card titulo="Criar campanha na Meta">
+            <Aviso tipo="info" titulo="Dry-run ligado — nada será criado">
+              O servidor está com <code>DRY_RUN=true</code>, então a plataforma não cria campanha
+              real. O plano acima foi validado e está gravado; para criar de verdade, mude{' '}
+              <code>DRY_RUN=false</code> no <code>.env</code> do servidor e reinicie com{' '}
+              <code>npm run web</code>.
+              <p style={{ marginTop: 8 }}>
+                É uma decisão consciente, e de propósito: enquanto essa linha estiver ligada, nenhum
+                clique nesta tela gasta dinheiro.
+              </p>
+            </Aviso>
+          </Card>
+        </div>
+      )}
+
+      {validado && !dryRunLigado && (
         <div style={{ marginTop: 14 }}>
           <Card titulo="Criar campanha na Meta">
             <Aviso tipo="alerta" titulo="Confirmação consciente">
@@ -1507,8 +1590,8 @@ function EtapaRevisao({
                 style={{ width: 'auto', marginTop: 3 }}
               />
               <span>
-                Confirmo a cliente, a conta e o orçamento acima, e entendo que a campanha será criada
-                pausada.
+                Confirmo a cliente, a conta e o orçamento acima, e entendo que a campanha será
+                criada pausada.
               </span>
             </label>
 
