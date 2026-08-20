@@ -123,3 +123,39 @@ confere que nenhuma tag alvo aparece literal no corpo do script.
 
 Testado em três gerações seguidas: editar, publicar, reabrir, publicar de novo.
 O estado sobrevive e o arquivo não cresce.
+
+## Ajuste por slide
+
+Na etapa Carrossel, o painel da esquerda mostra o slide aberto:
+
+| | |
+|---|---|
+| **Enviar imagem** | entra reduzida a 1000px de largura, JPEG 0,82 |
+| **Enquadramento** | grade de nove pontos — o que sobrevive ao corte 864 × 442 |
+| **Onde a imagem entra** | topo · meio · base · sem, por slide |
+| **Título / Corpo** | tamanho em px, com − e + |
+
+O tamanho pedido à mão é o **ponto de partida, não a palavra final**: o
+auto-ajuste ainda encolhe se não couber, e o painel avisa em âmbar
+*"encolhido para Xpx pra caber"*. Dá para aumentar o texto sem conseguir quebrar
+o slide.
+
+### Por que o texto sobrepunha a imagem
+
+O Estúdio posicionava os blocos no `top` medido mas **sem teto nenhum** — o
+renderizador em Python já tinha o auto-ajuste, o Estúdio não. Os dois tinham
+divergido.
+
+Medido numa peça real de nove slides: quatro quebravam. Dois passavam da margem
+de baixo (58px e 113px) e dois tinham a headline entrando na caixa de imagem
+(17px e 28px).
+
+Hoje cada bloco declara `data-teto` — até onde o próximo começa — e o texto
+encolhe dentro da própria fatia.
+
+### Cuidado ao mudar id de template
+
+Quando os cinco templates viraram `EXPANSION 01..04`, os ids mudaram
+(`brands1` → `exp02` e assim por diante). O estado salvo guarda o id da peça: sem
+migrar, as peças antigas caem no template padrão e o trabalho **parece** perdido.
+Toda renomeação de id precisa de migração no estado.
