@@ -402,3 +402,43 @@ depois de dez etapas preenchidas.
 A regra que ficou: quando o backend exige um campo, o assistente exige na etapa
 onde ele aparece. A autoridade continua sendo o backend — uma requisição
 forjada bate na mesma parede.
+
+---
+
+## D25 — Tudo pela plataforma: ativação e cadastro de cliente
+
+**Decisão.** A ativação e o cadastro de cliente passaram a existir na
+interface. O terminal deixa de ser obrigatório para operar.
+
+**Por quê.** *Encontrado ao auditar quais rotas tinham cobertura de tela.* O
+endpoint `POST /api/campaigns/:id/activate` existia desde o início, mas nenhuma
+tela o usava: aprovar era possível na plataforma, ativar só por
+`npm run campaign:activate`. Um fluxo partido no passo mais delicado.
+
+O cadastro de cliente tinha o mesmo problema por outro caminho: exigia editar
+`clients/<id>/config.json` à mão e caçar IDs na interface do Gerenciador — a
+fricção que este sistema existe para eliminar. Agora `GET /api/meta/discover`
+une `me/accounts`, `owned_pages` e `client_pages`, e o formulário grava o
+arquivo com o mesmo `clientConfigSchema` que a CLI usa.
+
+**A tela de ativação repete o que importa antes de habilitar o botão:** cliente,
+conta, orçamento diário, orçamento total, número de anúncios e janela. Exige o
+código da aprovação e uma confirmação explícita de que a campanha pode gerar
+cobrança real. As travas continuam no backend — a tela só para de deixar o
+operador chegar até elas sem contexto.
+
+**O que continua fora da plataforma, de propósito:** o `META_ACCESS_TOKEN` vive
+no `.env` do servidor e nunca é editável pela web; criar usuário é
+`npm run user:create`, porque uma tela que cria o próprio acesso é uma tela que
+pode ser usada para escalar privilégio.
+
+## D26 — Sem credencial é estado, não erro
+
+**Decisão.** `/api/meta/discover` devolve `200` com `disponivel: false` e o
+motivo, em vez de `503`.
+
+**Por quê.** *Encontrado na verificação visual: erro de console numa tela que
+já tratava o caso.* Falta de token é situação esperada — a tela mostra o aviso
+e degrada os seletores para campos de texto, para o cadastro seguir à mão. Um
+`503` transformava isso em erro registrado no navegador. `/api/insights` já
+usava o contrato de estado; agora a descoberta usa o mesmo.

@@ -168,6 +168,8 @@ export function CampanhaDetalhe() {
   const { podeGerir, podeOperar } = useSessao();
   const queryClient = useQueryClient();
   const [motivo, setMotivo] = useState('');
+  const [codigo, setCodigo] = useState('');
+  const [cienteDaCobranca, setCienteDaCobranca] = useState(false);
 
   const { data, isLoading, error } = useQuery({
     queryKey: ['campanha', id],
@@ -183,6 +185,19 @@ export function CampanhaDetalhe() {
   const solicitar = useMutation({
     mutationFn: () => api.post(`/api/campaigns/${id}/request-approval`),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['campanha', id] }),
+  });
+
+  const ativar = useMutation({
+    mutationFn: () =>
+      api.post<{ ativacao: { ativados: { anuncios: number; conjuntos: number; campanha: boolean } } }>(
+        `/api/campaigns/${id}/activate`,
+        { codigo: codigo.trim(), confirmacaoDeCobranca: true },
+      ),
+    onSuccess: () => {
+      setCodigo('');
+      setCienteDaCobranca(false);
+      void queryClient.invalidateQueries({ queryKey: ['campanha', id] });
+    },
   });
 
   const pausar = useMutation({
@@ -364,6 +379,100 @@ export function CampanhaDetalhe() {
           )}
         </Card>
       </div>
+
+      {podeGerir && c.estado === 'APPROVED' && (
+        <div className="secao" style={{ marginTop: 16 }}>
+          <Card titulo="Ativar campanha">
+            <Aviso tipo="bloqueio" titulo="Você está prestes a ativar uma campanha real">
+              A partir da ativação, esta campanha pode gerar cobrança na conta de anúncios da
+              cliente. Confira os dados abaixo antes de seguir.
+            </Aviso>
+
+            <div className="grade-indicadores" style={{ marginTop: 15 }}>
+              <Indicador rotulo="Cliente" valor={c.cliente} tecnico />
+              <Indicador rotulo="Conta de anúncios" valor={c.metaCampaignId ?? '—'} tecnico />
+              <Indicador
+                rotulo="Orçamento diário"
+                valor={moeda(c.orcamentoDiarioCents, c.moeda)}
+                tom="destaque"
+              />
+              <Indicador
+                rotulo="Orçamento total"
+                valor={c.orcamentoTotalCents ? moeda(c.orcamentoTotalCents, c.moeda) : '—'}
+              />
+              <Indicador rotulo="Anúncios" valor={data.anuncios.length} />
+              <Indicador
+                rotulo="Início"
+                valor={c.inicio ? dataHora(c.inicio) : '—'}
+                nota={c.fim ? `até ${dataHora(c.fim)}` : 'sem data de encerramento'}
+              />
+            </div>
+
+            <div style={{ marginTop: 18, maxWidth: 460 }}>
+              <label className="campo__rotulo" htmlFor="codigo-aprovacao">
+                Código da aprovação <span className="campo__obrigatorio">*</span>
+              </label>
+              <div className="campo__ajuda">
+                Emitido em Aprovações. Vale uma única vez e expira.
+              </div>
+              <input
+                id="codigo-aprovacao"
+                type="text"
+                value={codigo}
+                onChange={(e) => setCodigo(e.target.value.toUpperCase())}
+                placeholder="APV-XXXXX-XXXXX-XXXXX-XXXXX"
+                style={{ fontFamily: 'var(--fonte-mono)', marginTop: 6 }}
+              />
+            </div>
+
+            <label
+              style={{
+                display: 'flex',
+                gap: 9,
+                alignItems: 'flex-start',
+                marginTop: 15,
+                fontSize: '0.85rem',
+                cursor: 'pointer',
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={cienteDaCobranca}
+                onChange={(e) => setCienteDaCobranca(e.target.checked)}
+                style={{ width: 'auto', marginTop: 3 }}
+              />
+              <span>
+                Confirmo que esta campanha entrará no ar e poderá gerar cobrança real na conta da
+                cliente.
+              </span>
+            </label>
+
+            {ativar.error && (
+              <div style={{ marginTop: 14 }}>
+                <ErroBloco erro={ativar.error} />
+              </div>
+            )}
+
+            {ativar.isSuccess && (
+              <div style={{ marginTop: 14 }}>
+                <Aviso tipo="sucesso" titulo="Campanha ativada">
+                  {ativar.data.ativacao.ativados.anuncios} anúncio(s) e{' '}
+                  {ativar.data.ativacao.ativados.conjuntos} conjunto(s) ativados na Meta.
+                </Aviso>
+              </div>
+            )}
+
+            <button
+              className="botao botao--primario"
+              style={{ marginTop: 16 }}
+              disabled={!cienteDaCobranca || codigo.trim().length < 10 || ativar.isPending}
+              onClick={() => ativar.mutate()}
+            >
+              {ativar.isPending ? 'Ativando…' : 'Ativar campanha na Meta'}
+            </button>
+          </Card>
+        </div>
+      )}
 
       {podeGerir && ['ACTIVE', 'CREATED_PAUSED', 'APPROVED'].includes(c.estado) && (
         <div className="secao" style={{ marginTop: 16 }}>

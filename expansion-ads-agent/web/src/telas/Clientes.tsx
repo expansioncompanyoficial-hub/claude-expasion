@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { api } from '../lib/api';
-import { useCliente } from '../lib/contexto';
+import { useCliente, useSessao } from '../lib/contexto';
 import { dataCurta, moeda } from '../lib/formato';
 import { Aviso, Card, ErroBloco, Esqueleto, Indicador, Selo, Vazio } from '../componentes/basicos';
 import { BarraProporcao } from '../componentes/Graficos';
@@ -9,6 +9,7 @@ import type { Cliente } from '../lib/tipos';
 
 export function Clientes() {
   const { clientes, carregando } = useCliente();
+  const { ehAdmin } = useSessao();
 
   return (
     <div className="pagina">
@@ -19,6 +20,11 @@ export function Clientes() {
             Somente contas cadastradas operam. Cada cliente está travada na própria conta de anúncios.
           </p>
         </div>
+        {ehAdmin && (
+          <Link to="/clientes/novo" className="botao botao--primario">
+            + Cadastrar cliente
+          </Link>
+        )}
       </div>
 
       {carregando ? (
@@ -27,9 +33,19 @@ export function Clientes() {
         </Card>
       ) : clientes.length === 0 ? (
         <Card>
-          <Vazio icone="◍" titulo="Nenhuma cliente cadastrada">
-            Crie <code>clients/&lt;id&gt;/config.json</code> no servidor. Use{' '}
-            <code>npm run meta:discover</code> para descobrir os IDs de conta, Página e pixel.
+          <Vazio
+            icone="◍"
+            titulo="Nenhuma cliente cadastrada"
+            acao={
+              ehAdmin ? (
+                <Link to="/clientes/novo" className="botao botao--primario">
+                  Cadastrar a primeira
+                </Link>
+              ) : undefined
+            }
+          >
+            O cadastro busca conta, Página, Instagram e pixel direto da Meta — você escolhe de uma
+            lista em vez de procurar ID na interface do Gerenciador.
           </Vazio>
         </Card>
       ) : (

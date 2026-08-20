@@ -254,6 +254,74 @@ describe('travas de negócio', () => {
   });
 });
 
+describe('cadastro de cliente pela API', () => {
+  it('exige admin', async () => {
+    const r = await chamar('/api/clients', { metodo: 'POST', papel: 'gestor', corpo: {} });
+    expect(r.status).toBe(403);
+  });
+
+  it('recusa cadastro invalido com o campo apontado', async () => {
+    const r = await chamar('/api/clients', {
+      metodo: 'POST',
+      papel: 'admin',
+      corpo: { id: 'X MAIUSCULO', nome: 'x' },
+    });
+    expect(r.status).toBe(422);
+    expect(r.corpo.erro.detalhes.issues.length).toBeGreaterThan(0);
+  });
+
+  it('grava e recusa duplicata', async () => {
+    const cadastro = {
+      id: 'loja-teste-api',
+      nome: 'Loja Teste',
+      status: 'active',
+      meta: {
+        adAccountId: 'act_999888777666555',
+        pageId: '123456789012',
+        instagramId: null,
+        pixelId: null,
+        whatsapp: { numero: '+55 11 90000-0000', wabaId: null },
+      },
+      dominio: null,
+      urlsPermitidas: [],
+      moeda: 'BRL',
+      fusoHorario: 'America/Sao_Paulo',
+      limites: { diarioCents: 2000, mensalCents: 60000 },
+      objetivosPermitidos: ['OUTCOME_LEADS'],
+      modelosPermitidos: ['whatsapp_conversas'],
+    };
+
+    const primeiro = await chamar('/api/clients', {
+      metodo: 'POST',
+      papel: 'admin',
+      corpo: cadastro,
+    });
+    expect(primeiro.status).toBe(201);
+    expect(primeiro.corpo.cliente.conta).toBe('act_999888777666555');
+
+    const segundo = await chamar('/api/clients', {
+      metodo: 'POST',
+      papel: 'admin',
+      corpo: cadastro,
+    });
+    expect(segundo.status).toBe(409);
+  });
+
+  it('descoberta de ativos exige operador', async () => {
+    expect((await chamar('/api/meta/discover', { papel: 'visualizador' })).status).toBe(403);
+  });
+
+  it('sem credencial, a descoberta devolve estado — não erro', async () => {
+    // Falta de token é situação esperada, não falha: 503 faria o navegador
+    // registrar erro de console para algo que a tela já trata.
+    const r = await chamar('/api/meta/discover', { papel: 'operador' });
+    expect(r.status).toBe(200);
+    expect(r.corpo.disponivel).toBe(false);
+    expect(r.corpo.motivo).toMatch(/META_ACCESS_TOKEN/);
+    expect(r.corpo.contas).toEqual([]);
+  });
+});
+
 describe('resposta nunca vaza segredo', () => {
   it('o token da Meta não aparece em nenhuma resposta', async () => {
     const caminhos = ['/api/meta/status', '/api/clients', '/api/overview', '/api/templates'];

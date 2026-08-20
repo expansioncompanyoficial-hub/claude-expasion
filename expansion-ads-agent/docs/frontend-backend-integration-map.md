@@ -132,6 +132,20 @@ ponto exato, sem duplicar nem apagar.
 | Erros | `403` papel insuficiente · `422` campanha alterada após aprovação |
 | Permissão | `operador` solicita · `gestor` aprova |
 
+### Cadastro de cliente
+| | |
+|---|---|
+| Endpoints | `GET /api/meta/discover?conta=` · `POST /api/clients` |
+| Entrada | cadastro completo, validado pelo mesmo `clientConfigSchema` do arquivo |
+| Saída | `clients/<id>/config.json` gravado no servidor |
+| Estados | com credencial (escolhe de listas reais) · sem credencial (campos livres, com o motivo) |
+| Erros | `409` já existe · `422` cadastro inválido, com o campo apontado |
+| Permissão | `admin` cria · `operador` descobre ativos |
+
+A descoberta devolve **200 com `disponivel: false`** quando falta credencial —
+mesmo contrato de `/api/insights`. Devolver 503 faria o navegador registrar erro
+de console para uma situação esperada, que a tela já trata.
+
 ### Ativação
 | | |
 |---|---|

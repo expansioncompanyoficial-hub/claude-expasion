@@ -4,6 +4,7 @@ import { Estrutura } from './componentes/Estrutura';
 import { Login } from './telas/Login';
 import { VisaoGeral } from './telas/VisaoGeral';
 import { Clientes, ClienteDetalhe } from './telas/Clientes';
+import { NovoCliente } from './telas/NovoCliente';
 import { Campanhas, CampanhaDetalhe } from './telas/Campanhas';
 import { Aprovacoes } from './telas/Aprovacoes';
 import { Auditoria } from './telas/Auditoria';
@@ -32,6 +33,7 @@ export function App() {
         <Route element={<Estrutura />}>
           <Route path="/" element={<VisaoGeral />} />
           <Route path="/clientes" element={<Clientes />} />
+          <Route path="/clientes/novo" element={<NovoCliente />} />
           <Route path="/clientes/:id" element={<ClienteDetalhe />} />
           <Route path="/nova-campanha" element={<Assistente />} />
           <Route path="/campanhas" element={<Campanhas />} />
