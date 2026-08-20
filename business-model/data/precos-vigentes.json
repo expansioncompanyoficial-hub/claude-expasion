@@ -1,0 +1,51 @@
+{
+  "versao": "1.0",
+  "data": "2026-08-19",
+  "status_global": "NAO_APROVADO",
+  "observacao_status": "Nenhum preço é definitivo até o CNPJ e o regime tributário fecharem (A-006). O lucro considera o custo Meta como ZERO — esse custo é repassado, e a magnitude está A VERIFICAR (A-056).",
+  "constantes": {
+    "custo_hora_carregado_brl": 42.55,
+    "fator_receita_liquida": 0.6142,
+    "piso_por_hora_brl": 135.41,
+    "margem_contribuicao_lojista": 0.324,
+    "lucro_alvo_pct": 30,
+    "horas_suporte_plataforma_mes": 0.75
+  },
+  "produtos": [
+    {"codigo":"EX1-LEVE","nome":"EX1 · LEVE","preco_mensal":1200,"implantacao":1500,"contrato_meses":6,"faixa_loja":[30000,40000],"horas_mes":3.62,"lucro_pct":48.6,"piso":490,"venda_nova":3704,"plataforma_inclusa":true,"ativo":true},
+    {"codigo":"EX1-BASE","nome":"EX1 · BASE","preco_mensal":1800,"implantacao":1500,"contrato_meses":6,"faixa_loja":[40000,55000],"horas_mes":8.25,"lucro_pct":41.9,"piso":1117,"venda_nova":5556,"plataforma_inclusa":true,"ativo":true},
+    {"codigo":"EX1-GIRO","nome":"EX1 · GIRO","preco_mensal":2400,"implantacao":1500,"contrato_meses":6,"faixa_loja":[55000,90000],"horas_mes":12.75,"lucro_pct":38.8,"piso":1726,"venda_nova":7407,"plataforma_inclusa":true,"ativo":true},
+    {"codigo":"EX1-PLANO","nome":"EX1 · PLANO","preco_mensal":2900,"implantacao":1500,"contrato_meses":6,"faixa_loja":[90000,130000],"horas_mes":16.45,"lucro_pct":37.3,"piso":2227,"venda_nova":8951,"plataforma_inclusa":true,"ativo":true},
+    {"codigo":"EX2-CONT","nome":"EX2 · CONTEÚDO","preco_mensal":3200,"implantacao":1500,"contrato_meses":6,"faixa_loja":[60000,120000],"horas_mes":15.00,"lucro_pct":41.5,"piso":2031,"venda_nova":9877,"plataforma_inclusa":true,"ativo":true},
+    {"codigo":"EX3-MARCA","nome":"EX3 · MARCA","preco_mensal":5500,"implantacao":3500,"contrato_meses":12,"faixa_loja":[140000,null],"horas_mes":39.75,"lucro_pct":30.7,"piso":5383,"venda_nova":16975,"plataforma_inclusa":true,"ativo":true},
+    {"codigo":"EX2-IA","nome":"EX2 · IA DE ATENDIMENTO","preco_mensal":3500,"implantacao":3500,"contrato_meses":12,"faixa_loja":[100000,null],"horas_mes":20.75,"lucro_pct":31.8,"piso":2810,"venda_nova":10802,"plataforma_inclusa":false,"ativo":false,"motivo_inativo":"Congelado por D-039: comoditização, demanda inexistente e risco de plataforma datado."}
+  ],
+  "combinacoes": [
+    {"codigo":"EX1EX2","nome":"EX1 BASE + EX2 CONTEÚDO","preco_mensal":5000,"implantacao":2500,"contrato_meses":6,"faixa_loja":[100000,140000],"horas_mes":22.50,"lucro_pct":42.3,"venda_nova":15432},
+    {"codigo":"EX1EX3","nome":"EX1 BASE + EX3 MARCA","preco_mensal":7300,"implantacao":4500,"contrato_meses":12,"faixa_loja":[180000,null],"horas_mes":47.25,"lucro_pct":33.9,"venda_nova":22531},
+    {"codigo":"EX360","nome":"EX1 + EX2 + EX3 (360)","preco_mensal":10500,"implantacao":5000,"contrato_meses":12,"faixa_loja":[250000,null],"horas_mes":61.50,"lucro_pct":36.5,"venda_nova":32407}
+  ],
+  "rampa": {
+    "aplica_se_faixa_loja_min": 55000,
+    "regra": "Loja abaixo de R$ 55.000 entra em EX1-BASE e permanece. Upgrade só por crescimento medido no placar, nunca por calendário.",
+    "degraus": [
+      {"de_mes":1,"ate_mes":2,"codigo":"EX1-BASE","preco":1800},
+      {"de_mes":3,"ate_mes":null,"codigo":"EX1-GIRO","preco":2400,"entra_no_escopo":["1 rodada de tráfego/mês","4 roteiros/mês"]}
+    ],
+    "obrigatorio": "Os dois preços e as duas datas escritos no contrato desde a assinatura."
+  },
+  "regras_comerciais": {
+    "implantacao_isenta_em_contrato_12_meses": true,
+    "desconto_maximo_ex3_pct": 0,
+    "onde_dar_desconto": "EX1",
+    "custo_de_100_de_desconto_em_lucro": 61,
+    "moedas_de_troca": {
+      "12_meses_em_vez_de_6_pct": 5,
+      "case_e_depoimento_primeiro_mes_pct": 5,
+      "indicacao_que_fecha": "1 mensalidade",
+      "pagamento_antecipado_max_pct": 3
+    },
+    "piso_absoluto_360": 10500,
+    "loja_abaixo_de_30000": "não vender — nutrir"
+  }
+}
