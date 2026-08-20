@@ -25,6 +25,7 @@
     "mcp:dev": "tsx src/mcp/server.ts",
     "db:init": "tsx src/cli/index.ts db:init",
     "meta:validate-access": "tsx src/cli/index.ts meta:validate-access",
+    "meta:discover": "tsx src/cli/index.ts meta:discover",
     "client:list": "tsx src/cli/index.ts client:list",
     "client:validate": "tsx src/cli/index.ts client:validate",
     "campaign:validate": "tsx src/cli/index.ts campaign:validate",

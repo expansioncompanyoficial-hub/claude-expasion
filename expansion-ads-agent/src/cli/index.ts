@@ -6,6 +6,7 @@ import { EXIT, linha, reportarErro, titulo } from './output.js';
 import {
   comandoClientList,
   comandoClientValidate,
+  comandoDescobrirAtivos,
   comandoValidarAcesso,
 } from './commands/clients.js';
 import {
@@ -37,6 +38,10 @@ const COMANDOS: Record<string, { descricao: string; executar: Comando; escrita?:
   'meta:validate-access': {
     descricao: 'Confere se o token da Meta funciona e o que ele enxerga.',
     executar: comandoValidarAcesso,
+  },
+  'meta:discover': {
+    descricao: 'Lista Paginas, Instagram e pixels visiveis pelo token.',
+    executar: comandoDescobrirAtivos,
   },
   'client:list': { descricao: 'Lista as clientes cadastradas.', executar: comandoClientList },
   'client:validate': {

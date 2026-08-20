@@ -146,3 +146,80 @@ export async function comandoValidarAcesso(ctx: AgentContext, cli: ParsedCli): P
   linha('');
   return EXIT.OK;
 }
+
+/** Quantas Paginas consultar por Instagram. Evita N+1 grande contra a Meta. */
+const MAX_PAGINAS_DESCOBERTA = 25;
+
+/**
+ * `npm run meta:discover` — lista Paginas, Instagram e pixels que o token
+ * enxerga, no formato exato que o cadastro da cliente pede.
+ *
+ * Existe para que ninguem precise procurar ID na interface do Gerenciador nem
+ * subir o MCP so para preencher um config.json. Somente leitura.
+ */
+export async function comandoDescobrirAtivos(ctx: AgentContext, cli: ParsedCli): Promise<number> {
+  if (!ctx.config.meta.hasCredentials) {
+    falha('Sem META_ACCESS_TOKEN configurado — nao ha o que descobrir.');
+    item('Rode `npm run meta:validate-access` para o diagnostico completo.');
+    linha('');
+    return EXIT.CONFIG;
+  }
+
+  const conta = flagOptional(cli, 'account');
+  const paginas = await ctx.meta.listPages(MAX_PAGINAS_DESCOBERTA * 2);
+  const alvo = paginas.slice(0, MAX_PAGINAS_DESCOBERTA);
+
+  const comInstagram = await Promise.all(
+    alvo.map(async (pagina) => ({
+      pagina,
+      instagram: await ctx.meta.listInstagramAccounts(pagina.id).catch(() => []),
+    })),
+  );
+
+  const pixels = conta ? await ctx.meta.listPixels(conta).catch(() => []) : [];
+
+  if (flagBool(cli, 'json')) {
+    json({ paginas: comInstagram, pixels, contaConsultada: conta ?? null });
+    return EXIT.OK;
+  }
+
+  titulo(`PAGINAS (${paginas.length})`);
+  if (paginas.length === 0) {
+    item('Nenhuma Pagina visivel por este token.');
+  }
+  for (const { pagina, instagram } of comInstagram) {
+    linha(`  ${pagina.id.padEnd(18)} ${pagina.name ?? '(sem nome)'}`);
+    for (const conta of instagram) {
+      linha(`     └ instagram ${conta.id.padEnd(18)} @${conta.username ?? '?'}`);
+    }
+    if (instagram.length === 0) {
+      linha('     └ instagram (nenhum vinculado)');
+    }
+  }
+  if (paginas.length > alvo.length) {
+    linha('');
+    aviso(
+      `Instagram consultado apenas nas primeiras ${MAX_PAGINAS_DESCOBERTA} Paginas de ${paginas.length}.`,
+    );
+  }
+
+  linha('');
+  if (!conta) {
+    titulo('PIXELS');
+    item('Passe --account act_<id> para listar os pixels de uma conta.');
+  } else {
+    titulo(`PIXELS DA CONTA ${conta} (${pixels.length})`);
+    if (pixels.length === 0) {
+      item('Nenhum pixel nesta conta, ou o token nao tem acesso a eles.');
+    }
+    for (const pixel of pixels) {
+      const disparo = pixel.last_fired_time ? ` — ultimo disparo ${pixel.last_fired_time}` : '';
+      linha(`  ${pixel.id.padEnd(18)} ${pixel.name ?? '(sem nome)'}${disparo}`);
+    }
+  }
+
+  linha('');
+  ok('Use estes IDs em clients/<id>/config.json.');
+  linha('');
+  return EXIT.OK;
+}

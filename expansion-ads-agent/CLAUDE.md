@@ -65,6 +65,7 @@ segmentacao da Meta. Nao chute ID.
 
 ```bash
 npm run meta:validate-access                     # o token funciona? o que ele enxerga?
+npm run meta:discover -- --account act_<id>      # Paginas, Instagram e pixels
 npm run client:validate   -- --client <id>
 npm run campaign:validate -- --brief briefs/<arquivo>.md
 npm run campaign:dry-run  -- --brief briefs/<arquivo>.md

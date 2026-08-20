@@ -294,3 +294,23 @@ token" seguido do caminho de correção.
 enxerga — é assim que se descobre o `adAccountId` para o cadastro, sem caçar ID
 na interface do Gerenciador. Quatro testes cobrem: token ausente, token válido,
 token inválido e token sem ativos.
+
+---
+
+## D19 — Descoberta de ativos pelo terminal
+
+**Decisão.** `npm run meta:discover` lista Páginas, contas do Instagram
+vinculadas e pixels de uma conta, no formato que `config.json` pede.
+
+**Por quê.** *Encontrado ao guiar a primeira integração real.* Depois do token
+validado, os IDs restantes só existiam nas ferramentas MCP
+(`meta_list_pages`, `meta_list_instagram_accounts`,
+`meta_list_pixels_or_datasets`). Isso obrigava a subir o MCP só para preencher
+um arquivo de cadastro — ou a caçar ID na interface do Gerenciador, que foi
+exatamente o tipo de fricção que custou caro nesta sessão.
+
+**Consequência.** O caminho do zero até a primeira campanha não passa mais pela
+interface da Meta em nenhum momento depois do token:
+`meta:validate-access` → `meta:discover` → escreve `config.json` →
+`campaign:dry-run`. O Instagram é consultado por Página, então a busca é
+limitada às primeiras 25 Páginas e avisa quando trunca — sem cap silencioso.

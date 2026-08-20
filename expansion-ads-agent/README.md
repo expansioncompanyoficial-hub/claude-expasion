@@ -406,6 +406,7 @@ mesmo com as flags `AUTO_*` ligadas.
 |---|---|
 | `npm run db:init` | cria o banco local |
 | `npm run meta:validate-access` | confere se o token funciona e o que ele enxerga |
+| `npm run meta:discover` | lista Páginas, Instagram e pixels para preencher o cadastro |
 | `npm run client:list` | lista clientes cadastradas |
 | `npm run client:validate` | valida o cadastro de uma cliente |
 | `npm run campaign:validate` | valida um briefing sem simular |
