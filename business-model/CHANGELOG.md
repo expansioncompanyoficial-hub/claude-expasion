@@ -917,3 +917,93 @@ estendendo o "Não Me Ligue" a mensagens por aplicativo.
 `A-056` (ler a fatura e o rate card), `A-057` (01/09), `A-058` (verificação de negócio),
 `A-059` (portfólio único ou separado), `A-060` (ticket médio). `D-040` parcialmente
 revogada.
+
+---
+
+## Rodada 19/08/2026 (4) — IP, as minutas e a rampa de preço
+
+**Entregue:** `36-IP-CONTRATO-E-A-RAMPA.md` —
+https://claude.ai/code/artifact/48042064-1f24-4dd9-b157-24dd7924475f
+
+### 🟢 `A-039` resolvida: não há desenvolvedor externo
+
+Nicolas confirmou: *"não tem nada de desenvolvedor, eu e meu sócio mesmo que fizemos."*
+**O bloqueio que eu marquei como existencial em `35` §7 cai.** O risco de terceiro sai de
+cena, e era essa a parte grave.
+
+**O que sobra é `A-061`, e é muito menor:** os autores são as **pessoas físicas**, não a
+empresa. Latente enquanto os dois estiverem de acordo; **acorda se a sociedade acabar, se
+entrar investidor, em caso de falecimento, ou no dia de vender a plataforma avulsa.**
+Conserto: **uma página.**
+
+> ⚠️ **E uma pergunta que fica:** se o sócio de agora é o *"desenvolvedor em permuta com
+> possível sociedade"* de 08/08, **o problema só trocou de palavra.** A pergunta objetiva:
+> o contrato social está registrado com esse sócio e percentual definido?
+
+### As duas minutas, prontas para usar
+
+Direção decidiu operar sem advogado por ora. **`A-031` redirecionada** — as minutas cobrem
+a operação normal.
+
+| Minuta | Para quê |
+|---|---|
+| **1 · Cláusula de Tratamento de Dados** (14 itens) | Contrato com a lojista. Papéis, origem lícita, propriedade da base, opt-out, incidentes, conformidade com a Meta |
+| **2 · Termo de Cessão de Titularidade** (8 itens) | Entre os sócios e a empresa. **A cláusula 4** fecha por escrito a dúvida do desenvolvedor; **a 8** separa o código (da Expansion) do dado (dos lojistas) |
+
+**A única exceção recomendada (`A-062`):** a **cláusula de uso agregado** fica **de fora**
+do contrato do cliente nº 1 — a minuta 1 está redigida na versão **restritiva**. Inverter
+exige aditivo assinado, e é a peça que a análise leva a advogado, porque **não tem conserto
+retroativo.**
+
+### A rampa: de escopo, não de calendário — `D-050`
+
+| | Rampa de calendário | **Rampa de escopo** |
+|---|---|---|
+| O cliente vê | *"o desconto acabou"* | *"entrou mais coisa"* |
+| Justificativa no mês 3 | o calendário virou | **duas campanhas rodaram, tem número, e agora entra o tráfego** |
+
+**Mês 1–2: R$ 1.800 · BASE. Mês 3+: R$ 2.400 · GIRO**, com tráfego e roteiros entrando
+junto — **e os dois preços escritos no contrato desde o dia 1.**
+
+| Desenho (6 meses + implantação R$ 1.500) | Faturado | Lucro | % |
+|---|---:|---:|---:|
+| **A · Rampa** | R$ 14.700 | **R$ 5.657** | **38,5%** |
+| B · GIRO cheio | R$ 15.900 | R$ 6.011 | 37,8% |
+| C · BASE cheio | R$ 12.300 | R$ 4.948 | 40,2% |
+
+**A rampa custa R$ 354 contra o GIRO cheio e ganha R$ 708 contra o BASE cheio.**
+
+### 🔴 Mas a trava da casa mata o R$ 2.400 na loja de R$ 40 mil — `D-051`
+
+`R$ 2.400 ÷ 0,324 = R$ 7.407` = **18,5% de crescimento num mês.** Praticamente nenhuma
+loja entrega.
+
+| Loja de | Entra | Vai para |
+|---|---|---|
+| **R$ 40–55 mil** | R$ 1.800 · BASE | **fica em R$ 1.800** — upgrade quando ela crescer, medido no placar |
+| **R$ 55–90 mil** | R$ 1.800 · BASE | **R$ 2.400 · GIRO no mês 3** |
+| R$ 90–130 mil | R$ 2.400 · GIRO | R$ 2.900 · PLANO no mês 4 |
+
+### O suporte no grupo — `D-049` e `D-052`
+
+Nicolas: *"o suporte é dentro do próprio grupo, está todo mundo do time vendo."*
+**Canal aprovado**, e com um ganho que ele não citou: **o grupo é a fila de produto**
+(`D-052`) — pergunta que se repete em 3 grupos vira construção, a que aparece uma vez vira
+FAQ.
+
+**A condição:** colocar no grupo **não torna grátis — torna invisível**, que é o
+`ALERTA-05` e o `ALERTA-07` pela terceira vez. **Não é canal separado, é etiqueta
+separada:** `suporte plataforma` no apontamento que já começa quinta.
+**Gatilho de saída: 8 h/mês medidas ou 10 clientes.**
+
+### 🔶 `A-034` reformulada
+
+A plataforma é própria, então a pergunta não é mais sobre a ferramenta — **é sobre o
+canal.** O Expansion OS orquestra, mas **não entrega mensagem sozinho**: precisa da Cloud
+API da Meta. A pergunta vira **Tech Provider × Solution Partner**, e a recomendação é
+**Tech Provider** — o cartão é da Expansion e a Meta fatura direto, sem markup.
+
+### Decisões
+`D-049` a `D-052`. Novas em aberto: `A-061` (titularidade entre sócios e empresa),
+`A-062` (a cláusula de uso agregado fica para depois). `A-039` **resolvida**;
+`A-031` redirecionada; `A-034` reformulada.
