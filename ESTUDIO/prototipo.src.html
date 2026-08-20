@@ -837,16 +837,41 @@ function medeSlide(){
   };
 }
 
+/* Duas famílias de scrim, porque o texto cai em lugares diferentes.
+   Na capa ele se apoia na base, então o escurecimento sobe do pé e a metade
+   de cima continua sendo imagem. Num slide interno o texto fica no terço
+   superior, então o véu tem de ser parelho — um degradê de baixo deixaria a
+   headline sobre a parte clara da foto. */
+const SCRIM_FUNDO = {
+  leve:  'linear-gradient(180deg,rgba(0,0,0,.56) 0%,rgba(0,0,0,.34) 58%,rgba(0,0,0,.62) 100%)',
+  medio: 'linear-gradient(180deg,rgba(0,0,0,.74) 0%,rgba(0,0,0,.56) 58%,rgba(0,0,0,.78) 100%)',
+  forte: 'linear-gradient(180deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.76) 58%,rgba(0,0,0,.90) 100%)',
+};
+
+/* Imagem de fundo, com o scrim escolhido. Serve à capa, aos slides marcados
+   como `fundo` e aos templates 02/03/04, que são sangrados por natureza. */
+function fundoImagem(aj, escala, vaga){
+  const dose = aj.scrim || (peca && peca.scrim) || 'medio';
+  const veu = escala === 'capa' ? SCRIM[dose] : SCRIM_FUNDO[dose];
+  const base = aj.img
+    ? `<img src="${aj.img}" alt="" style="position:absolute;inset:0;width:100%;height:100%;
+        object-fit:cover;object-position:${aj.foco || '50% 50%'};display:block">`
+    : `<div style="position:absolute;inset:0;background:${foto(0)}"></div>`;
+  const aviso = (!aj.img && vaga)
+    ? `<div style="position:absolute;left:108px;right:108px;top:150px;z-index:6;text-align:center;
+        font-family:var(--mono);font-size:15px;letter-spacing:.14em;text-transform:uppercase;
+        color:rgba(255,255,255,.42)">imagem de fundo · a definir</div>` : '';
+  return `${base}<div style="position:absolute;inset:0;background:${veu}"></div>${aviso}`;
+}
+
 function render(i){
   const {h,c} = par(i); const T = tpl.id;
+  const aj = ajuste(i);
 
   if (T === 'meio'){
     const f = tpl.ritmo[i];
     if (f === 'capa') return `<div class="slide" style="background:${cli.escuro}">
-      <div style="position:absolute;inset:0;background:${foto(0)}"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,
-        rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 18%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.80) 66%,
-        rgba(0,0,0,.95) 84%,#000 100%)"></div>
+      ${fundoImagem(aj, 'capa', true)}
       ${barra('rgba(255,255,255,.30)')}
       <div style="position:absolute;top:748.3px;left:0;right:0;z-index:10;display:flex;
         align-items:center;justify-content:center;gap:11px">${chip()}</div>
@@ -854,36 +879,38 @@ function render(i){
         font-family:'Montserrat',var(--ui);font-size:111.5px;font-weight:700;line-height:.92;
         letter-spacing:-.087em;color:#fff;text-align:center">${esc(h||'Headline da capa')}</div></div>`;
 
-    const bg = f==='destaque'?grad() : f==='escuro'?cli.escuro : cli.claro;
-    const cl = (f==='claro'||f==='cta');
+    const pos = posFoto(i), eFundo = pos === 'fundo';
+    // Com a imagem de fundo o texto é sempre branco: a cor do slide sumiu
+    // debaixo da foto, e preto sobre foto escura não existe.
+    const bg = eFundo ? cli.escuro
+             : f==='destaque' ? grad() : f==='escuro' ? cli.escuro : cli.claro;
+    const cl = !eFundo && (f==='claro'||f==='cta');
     const corH = cl ? '#000' : '#fff';
     const corC = cl ? '#000' : '#fff';
     const corB = cl ? 'rgba(0,0,0,.30)' : 'rgba(255,255,255,.30)';
 
-    // A grade medida do Canva: cada bloco no seu `top`, não em fluxo. Quatro
-    // arquétipos, conforme onde a foto entra. Sem foto, é o slide de virada.
-    const g = GRADE[posFoto(i)] || GRADE.nada;
-    const teto = tetos(posFoto(i));
-    const aj = ajuste(i);
+    // A grade medida do Canva: cada bloco no seu `top`, não em fluxo. `fundo` e
+    // `sem` usam a mesma grade — nos dois casos não há caixa disputando espaço.
+    const g = GRADE[pos] || GRADE.nada;
+    const teto = tetos(pos);
 
     // `data-teto` é o que impede o texto de invadir o vizinho. O bloco declara
-    // até onde pode crescer e o auto-ajuste encolhe dentro da própria fatia —
-    // sem isso a headline longa passa por cima da imagem, que era o problema.
+    // até onde pode crescer e o auto-ajuste encolhe dentro da própria fatia.
     const bloco = (nome, html) =>
       `<div class="bl" data-teto="${teto[nome]}" style="position:absolute;top:${g[nome]}px;
         left:108px;width:864px;z-index:2"><div>${html}</div></div>`;
 
-    const cx = posFoto(i)==='nada' ? '' : `<div style="position:absolute;top:${g.foto}px;
+    const cx = (pos === 'nada' || eFundo) ? '' : `<div style="position:absolute;top:${g.foto}px;
       left:108px;width:864px;height:442.2px;border-radius:13px;overflow:hidden;z-index:2">${
         aj.img
           ? `<img src="${aj.img}" alt="" style="width:100%;height:100%;object-fit:cover;
-              object-position:${aj.foco};display:block">`
+              object-position:${aj.foco || '50% 50%'};display:block">`
           : `<div style="width:100%;height:100%;border:2px dashed ${cl?cli.accent:'#fff'};
               border-radius:13px;background:${cl?'rgba(0,0,0,.03)':'rgba(255,255,255,.06)'};
               display:flex;flex-direction:column;align-items:center;justify-content:center;
               gap:14px;text-align:center">
               <span style="font-size:16px;font-weight:700;letter-spacing:.18em;
-                text-transform:uppercase;color:${cl?cli.accent:'#fff'}">Imagem · ${posFoto(i)}</span>
+                text-transform:uppercase;color:${cl?cli.accent:'#fff'}">Imagem · ${pos}</span>
               <span style="font-size:15px;letter-spacing:.1em;opacity:.5;color:${corC}">
                 864 × 442 · canto 13</span></div>`
       }</div>`;
@@ -894,32 +921,32 @@ function render(i){
       : `<div class="ft-corpo" style="font-size:${aj.corpo || (cl?36.6:45.4)}px;line-height:.96;
           letter-spacing:-.033em;color:${corC}">${esc(c||'Texto de apoio do slide.')}</div>`;
 
-    return `<div class="slide" style="background:${bg}">${barra(corB)}
+    return `<div class="slide" style="background:${bg}">
+      ${eFundo ? fundoImagem(aj, 'interno', true) : ''}
+      ${barra(corB)}
       ${bloco('h1', H(h||'Headline', aj.h1 || 75.7, corH, f==='cta'?'font-weight:700':''))}
       ${cx}
       ${bloco('corpo', corpoHtml)}</div>`;
   }
 
-  // EXPANSION 02 · 03 · 04 — foto sangrada, texto apoiado na base. O que muda
-  // entre os três é só o título: alinhamento, família e tamanho.
+  // EXPANSION 02 · 03 · 04 — foto sangrada, texto apoiado na base. Aqui a
+  // imagem É o fundo por natureza: não há caixa, então não há posição a
+  // escolher. O que muda entre os três é só o título.
   if (T === 'exp02' || T === 'exp03' || T === 'exp04'){
     const centro = tpl.align === 'center';
     const chipHtml = i === 0
       ? `<div style="display:flex;align-items:center;gap:11px;margin-bottom:4px">${chip()}</div>` : '';
     return `<div class="slide" style="background:${cli.escuro}">
-      <div style="position:absolute;inset:0;background:${foto(i)}"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,
-        rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 18%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.80) 66%,
-        rgba(0,0,0,.95) 84%,#000 100%)"></div>
+      ${fundoImagem(aj, 'capa', true)}
       ${barra('rgba(255,255,255,.30)')}
       <div class="sang-area" style="position:absolute;left:108px;right:108px;bottom:104px;
         z-index:10;display:flex;flex-direction:column;gap:26px;
         align-items:${centro?'center':'flex-start'};text-align:${tpl.align}">
         ${chipHtml}
         <div class="sang-h1" style="font-family:${tpl.fonte};font-weight:${tpl.peso};
-          font-size:${tpl.tam}px;line-height:${tpl.lh};letter-spacing:${tpl.tr};color:#fff">
+          font-size:${aj.h1 || tpl.tam}px;line-height:${tpl.lh};letter-spacing:${tpl.tr};color:#fff">
           ${esc(h||'Headline da capa')}</div>
-        <div style="font-size:31px;line-height:1.18;letter-spacing:-.02em;color:#fff;
+        <div style="font-size:${aj.corpo || 31}px;line-height:1.18;letter-spacing:-.02em;color:#fff;
           opacity:.86;max-width:92%">${esc(c||'Linha de apoio abaixo da headline.')}</div>
       </div></div>`;
   }
@@ -941,11 +968,18 @@ function render(i){
       </span></div>
     <div style="position:absolute;top:318px;left:108px;right:108px;bottom:108px;display:flex;
       flex-direction:column;gap:30px">
-      <div style="font-size:41px;font-weight:500;line-height:1.24;letter-spacing:-.022em;
-        color:#0F1419">${esc(h||'A frase principal do post.')}</div>
-      <div style="height:442.2px;border-radius:13px;background:${foto(i+6)}"></div>
-      <div style="font-size:41px;font-weight:500;line-height:1.24;letter-spacing:-.022em;
-        color:#0F1419">${esc(c||'O parágrafo de apoio, logo abaixo.')}</div>
+      <div style="font-size:${aj.h1 || 41}px;font-weight:500;line-height:1.24;
+        letter-spacing:-.022em;color:#0F1419">${esc(h||'A frase principal do post.')}</div>
+      <div style="height:442.2px;border-radius:13px;overflow:hidden;flex:none;
+        background:${aj.img ? 'none' : 'rgba(0,0,0,.04)'};
+        border:${aj.img ? 'none' : '2px dashed ' + cli.accent};display:flex;
+        align-items:center;justify-content:center">${aj.img
+          ? `<img src="${aj.img}" alt="" style="width:100%;height:100%;object-fit:cover;
+              object-position:${aj.foco || '50% 50%'};display:block">`
+          : `<span style="font-family:var(--mono);font-size:15px;letter-spacing:.14em;
+              text-transform:uppercase;color:${cli.accent}">imagem · a definir</span>`}</div>
+      <div style="font-size:${aj.corpo || 41}px;font-weight:500;line-height:1.24;
+        letter-spacing:-.022em;color:#0F1419">${esc(c||'O parágrafo de apoio, logo abaixo.')}</div>
     </div></div>`;
 }
 
@@ -1438,18 +1472,27 @@ const FOCOS = [['esquerda em cima','0% 0%'],['centro em cima','50% 0%'],['direit
 function painelSlide(){
   const cx = $('#sl-painel'); if (!cx || !peca) return;
   $('#sl-n').textContent = `${atual+1} de ${nSlides()}`;
-  if (tpl.id !== 'meio'){
-    cx.innerHTML = `<span class="mini">Ajuste por slide só no EXPANSION 01 por enquanto.</span>`;
-    return;
-  }
-  const aj = ajuste(atual), pos = posFoto(atual), temFoto = pos !== 'nada';
-  const real = medeSlide() || {};
-  const pedidoH1 = aj.h1 || 75.7, pedidoC = aj.corpo || 45.4;
+
+  const aj = ajuste(atual), real = medeSlide() || {};
+  const T = tpl.id, ehCapa = T === 'meio' && atual === 0;
+  const sangrado = T === 'exp02' || T === 'exp03' || T === 'exp04';
+  const pos = T === 'meio' ? posFoto(atual) : null;
+
+  // Onde a imagem é fundo, o scrim precisa ser dosado: escurecer demais mata a
+  // foto, de menos e o texto some nela.
+  const eFundo = ehCapa || sangrado || pos === 'fundo';
+  // O twitter tem caixa; os sangrados não têm posição a escolher.
+  const temImagem = eFundo || T === 'twitter' || (pos && pos !== 'nada');
+  const doseAtual = aj.scrim || peca.scrim || 'medio';
+
+  const padraoH1 = ehCapa ? 111.5 : sangrado ? tpl.tam : T === 'twitter' ? 41 : 75.7;
+  const padraoC  = sangrado ? 31 : T === 'twitter' ? 41 : 45.4;
+  const pedidoH1 = aj.h1 || padraoH1, pedidoC = aj.corpo || padraoC;
 
   cx.innerHTML = `
-    ${temFoto ? `
-      <div class="foto-cx" id="sl-vitrine">${aj.img
-        ? `<img src="${aj.img}" alt="" style="object-position:${aj.foco}">`
+    ${temImagem ? `
+      <div class="foto-cx">${aj.img
+        ? `<img src="${aj.img}" alt="" style="object-position:${aj.foco || '50% 50%'}">`
         : `<span>sem imagem</span>`}</div>
       <div class="acoes" style="margin:0 0 9px">
         <span class="btn arquivo-btn" style="padding:7px 10px;font-size:11.5px">
@@ -1459,43 +1502,46 @@ function painelSlide(){
            style="padding:7px 10px;font-size:11.5px">Tirar</button>` : ''}
       </div>
       ${aj.img ? `<span class="rotulo" style="margin-bottom:6px">Enquadramento</span>
-      <div class="foco" id="sl-foco">${FOCOS.map(([t,v]) =>
-        `<button type="button" data-v="${v}" title="${t}"
-          aria-pressed="${aj.foco === v}"></button>`).join('')}</div>` : ''}
-      <span class="rotulo" style="margin-bottom:6px">Onde a imagem entra</span>
-      <div class="opcoes" style="margin-bottom:12px" id="sl-pos">
-        ${['topo','meio','base','nada'].map(v =>
-          `<button class="op" type="button" data-v="${v}"
-            aria-pressed="${pos === v}">${v === 'nada' ? 'sem' : v}</button>`).join('')}
-      </div>` : `
-      <span class="rotulo" style="margin-bottom:6px">Onde a imagem entra</span>
-      <div class="opcoes" style="margin-bottom:12px" id="sl-pos">
-        ${['topo','meio','base','nada'].map(v =>
-          `<button class="op" type="button" data-v="${v}"
-            aria-pressed="${pos === v}">${v === 'nada' ? 'sem' : v}</button>`).join('')}
-      </div>`}
+      <div class="foco" id="sl-foco">${FOCOS.map(([nome,v]) =>
+        `<button type="button" data-v="${v}" title="${nome}"
+          aria-pressed="${(aj.foco || '50% 50%') === v}"></button>`).join('')}</div>` : ''}` : ''}
 
-    <div class="linha-ct"><span>Título</span>
+    ${pos ? `<span class="rotulo" style="margin-bottom:6px">Onde a imagem entra</span>
+      <div class="opcoes" style="margin-bottom:${eFundo ? '9' : '12'}px" id="sl-pos">
+        ${[['topo','topo'],['meio','meio'],['base','base'],['fundo','fundo'],['nada','sem']]
+          .map(([v,rot]) => `<button class="op" type="button" data-v="${v}"
+            aria-pressed="${pos === v}">${rot}</button>`).join('')}
+      </div>` : ''}
+
+    ${eFundo ? `<span class="rotulo" style="margin-bottom:6px">Escurecimento do fundo</span>
+      <div class="opcoes" style="margin-bottom:12px" id="sl-dose">
+        ${['leve','medio','forte'].map(v => `<button class="op" type="button" data-v="${v}"
+          aria-pressed="${doseAtual === v}">${v === 'medio' ? 'médio' : v}</button>`).join('')}
+      </div>
+      <span class="mini" style="margin:-6px 0 12px">A imagem é o que faz alguém parar o dedo.
+        Escurecer o slide inteiro resolve a leitura e apaga a foto.</span>` : ''}
+
+    <div class="linha-ct"><span>${ehCapa ? 'Headline' : 'Título'}</span>
       <span class="passo"><button type="button" data-t="h1" data-d="-2">−</button>
       <b>${Math.round(pedidoH1)}px</b>
       <button type="button" data-t="h1" data-d="2">+</button></span></div>
     ${real.h1 && real.h1 < Math.round(pedidoH1) - 1
       ? `<div class="encolheu">encolhido para ${real.h1}px pra caber</div>` : ''}
 
-    <div class="linha-ct"><span>Corpo</span>
+    ${ehCapa ? '' : `<div class="linha-ct"><span>Corpo</span>
       <span class="passo"><button type="button" data-t="corpo" data-d="-2">−</button>
       <b>${Math.round(pedidoC)}px</b>
       <button type="button" data-t="corpo" data-d="2">+</button></span></div>
     ${real.corpo && real.corpo < Math.round(pedidoC) - 1
-      ? `<div class="encolheu">encolhido para ${real.corpo}px pra caber</div>` : ''}
+      ? `<div class="encolheu">encolhido para ${real.corpo}px pra caber</div>` : ''}`}
 
     <button class="btn" id="sl-zerar" type="button"
       style="width:100%;padding:7px;font-size:11.5px">Voltar ao padrão</button>`;
 
   cx.querySelectorAll('.passo button').forEach(b => b.onclick = () => {
     const a = ajuste(atual), campo = b.dataset.t;
-    const base = campo === 'h1' ? 75.7 : 45.4;
-    a[campo] = Math.max(24, Math.min(160, (a[campo] || base) + Number(b.dataset.d)));
+    const base = campo === 'h1' ? padraoH1 : padraoC;
+    a[campo] = Math.max(18, Math.min(180, (a[campo] || base) + Number(b.dataset.d)));
     marcaSujo(); pintar();
   });
   const foco = cx.querySelector('#sl-foco');
@@ -1505,10 +1551,13 @@ function painelSlide(){
   cx.querySelectorAll('#sl-pos .op').forEach(b => b.onclick = () => {
     ajuste(atual).pos = b.dataset.v; marcaSujo(); pintar();
   });
+  cx.querySelectorAll('#sl-dose .op').forEach(b => b.onclick = () => {
+    ajuste(atual).scrim = b.dataset.v; marcaSujo(); pintar();
+  });
   const zerar = cx.querySelector('#sl-zerar');
   if (zerar) zerar.onclick = () => {
     const a = ajuste(atual);
-    delete a.h1; delete a.corpo; delete a.pos; a.foco = '50% 50%';
+    delete a.h1; delete a.corpo; delete a.pos; delete a.scrim; a.foco = '50% 50%';
     marcaSujo(); pintar();
   };
   const tirar = cx.querySelector('#sl-tirar');
@@ -1516,7 +1565,8 @@ function painelSlide(){
   const arq = cx.querySelector('#sl-arq');
   if (arq) arq.onchange = e => {
     const f = e.target.files && e.target.files[0];
-    if (f) reduzImagem(f).then(url => { ajuste(atual).img = url; marcaSujo(); pintar(); });
+    if (f) reduzImagem(f).then(url => { ajuste(atual).img = url; marcaSujo(); pintar(); })
+                         .catch(() => alert('Não consegui ler esse arquivo.'));
   };
 }
 

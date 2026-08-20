@@ -132,7 +132,8 @@ Na etapa Carrossel, o painel da esquerda mostra o slide aberto:
 |---|---|
 | **Enviar imagem** | entra reduzida a 1000px de largura, JPEG 0,82 |
 | **Enquadramento** | grade de nove pontos — o que sobrevive ao corte 864 × 442 |
-| **Onde a imagem entra** | topo · meio · base · sem, por slide |
+| **Onde a imagem entra** | topo · meio · base · **fundo** · sem, por slide |
+| **Escurecimento do fundo** | leve · médio · forte, quando a imagem é o fundo |
 | **Título / Corpo** | tamanho em px, com − e + |
 
 O tamanho pedido à mão é o **ponto de partida, não a palavra final**: o
@@ -152,6 +153,24 @@ de baixo (58px e 113px) e dois tinham a headline entrando na caixa de imagem
 
 Hoje cada bloco declara `data-teto` — até onde o próximo começa — e o texto
 encolhe dentro da própria fatia.
+
+### `fundo` — a imagem ocupando o slide
+
+Escolhendo `fundo`, a imagem cobre o slide inteiro e o texto vai por cima, em
+branco. Vale em qualquer slide, e é o padrão dos templates EXPANSION 02, 03 e 04,
+onde a foto sangrada É o desenho.
+
+O escurecimento é dosado à parte, porque errar aqui custa dos dois lados: de
+menos e o texto some na foto, demais e a foto vira um fundo escuro qualquer — e
+a foto é justamente o que faz alguém parar o dedo.
+
+O véu de um slide interno é **parelho**; o da capa **sobe do pé**. São grades
+diferentes: na capa o texto se apoia na base e a metade de cima fica sendo
+imagem; num slide interno o texto está no terço superior, e um degradê de baixo
+deixaria a headline sobre a parte clara da foto.
+
+O upload existe em todos os templates, no que cada um precisa: fundo nos
+sangrados, caixa no EXPANSION TWITTER, e as duas coisas no EXPANSION 01.
 
 ### Cuidado ao mudar id de template
 
