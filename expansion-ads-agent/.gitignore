@@ -1,0 +1,36 @@
+# Segredos — NUNCA versionar
+.env
+.env.*
+!.env.example
+*.token
+*.pem
+secrets/
+
+# Dependencias e build
+node_modules/
+dist/
+coverage/
+
+# Estado local
+data/
+logs/
+*.log
+reports/*
+!reports/.gitkeep
+.claude/settings.local.json
+
+# Clientes e criativos reais (apenas exemplos sao versionados)
+clients/*/config.json
+clients/*/brand.md
+clients/*/offers.md
+briefs/*.md
+!briefs/campaign.example.md
+creatives/**/*
+!creatives/**/.gitkeep
+!creatives/example-client/
+!creatives/example-client/*.png
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.tmp

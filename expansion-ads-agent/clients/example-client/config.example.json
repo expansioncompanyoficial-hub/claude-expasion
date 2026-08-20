@@ -1,0 +1,36 @@
+{
+  "id": "example-client",
+  "nome": "Loja Exemplo Modas",
+  "status": "active",
+  "meta": {
+    "adAccountId": "act_100000000000001",
+    "businessId": "200000000000002",
+    "pageId": "300000000000003",
+    "instagramId": "400000000000004",
+    "pixelId": "500000000000005",
+    "datasetId": null,
+    "whatsapp": {
+      "numero": "+55 11 90000-0000",
+      "wabaId": null
+    }
+  },
+  "dominio": "lojaexemplo.com.br",
+  "urlsPermitidas": [
+    "https://lojaexemplo.com.br",
+    "https://lojaexemplo.com.br/colecao-primavera"
+  ],
+  "moeda": "BRL",
+  "fusoHorario": "America/Sao_Paulo",
+  "limites": {
+    "diarioCents": 20000,
+    "mensalCents": 400000
+  },
+  "objetivosPermitidos": ["OUTCOME_LEADS", "OUTCOME_SALES", "OUTCOME_TRAFFIC"],
+  "modelosPermitidos": ["whatsapp_conversas", "leads_formulario", "vendas_site"],
+  "metas": {
+    "cpaCents": 8000,
+    "cplCents": 2500,
+    "roas": 3
+  },
+  "observacoes": "Cadastro de exemplo. Os IDs sao ficticios e servem apenas para dry-run e testes."
+}

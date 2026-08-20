@@ -1,0 +1,78 @@
+{
+  "version": "1.0.0",
+  "descricao": "Motor de recomendacao. Toda acao automatica nasce desligada e ainda precisa de aprovacao.",
+  "acoesAutomaticas": {
+    "pausar": false,
+    "escalar": false,
+    "reativar": false
+  },
+  "guardas": {
+    "janelaAnaliseDias": 3,
+    "investimentoMinimoCents": 5000,
+    "resultadosMinimos": 3,
+    "impressoesMinimas": 1000,
+    "idadeMinimaDaCampanhaHoras": 48,
+    "limiteAlteracaoPercentual": 20,
+    "esperaMinimaEntreAlteracoesHoras": 24,
+    "maxAlteracoesDiarias": 1,
+    "orcamentoDiarioMaximoCents": null,
+    "exigirAprovacao": true,
+    "exigirDadosCompletos": true
+  },
+  "regras": [
+    {
+      "id": "sem_entrega",
+      "quando": "impressoes == 0 e horasDesdeAtivacao >= 24",
+      "acao": "REVISAR_CRIATIVO",
+      "motivo": "A campanha esta ativa ha mais de 24h e nao teve entrega. Verificar reprovacao de anuncio, publico pequeno ou lance."
+    },
+    {
+      "id": "cpa_muito_acima_da_meta",
+      "quando": "resultados >= resultadosMinimos e cpa > metaCpa * 1.5",
+      "acao": "PAUSAR",
+      "motivo": "CPA 50% acima da meta com volume suficiente de resultados."
+    },
+    {
+      "id": "cpa_acima_da_meta",
+      "quando": "resultados >= resultadosMinimos e cpa > metaCpa * 1.2",
+      "acao": "REDUZIR",
+      "motivo": "CPA acima da meta, mas ainda dentro da faixa de recuperacao."
+    },
+    {
+      "id": "cpa_bem_abaixo_da_meta",
+      "quando": "resultados >= resultadosMinimos * 2 e cpa <= metaCpa * 0.7",
+      "acao": "ESCALAR",
+      "motivo": "CPA consistentemente abaixo da meta com volume. Escalar dentro do limite percentual."
+    },
+    {
+      "id": "roas_abaixo_da_meta",
+      "quando": "compras >= resultadosMinimos e roas < metaRoas",
+      "acao": "REDUZIR",
+      "motivo": "ROAS abaixo da meta com volume minimo de compras."
+    },
+    {
+      "id": "frequencia_alta",
+      "quando": "frequencia >= 3 e ctr caindo",
+      "acao": "NOVA_VARIACAO",
+      "motivo": "Frequencia alta indica desgaste de criativo."
+    },
+    {
+      "id": "ctr_baixo",
+      "quando": "impressoes >= impressoesMinimas e ctr < 0.5",
+      "acao": "REVISAR_CRIATIVO",
+      "motivo": "CTR abaixo de 0,5% com volume de impressoes suficiente."
+    },
+    {
+      "id": "cpm_alto_sem_resultado",
+      "quando": "impressoes >= impressoesMinimas e resultados == 0",
+      "acao": "REVISAR_PUBLICO",
+      "motivo": "Volume de entrega sem nenhum resultado sugere publico ou oferta desalinhados."
+    },
+    {
+      "id": "dentro_da_meta",
+      "quando": "resultados >= resultadosMinimos e cpa <= metaCpa",
+      "acao": "MANTER",
+      "motivo": "Desempenho dentro da meta. Nao mexer."
+    }
+  ]
+}

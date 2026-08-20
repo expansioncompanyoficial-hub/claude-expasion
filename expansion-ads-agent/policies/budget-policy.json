@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "descricao": "Tetos e pisos de orcamento. Valores em centavos da moeda da cliente (menor unidade).",
+  "minimoDiarioPorMoedaCents": {
+    "BRL": 600,
+    "USD": 100,
+    "EUR": 100
+  },
+  "tetoDiarioAbsolutoCents": 5000000,
+  "tetoMensalAbsolutoCents": 100000000,
+  "exigirLimiteDiarioNoCliente": true,
+  "exigirOrcamentoTotalQuandoHaDataDeEncerramento": true,
+  "toleranciaPercentualEntreAprovadoEExecutado": 0,
+  "alteracao": {
+    "percentualMaximoPorMudanca": 20,
+    "esperaMinimaEntreMudancasHoras": 24,
+    "maxMudancasPorDia": 1,
+    "exigirAprovacaoParaAumento": true,
+    "permitirReducaoSemAprovacao": false
+  },
+  "somaDiariaMaximaPorClienteCents": null
+}

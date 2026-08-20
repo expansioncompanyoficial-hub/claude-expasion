@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(npm run client:list)",
+      "Bash(npm run client:validate:*)",
+      "Bash(npm run campaign:validate:*)",
+      "Bash(npm run campaign:dry-run:*)",
+      "Bash(npm run campaign:status:*)",
+      "Bash(npm run campaign:audit:*)",
+      "Bash(npm run insights:*)",
+      "Bash(npm run report:daily:*)",
+      "Bash(npm run optimize:recommend:*)",
+      "Bash(npm run build)",
+      "Bash(npm run lint)",
+      "Bash(npm test:*)",
+      "Read(//home/**)",
+      "mcp__meta-ads__meta_list_ad_accounts",
+      "mcp__meta-ads__meta_get_account_details",
+      "mcp__meta-ads__meta_list_pages",
+      "mcp__meta-ads__meta_list_instagram_accounts",
+      "mcp__meta-ads__meta_list_pixels_or_datasets",
+      "mcp__meta-ads__meta_list_campaigns",
+      "mcp__meta-ads__meta_list_adsets",
+      "mcp__meta-ads__meta_list_ads",
+      "mcp__meta-ads__meta_get_campaign_preview",
+      "mcp__meta-ads__meta_get_insights",
+      "mcp__meta-ads__meta_check_campaign_status",
+      "mcp__meta-ads__meta_list_campaign_templates",
+      "mcp__meta-ads__meta_validate_access",
+      "mcp__meta-ads__meta_validate_client_assets",
+      "mcp__meta-ads__meta_validate_campaign_spec",
+      "mcp__meta-ads__meta_validate_budget",
+      "mcp__meta-ads__meta_check_duplicate_campaign",
+      "mcp__meta-ads__meta_validate_destination",
+      "mcp__meta-ads__meta_validate_creative_files",
+      "mcp__meta-ads__meta_check_campaign_approval"
+    ],
+    "ask": [
+      "mcp__meta-ads__meta_upload_image",
+      "mcp__meta-ads__meta_upload_video",
+      "mcp__meta-ads__meta_create_campaign_paused",
+      "mcp__meta-ads__meta_create_adset_paused",
+      "mcp__meta-ads__meta_create_creative",
+      "mcp__meta-ads__meta_create_ad_paused",
+      "mcp__meta-ads__meta_request_campaign_approval",
+      "mcp__meta-ads__meta_activate_approved_campaign",
+      "mcp__meta-ads__meta_pause_campaign",
+      "mcp__meta-ads__meta_update_budget_within_policy",
+      "Bash(npm run campaign:create:*)",
+      "Bash(npm run campaign:approve:*)",
+      "Bash(npm run campaign:activate:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./**/*.pem)",
+      "Read(./data/**)",
+      "Bash(curl:*graph.facebook.com*)",
+      "Bash(wget:*graph.facebook.com*)",
+      "Bash(rm -rf:*)",
+      "Bash(git push:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__meta-ads__.*|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/pre-tool-use.mjs\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "enableAllProjectMcpServers": false
+}

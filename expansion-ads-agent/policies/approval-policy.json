@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "descricao": "Regras da aprovacao humana obrigatoria antes de qualquer ativacao.",
+  "validadeHorasPadrao": 24,
+  "validadeHorasMaxima": 72,
+  "usoUnico": true,
+  "exigirIdsMetaConfirmados": true,
+  "exigirFingerprintIgual": true,
+  "exigirCampanhaPausadaNaMeta": true,
+  "aprovadoresPermitidos": [],
+  "exigirAprovadorRegistrado": true,
+  "camposDoFingerprint": [
+    "clientId",
+    "adAccountId",
+    "objective",
+    "template",
+    "budget",
+    "schedule",
+    "destination",
+    "targeting",
+    "metaIds",
+    "creativeHashes",
+    "adCount"
+  ]
+}

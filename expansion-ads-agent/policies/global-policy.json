@@ -1,0 +1,70 @@
+{
+  "version": "1.0.0",
+  "descricao": "Regras deterministicas que valem para toda cliente e toda campanha. O modelo nao pode relaxar nenhuma delas.",
+  "criacao": {
+    "statusInicialObrigatorio": "PAUSED",
+    "exigirDryRunAntesDeCriar": true,
+    "exigirConfirmacaoNaMetaDepoisDeCriar": true,
+    "maxConjuntosPorCampanha": 5,
+    "maxAnunciosPorConjunto": 10,
+    "maxAnunciosPorCampanha": 20,
+    "maxCampanhasPorClientePorDia": 3
+  },
+  "objetivosPermitidos": [
+    "OUTCOME_LEADS",
+    "OUTCOME_SALES",
+    "OUTCOME_TRAFFIC",
+    "OUTCOME_ENGAGEMENT",
+    "OUTCOME_AWARENESS"
+  ],
+  "modelosPermitidos": ["whatsapp_conversas", "leads_formulario", "vendas_site"],
+  "destinos": {
+    "exigirUrlNaAllowlistDoCliente": true,
+    "exigirHttps": true,
+    "bloquearEncurtadores": true,
+    "encurtadoresBloqueados": [
+      "bit.ly",
+      "tinyurl.com",
+      "goo.gl",
+      "t.co",
+      "is.gd",
+      "cutt.ly",
+      "rebrand.ly",
+      "shorturl.at",
+      "ow.ly"
+    ]
+  },
+  "criativos": {
+    "extensoesImagemPermitidas": [".jpg", ".jpeg", ".png"],
+    "extensoesVideoPermitidas": [".mp4", ".mov"],
+    "tamanhoMaximoImagemBytes": 31457280,
+    "tamanhoMaximoVideoBytes": 1073741824,
+    "larguraMinimaImagem": 600,
+    "alturaMinimaImagem": 600,
+    "exigirHashUnicoPorCliente": true,
+    "alterarArquivosAutomaticamente": false
+  },
+  "copy": {
+    "maxCaracteresTitulo": 255,
+    "maxCaracteresDescricao": 255,
+    "maxCaracteresTextoPrincipal": 2200,
+    "titulosRecomendadosMaxCaracteres": 40,
+    "proibirEmojiNoTitulo": false
+  },
+  "operacoesProibidas": [
+    "alterar_forma_de_pagamento",
+    "adicionar_ou_remover_usuarios",
+    "alterar_permissoes_do_business_manager",
+    "transferir_ativos",
+    "excluir_campanhas",
+    "excluir_conjuntos",
+    "excluir_anuncios",
+    "criar_ou_editar_conta_de_anuncios",
+    "chamada_arbitraria_a_graph_api"
+  ],
+  "seguranca": {
+    "exigirContaNaAllowlistDoCliente": true,
+    "bloquearClienteInativo": true,
+    "exigirTokenApenasEmVariavelDeAmbiente": true
+  }
+}

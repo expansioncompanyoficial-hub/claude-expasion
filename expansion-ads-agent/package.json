@@ -1,0 +1,59 @@
+{
+  "name": "expansion-ads-agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "EXPANSION ADS AGENT — servidor MCP e CLI para criar, publicar, acompanhar e otimizar campanhas na Meta Ads pela Marketing API, com aprovacao obrigatoria e dry-run por padrao.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "bin": {
+    "expansion-ads": "dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "cli": "tsx src/cli/index.ts",
+    "mcp:start": "node dist/mcp/server.js",
+    "mcp:dev": "tsx src/mcp/server.ts",
+    "db:init": "tsx src/cli/index.ts db:init",
+    "client:list": "tsx src/cli/index.ts client:list",
+    "client:validate": "tsx src/cli/index.ts client:validate",
+    "campaign:validate": "tsx src/cli/index.ts campaign:validate",
+    "campaign:dry-run": "tsx src/cli/index.ts campaign:dry-run",
+    "campaign:create": "tsx src/cli/index.ts campaign:create",
+    "campaign:status": "tsx src/cli/index.ts campaign:status",
+    "campaign:approve": "tsx src/cli/index.ts campaign:approve",
+    "campaign:activate": "tsx src/cli/index.ts campaign:activate",
+    "campaign:pause": "tsx src/cli/index.ts campaign:pause",
+    "campaign:audit": "tsx src/cli/index.ts campaign:audit",
+    "insights": "tsx src/cli/index.ts insights",
+    "report:daily": "tsx src/cli/index.ts report:daily",
+    "optimize:recommend": "tsx src/cli/index.ts optimize:recommend",
+    "job:headless": "tsx src/jobs/headless.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "dotenv": "^17.2.3",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^22.19.1",
+    "@vitest/coverage-v8": "^3.2.4",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.6.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vitest": "^3.2.4"
+  }
+}
