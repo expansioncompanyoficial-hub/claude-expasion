@@ -72,6 +72,18 @@ button{font-family:inherit}
 .card-rodape{display:flex;align-items:center;justify-content:space-between;margin-top:11px;
   padding-top:11px;border-top:1px solid var(--linha);
   font-family:var(--mono);font-size:10px;color:var(--fraco);letter-spacing:.06em}
+.card{position:relative}
+.card-acao{position:absolute;top:9px;right:9px;z-index:5;width:26px;height:26px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1;
+  background:rgba(0,0,0,.42);color:rgba(255,255,255,.86);border:1px solid rgba(255,255,255,.20);
+  opacity:0;transition:opacity .12s;cursor:pointer;backdrop-filter:blur(3px)}
+.card:hover .card-acao,.card:focus-within .card-acao,.card-acao:focus{opacity:1}
+.card.inativo{opacity:.5}
+.card.inativo .card-topo{filter:grayscale(1)}
+.faixa-inativos{grid-column:1/-1;display:flex;align-items:baseline;gap:10px;
+  margin:26px 0 2px;padding-top:18px;border-top:1px solid var(--linha)}
+.faixa-inativos b{font-size:13px;font-weight:600;color:var(--meio)}
+.faixa-inativos span{font-size:12px;color:var(--fraco)}
 .swatches{display:flex;gap:4px}
 .sw{width:12px;height:12px;border-radius:4px;border:1px solid rgba(255,255,255,.18)}
 
@@ -1077,9 +1089,12 @@ function telaClientes(){
   document.documentElement.style.setProperty('--banho', '0');
 
   const c = $('#cards'); c.innerHTML = '';
-  CLIENTES.forEach(x => {
+  const ativos = CLIENTES.filter(x => !x.arquivado);
+  const inativos = CLIENTES.filter(x => x.arquivado);
+
+  const cartao = x => {
     const b = document.createElement('button');
-    b.className = 'card'; b.type = 'button';
+    b.className = 'card' + (x.arquivado ? ' inativo' : ''); b.type = 'button';
     b.style.setProperty('--c-accent', x.accent);
     const tampa = x.logo
       ? `<img class="card-logo" src="${x.logo}" alt="" style="${x.logoFundo!=='auto'
@@ -1097,15 +1112,78 @@ function telaClientes(){
             <span class="sw" style="background:${x.escuro}"></span>
             <span class="sw" style="background:${x.accent}"></span>
             <span class="sw" style="background:${x.claro}"></span></span></span></div>`;
+    // `<span>` e não `<button>`: o cartão inteiro já é um botão, e botão
+    // dentro de botão é HTML inválido — o clique do de dentro nem sempre chega.
+    const acao = document.createElement('span');
+    acao.className = 'card-acao'; acao.textContent = '···';
+    acao.setAttribute('role', 'button'); acao.tabIndex = 0;
+    acao.title = x.arquivado ? 'Reativar ou excluir' : 'Arquivar ou excluir';
+    const abrirMenu = ev => { ev.stopPropagation(); ev.preventDefault(); menuCliente(x); };
+    acao.onclick = abrirMenu;
+    acao.onkeydown = ev => { if (ev.key === 'Enter' || ev.key === ' ') abrirMenu(ev); };
+    b.appendChild(acao);
     b.onclick = () => abrir(x);
-    c.appendChild(b);
-  });
+    return b;
+  };
+
+  ativos.forEach(x => c.appendChild(cartao(x)));
 
   const n = document.createElement('button');
   n.className = 'card card-novo'; n.type = 'button';
   n.innerHTML = `<span class="mais">+</span><span style="font-size:13px;font-weight:500">Novo cliente</span>`;
   n.onclick = () => $('#modal-fundo').classList.remove('oculto');
   c.appendChild(n);
+
+  if (inativos.length){
+    const faixa = document.createElement('div');
+    faixa.className = 'faixa-inativos';
+    faixa.innerHTML = `<b>Inativos</b><span>${inativos.length} cliente${
+      inativos.length === 1 ? '' : 's'} arquivado${inativos.length === 1 ? '' : 's'} —
+      o trabalho continua aqui, é só reativar</span>`;
+    c.appendChild(faixa);
+    inativos.forEach(x => c.appendChild(cartao(x)));
+  }
+}
+
+/* Arquivar é reversível e não perde nada; excluir não tem volta.
+
+   Por isso os dois não têm o mesmo atrito. Cliente sem trabalho dentro foi
+   criado errado e some com uma confirmação. Cliente COM trabalho exige
+   digitar o nome — é o único jeito de garantir que ninguém apaga uma conta
+   inteira por clicar no lugar errado. */
+function temTrabalho(x){
+  return (x.pecas || []).some(p =>
+    (p.txt || '').trim() || (p.capas || []).length || (p.legenda || '').trim() ||
+    Object.values(p.ajustes || {}).some(a => a && a.img));
+}
+
+function menuCliente(x){
+  const trabalho = temTrabalho(x);
+  const resumo = `${x.pecas.length} carrossel(is)` + (trabalho ? ', com conteúdo' : ', vazios');
+  if (x.arquivado){
+    if (confirm(`Reativar ${x.nome}?\n\n${resumo}\n\nEle volta para a lista principal.`)){
+      delete x.arquivado; marcaSujo(); telaClientes();
+      return;
+    }
+  } else if (confirm(`Arquivar ${x.nome}?\n\n${resumo}\n\nSai da lista principal e vai para `
+      + `Inativos, no fim da página. Nada é apagado e dá para reativar quando quiser.`)){
+    x.arquivado = true; marcaSujo(); telaClientes();
+    return;
+  }
+  if (!confirm(`Excluir ${x.nome} DE VEZ?\n\n${resumo}\n\n`
+      + `Isto não tem volta: some o cliente, os carrosséis, as capas e as imagens.`)) return;
+  if (trabalho){
+    const digitado = prompt(
+      `${x.nome} tem conteúdo dentro. Para confirmar, digite o nome exatamente:`, '');
+    if ((digitado || '').trim() !== x.nome){
+      alert('Nome diferente. Não excluí nada.');
+      return;
+    }
+  }
+  const i = CLIENTES.indexOf(x);
+  if (i >= 0) CLIENTES.splice(i, 1);
+  if (cli === x) cli = null;
+  marcaSujo(); telaClientes();
 }
 
 function abrir(x){
