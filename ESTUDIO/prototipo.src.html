@@ -135,6 +135,41 @@ button{font-family:inherit}
 .op{flex:1;background:var(--campo);border:1px solid var(--linha);color:var(--meio);
   font-family:var(--ui);font-size:12px;padding:7px 0;border-radius:7px;cursor:pointer}
 .op[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion));color:var(--texto)}
+/* controles do slide */
+.linha-ct{display:flex;align-items:center;justify-content:space-between;gap:8px;
+  margin-bottom:9px;font-size:12px;color:var(--meio)}
+.passo{display:flex;align-items:center;gap:4px}
+.passo button{width:24px;height:24px;border-radius:6px;border:1px solid var(--linha);
+  background:var(--campo);color:var(--texto);cursor:pointer;font-size:13px;line-height:1}
+.passo button:hover{border-color:var(--linha-forte)}
+.passo b{font-family:var(--mono);font-size:11px;min-width:34px;text-align:center;
+  color:var(--texto)}
+.encolheu{font-family:var(--mono);font-size:9.5px;color:#E8A33D;margin:-4px 0 9px}
+.laudo{display:flex;flex-direction:column;gap:6px}
+.ach{display:flex;gap:8px;align-items:flex-start;font-size:11.5px;line-height:1.45;
+  color:var(--meio)}
+.ach b{color:var(--texto);font-weight:550}
+.ach .pt{flex:none;width:14px;height:14px;border-radius:4px;display:flex;align-items:center;
+  justify-content:center;font-size:8.5px;margin-top:1px}
+.pt.bom{background:var(--ok);color:#0E1015}
+.pt.aviso{background:#E8A33D;color:#0E1015}
+.pt.ruim{background:#E2574C;color:#fff}
+.pt.fix{background:var(--pt-accent,var(--expansion));color:#fff}
+.laudo-topo{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--fraco);
+  margin-bottom:7px}
+.foto-cx{border:1px solid var(--linha);border-radius:8px;overflow:hidden;background:var(--campo);
+  aspect-ratio:864/442;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.foto-cx img{width:100%;height:100%;object-fit:cover;display:block}
+.foto-cx span{font-family:var(--mono);font-size:9.5px;color:var(--fraco)}
+.foco{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:9px}
+.foco button{aspect-ratio:1;border:1px solid var(--linha);background:var(--campo);
+  border-radius:5px;cursor:pointer}
+.foco button[aria-pressed="true"]{border-color:var(--pt-accent,var(--expansion));
+  background:color-mix(in srgb,var(--pt-accent,var(--expansion)) 26%,var(--campo))}
+.arquivo-btn{position:relative;overflow:hidden;display:inline-flex;justify-content:center;
+  width:100%}
+.arquivo-btn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+
 .lista-pad{display:flex;flex-direction:column;gap:5px;margin-bottom:8px}
 .pad{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;color:var(--meio);
   padding:5px 8px;border-radius:6px;background:var(--campo)}
@@ -263,6 +298,9 @@ label.rot{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1
 .peca-mini{width:20px;height:25px;border-radius:2px;overflow:hidden;position:relative;flex:none;
   border:1px solid rgba(255,255,255,.12)}
 .peca-nome{font-size:12.5px;font-weight:500}
+.renomear{margin-left:auto;padding:0 5px;font-size:12px;color:var(--fraco);cursor:pointer;
+  border-radius:5px;line-height:1.6;align-self:center}
+.renomear:hover{color:var(--texto);background:var(--linha)}
 .peca-tpl{font-family:var(--mono);font-size:9px;color:var(--fraco);letter-spacing:.05em}
 .peca-nova{border-style:dashed;color:var(--meio);padding:7px 14px}
 
@@ -405,6 +443,18 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
     <!-- CARROSSEL -->
     <div class="painel-et oculto" data-et="carrossel">
       <div class="bloco">
+        <span class="rotulo">Slide <span id="sl-n" style="text-transform:none">—</span></span>
+        <div id="sl-painel"></div>
+      </div>
+      <div class="bloco">
+        <span class="rotulo">Conferência</span>
+        <div class="acoes" style="margin:0 0 9px">
+          <button class="btn btn-forte" id="btn-concluir" type="button"
+            style="width:100%;padding:8px;font-size:12px">Concluir carrossel</button>
+        </div>
+        <div id="laudo"></div>
+      </div>
+      <div class="bloco">
         <span class="rotulo">Template</span>
         <div class="tpls" id="tpls"></div>
       </div>
@@ -472,6 +522,8 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
     <div class="tela-et oculto" id="c-legenda"></div>
     <div class="tela-et oculto" id="c-aprovacao"></div>
     <div class="tela-et oculto" id="c-desempenho"></div>
+    <div id="medidor" style="position:absolute;left:-99999px;top:0;pointer-events:none"
+      aria-hidden="true"></div>
   </main>
 
   <aside class="col col-dir" id="coluna-dir">
@@ -668,6 +720,24 @@ function grad(){
 function EM(txt){
   return `<span style="color:${cli.accent}">${esc(txt)}</span>`;
 }
+
+/* Gradiente da marca, como está no estilo do Canva da Expansion:
+   linear de 90°, de #ff9901 a #ff6c01. Cheguei a amostrar a logo, mas o
+   símbolo tem um degradê próprio, mais escuro — este aqui é o de texto. */
+const gradTexto = () => cli.gradTexto
+  || 'linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)';
+
+/* `*trecho*` na capa vira o gradiente. É onde ele faz diferença: a headline é
+   grande o bastante para o degradê aparecer. Em corpo de 45px ele vira uma cor
+   chapada qualquer — por isso o resto da peça segue com a cor sólida. */
+function RICO(txt, comGradiente){
+  const pintado = comGradiente
+    ? `<span style="background:${gradTexto()};-webkit-background-clip:text;
+        background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+        -webkit-box-decoration-break:clone">$1</span>`
+    : `<span style="color:${cli.accent}">$1</span>`;
+  return esc(txt).replace(/\*([^*]+)\*/g, pintado);
+}
 function foto(seed){
   return `linear-gradient(${140+seed*24}deg, ${cli.escuro} 0%, ${cli.accent} 62%, ${cli.claro} 140%)`;
 }
@@ -734,88 +804,193 @@ function chip(){
     <span style="width:27.8px;height:27.8px;border-radius:50%;background:#1d9bf0;color:#fff;display:flex;
     align-items:center;justify-content:center;font-size:16px;font-weight:700">✓</span></div>`;
 }
-const H = (t,sz,cor,extra='') => `<div style="font-family:'Montserrat',var(--ui);font-size:${sz}px;
-  font-weight:600;line-height:1.06;letter-spacing:-.056em;color:${cor};
+const H = (t,sz,cor,extra='') => `<div class="ft-h1" style="font-family:'Montserrat',var(--ui);
+  font-size:${sz}px;font-weight:600;line-height:1.06;letter-spacing:-.056em;color:${cor};
   ${extra}">${esc(t)}</div>`;
+
+/* ── a grade e o auto-ajuste ───────────────────────────────────────────────
+   Mesma régua do renderizador em Python: cada bloco tem um `top` medido no
+   Canva e um teto — até onde o próximo começa. O texto encolhe DENTRO da
+   própria fatia, sem empurrar o slide. É isso que mantém os nove alinhados
+   entre si e impede a headline de cair em cima da imagem. */
+const GRADE = {
+  topo: {foto:207.9, h1:717.0, corpo:1005.8},
+  meio: {h1:161.0, foto:453.9, corpo:951.1},
+  base: {h1:230.5, corpo:534.9, foto:799.8},
+  nada: {h1:298.9, corpo:641.9},
+};
+const RITMO_FOTO = ['','topo','meio','base','topo','nada','meio','base','nada'];
+const posFoto = i => (peca && peca.ajustes && peca.ajustes[i] && peca.ajustes[i].pos)
+  || RITMO_FOTO[i] || 'nada';
+
+const BASE_Y = 1242, FOLGA = 24, FOTO_H = 442.2;
+function tetos(pos){
+  const g = GRADE[pos] || GRADE.nada;
+  const ordem = Object.entries(g).sort((a,b) => a[1] - b[1]);
+  const out = {};
+  ordem.forEach(([nome, y], k) => {
+    if (nome === 'foto') { out[nome] = FOTO_H; return; }
+    const fim = k + 1 < ordem.length ? ordem[k+1][1] - FOLGA : BASE_Y;
+    out[nome] = Math.round((fim - y) * 10) / 10;
+  });
+  return out;
+}
+
+/* Ajustes por slide: imagem, enquadramento e tamanhos pedidos à mão. */
+function ajuste(i){
+  if (!peca) return {foco:'50% 50%'};
+  peca.ajustes = peca.ajustes || {};
+  peca.ajustes[i] = peca.ajustes[i] || {foco:'50% 50%'};
+  return peca.ajustes[i];
+}
+
+/* O tamanho pedido à mão é o PONTO DE PARTIDA, não a palavra final: o
+   auto-ajuste ainda encolhe se não couber. Assim dá pra aumentar o texto sem
+   nunca conseguir quebrar o slide — e o painel avisa quando teve de ceder. */
+let ajustou = {};
+function fitBlocos(raiz){
+  raiz.querySelectorAll('.slide .bl').forEach(b => {
+    const teto = parseFloat(b.dataset.teto);
+    const dentro = b.firstElementChild;
+    if (!dentro || !teto) return;
+    const passa = () => dentro.offsetHeight > teto + 1;
+    const cabeca = dentro.querySelector('.ft-h1');
+    if (cabeca){
+      let fs = parseFloat(getComputedStyle(cabeca).fontSize);
+      while (passa() && fs > 34) { fs -= 1; cabeca.style.fontSize = fs + 'px'; }
+    }
+    const corpos = dentro.querySelectorAll('.ft-corpo');
+    let guarda = 0;
+    while (corpos.length && passa() && guarda++ < 90){
+      corpos.forEach(c => {
+        const fs = parseFloat(getComputedStyle(c).fontSize);
+        if (fs > 22) c.style.fontSize = (fs - 1) + 'px';
+      });
+    }
+  });
+}
+
+/* Quanto o slide atual teve de encolher — é o que o painel mostra. */
+function medeSlide(){
+  const s = $('#moldura .slide'); if (!s) return null;
+  const h = s.querySelector('.ft-h1'), c = s.querySelector('.ft-corpo');
+  return {
+    h1: h ? Math.round(parseFloat(getComputedStyle(h).fontSize)) : null,
+    corpo: c ? Math.round(parseFloat(getComputedStyle(c).fontSize)) : null,
+  };
+}
+
+/* Duas famílias de scrim, porque o texto cai em lugares diferentes.
+   Na capa ele se apoia na base, então o escurecimento sobe do pé e a metade
+   de cima continua sendo imagem. Num slide interno o texto fica no terço
+   superior, então o véu tem de ser parelho — um degradê de baixo deixaria a
+   headline sobre a parte clara da foto. */
+const SCRIM_FUNDO = {
+  leve:  'linear-gradient(180deg,rgba(0,0,0,.56) 0%,rgba(0,0,0,.34) 58%,rgba(0,0,0,.62) 100%)',
+  medio: 'linear-gradient(180deg,rgba(0,0,0,.74) 0%,rgba(0,0,0,.56) 58%,rgba(0,0,0,.78) 100%)',
+  forte: 'linear-gradient(180deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.76) 58%,rgba(0,0,0,.90) 100%)',
+};
+
+/* Imagem de fundo, com o scrim escolhido. Serve à capa, aos slides marcados
+   como `fundo` e aos templates 02/03/04, que são sangrados por natureza. */
+function fundoImagem(aj, escala, vaga){
+  const dose = aj.scrim || (peca && peca.scrim) || 'medio';
+  const veu = escala === 'capa' ? SCRIM[dose] : SCRIM_FUNDO[dose];
+  const base = aj.img
+    ? `<img src="${aj.img}" alt="" style="position:absolute;inset:0;width:100%;height:100%;
+        object-fit:cover;object-position:${aj.foco || '50% 50%'};display:block">`
+    : `<div style="position:absolute;inset:0;background:${foto(0)}"></div>`;
+  const aviso = (!aj.img && vaga)
+    ? `<div style="position:absolute;left:108px;right:108px;top:150px;z-index:6;text-align:center;
+        font-family:var(--mono);font-size:15px;letter-spacing:.14em;text-transform:uppercase;
+        color:rgba(255,255,255,.42)">imagem de fundo · a definir</div>` : '';
+  return `${base}<div style="position:absolute;inset:0;background:${veu}"></div>${aviso}`;
+}
 
 function render(i){
   const {h,c} = par(i); const T = tpl.id;
+  const aj = ajuste(i);
 
   if (T === 'meio'){
     const f = tpl.ritmo[i];
     if (f === 'capa') return `<div class="slide" style="background:${cli.escuro}">
-      <div style="position:absolute;inset:0;background:${foto(0)}"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,
-        rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 18%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.80) 66%,
-        rgba(0,0,0,.95) 84%,#000 100%)"></div>
+      ${fundoImagem(aj, 'capa', true)}
       ${barra('rgba(255,255,255,.30)')}
       <div style="position:absolute;top:748.3px;left:0;right:0;z-index:10;display:flex;
         align-items:center;justify-content:center;gap:11px">${chip()}</div>
       <div class="capa-h1" style="position:absolute;bottom:110.3px;left:108px;width:864px;z-index:10;
-        font-family:'Montserrat',var(--ui);font-size:111.5px;font-weight:700;line-height:.92;
-        letter-spacing:-.087em;color:#fff;text-align:center">${esc(h||'Headline da capa')}</div></div>`;
+        font-family:'Montserrat',var(--ui);font-size:${aj.h1 || 111.5}px;font-weight:700;
+        line-height:.92;letter-spacing:-.087em;color:#fff;text-align:center">${
+        RICO(h||'Headline da capa', true)}</div></div>`;
 
-    const bg = f==='destaque'?grad() : f==='escuro'?cli.escuro : cli.claro;
-    const cl = (f==='claro'||f==='cta');
+    const pos = posFoto(i), eFundo = pos === 'fundo';
+    // Com a imagem de fundo o texto é sempre branco: a cor do slide sumiu
+    // debaixo da foto, e preto sobre foto escura não existe.
+    const bg = eFundo ? cli.escuro
+             : f==='destaque' ? grad() : f==='escuro' ? cli.escuro : cli.claro;
+    const cl = !eFundo && (f==='claro'||f==='cta');
     const corH = cl ? '#000' : '#fff';
     const corC = cl ? '#000' : '#fff';
     const corB = cl ? 'rgba(0,0,0,.30)' : 'rgba(255,255,255,.30)';
-    const seta = f==='destaque' ? `<div style="position:absolute;right:108px;bottom:76px;width:78px;
-      height:78px;border-radius:50%;background:#fff;color:#000;display:flex;align-items:center;
-      justify-content:center;font-size:36px;font-weight:600;z-index:20">→</div>` : '';
-    // A grade medida do Canva: cada bloco no seu `top`, não em fluxo. Quatro
-    // arquétipos, conforme onde a foto entra. Sem foto, é o slide de virada.
-    const GRADE = {
-      topo: {foto:207.9, h1:717.0, corpo:1005.8},
-      meio: {h1:161.0, foto:453.9, corpo:951.1},
-      base: {h1:230.5, corpo:534.9, foto:799.8},
-      nada: {h1:298.9, corpo:641.9},
-    };
-    const posFoto = ['','topo','meio','base','topo','nada','meio','base','nada'][i] || 'nada';
-    const g = GRADE[posFoto] || GRADE.nada;
-    const bloco = (top, html) =>
-      `<div style="position:absolute;top:${top}px;left:108px;width:864px;z-index:2">${html}</div>`;
 
-    const vaga = (posFoto==='nada') ? '' : bloco(g.foto,
-      `<div style="height:442.2px;border-radius:13px;border:2px dashed ${cl?cli.accent:'#fff'};
-        background:${cl?'rgba(0,0,0,.03)':'rgba(255,255,255,.06)'};display:flex;
-        flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center">
-        <span style="font-size:16px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-          color:${cl?cli.accent:'#fff'}">Imagem · ${posFoto}</span>
-        <span style="font-size:15px;letter-spacing:.1em;opacity:.5;color:${corC}">864 × 442 · canto 13</span>
-      </div>`);
+    // A grade medida do Canva: cada bloco no seu `top`, não em fluxo. `fundo` e
+    // `sem` usam a mesma grade — nos dois casos não há caixa disputando espaço.
+    const g = GRADE[pos] || GRADE.nada;
+    const teto = tetos(pos);
+
+    // `data-teto` é o que impede o texto de invadir o vizinho. O bloco declara
+    // até onde pode crescer e o auto-ajuste encolhe dentro da própria fatia.
+    const bloco = (nome, html) =>
+      `<div class="bl" data-teto="${teto[nome]}" style="position:absolute;top:${g[nome]}px;
+        left:108px;width:864px;z-index:2"><div>${html}</div></div>`;
+
+    const cx = (pos === 'nada' || eFundo) ? '' : `<div style="position:absolute;top:${g.foto}px;
+      left:108px;width:864px;height:442.2px;border-radius:13px;overflow:hidden;z-index:2">${
+        aj.img
+          ? `<img src="${aj.img}" alt="" style="width:100%;height:100%;object-fit:cover;
+              object-position:${aj.foco || '50% 50%'};display:block">`
+          : `<div style="width:100%;height:100%;border:2px dashed ${cl?cli.accent:'#fff'};
+              border-radius:13px;background:${cl?'rgba(0,0,0,.03)':'rgba(255,255,255,.06)'};
+              display:flex;flex-direction:column;align-items:center;justify-content:center;
+              gap:14px;text-align:center">
+              <span style="font-size:16px;font-weight:700;letter-spacing:.18em;
+                text-transform:uppercase;color:${cl?cli.accent:'#fff'}">Imagem · ${pos}</span>
+              <span style="font-size:15px;letter-spacing:.1em;opacity:.5;color:${corC}">
+                864 × 442 · canto 13</span></div>`
+      }</div>`;
 
     const corpoHtml = f==='cta'
-      ? `<div style="font-size:45.4px;line-height:.96;letter-spacing:-.033em">${EM(c||'Comenta a palavra.')}</div>`
-      : `<div style="font-size:${cl?36.6:45.4}px;line-height:.96;letter-spacing:-.033em;
-          color:${corC}">${esc(c||'Texto de apoio do slide.')}</div>`;
+      ? `<div class="ft-corpo" style="font-size:${aj.corpo || 45.4}px;line-height:.96;
+          letter-spacing:-.033em">${EM(c||'Comenta a palavra.')}</div>`
+      : `<div class="ft-corpo" style="font-size:${aj.corpo || (cl?36.6:45.4)}px;line-height:.96;
+          letter-spacing:-.033em;color:${corC}">${esc(c||'Texto de apoio do slide.')}</div>`;
 
-    return `<div class="slide" style="background:${bg}">${barra(corB)}
-      ${bloco(g.h1, H(h||'Headline',75.7,corH,f==='cta'?'font-weight:700':''))}
-      ${vaga}
-      ${bloco(g.corpo, corpoHtml)}${seta}</div>`;
+    return `<div class="slide" style="background:${bg}">
+      ${eFundo ? fundoImagem(aj, 'interno', true) : ''}
+      ${barra(corB)}
+      ${bloco('h1', H(h||'Headline', aj.h1 || 75.7, corH, f==='cta'?'font-weight:700':''))}
+      ${cx}
+      ${bloco('corpo', corpoHtml)}</div>`;
   }
 
-  // EXPANSION 02 · 03 · 04 — foto sangrada, texto apoiado na base. O que muda
-  // entre os três é só o título: alinhamento, família e tamanho.
+  // EXPANSION 02 · 03 · 04 — foto sangrada, texto apoiado na base. Aqui a
+  // imagem É o fundo por natureza: não há caixa, então não há posição a
+  // escolher. O que muda entre os três é só o título.
   if (T === 'exp02' || T === 'exp03' || T === 'exp04'){
     const centro = tpl.align === 'center';
     const chipHtml = i === 0
       ? `<div style="display:flex;align-items:center;gap:11px;margin-bottom:4px">${chip()}</div>` : '';
     return `<div class="slide" style="background:${cli.escuro}">
-      <div style="position:absolute;inset:0;background:${foto(i)}"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,
-        rgba(0,0,0,.18) 0%,rgba(0,0,0,.06) 18%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.80) 66%,
-        rgba(0,0,0,.95) 84%,#000 100%)"></div>
+      ${fundoImagem(aj, 'capa', true)}
       ${barra('rgba(255,255,255,.30)')}
       <div class="sang-area" style="position:absolute;left:108px;right:108px;bottom:104px;
         z-index:10;display:flex;flex-direction:column;gap:26px;
         align-items:${centro?'center':'flex-start'};text-align:${tpl.align}">
         ${chipHtml}
         <div class="sang-h1" style="font-family:${tpl.fonte};font-weight:${tpl.peso};
-          font-size:${tpl.tam}px;line-height:${tpl.lh};letter-spacing:${tpl.tr};color:#fff">
-          ${esc(h||'Headline da capa')}</div>
-        <div style="font-size:31px;line-height:1.18;letter-spacing:-.02em;color:#fff;
+          font-size:${aj.h1 || tpl.tam}px;line-height:${tpl.lh};letter-spacing:${tpl.tr};color:#fff">
+          ${RICO(h||'Headline da capa', i === 0)}</div>
+        <div style="font-size:${aj.corpo || 31}px;line-height:1.18;letter-spacing:-.02em;color:#fff;
           opacity:.86;max-width:92%">${esc(c||'Linha de apoio abaixo da headline.')}</div>
       </div></div>`;
   }
@@ -837,11 +1012,18 @@ function render(i){
       </span></div>
     <div style="position:absolute;top:318px;left:108px;right:108px;bottom:108px;display:flex;
       flex-direction:column;gap:30px">
-      <div style="font-size:41px;font-weight:500;line-height:1.24;letter-spacing:-.022em;
-        color:#0F1419">${esc(h||'A frase principal do post.')}</div>
-      <div style="height:442.2px;border-radius:13px;background:${foto(i+6)}"></div>
-      <div style="font-size:41px;font-weight:500;line-height:1.24;letter-spacing:-.022em;
-        color:#0F1419">${esc(c||'O parágrafo de apoio, logo abaixo.')}</div>
+      <div style="font-size:${aj.h1 || 41}px;font-weight:500;line-height:1.24;
+        letter-spacing:-.022em;color:#0F1419">${esc(h||'A frase principal do post.')}</div>
+      <div style="height:442.2px;border-radius:13px;overflow:hidden;flex:none;
+        background:${aj.img ? 'none' : 'rgba(0,0,0,.04)'};
+        border:${aj.img ? 'none' : '2px dashed ' + cli.accent};display:flex;
+        align-items:center;justify-content:center">${aj.img
+          ? `<img src="${aj.img}" alt="" style="width:100%;height:100%;object-fit:cover;
+              object-position:${aj.foco || '50% 50%'};display:block">`
+          : `<span style="font-family:var(--mono);font-size:15px;letter-spacing:.14em;
+              text-transform:uppercase;color:${cli.accent}">imagem · a definir</span>`}</div>
+      <div style="font-size:${aj.corpo || 41}px;font-weight:500;line-height:1.24;
+        letter-spacing:-.022em;color:#0F1419">${esc(c||'O parágrafo de apoio, logo abaixo.')}</div>
     </div></div>`;
 }
 
@@ -1046,7 +1228,7 @@ function trocaEtapa(id){
 
 /* ── capas ─────────────────────────────────────────────────────────────── */
 function capaHtml(texto){
-  const rico = esc(texto).replace(/\*([^*]+)\*/g, `<span style="color:${cli.accent}">$1</span>`);
+  const rico = RICO(texto, true);
   return `<div class="slide" style="background:${cli.escuro}">
     <div style="position:absolute;inset:0;background:${foto(1)}"></div>
     <div style="position:absolute;inset:0;background:${SCRIM[peca?.scrim||'medio']}"></div>
@@ -1175,7 +1357,7 @@ function pintar(){
   const largura = Math.min(360, Math.max(220, window.innerWidth * 0.25));
   const m = $('#moldura');
   m.innerHTML = render(atual);
-  fitCapa(m);
+  fitCapa(m); fitBlocos(m); painelSlide();
   const d = escala(m.firstElementChild, largura);
   m.style.width = d.w+'px'; m.style.height = d.h+'px';
 
@@ -1193,7 +1375,8 @@ function pintar(){
     b.style.width='68px'; b.style.height='85px';
     b.onclick = () => { atual=i; pintar(); };
     t.appendChild(b);
-    const s = b.querySelector('.slide'); fitCapa(b); escala(s,64); s.style.pointerEvents='none';
+    const s = b.querySelector('.slide'); fitCapa(b); fitBlocos(b);
+    escala(s,64); s.style.pointerEvents='none';
   }
   contar();
 }
@@ -1280,6 +1463,7 @@ function miniaturas(){
   TEMPLATES.forEach(t => {
     const alvo = document.getElementById('mini-'+t.id); if(!alvo) return;
     tpl = t; alvo.innerHTML = render(0);
+    fitCapa(alvo); fitBlocos(alvo);
     const s = alvo.querySelector('.slide'); escala(s,34); s.style.pointerEvents='none';
   });
   tpl = g;
@@ -1293,8 +1477,18 @@ function montarPecas(){
     b.setAttribute('aria-pressed', p.id===peca.id);
     b.innerHTML = `<span class="peca-mini" id="pm-${p.id}"></span>
       <span><span class="peca-nome">${esc(p.nome)}</span><br>
-      <span class="peca-tpl">${acha(p.tpl).nome.toUpperCase()}</span></span>`;
-    b.onclick = () => {
+      <span class="peca-tpl">${acha(p.tpl).nome.toUpperCase()}</span></span>
+      <span class="renomear" title="Renomear">✎</span>`;
+    b.onclick = ev => {
+      // O lápis renomeia; o resto do botão troca de peça. Sem um nome próprio,
+      // "Sem título" vira "Sem título 2" e ninguém acha nada depois.
+      if (ev.target.classList.contains('renomear')){
+        ev.stopPropagation();
+        const novo = prompt('Nome do carrossel:', p.nome);
+        if (novo && novo.trim()){ p.nome = novo.trim(); marcaSujo(); montarPecas();
+          if (p === peca) $('#nome-peca').textContent = '· ' + p.nome; }
+        return;
+      }
       guardaEditor();
       const alvo = etapa; etapa = null;
       peca = p; tpl = acha(p.tpl); blocos = parse(p.txt); atual = 0;
@@ -1304,6 +1498,7 @@ function montarPecas(){
     const g = tpl, gb = blocos;
     tpl = acha(p.tpl); blocos = parse(p.txt);
     const alvo = b.querySelector('.peca-mini'); alvo.innerHTML = render(0);
+    fitCapa(alvo); fitBlocos(alvo);
     const s = alvo.querySelector('.slide'); escala(s,20); s.style.pointerEvents='none';
     tpl = g; blocos = gb;
   });
@@ -1317,6 +1512,244 @@ function montarPecas(){
     montarPecas(); trocaEtapa('capas');
   };
   c.appendChild(n);
+}
+
+/* ── conferência ───────────────────────────────────────────────────────────
+   Duas coisas diferentes num botão só: o que dá para arrumar sozinho é
+   arrumado na hora; o resto é apontado com o número do slide. A distinção
+   importa — laudo que diz "ajuste o texto" e não ajusta nada é relatório, não
+   ferramenta; e arrumar sozinho o que é decisão editorial seria pior ainda. */
+const PISO_H1 = 52, PISO_CORPO = 30;
+
+function medeTudo(){
+  const guarda = atual, med = $('#medidor'), out = [];
+  for (let i = 0; i < nSlides(); i++){
+    atual = i;
+    med.innerHTML = render(i);
+    fitCapa(med); fitBlocos(med);
+    const s = med.querySelector('.slide');
+    const px = el => el ? Math.round(parseFloat(getComputedStyle(el).fontSize)) : null;
+    out.push({
+      h1: px(s.querySelector('.ft-h1') || s.querySelector('.capa-h1') || s.querySelector('.sang-h1')),
+      corpo: px(s.querySelector('.ft-corpo')),
+    });
+  }
+  atual = guarda; med.innerHTML = '';
+  return out;
+}
+
+function conferir(arrumar){
+  const achados = [], medidas = medeTudo();
+  const add = (nivel, titulo, nota) => achados.push({nivel, titulo, nota});
+  const cheios = blocos.filter(Boolean).length;
+  const palavra = (cli.cta || '').toUpperCase();
+  let corrigidos = 0;
+
+  if (cheios < 18) add('ruim', `${cheios} de 18 blocos`, 'faltam blocos de texto');
+  else add('bom', '18 de 18 blocos', 'dois por slide');
+
+  for (let i = 0; i < nSlides(); i++){
+    const aj = ajuste(i), m = medidas[i], sl = `slide ${i+1}`;
+
+    // ARRUMÁVEL: tamanho pedido que o auto-ajuste não consegue honrar. Deixar
+    // um número no painel que não corresponde ao que se vê é o que fazia o
+    // controle parecer quebrado.
+    ['h1','corpo'].forEach(campo => {
+      const visto = m[campo];
+      if (aj[campo] && visto && aj[campo] > visto + 1){
+        if (arrumar){ delete aj[campo]; corrigidos++;
+          add('fix', `${sl}: tamanho de ${campo === 'h1' ? 'título' : 'corpo'} devolvido ao padrão`,
+              `pedia ${Math.round(aj[campo] || 0) || 'mais'} e só cabia ${visto}px`);
+        } else add('aviso', `${sl}: ${campo === 'h1' ? 'título' : 'corpo'} pedido não cabe`,
+                   `pedido acima do que cabe — só entra ${visto}px`);
+      }
+    });
+
+    // NÃO ARRUMÁVEL: texto longo demais. Encurtar é decisão editorial.
+    if (m.h1 && m.h1 < PISO_H1)
+      add('ruim', `${sl}: título espremido em ${m.h1}px`, 'encurte a headline — não cabe legível');
+    if (m.corpo && m.corpo < PISO_CORPO)
+      add('ruim', `${sl}: corpo espremido em ${m.corpo}px`, 'corte texto deste slide');
+
+    // Vaga de imagem aberta
+    const pos = tpl.id === 'meio' ? posFoto(i) : (tpl.id === 'twitter' ? 'caixa' : 'fundo');
+    if (pos !== 'nada' && !aj.img)
+      add('aviso', `${sl}: sem imagem`, 'peça não vai pro cliente com vaga aberta');
+
+    if (arrumar && aj.img && !aj.foco){ aj.foco = '50% 50%'; corrigidos++; }
+  }
+
+  // A capa
+  const capa = (par(0).h || '');
+  const nu = capa.replace(/\*/g, '').length;
+  if (!nu) add('ruim', 'capa sem headline', 'é o slide que decide se o resto é lido');
+  else if (nu > 85) add('ruim', `capa com ${nu} caracteres`, 'acima de 85 encolhe demais pro feed');
+  else if (nu > 70) add('aviso', `capa com ${nu} caracteres`, 'faixa de trabalho é 45 a 70');
+  else add('bom', `capa com ${nu} caracteres`, 'dentro da faixa');
+
+  if (!/\*[^*]+\*/.test(capa))
+    add('aviso', 'capa sem trecho em destaque',
+        'marque com *asterisco* o que carrega a virada — é o gradiente da marca');
+
+  // O CTA
+  const ultimo = (blocos[17] || '').toUpperCase();
+  if (palavra && !ultimo.includes(palavra))
+    add('aviso', `último bloco sem "${palavra}"`, 'é a palavra que o disparo reconhece');
+  else if (palavra) add('bom', `CTA com "${palavra}"`, 'no último bloco');
+
+  return {achados, corrigidos};
+}
+
+function pintarLaudo(r){
+  const cx = $('#laudo'); if (!cx) return;
+  const ico = {bom:'✓', aviso:'!', ruim:'×', fix:'✎'};
+  const ruins = r.achados.filter(a => a.nivel === 'ruim').length;
+  const avisos = r.achados.filter(a => a.nivel === 'aviso').length;
+  cx.innerHTML = `<div class="laudo-topo">${
+      r.corrigidos ? r.corrigidos + ' arrumado(s) · ' : ''
+    }${ruins} a corrigir · ${avisos} aviso(s)</div>
+    <div class="laudo">${r.achados.map(a =>
+      `<div class="ach"><span class="pt ${a.nivel}">${ico[a.nivel]}</span>
+       <span><b>${esc(a.titulo)}</b><br>${esc(a.nota)}</span></div>`).join('')}</div>`;
+}
+
+/* ── painel do slide ───────────────────────────────────────────────────────
+   Onde a imagem entra e onde o tamanho se ajusta. O tamanho pedido aqui é o
+   ponto de partida: o auto-ajuste ainda encolhe se não couber, e o aviso em
+   âmbar diz quando teve de ceder. Assim dá pra aumentar o texto sem conseguir
+   quebrar o slide. */
+const FOCOS = [['esquerda em cima','0% 0%'],['centro em cima','50% 0%'],['direita em cima','100% 0%'],
+               ['esquerda','0% 50%'],['centro','50% 50%'],['direita','100% 50%'],
+               ['esquerda embaixo','0% 100%'],['centro embaixo','50% 100%'],['direita embaixo','100% 100%']];
+
+function painelSlide(){
+  const cx = $('#sl-painel'); if (!cx || !peca) return;
+  $('#sl-n').textContent = `${atual+1} de ${nSlides()}`;
+
+  const aj = ajuste(atual), real = medeSlide() || {};
+  const T = tpl.id, ehCapa = T === 'meio' && atual === 0;
+  const sangrado = T === 'exp02' || T === 'exp03' || T === 'exp04';
+  const pos = T === 'meio' ? posFoto(atual) : null;
+
+  // Onde a imagem é fundo, o scrim precisa ser dosado: escurecer demais mata a
+  // foto, de menos e o texto some nela.
+  const eFundo = ehCapa || sangrado || pos === 'fundo';
+  // O twitter tem caixa; os sangrados não têm posição a escolher.
+  const temImagem = eFundo || T === 'twitter' || (pos && pos !== 'nada');
+  const doseAtual = aj.scrim || peca.scrim || 'medio';
+
+  const padraoH1 = ehCapa ? 111.5 : sangrado ? tpl.tam : T === 'twitter' ? 41 : 75.7;
+  const padraoC  = sangrado ? 31 : T === 'twitter' ? 41 : 45.4;
+  const pedidoH1 = aj.h1 || padraoH1, pedidoC = aj.corpo || padraoC;
+
+  cx.innerHTML = `
+    ${temImagem ? `
+      <div class="foto-cx">${aj.img
+        ? `<img src="${aj.img}" alt="" style="object-position:${aj.foco || '50% 50%'}">`
+        : `<span>sem imagem</span>`}</div>
+      <div class="acoes" style="margin:0 0 9px">
+        <span class="btn arquivo-btn" style="padding:7px 10px;font-size:11.5px">
+          ${aj.img ? 'Trocar imagem' : 'Enviar imagem'}
+          <input type="file" id="sl-arq" accept="image/png,image/jpeg,image/webp"></span>
+        ${aj.img ? `<button class="btn" id="sl-tirar" type="button"
+           style="padding:7px 10px;font-size:11.5px">Tirar</button>` : ''}
+      </div>
+      ${aj.img ? `<span class="rotulo" style="margin-bottom:6px">Enquadramento</span>
+      <div class="foco" id="sl-foco">${FOCOS.map(([nome,v]) =>
+        `<button type="button" data-v="${v}" title="${nome}"
+          aria-pressed="${(aj.foco || '50% 50%') === v}"></button>`).join('')}</div>` : ''}` : ''}
+
+    ${pos ? `<span class="rotulo" style="margin-bottom:6px">Onde a imagem entra</span>
+      <div class="opcoes" style="margin-bottom:${eFundo ? '9' : '12'}px" id="sl-pos">
+        ${[['topo','topo'],['meio','meio'],['base','base'],['fundo','fundo'],['nada','sem']]
+          .map(([v,rot]) => `<button class="op" type="button" data-v="${v}"
+            aria-pressed="${pos === v}">${rot}</button>`).join('')}
+      </div>` : ''}
+
+    ${eFundo ? `<span class="rotulo" style="margin-bottom:6px">Escurecimento do fundo</span>
+      <div class="opcoes" style="margin-bottom:12px" id="sl-dose">
+        ${['leve','medio','forte'].map(v => `<button class="op" type="button" data-v="${v}"
+          aria-pressed="${doseAtual === v}">${v === 'medio' ? 'médio' : v}</button>`).join('')}
+      </div>
+      <span class="mini" style="margin:-6px 0 12px">A imagem é o que faz alguém parar o dedo.
+        Escurecer o slide inteiro resolve a leitura e apaga a foto.</span>` : ''}
+
+    <div class="linha-ct"><span>${ehCapa ? 'Headline' : 'Título'}</span>
+      <span class="passo"><button type="button" data-t="h1" data-d="-2">−</button>
+      <b>${Math.round(pedidoH1)}px</b>
+      <button type="button" data-t="h1" data-d="2">+</button></span></div>
+    ${real.h1 && real.h1 < Math.round(pedidoH1) - 1
+      ? `<div class="encolheu">encolhido para ${real.h1}px pra caber</div>` : ''}
+
+    ${ehCapa ? '' : `<div class="linha-ct"><span>Corpo</span>
+      <span class="passo"><button type="button" data-t="corpo" data-d="-2">−</button>
+      <b>${Math.round(pedidoC)}px</b>
+      <button type="button" data-t="corpo" data-d="2">+</button></span></div>
+    ${real.corpo && real.corpo < Math.round(pedidoC) - 1
+      ? `<div class="encolheu">encolhido para ${real.corpo}px pra caber</div>` : ''}`}
+
+    <button class="btn" id="sl-zerar" type="button"
+      style="width:100%;padding:7px;font-size:11.5px">Voltar ao padrão</button>`;
+
+  cx.querySelectorAll('.passo button').forEach(b => b.onclick = () => {
+    const a = ajuste(atual), campo = b.dataset.t, d = Number(b.dataset.d);
+    const base = campo === 'h1' ? padraoH1 : padraoC;
+    // Quando o auto-ajuste já encolheu, o número pedido está ACIMA do que se vê.
+    // Andar a partir do pedido faria o "−" não mudar nada por vários cliques —
+    // era exatamente o que parecia travado. Descendo, parte-se do tamanho real.
+    const visto = campo === 'h1' ? real.h1 : real.corpo;
+    const partida = (d < 0 && visto) ? Math.min(a[campo] || base, visto) : (a[campo] || base);
+    a[campo] = Math.max(18, Math.min(180, partida + d));
+    marcaSujo(); pintar();
+  });
+  const foco = cx.querySelector('#sl-foco');
+  if (foco) foco.querySelectorAll('button').forEach(b => b.onclick = () => {
+    ajuste(atual).foco = b.dataset.v; marcaSujo(); pintar();
+  });
+  cx.querySelectorAll('#sl-pos .op').forEach(b => b.onclick = () => {
+    ajuste(atual).pos = b.dataset.v; marcaSujo(); pintar();
+  });
+  cx.querySelectorAll('#sl-dose .op').forEach(b => b.onclick = () => {
+    ajuste(atual).scrim = b.dataset.v; marcaSujo(); pintar();
+  });
+  const zerar = cx.querySelector('#sl-zerar');
+  if (zerar) zerar.onclick = () => {
+    const a = ajuste(atual);
+    delete a.h1; delete a.corpo; delete a.pos; delete a.scrim; a.foco = '50% 50%';
+    marcaSujo(); pintar();
+  };
+  const tirar = cx.querySelector('#sl-tirar');
+  if (tirar) tirar.onclick = () => { delete ajuste(atual).img; marcaSujo(); pintar(); };
+  const arq = cx.querySelector('#sl-arq');
+  if (arq) arq.onchange = e => {
+    const f = e.target.files && e.target.files[0];
+    if (f) reduzImagem(f).then(url => { ajuste(atual).img = url; marcaSujo(); pintar(); })
+                         .catch(() => alert('Não consegui ler esse arquivo.'));
+  };
+}
+
+/* A imagem entra reduzida. O quadro é 864 × 442 no arquivo final, então mais
+   de 1000px de largura não melhora nada — e o estado da página vai junto no
+   Salvar, então cada MB a mais é MB que atravessa a rede toda vez. */
+function reduzImagem(arquivo, larguraMax = 1000, qualidade = 0.82){
+  return new Promise((ok, falha) => {
+    const leitor = new FileReader();
+    leitor.onerror = () => falha(new Error('não consegui ler o arquivo'));
+    leitor.onload = () => {
+      const im = new Image();
+      im.onerror = () => falha(new Error('arquivo não é uma imagem'));
+      im.onload = () => {
+        const escala = Math.min(1, larguraMax / im.width);
+        const c = document.createElement('canvas');
+        c.width = Math.round(im.width * escala);
+        c.height = Math.round(im.height * escala);
+        c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+        ok(c.toDataURL('image/jpeg', qualidade));
+      };
+      im.src = leitor.result;
+    };
+    leitor.readAsDataURL(arquivo);
+  });
 }
 
 /* ── persistência ──────────────────────────────────────────────────────────
@@ -1388,7 +1821,9 @@ async function salvar(){
                || c === 'capability_disabled' || c === 'consent_required'){
       soLeitura();
     } else if (c === 'too_large'){
-      e.textContent = 'peça grande demais pra salvar'; e.className = 'salvar-est erro';
+      // Quase sempre são as imagens: elas entram no estado da página, e o
+      // estado viaja inteiro a cada salvamento.
+      e.textContent = 'grande demais — tire alguma imagem'; e.className = 'salvar-est erro';
     } else if (c === 'rate_limited'){
       e.textContent = 'salvando rápido demais — espere alguns segundos';
       e.className = 'salvar-est erro';
@@ -1453,6 +1888,12 @@ $('#cta-palavra').oninput = e => {
   marcaSujo();
   cli.cta = e.target.value.toUpperCase();
   if (etapa === 'legenda') pintarLegenda();
+};
+
+$('#btn-concluir').onclick = () => {
+  const r = conferir(true);
+  if (r.corrigidos){ marcaSujo(); pintar(); }
+  pintarLaudo(r);
 };
 
 $('#btn-encolher').onclick = () => {

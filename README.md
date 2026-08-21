@@ -36,3 +36,46 @@ Para usar o AEOS numa missão nova, abra
 
 Para entender as convenções do acervo e como o Claude deve trabalhar aqui,
 veja [`CLAUDE.md`](CLAUDE.md).
+
+## Acessar de outro dispositivo
+
+Tudo o que está aqui vive em dois lugares, e eles servem a coisas diferentes.
+
+### O repositório — o acervo e o código
+
+Branch **`main`** consolida as 33 branches de sessão. É onde estão o sistema de
+carrosséis, o Estúdio, o serviço de render e as fichas de cliente.
+
+```
+github.com/expansioncompanyoficial-hub/claude-expasion   ·   branch main
+```
+
+Abrindo o Claude Code na web em outro aparelho, é essa a branch a escolher.
+
+### O Estúdio — a ferramenta
+
+```
+claude.ai/code/artifact/55d29291-2b1b-4003-94b8-db2da32c45da
+```
+
+Abre em qualquer aparelho logado na mesma conta. **O estado mora dentro da
+página**: clientes, peças, capas geradas, capa escolhida, legenda e a palavra do
+CTA. O botão *Salvar* publica uma nova versão com o que mudou — quem abrir depois
+pega de onde parou.
+
+Não é salvamento automático de propósito: publicar recarrega toda view aberta, e
+salvar a cada tecla deixaria a página recarregando no meio da digitação. O rótulo
+ao lado do botão avisa quando há mudança pendente.
+
+### O que está onde
+
+| | Onde |
+|---|---|
+| Régua visual medida no Canva | `BRANDSDECODED/MAQUINA/MEDIDAS-CANVA-*.md` |
+| Os cinco templates | `.claude/skills/carrossel-viral/references/templates.md` |
+| Como se escreve uma peça | `.claude/skills/carrossel-viral/references/template-01.md` |
+| Capas e padrões de hook | `.claude/skills/carrossel-viral/references/capas.md` |
+| Renderizador e exportador | `.claude/skills/carrossel-viral/scripts/` |
+| Serviço de render e portal | `SERVICO/` |
+| Peças produzidas | `CARROSSEIS/` |
+| Protótipo do Estúdio | `ESTUDIO/` |

@@ -219,7 +219,8 @@ def slide_html(spec, s, i, total):
         # se apoia na base e deixa a imagem respirar em cima.
         img = s.get("foto_fundo") or s.get("imagem")
         if img:
-            bg = f'<div class="bg-foto capa-foto" style="background-image:url({b64_img(img)})"></div>'
+            bg = (f'<div class="bg-foto capa-foto" style="background-image:url({b64_img(img)});'
+                  f'background-position:{s.get("foco", "50% 50%")}"></div>')
         else:
             bg = '<div class="capa-banho"></div>'
         selo = '<span class="selo">✓</span>' if verificado else ""
@@ -247,6 +248,13 @@ def slide_html(spec, s, i, total):
     # `foto_pos` decide o arquétipo. Sem ele o slide é o "sem foto", que é o
     # que as páginas 6 e 9 fazem.
     pos = s.get("foto_pos")
+    # `fundo` não é uma quarta posição da caixa: é a imagem ocupando o slide
+    # inteiro. Usa a mesma grade do "sem foto" — nos dois casos não há caixa
+    # disputando espaço com o texto — e o texto vai a branco, porque a cor do
+    # slide sumiu debaixo da foto.
+    de_fundo = pos == "fundo"
+    if de_fundo:
+        fundo = "fundo"
     if pos not in GRADE:
         pos = None
     g, lim = GRADE[pos], limites(pos)
@@ -304,7 +312,12 @@ def slide_html(spec, s, i, total):
     # de uma foto que ninguém pediu.
     if pos:
         if s.get("imagem"):
-            dentro = f'<img src="{b64_img(s["imagem"])}" alt="">'
+            # A caixa é 864 × 442 e a foto quase nunca tem essa proporção: algo
+            # é cortado. `foco` diz o que fica — sem isso o corte é sempre pelo
+            # centro, e o assunto da foto costuma não estar lá.
+            foco = s.get("foco", "50% 50%")
+            dentro = (f'<img src="{b64_img(s["imagem"])}" alt="" '
+                      f'style="object-position:{foco}">')
             classe = "foto"
         else:
             brief = s.get("imagem_brief", "Imagem a definir")
@@ -314,7 +327,16 @@ def slide_html(spec, s, i, total):
             classe = "foto vaga"
         partes.append(f'<div class="{classe}" style="top:{g["foto"]}px">{dentro}</div>')
 
-    return (f'<div class="slide f-{fundo}">{fundo_foto(s)}'
+    if de_fundo and s.get("imagem"):
+        dose = s.get("scrim") or spec.get("capa_scrim", "medio")
+        atras = (f'<div class="bg-foto capa-foto" style="background-image:url('
+                 f'{b64_img(s["imagem"])});background-position:'
+                 f'{s.get("foco", "50% 50%")}"></div>'
+                 f'<div class="fundo-scrim dose-{dose}"></div>')
+    else:
+        atras = fundo_foto(s)
+
+    return (f'<div class="slide f-{fundo}">{atras}'
             f'{"".join(partes)}{barra(spec)}</div>')
 
 
@@ -406,6 +428,7 @@ def build(spec):
 :root{{--escuro:{t['dark']};--destaque:{t['accent']};--claro:{claro};--texto:{t.get('texto','#FFFFFF')};
 --head:'{t['fonte_head']}',sans-serif;--body:'{t['fonte_body']}',sans-serif;
 --serif:'{t.get('fonte_serif', 'Source Serif 4')}',Georgia,serif;
+--grad-texto:{t.get('gradiente_texto', 'linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)')};
 --grad:{t.get('gradiente', 'linear-gradient(180deg,#fa7e01 0%,#ff6522 50%,#fa7e01 100%)')}}}
 
 /* O degradê é do FUNDO do slide de destaque, não da escrita. A escrita em
@@ -415,7 +438,15 @@ body{{background:#111;display:flex;flex-direction:column;align-items:center;gap:
 .slide{{width:{W}px;height:{H}px;position:relative;overflow:hidden;flex:none}}
 
 /* ── fundos ───────────────────────────────────────────────────────────── */
-.f-capa,.f-foto{{background:#000}}
+.f-capa,.f-foto,.f-fundo{{background:#000}}
+
+/* Slide interno com a imagem de fundo. O véu aqui é parelho, não um degradê
+   que sobe do pé: nesta grade o texto fica no terço superior, e um degradê de
+   baixo deixaria a headline sobre a parte clara da foto. */
+.fundo-scrim{{position:absolute;inset:0}}
+.dose-leve{{background:linear-gradient(180deg,rgba(0,0,0,.56) 0%,rgba(0,0,0,.34) 58%,rgba(0,0,0,.62) 100%)}}
+.dose-medio{{background:linear-gradient(180deg,rgba(0,0,0,.74) 0%,rgba(0,0,0,.56) 58%,rgba(0,0,0,.78) 100%)}}
+.dose-forte{{background:linear-gradient(180deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.76) 58%,rgba(0,0,0,.90) 100%)}}
 .f-escuro{{background:var(--escuro)}}
 .f-destaque{{background:var(--grad)}}
 .f-claro{{background:var(--claro)}}
@@ -431,7 +462,8 @@ transparent 26%,rgba(0,0,0,.72) 62%,rgba(0,0,0,.94) 84%,#000 100%)}}
 justify-content:space-between;z-index:20;font-family:var(--body);font-size:15.8px;
 font-weight:700;line-height:1.4;letter-spacing:0;text-transform:uppercase;
 opacity:{op_barra}}}
-.f-escuro .barra,.f-capa .barra,.f-destaque .barra,.f-foto .barra{{color:#fff}}
+.f-escuro .barra,.f-capa .barra,.f-destaque .barra,.f-foto .barra,
+.f-fundo .barra{{color:#fff}}
 .f-claro .barra{{color:#000}}
 .f-destaque .barra{{color:#fff}}
 
@@ -444,7 +476,7 @@ display:flex;flex-direction:column;justify-content:flex-end;gap:32px;z-index:2}}
 
 .tag{{font-family:var(--body);font-size:17px;font-weight:600;letter-spacing:3px;
 text-transform:uppercase;overflow:visible}}
-.f-escuro .tag,.f-claro .tag,.f-foto .tag{{color:var(--destaque)}}
+.f-escuro .tag,.f-claro .tag,.f-foto .tag,.f-fundo .tag{{color:var(--destaque)}}
 .f-destaque .tag{{color:rgba(255,255,255,.72)}}
 
 /* ── título · 75,7px semibold · lh 1,06 · tracking −0,056 · à esquerda ───
@@ -452,11 +484,11 @@ text-transform:uppercase;overflow:visible}}
 .h1{{font-family:var(--head);font-size:75.7px;font-weight:600;line-height:1.06;
 letter-spacing:-.056em}}
 .h1.grande{{font-size:83.8px}}
-.f-escuro .h1,.f-foto .h1{{color:var(--texto)}}
+.f-escuro .h1,.f-foto .h1,.f-fundo .h1{{color:var(--texto)}}
 .f-destaque .h1{{color:#fff}}
 .f-claro .h1{{color:#000}}
 .h1 em{{font-style:normal}}
-.f-escuro .h1 em,.f-claro .h1 em,.f-foto .h1 em{{color:var(--destaque)}}
+.f-escuro .h1 em,.f-claro .h1 em,.f-foto .h1 em,.f-fundo .h1 em{{color:var(--destaque)}}
 .f-destaque .h1 em{{color:#fff;font-weight:700}}
 .h1 b{{font-weight:700}}
 
@@ -467,7 +499,7 @@ letter-spacing:-.056em}}
 .corpo{{font-family:var(--body);font-size:45.4px;font-weight:400;line-height:.96;
 letter-spacing:-.033em;text-align:left}}
 .f-claro .corpo{{font-size:36.6px}}
-.f-escuro .corpo,.f-foto .corpo,.f-destaque .corpo{{color:#fff}}
+.f-escuro .corpo,.f-foto .corpo,.f-destaque .corpo,.f-fundo .corpo{{color:#fff}}
 .f-claro .corpo{{color:#000}}
 .corpo b{{font-weight:700}}
 .corpo em{{font-style:normal;font-weight:400;color:var(--destaque)}}
@@ -513,7 +545,7 @@ letter-spacing:-.06em;color:var(--destaque)}}
 .bullets{{display:flex;flex-direction:column;gap:22px}}
 .row{{display:flex;gap:22px;align-items:flex-start;font-family:var(--body);
 font-size:40px;line-height:1.02;letter-spacing:-.033em}}
-.f-escuro .row,.f-foto .row,.f-destaque .row{{color:#fff}}
+.f-escuro .row,.f-foto .row,.f-destaque .row,.f-fundo .row{{color:#fff}}
 .f-claro .row{{color:#000}}
 .row b{{font-weight:700}}
 .row em{{font-style:normal;color:var(--destaque)}}
@@ -570,7 +602,9 @@ flex:none}}
 z-index:10;font-family:var(--head);color:#fff;text-align:center}}
 .capa-impacto{{font-size:111.5px;font-weight:700;line-height:.92;letter-spacing:-.087em}}
 .capa-manchete{{font-size:79.6px;font-weight:600;line-height:1.06;letter-spacing:-.056em}}
-.capa-h1 em{{font-style:normal;color:var(--destaque)}}
+.capa-h1 em{{font-style:normal;background:var(--grad-texto);
+-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}}
 .capa-h1 b{{font-weight:700}}
 
 /* Legenda: existe, mas não entra por padrão. A página 1 não tem, e uma linha
@@ -588,7 +622,9 @@ display:flex;flex-direction:column;gap:26px;align-items:{'center' if sang['align
 text-align:{sang['align']}}}
 .sang-h1{{font-family:{sang['fonte']};font-weight:{sang['peso']};font-size:{sang['tam']}px;
 line-height:{sang['lh']};letter-spacing:{sang['tr']};color:#fff;max-width:100%}}
-.sang-h1 em{{font-style:normal;color:var(--destaque)}}
+.sang-h1 em{{font-style:normal;background:var(--grad-texto);
+-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}}
 .sang-h1 b{{font-weight:700}}
 .sang-sub{{font-family:var(--body);font-size:31px;font-weight:400;line-height:1.18;
 letter-spacing:-.02em;color:#fff;opacity:.86;max-width:92%}}

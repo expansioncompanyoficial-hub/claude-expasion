@@ -78,7 +78,7 @@ por causa disso — sem `unicode-range`, a última apaga a primeira.
 | `tipo` | Campos |
 |---|---|
 | `capa` | `headline`, `sub`, `foto_fundo`, `estilo` (sobrepõe `capa_estilo`) |
-| `texto` | `tag`, `h1`, `paragrafos[]`, `imagem`, `foto_pos`, `imagem_brief`, `fonte` |
+| `texto` | `tag`, `h1`, `paragrafos[]`, `imagem`, `foto_pos`, `foco`, `scrim`, `imagem_brief`, `fonte` |
 | `stat` | `tag`, `numero`, `label`, `paragrafos[]`, `fonte` |
 | `bullets` | `tag`, `h1`, `itens[]` |
 | `declaracao` | `h1` — headline grande, sem corpo |
@@ -92,7 +92,7 @@ vira automaticamente a família **foto sangrada**.
 | | O que faz |
 |---|---|
 | `foto_fundo` | imagem cobre o slide a 65% sobre preto, scrim subindo da base, texto ancorado embaixo |
-| `imagem` | caixa de 864 × 488,4 com canto 13px, no fluxo do conteúdo |
+| `imagem` | caixa de 864 × 442,2 com canto 13px, na posição dada por `foto_pos` |
 
 São dois enquadramentos diferentes, e três dos quatro designs reais usam o
 primeiro. `foto_opacidade` ajusta o 0,65 quando a foto vem clara demais.
@@ -107,7 +107,24 @@ nunca bate. Cada bloco vai no `top` medido, e são quatro arquétipos:
 | `topo` | foto · título · corpo | 207,9 · 717,0 · 1005,8 | 2 e 5 |
 | `meio` | título · foto · corpo | 161,0 · 453,9 · 951,1 | 3 e 7 |
 | `base` | título · corpo · foto | 230,5 · 534,9 · 799,8 | 4 e 8 |
+| `fundo` | título · corpo, **sobre a imagem** | 298,9 · 641,9 | — |
 | ausente | título · corpo | 298,9 · 641,9 | 6 e 9 |
+
+### `fundo` — a imagem ocupando o slide
+
+`fundo` não é uma quarta posição da caixa: é a imagem cobrindo o slide inteiro,
+com o texto por cima. Usa a mesma grade do "sem foto" (nos dois casos não há
+caixa disputando espaço) e o texto vai a **branco**, porque a cor do slide sumiu
+debaixo da foto.
+
+`scrim` dosa o escurecimento — `leve`, `medio` (padrão) ou `forte`. Aqui o véu é
+**parelho**, não um degradê que sobe do pé: nesta grade o texto fica no terço
+superior, e um degradê de baixo deixaria a headline sobre a parte clara da foto.
+Na capa é o contrário — lá o texto se apoia na base, então o escurecimento sobe
+do pé e a metade de cima continua sendo imagem.
+
+Não abusar: se todos os slides forem `fundo`, o carrossel perde o ritmo de
+claro/escuro/destaque que faz alguém continuar deslizando.
 
 Todos com `left: 108` e largura `864`. A caixa de imagem é sempre **864 × 442,2,
 canto 13**.
@@ -118,6 +135,17 @@ mantém os nove slides alinhados entre si quando alguém desliza o feed.
 
 Sem `foto_pos` o slide é "sem foto", que é o que as páginas 6 e 9 fazem: a
 declaração forte e o fechamento. Sobra espaço embaixo, e isso é o desenho.
+
+### `foco` — o que sobrevive ao corte
+
+A caixa é 864 × 442 e a foto quase nunca tem essa proporção, então algo sai. Sem
+`foco` o corte é pelo centro — e o assunto da foto costuma não estar lá.
+
+Aceita qualquer `object-position`: `"100% 0%"` para o canto de cima à direita,
+`"50% 100%"` para o pé, `"0% 50%"` para a esquerda. Vale também na capa, onde
+decide qual parte da foto sangrada aparece.
+
+No Estúdio isso é a grade de nove quadradinhos abaixo da miniatura.
 
 ## Vaga de imagem
 

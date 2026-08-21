@@ -123,3 +123,102 @@ confere que nenhuma tag alvo aparece literal no corpo do script.
 
 Testado em três gerações seguidas: editar, publicar, reabrir, publicar de novo.
 O estado sobrevive e o arquivo não cresce.
+
+## Ajuste por slide
+
+Na etapa Carrossel, o painel da esquerda mostra o slide aberto:
+
+| | |
+|---|---|
+| **Enviar imagem** | entra reduzida a 1000px de largura, JPEG 0,82 |
+| **Enquadramento** | grade de nove pontos — o que sobrevive ao corte 864 × 442 |
+| **Onde a imagem entra** | topo · meio · base · **fundo** · sem, por slide |
+| **Escurecimento do fundo** | leve · médio · forte, quando a imagem é o fundo |
+| **Título / Corpo** | tamanho em px, com − e + |
+
+O tamanho pedido à mão é o **ponto de partida, não a palavra final**: o
+auto-ajuste ainda encolhe se não couber, e o painel avisa em âmbar
+*"encolhido para Xpx pra caber"*. Dá para aumentar o texto sem conseguir quebrar
+o slide.
+
+Por isso o `−` anda a partir do **tamanho que está na tela**, não do que foi
+pedido. Um título pedido em 84 que o auto-ajuste desenhou em 66 não muda de
+aparência nos nove primeiros cliques do `−` — some de 84 até 66 e só então
+encolhe. Clicar cinco vezes sem nada acontecer parece defeito. Hoje o passo
+parte do menor entre os dois, e o primeiro clique já mexe no slide.
+
+### Por que o texto sobrepunha a imagem
+
+O Estúdio posicionava os blocos no `top` medido mas **sem teto nenhum** — o
+renderizador em Python já tinha o auto-ajuste, o Estúdio não. Os dois tinham
+divergido.
+
+Medido numa peça real de nove slides: quatro quebravam. Dois passavam da margem
+de baixo (58px e 113px) e dois tinham a headline entrando na caixa de imagem
+(17px e 28px).
+
+Hoje cada bloco declara `data-teto` — até onde o próximo começa — e o texto
+encolhe dentro da própria fatia.
+
+### `fundo` — a imagem ocupando o slide
+
+Escolhendo `fundo`, a imagem cobre o slide inteiro e o texto vai por cima, em
+branco. Vale em qualquer slide, e é o padrão dos templates EXPANSION 02, 03 e 04,
+onde a foto sangrada É o desenho.
+
+O escurecimento é dosado à parte, porque errar aqui custa dos dois lados: de
+menos e o texto some na foto, demais e a foto vira um fundo escuro qualquer — e
+a foto é justamente o que faz alguém parar o dedo.
+
+O véu de um slide interno é **parelho**; o da capa **sobe do pé**. São grades
+diferentes: na capa o texto se apoia na base e a metade de cima fica sendo
+imagem; num slide interno o texto está no terço superior, e um degradê de baixo
+deixaria a headline sobre a parte clara da foto.
+
+O upload existe em todos os templates, no que cada um precisa: fundo nos
+sangrados, caixa no EXPANSION TWITTER, e as duas coisas no EXPANSION 01.
+
+### Cuidado ao mudar id de template
+
+Quando os cinco templates viraram `EXPANSION 01..04`, os ids mudaram
+(`brands1` → `exp02` e assim por diante). O estado salvo guarda o id da peça: sem
+migrar, as peças antigas caem no template padrão e o trabalho **parece** perdido.
+Toda renomeação de id precisa de migração no estado.
+
+## Renomear a peça
+
+Cada peça na lista tem um `✎`. Sem isso a lista vira sete *"Sem título"* e a
+única maneira de achar a certa é abrir uma por uma — o problema aparece na
+terceira peça, não na primeira.
+
+## Conferir e concluir
+
+O botão **Concluir carrossel** roda a peça inteira antes de fechar: renderiza os
+nove slides num medidor fora da tela, deixa o auto-ajuste correr e mede bloco a
+bloco. Devolve um laudo em duas colunas — o que ele **corrigiu** e o que só ele
+pode **avisar**.
+
+Ele corrige sozinho o que é mecânico:
+
+- tamanho pedido à mão que o auto-ajuste teve de derrubar abaixo do piso
+  (52px no título, 30px no corpo) volta ao padrão do template
+- `foco` de imagem fora dos nove pontos volta para o centro
+
+E **só avisa** o que é editorial, porque a decisão é de quem escreve:
+
+- bloco que não coube nem no menor tamanho — é texto demais, não fonte de menos
+- slide que pede foto e está sem
+- capa fora da faixa de caracteres do padrão
+- CTA sem a palavra fixa do cliente
+
+A separação é o ponto: se ele reescrevesse o texto para caber, a peça sairia
+diferente do que foi aprovado e ninguém veria.
+
+## O degradê da capa
+
+A frase de impacto da capa marcada com `*trecho*` sai preenchida pelo degradê
+laranja da Expansion (`linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)`), e não
+pelo `accent` chapado. Vale **só na capa** — no corpo dos slides internos a
+ênfase continua chapada, que é o que está medido no Canva. Cada cliente pode ter
+o seu, no campo `gradTexto` da ficha.
+

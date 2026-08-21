@@ -12,7 +12,8 @@
     "barra_opacidade": 0.3,
     "fonte_head": "Montserrat",
     "fonte_body": "Poppins",
-    "gradiente": "linear-gradient(180deg,#fa7e01 0%,#ff6522 50%,#fa7e01 100%)"
+    "gradiente": "linear-gradient(180deg,#fa7e01 0%,#ff6522 50%,#fa7e01 100%)",
+    "gradiente_texto": "linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)"
   },
   "fontes": [
     {
