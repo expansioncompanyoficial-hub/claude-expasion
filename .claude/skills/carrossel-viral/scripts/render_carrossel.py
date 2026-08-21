@@ -512,9 +512,13 @@ letter-spacing:-.033em;text-align:left}}
 
 /* Chamada do slide final: o parágrafo inteiro na cor de destaque, e a palavra
    de comando em bold dentro dele. */
-.corpo.chamada{{color:var(--destaque)}}
-.corpo.chamada b{{font-weight:700}}
-.f-destaque .corpo.chamada{{color:#fff;font-weight:600}}
+/* A chamada do último slide era o parágrafo INTEIRO em laranja — e assim a
+   palavra do CTA não se destacava de nada, porque realce só existe contra
+   alguma coisa. Agora a linha é texto normal e quem fica na cor é a palavra de
+   comando, em bold: menos laranja na página, CTA mais visível. Decisão do
+   Nicolas; o Canva original traz a linha inteira laranja. */
+.corpo.chamada b{{font-weight:700;color:var(--destaque)}}
+.f-destaque .corpo.chamada b{{color:#fff}}
 
 .fonte{{font-family:var(--body);font-size:21px;padding-top:20px;letter-spacing:.3px}}
 .f-escuro .fonte,.f-foto .fonte{{color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.20)}}
