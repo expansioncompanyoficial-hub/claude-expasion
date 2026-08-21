@@ -719,7 +719,10 @@ function grad(){
   return cli.grad || cli.accent;
 }
 function EM(txt){
-  return `<span style="color:${cli.accent}">${esc(txt)}</span>`;
+  // Slide de chamada: o parágrafo INTEIRO já vai na cor de destaque, e por isso
+  // `*trecho*` não tem cor nova pra dar. Ali os dois marcadores viram peso.
+  const corpo = esc(txt).replace(/\*{1,2}([^*]+)\*{1,2}/g, '<b>$1</b>');
+  return `<span style="color:${cli.accent}">${corpo}</span>`;
 }
 
 /* O degradê da capa é um ativo de marca, não um efeito. O da Expansion é o
@@ -729,18 +732,38 @@ function EM(txt){
    cor de outra marca é invenção, não padrão. */
 const gradTexto = () => cli.gradTexto || null;
 
-/* `*trecho*` na capa ganha o degradê de quem tem um. É onde ele faria
-   diferença: a headline é grande o bastante para o degradê aparecer. Em corpo
-   de 45px vira uma cor chapada qualquer — por isso o resto da peça segue
-   sólido em todo mundo. */
-function RICO(txt, naCapa){
-  const grad = naCapa && gradTexto();
-  const pintado = grad
-    ? `<span style="background:${grad};-webkit-background-clip:text;
-        background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
-        -webkit-box-decoration-break:clone">$1</span>`
-    : `<span style="color:${cli.accent}">$1</span>`;
-  return esc(txt).replace(/\*([^*]+)\*/g, pintado);
+/* Os dois mecanismos de ênfase do Canva, e eles convivem no mesmo parágrafo:
+   `*trecho*` troca a cor, `**trecho**` mantém a cor e sobe o peso. A marcação é
+   por conteúdo, nunca por posição — é o que faz o realce andar junto com a
+   frase quando o texto muda.
+
+   A COR da ênfase depende do fundo, e é aqui que se erra:
+
+     capa      · degradê da marca, pra quem tem um. É a única superfície onde
+                 ele aparece: a headline é grande o bastante.
+     destaque  · o slide JÁ é laranja. Accent sobre accent some, então ali a
+                 ênfase é branco em bold — que é o que o Canva faz.
+     cartão    · o EXPANSION TWITTER empresta a credibilidade da rede, e tweet
+                 não tem cor de marca no texto. Ali a ênfase é só peso — é o
+                 que o renderizador em Python já faz em `.tw-texto em`.
+     o resto   · accent chapado, sobre escuro e sobre claro. */
+function RICO(txt, modo){
+  const cru = esc(txt);
+  if (modo === 'cartao') return cru
+    .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+    .replace(/\*([^*]+)\*/g, '<span style="font-weight:600">$1</span>');
+  const pintado =
+      modo === 'capa' && gradTexto()
+        ? `<span style="background:${gradTexto()};-webkit-background-clip:text;
+            background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+            -webkit-box-decoration-break:clone">$1</span>`
+    : modo === 'destaque'
+        ? `<span style="color:#fff;font-weight:700">$1</span>`
+        : `<span style="color:${cli.accent}">$1</span>`;
+  // `**forte**` primeiro: senão a regra de um asterisco come metade do par.
+  return cru
+    .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+    .replace(/\*([^*]+)\*/g, pintado);
 }
 function foto(seed){
   return `linear-gradient(${140+seed*24}deg, ${cli.escuro} 0%, ${cli.accent} 62%, ${cli.claro} 140%)`;
@@ -773,44 +796,11 @@ function chip(){
       color:#fff;opacity:.49">${esc(cli.handle)}</span></span>`;
 }
 
-/* O degradê é do FUNDO do slide de destaque, não da escrita — foi o que sete
-   páginas do Canva mostraram. A escrita em destaque é a cor chapada. */
-function grad(){
-  return cli.grad || cli.accent;
-}
-function EM(txt){
-  return `<span style="color:${cli.accent}">${esc(txt)}</span>`;
-}
-function foto(seed){
-  return `linear-gradient(${140+seed*24}deg, ${cli.escuro} 0%, ${cli.accent} 62%, ${cli.claro} 140%)`;
-}
-
-/* ============ render dos templates ============ */
-function barra(cor){
-  return `<div style="position:absolute;top:49.7px;left:56.1px;right:56.1px;display:flex;
-    justify-content:space-between;z-index:20;font-size:15.8px;font-weight:700;line-height:1.4;
-    letter-spacing:0;text-transform:uppercase;color:${cor}"><span>${esc(cli.handle)}</span>
-    <span>${esc(cli.marca)}</span><span>${esc(cli.direito)}</span></div>`;
-}
-function chip(){
-  const selo = cli.logo
-    ? `<span style="width:48.7px;height:48.7px;border-radius:50%;background:${
-        cli.logoFundo==='claro' ? '#fff' : cli.logoFundo==='escuro' ? '#101216' : 'rgba(255,255,255,.10)'
-      };display:flex;align-items:center;justify-content:center;overflow:hidden">
-      <img src="${cli.logo}" alt="" style="max-width:78%;max-height:78%;object-fit:contain"></span>`
-    : `<span style="width:48.7px;height:48.7px;border-radius:50%;background:${cli.accent};display:flex;
-      align-items:center;justify-content:center;font-family:'Montserrat',var(--ui);font-size:24px;
-      font-weight:700;color:#fff">${esc(cli.marca[0]||'?')}</span>`;
-  return `<div style="display:inline-flex;align-items:center;gap:14px">
-    ${selo}
-    <span style="font-size:31.8px;font-weight:500;line-height:1.4;letter-spacing:-.084em;
-    color:#fff">${esc(cli.handle)}</span>
-    <span style="width:27.8px;height:27.8px;border-radius:50%;background:#1d9bf0;color:#fff;display:flex;
-    align-items:center;justify-content:center;font-size:16px;font-weight:700">✓</span></div>`;
-}
-const H = (t,sz,cor,extra='') => `<div class="ft-h1" style="font-family:'Montserrat',var(--ui);
+// Recebe HTML pronto, não texto cru: quem chama passa por `RICO` antes. Era
+// aqui que o `*trecho*` do slide interno morria — saía escapado, como asterisco.
+const H = (html,sz,cor,extra='') => `<div class="ft-h1" style="font-family:'Montserrat',var(--ui);
   font-size:${sz}px;font-weight:600;line-height:1.06;letter-spacing:-.056em;color:${cor};
-  ${extra}">${esc(t)}</div>`;
+  ${extra}">${html}</div>`;
 
 /* ── a grade e o auto-ajuste ───────────────────────────────────────────────
    Mesma régua do renderizador em Python: cada bloco tem um `top` medido no
@@ -925,7 +915,7 @@ function render(i){
       <div class="capa-h1" style="position:absolute;bottom:110.3px;left:108px;width:864px;z-index:10;
         font-family:'Montserrat',var(--ui);font-size:${aj.h1 || 111.5}px;font-weight:700;
         line-height:.92;letter-spacing:-.087em;color:#fff;text-align:center">${
-        RICO(h||'Headline da capa', true)}</div></div>`;
+        RICO(h||'Headline da capa', 'capa')}</div></div>`;
 
     const pos = posFoto(i), eFundo = pos === 'fundo';
     // Com a imagem de fundo o texto é sempre branco: a cor do slide sumiu
@@ -963,16 +953,21 @@ function render(i){
                 864 × 442 · canto 13</span></div>`
       }</div>`;
 
+    // Sobre o fundo de destaque a ênfase é branca em bold; no resto, accent.
+    // Vale o que está PINTADO, não o que o ritmo pediu: com imagem de fundo o
+    // laranja saiu de cena, e aí o accent volta a ter contraste.
+    const modo = (!eFundo && f==='destaque') ? 'destaque' : 'interno';
     const corpoHtml = f==='cta'
       ? `<div class="ft-corpo" style="font-size:${aj.corpo || 45.4}px;line-height:.96;
           letter-spacing:-.033em">${EM(c||'Comenta a palavra.')}</div>`
       : `<div class="ft-corpo" style="font-size:${aj.corpo || (cl?36.6:45.4)}px;line-height:.96;
-          letter-spacing:-.033em;color:${corC}">${esc(c||'Texto de apoio do slide.')}</div>`;
+          letter-spacing:-.033em;color:${corC}">${RICO(c||'Texto de apoio do slide.', modo)}</div>`;
 
     return `<div class="slide" style="background:${bg}">
       ${eFundo ? fundoImagem(aj, 'interno', true) : ''}
       ${barra(corB)}
-      ${bloco('h1', H(h||'Headline', aj.h1 || 75.7, corH, f==='cta'?'font-weight:700':''))}
+      ${bloco('h1', H(RICO(h||'Headline', modo), aj.h1 || 75.7, corH,
+                       f==='cta'?'font-weight:700':''))}
       ${cx}
       ${bloco('corpo', corpoHtml)}</div>`;
   }
@@ -993,7 +988,7 @@ function render(i){
         ${chipHtml}
         <div class="sang-h1" style="font-family:${tpl.fonte};font-weight:${tpl.peso};
           font-size:${aj.h1 || tpl.tam}px;line-height:${tpl.lh};letter-spacing:${tpl.tr};color:#fff">
-          ${RICO(h||'Headline da capa', i === 0)}</div>
+          ${RICO(h||'Headline da capa', i === 0 ? 'capa' : 'sang')}</div>
         <div style="font-size:${aj.corpo || 31}px;line-height:1.18;letter-spacing:-.02em;color:#fff;
           opacity:.86;max-width:92%">${esc(c||'Linha de apoio abaixo da headline.')}</div>
       </div></div>`;
@@ -1017,7 +1012,7 @@ function render(i){
     <div style="position:absolute;top:318px;left:108px;right:108px;bottom:108px;display:flex;
       flex-direction:column;gap:30px">
       <div style="font-size:${aj.h1 || 41}px;font-weight:500;line-height:1.24;
-        letter-spacing:-.022em;color:#0F1419">${esc(h||'A frase principal do post.')}</div>
+        letter-spacing:-.022em;color:#0F1419">${RICO(h||'A frase principal do post.', 'cartao')}</div>
       <div style="height:442.2px;border-radius:13px;overflow:hidden;flex:none;
         background:${aj.img ? 'none' : 'rgba(0,0,0,.04)'};
         border:${aj.img ? 'none' : '2px dashed ' + cli.accent};display:flex;
@@ -1027,7 +1022,7 @@ function render(i){
           : `<span style="font-family:var(--mono);font-size:15px;letter-spacing:.14em;
               text-transform:uppercase;color:${cli.accent}">imagem · a definir</span>`}</div>
       <div style="font-size:${aj.corpo || 41}px;font-weight:500;line-height:1.24;
-        letter-spacing:-.022em;color:#0F1419">${esc(c||'O parágrafo de apoio, logo abaixo.')}</div>
+        letter-spacing:-.022em;color:#0F1419">${RICO(c||'O parágrafo de apoio, logo abaixo.', 'cartao')}</div>
     </div></div>`;
 }
 
@@ -1232,7 +1227,7 @@ function trocaEtapa(id){
 
 /* ── capas ─────────────────────────────────────────────────────────────── */
 function capaHtml(texto){
-  const rico = RICO(texto, true);
+  const rico = RICO(texto, 'capa');
   return `<div class="slide" style="background:${cli.escuro}">
     <div style="position:absolute;inset:0;background:${foto(1)}"></div>
     <div style="position:absolute;inset:0;background:${SCRIM[peca?.scrim||'medio']}"></div>
@@ -1594,6 +1589,19 @@ function conferir(arrumar){
   if (!/\*[^*]+\*/.test(capa))
     add('aviso', 'capa sem trecho em destaque',
         'marque com *asterisco* o que carrega a virada — é o gradiente da marca');
+
+  // O destaque é o que sobra na cabeça depois que a pessoa fecha o carrossel.
+  // Slide sem nenhum trecho marcado é slide que ela lê e esquece. O último fica
+  // de fora: lá o parágrafo inteiro já vai na cor.
+  const semDestaque = [];
+  for (let i = 1; i < nSlides() - 1; i++){
+    const p = par(i);
+    if (!/\*[^*]+\*/.test(p.h + ' ' + p.c)) semDestaque.push(i + 1);
+  }
+  if (semDestaque.length)
+    add('aviso', `${semDestaque.length} slide(s) sem trecho em destaque`,
+        `slides ${semDestaque.join(', ')} — marque o número, a data ou o prazo`);
+  else add('bom', 'todo slide interno tem destaque', 'a régua da marca está aplicada');
 
   // O CTA
   const ultimo = (blocos[17] || '').toUpperCase();

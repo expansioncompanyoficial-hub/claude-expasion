@@ -110,6 +110,44 @@ tem (`linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)`, decisão do Nicolas com o
 valor lido no seletor do Canva — não é medição). Herdar o laranja dela nas
 outras marcas seria inventar identidade que ninguém aprovou.
 
+### A dosagem — quanto marcar, e o quê
+
+O destaque não é decoração: é **o que sobra na cabeça depois que a pessoa fecha
+o carrossel**. Marcar demais é o mesmo que não marcar nada.
+
+| Onde | Quanto | O quê |
+|---|---|---|
+| **Capa** | **exatamente 1** | o sujeito da tensão — o que faz a frase valer |
+| **Headline interna** | 0 ou 1 | só quando ela carrega o dado (data, número, prazo) |
+| **Corpo** | 1, **no máximo 2** | o **número**, a **data**, o **prazo** |
+| **Fonte** | **nunca** | `Fonte: CNC, 2026` é rodapé, não argumento |
+| **Slide de chamada** | a palavra do CTA | o parágrafo já vai inteiro na cor; ali só sobra o peso |
+
+Duas regras que decidem a maioria dos casos:
+
+**Marque o substantivo, não o adjetivo.** `*76,48% no mercado nacional*` fica.
+`*muito mais caro*` não — é opinião pintada de cor, e a peça inteira perde
+autoridade quando o realce cai em juízo de valor em vez de fato.
+
+**Não repita o mesmo dado em dois lugares do slide.** Se a headline já marca
+`*12 DE MAIO*`, o corpo não marca a data de novo — marca o outro fato. Repetir
+gasta o único recurso de atenção que o slide tem.
+
+### A cor da ênfase muda com o fundo
+
+Isso não é escolha, é contraste:
+
+| Fundo | Ênfase |
+|---|---|
+| capa | degradê da marca, para quem tem um |
+| **destaque** (laranja) | **branco em bold** — accent sobre accent some |
+| escuro · claro · foto de fundo | `accent` chapado |
+| EXPANSION TWITTER | **só peso**, sem cor — tweet não tem cor de marca no texto |
+
+O slide de destaque é o que costuma passar batido: o fundo dele **já é** a cor
+da marca. E se aquele slide receber imagem de fundo, o laranja saiu de cena —
+aí o `accent` volta, porque volta a ter contraste.
+
 **Não existe slide só de número.** Um `50%` gigante com duas linhas de legenda
 ocupa um terço da página e quebra o alinhamento com os vizinhos. Número entra
 dentro da frase.

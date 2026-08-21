@@ -226,3 +226,21 @@ global. Hoje só a Expansion tem
 da capa com o próprio `accent`. Um degradê laranja por cima da cor da Prime ou
 da Ciés não é o padrão do template — é identidade inventada.
 
+## O destaque nas frases
+
+`*trecho*` troca a cor, `**trecho**` sobe o peso. Os dois valem em todo slide —
+capa, headline e corpo — e a marcação é **por conteúdo, nunca por posição**: o
+realce anda junto com a frase quando o texto muda.
+
+A régua está em `.claude/skills/carrossel-viral/references/template-01.md`, e em
+uma linha é esta: **capa 1 trecho, corpo até 2, e o que se marca é o número, a
+data ou o prazo** — nunca o adjetivo, nunca a fonte.
+
+A cor sai do fundo, não do gosto: degradê na capa, `accent` sobre escuro e sobre
+claro, **branco em bold no slide de destaque** (o fundo dele já é a cor da
+marca) e só peso, sem cor, no EXPANSION TWITTER, que empresta a credibilidade
+da rede.
+
+**Concluir carrossel** cobra isso: aponta a capa sem destaque e lista os slides
+internos que ficaram sem nenhum trecho marcado.
+
