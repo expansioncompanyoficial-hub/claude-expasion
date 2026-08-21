@@ -33,6 +33,28 @@ CAMPOS_CLIENTE = {
 }
 
 
+def repara_capa(peca):
+    """Devolve a marcação que a aprovação da capa comia.
+
+    `escolheCapa` gravava a headline no `texto 1` SEM os asteriscos. O texto
+    saía certo e o degradê da marca sumia — defeito silencioso, porque nada
+    fica vermelho quando um realce desaparece. O código já está corrigido;
+    isto conserta as peças que passaram por ele.
+    """
+    capa = (peca.get("capa") or "").strip()
+    if "*" not in capa:
+        return None
+    linhas = (peca.get("txt") or "").split("\n")
+    if not linhas or not re.match(r"^\s*texto\s*1\s*-", linhas[0], re.I):
+        return None
+    atual = re.sub(r"^\s*texto\s*1\s*-\s*", "", linhas[0]).strip()
+    if atual == capa or atual != capa.replace("*", ""):
+        return None
+    linhas[0] = "texto 1 - " + capa
+    peca["txt"] = "\n".join(linhas)
+    return capa
+
+
 def migra(estado):
     trocas = []
     for cliente in estado.get("clientes", []):
@@ -46,6 +68,10 @@ def migra(estado):
                 trocas.append(f"{cliente['nome']} · {peca['nome']}: {antigo} → {peca['tpl']}")
             for campo, valor in PADROES_PECA.items():
                 peca.setdefault(campo, json.loads(json.dumps(valor)))
+            reparada = repara_capa(peca)
+            if reparada:
+                trocas.append(
+                    f"{cliente['nome']} · {peca['nome']}: marcação da capa devolvida")
     return trocas
 
 

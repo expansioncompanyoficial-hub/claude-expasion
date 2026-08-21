@@ -1292,7 +1292,10 @@ function escolheCapa(h){
   marcaSujo();
   peca.capa = h;
   const linhas = (peca.txt || '').split('\n');
-  const nova = 'texto 1 - ' + semMarca(h);
+  // COM a marcação. Tirar os asteriscos aqui foi um defeito: a capa entrava no
+  // carrossel em branco chapado e o degradê da marca sumia sem ninguém ver por
+  // quê — o texto estava certo, só tinha perdido o realce no caminho.
+  const nova = 'texto 1 - ' + h;
   if (linhas[0] && /^texto\s*1\s*-/i.test(linhas[0])) linhas[0] = nova;
   else linhas.unshift(nova);
   peca.txt = linhas.join('\n');
@@ -1322,6 +1325,103 @@ const ck = (ok, titulo, nota) =>
   `<div class="item-ck"><span class="mk ${ok?'ok':'no'}">${ok?'✓':'·'}</span>
    <span><b>${titulo}</b><br>${nota}</span></div>`;
 
+/* ── exportar os PNGs ──────────────────────────────────────────────────────
+   Nove arquivos separados, não um ZIP: é o que o Instagram pede na hora de
+   subir o carrossel, e é o que deixa conferir slide a slide antes.
+
+   A rasterização passa por `<foreignObject>` porque a página não pode baixar
+   nada por conta própria — o sandbox do artefato deixa link de download e save
+   por script inertes. Quem entrega o arquivo é a capacidade `downloads`, e ela
+   pergunta ao operador a cada arquivo. Nove arquivos são nove confirmações;
+   não existe pedir uma só sem virar ZIP, e ZIP é justamente o que não serve. */
+function nomeArquivo(base){
+  const limpo = (base || 'carrossel').normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-+|-+$/g, '').toLowerCase();
+  return limpo || 'carrossel';
+}
+
+async function pngDoSlide(i){
+  const med = $('#medidor'), guarda = atual;
+  atual = i;
+  med.innerHTML = render(i);
+  fitCapa(med); fitBlocos(med);
+  const slide = med.querySelector('.slide');
+  // Dentro do foreignObject não existe folha de estilo herdada. Sem as
+  // `@font-face` embutidas junto, o texto sai numa fonte de sistema — o mesmo
+  // erro silencioso que já custou uma rodada inteira nos PNGs.
+  const css = [...document.querySelectorAll('style')].map(s => s.textContent).join('\n');
+  const corpo = new XMLSerializer().serializeToString(slide);
+  atual = guarda; med.innerHTML = '';
+
+  const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350">'
+    + '<foreignObject width="1080" height="1350">'
+    + '<div xmlns="http://www.w3.org/1999/xhtml">'
+    + '<style>' + css + '</style>' + corpo + '</div>'
+    + '</foreignObject></svg>';
+
+  // `data:` e não `blob:`. Um blob URL dentro de `<img>` marca o canvas como
+  // contaminado e o `toBlob` passa a recusar — que foi exatamente o erro na
+  // primeira tentativa. O data URL custa um `encodeURIComponent` de ~1 MB e
+  // funciona em qualquer origem, inclusive dentro do sandbox do artefato.
+  const url = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  const img = new Image();
+  await new Promise((ok, erro) => {
+    img.onload = ok;
+    img.onerror = () => erro(new Error('o navegador não rasterizou o slide ' + (i + 1)));
+    img.src = url;
+  });
+  const cv = document.createElement('canvas');
+  cv.width = 1080; cv.height = 1350;
+  cv.getContext('2d').drawImage(img, 0, 0, 1080, 1350);
+  return await new Promise((ok, erro) =>
+    cv.toBlob(b => b ? ok(b) : erro(new Error('o canvas não virou PNG')), 'image/png'));
+}
+
+const espera = ms => new Promise(r => setTimeout(r, ms));
+
+async function exportarPngs(estado){
+  const dl = await (window.claude && window.claude.use
+    ? window.claude.use('downloads') : Promise.resolve(null));
+  if (!dl){
+    estado('Baixar arquivo não está disponível nesta visualização. '
+      + 'Abra o Estúdio pelo link do artefato, na sua conta.', 'ruim');
+    return;
+  }
+  const base = nomeArquivo(peca.nome), n = nSlides();
+  let salvos = 0;
+  for (let i = 0; i < n; i++){
+    estado(`Preparando slide ${i + 1} de ${n}…`);
+    let blob;
+    try { blob = await pngDoSlide(i); }
+    catch (e){ estado('Não consegui gerar o slide ' + (i + 1) + ': ' + e.message, 'ruim'); return; }
+
+    const nome = `${base}-${String(i + 1).padStart(2, '0')}.png`;
+    estado(`Slide ${i + 1} de ${n} — confirme o download de ${nome}`);
+    let tentou = false;
+    for (;;){
+      try { await dl.save({filename: nome, data: blob}); salvos++; break; }
+      catch (e){
+        const cod = e && e.code;
+        // `declined` nunca é retentado: o operador disse não, e insistir com
+        // outra caixa de diálogo é a definição de ferramenta chata.
+        if (cod === 'declined'){
+          estado(`Parei no slide ${i + 1}. ${salvos} arquivo(s) salvo(s).`, 'aviso');
+          return;
+        }
+        if (cod === 'rate_limited' && !tentou){ tentou = true; await espera(1200); continue; }
+        if (cod === 'too_large'){
+          estado(`O slide ${i + 1} passou de 16 MB. Reduza a imagem de fundo dele.`, 'ruim');
+          return;
+        }
+        estado(`Download indisponível no slide ${i + 1} (${cod || 'erro'}).`, 'ruim');
+        return;
+      }
+    }
+  }
+  estado(`${salvos} de ${n} slides salvos, em arquivos separados.`, 'bom');
+}
+
 /* ── aprovação ─────────────────────────────────────────────────────────── */
 function pintarAprovacao(){
   const blocosOk = blocos.filter(Boolean).length;
@@ -1343,7 +1443,28 @@ function pintarAprovacao(){
       <div class="acoes"><button class="btn btn-forte" ${pronto?'':'disabled'} id="b-enviar-cli">
         ${pronto ? 'Gerar link de aprovação' : 'Faltam itens acima'}</button></div>
       <p style="margin-top:11px;font-size:12px;color:var(--fraco)">
-      O aceite do cliente é o que dispara a publicação. Nunca a geração.</p></div>`;
+      O aceite do cliente é o que dispara a publicação. Nunca a geração.</p></div>
+    <div class="cartao-et"><h3>Baixar os PNGs</h3>
+      <p>Os ${nSlides()} slides em <b>arquivos separados</b>, 1080 × 1350, na ordem de
+      publicação. Sem ZIP: é assim que o Instagram pede na hora de subir.</p>
+      <p style="font-size:12px;color:var(--fraco)">O navegador pede confirmação a cada
+      arquivo — são ${nSlides()} confirmações seguidas. É o preço de vir separado.</p>
+      <div class="acoes"><button class="btn btn-forte" id="b-baixar">
+        Baixar ${nSlides()} PNGs</button></div>
+      <p id="b-baixar-estado" style="margin-top:10px;font-size:13px;color:var(--fraco)"></p></div>`;
+  const est = (msg, nivel) => {
+    const e = $('#b-baixar-estado'); if (!e) return;
+    e.textContent = msg;
+    e.style.color = nivel === 'ruim' ? 'var(--ruim,#e5484d)'
+                  : nivel === 'bom'  ? 'var(--ok,#3dd68c)'
+                  : nivel === 'aviso'? 'var(--aviso,#e8b339)' : 'var(--fraco)';
+  };
+  const bb = $('#b-baixar');
+  if (bb) bb.onclick = async () => {
+    bb.disabled = true;
+    try { await exportarPngs(est); }
+    finally { bb.disabled = false; }
+  };
   const b = $('#b-enviar-cli');
   if (b && pronto) b.onclick = () => {
     peca.status = 'revisao';
