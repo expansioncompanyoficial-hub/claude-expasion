@@ -145,6 +145,18 @@ button{font-family:inherit}
 .passo b{font-family:var(--mono);font-size:11px;min-width:34px;text-align:center;
   color:var(--texto)}
 .encolheu{font-family:var(--mono);font-size:9.5px;color:#E8A33D;margin:-4px 0 9px}
+.laudo{display:flex;flex-direction:column;gap:6px}
+.ach{display:flex;gap:8px;align-items:flex-start;font-size:11.5px;line-height:1.45;
+  color:var(--meio)}
+.ach b{color:var(--texto);font-weight:550}
+.ach .pt{flex:none;width:14px;height:14px;border-radius:4px;display:flex;align-items:center;
+  justify-content:center;font-size:8.5px;margin-top:1px}
+.pt.bom{background:var(--ok);color:#0E1015}
+.pt.aviso{background:#E8A33D;color:#0E1015}
+.pt.ruim{background:#E2574C;color:#fff}
+.pt.fix{background:var(--pt-accent,var(--expansion));color:#fff}
+.laudo-topo{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--fraco);
+  margin-bottom:7px}
 .foto-cx{border:1px solid var(--linha);border-radius:8px;overflow:hidden;background:var(--campo);
   aspect-ratio:864/442;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
 .foto-cx img{width:100%;height:100%;object-fit:cover;display:block}
@@ -286,6 +298,9 @@ label.rot{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1
 .peca-mini{width:20px;height:25px;border-radius:2px;overflow:hidden;position:relative;flex:none;
   border:1px solid rgba(255,255,255,.12)}
 .peca-nome{font-size:12.5px;font-weight:500}
+.renomear{margin-left:auto;padding:0 5px;font-size:12px;color:var(--fraco);cursor:pointer;
+  border-radius:5px;line-height:1.6;align-self:center}
+.renomear:hover{color:var(--texto);background:var(--linha)}
 .peca-tpl{font-family:var(--mono);font-size:9px;color:var(--fraco);letter-spacing:.05em}
 .peca-nova{border-style:dashed;color:var(--meio);padding:7px 14px}
 
@@ -432,6 +447,14 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
         <div id="sl-painel"></div>
       </div>
       <div class="bloco">
+        <span class="rotulo">Conferência</span>
+        <div class="acoes" style="margin:0 0 9px">
+          <button class="btn btn-forte" id="btn-concluir" type="button"
+            style="width:100%;padding:8px;font-size:12px">Concluir carrossel</button>
+        </div>
+        <div id="laudo"></div>
+      </div>
+      <div class="bloco">
         <span class="rotulo">Template</span>
         <div class="tpls" id="tpls"></div>
       </div>
@@ -499,6 +522,8 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
     <div class="tela-et oculto" id="c-legenda"></div>
     <div class="tela-et oculto" id="c-aprovacao"></div>
     <div class="tela-et oculto" id="c-desempenho"></div>
+    <div id="medidor" style="position:absolute;left:-99999px;top:0;pointer-events:none"
+      aria-hidden="true"></div>
   </main>
 
   <aside class="col col-dir" id="coluna-dir">
@@ -695,6 +720,24 @@ function grad(){
 function EM(txt){
   return `<span style="color:${cli.accent}">${esc(txt)}</span>`;
 }
+
+/* Gradiente da marca, como está no estilo do Canva da Expansion:
+   linear de 90°, de #ff9901 a #ff6c01. Cheguei a amostrar a logo, mas o
+   símbolo tem um degradê próprio, mais escuro — este aqui é o de texto. */
+const gradTexto = () => cli.gradTexto
+  || 'linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)';
+
+/* `*trecho*` na capa vira o gradiente. É onde ele faz diferença: a headline é
+   grande o bastante para o degradê aparecer. Em corpo de 45px ele vira uma cor
+   chapada qualquer — por isso o resto da peça segue com a cor sólida. */
+function RICO(txt, comGradiente){
+  const pintado = comGradiente
+    ? `<span style="background:${gradTexto()};-webkit-background-clip:text;
+        background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+        -webkit-box-decoration-break:clone">$1</span>`
+    : `<span style="color:${cli.accent}">$1</span>`;
+  return esc(txt).replace(/\*([^*]+)\*/g, pintado);
+}
 function foto(seed){
   return `linear-gradient(${140+seed*24}deg, ${cli.escuro} 0%, ${cli.accent} 62%, ${cli.claro} 140%)`;
 }
@@ -876,8 +919,9 @@ function render(i){
       <div style="position:absolute;top:748.3px;left:0;right:0;z-index:10;display:flex;
         align-items:center;justify-content:center;gap:11px">${chip()}</div>
       <div class="capa-h1" style="position:absolute;bottom:110.3px;left:108px;width:864px;z-index:10;
-        font-family:'Montserrat',var(--ui);font-size:111.5px;font-weight:700;line-height:.92;
-        letter-spacing:-.087em;color:#fff;text-align:center">${esc(h||'Headline da capa')}</div></div>`;
+        font-family:'Montserrat',var(--ui);font-size:${aj.h1 || 111.5}px;font-weight:700;
+        line-height:.92;letter-spacing:-.087em;color:#fff;text-align:center">${
+        RICO(h||'Headline da capa', true)}</div></div>`;
 
     const pos = posFoto(i), eFundo = pos === 'fundo';
     // Com a imagem de fundo o texto é sempre branco: a cor do slide sumiu
@@ -945,7 +989,7 @@ function render(i){
         ${chipHtml}
         <div class="sang-h1" style="font-family:${tpl.fonte};font-weight:${tpl.peso};
           font-size:${aj.h1 || tpl.tam}px;line-height:${tpl.lh};letter-spacing:${tpl.tr};color:#fff">
-          ${esc(h||'Headline da capa')}</div>
+          ${RICO(h||'Headline da capa', i === 0)}</div>
         <div style="font-size:${aj.corpo || 31}px;line-height:1.18;letter-spacing:-.02em;color:#fff;
           opacity:.86;max-width:92%">${esc(c||'Linha de apoio abaixo da headline.')}</div>
       </div></div>`;
@@ -1184,7 +1228,7 @@ function trocaEtapa(id){
 
 /* ── capas ─────────────────────────────────────────────────────────────── */
 function capaHtml(texto){
-  const rico = esc(texto).replace(/\*([^*]+)\*/g, `<span style="color:${cli.accent}">$1</span>`);
+  const rico = RICO(texto, true);
   return `<div class="slide" style="background:${cli.escuro}">
     <div style="position:absolute;inset:0;background:${foto(1)}"></div>
     <div style="position:absolute;inset:0;background:${SCRIM[peca?.scrim||'medio']}"></div>
@@ -1433,8 +1477,18 @@ function montarPecas(){
     b.setAttribute('aria-pressed', p.id===peca.id);
     b.innerHTML = `<span class="peca-mini" id="pm-${p.id}"></span>
       <span><span class="peca-nome">${esc(p.nome)}</span><br>
-      <span class="peca-tpl">${acha(p.tpl).nome.toUpperCase()}</span></span>`;
-    b.onclick = () => {
+      <span class="peca-tpl">${acha(p.tpl).nome.toUpperCase()}</span></span>
+      <span class="renomear" title="Renomear">✎</span>`;
+    b.onclick = ev => {
+      // O lápis renomeia; o resto do botão troca de peça. Sem um nome próprio,
+      // "Sem título" vira "Sem título 2" e ninguém acha nada depois.
+      if (ev.target.classList.contains('renomear')){
+        ev.stopPropagation();
+        const novo = prompt('Nome do carrossel:', p.nome);
+        if (novo && novo.trim()){ p.nome = novo.trim(); marcaSujo(); montarPecas();
+          if (p === peca) $('#nome-peca').textContent = '· ' + p.nome; }
+        return;
+      }
       guardaEditor();
       const alvo = etapa; etapa = null;
       peca = p; tpl = acha(p.tpl); blocos = parse(p.txt); atual = 0;
@@ -1458,6 +1512,105 @@ function montarPecas(){
     montarPecas(); trocaEtapa('capas');
   };
   c.appendChild(n);
+}
+
+/* ── conferência ───────────────────────────────────────────────────────────
+   Duas coisas diferentes num botão só: o que dá para arrumar sozinho é
+   arrumado na hora; o resto é apontado com o número do slide. A distinção
+   importa — laudo que diz "ajuste o texto" e não ajusta nada é relatório, não
+   ferramenta; e arrumar sozinho o que é decisão editorial seria pior ainda. */
+const PISO_H1 = 52, PISO_CORPO = 30;
+
+function medeTudo(){
+  const guarda = atual, med = $('#medidor'), out = [];
+  for (let i = 0; i < nSlides(); i++){
+    atual = i;
+    med.innerHTML = render(i);
+    fitCapa(med); fitBlocos(med);
+    const s = med.querySelector('.slide');
+    const px = el => el ? Math.round(parseFloat(getComputedStyle(el).fontSize)) : null;
+    out.push({
+      h1: px(s.querySelector('.ft-h1') || s.querySelector('.capa-h1') || s.querySelector('.sang-h1')),
+      corpo: px(s.querySelector('.ft-corpo')),
+    });
+  }
+  atual = guarda; med.innerHTML = '';
+  return out;
+}
+
+function conferir(arrumar){
+  const achados = [], medidas = medeTudo();
+  const add = (nivel, titulo, nota) => achados.push({nivel, titulo, nota});
+  const cheios = blocos.filter(Boolean).length;
+  const palavra = (cli.cta || '').toUpperCase();
+  let corrigidos = 0;
+
+  if (cheios < 18) add('ruim', `${cheios} de 18 blocos`, 'faltam blocos de texto');
+  else add('bom', '18 de 18 blocos', 'dois por slide');
+
+  for (let i = 0; i < nSlides(); i++){
+    const aj = ajuste(i), m = medidas[i], sl = `slide ${i+1}`;
+
+    // ARRUMÁVEL: tamanho pedido que o auto-ajuste não consegue honrar. Deixar
+    // um número no painel que não corresponde ao que se vê é o que fazia o
+    // controle parecer quebrado.
+    ['h1','corpo'].forEach(campo => {
+      const visto = m[campo];
+      if (aj[campo] && visto && aj[campo] > visto + 1){
+        if (arrumar){ delete aj[campo]; corrigidos++;
+          add('fix', `${sl}: tamanho de ${campo === 'h1' ? 'título' : 'corpo'} devolvido ao padrão`,
+              `pedia ${Math.round(aj[campo] || 0) || 'mais'} e só cabia ${visto}px`);
+        } else add('aviso', `${sl}: ${campo === 'h1' ? 'título' : 'corpo'} pedido não cabe`,
+                   `pedido acima do que cabe — só entra ${visto}px`);
+      }
+    });
+
+    // NÃO ARRUMÁVEL: texto longo demais. Encurtar é decisão editorial.
+    if (m.h1 && m.h1 < PISO_H1)
+      add('ruim', `${sl}: título espremido em ${m.h1}px`, 'encurte a headline — não cabe legível');
+    if (m.corpo && m.corpo < PISO_CORPO)
+      add('ruim', `${sl}: corpo espremido em ${m.corpo}px`, 'corte texto deste slide');
+
+    // Vaga de imagem aberta
+    const pos = tpl.id === 'meio' ? posFoto(i) : (tpl.id === 'twitter' ? 'caixa' : 'fundo');
+    if (pos !== 'nada' && !aj.img)
+      add('aviso', `${sl}: sem imagem`, 'peça não vai pro cliente com vaga aberta');
+
+    if (arrumar && aj.img && !aj.foco){ aj.foco = '50% 50%'; corrigidos++; }
+  }
+
+  // A capa
+  const capa = (par(0).h || '');
+  const nu = capa.replace(/\*/g, '').length;
+  if (!nu) add('ruim', 'capa sem headline', 'é o slide que decide se o resto é lido');
+  else if (nu > 85) add('ruim', `capa com ${nu} caracteres`, 'acima de 85 encolhe demais pro feed');
+  else if (nu > 70) add('aviso', `capa com ${nu} caracteres`, 'faixa de trabalho é 45 a 70');
+  else add('bom', `capa com ${nu} caracteres`, 'dentro da faixa');
+
+  if (!/\*[^*]+\*/.test(capa))
+    add('aviso', 'capa sem trecho em destaque',
+        'marque com *asterisco* o que carrega a virada — é o gradiente da marca');
+
+  // O CTA
+  const ultimo = (blocos[17] || '').toUpperCase();
+  if (palavra && !ultimo.includes(palavra))
+    add('aviso', `último bloco sem "${palavra}"`, 'é a palavra que o disparo reconhece');
+  else if (palavra) add('bom', `CTA com "${palavra}"`, 'no último bloco');
+
+  return {achados, corrigidos};
+}
+
+function pintarLaudo(r){
+  const cx = $('#laudo'); if (!cx) return;
+  const ico = {bom:'✓', aviso:'!', ruim:'×', fix:'✎'};
+  const ruins = r.achados.filter(a => a.nivel === 'ruim').length;
+  const avisos = r.achados.filter(a => a.nivel === 'aviso').length;
+  cx.innerHTML = `<div class="laudo-topo">${
+      r.corrigidos ? r.corrigidos + ' arrumado(s) · ' : ''
+    }${ruins} a corrigir · ${avisos} aviso(s)</div>
+    <div class="laudo">${r.achados.map(a =>
+      `<div class="ach"><span class="pt ${a.nivel}">${ico[a.nivel]}</span>
+       <span><b>${esc(a.titulo)}</b><br>${esc(a.nota)}</span></div>`).join('')}</div>`;
 }
 
 /* ── painel do slide ───────────────────────────────────────────────────────
@@ -1539,9 +1692,14 @@ function painelSlide(){
       style="width:100%;padding:7px;font-size:11.5px">Voltar ao padrão</button>`;
 
   cx.querySelectorAll('.passo button').forEach(b => b.onclick = () => {
-    const a = ajuste(atual), campo = b.dataset.t;
+    const a = ajuste(atual), campo = b.dataset.t, d = Number(b.dataset.d);
     const base = campo === 'h1' ? padraoH1 : padraoC;
-    a[campo] = Math.max(18, Math.min(180, (a[campo] || base) + Number(b.dataset.d)));
+    // Quando o auto-ajuste já encolheu, o número pedido está ACIMA do que se vê.
+    // Andar a partir do pedido faria o "−" não mudar nada por vários cliques —
+    // era exatamente o que parecia travado. Descendo, parte-se do tamanho real.
+    const visto = campo === 'h1' ? real.h1 : real.corpo;
+    const partida = (d < 0 && visto) ? Math.min(a[campo] || base, visto) : (a[campo] || base);
+    a[campo] = Math.max(18, Math.min(180, partida + d));
     marcaSujo(); pintar();
   });
   const foco = cx.querySelector('#sl-foco');
@@ -1730,6 +1888,12 @@ $('#cta-palavra').oninput = e => {
   marcaSujo();
   cli.cta = e.target.value.toUpperCase();
   if (etapa === 'legenda') pintarLegenda();
+};
+
+$('#btn-concluir').onclick = () => {
+  const r = conferir(true);
+  if (r.corrigidos){ marcaSujo(); pintar(); }
+  pintarLaudo(r);
 };
 
 $('#btn-encolher').onclick = () => {

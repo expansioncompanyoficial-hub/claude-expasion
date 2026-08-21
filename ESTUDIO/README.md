@@ -141,6 +141,12 @@ auto-ajuste ainda encolhe se não couber, e o painel avisa em âmbar
 *"encolhido para Xpx pra caber"*. Dá para aumentar o texto sem conseguir quebrar
 o slide.
 
+Por isso o `−` anda a partir do **tamanho que está na tela**, não do que foi
+pedido. Um título pedido em 84 que o auto-ajuste desenhou em 66 não muda de
+aparência nos nove primeiros cliques do `−` — some de 84 até 66 e só então
+encolhe. Clicar cinco vezes sem nada acontecer parece defeito. Hoje o passo
+parte do menor entre os dois, e o primeiro clique já mexe no slide.
+
 ### Por que o texto sobrepunha a imagem
 
 O Estúdio posicionava os blocos no `top` medido mas **sem teto nenhum** — o
@@ -178,3 +184,41 @@ Quando os cinco templates viraram `EXPANSION 01..04`, os ids mudaram
 (`brands1` → `exp02` e assim por diante). O estado salvo guarda o id da peça: sem
 migrar, as peças antigas caem no template padrão e o trabalho **parece** perdido.
 Toda renomeação de id precisa de migração no estado.
+
+## Renomear a peça
+
+Cada peça na lista tem um `✎`. Sem isso a lista vira sete *"Sem título"* e a
+única maneira de achar a certa é abrir uma por uma — o problema aparece na
+terceira peça, não na primeira.
+
+## Conferir e concluir
+
+O botão **Concluir carrossel** roda a peça inteira antes de fechar: renderiza os
+nove slides num medidor fora da tela, deixa o auto-ajuste correr e mede bloco a
+bloco. Devolve um laudo em duas colunas — o que ele **corrigiu** e o que só ele
+pode **avisar**.
+
+Ele corrige sozinho o que é mecânico:
+
+- tamanho pedido à mão que o auto-ajuste teve de derrubar abaixo do piso
+  (52px no título, 30px no corpo) volta ao padrão do template
+- `foco` de imagem fora dos nove pontos volta para o centro
+
+E **só avisa** o que é editorial, porque a decisão é de quem escreve:
+
+- bloco que não coube nem no menor tamanho — é texto demais, não fonte de menos
+- slide que pede foto e está sem
+- capa fora da faixa de caracteres do padrão
+- CTA sem a palavra fixa do cliente
+
+A separação é o ponto: se ele reescrevesse o texto para caber, a peça sairia
+diferente do que foi aprovado e ninguém veria.
+
+## O degradê da capa
+
+A frase de impacto da capa marcada com `*trecho*` sai preenchida pelo degradê
+laranja da Expansion (`linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)`), e não
+pelo `accent` chapado. Vale **só na capa** — no corpo dos slides internos a
+ênfase continua chapada, que é o que está medido no Canva. Cada cliente pode ter
+o seu, no campo `gradTexto` da ficha.
+

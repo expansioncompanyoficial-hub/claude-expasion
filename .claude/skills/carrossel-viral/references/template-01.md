@@ -29,7 +29,8 @@ Medido nas nove páginas de `@expansionassessoria - carrossel MOD 01`
 Só isto, e sai tudo da ficha em `CLIENTES/<CLIENTE>/`:
 
 - `dark`, `accent`, `claro` — os três tokens de cor
-- `gradiente` — o degradê do slide de destaque
+- `gradiente` — o degradê do fundo do slide de destaque
+- `gradiente_texto` — o degradê que preenche a ênfase da capa
 - `fonte_head`, `fonte_body`
 - `handle`, `marca`, `copyright`
 - **a palavra do CTA**
@@ -96,6 +97,14 @@ morar.
 | `**trecho**` | mantém a cor, sobe o peso |
 
 Marcação por conteúdo, nunca por posição.
+
+**A ênfase da capa é diferente da ênfase do corpo.** No corpo dos slides
+internos o `*trecho*` é `accent` chapado — é o que o Canva tem, medido em sete
+páginas. Na capa, e só nela, o `*trecho*` é preenchido pelo `gradiente_texto`
+(`linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)` na Expansion). Não é medição:
+é decisão do Nicolas, com o valor lido no seletor do Canva. A capa aguenta o
+degradê porque é uma frase só em corpo grande; num parágrafo de 45px ele vira
+sujeira.
 
 **Não existe slide só de número.** Um `50%` gigante com duas linhas de legenda
 ocupa um terço da página e quebra o alinhamento com os vizinhos. Número entra

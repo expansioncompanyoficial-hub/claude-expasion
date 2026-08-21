@@ -176,6 +176,13 @@ A escrita em destaque é `#ff9901` **chapado**, em todas as sete páginas
 conferidas, tanto na API quanto na renderização real. Cheguei a preencher a
 ênfase com o degradê; está errado e foi desfeito.
 
+> **Correção posterior, 21/08:** isto vale para o **corpo** dos slides
+> internos, e continua valendo. Para a **capa**, o Nicolas decidiu que a frase
+> de impacto leva degradê, e mandou o valor lido no seletor do Canva:
+> `linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)`. Esse degradê não estava nos
+> quatro designs medidos — é escolha nova, não medição, e o renderizador o
+> guarda separado, no token `gradiente_texto`.
+
 **No slide de destaque o texto é branco** — headline e corpo. Eu tinha passado
 para preto por causa de contraste; o original é branco, e branco é o que fica.
 

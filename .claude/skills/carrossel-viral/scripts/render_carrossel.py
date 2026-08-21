@@ -428,6 +428,7 @@ def build(spec):
 :root{{--escuro:{t['dark']};--destaque:{t['accent']};--claro:{claro};--texto:{t.get('texto','#FFFFFF')};
 --head:'{t['fonte_head']}',sans-serif;--body:'{t['fonte_body']}',sans-serif;
 --serif:'{t.get('fonte_serif', 'Source Serif 4')}',Georgia,serif;
+--grad-texto:{t.get('gradiente_texto', 'linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)')};
 --grad:{t.get('gradiente', 'linear-gradient(180deg,#fa7e01 0%,#ff6522 50%,#fa7e01 100%)')}}}
 
 /* O degradê é do FUNDO do slide de destaque, não da escrita. A escrita em
@@ -601,7 +602,9 @@ flex:none}}
 z-index:10;font-family:var(--head);color:#fff;text-align:center}}
 .capa-impacto{{font-size:111.5px;font-weight:700;line-height:.92;letter-spacing:-.087em}}
 .capa-manchete{{font-size:79.6px;font-weight:600;line-height:1.06;letter-spacing:-.056em}}
-.capa-h1 em{{font-style:normal;color:var(--destaque)}}
+.capa-h1 em{{font-style:normal;background:var(--grad-texto);
+-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}}
 .capa-h1 b{{font-weight:700}}
 
 /* Legenda: existe, mas não entra por padrão. A página 1 não tem, e uma linha
@@ -619,7 +622,9 @@ display:flex;flex-direction:column;gap:26px;align-items:{'center' if sang['align
 text-align:{sang['align']}}}
 .sang-h1{{font-family:{sang['fonte']};font-weight:{sang['peso']};font-size:{sang['tam']}px;
 line-height:{sang['lh']};letter-spacing:{sang['tr']};color:#fff;max-width:100%}}
-.sang-h1 em{{font-style:normal;color:var(--destaque)}}
+.sang-h1 em{{font-style:normal;background:var(--grad-texto);
+-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}}
 .sang-h1 b{{font-weight:700}}
 .sang-sub{{font-family:var(--body);font-size:31px;font-weight:400;line-height:1.18;
 letter-spacing:-.02em;color:#fff;opacity:.86;max-width:92%}}
