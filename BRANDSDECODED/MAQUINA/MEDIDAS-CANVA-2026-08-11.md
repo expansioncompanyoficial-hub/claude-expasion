@@ -181,7 +181,9 @@ conferidas, tanto na API quanto na renderização real. Cheguei a preencher a
 > de impacto leva degradê, e mandou o valor lido no seletor do Canva:
 > `linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)`. Esse degradê não estava nos
 > quatro designs medidos — é escolha nova, não medição, e o renderizador o
-> guarda separado, no token `gradiente_texto`.
+> guarda separado, no token `gradiente_texto`. **Vale só para a Expansion:** é
+> ativo de marca dela, e cliente sem `gradiente_texto` na ficha pinta a ênfase
+> da capa com o próprio `accent`.
 
 **No slide de destaque o texto é branco** — headline e corpo. Eu tinha passado
 para preto por causa de contraste; o original é branco, e branco é o que fica.
