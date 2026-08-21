@@ -241,6 +241,11 @@ claro, **branco em bold no slide de destaque** (o fundo dele já é a cor da
 marca) e só peso, sem cor, no EXPANSION TWITTER, que empresta a credibilidade
 da rede.
 
+No **último slide** a chamada é texto normal e só a palavra do CTA fica na cor,
+em bold — ela vem da ficha (`cta`), então pega mesmo sem marcador. O título
+desse slide fica limpo. A linha inteira em laranja, que é o que o Canva faz,
+deixava a página laranja demais e o CTA sem destaque contra nada.
+
 **Concluir carrossel** cobra isso: aponta a capa sem destaque e lista os slides
 internos que ficaram sem nenhum trecho marcado.
 

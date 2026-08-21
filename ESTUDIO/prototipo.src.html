@@ -718,11 +718,23 @@ const par = i => ({ h: blocos[i*2] || '', c: blocos[i*2+1] || '' });
 function grad(){
   return cli.grad || cli.accent;
 }
-function EM(txt){
-  // Slide de chamada: o parágrafo INTEIRO já vai na cor de destaque, e por isso
-  // `*trecho*` não tem cor nova pra dar. Ali os dois marcadores viram peso.
-  const corpo = esc(txt).replace(/\*{1,2}([^*]+)\*{1,2}/g, '<b>$1</b>');
-  return `<span style="color:${cli.accent}">${corpo}</span>`;
+/* O último slide era o parágrafo INTEIRO em laranja, e assim a palavra do CTA
+   não se destacava de nada: realce só existe contra alguma coisa. Agora a
+   chamada é texto normal e quem fica na cor é a palavra de comando, em bold.
+   Menos laranja na página, CTA mais visível.
+
+   A palavra vem da ficha (`cta`), não do texto: ela pega mesmo que quem
+   escreveu tenha esquecido de marcar. */
+function chamada(txt){
+  let html = RICO(txt, 'interno');
+  const cta = (cli.cta || '').trim();
+  if (!cta) return html;
+  const re = new RegExp('(^|[^\\wÀ-ÿ])(' +
+    cta.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')(?![\\wÀ-ÿ])', 'gi');
+  // Só fora das tags: senão a busca entra no meio de um `style=` e quebra o HTML.
+  return html.split(/(<[^>]*>)/).map(p => p.startsWith('<') ? p
+    : p.replace(re, (m, antes, palavra) =>
+        `${antes}<span style="color:${cli.accent};font-weight:700">${palavra}</span>`)).join('');
 }
 
 /* O degradê da capa é um ativo de marca, não um efeito. O da Expansion é o
@@ -776,24 +788,27 @@ function barra(cor){
     letter-spacing:0;text-transform:uppercase;color:${cor}"><span>${esc(cli.handle)}</span>
     <span>${esc(cli.marca)}</span><span>${esc(cli.direito)}</span></div>`;
 }
+/* O chip da capa: avatar, @ e selo, em linha.
+
+   Existiam duas funções com este nome e a segunda vencia — era esta. Ao tirar
+   a duplicação eu troquei a aparência da capa sem ninguém pedir, e o Nicolas
+   mandou voltar. Voltou. Se um dia for pra usar a versão medida no Canva
+   (avatar 46,2 · nome 21,4 · @ 10,6 a 49%), é decisão dele, não limpeza. */
 function chip(){
-  // Página 1: avatar 46,2 · nome 21,4 medium · @ 10,6 a 49% de opacidade.
   const selo = cli.logo
-    ? `<span style="width:46.2px;height:46.2px;border-radius:50%;background:${
+    ? `<span style="width:48.7px;height:48.7px;border-radius:50%;background:${
         cli.logoFundo==='claro' ? '#fff' : cli.logoFundo==='escuro' ? '#101216' : 'rgba(255,255,255,.10)'
-      };display:flex;align-items:center;justify-content:center;overflow:hidden;flex:none">
+      };display:flex;align-items:center;justify-content:center;overflow:hidden">
       <img src="${cli.logo}" alt="" style="max-width:78%;max-height:78%;object-fit:contain"></span>`
-    : `<span style="width:46.2px;height:46.2px;border-radius:50%;background:${cli.accent};
-      display:flex;align-items:center;justify-content:center;font-family:'Montserrat',var(--ui);
-      font-size:23px;font-weight:700;color:#fff;flex:none">${esc(cli.marca[0]||'?')}</span>`;
-  return `${selo}<span style="display:flex;flex-direction:column">
-    <span style="display:flex;align-items:center;gap:7px;font-size:21.4px;font-weight:500;
-      line-height:1.4;letter-spacing:-.084em;color:#fff">${esc(cli.marca)}
-      <span style="width:16px;height:16px;border-radius:50%;background:#1d9bf0;color:#fff;
-        display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;
-        flex:none">✓</span></span>
-    <span style="font-size:10.6px;font-weight:500;line-height:1.4;letter-spacing:-.084em;
-      color:#fff;opacity:.49">${esc(cli.handle)}</span></span>`;
+    : `<span style="width:48.7px;height:48.7px;border-radius:50%;background:${cli.accent};display:flex;
+      align-items:center;justify-content:center;font-family:'Montserrat',var(--ui);font-size:24px;
+      font-weight:700;color:#fff">${esc(cli.marca[0]||'?')}</span>`;
+  return `<div style="display:inline-flex;align-items:center;gap:14px">
+    ${selo}
+    <span style="font-size:31.8px;font-weight:500;line-height:1.4;letter-spacing:-.084em;
+    color:#fff">${esc(cli.handle)}</span>
+    <span style="width:27.8px;height:27.8px;border-radius:50%;background:#1d9bf0;color:#fff;display:flex;
+    align-items:center;justify-content:center;font-size:16px;font-weight:700">✓</span></div>`;
 }
 
 // Recebe HTML pronto, não texto cru: quem chama passa por `RICO` antes. Era
@@ -959,7 +974,7 @@ function render(i){
     const modo = (!eFundo && f==='destaque') ? 'destaque' : 'interno';
     const corpoHtml = f==='cta'
       ? `<div class="ft-corpo" style="font-size:${aj.corpo || 45.4}px;line-height:.96;
-          letter-spacing:-.033em">${EM(c||'Comenta a palavra.')}</div>`
+          letter-spacing:-.033em;color:${corC}">${chamada(c||'Comenta a palavra.')}</div>`
       : `<div class="ft-corpo" style="font-size:${aj.corpo || (cl?36.6:45.4)}px;line-height:.96;
           letter-spacing:-.033em;color:${corC}">${RICO(c||'Texto de apoio do slide.', modo)}</div>`;
 

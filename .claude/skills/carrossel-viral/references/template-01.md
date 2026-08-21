@@ -118,10 +118,10 @@ o carrossel**. Marcar demais é o mesmo que não marcar nada.
 | Onde | Quanto | O quê |
 |---|---|---|
 | **Capa** | **exatamente 1** | o sujeito da tensão — o que faz a frase valer |
-| **Headline interna** | 0 ou 1 | só quando ela carrega o dado (data, número, prazo) |
-| **Corpo** | 1, **no máximo 2** | o **número**, a **data**, o **prazo** |
+| **Headline interna** | 0 ou 1 | a virada da frase: o dado quando existe, senão o trecho que muda a leitura |
+| **Corpo** | 1, **no máximo 2** | o **número**, a **data**, o **prazo**. Sem dado no parágrafo, o trecho que carrega a consequência |
 | **Fonte** | **nunca** | `Fonte: CNC, 2026` é rodapé, não argumento |
-| **Slide de chamada** | a palavra do CTA | o parágrafo já vai inteiro na cor; ali só sobra o peso |
+| **Slide de chamada** | **só a palavra do CTA** | título limpo, corpo em texto normal |
 
 Duas regras que decidem a maioria dos casos:
 
@@ -143,6 +143,18 @@ Isso não é escolha, é contraste:
 | **destaque** (laranja) | **branco em bold** — accent sobre accent some |
 | escuro · claro · foto de fundo | `accent` chapado |
 | EXPANSION TWITTER | **só peso**, sem cor — tweet não tem cor de marca no texto |
+
+### O último slide
+
+O Canva original traz **a linha da chamada inteira em laranja**. Na tela isso
+vira uma página laranja onde o CTA não se destaca de nada — realce só existe
+contra alguma coisa. Por decisão do Nicolas, a chamada passou a ser **texto
+normal, com a palavra de comando em cor e bold**. Menos laranja na página, CTA
+mais visível.
+
+O Estúdio pinta a palavra do CTA a partir da **ficha** (`cta`), não do texto:
+ela pega mesmo quando quem escreveu esqueceu de marcar. E o título desse slide
+fica **sem nenhum destaque** — se ele também tiver laranja, volta o problema.
 
 O slide de destaque é o que costuma passar batido: o fundo dele **já é** a cor
 da marca. E se aquele slide receber imagem de fundo, o laranja saiu de cena —
@@ -189,9 +201,13 @@ limite e só serve para foto escura.
 
 > Para [ganho concreto e específico], comenta **PALAVRA**.
 
-O parágrafo inteiro vai na cor de destaque e a palavra de comando em bold. Não é
-caixa, não é botão, não é etiqueta — é o último parágrafo do slide 9, logo abaixo
-da headline de fechamento.
+O parágrafo fica em **texto normal** e só a **palavra de comando** vai na cor de
+destaque, em bold. Não é caixa, não é botão, não é etiqueta — é o último
+parágrafo do slide 9, logo abaixo da headline de fechamento.
+
+> A linha inteira em laranja é o que o Canva original faz, e foi assim até
+> 21/08. Ficava laranja demais e o CTA não se destacava de nada. Decisão do
+> Nicolas: menos laranja, palavra de comando mais visível.
 
 A palavra sai da ficha do cliente e **não muda de peça para peça**: é ela que a
 pessoa comenta, e é por ela que o disparo automático reconhece o lead.
