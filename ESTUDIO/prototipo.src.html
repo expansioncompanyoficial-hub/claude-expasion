@@ -673,6 +673,7 @@ let CLIENTES = [
     direito:'2026 ®', nicho:'Marketing para lojas de roupas femininas', escuro:'#000000',
     accent:'#FF9901', claro:'#F0EEEC', head:'Montserrat', body:'Poppins', logo:null,
     logoFundo:'auto', grad:'linear-gradient(180deg,#fa7e01 0%,#ff6522 50%,#fa7e01 100%)',
+    gradTexto:'linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)',
     pecas:[ nova('As duas datas do 13º','meio',EXEMPLO_13) ] },
   { id:'prime', nome:'Prime Alphaville', handle:'@prime.alphaville', marca:'Prime Assessoria',
     direito:'2026 ®', nicho:'Crédito imobiliário', escuro:'#191818', accent:'#E14414',
@@ -721,18 +722,21 @@ function EM(txt){
   return `<span style="color:${cli.accent}">${esc(txt)}</span>`;
 }
 
-/* Gradiente da marca, como está no estilo do Canva da Expansion:
-   linear de 90°, de #ff9901 a #ff6c01. Cheguei a amostrar a logo, mas o
-   símbolo tem um degradê próprio, mais escuro — este aqui é o de texto. */
-const gradTexto = () => cli.gradTexto
-  || 'linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)';
+/* O degradê da capa é um ativo de marca, não um efeito. O da Expansion é o
+   estilo que existe no Canva dela: linear de 90°, de #ff9901 a #ff6c01.
+   Cliente sem `gradTexto` na ficha não herda esse — pinta a ênfase da capa com
+   a própria cor de destaque, chapada. Aplicar um degradê laranja por cima da
+   cor de outra marca é invenção, não padrão. */
+const gradTexto = () => cli.gradTexto || null;
 
-/* `*trecho*` na capa vira o gradiente. É onde ele faz diferença: a headline é
-   grande o bastante para o degradê aparecer. Em corpo de 45px ele vira uma cor
-   chapada qualquer — por isso o resto da peça segue com a cor sólida. */
-function RICO(txt, comGradiente){
-  const pintado = comGradiente
-    ? `<span style="background:${gradTexto()};-webkit-background-clip:text;
+/* `*trecho*` na capa ganha o degradê de quem tem um. É onde ele faria
+   diferença: a headline é grande o bastante para o degradê aparecer. Em corpo
+   de 45px vira uma cor chapada qualquer — por isso o resto da peça segue
+   sólido em todo mundo. */
+function RICO(txt, naCapa){
+  const grad = naCapa && gradTexto();
+  const pintado = grad
+    ? `<span style="background:${grad};-webkit-background-clip:text;
         background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
         -webkit-box-decoration-break:clone">$1</span>`
     : `<span style="color:${cli.accent}">$1</span>`;

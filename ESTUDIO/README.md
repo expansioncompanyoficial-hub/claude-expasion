@@ -217,8 +217,12 @@ diferente do que foi aprovado e ninguém veria.
 ## O degradê da capa
 
 A frase de impacto da capa marcada com `*trecho*` sai preenchida pelo degradê
-laranja da Expansion (`linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)`), e não
-pelo `accent` chapado. Vale **só na capa** — no corpo dos slides internos a
-ênfase continua chapada, que é o que está medido no Canva. Cada cliente pode ter
-o seu, no campo `gradTexto` da ficha.
+da marca, quando a marca tem um. Vale **só na capa** — no corpo dos slides
+internos a ênfase continua chapada, que é o que está medido no Canva.
+
+O degradê é **por cliente**, no campo `gradTexto` da ficha, e não tem padrão
+global. Hoje só a Expansion tem
+(`linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)`); todo o resto pinta a ênfase
+da capa com o próprio `accent`. Um degradê laranja por cima da cor da Prime ou
+da Ciés não é o padrão do template — é identidade inventada.
 

@@ -21,9 +21,16 @@ ir para cliente.
 | `accent` | `#FF9901` | ênfase, CTA, elementos de marca |
 | `claro` | `#F0EEEC` | fundo dos slides claros |
 | `gradiente` | `linear-gradient(180deg,#fa7e01,#ff6522 50%,#fa7e01)` | fundo do slide de destaque |
+| `gradiente_texto` | `linear-gradient(90deg,#ff9901,#ff6c01)` | ênfase da **capa**, só dela |
 
-Medidos no Canva da própria conta. O degradê é **fundo**, nunca preenchimento de
-escrita.
+`dark`, `accent`, `claro` e `gradiente` foram medidos no Canva da própria conta.
+O `gradiente` é **fundo de slide**, nunca preenchimento de escrita.
+
+O `gradiente_texto` é outra coisa e veio depois: é o estilo de degradê que o
+Nicolas criou no Canva e mandou pelo seletor de cor. Preenche o `*trecho*` da
+**capa** e nada mais — no corpo dos slides internos a ênfase segue em `accent`
+chapado, que é o que está medido. **É ativo de marca da Expansion**: cliente sem
+`gradiente_texto` na ficha pinta a ênfase da capa com o próprio `accent`.
 
 ## Tipografia
 

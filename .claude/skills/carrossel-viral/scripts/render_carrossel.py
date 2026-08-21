@@ -428,10 +428,15 @@ def build(spec):
 :root{{--escuro:{t['dark']};--destaque:{t['accent']};--claro:{claro};--texto:{t.get('texto','#FFFFFF')};
 --head:'{t['fonte_head']}',sans-serif;--body:'{t['fonte_body']}',sans-serif;
 --serif:'{t.get('fonte_serif', 'Source Serif 4')}',Georgia,serif;
---grad-texto:{t.get('gradiente_texto', 'linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)')};
+--grad-texto:{t.get('gradiente_texto') or t['accent']};
 --grad:{t.get('gradiente', 'linear-gradient(180deg,#fa7e01 0%,#ff6522 50%,#fa7e01 100%)')}}}
 
-/* O degradê é do FUNDO do slide de destaque, não da escrita. A escrita em
+/* `--grad-texto` preenche a ênfase da CAPA. Só entra degradê em cliente que
+   tem um na ficha (`gradiente_texto`) — é ativo de marca, como a cor. Quem não
+   tem cai na própria cor de destaque, chapada, e o `background-clip` funciona
+   igual com cor sólida: um caminho de código só.
+
+   O degradê é do FUNDO do slide de destaque, não da escrita. A escrita em
    destaque é `--destaque` chapado — conferido na API e na renderização real de
    sete páginas. */
 body{{background:#111;display:flex;flex-direction:column;align-items:center;gap:22px;padding:22px}}

@@ -24,10 +24,21 @@ MIGRA_TEMPLATE = {"brands1": "exp02", "brands2": "exp03", "brands3": "exp04"}
 PADROES_PECA = {"capas": [], "capa": None, "legenda": "", "scrim": "medio",
                 "status": "rascunho", "ajustes": {}}
 
+# Campos de ficha que clientes antigos não têm. Vai por id, e não por padrão
+# geral, porque o degradê da capa é ativo de marca: quem não tem um pinta a
+# ênfase com a própria cor de destaque. Um padrão global daria o laranja da
+# Expansion para a Prime, a Ciés e todo mundo.
+CAMPOS_CLIENTE = {
+    "expansion": {"gradTexto": "linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)"},
+}
+
 
 def migra(estado):
     trocas = []
     for cliente in estado.get("clientes", []):
+        for campo, valor in CAMPOS_CLIENTE.get(cliente.get("id"), {}).items():
+            if cliente.setdefault(campo, valor) == valor:
+                trocas.append(f"{cliente['nome']}: {campo} = {valor}")
         for peca in cliente.get("pecas", []):
             antigo = peca.get("tpl")
             if antigo in MIGRA_TEMPLATE:

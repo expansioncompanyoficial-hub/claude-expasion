@@ -100,11 +100,15 @@ Marcação por conteúdo, nunca por posição.
 
 **A ênfase da capa é diferente da ênfase do corpo.** No corpo dos slides
 internos o `*trecho*` é `accent` chapado — é o que o Canva tem, medido em sete
-páginas. Na capa, e só nela, o `*trecho*` é preenchido pelo `gradiente_texto`
-(`linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)` na Expansion). Não é medição:
-é decisão do Nicolas, com o valor lido no seletor do Canva. A capa aguenta o
-degradê porque é uma frase só em corpo grande; num parágrafo de 45px ele vira
-sujeira.
+páginas. Na capa, e só nela, o `*trecho*` pode ganhar degradê. A capa aguenta:
+é uma frase só, em corpo grande. Num parágrafo de 45px o degradê vira sujeira.
+
+**E o degradê da capa é por cliente, não do template.** Ele é ativo de marca,
+como a cor: quem tem um `gradiente_texto` na ficha usa o seu; **quem não tem
+pinta a ênfase da capa com o próprio `accent`, chapado**. Hoje só a Expansion
+tem (`linear-gradient(90deg,#ff9901 0%,#ff6c01 100%)`, decisão do Nicolas com o
+valor lido no seletor do Canva — não é medição). Herdar o laranja dela nas
+outras marcas seria inventar identidade que ninguém aprovou.
 
 **Não existe slide só de número.** Um `50%` gigante com duas linhas de legenda
 ocupa um terço da página e quebra o alinhamento com os vizinhos. Número entra
