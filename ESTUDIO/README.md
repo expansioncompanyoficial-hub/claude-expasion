@@ -276,3 +276,34 @@ própria página:
 O `data:` não é detalhe: com `blob:` o canvas fica contaminado e o `toBlob`
 recusa a exportar. Foi o primeiro erro da implementação.
 
+
+## Arquivar e excluir cliente
+
+Cliente criado errado e cliente que parou de ser atendido são problemas diferentes, e o
+Estúdio trata cada um do seu jeito. O botão `⋯` no canto do card abre a sequência:
+
+1. **Arquivar** — o cliente sai da galeria ativa e desce para a faixa *Inativos*, com o
+   card apagado. Nada é perdido: peças, marca e capas continuam lá. Voltar é o mesmo `⋯`,
+   que agora pergunta *Reativar*.
+2. **Excluir de vez** — só é oferecido depois de recusar o arquivamento, e apaga o
+   cliente do estado.
+
+A trava da exclusão depende do que existe dentro. `temTrabalho()` varre as peças atrás de
+texto, capas, legenda ou imagem ajustada:
+
+```javascript
+function temTrabalho(x){
+  return (x.pecas || []).some(p =>
+    (p.txt || '').trim() || (p.capas || []).length || (p.legenda || '').trim() ||
+    Object.values(p.ajustes || {}).some(a => a && a.img));
+}
+```
+
+Cliente **vazio** sai com um `confirm`. Cliente **com conteúdo** exige digitar o nome
+exato — nome diferente não apaga nada e o Estúdio avisa. É a diferença entre desfazer um
+erro de digitação e destruir trabalho: a segunda precisa de atrito.
+
+O `⋯` é um `<span role="button">` e não um `<button>`, porque o card inteiro já é um
+botão e botão dentro de botão é HTML inválido — o navegador desmonta a estrutura e o
+clique passa para o card. O `stopPropagation` no `⋯` é o que impede que abrir o menu
+também abra o cliente.
