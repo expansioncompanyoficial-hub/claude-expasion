@@ -57,6 +57,19 @@ origem por vídeo; a palavra coincide com a assinatura do Maman e a isca da
 Cerberus — decisão consciente do dono). CTA social no pico continua antes do
 comercial.
 
+### Tráfego pago (21/08)
+
+Em anúncio frio a conversão é no clique: a CTA falada é **"toca no botão e
+agenda o diagnóstico gratuito"**. "Comenta DIAGNÓSTICO" segue valendo para o
+orgânico e para post impulsionado com a automação ativa. Regras do criativo
+pago: qualificação dita nos primeiros segundos (em anúncio, afastar quem não é
+ICP é economia); **sem CTA social** ("manda pra amiga") — o próprio estudo
+registra o criador omitindo o pedido social em conteúdo de conversão; nenhum
+case com número entra em anúncio antes da prova confirmada; destino do clique
+decidido antes de subir campanha — WhatsApp com resposta em horário comercial
+OU formulário com a pergunta de faturamento (a classificação MQL/ICP já tem
+leitor na casa: skill `detalhamento-mql`).
+
 ## Réguas que continuam valendo (do posicionamento, confirmadas)
 
 - Sem promessa de faturamento/multiplicador; anti-milagre é identidade.
