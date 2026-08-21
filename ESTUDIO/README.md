@@ -249,3 +249,30 @@ deixava a página laranja demais e o CTA sem destaque contra nada.
 **Concluir carrossel** cobra isso: aponta a capa sem destaque e lista os slides
 internos que ficaram sem nenhum trecho marcado.
 
+## Baixar os PNGs
+
+Na etapa **Aprovação**, o cartão *Baixar os PNGs* entrega os nove slides em
+**arquivos separados**, 1080 × 1350, na ordem de publicação. Sem ZIP: é assim
+que o Instagram pede na hora de subir o carrossel, e é assim que dá para
+conferir slide a slide antes.
+
+O navegador pede confirmação **a cada arquivo** — nove downloads, nove
+confirmações. Não é escolha: a capacidade `downloads` abre uma caixa por
+arquivo, e a única forma de ter uma confirmação só seria empacotar tudo num
+ZIP. Recusar uma para o processo ali, e o cartão diz quantos já foram.
+
+### Como o PNG é feito dentro da página
+
+O sandbox do artefato deixa **inertes** link de download e save por script.
+Quem entrega o arquivo é a capacidade `downloads`; quem faz o pixel é a
+própria página:
+
+1. o slide é renderizado no medidor fora da tela, em 1080 × 1350;
+2. vai para dentro de um `<foreignObject>` com **todo o CSS da página junto** —
+   inclusive as `@font-face` embutidas, senão o texto sai numa fonte de sistema
+   e ninguém percebe;
+3. o SVG entra num `<img>` por **`data:` URL** e é desenhado num canvas.
+
+O `data:` não é detalhe: com `blob:` o canvas fica contaminado e o `toBlob`
+recusa a exportar. Foi o primeiro erro da implementação.
+
