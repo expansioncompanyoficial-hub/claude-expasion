@@ -118,6 +118,27 @@ Duas regras que sustentam o sistema:
 2. **Registro não é opcional.** Sem a ficha em `CARROSSEIS/` não existe relatório semanal
    nem recalibração. Foi ausência de relatório que quase custou a Prime em 16/07.
 
+## Geração de fundo de capa
+
+`.claude/skills/carrossel-viral/scripts/capas/` é o módulo que entra **entre a
+headline aprovada e a composição da capa**. Não é sistema separado: lê a mesma
+ficha de cliente, grava ao lado das mesmas peças e devolve um arquivo que o
+renderizador usa como `foto_fundo` do slide 1.
+
+Três regras que sustentam o módulo:
+
+1. **Fundo e capa final são entregas diferentes.** O fundo não tem headline,
+   nem logo, nem texto. A capa final é fundo + texto, montada pelo
+   renderizador que já existe, com a fonte e a régua da marca.
+2. **A imagem se cria a partir do carrossel inteiro, não da headline.** Uma
+   capa feita só com a manchete acerta a palavra e erra o assunto.
+3. **QA técnico e QA semântico são coisas separadas.** Nitidez e contraste a
+   máquina mede. Se a metáfora comunica o problema, não — e o sistema devolve
+   isso como pergunta em aberto, nunca como nota calculada.
+
+Manual: `docs/cover-generation.md`. Arquitetura: `docs/cover-generator-integration-map.md`.
+Testes: `python3 -m unittest discover -s tests`.
+
 ## Convenções
 
 - Nomes de arquivo em CAIXA-ALTA com hífen, sufixados com a data:
