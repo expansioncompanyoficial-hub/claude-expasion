@@ -100,6 +100,16 @@ button{font-family:inherit}
 .modal{background:var(--painel);border:1px solid var(--linha-forte);border-radius:14px;
   width:min(430px,100%);max-height:88vh;overflow-y:auto;padding:24px}
 .modal h2{font-size:17px;font-weight:600;margin-bottom:4px}
+/* Caixa própria porque `prompt`/`confirm`/`alert` do navegador NÃO existem
+   dentro do artifact publicado: o iframe é sandbox sem `allow-modals`, e a
+   chamada volta null sem erro nenhum. Renomear carrossel, arquivar e excluir
+   cliente pareciam botões mortos por causa disso — funcionavam em qualquer
+   navegador aberto direto, e só ali não. */
+.caixa-txt{width:100%;background:var(--campo);border:1px solid var(--linha);
+  border-radius:8px;padding:9px 11px;color:var(--texto);font-family:var(--ui);
+  font-size:13.5px;margin-top:14px}
+.caixa-txt:focus{outline:none;border-color:var(--pt-accent,var(--expansion))}
+.modal .corpo{color:var(--meio);font-size:13px;line-height:1.5;white-space:pre-line}
 .modal p.dica{color:var(--meio);font-size:12.5px;margin-bottom:20px}
 
 /* ---------- grade do estúdio ----------
@@ -320,9 +330,11 @@ label.rot{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1
 .peca-mini{width:20px;height:25px;border-radius:2px;overflow:hidden;position:relative;flex:none;
   border:1px solid rgba(255,255,255,.12)}
 .peca-nome{font-size:12.5px;font-weight:500}
-.renomear{margin-left:auto;padding:0 5px;font-size:12px;color:var(--fraco);cursor:pointer;
-  border-radius:5px;line-height:1.6;align-self:center}
-.renomear:hover{color:var(--texto);background:var(--linha)}
+.renomear{margin-left:auto;display:flex;align-items:center;justify-content:center;
+  width:28px;height:28px;flex:none;font-size:13px;color:var(--fraco);cursor:pointer;
+  border-radius:6px;border:1px solid transparent;align-self:center}
+.renomear:hover{color:var(--texto);background:var(--linha);border-color:var(--linha-forte)}
+.peca[aria-pressed="true"] .renomear{color:var(--meio)}
 .peca-tpl{font-family:var(--mono);font-size:9px;color:var(--fraco);letter-spacing:.05em}
 .peca-nova{border-style:dashed;color:var(--meio);padding:7px 14px}
 
@@ -1220,26 +1232,29 @@ function temTrabalho(x){
     Object.values(p.ajustes || {}).some(a => a && a.img));
 }
 
-function menuCliente(x){
+async function menuCliente(x){
   const trabalho = temTrabalho(x);
   const resumo = `${x.pecas.length} carrossel(is)` + (trabalho ? ', com conteúdo' : ', vazios');
   if (x.arquivado){
-    if (confirm(`Reativar ${x.nome}?\n\n${resumo}\n\nEle volta para a lista principal.`)){
+    if (await confirma(`Reativar ${x.nome}?`,
+        `${resumo}\n\nEle volta para a lista principal.`, 'Reativar')){
       delete x.arquivado; marcaSujo(); telaClientes();
       return;
     }
-  } else if (confirm(`Arquivar ${x.nome}?\n\n${resumo}\n\nSai da lista principal e vai para `
-      + `Inativos, no fim da página. Nada é apagado e dá para reativar quando quiser.`)){
+  } else if (await confirma(`Arquivar ${x.nome}?`,
+      `${resumo}\n\nSai da lista principal e vai para Inativos, no fim da página. `
+      + `Nada é apagado e dá para reativar quando quiser.`, 'Arquivar')){
     x.arquivado = true; marcaSujo(); telaClientes();
     return;
   }
-  if (!confirm(`Excluir ${x.nome} DE VEZ?\n\n${resumo}\n\n`
-      + `Isto não tem volta: some o cliente, os carrosséis, as capas e as imagens.`)) return;
+  if (!await confirma(`Excluir ${x.nome} DE VEZ?`,
+      `${resumo}\n\nIsto não tem volta: some o cliente, os carrosséis, as capas e as imagens.`,
+      'Excluir')) return;
   if (trabalho){
-    const digitado = prompt(
-      `${x.nome} tem conteúdo dentro. Para confirmar, digite o nome exatamente:`, '');
+    const digitado = await pergunta(`Digite ${x.nome} para confirmar`, '',
+      `${x.nome} tem conteúdo dentro. Nome diferente não apaga nada.`);
     if ((digitado || '').trim() !== x.nome){
-      alert('Nome diferente. Não excluí nada.');
+      if (digitado !== null) await avisa('Não excluí nada', 'O nome digitado não bate.');
       return;
     }
   }
@@ -1528,6 +1543,113 @@ async function pngDoSlide(i){
 
 const espera = ms => new Promise(r => setTimeout(r, ms));
 
+/* ── ZIP, escrito à mão ─────────────────────────────────────────────────
+   Sem biblioteca: a CSP do artefato bloqueia CDN, e embutir um zipper inteiro
+   por causa de nove PNGs não se paga. Método `store`, sem compressão — PNG já
+   é comprimido, deflate aqui renderia quase nada e custaria o dobro de código.
+
+   Um arquivo só é uma confirmação só. Era esse o incômodo das nove seguidas. */
+const TABELA_CRC = (() => {
+  const t = new Uint32Array(256);
+  for (let n = 0; n < 256; n++){
+    let c = n;
+    for (let k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+    t[n] = c >>> 0;
+  }
+  return t;
+})();
+function crc32(bytes){
+  let c = 0xFFFFFFFF;
+  for (let i = 0; i < bytes.length; i++) c = TABELA_CRC[(c ^ bytes[i]) & 0xFF] ^ (c >>> 8);
+  return (c ^ 0xFFFFFFFF) >>> 0;
+}
+function zipDe(arquivos){
+  const cod = new TextEncoder();
+  const agora = new Date();
+  // Data no formato do DOS, que é o que o cabeçalho do ZIP guarda.
+  const hora = ((agora.getHours() << 11) | (agora.getMinutes() << 5)
+                | (agora.getSeconds() >> 1)) & 0xFFFF;
+  const data = (((agora.getFullYear() - 1980) << 9) | ((agora.getMonth() + 1) << 5)
+                | agora.getDate()) & 0xFFFF;
+  const pedacos = [], central = [];
+  let desloca = 0;
+  arquivos.forEach(a => {
+    const nome = cod.encode(a.nome), crc = crc32(a.bytes), tam = a.bytes.length;
+    const local = new DataView(new ArrayBuffer(30));
+    local.setUint32(0, 0x04034b50, true); local.setUint16(4, 20, true);
+    local.setUint16(6, 0x0800, true);           // nome em UTF-8
+    local.setUint16(8, 0, true);                // método: store
+    local.setUint16(10, hora, true); local.setUint16(12, data, true);
+    local.setUint32(14, crc, true); local.setUint32(18, tam, true);
+    local.setUint32(22, tam, true); local.setUint16(26, nome.length, true);
+    local.setUint16(28, 0, true);
+    pedacos.push(new Uint8Array(local.buffer), nome, a.bytes);
+
+    const c = new DataView(new ArrayBuffer(46));
+    c.setUint32(0, 0x02014b50, true); c.setUint16(4, 20, true); c.setUint16(6, 20, true);
+    c.setUint16(8, 0x0800, true); c.setUint16(10, 0, true);
+    c.setUint16(12, hora, true); c.setUint16(14, data, true);
+    c.setUint32(16, crc, true); c.setUint32(20, tam, true); c.setUint32(24, tam, true);
+    c.setUint16(28, nome.length, true); c.setUint16(30, 0, true); c.setUint16(32, 0, true);
+    c.setUint16(34, 0, true); c.setUint16(36, 0, true); c.setUint32(38, 0, true);
+    c.setUint32(42, desloca, true);
+    central.push(new Uint8Array(c.buffer), nome);
+    desloca += 30 + nome.length + tam;
+  });
+  const tamCentral = central.reduce((n, b) => n + b.length, 0);
+  const fim = new DataView(new ArrayBuffer(22));
+  fim.setUint32(0, 0x06054b50, true); fim.setUint16(4, 0, true); fim.setUint16(6, 0, true);
+  fim.setUint16(8, arquivos.length, true); fim.setUint16(10, arquivos.length, true);
+  fim.setUint32(12, tamCentral, true); fim.setUint32(16, desloca, true);
+  fim.setUint16(20, 0, true);
+  return new Blob([...pedacos, ...central, new Uint8Array(fim.buffer)],
+                  {type: 'application/zip'});
+}
+
+/* Gera os PNGs de todos os slides. Separado do envio porque os dois modos —
+   arquivo a arquivo e ZIP — usam exatamente os mesmos bytes. */
+async function pngsDaPeca(estado){
+  const base = nomeArquivo(peca.nome), n = nSlides(), fora = [];
+  for (let i = 0; i < n; i++){
+    estado(`Preparando slide ${i + 1} de ${n}…`);
+    let blob;
+    try { blob = await pngDoSlide(i); }
+    catch (e){ estado('Não consegui gerar o slide ' + (i + 1) + ': ' + e.message, 'ruim'); return null; }
+    fora.push({nome: `${base}-${String(i + 1).padStart(2, '0')}.png`, blob});
+  }
+  return fora;
+}
+
+async function baixarZip(estado){
+  const dl = await (window.claude && window.claude.use
+    ? window.claude.use('downloads') : Promise.resolve(null));
+  if (!dl){
+    estado('Baixar arquivo não está disponível nesta visualização. '
+      + 'Abra o Estúdio pelo link do artefato, na sua conta.', 'ruim');
+    return;
+  }
+  const pngs = await pngsDaPeca(estado);
+  if (!pngs) return;
+  estado('Montando o ZIP…');
+  const partes = [];
+  for (const a of pngs) partes.push({nome: a.nome, bytes: new Uint8Array(await a.blob.arrayBuffer())});
+  const zip = zipDe(partes);
+  const nome = nomeArquivo(peca.nome) + '.zip';
+  estado(`Confirme o download de ${nome}`);
+  try { await dl.save({filename: nome, data: zip}); }
+  catch (e){
+    const cod = e && e.code;
+    if (cod === 'declined'){ estado('Download recusado. Nada foi salvo.', 'aviso'); return; }
+    if (cod === 'too_large'){
+      estado('O ZIP passou de 16 MB. Baixe em arquivos separados ou reduza as imagens.', 'ruim');
+      return;
+    }
+    estado(`Download indisponível (${cod || 'erro'}).`, 'ruim');
+    return;
+  }
+  estado(`${pngs.length} slides num arquivo só: ${nome}`, 'bom');
+}
+
 async function exportarPngs(estado){
   const dl = await (window.claude && window.claude.use
     ? window.claude.use('downloads') : Promise.resolve(null));
@@ -1590,12 +1712,17 @@ function pintarAprovacao(){
   // O item de imagem vinha cravado em `false`: o checklist mostrava pendência
   // eterna ao lado de um botão habilitado. Agora é calculado, e conta.
   const vagas = vagasAbertas();
-  const pronto = peca?.capa && blocosOk >= 18 && peca?.legenda && !vagas.length;
-  const semFoto = !peca?.capa;
+  // A capa NÃO é critério à parte. A headline do slide 1 É a capa: exigir
+  // também o clique em "usar esta capa" travava peça pronta por causa de um
+  // botão de outra etapa. O que conta é existir texto no slide 1.
+  const capaTxt = (peca?.capa || blocos[0] || '').trim();
+  const pronto = !!capaTxt && blocosOk >= 18 && peca?.legenda && !vagas.length;
   $('#c-aprovacao').innerHTML = `
     <div class="cartao-et"><h3>Antes de mandar pro cliente</h3>
       <div class="checa">
-        ${ck(!!peca?.capa, 'Capa escolhida', semFoto ? 'volte em Capas e clique em “usar esta capa”' : esc(semMarca(peca.capa)))}
+        ${ck(!!capaTxt, 'Capa escrita', capaTxt
+          ? esc(semMarca(capaTxt)) + (peca?.capa ? '' : ' — direto do slide 1')
+          : 'escreva o texto 1, ou escolha uma capa na etapa Capas')}
         ${ck(blocosOk >= 18, `${blocosOk} de 18 blocos`, 'dois por slide, nove slides')}
         ${ck(!!peca?.legenda, 'Legenda escrita', `com a palavra ${esc(palavra)}`)}
         ${ck(!vagas.length, 'Vagas de imagem preenchidas', vagas.length
@@ -1619,12 +1746,16 @@ function pintarAprovacao(){
         id="b-publicada" ${peca.status === 'publicado' ? 'disabled' : ''}>
         ${peca.status === 'publicado' ? 'Publicada ✓' : 'Marcar como publicada'}</button></div></div>` : ''}
     <div class="cartao-et"><h3>Baixar os PNGs</h3>
-      <p>Os ${nSlides()} slides em <b>arquivos separados</b>, 1080 × 1350, na ordem de
-      publicação. Sem ZIP: é assim que o Instagram pede na hora de subir.</p>
-      <p style="font-size:12px;color:var(--fraco)">O navegador pede confirmação a cada
-      arquivo — são ${nSlides()} confirmações seguidas. É o preço de vir separado.</p>
-      <div class="acoes"><button class="btn btn-forte" id="b-baixar">
-        Baixar ${nSlides()} PNGs</button></div>
+      <p>Os ${nSlides()} slides em 1080 × 1350, na ordem de publicação. Dois caminhos,
+      mesmos arquivos:</p>
+      <p style="font-size:12px;color:var(--fraco)"><b>ZIP</b> — uma confirmação só, um
+      arquivo, os ${nSlides()} PNGs numerados dentro.<br>
+      <b>Separados</b> — vão direto para a pasta de downloads, prontos para arrastar
+      pro Instagram, mas o navegador pede confirmação a cada arquivo: ${nSlides()}
+      seguidas.</p>
+      <div class="acoes"><button class="btn btn-forte" id="b-zip">
+        Baixar ZIP</button>
+        <button class="btn" id="b-baixar">${nSlides()} arquivos separados</button></div>
       <p id="b-baixar-estado" style="margin-top:10px;font-size:13px;color:var(--fraco)"></p></div>`;
   const est = (msg, nivel) => {
     const e = $('#b-baixar-estado'); if (!e) return;
@@ -1633,12 +1764,14 @@ function pintarAprovacao(){
                   : nivel === 'bom'  ? 'var(--ok,#3dd68c)'
                   : nivel === 'aviso'? 'var(--aviso,#e8b339)' : 'var(--fraco)';
   };
-  const bb = $('#b-baixar');
-  if (bb) bb.onclick = async () => {
-    bb.disabled = true;
-    try { await exportarPngs(est); }
-    finally { bb.disabled = false; }
+  const bz = $('#b-zip'), bb = $('#b-baixar');
+  const trava = async fn => {
+    if (bz) bz.disabled = true; if (bb) bb.disabled = true;
+    try { await fn(est); }
+    finally { if (bz) bz.disabled = false; if (bb) bb.disabled = false; }
   };
+  if (bz) bz.onclick = () => trava(baixarZip);
+  if (bb) bb.onclick = () => trava(exportarPngs);
   const b = $('#b-enviar-cli');
   if (b && pronto) b.onclick = () => {
     marcaSujo();
@@ -1651,8 +1784,9 @@ function pintarAprovacao(){
   // como código morto. O aceite do cliente é o gatilho, então o registro dele
   // mora aqui, ao lado do link, e não numa automação que não existe.
   const pub = $('#b-publicada');
-  if (pub) pub.onclick = () => {
-    if (!confirm('Marcar como publicada? É o que abre a etapa Desempenho.')) return;
+  if (pub) pub.onclick = async () => {
+    if (!await confirma('Marcar como publicada?',
+      'É o que abre a etapa Desempenho.', 'Marcar')) return;
     marcaSujo();
     peca.status = 'publicado';
     montarTrilho(); pintarAprovacao();
@@ -1811,7 +1945,7 @@ function montarTpls(){
     b.setAttribute('aria-pressed', t.id === vale);
     b.innerHTML = `<span class="tpl-mini" id="mini-${t.id}"></span>
       <span><span class="tpl-nome">${t.nome}</span><span class="tpl-sub">${t.etapa}</span></span>`;
-    b.onclick = () => {
+    b.onclick = async () => {
       if (escopoTpl === 'slide'){
         // Igual ao da peça não é exceção: apaga em vez de gravar o mesmo valor,
         // senão o slide fica marcado como fora do padrão sendo idêntico a ele.
@@ -1824,8 +1958,9 @@ function montarTpls(){
         const perdidos = foraDoPadrao();
         if (perdidos.length){
           const quais = perdidos.map(k => k+1).join(', ');
-          if (!confirm(`${perdidos.length} slide(s) com template próprio: ${quais}.\n\n`
-            + `Aplicar ${t.nome} no carrossel todo apaga essas exceções. Continuar?`)) return;
+          if (!await confirma(`Aplicar ${t.nome} no carrossel todo?`,
+            `${perdidos.length} slide(s) com template próprio: ${quais}.\n\n`
+            + `Aplicar em todos apaga essas exceções.`, 'Aplicar em todos')) return;
           perdidos.forEach(k => delete peca.ajustes[k].tpl);
         }
         tpl = t; peca.tpl = t.id; atual = 0;
@@ -1858,12 +1993,12 @@ function montarPecas(){
       <span><span class="peca-nome">${esc(p.nome)}</span><br>
       <span class="peca-tpl">${acha(p.tpl).nome.toUpperCase()}</span></span>
       <span class="renomear" title="Renomear">✎</span>`;
-    b.onclick = ev => {
+    b.onclick = async ev => {
       // O lápis renomeia; o resto do botão troca de peça. Sem um nome próprio,
       // "Sem título" vira "Sem título 2" e ninguém acha nada depois.
       if (ev.target.classList.contains('renomear')){
         ev.stopPropagation();
-        const novo = prompt('Nome do carrossel:', p.nome);
+        const novo = await pergunta('Nome do carrossel', p.nome);
         if (novo && novo.trim()){ p.nome = novo.trim(); marcaSujo(); montarPecas();
           if (p === peca) $('#nome-peca').textContent = '· ' + p.nome; }
         return;
@@ -2123,7 +2258,8 @@ function painelSlide(){
   if (arq) arq.onchange = e => {
     const f = e.target.files && e.target.files[0];
     if (f) reduzImagem(f).then(url => { ajuste(atual).img = url; marcaSujo(); pintar(); })
-                         .catch(() => alert('Não consegui ler esse arquivo.'));
+                         .catch(() => avisa('Não consegui ler esse arquivo',
+                           'Tente PNG, JPEG ou WebP.'));
   };
 }
 
@@ -2161,6 +2297,43 @@ function reduzImagem(arquivo, larguraMax = 1000, qualidade = 0.82){
    digitação. Então o gesto é explícito, e o rótulo avisa quando há mudança
    pendente. */
 let sujo = false, artefato = null;
+
+/* ── caixas de diálogo ──────────────────────────────────────────────────
+   Devolvem Promise, então todo chamador virou `async`. É o preço de não usar
+   as nativas — e o preço de usá-las era o recurso não existir no publicado. */
+function caixa({titulo, corpo, ok, cancelar, campo}){
+  return new Promise(resolve => {
+    const fundo = document.createElement('div');
+    fundo.className = 'modal-fundo';
+    fundo.innerHTML = `<div class="modal" role="dialog" aria-modal="true">
+      <h2>${esc(titulo)}</h2>
+      ${corpo ? `<p class="corpo">${esc(corpo)}</p>` : ''}
+      ${campo !== undefined ? `<input class="caixa-txt" type="text" value="${esc(campo)}">` : ''}
+      <div class="acoes" style="margin-top:20px">
+        <button class="btn btn-forte" data-r="ok" type="button">${esc(ok || 'OK')}</button>
+        ${cancelar === null ? '' : `<button class="btn" data-r="nao" type="button">${esc(cancelar || 'Cancelar')}</button>`}
+      </div></div>`;
+    const entrada = fundo.querySelector('.caixa-txt');
+    const fecha = v => { document.removeEventListener('keydown', tecla); fundo.remove(); resolve(v); };
+    const aceita = () => fecha(entrada ? entrada.value : true);
+    const tecla = e => {
+      if (e.key === 'Escape') fecha(entrada ? null : false);
+      // Enter confirma, mas só quando não há texto multilinha em jogo.
+      if (e.key === 'Enter' && (entrada || document.activeElement.tagName !== 'TEXTAREA')) aceita();
+    };
+    fundo.querySelector('[data-r="ok"]').onclick = aceita;
+    const nao = fundo.querySelector('[data-r="nao"]');
+    if (nao) nao.onclick = () => fecha(entrada ? null : false);
+    // Clique fora cancela — mas nunca "confirma" por engano.
+    fundo.onclick = e => { if (e.target === fundo) fecha(entrada ? null : false); };
+    document.addEventListener('keydown', tecla);
+    document.body.appendChild(fundo);
+    if (entrada){ entrada.focus(); entrada.select(); }
+  });
+}
+const confirma = (titulo, corpo, ok) => caixa({titulo, corpo, ok});
+const pergunta = (titulo, valor, corpo) => caixa({titulo, corpo, campo: valor ?? '', ok: 'Salvar'});
+const avisa    = (titulo, corpo) => caixa({titulo, corpo, ok: 'Entendi', cancelar: null});
 
 function marcaSujo(){
   if (sujo) return;
@@ -2277,7 +2450,8 @@ $('#btn-exemplo').onclick = () => {
   $('#editor').value = EXEMPLO; peca.txt = EXEMPLO; blocos = parse(EXEMPLO); pintar(); montarPecas();
 };
 $('#btn-gerar').onclick = () => {
-  alert('No sistema real, este botão chama a skill carrossel-viral: ela lê a ficha do cliente, '
+  avisa('Gerar com IA',
+    'No sistema real, este botão chama a skill carrossel-viral: ela lê a ficha do cliente, '
     + 'gera as headlines e devolve os 18 blocos já preenchidos.\n\nNo protótipo, use "Exemplo".');
 };
 $('#btn-prev').onclick = () => { atual=(atual-1+nSlides())%nSlides(); pintar(); };

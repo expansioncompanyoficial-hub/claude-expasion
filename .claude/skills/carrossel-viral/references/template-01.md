@@ -152,6 +152,14 @@ Aplicar o laranja dela na capa da Prime seria invenção, não padrão — mas d
 a capa da Prime **sem destaque nenhum** também não é o padrão: é peça
 inacabada. Toda capa sai com um trecho pintado, na cor de quem assina.
 
+### A capa não trava a aprovação
+
+A headline do slide 1 **é** a capa. Exigir também o clique em *"usar esta capa"*,
+na etapa Capas, travava peça pronta por causa de um botão de outra etapa — o
+texto já estava lá, escrito e renderizado. O que a conferência cobra é existir
+`texto 1`; a etapa Capas continua servindo para gerar e escolher entre opções,
+mas deixou de ser portão.
+
 ### O último slide
 
 O Canva original traz **a linha da chamada inteira em laranja**. Na tela isso
