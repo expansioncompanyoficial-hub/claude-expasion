@@ -196,6 +196,8 @@ solução do celular cheio.**
 > Do teu celular cheio, manda os brutos para o Drive que a gente confirma que
 > chegou e ai você apaga tranquila ✅
 
-> Te mandei um documento no grupo com três coisas. O que ficou do evento, a oferta
-> de todo dia e uma reunião de alinhamento essa semana. Quinta às 20h fica bom
-> para você?
+> Te mandei o relatório da semana no grupo, é um link, abre direto no celular.
+> Tem o que ficou do evento, a oferta de todo dia e uma ação na base de vocês.
+
+> Da uma lida inteira e me fala o que entendeu, que ai eu ajusto o que não ficou
+> claro. E a reunião fica quarta às 19h. Fica bom para você?

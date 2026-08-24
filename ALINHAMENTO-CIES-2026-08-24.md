@@ -243,15 +243,15 @@ venda vale mais que dobrar verba.**
 
 ## A proposta de agenda
 
-**Quinta 27/08, às 20h. 45 minutos.**
-Alternativa: sexta 28/08, mesmo horário.
+**Quarta 26/08, às 19h. 45 minutos.**
+Alternativa: quinta 27/08, mesmo horário.
 
 | Bloco | Tempo |
 |---|---|
 | O dia 22 lido com número | 10 min |
 | A rotina de oferta e o funil de atendimento | 10 min |
-| Setembro: os quatro sábados e o dia 19 | 15 min |
-| O que cada lado assume daqui para frente | 10 min |
+| Setembro: os quatro sábados e a oferta do dia 19 | 15 min |
+| A ação na base e o que ela já rendeu | 10 min |
 
 ---
 

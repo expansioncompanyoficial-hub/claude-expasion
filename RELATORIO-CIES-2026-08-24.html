@@ -4,336 +4,230 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:ital,opsz,wght@0,14..32,400..700;1,14..32,400..600&family=Geist+Mono:wght@400;500&display=swap">
 
 <style>
-/* ============ TOKENS ============ */
+/* ================= TOKENS ================= */
 :root{
-  --fundo:#fbf9f5;
-  --fundo-2:#f4efe6;
-  --fundo-3:#efe8dc;
-  --texto:#16110d;
-  --texto-2:#5c534b;
-  --texto-3:#8f857b;
-  --linha:#e0d8ca;
-  --linha-forte:#c9bda9;
-  --acento:#e67e22;
-  --acento-txt:#a35208;
-  --acento-fraco:#faeee0;
-  --ok:#4a6b45;
-  --ok-fraco:#eaf0e6;
-  --atencao:#8d6413;
-  --atencao-fraco:#f7eed8;
-  --falta:#96341f;
-  --falta-fraco:#f8e7e1;
-  --sombra:0 1px 2px rgba(22,17,13,.04);
+  --fundo:#fbf9f5; --fundo-2:#f4efe6; --fundo-3:#ede5d8;
+  --texto:#16110d; --texto-2:#5c534b; --texto-3:#8f857b;
+  --linha:#e0d8ca; --linha-forte:#c9bda9;
+  --acento:#e67e22; --acento-txt:#a35208; --acento-fraco:#faeee0;
+  --ok:#4a6b45; --ok-fraco:#eaf0e6;
+  --atencao:#8d6413; --atencao-fraco:#f7eed8;
+  --falta:#96341f; --falta-fraco:#f8e7e1;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --fundo:#14100c;
-    --fundo-2:#1c1712;
-    --fundo-3:#241d16;
-    --texto:#f2ece3;
-    --texto-2:#b5aa9c;
-    --texto-3:#8a8075;
-    --linha:#2e2620;
-    --linha-forte:#463a2f;
-    --acento:#e8873a;
-    --acento-txt:#f0a660;
-    --acento-fraco:#2a1d11;
-    --ok:#93bd8a;
-    --ok-fraco:#1a2318;
-    --atencao:#d8ae52;
-    --atencao-fraco:#2a2213;
-    --falta:#e79379;
-    --falta-fraco:#2c1a14;
-    --sombra:0 1px 2px rgba(0,0,0,.3);
+    --fundo:#14100c; --fundo-2:#1c1712; --fundo-3:#241d16;
+    --texto:#f2ece3; --texto-2:#b5aa9c; --texto-3:#8a8075;
+    --linha:#2e2620; --linha-forte:#463a2f;
+    --acento:#e8873a; --acento-txt:#f0a660; --acento-fraco:#2a1d11;
+    --ok:#93bd8a; --ok-fraco:#1a2318;
+    --atencao:#d8ae52; --atencao-fraco:#2a2213;
+    --falta:#e79379; --falta-fraco:#2c1a14;
   }
 }
 :root[data-theme="dark"]{
-  --fundo:#14100c;
-  --fundo-2:#1c1712;
-  --fundo-3:#241d16;
-  --texto:#f2ece3;
-  --texto-2:#b5aa9c;
-  --texto-3:#8a8075;
-  --linha:#2e2620;
-  --linha-forte:#463a2f;
-  --acento:#e8873a;
-  --acento-txt:#f0a660;
-  --acento-fraco:#2a1d11;
-  --ok:#93bd8a;
-  --ok-fraco:#1a2318;
-  --atencao:#d8ae52;
-  --atencao-fraco:#2a2213;
-  --falta:#e79379;
-  --falta-fraco:#2c1a14;
-  --sombra:0 1px 2px rgba(0,0,0,.3);
+  --fundo:#14100c; --fundo-2:#1c1712; --fundo-3:#241d16;
+  --texto:#f2ece3; --texto-2:#b5aa9c; --texto-3:#8a8075;
+  --linha:#2e2620; --linha-forte:#463a2f;
+  --acento:#e8873a; --acento-txt:#f0a660; --acento-fraco:#2a1d11;
+  --ok:#93bd8a; --ok-fraco:#1a2318;
+  --atencao:#d8ae52; --atencao-fraco:#2a2213;
+  --falta:#e79379; --falta-fraco:#2c1a14;
 }
 
-/* ============ BASE ============ */
+/* ================= BASE ================= */
 *{box-sizing:border-box}
 body{
-  margin:0;
-  background:var(--fundo);
-  color:var(--texto);
+  margin:0; background:var(--fundo); color:var(--texto);
   font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  font-size:17px;
-  line-height:1.62;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+  font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
 }
-.mono{font-family:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace}
-.serif{font-family:Gloock,"Times New Roman",Georgia,serif;font-weight:400}
-
 .folha{max-width:52rem;margin:0 auto;padding:0 1.25rem 6rem}
 
-/* ============ RAIL / SECOES ============ */
+/* ================= SECOES ================= */
 .bloco{
-  display:grid;
-  grid-template-columns:3.75rem minmax(0,1fr);
-  border-top:1px solid var(--linha);
-  padding-top:2.75rem;
-  margin-top:3.25rem;
+  display:grid; grid-template-columns:3.75rem minmax(0,1fr);
+  border-top:1px solid var(--linha); padding-top:2.75rem; margin-top:3.25rem;
 }
-.bloco > .num{
+.bloco>.num{
   font-family:"Geist Mono",ui-monospace,Menlo,monospace;
-  font-size:.72rem;
-  letter-spacing:.12em;
-  color:var(--acento);
-  padding-top:.45rem;
-  border-right:1px solid var(--linha);
-  margin-right:1.75rem;
+  font-size:.72rem; letter-spacing:.12em; color:var(--acento);
+  padding-top:.4rem; border-right:1px solid var(--linha); margin-right:1.75rem;
 }
-.bloco > .corpo{min-width:0}
+.bloco>.corpo{min-width:0}
 @media(max-width:640px){
   .bloco{grid-template-columns:1fr;padding-top:2rem;margin-top:2.25rem}
-  .bloco > .num{border-right:0;margin:0 0 .5rem;padding-top:0}
+  .bloco>.num{border-right:0;margin:0 0 .5rem;padding-top:0}
 }
 
 h2{
-  font-family:Gloock,Georgia,serif;
-  font-weight:400;
-  font-size:clamp(1.75rem,5.5vw,2.5rem);
-  line-height:1.1;
-  letter-spacing:-.012em;
-  margin:0 0 .5rem;
-  text-wrap:balance;
+  font-family:Gloock,Georgia,serif; font-weight:400;
+  font-size:clamp(1.7rem,5.4vw,2.4rem); line-height:1.1; letter-spacing:-.012em;
+  margin:0 0 .55rem; text-wrap:balance;
 }
-h3{
-  font-size:1.06rem;
-  font-weight:600;
-  letter-spacing:-.005em;
-  margin:2.25rem 0 .6rem;
-  text-wrap:balance;
-}
+h3{font-size:1.05rem;font-weight:600;letter-spacing:-.005em;margin:2.25rem 0 .55rem;text-wrap:balance}
 h4{
   font-family:"Geist Mono",ui-monospace,Menlo,monospace;
-  font-size:.7rem;
-  font-weight:500;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--texto-3);
-  margin:1.75rem 0 .5rem;
+  font-size:.68rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--texto-3); margin:1.75rem 0 .5rem;
 }
-p{margin:0 0 1rem;max-width:38em}
-.sub{color:var(--texto-2);font-size:1.02rem;max-width:38em;margin:0 0 1.5rem}
+p{margin:0 0 .95rem;max-width:37em}
+.sub{color:var(--texto-2);max-width:37em;margin:0 0 1.4rem}
+.mini{font-size:.87rem;color:var(--texto-2);max-width:37em}
 strong{font-weight:600}
 em{font-style:italic;color:var(--texto-2)}
-a{color:var(--acento-txt)}
 
-/* ============ CAPA ============ */
-.capa{padding:3.5rem 0 .5rem}
+/* ================= CAPA ================= */
+.capa{padding:3.25rem 0 .5rem}
 .tarja{
   display:flex;flex-wrap:wrap;gap:.6rem 1.25rem;align-items:baseline;
   font-family:"Geist Mono",ui-monospace,Menlo,monospace;
-  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--texto-3);
-  border-bottom:1px solid var(--linha);
-  padding-bottom:.85rem;
+  font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--texto-3);
+  border-bottom:1px solid var(--linha);padding-bottom:.8rem;
 }
 .tarja .marca{color:var(--texto);font-weight:500}
 .tarja .dir{margin-left:auto;color:var(--acento)}
 .titulao{
   font-family:Gloock,Georgia,serif;font-weight:400;
-  font-size:clamp(2.9rem,13vw,5.5rem);
-  line-height:.92;letter-spacing:-.025em;
-  margin:2.5rem 0 0;text-wrap:balance;
+  font-size:clamp(2.7rem,12vw,5rem);line-height:.94;letter-spacing:-.025em;
+  margin:2.25rem 0 0;text-wrap:balance;
 }
-.titulao .fina{display:block;color:var(--acento);font-size:.34em;letter-spacing:.02em;line-height:1.3;margin-bottom:.7rem;font-family:"Geist Mono",monospace;text-transform:uppercase}
-.filete{height:2px;background:var(--acento);width:5.5rem;margin:1.75rem 0 1.1rem}
-.datalinha{font-family:"Geist Mono",ui-monospace,Menlo,monospace;font-size:.8rem;color:var(--texto-2);letter-spacing:.03em}
+.titulao .fina{
+  display:block;color:var(--acento);font-size:.36em;letter-spacing:.02em;
+  line-height:1.3;margin-bottom:.7rem;font-family:"Geist Mono",monospace;text-transform:uppercase;
+}
+.filete{height:2px;background:var(--acento);width:5.5rem;margin:1.6rem 0 1rem}
+.datalinha{font-family:"Geist Mono",ui-monospace,Menlo,monospace;font-size:.78rem;color:var(--texto-2);letter-spacing:.03em}
 
-/* ============ RESUMO 30S ============ */
-.resumo{
-  background:var(--fundo-2);
-  border-left:2px solid var(--acento);
-  padding:1.75rem 1.5rem;
-  margin:2.75rem 0 0;
-  border-radius:0 3px 3px 0;
+.aviso-topo{
+  margin:2rem 0 0;padding:1.1rem 1.25rem;
+  background:var(--acento-fraco);border-left:2px solid var(--acento);
 }
+.aviso-topo p{margin:0;font-size:.95rem}
+.aviso-topo strong{color:var(--acento-txt)}
+
+.resumo{background:var(--fundo-2);border-left:2px solid var(--acento);padding:1.7rem 1.5rem;margin:1.25rem 0 0}
 .resumo h4{margin-top:0;color:var(--acento-txt)}
 .resumo ol{margin:0;padding-left:1.15rem;display:flex;flex-direction:column;gap:.55rem}
-.resumo li{max-width:36em;color:var(--texto)}
+.resumo li{max-width:35em}
 .resumo li::marker{font-family:"Geist Mono",monospace;font-size:.8em;color:var(--texto-3)}
 
-/* ============ NUMEROS ============ */
+/* ================= NUMEROS ================= */
 .grade-num{
-  display:grid;gap:1px;
-  grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));
-  background:var(--linha);
-  border:1px solid var(--linha);
-  margin:1.5rem 0 .5rem;
+  display:grid;gap:1px;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));
+  background:var(--linha);border:1px solid var(--linha);margin:1.4rem 0 .5rem;
 }
-.cel{background:var(--fundo);padding:1.15rem 1.1rem 1.25rem}
-.cel .n{
-  font-family:Gloock,Georgia,serif;
-  font-size:clamp(1.9rem,7vw,2.6rem);line-height:1;
-  letter-spacing:-.02em;display:block;
-  font-variant-numeric:tabular-nums;
-}
-.cel .r{
-  font-family:"Geist Mono",ui-monospace,Menlo,monospace;
-  font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--texto-3);display:block;margin:.55rem 0 .35rem;
-}
-.cel .o{font-size:.85rem;line-height:1.4;color:var(--texto-2);display:block}
+.cel{background:var(--fundo);padding:1.1rem 1.05rem 1.2rem}
+.cel .n{font-family:Gloock,Georgia,serif;font-size:clamp(1.85rem,7vw,2.5rem);line-height:1;letter-spacing:-.02em;display:block;font-variant-numeric:tabular-nums}
+.cel .r{font-family:"Geist Mono",ui-monospace,Menlo,monospace;font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--texto-3);display:block;margin:.5rem 0 .3rem}
+.cel .o{font-size:.83rem;line-height:1.4;color:var(--texto-2);display:block}
 .cel.acento .n{color:var(--acento-txt)}
+.cel.bom .n{color:var(--ok)}
 .cel.alerta{background:var(--falta-fraco)}
 .cel.alerta .n{color:var(--falta)}
-.cel.bom .n{color:var(--ok)}
 
-/* ============ TIMELINE ============ */
-.dias{list-style:none;margin:1.25rem 0 0;padding:0;display:flex;flex-direction:column}
-.dias li{
-  display:grid;grid-template-columns:5.25rem 1fr auto;gap:.75rem;
-  align-items:baseline;padding:.7rem 0;border-bottom:1px solid var(--linha);
-}
-.dias .d{font-family:"Geist Mono",ui-monospace,Menlo,monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-3)}
-.dias .q{font-size:.95rem;min-width:0}
-.dias .m{font-family:"Geist Mono",monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ok);white-space:nowrap}
-.dias .m.nao{color:var(--texto-3)}
+/* ================= LISTAS ================= */
+.dias{list-style:none;margin:1.2rem 0 0;padding:0}
+.dias li{display:grid;grid-template-columns:5.25rem 1fr auto;gap:.75rem;align-items:baseline;padding:.68rem 0;border-bottom:1px solid var(--linha)}
+.dias .d{font-family:"Geist Mono",ui-monospace,Menlo,monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-3)}
+.dias .q{font-size:.94rem;min-width:0}
+.dias .m{font-family:"Geist Mono",monospace;font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ok);white-space:nowrap}
 @media(max-width:560px){
   .dias li{grid-template-columns:1fr auto;grid-template-areas:"d m" "q q";gap:.15rem .75rem}
   .dias .d{grid-area:d}.dias .q{grid-area:q}.dias .m{grid-area:m}
 }
 
-/* ============ CAIXAS ============ */
-.caixa{
-  border:1px solid var(--linha);
-  padding:1.35rem 1.35rem 1.15rem;
-  margin:1.5rem 0;
-  background:var(--fundo-2);
+/* passos: rotulo curto em cima, frase curta embaixo */
+.passos{list-style:none;margin:1.2rem 0;padding:0;counter-reset:pp;display:flex;flex-direction:column}
+.passos li{
+  counter-increment:pp;
+  display:grid;grid-template-columns:2rem minmax(0,1fr);
+  gap:.15rem .5rem;padding:.85rem 0;border-bottom:1px solid var(--linha);
 }
+.passos li:first-child{border-top:1px solid var(--linha)}
+.passos li::before{
+  content:counter(pp,decimal-leading-zero);
+  grid-row:1/3;font-family:"Geist Mono",ui-monospace,Menlo,monospace;
+  font-size:.68rem;color:var(--acento);padding-top:.32rem;
+}
+.passos b{font-weight:600;font-size:.98rem;line-height:1.35}
+.passos span{color:var(--texto-2);font-size:.9rem;line-height:1.5;max-width:34em}
+.passos.simples{counter-reset:none}
+.passos.simples li::before{content:"—";color:var(--linha-forte)}
+
+/* ================= CAIXAS ================= */
+.caixa{border:1px solid var(--linha);background:var(--fundo-2);padding:1.3rem 1.3rem 1.1rem;margin:1.4rem 0}
 .caixa h4{margin-top:0}
-.caixa p:last-child{margin-bottom:0}
+.caixa>*:last-child{margin-bottom:0}
 
-.atencao{
-  border:1px solid var(--falta);
-  background:var(--falta-fraco);
-  padding:1.6rem 1.5rem;
-  margin:1.5rem 0 2rem;
-}
+.atencao{border:1px solid var(--falta);background:var(--falta-fraco);padding:1.6rem 1.5rem;margin:1.4rem 0 1.9rem}
 .atencao h4{color:var(--falta);margin-top:0}
-.atencao p{color:var(--texto)}
-.atencao p:last-child{margin-bottom:0}
+.atencao>*:last-child{margin-bottom:0}
 
-.prova{
-  border-left:2px solid var(--acento);
-  background:var(--acento-fraco);
-  padding:1.25rem 1.35rem;
-  margin:1.5rem 0;
-}
+.prova{border-left:2px solid var(--acento);background:var(--acento-fraco);padding:1.2rem 1.3rem;margin:1.4rem 0}
 .prova h4{margin-top:0;color:var(--acento-txt)}
-.prova p:last-child{margin-bottom:0}
+.prova>*:last-child{margin-bottom:0}
 
-blockquote{
-  margin:1.5rem 0;padding:0 0 0 1.15rem;
-  border-left:2px solid var(--linha-forte);
-  color:var(--texto-2);font-style:italic;
-}
+blockquote{margin:1.4rem 0;padding:0 0 0 1.1rem;border-left:2px solid var(--linha-forte);color:var(--texto-2);font-style:italic}
 blockquote p{margin:0}
 
-/* ============ LISTAS ============ */
-ul.limpa{list-style:none;margin:1rem 0;padding:0;display:flex;flex-direction:column;gap:.7rem}
-ul.limpa li{
-  display:grid;grid-template-columns:1.5rem 1fr;gap:.35rem;
-  font-size:.97rem;max-width:38em;
+/* mensagem pronta */
+.msg{
+  background:var(--fundo-3);border-left:2px solid var(--linha-forte);
+  padding:.9rem 1.1rem;margin:.6rem 0 1.1rem;font-size:.93rem;line-height:1.55;
+  white-space:pre-line;max-width:34em;
 }
-ul.limpa li::before{
-  content:attr(data-n);
-  font-family:"Geist Mono",ui-monospace,Menlo,monospace;
-  font-size:.7rem;color:var(--acento);padding-top:.28rem;
+.rotulo-msg{
+  font-family:"Geist Mono",ui-monospace,Menlo,monospace;font-size:.62rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--acento-txt);
+  margin:1.35rem 0 .1rem;display:block;
 }
 
-/* ============ FICHAS ============ */
-.fichas{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));margin:1.5rem 0}
-.ficha{border:1px solid var(--linha);background:var(--fundo-2);padding:1.25rem 1.15rem 1.35rem;display:flex;flex-direction:column}
-.ficha .quem{
-  font-family:"Geist Mono",ui-monospace,Menlo,monospace;
-  font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--acento-txt);border-bottom:1px solid var(--linha);
-  padding-bottom:.6rem;margin-bottom:.9rem;
-}
+/* ================= FICHAS ================= */
+.fichas{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));margin:1.4rem 0}
+.ficha{border:1px solid var(--linha);background:var(--fundo-2);padding:1.2rem 1.1rem 1.3rem}
+.ficha .quem{font-family:"Geist Mono",ui-monospace,Menlo,monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acento-txt);border-bottom:1px solid var(--linha);padding-bottom:.55rem;margin-bottom:.85rem}
 .ficha ol{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.6rem}
-.ficha li{font-size:.93rem;line-height:1.45}
+.ficha li{font-size:.92rem;line-height:1.45}
 .ficha li::marker{font-family:"Geist Mono",monospace;font-size:.78em;color:var(--texto-3)}
 
-/* ============ TABELA ============ */
-.rolagem{overflow-x:auto;margin:1.5rem 0;border:1px solid var(--linha)}
-table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:33rem}
-th{
-  font-family:"Geist Mono",ui-monospace,Menlo,monospace;
-  font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--texto-3);text-align:left;font-weight:500;
-  padding:.7rem .85rem;border-bottom:1px solid var(--linha-forte);
-  background:var(--fundo-2);white-space:nowrap;
-}
-td{padding:.72rem .85rem;border-bottom:1px solid var(--linha);vertical-align:top;line-height:1.45}
+/* ================= TABELA ================= */
+.rolagem{overflow-x:auto;margin:1.4rem 0;border:1px solid var(--linha)}
+table{border-collapse:collapse;width:100%;font-size:.89rem;min-width:31rem}
+th{font-family:"Geist Mono",ui-monospace,Menlo,monospace;font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--texto-3);text-align:left;font-weight:500;padding:.68rem .8rem;border-bottom:1px solid var(--linha-forte);background:var(--fundo-2);white-space:nowrap}
+td{padding:.7rem .8rem;border-bottom:1px solid var(--linha);vertical-align:top;line-height:1.42}
 tbody tr:last-child td{border-bottom:0}
 tbody tr:nth-child(even){background:var(--fundo-2)}
 td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
-
-.chip{
-  display:inline-block;font-family:"Geist Mono",ui-monospace,Menlo,monospace;
-  font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
-  padding:.2rem .45rem;border:1px solid currentColor;white-space:nowrap;
-}
+.chip{display:inline-block;font-family:"Geist Mono",ui-monospace,Menlo,monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .42rem;border:1px solid currentColor;white-space:nowrap}
 .chip.pend{color:var(--falta)}
 .chip.fazer{color:var(--atencao)}
 .chip.nosso{color:var(--acento-txt)}
 .chip.feito{color:var(--ok)}
 
-/* ============ CALENDARIO ============ */
-.cal{list-style:none;margin:1.35rem 0;padding:0;display:flex;flex-direction:column}
-.cal li{
-  display:grid;grid-template-columns:6rem 1fr;gap:1rem;
-  padding:.85rem 0;border-bottom:1px solid var(--linha);align-items:baseline;
-}
+/* ================= CALENDARIO ================= */
+.cal{list-style:none;margin:1.3rem 0;padding:0}
+.cal li{display:grid;grid-template-columns:6rem 1fr;gap:1rem;padding:.82rem 0;border-bottom:1px solid var(--linha);align-items:baseline}
 .cal li:first-child{border-top:1px solid var(--linha)}
-.cal .dt{font-family:"Geist Mono",ui-monospace,Menlo,monospace;font-size:.75rem;letter-spacing:.06em;color:var(--acento-txt);white-space:nowrap}
-.cal .tt{font-weight:600;font-size:.97rem}
-.cal .ds{color:var(--texto-2);font-size:.9rem;display:block;margin-top:.1rem}
-.cal li.destaque .tt{color:var(--acento-txt)}
+.cal .dt{font-family:"Geist Mono",ui-monospace,Menlo,monospace;font-size:.73rem;letter-spacing:.06em;color:var(--acento-txt);white-space:nowrap}
+.cal .tt{font-weight:600;font-size:.96rem}
+.cal .ds{color:var(--texto-2);font-size:.89rem;display:block;margin-top:.1rem}
 @media(max-width:560px){.cal li{grid-template-columns:1fr;gap:.15rem}}
 
-/* ============ PAUTA ============ */
-.pauta{list-style:none;margin:1.25rem 0 0;padding:0}
-.pauta li{display:grid;grid-template-columns:1fr 4.5rem;gap:1rem;padding:.65rem 0;border-bottom:1px solid var(--linha);align-items:baseline}
-.pauta .t{font-family:"Geist Mono",monospace;font-size:.72rem;color:var(--texto-3);text-align:right;font-variant-numeric:tabular-nums}
+.pauta{list-style:none;margin:1.2rem 0 0;padding:0}
+.pauta li{display:grid;grid-template-columns:1fr 4.5rem;gap:1rem;padding:.62rem 0;border-bottom:1px solid var(--linha);align-items:baseline}
+.pauta .t{font-family:"Geist Mono",monospace;font-size:.7rem;color:var(--texto-3);text-align:right;font-variant-numeric:tabular-nums}
 
-/* ============ FECHO ============ */
-.fecho{
-  margin-top:4rem;padding-top:2.5rem;border-top:2px solid var(--acento);
+/* ================= FECHO ================= */
+.chamada{
+  border:2px solid var(--acento);padding:1.7rem 1.5rem;margin:1.6rem 0 0;
 }
-.fecho p{
-  font-family:Gloock,Georgia,serif;
-  font-size:clamp(1.25rem,4.2vw,1.7rem);
-  line-height:1.35;letter-spacing:-.01em;max-width:26em;
-}
-.rodape{
-  margin-top:3.5rem;padding-top:1.1rem;border-top:1px solid var(--linha);
-  display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;
-  font-family:"Geist Mono",ui-monospace,Menlo,monospace;
-  font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--texto-3);
-}
+.chamada h4{color:var(--acento-txt);margin-top:0}
+.chamada>*:last-child{margin-bottom:0}
+
+.fecho{margin-top:4rem;padding-top:2.4rem;border-top:2px solid var(--acento)}
+.fecho p{font-family:Gloock,Georgia,serif;font-size:clamp(1.2rem,4.2vw,1.65rem);line-height:1.35;letter-spacing:-.01em;max-width:26em}
+.rodape{margin-top:3.25rem;padding-top:1.05rem;border-top:1px solid var(--linha);display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;font-family:"Geist Mono",ui-monospace,Menlo,monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--texto-3)}
 .rodape .dir{margin-left:auto;color:var(--acento)}
 
 :focus-visible{outline:2px solid var(--acento);outline-offset:2px}
@@ -359,14 +253,18 @@ td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
     <div class="filete"></div>
     <p class="datalinha">Segunda, 24 de agosto · período de 17 a 23/08</p>
 
+    <div class="aviso-topo">
+      <p><strong>Kauan e Sabrina, este material é para os dois lerem inteiro.</strong> Ele reúne o que aconteceu na semana, o que a gente decidiu junto, e o que passa a ser rotina daqui para frente. Depois de ler, respondam no grupo dizendo o que entenderam e o que não ficou claro. <strong>A reunião é quarta 26/08, às 19h.</strong></p>
+    </div>
+
     <div class="resumo">
       <h4>Em 30 segundos</h4>
       <ol>
         <li>Saiu conteúdo <strong>cinco dias seguidos</strong>, sem falhar um. Na semana anterior tinham saído dois vídeos em seis dias.</li>
         <li>Teve venda na quarta, na sexta e no sábado. <strong>A semana vendeu.</strong></li>
-        <li>O evento de sábado construiu credibilidade e deixou material de sobra para setembro, <strong>mas não teve pico de venda.</strong></li>
+        <li>O evento de sábado construiu credibilidade e deixou material para setembro, <strong>mas não teve pico de venda.</strong></li>
         <li>O motivo: <strong>o dia não tinha oferta.</strong> Café, arara e aula fazem a pessoa aparecer, não fazem ela comprar.</li>
-        <li>O que muda agora: <strong>oferta todo dia, com o preço na tela</strong>, e alguém respondendo rápido do outro lado.</li>
+        <li>O que muda: <strong>oferta todo dia com o preço na tela</strong>, alguém respondendo rápido, e uma ação de venda dentro da base de vocês.</li>
       </ol>
     </div>
   </header>
@@ -376,39 +274,15 @@ td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
     <div class="num">01</div>
     <div class="corpo">
       <h2>Os números da semana</h2>
-      <p class="sub">O que foi medido. O que não foi está marcado como não medido, e não estimado.</p>
+      <p class="sub">Só o que foi medido. O que não foi está marcado como não medido, nunca estimado.</p>
 
       <div class="grade-num">
-        <div class="cel bom">
-          <span class="n">5</span>
-          <span class="r">dias de conteúdo</span>
-          <span class="o">Seguidos, sem falhar um. Semana anterior: 2 em 6 dias</span>
-        </div>
-        <div class="cel acento">
-          <span class="n">254</span>
-          <span class="r">convites entregues</span>
-          <span class="o">De 261 enviados. 97,3% de entrega, zero duplicado</span>
-        </div>
-        <div class="cel">
-          <span class="n">139</span>
-          <span class="r">podiam aparecer</span>
-          <span class="o">O resto tem DDD de fora da região da loja</span>
-        </div>
-        <div class="cel">
-          <span class="n">87%</span>
-          <span class="r">da base é daqui</span>
-          <span class="o">Das conversas dos últimos 7 dias, DDD 19</span>
-        </div>
-        <div class="cel">
-          <span class="n">24</span>
-          <span class="r">nomes na lista</span>
-          <span class="o">8 confirmadas e 16 que tentariam passar</span>
-        </div>
-        <div class="cel alerta">
-          <span class="n">2</span>
-          <span class="r">números que faltam</span>
-          <span class="o">Quantas pessoas entraram no sábado e quanto faturou</span>
-        </div>
+        <div class="cel bom"><span class="n">5</span><span class="r">dias de conteúdo</span><span class="o">Seguidos, sem falhar um. Semana anterior: 2 em 6 dias</span></div>
+        <div class="cel acento"><span class="n">254</span><span class="r">convites entregues</span><span class="o">De 261 enviados. 97,3% de entrega, zero duplicado</span></div>
+        <div class="cel"><span class="n">139</span><span class="r">podiam aparecer</span><span class="o">O resto tem DDD de fora da região da loja</span></div>
+        <div class="cel"><span class="n">87%</span><span class="r">da base é daqui</span><span class="o">Das conversas dos últimos 7 dias, DDD 19</span></div>
+        <div class="cel"><span class="n">1.091</span><span class="r">contatos na agenda</span><span class="o">830 deles nunca receberam nada da loja</span></div>
+        <div class="cel alerta"><span class="n">2</span><span class="r">números que faltam</span><span class="o">Quantas pessoas entraram no sábado e quanto faturou</span></div>
       </div>
     </div>
   </section>
@@ -422,15 +296,16 @@ td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
       <ul class="dias">
         <li><span class="d">Seg 17</span><span class="q">Vídeo de 5 peças montando 3 looks</span><span class="m">no ar</span></li>
         <li><span class="d">Ter 18</span><span class="q">Mesmo vídeo editado, publicado às 18h</span><span class="m">no ar</span></li>
-        <li><span class="d">Qua 19</span><span class="q">Vídeo novo · e saíram vendas no orgânico</span><span class="m">venda</span></li>
+        <li><span class="d">Qua 19</span><span class="q">Vídeo novo, e saíram vendas no orgânico</span><span class="m">venda</span></li>
         <li><span class="d">Qui 20</span><span class="q">1 peça montando 4 looks, gravado às 23h</span><span class="m">no ar</span></li>
-        <li><span class="d">Sex 21</span><span class="q">Vídeo do estilista e contagem regressiva · blusa de renda e 2 max blazer</span><span class="m">venda</span></li>
-        <li><span class="d">Sáb 22</span><span class="q">Sábado Delas · cobertura profissional das 10h às 18h</span><span class="m">evento</span></li>
+        <li><span class="d">Sex 21</span><span class="q">Vídeo do estilista e contagem regressiva. Blusa de renda e 2 max blazer vendidos</span><span class="m">venda</span></li>
+        <li><span class="d">Sáb 22</span><span class="q">Sábado Delas, com cobertura profissional das 10h às 18h</span><span class="m">evento</span></li>
       </ul>
 
       <div class="caixa">
-        <h4>O que isso significa</h4>
-        <p>Esse era o ponto mais frágil do plano, e foi o único risco que não se realizou. <strong>A máquina de conteúdo passou a existir.</strong> A partir daqui ela não é mais a variável em dúvida, e por isso o foco muda para a oferta.</p>
+        <h4>Por que isso importa</h4>
+        <p>Conteúdo era o ponto mais frágil do plano, e foi o único risco que não se realizou. <strong>A máquina de conteúdo passou a existir.</strong></p>
+        <p>Ela deixa de ser a variável em dúvida. Por isso o foco deste relatório inteiro é outro: <strong>a oferta.</strong></p>
       </div>
     </div>
   </section>
@@ -439,11 +314,29 @@ td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
   <section class="bloco">
     <div class="num">03</div>
     <div class="corpo">
+      <h2>O que a gente decidiu junto</h2>
+      <p class="sub">Recapitulando as decisões das últimas duas semanas, para todo mundo estar na mesma página antes da reunião.</p>
+
+      <ol class="passos">
+        <li><b>O dia 22 deixou de ser evento de aquisição</b><span>Decidido no dia 17, proposto pelo Kauan. A base já enchia a capacidade, então a verba de anúncio saiu do evento. O dia passou a servir para construir credibilidade para o próximo.</span></li>
+        <li><b>Os R$ 250 foram todos para peça e novidade</b><span>Em vez de dividir entre evento e produto. O custo por conversa medido é de R$ 3,85 em peça contra cerca de R$ 21 em evento.</span></li>
+        <li><b>O orgânico virou o único canal do evento</b><span>Foi o que tornou a gravação diária obrigatória naquela semana. E ela aconteceu.</span></li>
+        <li><b>O estilista não vem no dia 19/09</b><span>Decisão da Sabrina, e está certa: a aula tira ela do salão em hora de fechar venda. Ele continua na comunicação, gravado, sem ocupar o sábado.</span></li>
+        <li><b>A mini-série das parceiras foi aprovada</b><span>Ideia da Sabrina. Cinco parceiras, cinco dias, um vídeo por dia. Com prazo no brinde e repost combinado.</span></li>
+        <li><b>Setembro tem lançamento e aniversário no dia 19</b><span>É o evento em que a prova social gravada no dia 22 vira anúncio.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="bloco">
+    <div class="num">04</div>
+    <div class="corpo">
       <h2>O sábado 22</h2>
 
       <h3>O que ficou de bom</h3>
-      <p>O dia aconteceu com cobertura profissional das 10h às 18h, e <strong>o material está todo na mão.</strong> Cliente provando, loja com movimento, o estilista falando, gente saindo com sacola.</p>
-      <p>Esse material é o que vai anunciar o dia 19 de setembro. Uma marca que nunca teve prova social pública passou a ter.</p>
+      <p>O dia aconteceu com cobertura profissional das 10h às 18h e <strong>o material está todo na mão.</strong> Cliente provando, loja com movimento, o estilista falando, gente saindo com sacola.</p>
+      <p>É esse material que vai anunciar o dia 19 de setembro. Uma marca que nunca teve prova social pública passou a ter.</p>
 
       <h3>O disparo de WhatsApp</h3>
       <p>Foram <strong>254 convites entregues de 261</strong>, com 97,3% de entrega, zero duplicado e sem bloqueio do número. E a base está quente: <strong>97,6% dessas pessoas conversaram com a loja em agosto.</strong> Isso é carteira ativa, não lista fria.</p>
@@ -451,19 +344,19 @@ td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
       <div class="prova">
         <h4>O achado do relatório</h4>
         <p>Dos 254 contatos, 104 têm DDD 11. Cruzando com a data da última conversa, <strong>83 desses 104 entraram todos na mesma semana</strong>, que foi a semana da campanha do Dia dos Pais, e não voltaram a falar.</p>
-        <p>Nas conversas dos últimos sete dias, <strong>87% é DDD 19.</strong> Ou seja: quem realmente fala com a loja é da região. O bloco de São Paulo é lead que o anúncio trouxe num dia só.</p>
-        <p><strong>O que isso muda no dia 22:</strong> o convite foi para uma lista onde quatro em cada dez não tinham como aparecer. Com chance real de ir à loja eram 139, não 254.</p>
+        <p>Nas conversas dos últimos sete dias, <strong>87% é DDD 19.</strong> Quem realmente fala com a loja é da região. O bloco de São Paulo é lead que o anúncio trouxe num dia só.</p>
+        <p><strong>O que isso muda no dia 22:</strong> o convite foi para uma lista em que quatro de cada dez não tinham como aparecer. Com chance real de ir à loja eram 139, não 254.</p>
       </div>
 
       <h3>Os dois números que ainda faltam</h3>
       <p>Quantas pessoas entraram na loja e quanto entrou de venda no dia. <strong>Sem eles, a conversa sobre o sábado vira sensação</strong>, e foi o que aconteceu: duas pessoas no mesmo evento saíram com leituras opostas.</p>
-      <p>Se der para levantar por cima ainda ajuda. E no dia 19 esses dois números precisam existir desde a abertura: um risco num papel na porta, e o total no fim do dia.</p>
+      <p>Se der para levantar por cima, ainda ajuda. E no dia 19 esses dois números precisam existir desde a abertura: um risco num papel na porta, e o total no fim do dia.</p>
     </div>
   </section>
 
-  <!-- 04 -->
+  <!-- 05 -->
   <section class="bloco">
-    <div class="num">04</div>
+    <div class="num">05</div>
     <div class="corpo">
       <h2>Ponto de atenção</h2>
 
@@ -478,33 +371,40 @@ td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
       <p>Vestido parado havia tempo. Ofertado nos stories com o detalhe da peça e <strong>o preço escrito na tela.</strong> Três pessoas se interessaram. Era o último. Vendeu.</p>
 
       <h4>Três coisas operaram ali, não uma</h4>
-      <ul class="limpa">
-        <li data-n="01"><strong>O preço na tela.</strong> Tira o "quanto é?" do caminho. Toda pergunta de preço no direct cai na Sabrina, que é quem tem menos tempo para responder.</li>
-        <li data-n="02"><strong>O detalhe da peça.</strong> Confecção própria só aparece quando alguém aponta: tecido, modelagem, caimento.</li>
-        <li data-n="03"><strong>"Era o último."</strong> Foi isso que fechou a venda.</li>
-      </ul>
+      <ol class="passos">
+        <li><b>O preço na tela</b><span>Tira o "quanto é?" do caminho. Toda pergunta de preço no direct cai na Sabrina, que é quem tem menos tempo para responder.</span></li>
+        <li><b>O detalhe da peça</b><span>Confecção própria só aparece quando alguém aponta: tecido, modelagem, caimento.</span></li>
+        <li><b>Era o último</b><span>Foi isso que fechou a venda.</span></li>
+      </ol>
 
       <blockquote><p>Confecção própria com cerca de 40 peças por mês quer dizer que quase tudo na loja é peça única. "É a última no M", "essa não vai ter reposição", "só tenho duas" são frases verdadeiras, disponíveis todo dia, e a marca não diz nenhuma delas.</p></blockquote>
       <p>É o gatilho mais barato que a Ciés tem. Não custa uma peça a mais nem um real de anúncio.</p>
     </div>
   </section>
 
-  <!-- 05 -->
+  <!-- 06 -->
   <section class="bloco">
-    <div class="num">05</div>
+    <div class="num">06</div>
     <div class="corpo">
-      <h2>A rotina que resolve</h2>
-      <p class="sub">Três peças que funcionam juntas. Nenhuma delas depende de verba nova.</p>
+      <h2>A oferta do dia</h2>
+      <p class="sub">Uma peça por dia nos stories, escolhida pela Sabrina, gravada no provador com a peça no corpo.</p>
 
-      <h3>Uma · a oferta do dia</h3>
-      <p>Uma peça por dia nos stories, escolhida pela Sabrina, gravada <strong>no provador, com a peça no corpo.</strong></p>
-      <ul class="limpa">
-        <li data-n="01">A peça vestida</li>
-        <li data-n="02">O detalhe: tecido, modelagem, com o que combina</li>
-        <li data-n="03"><strong>O preço escrito na tela</strong>, não falado de passagem</li>
-        <li data-n="04"><strong>Quantas restam</strong></li>
-        <li data-n="05">Uma linha de fechamento: "me chama que eu separo"</li>
-      </ul>
+      <ol class="passos">
+        <li><b>A peça vestida</b><span>No provador, no corpo. Peça no cabide não converte igual.</span></li>
+        <li><b>O detalhe</b><span>Tecido, modelagem, com o que ela combina.</span></li>
+        <li><b>O preço escrito na tela</b><span>Não falado de passagem. Escrito, grande, visível sem som.</span></li>
+        <li><b>Quantas restam</b><span>"Última no M", "só tenho duas". Verdade, sempre.</span></li>
+        <li><b>Uma linha de fechamento</b><span>"Me chama que eu separo."</span></li>
+      </ol>
+
+      <span class="rotulo-msg">Modelo de fala, 30 a 40 segundos</span>
+      <div class="msg">Gente, olha essa aqui.
+
+É [nome da peça], em [tecido]. Repara no [detalhe] e no caimento.
+
+Ela sai por R$ [valor], e eu só tenho no [tamanho]. É a última, não vai ter reposição.
+
+Me chama aqui que eu separo.</div>
 
       <div class="caixa">
         <h4>Cabe na rotina? A conta</h4>
@@ -523,15 +423,15 @@ td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
       </div>
 
       <h4>As regras que fazem durar</h4>
-      <ul class="limpa">
-        <li data-n="·">Piso de <strong>4 por semana</strong>, meta de 6. Sete não se promete.</li>
-        <li data-n="·">Dia que cair não se recupera. Acumular atrasado é o que mata rotina.</li>
-        <li data-n="·">As peças paradas primeiro. Peça nova vende sozinha.</li>
-        <li data-n="·">Nunca repetir a mesma peça em menos de 15 dias.</li>
-        <li data-n="·">Se a noite render, grava duas ou três e posta uma por dia.</li>
+      <ul class="passos simples">
+        <li><b>Piso de 4 por semana, meta de 6</b><span>Sete não se promete.</span></li>
+        <li><b>Dia que cair não se recupera</b><span>Acumular atrasado é o que mata rotina.</span></li>
+        <li><b>As paradas primeiro</b><span>Peça nova vende sozinha.</span></li>
+        <li><b>Nunca a mesma peça em menos de 15 dias</b><span>Senão a base para de olhar.</span></li>
+        <li><b>Noite boa rende três</b><span>Grava duas ou três de uma vez e posta uma por dia.</span></li>
       </ul>
 
-      <h3>Duas · o combo da semana</h3>
+      <h3>E o combo da semana</h3>
       <p>Três peças que se conversam, com preço de conjunto. <strong>Sem desconto</strong>, e a diferença importa: desconto ensina a cliente a esperar promoção, preço de conjunto é produto novo.</p>
       <div class="rolagem">
         <table>
@@ -543,45 +443,143 @@ td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
           </tbody>
         </table>
       </div>
-
-      <h3>Três · o funil de atendimento</h3>
-      <p>Vender é metade. A outra metade é o que acontece <strong>depois</strong> que a pessoa responde.</p>
-      <p>Hoje ela responde o story, a Sabrina vê quando dá, e o pico de mensagem é às 15h, que é o horário em que a Sabrina está no trabalho. <strong>Em junho foram 52 conversas sem resposta.</strong> E o contrário também está medido: no Dia dos Pais, com alguém de plantão respondendo, <strong>8 conversas viraram 2 vendas.</strong></p>
-
-      <div class="prova">
-        <h4>A divisão que o Kauan propôs, e que resolve</h4>
-        <p><strong>Kauan abre e cutuca.</strong> A primeira resposta em até 15 minutos, e o lembrete 24h depois de quem sumiu.</p>
-        <p><strong>Sabrina fecha.</strong> A peça difícil, a medida, a foto extra, o "separei no seu nome".</p>
-        <p>Assim a resposta não fica esperando ela sair do trabalho. <strong>As frases dos três funis estão no documento "Três Coisas"</strong>, prontas para copiar e trocar só o nome e o preço.</p>
-      </div>
-
-      <h3>O que a rotina move</h3>
-      <p>São <strong>150 peças paradas</strong>, ao ticket medido de R$ 260. Isso são <strong>R$ 39 mil parados na arara</strong>, quase quatro meses de produção acumulada.</p>
-      <div class="rolagem">
-        <table>
-          <thead><tr><th>Por mês</th><th>Conservador</th><th>Base</th><th>Otimista</th></tr></thead>
-          <tbody>
-            <tr><td>Faturamento</td><td class="n">R$ 3.380</td><td class="n"><strong>R$ 5.720</strong></td><td class="n">R$ 8.060</td></tr>
-            <tr><td>Peças que saem do parado</td><td class="n">14</td><td class="n"><strong>24</strong></td><td class="n">34</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p><em>Estimativa, modelada sobre o único teste que existe, que foi o vestido rosa. Não é promessa.</em></p>
     </div>
   </section>
 
-  <!-- 06 -->
+  <!-- 07 -->
   <section class="bloco">
-    <div class="num">06</div>
+    <div class="num">07</div>
+    <div class="corpo">
+      <h2>O funil de atendimento</h2>
+      <p class="sub">Vender é metade. A outra metade é o que acontece depois que a pessoa responde.</p>
+
+      <p>Hoje ela responde o story, a Sabrina vê quando dá, e o pico de mensagem é às 15h, horário em que a Sabrina está no trabalho. <strong>Em junho foram 52 conversas sem resposta.</strong> E o contrário também está medido: no Dia dos Pais, com alguém de plantão respondendo, <strong>8 conversas viraram 2 vendas.</strong></p>
+
+      <div class="prova">
+        <h4>Quem faz o quê</h4>
+        <p><strong>Kauan abre e cutuca.</strong> A primeira resposta em até 15 minutos, e o lembrete 24h depois de quem sumiu.</p>
+        <p><strong>Sabrina fecha.</strong> A medida, a foto extra, a peça difícil, o "separei no seu nome".</p>
+        <p>Assim a resposta não fica esperando ela sair do trabalho. Foi o próprio Kauan que propôs essa divisão.</p>
+      </div>
+
+      <h3>Funil A · peça ofertada no story</h3>
+
+      <span class="rotulo-msg">Passo 1 · até 15 minutos · Kauan</span>
+      <div class="msg">Oi [nome]! Essa é a [peça], em [tecido]. Tenho no [tamanho] por R$ [valor].
+
+Ainda tá disponível, quer que eu separe no seu nome?</div>
+
+      <span class="rotulo-msg">Passo 2 · se disser sim</span>
+      <div class="msg">Separei aqui. Você prefere buscar no sábado ou eu envio?</div>
+
+      <span class="rotulo-msg">Passo 3 · se pedir mais · Sabrina</span>
+      <div class="msg">[foto ou vídeo extra, e a medida]
+
+Ela veste [medida]. E é a última no [tamanho], não vai ter reposição.</div>
+
+      <span class="rotulo-msg">Passo 4 · 24h depois, se sumir · Kauan</span>
+      <div class="msg">Oi [nome]! A [peça] ainda tá separada aqui, consigo segurar até amanhã.</div>
+
+      <span class="rotulo-msg">Passo 5 · se não fechar</span>
+      <div class="msg">Não insiste. O nome vai para a lista da próxima oferta parecida.</div>
+
+      <h3>Funil B · combo</h3>
+
+      <span class="rotulo-msg">Passo 1</span>
+      <div class="msg">Oi [nome]! Esse combo tem [peça 1], [peça 2] e [peça 3] e sai por R$ [valor] as três.
+
+Você usa [tamanho], né? Consigo montar no seu.</div>
+
+      <span class="rotulo-msg">Passo 2 · se ela quiser só uma</span>
+      <div class="msg">Consigo sim! A [peça] sozinha sai R$ [valor].
+
+Ai as três juntas ficam R$ [valor], que dá R$ [x] a menos em cada uma.</div>
+
+      <h3>Funil C · reserva do dia 19/09</h3>
+
+      <span class="rotulo-msg">Passo 1 · a partir de 15/09</span>
+      <div class="msg">Oi [nome]! Dia 19/09 é o aniversário da loja e vai ter coleção nova.
+
+Quer que eu separe uma peça no seu tamanho para você ver primeiro?</div>
+
+      <span class="rotulo-msg">Passo 2</span>
+      <div class="msg">Fechado, tá reservado no seu nome. Te chamo quando chegar.</div>
+
+      <span class="rotulo-msg">Passo 3 · véspera</span>
+      <div class="msg">Oi [nome]! Amanhã é o dia. Sua peça tá separada aqui, te espero.</div>
+    </div>
+  </section>
+
+  <!-- 08 -->
+  <section class="bloco">
+    <div class="num">08</div>
+    <div class="corpo">
+      <h2>A ação na base</h2>
+      <p class="sub">A peça com seu nome. Começa terça 25 e vai até sábado 29.</p>
+
+      <p>São <strong>1.091 contatos na agenda da loja</strong> e <strong>150 peças paradas</strong>, que ao ticket medido de R$ 260 são <strong>R$ 39 mil parados na arara.</strong> Duas coisas grandes, uma de frente para a outra, e ninguém apresentou uma à outra.</p>
+
+      <p>Essa ação não é disparo em massa. <strong>É curadoria individual, e usa o ativo que só a Sabrina tem: ela conhece as clientes.</strong></p>
+
+      <div class="prova">
+        <h4>Por que individual e não disparo</h4>
+        <p>Mensagem individual com o nome da pessoa responde entre 40% e 60%. Disparo genérico responde perto de 2%. <strong>É o mesmo esforço de escrever, muda só o cuidado de escolher para quem.</strong></p>
+      </div>
+
+      <h3>Como funciona</h3>
+      <ol class="passos">
+        <li><b>Sabrina separa 40 peças paradas</b><span>As que estão há mais tempo na arara. Foto de cada uma, com tamanho e preço.</span></li>
+        <li><b>Para cada peça, ela pensa em duas clientes</b><span>Quem tem o corpo, o estilo ou o gosto daquela peça. Ela já sabe isso de cabeça, é só escrever o nome do lado.</span></li>
+        <li><b>Kauan manda uma a uma, com o nome</b><span>Nunca em lista de transmissão. Uma conversa por vez, com a foto da peça.</span></li>
+        <li><b>A peça fica separada por 48h</b><span>Prazo curto e verdadeiro. Depois volta para a arara.</span></li>
+        <li><b>Quem responder entra no funil A</b><span>As frases já estão prontas no bloco anterior.</span></li>
+      </ol>
+
+      <span class="rotulo-msg">A mensagem</span>
+      <div class="msg">Oi [nome]! Separei essa aqui pensando em você.
+
+É [peça], em [tecido], e eu tenho no [tamanho], que é o seu. Sai por R$ [valor].
+
+Deixo separada até [dia]. Quer ver mais de perto?</div>
+
+      <h3>E os 104 contatos de São Paulo</h3>
+      <p>Aqueles que não têm como ir à loja continuam sendo clientes possíveis. <strong>Eles nunca receberam uma oferta de peça com preço, só convite de evento.</strong></p>
+      <p>Para eles a ação é a mesma, com uma diferença: <strong>a peça vai com envio.</strong> Sábado 29 sai um bloco de teste, e em uma semana a gente sabe se esse público compra ou não.</p>
+
+      <h3>Os 830 contatos que sobraram</h3>
+      <p><strong>Não dispara.</strong> Limpa antes, separa por região, e sai em blocos de 200 por semana. Loja com número bloqueado no WhatsApp perde o canal onde a venda acontece, e a Ciés já perdeu um Instagram inteiro por bloqueio em julho.</p>
+
+      <h3>O que a ação pode render</h3>
+      <div class="rolagem">
+        <table>
+          <thead><tr><th></th><th>Conservador</th><th>Base</th><th>Otimista</th></tr></thead>
+          <tbody>
+            <tr><td>Mensagens individuais</td><td class="n">60</td><td class="n"><strong>80</strong></td><td class="n">100</td></tr>
+            <tr><td>Taxa de resposta</td><td class="n">30%</td><td class="n"><strong>45%</strong></td><td class="n">60%</td></tr>
+            <tr><td>Conversas</td><td class="n">18</td><td class="n"><strong>36</strong></td><td class="n">60</td></tr>
+            <tr><td>Conversão em venda</td><td class="n">20%</td><td class="n"><strong>25%</strong></td><td class="n">30%</td></tr>
+            <tr><td>Vendas</td><td class="n">4</td><td class="n"><strong>9</strong></td><td class="n">18</td></tr>
+            <tr><td><strong>Faturamento</strong></td><td class="n">R$ 1.040</td><td class="n"><strong>R$ 2.340</strong></td><td class="n">R$ 4.680</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini"><em>Estimativa. A taxa de conversão de 25% é a medida da própria conta no Dia dos Pais, com alguém de plantão respondendo. Custo de mídia: zero.</em></p>
+    </div>
+  </section>
+
+  <!-- 09 -->
+  <section class="bloco">
+    <div class="num">09</div>
     <div class="corpo">
       <h2>O que é de cada um</h2>
-      <p class="sub">Essa semana, de 25 a 30 de agosto.</p>
+      <p class="sub">Semana de 25 a 30 de agosto.</p>
 
       <div class="fichas">
         <div class="ficha">
           <div class="quem">Sabrina</div>
           <ol>
             <li>Uma oferta por dia no story, com preço na tela. Piso de 4 na semana.</li>
+            <li>Separar 40 peças paradas e escrever duas clientes do lado de cada uma.</li>
             <li>Os cinco vídeos das parceiras, um por dia até sábado.</li>
             <li>Combinar o repost com cada parceira na hora de mandar o vídeo dela.</li>
             <li>Brutos para o Drive. A gente confirma que chegou e aí pode apagar do celular.</li>
@@ -590,7 +588,8 @@ td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
         <div class="ficha">
           <div class="quem">Kauan</div>
           <ol>
-            <li>Primeira resposta em até 15 minutos, com o funil pronto.</li>
+            <li>Mandar a peça com nome, uma a uma, com as frases prontas.</li>
+            <li>Primeira resposta em até 15 minutos. Você abre, ela fecha.</li>
             <li>Levantar os dois números do dia 22, mesmo por cima.</li>
             <li>Sábado 29: contar quem entrou e fechar o total do dia.</li>
             <li>Começar a lista de peças com tamanho e preço.</li>
@@ -602,6 +601,7 @@ td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
             <li>Anúncio em peça e novidade, com os criativos novos da semana.</li>
             <li>Corrigir e segmentar o disparo por região antes do próximo envio.</li>
             <li>Editar e programar os cinco vídeos das parceiras.</li>
+            <li>Limpar e separar os 830 contatos não usados.</li>
             <li>Fechar a oferta do dia 19 com vocês na reunião.</li>
           </ol>
         </div>
@@ -615,72 +615,56 @@ td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
     </div>
   </section>
 
-  <!-- 07 -->
+  <!-- 10 -->
   <section class="bloco">
-    <div class="num">07</div>
+    <div class="num">10</div>
     <div class="corpo">
       <h2>Setembro e o dia 19</h2>
-      <p class="sub">A loja abre aos sábados. Isso quer dizer que existem quatro dias de loja até o evento, e o evento é o quarto.</p>
+      <p class="sub">A loja abre aos sábados. Existem quatro dias de loja até o evento, e o evento é o quarto.</p>
 
       <ul class="cal">
-        <li>
-          <span class="dt">Sáb 29/08</span>
-          <span><span class="tt">Fecha agosto</span><span class="ds">Último dia do brinde das parceiras. Loja aberta.</span></span>
-        </li>
-        <li class="destaque">
-          <span class="dt">Sáb 05/09</span>
-          <span><span class="tt">Vale mais feriadão</span><span class="ds">Dia 7 cai na segunda. Melhor sábado comercial do mês, e é a última chamada das peças de inverno.</span></span>
-        </li>
-        <li>
-          <span class="dt">Sáb 12/09</span>
-          <span><span class="tt">Spoiler da coleção</span><span class="ds">A lista do dia 19 abre aqui.</span></span>
-        </li>
-        <li>
-          <span class="dt">Ter 15/09</span>
-          <span><span class="tt">Dia do Cliente</span><span class="ds">O convite um a um sai neste dia, começando por quem esteve no dia 22.</span></span>
-        </li>
-        <li class="destaque">
-          <span class="dt">Sáb 19/09</span>
-          <span><span class="tt">Lançamento e aniversário da loja</span><span class="ds">O dia. Coleção nova, com oferta grudada nele.</span></span>
-        </li>
-        <li>
-          <span class="dt">Ter 22/09</span>
-          <span><span class="tt">Começa a primavera</span><span class="ds">Prazo das peças de inverno. Depois disso elas ficam para o ano que vem.</span></span>
-        </li>
+        <li><span class="dt">Sáb 29/08</span><span><span class="tt">Fecha agosto</span><span class="ds">Último dia do brinde das parceiras. Loja aberta.</span></span></li>
+        <li><span class="dt">Sáb 05/09</span><span><span class="tt">Vale mais feriadão</span><span class="ds">Dia 7 cai na segunda. Melhor sábado comercial do mês, e é a última chamada das peças de inverno.</span></span></li>
+        <li><span class="dt">Sáb 12/09</span><span><span class="tt">Spoiler da coleção</span><span class="ds">A lista do dia 19 abre aqui.</span></span></li>
+        <li><span class="dt">Ter 15/09</span><span><span class="tt">Dia do Cliente</span><span class="ds">O convite um a um sai neste dia, começando por quem esteve no dia 22.</span></span></li>
+        <li><span class="dt">Sáb 19/09</span><span><span class="tt">Lançamento e aniversário da loja</span><span class="ds">O dia. Coleção nova, com oferta grudada nele.</span></span></li>
+        <li><span class="dt">Ter 22/09</span><span><span class="tt">Começa a primavera</span><span class="ds">Prazo das peças de inverno. Depois disso elas ficam para o ano que vem.</span></span></li>
       </ul>
 
       <div class="caixa">
         <h4>Onde o anúncio entra, e onde não entra</h4>
         <p>Verba não se distribui igual pelo calendário. <strong>Janela cara trabalha no orgânico, janela barata recebe o dinheiro.</strong></p>
-        <p>Dia 05/09 é vale e a Semana do Brasil está no ar: leilão caro, a base responde de graça. <strong>O anúncio de aquisição volta entre 15 e 19 de setembro</strong>, quando o leilão esfria e a prova social gravada no dia 22 já está no ar.</p>
-        <p>É exatamente o raciocínio que o Kauan defendeu no dia 17: o dia 22 é o ensaio que constrói credibilidade, e setembro é quando essa credibilidade vira anúncio.</p>
+        <p>Dia 05/09 é vale e a Semana do Brasil está no ar: leilão caro, e a base responde de graça. <strong>O anúncio de aquisição volta entre 15 e 19 de setembro</strong>, quando o leilão esfria e a prova social gravada no dia 22 já está no ar.</p>
+        <p>É o raciocínio que o Kauan defendeu no dia 17: o dia 22 é o ensaio que constrói credibilidade, e setembro é quando essa credibilidade vira anúncio.</p>
       </div>
 
       <h3>A oferta do dia 19</h3>
       <p>É a decisão mais importante de setembro e <strong>não pode ficar para a última semana.</strong> Três caminhos para decidir juntos na reunião:</p>
-      <ul class="limpa">
-        <li data-n="01"><strong>Reserva antecipada.</strong> Quem entra na lista escolhe a peça antes e ela fica separada com o nome. Foi o que converteu 25% no Dia dos Pais.</li>
-        <li data-n="02"><strong>Peça exclusiva do dia.</strong> Coleção nova, com peças que só saem no dia 19. Não é desconto, é prioridade.</li>
-        <li data-n="03"><strong>A arara do inverno.</strong> Preço de saída nas peças de inverno, porque dia 22 começa a primavera. É a arara secundária, não a principal.</li>
-      </ul>
+      <ol class="passos">
+        <li><b>Reserva antecipada</b><span>Quem entra na lista escolhe a peça antes e ela fica separada com o nome. Foi o que converteu 25% no Dia dos Pais.</span></li>
+        <li><b>Peça exclusiva do dia</b><span>Coleção nova, com peças que só saem no dia 19. Não é desconto, é prioridade.</span></li>
+        <li><b>A arara do inverno</b><span>Preço de saída nas peças de inverno, porque dia 22 começa a primavera. É a arara secundária, não a principal.</span></li>
+      </ol>
     </div>
   </section>
 
-  <!-- 08 -->
+  <!-- 11 -->
   <section class="bloco">
-    <div class="num">08</div>
+    <div class="num">11</div>
     <div class="corpo">
-      <h2>Pendências e a reunião</h2>
+      <h2>Pendências</h2>
 
       <div class="rolagem">
         <table>
           <thead><tr><th>O quê</th><th>Quem</th><th>Quando</th><th>Estado</th></tr></thead>
           <tbody>
+            <tr><td>Ler este material inteiro e responder no grupo</td><td>Sabrina e Kauan</td><td class="n">até 26/08</td><td><span class="chip pend">aguardando</span></td></tr>
             <tr><td>Os dois números do dia 22</td><td>Kauan</td><td class="n">até 26/08</td><td><span class="chip pend">pendente</span></td></tr>
+            <tr><td>Separar as 40 peças com nome de cliente</td><td>Sabrina</td><td class="n">até 26/08</td><td><span class="chip fazer">a fazer</span></td></tr>
             <tr><td>Prazo do brinde das parceiras</td><td>Sabrina</td><td class="n">até 29/08</td><td><span class="chip fazer">a fazer</span></td></tr>
             <tr><td>Combinar o repost de cada parceira</td><td>Sabrina</td><td class="n">a cada envio</td><td><span class="chip fazer">a fazer</span></td></tr>
             <tr><td>Corrigir o template do disparo</td><td>Expansion</td><td class="n">antes do próximo</td><td><span class="chip nosso">nosso</span></td></tr>
-            <tr><td>Segmentar os 830 contatos não usados</td><td>Expansion</td><td class="n">até 05/09</td><td><span class="chip nosso">nosso</span></td></tr>
+            <tr><td>Separar os 830 contatos não usados</td><td>Expansion</td><td class="n">até 05/09</td><td><span class="chip nosso">nosso</span></td></tr>
             <tr><td>Conferir os acessos da conta de anúncios</td><td>Expansion</td><td class="n">essa semana</td><td><span class="chip nosso">nosso</span></td></tr>
             <tr><td>Decidir a oferta do dia 19</td><td>Todos</td><td class="n">até 05/09</td><td><span class="chip fazer">a decidir</span></td></tr>
             <tr><td>Lista de peças com tamanho e preço</td><td>Sabrina e Kauan</td><td class="n">até 12/09</td><td><span class="chip fazer">a fazer</span></td></tr>
@@ -689,29 +673,45 @@ td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
         </table>
       </div>
 
-      <h3>Reunião de alinhamento</h3>
-      <p><strong>Quinta 27/08, às 20h. 45 minutos.</strong> Alternativa: sexta 28/08, mesmo horário.</p>
+      <h3>O que a gente ajusta do nosso lado</h3>
+      <ul class="passos simples">
+        <li><b>Avisar quando a meta muda</b><span>O objetivo do dia 22 mudou no dia 17 e não foi dito com todas as letras.</span></li>
+        <li><b>Entregar número, não sensação</b><span>Todo relatório passa a ter o que foi medido separado do que foi estimado.</span></li>
+        <li><b>Segmentar antes de disparar</b><span>Região e recência definidas antes de cada envio.</span></li>
+        <li><b>Duas semanas de antecedência</b><span>Vale para todo convite de evento, sem exceção.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 12 -->
+  <section class="bloco">
+    <div class="num">12</div>
+    <div class="corpo">
+      <h2>O que precisamos de vocês</h2>
+
+      <div class="chamada">
+        <h4>Antes da reunião</h4>
+        <ol class="passos">
+          <li><b>Os dois leem o material inteiro</b><span>Não só um. As decisões da semana estão todas aqui.</span></li>
+          <li><b>Respondem no grupo o que entenderam</b><span>Com as próprias palavras, e o que não ficou claro. É assim que a gente sabe se comunicou direito.</span></li>
+          <li><b>Confirmam quarta 26/08 às 19h</b><span>Se não der, falem hoje que a gente remarca.</span></li>
+        </ol>
+      </div>
+
+      <h3>A reunião</h3>
+      <p><strong>Quarta 26/08, às 19h. 45 minutos.</strong></p>
 
       <ul class="pauta">
         <li><span>O dia 22 lido com número</span><span class="t">10 min</span></li>
-        <li><span>A rotina de oferta e o funil de atendimento</span><span class="t">10 min</span></li>
-        <li><span>Setembro: os quatro sábados e a oferta do dia 19</span><span class="t">15 min</span></li>
-        <li><span>O que cada lado assume daqui para frente</span><span class="t">10 min</span></li>
-      </ul>
-
-      <h4>O que a Expansion precisa melhorar</h4>
-      <p>Essa lista abre a reunião, antes da de vocês.</p>
-      <ul class="limpa">
-        <li data-n="01"><strong>Avisar quando a meta muda.</strong> No dia 17 o objetivo do evento mudou de trazer cliente nova para construir credibilidade. Foi a decisão certa, e não foi dita com todas as letras para a Sabrina.</li>
-        <li data-n="02"><strong>Entregar número, não sensação.</strong> Os dois números do dia 22 não existem, e sem eles a conversa virou opinião contra opinião.</li>
-        <li data-n="03"><strong>Segmentar o disparo.</strong> Das 254 convidadas, só 139 tinham chance real de aparecer. Isso dava para saber antes.</li>
-        <li data-n="04"><strong>Antecedência.</strong> O convite saiu no próprio dia do evento. A régua combinada é avisar com duas semanas.</li>
+        <li><span>A oferta do dia e o funil de atendimento</span><span class="t">10 min</span></li>
+        <li><span>A ação na base e o que ela já rendeu até quarta</span><span class="t">10 min</span></li>
+        <li><span>Setembro, os quatro sábados e a oferta do dia 19</span><span class="t">15 min</span></li>
       </ul>
     </div>
   </section>
 
   <div class="fecho">
-    <p>O evento construiu a credibilidade que faltava e a semana provou que a máquina de conteúdo funciona. O que falta agora é oferta todo dia, com preço na cara, e alguém respondendo rápido do outro lado.</p>
+    <p>O evento construiu a credibilidade que faltava e a semana provou que a máquina de conteúdo funciona. O que falta agora é oferta todo dia, com preço na cara, alguém respondendo rápido, e a base de vocês sendo trabalhada uma pessoa por vez.</p>
   </div>
 
   <div class="rodape">
