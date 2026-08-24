@@ -228,6 +228,21 @@ button{font-family:inherit}
 .cartao-et h3{font-size:14px;font-weight:600;margin-bottom:7px}
 .cartao-et p{font-size:13px;color:var(--meio);line-height:1.6}
 .legenda-vista{white-space:pre-wrap;font-size:13.5px;line-height:1.65;color:#C6CDD9}
+/* Publicar do celular. As imagens ficam GRANDES de propósito: o gesto é
+   segurar a foto, e alvo pequeno erra. Rola na horizontal para os nove
+   caberem sem empurrar o resto da tela pra baixo. */
+.tira-cel{display:flex;gap:10px;overflow-x:auto;padding:2px 0 8px;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.tira-cel figure{margin:0;flex:none;width:min(210px,52vw);scroll-snap-align:start}
+.tira-cel img{width:100%;display:block;border-radius:9px;border:1px solid var(--linha);
+  background:var(--campo)}
+.tira-cel figcaption{font-family:var(--mono);font-size:9px;color:var(--fraco);
+  margin-top:5px;text-align:center}
+.passo-cel{display:flex;gap:9px;align-items:flex-start;margin-top:11px;font-size:12.5px;
+  color:var(--meio);line-height:1.55}
+.passo-cel b{flex:none;width:19px;height:19px;border-radius:50%;background:var(--pt-accent,var(--expansion));
+  color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;
+  margin-top:1px}
 .trava{display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:11px;text-align:center;padding:60px 24px;color:var(--meio)}
 .trava b{color:var(--texto);font-size:14.5px;font-weight:600}
@@ -404,12 +419,32 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
 .oculto{display:none !important}
 
 @media(max-width:1180px){
-  .grade{grid-template-columns:1fr;height:auto}
+  /* `minmax(0,1fr)` e não `1fr`: o mínimo de uma faixa `1fr` é `auto`, ou seja
+     o min-content do que está dentro. Bastava um bloco largo para a coluna
+     inteira crescer e a página vazar para a direita — no celular ela ia a
+     2052px e o navegador afastava tudo para caber. */
+  .grade{grid-template-columns:minmax(0,1fr);height:auto}
   .trilho{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--linha)}
   .etapas{flex-direction:row}
   .encolher{display:none}
   .col{max-height:none;border:0;border-bottom:1px solid var(--linha)}
   .palco{min-height:500px}
+}
+
+/* ---------- celular ----------
+   O Estúdio é uma mesa de trabalho de quatro colunas; no telefone ele não é
+   isso, é a tela de publicar. Então o que vem primeiro é publicar. */
+@media(max-width:700px){
+  .col,.painel-et,.cartao-et,.bloco{min-width:0}
+  #c-aprovacao{display:flex;flex-direction:column}
+  #cartao-cel{order:-1}
+  .cartao-et{padding:15px}
+  .cartao-et .acoes{flex-wrap:wrap}
+  .cartao-et .acoes .btn{flex:1 1 auto;min-width:0}
+  .tira-cel figure{width:min(240px,64vw)}
+  /* Palco e tiras não cabem num telefone e não é neles que se publica. */
+  .palco{min-height:0}
+  .topo-linha{flex-wrap:wrap;gap:8px}
 }
 </style>
 
@@ -1905,7 +1940,7 @@ async function exportarPngs(estado){
 
     const nome = `${base}-${String(i + 1).padStart(2, '0')}.png`;
     estado(`Slide ${i + 1} de ${n} — confirme o download de ${nome}`);
-    let tentou = false;
+    let tentou = 0;
     for (;;){
       try { await dl.save({filename: nome, data: blob}); salvos++; break; }
       catch (e){
@@ -1916,7 +1951,18 @@ async function exportarPngs(estado){
           estado(`Parei no slide ${i + 1}. ${salvos} arquivo(s) salvo(s).`, 'aviso');
           return;
         }
-        if (cod === 'rate_limited' && !tentou){ tentou = true; await espera(1200); continue; }
+        // O canal corta depois de algumas confirmações seguidas. Insistir três
+        // vezes com espera crescente resolve quando é só ritmo; quando é teto
+        // duro, a mensagem manda pro caminho do celular em vez de parar calada.
+        if (cod === 'rate_limited' && tentou < 3){
+          tentou++; estado(`Pausa do navegador no slide ${i + 1}. Tentando de novo…`, 'aviso');
+          await espera(1200 * tentou); continue;
+        }
+        if (cod === 'rate_limited'){
+          estado(`O navegador travou em ${salvos} arquivos — ele limita downloads seguidos. `
+            + 'Use "Publicar do celular" logo acima: as imagens ficam na tela, sem download.', 'ruim');
+          return;
+        }
         if (cod === 'too_large'){
           estado(`O slide ${i + 1} passou de 16 MB. Reduza a imagem de fundo dele.`, 'ruim');
           return;
@@ -1941,6 +1987,10 @@ function vagasAbertas(){
   }
   return fora;
 }
+
+/* Imagens prontas para o celular, entre repinturas do painel. `marca` amarra
+   o cache à peça e ao texto: mudou o conteúdo, gera de novo. */
+let CEL = {marca: null};
 
 /* ── aprovação ─────────────────────────────────────────────────────────── */
 function pintarAprovacao(){
@@ -1998,6 +2048,16 @@ function pintarAprovacao(){
         const l = Object.entries(conta).sort((a,b) => b[1]-a[1])
           .map(([k,v]) => `${nomes[k] || k} ${v}`).join(' · ');
         return l ? '<br>' + l : 'Nada registrado ainda nesta peça.'; })()}</p></div>
+    <div class="cartao-et" id="cartao-cel"><h3>Publicar do celular</h3>
+      <div class="acoes" style="margin:0 0 4px">
+        <button class="btn btn-forte" id="b-cel" disabled
+          style="flex:1;padding:12px;font-size:14px">Preparando as ${nSlides()} imagens…</button>
+      </div>
+      <div class="acoes" style="margin:8px 0 0">
+        <button class="btn" id="b-legenda" style="flex:1;padding:10px">Copiar legenda</button>
+      </div>
+      <p id="b-cel-estado" style="margin-top:10px;font-size:13px;color:var(--fraco)"></p>
+      <div id="cel-tira"></div></div>
     <div class="cartao-et"><h3>Baixar os PNGs</h3>
       <p>Os ${nSlides()} slides em 1080 × 1350, na ordem de publicação. Dois caminhos,
       mesmos arquivos:</p>
@@ -2022,6 +2082,90 @@ function pintarAprovacao(){
                   : nivel === 'bom'  ? 'var(--ok,#3dd68c)'
                   : nivel === 'aviso'? 'var(--aviso,#e8b339)' : 'var(--fraco)';
   };
+  /* ── publicar do celular ──────────────────────────────────────────────
+     No telefone, BAIXAR é o caminho errado — e foi o que eu tinha entregado.
+     `<a download>` num HTML aberto do gerenciador de arquivos não dispara em
+     iOS nem em Android, e mesmo disparando ninguém encara nove downloads
+     seguidos e depois vai caçar os arquivos na galeria.
+
+     O que funciona é a folha de compartilhamento nativa com os nove de uma
+     vez. Só que `navigator.share` exige gesto do usuário e **perde o gesto se
+     houver `await` antes dele** — gerar nove slides leva segundos, então
+     chamar share depois de gerar falha sempre.
+
+     Por isso as imagens são geradas SOZINHAS ao abrir a Aprovação, antes de
+     qualquer clique. Quando o botão acende, ele já tem os arquivos na mão e
+     o share sai limpo do próprio toque. Um toque, nove imagens.
+
+     O plano B é segurar a foto e "Adicionar às Fotos": funciona em qualquer
+     navegador móvel, sem permissão. Por isso as imagens entram como `data:`
+     e não `blob:` — o menu de segurar do iOS oferece "Adicionar às Fotos" no
+     data URL e nem sempre no blob. */
+  const bcel = $('#b-cel'), tira = $('#cel-tira'), estCel = $('#b-cel-estado');
+  const digaCel = (t, cor) => { if (estCel){ estCel.textContent = t;
+    estCel.style.color = cor === 'bom' ? 'var(--ok,#3dd68c)'
+                       : cor === 'ruim' ? 'var(--ruim,#e5484d)' : 'var(--fraco)'; } };
+
+  if (bcel) (async () => {
+    const marca = peca.id + ':' + nSlides() + ':' + (peca.txt || '').length;
+    let pronto = CEL.marca === marca ? CEL : null;
+    if (!pronto){
+      const fotos = await pngsDaPeca(() => {}, 'jpeg');
+      if (!fotos){ if ($('#b-cel')) $('#b-cel').textContent = 'Não consegui gerar as imagens'; return; }
+      const arquivos = [], partes = [];
+      for (const a of fotos){
+        const bytes = new Uint8Array(await a.blob.arrayBuffer());
+        partes.push(`<figure><img src="data:${a.mime};base64,${b64De(bytes)}" alt="${a.nome}">
+          <figcaption>${a.nome.split('-').pop()}</figcaption></figure>`);
+        arquivos.push(new File([a.blob], a.nome, {type: a.mime}));
+      }
+      pronto = CEL = {marca, arquivos, html: partes.join(''), n: fotos.length};
+    }
+    // A etapa pode ter mudado enquanto isto rodava; pintar de novo num painel
+    // que já saiu de cena escreveria em nós órfãos.
+    const b = $('#b-cel'), t = $('#cel-tira');
+    if (!b || !t) return;
+    const pode = !!(navigator.canShare && navigator.canShare({files: pronto.arquivos}));
+    b.disabled = false;
+    b.textContent = pode ? `Salvar as ${pronto.n} imagens` : `${pronto.n} imagens prontas — segure para salvar`;
+    t.innerHTML = `<div class="tira-cel">${pronto.html}</div>
+      <div class="passo-cel"><b>1</b><span>${pode
+        ? 'Toque no botão laranja e escolha <b style="all:unset;font-weight:600;color:var(--texto)">Salvar imagens</b>. As ' + pronto.n + ' vão juntas para a galeria.'
+        : '<b style="all:unset;font-weight:600;color:var(--texto)">Segure</b> cada foto acima e toque em <b style="all:unset;font-weight:600;color:var(--texto)">Adicionar às Fotos</b>, na ordem.'}</span></div>
+      <div class="passo-cel"><b>2</b><span>Toque em <b style="all:unset;font-weight:600;color:var(--texto)">Copiar legenda</b>.</span></div>
+      <div class="passo-cel"><b>3</b><span>Abra o Instagram, escolha as ${pronto.n} da galeria na ordem e cole a legenda.</span></div>`;
+    b.onclick = async () => {
+      if (!pode){ t.scrollIntoView({behavior: 'smooth', block: 'start'}); return; }
+      // Sem `await` antes do share: o gesto ainda vale.
+      try { await navigator.share({files: pronto.arquivos, title: peca.nome}); }
+      catch (e){
+        if (e && e.name === 'AbortError') return;
+        digaCel('A folha de compartilhamento não abriu neste navegador. '
+          + 'Segure cada foto acima e use "Adicionar às Fotos".', 'ruim');
+      }
+    };
+  })();
+
+  const bleg = $('#b-legenda');
+  if (bleg) bleg.onclick = async () => {
+    const t = (peca.legenda || '').trim();
+    if (!t){ digaCel('Esta peça ainda não tem legenda escrita.', 'ruim'); return; }
+    try {
+      await navigator.clipboard.writeText(t);
+      bleg.textContent = 'Legenda copiada ✓';
+      setTimeout(() => { const b = $('#b-legenda'); if (b) b.textContent = 'Copiar legenda'; }, 2400);
+    } catch (e){
+      // Sem permissão de área de transferência (comum em iframe): abre o texto
+      // selecionado, que é o que sobra para copiar à mão.
+      const cx = document.createElement('textarea');
+      cx.value = t; cx.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);'
+        + 'width:min(90vw,520px);height:40vh;z-index:200;font:13px/1.6 var(--ui);padding:12px';
+      document.body.appendChild(cx); cx.focus(); cx.select();
+      digaCel('Não consegui copiar sozinho — selecionei o texto para você copiar.', 'ruim');
+      cx.onblur = () => cx.remove();
+    }
+  };
+
   const bz = $('#b-zip'), bb = $('#b-baixar');
   const trava = async fn => {
     if (bz) bz.disabled = true; if (bb) bb.disabled = true;
