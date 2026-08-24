@@ -399,10 +399,38 @@ O ZIP é `store` e não deflate porque PNG já vem comprimido: a compressão
 renderia quase nada e custaria o dobro de código. São ~50 linhas — tabela de
 CRC32, cabeçalho local por arquivo, diretório central e registro de fim.
 
-O `.html` engorda cerca de um terço por causa do base64: uma peça de 8,3 MB em
-PNG vira ~11 MB de página. O teto é 16 MiB e vale para o arquivo inteiro, então
-peça com fundos pesados pode estourar — nesse caso a mensagem manda para os
-arquivos separados, que passam um a um.
+### O teto de 16 MB, e por que o pacote é JPEG
+
+Quando as peças ganharam foto de verdade, o gargalo **mudou de lugar**. Medido
+com nove slides fotográficos:
+
+| | Tamanho | Resultado |
+|---|---|---|
+| ZIP em PNG | 13,5 MB | cabe no teto — barrado pela **extensão** |
+| Página em PNG | 18,0 MB | extensão aceita — **estoura** o teto de 16 MB |
+
+Os dois planos falhavam, cada um por um motivo diferente. O plano B tinha
+funcionado antes só porque a peça de teste pesava 8 MB.
+
+A saída foi encolher a carga: **o pacote sai em JPEG a 95%.** Medido slide a
+slide contra o PNG, ocupa **20% do tamanho** com diferença média de **1 em
+255** — invisível a olho, e com folga de sobra para a recompressão do
+Instagram. O mesmo pacote caiu de 18 MB para 2,9 MB.
+
+Dois detalhes do JPEG que custam pouco e evitam estrago:
+
+- **`fillRect` branco antes do `drawImage`.** JPEG não tem canal alfa: sem
+  pintar o fundo, qualquer transparência vira **preto**, não branco. Os slides
+  são opacos hoje — o preço de esquecer é uma peça arruinada.
+- **O tamanho é conferido antes de pedir a confirmação.** Descobrir que
+  estourou depois de o operador clicar em salvar é o pior momento possível.
+
+Os **arquivos separados continuam em PNG**, qualidade máxima: ali não existe
+teto agregado, cada arquivo passa sozinho.
+
+E a mensagem de recusa nomeia a porta que fechou — *extensão fora da lista*,
+*extensão existe mas não habilitada nesta conta* e *acima do teto* são três
+diagnósticos diferentes, com três saídas diferentes.
 
 ## Dez controles que não funcionavam
 

@@ -1632,7 +1632,22 @@ function nomeArquivo(base){
   return limpo || 'carrossel';
 }
 
-async function pngDoSlide(i){
+/* Os dois formatos de saída, e por que existem os dois.
+
+   O PNG é a cópia exata do que se vê. O JPEG a 95% ocupa 20% disso, com
+   diferença média de 1/255 — medido slide a slide contra o PNG, é invisível a
+   olho e sobrevive à recompressão do Instagram.
+
+   Isso deixou de ser detalhe quando as peças ganharam foto de verdade: nove
+   slides fotográficos dão 13 MB em PNG, e o pacote de arquivo único tem teto
+   de 16 MB. Em PNG a página de fallback ia a 18 MB e estourava; em JPEG ela
+   fica em torno de 3 MB e passa com folga. */
+const FORMATOS = {
+  png:  {mime: 'image/png',  ext: 'png', q: undefined},
+  jpeg: {mime: 'image/jpeg', ext: 'jpg', q: 0.95},
+};
+
+async function pngDoSlide(i, forma){
   const med = $('#medidor'), guarda = atual;
   atual = i;
   med.innerHTML = render(i);
@@ -1662,11 +1677,17 @@ async function pngDoSlide(i){
     img.onerror = () => erro(new Error('o navegador não rasterizou o slide ' + (i + 1)));
     img.src = url;
   });
+  const f = FORMATOS[forma] || FORMATOS.png;
   const cv = document.createElement('canvas');
   cv.width = 1080; cv.height = 1350;
-  cv.getContext('2d').drawImage(img, 0, 0, 1080, 1350);
+  const cd = cv.getContext('2d');
+  // JPEG não tem canal alfa: sem pintar o fundo antes, qualquer transparência
+  // do slide vira PRETO em vez de branco. Os slides são opacos hoje, mas o
+  // custo disso é um fillRect e o preço de esquecer é uma peça arruinada.
+  if (f.mime === 'image/jpeg'){ cd.fillStyle = '#fff'; cd.fillRect(0, 0, 1080, 1350); }
+  cd.drawImage(img, 0, 0, 1080, 1350);
   return await new Promise((ok, erro) =>
-    cv.toBlob(b => b ? ok(b) : erro(new Error('o canvas não virou PNG')), 'image/png'));
+    cv.toBlob(b => b ? ok(b) : erro(new Error('o canvas não virou imagem')), f.mime, f.q));
 }
 
 const espera = ms => new Promise(r => setTimeout(r, ms));
@@ -1736,14 +1757,15 @@ function zipDe(arquivos){
 
 /* Gera os PNGs de todos os slides. Separado do envio porque os dois modos —
    arquivo a arquivo e ZIP — usam exatamente os mesmos bytes. */
-async function pngsDaPeca(estado){
+async function pngsDaPeca(estado, forma){
+  const f = FORMATOS[forma] || FORMATOS.png;
   const base = nomeArquivo(peca.nome), n = nSlides(), fora = [];
   for (let i = 0; i < n; i++){
     estado(`Preparando slide ${i + 1} de ${n}…`);
     let blob;
-    try { blob = await pngDoSlide(i); }
+    try { blob = await pngDoSlide(i, forma); }
     catch (e){ estado('Não consegui gerar o slide ' + (i + 1) + ': ' + e.message, 'ruim'); return null; }
-    fora.push({nome: `${base}-${String(i + 1).padStart(2, '0')}.png`, blob});
+    fora.push({nome: `${base}-${String(i + 1).padStart(2, '0')}.${f.ext}`, blob, mime: f.mime});
   }
   return fora;
 }
@@ -1762,7 +1784,7 @@ function b64De(u8){
    artefato é justamente o que não dá. */
 function paginaDe(partes, titulo){
   const itens = partes.map(a =>
-    `<figure><img src="data:image/png;base64,${b64De(a.bytes)}" alt="${a.nome}">
+    `<figure><img src="data:${a.mime || 'image/png'};base64,${b64De(a.bytes)}" alt="${a.nome}">
       <figcaption>${a.nome}</figcaption></figure>`).join('');
   const nomes = JSON.stringify(partes.map(a => a.nome));
   return new Blob([`<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
@@ -1815,11 +1837,16 @@ async function baixarPacote(estado){
       + 'Abra o Estúdio pelo link do artefato, na sua conta.', 'ruim');
     return;
   }
-  const pngs = await pngsDaPeca(estado);
+  // JPEG no pacote, não PNG: o teto de 16 MB é do arquivo INTEIRO, e nove
+  // slides fotográficos em PNG dão 13 MB — a página de fallback ia a 18 MB e
+  // estourava. Em JPEG a 95% o mesmo pacote fica em torno de 3 MB.
+  const pngs = await pngsDaPeca(estado, 'jpeg');
   if (!pngs) return;
   const partes = [];
-  for (const a of pngs) partes.push({nome: a.nome, bytes: new Uint8Array(await a.blob.arrayBuffer())});
+  for (const a of pngs) partes.push({nome: a.nome, mime: a.mime,
+    bytes: new Uint8Array(await a.blob.arrayBuffer())});
   const base = nomeArquivo(peca.nome);
+  const mb = v => (v / 1024 / 1024).toFixed(1) + ' MB';
 
   const recusadas = [];
   for (const p of PACOTES){
@@ -1828,34 +1855,36 @@ async function baixarPacote(estado){
     try { dados = p.monta(partes, peca.nome); }
     catch (e){ recusadas.push(`${p.ext}: não montou`); continue; }
     const nome = `${base}.${p.ext}`;
-    estado(`Confirme o download de ${nome}`);
-    try {
-      await dl.save({filename: nome, data: dados});
-      estado(`${pngs.length} slides num arquivo só: ${nome}`
-        + (p.ext === 'html' ? ' — abra ele e clique em "Salvar os PNGs".' : ''), 'bom');
-      return;
-    } catch (e){
+    // Tamanho ANTES de pedir a confirmação: estourar o teto depois de o
+    // operador clicar "salvar" é o pior momento possível para descobrir.
+    if (dados.size > 16 * 1024 * 1024){
+      recusadas.push(`${p.ext}: ${mb(dados.size)}, acima do teto de 16 MB`); continue;
+    }
+    estado(`Confirme o download de ${nome} · ${mb(dados.size)}`);
+    const venceu = () => estado(`${pngs.length} slides num arquivo só: ${nome} (${mb(dados.size)})`
+      + (p.ext === 'html' ? ' — abra o arquivo e clique em "Salvar os 9".' : ''), 'bom');
+    try { await dl.save({filename: nome, data: dados}); venceu(); return; }
+    catch (e){
       const cod = e && e.code;
       // Recusa por extensão não é falha do usuário: tenta o próximo formato.
       if (cod === 'rejected_extension' || cod === 'extension_not_enabled'){
-        recusadas.push(`${p.ext} (${cod})`); continue;
+        recusadas.push(`${p.ext}: ${cod === 'rejected_extension'
+          ? 'extensão fora da lista que o download aceita'
+          : 'extensão existe, mas não está habilitada nesta conta'}`);
+        continue;
       }
       if (cod === 'declined'){ estado('Download recusado. Nada foi salvo.', 'aviso'); return; }
       if (cod === 'rate_limited'){
         await espera(1200);
-        try {
-          await dl.save({filename: nome, data: dados});
-          estado(`${pngs.length} slides num arquivo só: ${nome}`, 'bom'); return;
-        } catch (e2){ recusadas.push(`${p.ext} (${(e2 && e2.code) || 'erro'})`); continue; }
+        try { await dl.save({filename: nome, data: dados}); venceu(); return; }
+        catch (e2){ recusadas.push(`${p.ext} (${(e2 && e2.code) || 'erro'})`); continue; }
       }
-      if (cod === 'too_large'){
-        recusadas.push(`${p.ext}: passou de 16 MB`); continue;
-      }
+      if (cod === 'too_large'){ recusadas.push(`${p.ext}: ${mb(dados.size)}, acima do teto`); continue; }
       recusadas.push(`${p.ext} (${cod || 'erro'})`); continue;
     }
   }
-  estado('Nenhum formato de arquivo único passou aqui — ' + recusadas.join(', ')
-    + '. Use "arquivos separados", que é PNG e sempre passa.', 'ruim');
+  estado('Arquivo único não passou aqui. ' + recusadas.join(' · ')
+    + '. Baixe em arquivos separados — PNG está na lista base e sempre passa.', 'ruim');
 }
 
 async function exportarPngs(estado){
@@ -1973,11 +2002,15 @@ function pintarAprovacao(){
       <p>Os ${nSlides()} slides em 1080 × 1350, na ordem de publicação. Dois caminhos,
       mesmos arquivos:</p>
       <p style="font-size:12px;color:var(--fraco)"><b>Tudo num arquivo</b> — uma
-      confirmação só. Tenta ZIP e, se esta visualização não aceitar essa extensão,
-      manda uma página com os ${nSlides()} PNGs dentro: abre ela e um botão salva todos.<br>
-      <b>Separados</b> — vão direto para a pasta de downloads, prontos para arrastar
-      pro Instagram, mas o navegador pede confirmação a cada arquivo: ${nSlides()}
-      seguidas.</p>
+      confirmação só, em JPEG a 95%. Tenta ZIP e, se esta visualização não aceitar
+      essa extensão, manda uma página com os ${nSlides()} slides dentro: abre o arquivo
+      e um botão salva todos de uma vez.<br>
+      <b>Separados</b> — ${nSlides()} PNGs, qualidade máxima, direto na pasta de
+      downloads. O navegador pede confirmação a cada arquivo: ${nSlides()} seguidas.</p>
+      <p style="font-size:12px;color:var(--fraco);margin-top:-4px">O canal de download
+      tem teto de <b>16 MB por arquivo</b>. Nove slides com foto dão ~13 MB em PNG e a
+      página estourava; em JPEG o pacote cai para cerca de 3 MB. A olho não muda nada —
+      a diferença medida contra o PNG é de 1 em 255.</p>
       <div class="acoes"><button class="btn btn-forte" id="b-zip">
         Baixar tudo num arquivo</button>
         <button class="btn" id="b-baixar">${nSlides()} arquivos separados</button></div>
