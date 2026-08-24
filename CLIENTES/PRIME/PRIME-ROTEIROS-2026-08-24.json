@@ -1,0 +1,552 @@
+{
+  "titulo": "Prime Alphaville",
+  "subtitulo": "@prime.alphaville  •  Crédito Imobiliário  •  Corretores, Empresários e Cliente Final",
+  "framework": "Framework: TACO(H)  |  18 Roteiros  |  Foco: conversão nos 3 objetivos da Prime + Convenção",
+  "secoes": [
+    {
+      "cabecalho": "OBJETIVO 1 — CORRETOR E IMOBILIÁRIA  ·  parceria  ·  5 roteiros",
+      "roteiros": [
+        {
+          "titulo": "ROTEIRO 11 — \"A pergunta que você devia fazer antes de mostrar o imóvel\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: TÉCNICO — QUALIFICAÇÃO",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"Corretor: existe uma pergunta que economiza semanas do seu trabalho. E quase ninguém faz ela no começo.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"A gente marca a visita, mostra três imóveis, o cliente se apaixona por um. E só aí alguém pensa em olhar crédito. É nessa hora que a negociação trava.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"A pergunta é simples: como é a sua renda hoje? Não é quanto você ganha. É como. Porque renda formal, autônomo e faturamento de PJ são analisados de formas completamente diferentes. E cada instituição tem uma política própria pra cada um desses perfis. Quando você sabe isso antes da visita, você mostra o imóvel certo, monta a proposta certa e não queima o cliente numa análise que nunca ia passar.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente ANÁLISE que a gente te mostra como fazer essa triagem antes da visita.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #CorretorDeImoveis #MercadoImobiliario #CreditoImobiliario #Imobiliaria #Alphaville #FinanciamentoImobiliario"
+        },
+        {
+          "titulo": "ROTEIRO 12 — \"Três coisas que travam quase toda análise\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: TÉCNICO — PROCESSO",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"Se a análise do seu cliente está demorando, quase sempre é uma dessas três coisas.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"E nenhuma delas tem a ver com o cliente não ter condição de comprar.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"Primeira: documento vencido. Certidão, comprovante, contrato social — tudo tem prazo de validade, e ninguém confere antes de enviar. Segunda: composição de renda montada errada. Duas pessoas na proposta quando só uma tinha o perfil. Ou o contrário. Terceira: pendência na matrícula do imóvel que ninguém foi olhar antes. E aí a análise volta, você reenvia, e some mais uma semana. Não é o processo que é lento. É o que entra nele.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Salva esse vídeo e confere essa lista antes de mandar a próxima proposta.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #CorretorDeImoveis #MercadoImobiliario #CreditoImobiliario #Imobiliaria #Alphaville #FinanciamentoImobiliario"
+        },
+        {
+          "titulo": "ROTEIRO 13 — \"Quanto tempo você espera antes de dar a venda como perdida?\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: OBJEÇÃO — ACOMPANHAMENTO",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"Quanto tempo você espera antes de considerar que aquela venda não vai mais acontecer?\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"Uma semana? Duas? Um mês? A maior parte das vendas não morre num não. Morre no silêncio.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"O cliente foi analisado, não teve retorno, ficou sem saber o que aconteceu. Aí ele esfria. Depois some. E quando você percebe, ele já comprou com outro. O ponto é que aquele caso, na maioria das vezes, ainda estava vivo — só faltava alguém acompanhando pra destravar. É isso que muda quando existe uma assessoria cuidando da etapa de crédito: alguém que liga, cobra, resolve pendência e te dá resposta antes do cliente perguntar.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente PRIME que a gente te explica como funciona esse acompanhamento.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #CorretorDeImoveis #MercadoImobiliario #CreditoImobiliario #Imobiliaria #Alphaville #FinanciamentoImobiliario"
+        },
+        {
+          "titulo": "ROTEIRO 14 — \"O que a sua imobiliária ganha com crédito dentro de casa\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: AUTORIDADE — GESTOR DE IMOBILIÁRIA",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"Essa aqui é pra quem é dono ou gestor de imobiliária. Não é pro corretor.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"Você já parou pra calcular quanto a sua imobiliária deixa de faturar por mês em negócio que travou no crédito?\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"A conta é simples de fazer e desconfortável de ver. Pega o número de propostas que não fecharam por análise negada nos últimos seis meses. Multiplica pelo seu ticket médio. Aplica a comissão da casa. Esse é o valor. E o mais caro nem é ele: é o corretor que perde a motivação, o cliente que sai da sua base e a reputação da imobiliária marcada por uma etapa que nem é sua. Ter crédito estruturado dentro da operação não é benefício pro corretor. É margem pra empresa.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente PARCERIA que a gente senta com você pra fazer essa conta junto.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #CorretorDeImoveis #MercadoImobiliario #CreditoImobiliario #Imobiliaria #Alphaville #FinanciamentoImobiliario"
+        },
+        {
+          "titulo": "ROTEIRO 15 — \"O treinamento que a gente leva pra dentro da sua imobiliária\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: HYPE — OFERTA DE EXPERIÊNCIA",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"A gente leva um treinamento pra dentro da sua imobiliária. E ele não é sobre crédito.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"É sobre mentalidade. Sobre o que separa o corretor que bate meta do que fica no mesmo lugar o ano inteiro.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"A gente entendeu uma coisa: o gestor de imobiliária não acorda pensando em política de crédito. Ele acorda pensando em como elevar o nível do time dele. Então a Prime montou uma experiência: a gente vai até a sua imobiliária, reúne o seu time e entrega uma palestra sobre mentalidade e inteligência emocional aplicada a vendas. Sem custo nenhum pra você. E no meio disso, sim, a gente apresenta o que a Prime faz. Mas o treinamento é seu de qualquer jeito.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente TREINAMENTO que a gente monta a data com você.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #CorretorDeImoveis #MercadoImobiliario #CreditoImobiliario #Imobiliaria #Alphaville #FinanciamentoImobiliario"
+        }
+      ]
+    },
+    {
+      "cabecalho": "OBJETIVO 2 — EMPRESÁRIO  ·  liquidez e CGI  ·  5 roteiros",
+      "roteiros": [
+        {
+          "titulo": "ROTEIRO 16 — \"Seu imóvel quitado pode estar te custando dinheiro\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: TÉCNICO — CUSTO DE OPORTUNIDADE",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"Ter um imóvel quitado parece segurança. Em alguns casos, é custo.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"Não porque o imóvel seja ruim. Mas porque ele pode estar parado enquanto a sua empresa paga caro por capital.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"Pensa numa empresa que tem um imóvel quitado no balanço e, ao mesmo tempo, usa capital de giro, antecipação de recebível e cheque especial. São duas realidades dentro do mesmo CNPJ: um ativo dormindo e um passivo caro rodando. O crédito com garantia de imóvel existe exatamente pra ligar uma coisa na outra. Você usa o imóvel como garantia, libera capital com custo muito menor e continua dono dele. O patrimônio não sai do lugar. O que muda é o custo do dinheiro que a sua empresa usa.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente ANÁLISE que a gente avalia o seu caso.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #CreditoComGarantiaDeImovel #HomeEquity #CGI #CapitalDeGiro #Empresario #Alphaville"
+        },
+        {
+          "titulo": "ROTEIRO 17 — \"LTV: o número que decide quanto o seu imóvel libera\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: TÉCNICO — GLOSSÁRIO",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"Tem uma sigla que decide quanto de crédito o seu imóvel consegue liberar. E quase ninguém te explica ela.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"Chama LTV. Loan to Value. É a relação entre o valor do crédito e o valor de avaliação do imóvel.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"Funciona assim: a instituição avalia o seu imóvel — e essa avaliação nem sempre bate com o valor que você acha que ele vale. Em cima desse número, ela aplica um percentual. Esse percentual é o LTV. Então são duas coisas que mexem no quanto você recebe: quanto o imóvel avalia, e qual LTV aquela instituição trabalha pro seu perfil. E aqui está o detalhe que muda o jogo: esse percentual não é igual em todo lugar. Instituições diferentes trabalham com LTVs diferentes pro mesmo imóvel.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente LTV que a gente simula quanto o seu imóvel libera.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #CreditoComGarantiaDeImovel #HomeEquity #CGI #CapitalDeGiro #Empresario #Alphaville"
+        },
+        {
+          "titulo": "ROTEIRO 18 — \"Não quero dar meu imóvel de garantia\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: OBJEÇÃO — GARANTIA",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"Eu não vou dar meu imóvel de garantia. Essa é a frase que a gente mais escuta. E ela vem de um mal-entendido.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"As pessoas ouvem garantia e imaginam que vão entregar o imóvel. Não é isso que acontece.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"O instrumento chama alienação fiduciária. Na prática: o imóvel fica vinculado à operação enquanto ela existir, mas a posse continua sendo sua. Você continua morando. Continua alugando, se for o caso. Continua usando normalmente. O que existe é uma garantia real registrada — e é exatamente por causa dela que a taxa é muito menor do que a de um crédito sem garantia nenhuma. Risco menor pra instituição vira custo menor pra você. Quitou a operação, a garantia é baixada.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente CRÉDITO que a gente te explica passo a passo como funciona.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #CreditoComGarantiaDeImovel #HomeEquity #CGI #CapitalDeGiro #Empresario #Alphaville"
+        },
+        {
+          "titulo": "ROTEIRO 19 — \"Quando a gente diz que não vale a pena\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: AUTORIDADE — CRITÉRIO",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"Tem caso que chega aqui e a nossa resposta é: não faz.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"Parece estranho uma assessoria de crédito dizer isso. Mas é justamente aí que a análise faz diferença.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"Crédito com garantia de imóvel é uma operação de longo prazo, com garantia real. Ele resolve problema estrutural: trocar uma dívida cara, capitalizar uma operação, aproveitar uma oportunidade que se paga. Ele não resolve um aperto de trinta dias. Quando alguém chega querendo usar o patrimônio pra tapar um buraco de curto prazo, sem plano de como aquilo volta, a nossa recomendação é não fazer. Porque crédito mal estruturado não é ajuda. É o mesmo problema, maior e mais longo.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente ANÁLISE e a gente te diz com franqueza se faz sentido no seu caso.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #CreditoComGarantiaDeImovel #HomeEquity #CGI #CapitalDeGiro #Empresario #Alphaville"
+        },
+        {
+          "titulo": "ROTEIRO 20 — \"A obra que parou e não precisava ter parado\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: TÉCNICO — TÉRMINO DE CONSTRUÇÃO",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"Obra parada raramente para por falta de projeto. Para por falta de caixa no meio do caminho.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"E o pior é que, quando isso acontece, quase sempre a maior parte do investimento já foi feita.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"Existe um produto desenhado exatamente pra isso e que pouca gente conhece: o Término de Construção. Ele libera recurso com base no que já foi executado da obra. Ou seja: o que você já construiu vira lastro pra terminar o que falta. O recurso sai por etapa, conforme a obra avança e é vistoriada. Isso devolve previsibilidade pro cronograma e evita a pior das saídas, que é vender o empreendimento abaixo do valor só pra fechar o caixa.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente OBRA que a gente avalia em que etapa o seu projeto está.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #CreditoComGarantiaDeImovel #HomeEquity #CGI #CapitalDeGiro #Empresario #Alphaville"
+        }
+      ]
+    },
+    {
+      "cabecalho": "OBJETIVO 3 — CLIENTE FINAL  ·  troca de dívida  ·  5 roteiros",
+      "roteiros": [
+        {
+          "titulo": "ROTEIRO 21 — \"Soma tudo que você paga de juros hoje\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: CONEXÃO — DIAGNÓSTICO",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"Faz um exercício rápido comigo. Abre o aplicativo do seu banco agora.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"Soma tudo. Cartão parcelado, cheque especial, empréstimo pessoal, financiamento de carro.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"Agora separa quanto disso é só juro. Não a dívida — o juro. Esse é o número que costuma assustar, porque ele está espalhado em cinco lugares diferentes e ninguém nunca somou. Quando a dívida está fatiada assim, cada pedaço tem a sua taxa, o seu vencimento e o seu prazo. Você paga caro em todos ao mesmo tempo e nunca enxerga o fim. Juntar tudo numa operação só, com garantia de imóvel, muda três coisas de uma vez: a taxa cai, o prazo estica e a parcela passa a caber no mês.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente CRÉDITO e a gente faz essa conta com você.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #TrocaDeDivida #CreditoImobiliario #EducacaoFinanceira #Alphaville #SaudeFinanceira"
+        },
+        {
+          "titulo": "ROTEIRO 22 — \"Trocar dívida não é fazer dívida nova\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: OBJEÇÃO — CONCEITO",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"Muita gente ouve troca de dívida e pensa: eu não quero me endividar mais.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"Só que trocar dívida e fazer dívida nova são coisas diferentes. E confundir as duas custa caro.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"Dívida nova é quando você pega dinheiro e passa a dever mais do que devia. Troca de dívida é quando o valor que você deve continua o mesmo — o que muda é a condição em que você deve. Sai de uma taxa alta, prazo curto e parcela apertada. Entra numa operação com garantia, taxa menor e prazo mais longo. O saldo não cresce. O custo dele é que diminui. Quem faz isso não está se endividando mais. Está parando de pagar caro por uma dívida que já existia.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente CRÉDITO que a gente te mostra essa diferença no seu caso.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #TrocaDeDivida #CreditoImobiliario #EducacaoFinanceira #Alphaville #SaudeFinanceira"
+        },
+        {
+          "titulo": "ROTEIRO 23 — \"A conta que ninguém faz no cheque especial\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: TÉCNICO — EDUCAÇÃO FINANCEIRA",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"O cheque especial não é caro só porque a taxa é alta. É caro pelo jeito que ela roda.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"E é por isso que ele parece pequeno no extrato e vira um problema em poucos meses.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"A taxa dele incide sobre o saldo devedor todo mês. Inclusive sobre o juro do mês anterior. Então, enquanto você não zera, aquele valor não fica parado: ele compõe. Você olha e está no vermelho em quinhentos reais. Não zera. Alguns meses depois, o número não é quinhentos mais um pouquinho — é bem maior. E como o limite está sempre ali, disponível, a sensação é de que está tudo sob controle. Não está. Cheque especial não é reserva. É a linha de crédito mais cara que você tem à mão.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente CRÉDITO que a gente te mostra como sair dessa linha.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #TrocaDeDivida #CreditoImobiliario #EducacaoFinanceira #Alphaville #SaudeFinanceira"
+        },
+        {
+          "titulo": "ROTEIRO 24 — \"Autônomo, sem holerite, e mesmo assim aprovado\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: TÉCNICO — COMPROVAÇÃO DE RENDA",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"Você é autônomo e acha que não consegue crédito porque não tem holerite?\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"Holerite é uma forma de comprovar renda. Não é a única.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"Extrato bancário com movimentação consistente comprova renda. Declaração de imposto de renda comprova renda. Faturamento da sua PJ comprova renda. Contrato de prestação de serviço comprova renda. O que muda de uma instituição pra outra é quais dessas formas ela aceita e como ela lê cada uma. Tem lugar que só olha vínculo formal. Tem lugar que analisa movimentação. E é por isso que o mesmo autônomo pode ouvir não num lugar e sim em outro, sem ter mudado absolutamente nada na vida dele.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente RENDA que a gente organiza a sua comprovação.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #TrocaDeDivida #CreditoImobiliario #EducacaoFinanceira #Alphaville #SaudeFinanceira"
+        },
+        {
+          "titulo": "ROTEIRO 25 — \"O que muda quando a dívida sai do rotativo\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: CONEXÃO — DEPOIS",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"A parte que ninguém conta sobre a troca de dívida não é a economia. É o que acontece depois.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"Porque o alívio financeiro vem. Mas ele vem junto com outra coisa.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"Quem está no rotativo vive num ciclo curto. A cabeça trabalha em blocos de trinta dias: paga o mínimo, respira, chega a próxima fatura. Não dá pra planejar nada, porque não existe horizonte. Quando aquela dívida sai do rotativo e entra numa operação longa, com parcela definida, acontece uma virada silenciosa: você volta a conseguir enxergar o ano inteiro. Dá pra planejar. Dá pra guardar. Dá pra decidir. A conta melhora, sim. Mas o que muda de verdade é o tamanho do horizonte.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente CRÉDITO e a gente vê o seu cenário.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #TrocaDeDivida #CreditoImobiliario #EducacaoFinanceira #Alphaville #SaudeFinanceira"
+        }
+      ]
+    },
+    {
+      "cabecalho": "CONVENÇÃO PRIME — UBERLÂNDIA  ·  3 roteiros",
+      "roteiros": [
+        {
+          "titulo": "ROTEIRO 26 — \"Quando a Prime inteira se encontra\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: HYPE — PRÉ-CONVENÇÃO",
+          "data": "DATA: a definir — Uberlândia. A pauta só abre depois de 10/08 (decisão da Laura).",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"A Prime inteira vai parar. E se encontrar no mesmo lugar.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"Não é evento de palco. É a operação inteira, de todas as unidades do país, no mesmo salão.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"São mais de cento e sessenta e cinco unidades espalhadas pelo Brasil, cada uma com o seu mercado, os seus parceiros e os seus casos. Durante o ano, cada uma resolve o que aparece na sua região. Na convenção, tudo isso vira uma coisa só: o que funcionou numa cidade vira método na outra. O caso que travou aqui, alguém ali já destravou três vezes. É o único momento em que a experiência de quinze bilhões em crédito financiado senta na mesma sala.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Segue a Prime que a gente vai levar você pra dentro da convenção.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #ConvencaoPrime #Uberlandia #CreditoImobiliario #MercadoImobiliario #Bastidores"
+        },
+        {
+          "titulo": "ROTEIRO 27 — \"O que a gente vem buscar aqui\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: CONEXÃO — BASTIDOR [gravar no salão, unidades ao fundo]",
+          "data": "DATA: a definir — Uberlândia. A pauta só abre depois de 10/08 (decisão da Laura).",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"Pergunta pra qualquer pessoa que está aqui o que ela veio buscar.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"A resposta quase nunca é conteúdo.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"É troca. Porque quem trabalha com crédito passa o ano resolvendo caso sozinho, na sua praça, com o seu time. E aqui você descobre que aquele caso difícil, que você levou três semanas pra estruturar, tem gente que já fez cinco vezes. Você senta com quem faz o mesmo que você em outra cidade, compara política, compara abordagem, compara o que deu certo e o que não deu. Ninguém sai daqui igual entrou. E é isso que volta pra dentro do escritório na segunda-feira.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Comente PRIME se você quer fazer parte disso no ano que vem.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #ConvencaoPrime #Uberlandia #CreditoImobiliario #MercadoImobiliario #Bastidores"
+        },
+        {
+          "titulo": "ROTEIRO 28 — \"O que fica depois que acaba\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: AUTORIDADE — PÓS-CONVENÇÃO",
+          "data": "DATA: a definir — Uberlândia. A pauta só abre depois de 10/08 (decisão da Laura).",
+          "blocos": [
+            {
+              "rotulo": "GANCHO",
+              "tempo": "0:00 – 0:05",
+              "texto": "\"Acabou a convenção. E agora começa a parte que importa.\"",
+              "destaque": "gancho"
+            },
+            {
+              "rotulo": "CONTEXTO",
+              "tempo": "0:05 – 0:15",
+              "texto": "\"Porque evento bom não é o que emociona no dia. É o que muda a operação na semana seguinte.\""
+            },
+            {
+              "rotulo": "ARGUMENTO",
+              "tempo": "0:15 – 0:40",
+              "texto": "\"O que sai daqui não é foto. É método. É a política de crédito que uma unidade descobriu e agora todas conhecem. É o processo de atendimento que funcionou numa praça e vira padrão nas outras. É a rede de gente que agora se conhece pelo nome e resolve por telefone o que antes levava uma semana. É por isso que a Prime consegue crescer sem perder a mão: porque o que uma unidade aprende, todas as outras usam.\""
+            },
+            {
+              "rotulo": "CTA",
+              "tempo": "0:40 – 0:50",
+              "texto": "\"Segue a Prime e acompanha o que a gente construiu aqui.\"",
+              "destaque": "cta"
+            }
+          ],
+          "hashtags": "#PrimeAssessoria #ConvencaoPrime #Uberlandia #CreditoImobiliario #MercadoImobiliario #Bastidores"
+        }
+      ]
+    }
+  ]
+}
