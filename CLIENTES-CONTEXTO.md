@@ -28,6 +28,8 @@ Fonte principal: `OPERACAO-REAL-EXPANSION-2026-07-26.md` e os pareceres por cont
 | **Capacidade da loja** | **~30 pessoas confortável.** Já teve evento com fila do lado de fora |
 | **Gargalo real** | **ATENDIMENTO, e quem atende é a Sabrina** — a Expansion não assume. 52 conversas não respondidas em junho; 35 em 3 dias em julho. Ela dá conta no fim de semana; na semana está no CLT |
 | Custo por conversa | **R$ 3,85** (medido 31/07–02/08) |
+| **Base de WhatsApp** | **1.091 contatos na agenda da loja.** Disparo de 22/08 entregou **254 de 261 (97,3%)**, zero duplicado, sem bloqueio. **97,6% falaram com a loja em agosto** |
+| **Geografia real da base** | Nas conversas dos últimos 7 dias, **87% é DDD 19**. Os **104 contatos DDD 11** entraram quase todos na janela do Dia dos Pais (83 deles) e não voltaram: **são lead de tráfego, não carteira.** Servem só para venda com envio |
 | Público | Mulheres 30–50, raio de Sumaré/Nova Veneza. Pico às 15h — **horário em que ela está no CLT** |
 | **Canal que mais converte** | **Perfil pessoal da Sabrina**, não o da marca. Produto mais vendido de julho saiu 100% orgânico dali. TikTok ~10 mil seguidores, um vídeo com ~500 mil views. Ativo validado e ocioso |
 | **Dias de loja aberta** | **Só aos sábados** (Sabrina, 02/07: *"é o dia que estamos com a loja aberta"*). Na semana a venda é direct e online, com ela no CLT |
@@ -50,6 +52,14 @@ Fonte principal: `OPERACAO-REAL-EXPANSION-2026-07-26.md` e os pareceres por cont
 - **Confecção própria é o maior diferencial da marca e não está comunicado nem precificado.** Uma coordenadora comparou a qualidade com uma loja conhecida de Campinas e disse que o preço está baixo. Subir posicionamento não custa uma peça a mais nem um real de mídia.
 - Projeção de faturamento sai de **R$ 260**, não dos R$ 350 de tabela.
 
+**O que faz a peça parada vender (teste medido, 22/08):** vestido rosa parado,
+ofertado em story com **detalhe + preço escrito na tela + "era o último"** → 3
+interessadas → vendido. **A escassez é verdadeira e nunca é dita:** confecção
+própria de ~40 peças/mês significa que quase tudo é peça única. Rotina definida:
+**uma oferta por dia no provador, com preço na tela e quantas restam**, mais **um
+combo de 3 peças por semana com preço de conjunto, nunca desconto.** Ver
+`DISPARO-E-MOTOR-DE-OFERTA-CIES-2026-08-24.md`.
+
 **Sábado Delas, 22/08 — o que ficou:**
 - **A semana vendeu, o dia não teve pico.** 5 dias seguidos de conteúdo (o oposto
   dos 2 vídeos em 6 dias da semana anterior) e vendas registradas em 19, 21 e
@@ -59,6 +69,8 @@ Fonte principal: `OPERACAO-REAL-EXPANSION-2026-07-26.md` e os pareceres por cont
   expectativas"*. Sabrina: *"pior resultado até o momento"* em vendas. A causa é
   nossa: o objetivo do dia mudou em 17/08 (de aquisição para credibilidade) e
   **nunca foi realinhado com a Sabrina**.
+- **O convite de véspera alcançou metade do que parecia:** dos 254 entregues, só
+  **139 tinham chance real de ir à loja** (DDD 19 e 15).
 - ⚠️ **Os dois números do dia nunca existiram** — pessoas que entraram e
   faturamento. O Kauan assumiu por escrito em 17/08 e não entregou.
 - **Estilista fora do 19/09**, por decisão da Sabrina (compete com o tempo de

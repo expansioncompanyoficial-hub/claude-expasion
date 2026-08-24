@@ -109,3 +109,60 @@ documento. **Três mensagens.**
 
 > Te mandei o documento no grupo com setembro inteiro. O dia 19 vai ter oferta, não
 > só experiência. Acha uma boa?
+
+---
+
+# 4 · GRUPO · alinhamento da oferta (depois do relatório do disparo)
+
+**Quatro mensagens.** O erro de nome no template ("CS Brand") **não vai para o
+grupo** — corrige no template e segue.
+
+### Mensagem 1
+
+> Olhei o relatório do disparo. Tem coisa boa e tem coisa que muda a leitura do
+> dia 22.
+>
+> Entregou 254 de 261, 97% de entrega, zero duplicado e o número não bloqueou. E a
+> base tá quente: 97% dessas pessoas falaram com a loja em agosto. Isso é carteira
+> ativa, não lista fria.
+>
+> Agora o achado. Dos 254, 104 são DDD 11. Quando eu cruzo com a última conversa,
+> 83 desses 104 entraram todos na mesma semana, que foi a semana da campanha do
+> Dia dos Pais. E nas conversas dos últimos 7 dias, 87% é DDD 19.
+
+### Mensagem 2
+
+> Ou seja, quem realmente fala com a loja é da região. O bloco de São Paulo é lead
+> que o tráfego trouxe num dia e não voltou.
+>
+> O que isso muda no dia 22: o convite foi para uma lista onde 4 em cada 10 não
+> tinham como aparecer. Com chance real de ir na loja eram 139, não 254.
+>
+> Sa, isso não apaga o que faltou de oferta. Mas ajuda a explicar o dia, porque
+> metade do convite foi para gente que não podia ir mesmo querendo.
+
+### Mensagem 3
+
+> E o que faltou mesmo foi oferta. O teste do vestido rosa provou isso melhor que
+> qualquer relatório.
+>
+> Peça parada, você mostrou o detalhe e botou o preço na tela, 3 se interessaram e
+> vendeu. Só que repara que não foi só o preço. Você falou que era o último. Foi
+> isso que fechou.
+>
+> Sa, confecção própria com 40 peças por mês quer dizer que quase tudo aí é peça
+> única. Você pode falar isso todo dia e não fala nenhum dia: é a última no M,
+> essa não vai ter reposição, só tenho duas. É verdade, e é o gatilho mais barato
+> que a loja tem.
+
+### Mensagem 4
+
+> Então a rotina daqui para frente é essa, e é simples.
+>
+> Uma peça por dia no provador, no corpo, com o detalhe, o preço escrito na tela e
+> quantas restam. Começando pelas paradas, porque peça nova vende sozinha e peça
+> parada precisa de alguém apontando para ela.
+>
+> E um combo por semana, 3 peças que se conversam, com preço de conjunto. Sem
+> desconto: desconto ensina a cliente a esperar promoção, preço de conjunto é
+> produto novo e sai com 3 peças de uma vez em vez de 1.
