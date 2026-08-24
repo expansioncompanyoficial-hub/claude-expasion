@@ -367,24 +367,42 @@ Escape e clique fora cancelam; Enter confirma. Todo chamador virou `async` — �
 preço de não usar as nativas, e o preço de usá-las era o recurso não existir no
 publicado.
 
-## Baixar: ZIP ou arquivos separados
+## Baixar: um arquivo só, ou os PNGs separados
 
-Dois caminhos, os mesmos bytes:
+**`.zip` não é entregável pelo canal de download do artefato.** A lista de
+extensões é fechada:
+
+```
+gif png jpg jpeg webp mp4 webm txt json md
++ (quando habilitadas) docx pptx epub csv ttf html svg pdf
+```
+
+O `save()` recusa com `rejected_extension`, e isso não aparece como erro no
+console — vira uma promessa rejeitada com um código que, sem tratamento
+próprio, some numa mensagem genérica. Foi assim que o botão "Baixar ZIP"
+subiu quebrado: o teste usava um dublê que aceitava qualquer extensão.
+
+**Lição que vale além deste caso:** dublê de capacidade que aceita tudo não
+testa nada. O de hoje carrega as duas allowlists e o teto de 16 MiB, e roda nos
+dois cenários — extensões estendidas ligadas e desligadas.
+
+O botão *Baixar tudo num arquivo* tenta em ordem, e cada recusa por extensão
+cai para o próximo em vez de falhar:
 
 | | |
 |---|---|
-| **ZIP** | uma confirmação só, um arquivo, os 9 PNGs numerados dentro |
-| **Separados** | vão direto pra pasta de downloads, mas o navegador pede confirmação a cada arquivo |
+| **1 · ZIP** | escrito à mão em `zipDe()`, método `store`. Passa onde a extensão for aceita |
+| **2 · Página** | um `.html` com os PNGs em base64 dentro. Aberto da pasta de downloads ele **não** está em sandbox, então ali o `<a download>` funciona e um botão salva os nove de uma vez |
+| **3 · Mensagem** | nenhum passou: diz qual código cada um devolveu e manda usar os arquivos separados, que são PNG e sempre passam |
 
-O ZIP é escrito à mão, em `zipDe()`: a CSP do artefato bloqueia CDN e embutir um
-zipper inteiro por causa de nove PNGs não se paga. Método `store`, sem
-compressão — PNG já é comprimido, deflate aqui renderia quase nada e custaria o
-dobro de código. São ~50 linhas: tabela de CRC32, cabeçalho local por arquivo,
-diretório central e o registro de fim.
+O ZIP é `store` e não deflate porque PNG já vem comprimido: a compressão
+renderia quase nada e custaria o dobro de código. São ~50 linhas — tabela de
+CRC32, cabeçalho local por arquivo, diretório central e registro de fim.
 
-O limite de 16 MB do canal de download vale para o ZIP inteiro, então uma peça
-com fundos pesados pode estourar. Nesse caso a mensagem manda usar os arquivos
-separados, que passam um a um.
+O `.html` engorda cerca de um terço por causa do base64: uma peça de 8,3 MB em
+PNG vira ~11 MB de página. O teto é 16 MiB e vale para o arquivo inteiro, então
+peça com fundos pesados pode estourar — nesse caso a mensagem manda para os
+arquivos separados, que passam um a um.
 
 ## Dez controles que não funcionavam
 
