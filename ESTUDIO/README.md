@@ -427,3 +427,71 @@ no que ele grava.
 O padrão por trás dos sete últimos: **atribuir `elemento.value` por código não
 dispara `oninput`**. Todo caminho que escreve no estado sem passar por digitação
 precisa chamar `marcaSujo()` na mão.
+
+## Enquadramento livre
+
+A grade de nove pontos virou arraste contínuo. A vitrine do painel **é** o
+controle: arrasta a imagem ali dentro e o slide acompanha ao vivo. Setas
+ajustam 1 ponto, com Shift 5. O zoom vai de 100% a 400%, por barra ou pelos
+`−`/`+`, e `Centralizar` volta tudo ao meio.
+
+São dois valores por slide, e é o **par** que faz o modelo funcionar:
+
+| | |
+|---|---|
+| `foco` | `object-position: X% Y%`, contínuo. Passeia dentro da sobra que o `cover` já criou |
+| `zoom` | `transform: scale(z)`, com `transform-origin` **no mesmo ponto do foco** |
+
+**Por que a origem tem de acompanhar o foco.** Escalar por z ≥ 1 em torno de um
+ponto *dentro* do retângulo sempre devolve um retângulo que contém o original.
+Logo, para qualquer foco e qualquer zoom ≥ 1, a caixa continua coberta — nenhuma
+combinação abre canto vazio. Não depende do tamanho nem da proporção da foto, e
+vale igual na tela e no PNG, porque é a mesma regra de CSS nos dois.
+
+E é isso que também prende o ponto focal: como `object-position: X% Y%` alinha o
+ponto X%,Y% da *imagem* com o ponto X%,Y% da *caixa*, escalar em torno desse
+mesmo ponto da caixa deixa o assunto parado enquanto o resto se afasta.
+
+**Medido, não deduzido.** 264 combinações — 4 proporções de foto (retrato
+800×1400, paisagem 2400×600, quadrada, fininha 3000×300) × 11 focos × 6 zooms —
+rasterizadas pelo mesmo caminho do export e conferidas pixel a pixel nos cantos
+da caixa: **zero buracos**. E com um alvo de 24px na fonte, a 15% da altura: ele
+fica em 15,0% da caixa com zoom 1, 1,5, 2,5 e 4.
+
+Durante o arraste **não** se chama `pintar()` — ele redesenha as nove
+miniaturas a cada quadro e o gesto engasga. Mexe-se só nos dois `<img>` à
+vista, e o repinte inteiro vem no soltar.
+
+## O diário de decisões
+
+O estado salvo guarda como a peça **ficou**. Isso não ensina como ela ficou
+assim: não diz que a headline escolhida foi a terceira de dez, que a foto subiu
+18 pontos depois de entrar, que o corpo do slide 4 foi reescrito, que o título
+precisou de −6px. **Sem esse rastro, ver cinquenta peças prontas ensina o mesmo
+que ver uma.**
+
+Por isso ele existe *antes* das peças, não depois. `peca.diario` guarda até 300
+eventos:
+
+| `q` | O que responde |
+|---|---|
+| `capa` | qual headline venceu, **entre quantas**, em que posição da lista, e quais foram recusadas |
+| `texto` · `legenda` | só as linhas que mudaram, com antes e depois — o que foi reescrito do que a máquina propôs |
+| `tam` | tamanho pedido à mão **e o que o auto-ajuste tinha proposto**: é onde a régua erra |
+| `foco` · `zoom` · `centraliza` | o enquadramento líquido do gesto, não cada quadro |
+| `pos` · `scrim` · `imagem` | onde a foto entra, quanto escurece, quando entra e sai |
+| `tpl` | troca de template, por slide ou da peça |
+| `status` | quando foi pro cliente e quando foi ao ar |
+
+Eventos do mesmo campo e mesmo slide em menos de 4 s são **fundidos**: dez
+toques no `+` são uma decisão, não dez. Sem isso o diário viraria log de
+cliques. Sete decisões reais deram 773 bytes — o custo em estado é irrelevante
+perto do que sai da mão.
+
+O painel de Aprovação mostra a contagem e a distribuição por tipo, para o
+registro não ser invisível.
+
+**Achado de brinde:** o diário denunciou um bug na primeira execução. Escolher
+a capa com o editor do carrossel à vista fazia o `guardaEditor()` do
+`trocaEtapa` gravar o texto **antigo** por cima — a capa escolhida sumia sem
+erro nenhum. Apareceu no diário como uma "reescrita" que ninguém tinha feito.
