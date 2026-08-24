@@ -552,3 +552,49 @@ registro não ser invisível.
 a capa com o editor do carrossel à vista fazia o `guardaEditor()` do
 `trocaEtapa` gravar o texto **antigo** por cima — a capa escolhida sumia sem
 erro nenhum. Apareceu no diário como uma "reescrita" que ninguém tinha feito.
+
+## Publicar do celular
+
+No telefone, **baixar é o caminho errado** — e foi o que eu entreguei duas
+vezes antes de descobrir. Três limites, todos reais:
+
+1. `<a download>` num HTML aberto do gerenciador de arquivos **não dispara** em
+   iOS nem em Android. O botão da página de fallback era inerte no celular.
+2. O canal de download **corta depois de ~6 confirmações seguidas**. Nove
+   arquivos separados não passam.
+3. `.zip` **não é entregável em nenhuma configuração**: a allowlist é
+   `gif png jpg jpeg webp mp4 webm txt json md` mais
+   `docx pptx epub csv ttf html svg pdf` quando habilitada. Zip não está em
+   nenhuma das duas.
+
+Então a etapa Aprovação abre com o cartão **Publicar do celular**, que não
+baixa nada:
+
+| | |
+|---|---|
+| **Um toque** | `navigator.share({files})` abre a folha nativa com as 9 juntas → *Salvar imagens* |
+| **Plano B** | as 9 estão na tela: segurar → *Adicionar às Fotos* |
+| **Legenda** | um toque copia; sem permissão de área de transferência, abre o texto já selecionado |
+
+### O detalhe que decide se funciona
+
+`navigator.share` exige gesto do usuário e **perde o gesto se houver `await`
+antes dele**. Gerar nove slides leva segundos, então chamar `share` depois de
+gerar falha sempre.
+
+Por isso as imagens são geradas **sozinhas ao abrir a Aprovação**, antes de
+qualquer clique, e ficam num cache amarrado à peça e ao texto. Quando o botão
+acende, ele já tem os `File` na mão e o share sai limpo do próprio toque.
+
+As imagens entram como `data:` e não `blob:` — o menu de segurar do iOS oferece
+*Adicionar às Fotos* no data URL e nem sempre no blob.
+
+### A grade que não encolhia
+
+No celular a página vazava para 2052px e o navegador afastava tudo para caber.
+Causa: `grid-template-columns:1fr`. O mínimo de uma faixa `1fr` é `auto`, ou
+seja o **min-content** do que está dentro — bastava um bloco largo para a
+coluna crescer. `minmax(0,1fr)` resolve.
+
+Abaixo de 700px o Estúdio deixa de ser mesa de trabalho e vira tela de
+publicar: `#cartao-cel` recebe `order:-1` e sobe para o topo da Aprovação.
