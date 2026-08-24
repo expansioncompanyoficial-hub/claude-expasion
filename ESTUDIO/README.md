@@ -462,6 +462,35 @@ Durante o arraste **não** se chama `pintar()` — ele redesenha as nove
 miniaturas a cada quadro e o gesto engasga. Mexe-se só nos dois `<img>` à
 vista, e o repinte inteiro vem no soltar.
 
+## O selo da marca
+
+Logo do cliente quando existe, inicial do nome quando não. A regra é uma só,
+em `avatar(tam, fonte, autoFundo, contorno)`, usada pela capa e pelo cartão do
+Twitter.
+
+Estava escrita duas vezes, e **a versão do cartão do Twitter nem olhava para
+`cli.logo`** — mostrava a letra mesmo com o logo na ficha. Seis dos nove
+clientes têm logo cadastrado e nenhum aparecia ali.
+
+Dois parâmetros existem porque a superfície muda o que funciona:
+
+| | |
+|---|---|
+| `autoFundo` | com moldura `auto`: véu branco a 10% sobre a capa escura, cinza leve sobre o cartão branco |
+| `contorno` | `box-shadow: inset` — e não `border`, que entraria na conta do tamanho e tiraria o selo da grade medida |
+
+Sem contorno, um logo com moldura `claro` vira círculo branco sobre cartão
+branco: o logo está lá e parece flutuando.
+
+**A capa não mudou um pixel.** Conferido por comparação de imagem entre a build
+anterior e a nova, em dois clientes — `ImageChops.difference` sem bbox. Isso
+importa porque a aparência do chip da capa é decisão do Nicolas, não área de
+limpeza minha.
+
+E a conferência cobra: cliente sem logo vira achado `ruim` no *Concluir
+carrossel*, dizendo em quais slides o selo cai na letra. É o que faz "todos com
+o logo" ser padrão em vez de torcida.
+
 ## O diário de decisões
 
 O estado salvo guarda como a peça **ficou**. Isso não ensina como ela ficou

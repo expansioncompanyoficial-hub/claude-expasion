@@ -847,15 +847,31 @@ function barra(cor){
    a duplicação eu troquei a aparência da capa sem ninguém pedir, e o Nicolas
    mandou voltar. Voltou. Se um dia for pra usar a versão medida no Canva
    (avatar 46,2 · nome 21,4 · @ 10,6 a 49%), é decisão dele, não limpeza. */
-function chip(){
-  const selo = cli.logo
-    ? `<span style="width:48.7px;height:48.7px;border-radius:50%;background:${
-        cli.logoFundo==='claro' ? '#fff' : cli.logoFundo==='escuro' ? '#101216' : 'rgba(255,255,255,.10)'
-      };display:flex;align-items:center;justify-content:center;overflow:hidden">
+/* O selo da marca, numa regra só: logo do cliente quando existe, inicial
+   quando não. Estava escrito duas vezes e a versão do cartão do Twitter nem
+   olhava para `cli.logo` — mostrava a letra mesmo com o logo na ficha.
+
+   `autoFundo` muda com a superfície e por isso é parâmetro: sobre a capa
+   escura, um véu branco a 10% destaca o logo; sobre o cartão branco do
+   Twitter esse mesmo véu desaparece, e ali o que separa é um cinza leve. */
+function avatar(tam, fonte, autoFundo, contorno){
+  const fundo = cli.logoFundo === 'claro' ? '#fff'
+              : cli.logoFundo === 'escuro' ? '#101216'
+              : autoFundo;
+  // `box-shadow: inset` e não `border`: o contorno não pode entrar na conta do
+  // tamanho, senão o selo encolhe e sai da grade medida.
+  const risco = contorno ? `box-shadow:inset 0 0 0 1px ${contorno};` : '';
+  return cli.logo
+    ? `<span style="width:${tam}px;height:${tam}px;border-radius:50%;background:${fundo};${risco}
+        display:flex;align-items:center;justify-content:center;overflow:hidden">
       <img src="${cli.logo}" alt="" style="max-width:78%;max-height:78%;object-fit:contain"></span>`
-    : `<span style="width:48.7px;height:48.7px;border-radius:50%;background:${cli.accent};display:flex;
-      align-items:center;justify-content:center;font-family:'Montserrat',var(--ui);font-size:24px;
+    : `<span style="width:${tam}px;height:${tam}px;border-radius:50%;background:${cli.accent};display:flex;
+      align-items:center;justify-content:center;font-family:'Montserrat',var(--ui);font-size:${fonte}px;
       font-weight:700;color:#fff">${esc(cli.marca[0]||'?')}</span>`;
+}
+
+function chip(){
+  const selo = avatar(48.7, 24, 'rgba(255,255,255,.10)');
   return `<div style="display:inline-flex;align-items:center;gap:14px">
     ${selo}
     <span style="font-size:31.8px;font-weight:500;line-height:1.4;letter-spacing:-.084em;
@@ -992,7 +1008,11 @@ function registra(q, dados){
   // dez toques no `+` viram dez eventos que dizem menos que um.
   if (ult && ult.q === q && ult.s === ev.s && ult.campo === ev.campo
       && Date.parse(ev.em) - Date.parse(ult.em) < 4000){
-    ult.para = ev.para; ult.em = ev.em; marcaSujo(); return;
+    ult.para = ev.para; ult.em = ev.em;
+    // Ir e voltar não é decisão: se a fusão zerou a mudança, o evento sai.
+    // Sem isto o diário guardava "de 1 para 1" e eu leria como escolha.
+    if ('de' in ult && JSON.stringify(ult.de) === JSON.stringify(ult.para)) peca.diario.pop();
+    marcaSujo(); return;
   }
   peca.diario.push(ev);
   if (peca.diario.length > DIARIO_MAX)
@@ -1169,9 +1189,7 @@ function render(i, forcado){
   return `<div class="slide" style="background:#fff">
     ${barra('rgba(0,0,0,.30)')}
     <div style="position:absolute;top:186px;left:108px;display:flex;align-items:center;gap:20px">
-      <span style="width:82px;height:82px;border-radius:50%;background:${cli.accent};display:flex;
-        align-items:center;justify-content:center;font-family:'Montserrat',var(--ui);
-        font-size:38px;font-weight:700;color:#fff">${esc(cli.marca[0]||'?')}</span>
+      ${avatar(82, 38, 'rgba(0,0,0,.06)', 'rgba(0,0,0,.12)')}
       <span style="display:flex;flex-direction:column;gap:2px">
         <span style="display:flex;align-items:center;gap:9px;font-size:34px;font-weight:600;
           color:#0F1419;letter-spacing:-.02em">${esc(cli.marca)}
@@ -2275,6 +2293,26 @@ function conferir(arrumar){
 
   if (cheios < 18) add('ruim', `${cheios} de 18 blocos`, 'faltam blocos de texto');
   else add('bom', '18 de 18 blocos', 'dois por slide');
+
+  // O selo da marca aparece na capa e no cartão do Twitter. Sem logo na ficha
+  // ele cai na inicial do nome — que funciona, mas não é a marca do cliente.
+  // Cobrar aqui é o que faz "todos com o logo" virar padrão em vez de torcida.
+  const comSelo = [];
+  for (let i = 0; i < nSlides(); i++){
+    const t = tplDo(i);
+    if (t.id === 'twitter' || (t.id === 'meio' && i === 0)
+        || ((t.id === 'exp02' || t.id === 'exp03' || t.id === 'exp04') && i === 0)) comSelo.push(i + 1);
+  }
+  if (comSelo.length){
+    // No cartão do Twitter TODO slide tem selo. Listar "1, 2, 3, 4, 5, 6, 7,
+    // 8, 9" é ruído: quando é a peça inteira, diz isso.
+    const onde = comSelo.length === nSlides() ? 'em todos os slides'
+               : `no slide ${comSelo.join(', ')}`;
+    if (cli.logo) add('bom', 'Logo do cliente no selo', onde);
+    else add('ruim', `${cli.nome} está sem logo`,
+             `o selo ${onde} cai na letra "${esc((cli.marca[0]||'?').toUpperCase())}" — `
+             + 'envie o logo na etapa Marca');
+  }
 
   for (let i = 0; i < nSlides(); i++){
     const aj = ajuste(i), m = medidas[i], sl = `slide ${i+1}`;
