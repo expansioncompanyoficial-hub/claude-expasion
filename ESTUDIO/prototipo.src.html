@@ -1854,15 +1854,93 @@ document.getElementById('tudo').onclick = async () => {
 <\/script></body></html>`], {type: 'text/html'});
 }
 
+/* ── DOCX: um ZIP de verdade, sob extensão que o canal aceita ───────────
+   `.zip` é recusado pelo download do artefato em qualquer configuração. Mas a
+   lista aceita `docx`, e **um .docx É um arquivo ZIP** — o formato Open XML é
+   um pacote zipado. Então dá para entregar o arquivo compactado que se pediu:
+   baixa como .docx, e quem quiser as imagens soltas renomeia para .zip e
+   descompacta. Quem não quiser renomear abre direto: é um documento válido,
+   com os nove slides dentro, um por página.
+
+   Não é gambiarra de nome: o arquivo é um docx correto, com
+   [Content_Types].xml, relacionamentos e o corpo declarando cada imagem. Se
+   fosse só um zip renomeado, o Word e o Pages recusariam abrir. */
+const EMU_L = 5943600;                       // largura útil da página, em EMU
+const EMU_A = Math.round(EMU_L * 1350 / 1080);
+
+function docxDe(partes){
+  const rel = i => `rIdImg${i + 1}`;
+  const arq = i => `slide${String(i + 1).padStart(2, '0')}.jpg`;
+
+  const tipos = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>`
+    + `<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">`
+    + `<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>`
+    + `<Default Extension="xml" ContentType="application/xml"/>`
+    + `<Default Extension="jpg" ContentType="image/jpeg"/>`
+    + `<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>`
+    + `</Types>`;
+
+  const raiz = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>`
+    + `<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">`
+    + `<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>`
+    + `</Relationships>`;
+
+  const relsDoc = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>`
+    + `<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">`
+    + partes.map((_, i) => `<Relationship Id="${rel(i)}" `
+        + `Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" `
+        + `Target="media/${arq(i)}"/>`).join('')
+    + `</Relationships>`;
+
+  const paragrafo = (i) => `<w:p><w:r><w:drawing>`
+    + `<wp:inline distT="0" distB="0" distL="0" distR="0">`
+    + `<wp:extent cx="${EMU_L}" cy="${EMU_A}"/>`
+    + `<wp:docPr id="${i + 1}" name="Slide ${i + 1}"/>`
+    + `<a:graphic><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">`
+    + `<pic:pic><pic:nvPicPr><pic:cNvPr id="${i + 1}" name="${arq(i)}"/><pic:cNvPicPr/></pic:nvPicPr>`
+    + `<pic:blipFill><a:blip r:embed="${rel(i)}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill>`
+    + `<pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${EMU_L}" cy="${EMU_A}"/></a:xfrm>`
+    + `<a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic>`
+    + `</a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
+
+  const doc = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>`
+    + `<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" `
+    + `xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" `
+    + `xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" `
+    + `xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" `
+    + `xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">`
+    + `<w:body>${partes.map((_, i) => paragrafo(i)).join('')}`
+    + `<w:sectPr><w:pgSz w:w="11906" w:h="16838"/>`
+    + `<w:pgMar w:top="720" w:right="720" w:bottom="720" w:left="720" `
+    + `w:header="0" w:footer="0" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+
+  const txt = new TextEncoder();
+  return zipDe([
+    {nome: '[Content_Types].xml', bytes: txt.encode(tipos)},
+    {nome: '_rels/.rels', bytes: txt.encode(raiz)},
+    {nome: 'word/_rels/document.xml.rels', bytes: txt.encode(relsDoc)},
+    {nome: 'word/document.xml', bytes: txt.encode(doc)},
+    ...partes.map((p, i) => ({nome: `word/media/${arq(i)}`, bytes: p.bytes})),
+  ]);
+}
+
 /* Um arquivo só, com plano B. O `.zip` NÃO está na lista de extensões que o
    canal de download aceita (gif png jpg jpeg webp mp4 webm txt json md, mais
    docx pptx epub csv ttf html svg pdf quando habilitado), então ele volta
    `rejected_extension`. Como isso depende da visualização de quem abre, o
    caminho tenta o ZIP e, se for recusado pela extensão, cai na página. */
 const PACOTES = [
-  {ext: 'zip',  rotulo: 'ZIP',      monta: (partes) => zipDe(partes)},
-  {ext: 'html', rotulo: 'página',   monta: (partes, t) => paginaDe(partes, t)},
+  // Ordem por proximidade do que se pediu: zip de verdade, zip sob extensão
+  // aceita, e só então a página.
+  {ext: 'zip',  rotulo: 'ZIP',       monta: (partes) => zipDe(partes)},
+  {ext: 'docx', rotulo: 'compactado', monta: (partes) => docxDe(partes)},
+  {ext: 'html', rotulo: 'página',    monta: (partes, t) => paginaDe(partes, t)},
 ];
+const COMO_USAR = {
+  docx: ' — é um ZIP por dentro: renomeie para .zip e descompacte, ou abra direto,'
+      + ' que os slides estão lá, um por página.',
+  html: ' — abra o arquivo e clique em "Salvar os 9".',
+};
 
 async function baixarPacote(estado){
   const dl = await (window.claude && window.claude.use
@@ -1897,7 +1975,7 @@ async function baixarPacote(estado){
     }
     estado(`Confirme o download de ${nome} · ${mb(dados.size)}`);
     const venceu = () => estado(`${pngs.length} slides num arquivo só: ${nome} (${mb(dados.size)})`
-      + (p.ext === 'html' ? ' — abra o arquivo e clique em "Salvar os 9".' : ''), 'bom');
+      + (COMO_USAR[p.ext] || ''), 'bom');
     try { await dl.save({filename: nome, data: dados}); venceu(); return; }
     catch (e){
       const cod = e && e.code;
@@ -2062,15 +2140,16 @@ function pintarAprovacao(){
       <p>Os ${nSlides()} slides em 1080 × 1350, na ordem de publicação. Dois caminhos,
       mesmos arquivos:</p>
       <p style="font-size:12px;color:var(--fraco)"><b>Tudo num arquivo</b> — uma
-      confirmação só, em JPEG a 95%. Tenta ZIP e, se esta visualização não aceitar
-      essa extensão, manda uma página com os ${nSlides()} slides dentro: abre o arquivo
-      e um botão salva todos de uma vez.<br>
+      confirmação só, em JPEG a 95%. Vem como <b>.docx</b>, e isso é de propósito:
+      o download do artefato recusa <b>.zip</b> em qualquer configuração, e um .docx
+      <b>é um arquivo ZIP por dentro</b>. Renomeie para .zip e descompacte para ter as
+      ${nSlides()} imagens soltas — ou abra direto, que os slides estão lá, um por página.<br>
       <b>Separados</b> — ${nSlides()} PNGs, qualidade máxima, direto na pasta de
-      downloads. O navegador pede confirmação a cada arquivo: ${nSlides()} seguidas.</p>
-      <p style="font-size:12px;color:var(--fraco);margin-top:-4px">O canal de download
-      tem teto de <b>16 MB por arquivo</b>. Nove slides com foto dão ~13 MB em PNG e a
-      página estourava; em JPEG o pacote cai para cerca de 3 MB. A olho não muda nada —
-      a diferença medida contra o PNG é de 1 em 255.</p>
+      downloads. O navegador pede confirmação a cada arquivo e costuma travar
+      depois de seis.</p>
+      <p style="font-size:12px;color:var(--fraco);margin-top:-4px">Teto de
+      <b>16 MB por arquivo</b>. Nove slides com foto dão ~13 MB em PNG; em JPEG o
+      pacote cai para cerca de 2 MB. A diferença medida contra o PNG é de 1 em 255.</p>
       <div class="acoes"><button class="btn btn-forte" id="b-zip">
         Baixar tudo num arquivo</button>
         <button class="btn" id="b-baixar">${nSlides()} arquivos separados</button></div>

@@ -399,6 +399,30 @@ O ZIP é `store` e não deflate porque PNG já vem comprimido: a compressão
 renderia quase nada e custaria o dobro de código. São ~50 linhas — tabela de
 CRC32, cabeçalho local por arquivo, diretório central e registro de fim.
 
+### O compactado que passa: `.docx`
+
+O download recusa `.zip`. Mas aceita `docx`, e **um .docx é um pacote ZIP** — o
+formato Open XML é um zip com XML dentro. Então o pedido "me dá em zip" tem
+resposta: o arquivo baixa como `.docx`, e quem quer as imagens soltas renomeia
+para `.zip` e descompacta. Quem não quer renomear abre direto: são os nove
+slides, um por página.
+
+**Não é zip renomeado.** Um zip com outro nome faz o Word e o Pages recusarem
+abrir. `docxDe()` monta um documento válido: `[Content_Types].xml`, os
+relacionamentos da raiz e do documento, e um `word/document.xml` que declara
+cada imagem como `wp:inline` com as medidas em EMU (1 pol = 914 400).
+
+Conferido em três camadas, porque cada uma pega uma falha diferente:
+
+| | |
+|---|---|
+| `unzip -t` | o container é um ZIP íntegro |
+| XML parse das 4 partes | nada malformado, e toda referência `r:embed` tem relacionamento e arquivo |
+| `python-docx` abrindo | um leitor de Office de verdade vê 9 parágrafos, 9 imagens, A4, proporção 0,800 |
+
+A ordem da cadeia é por proximidade do que se pediu: `zip` (se algum dia
+passar), `docx` (zip de verdade, passa hoje), `html` (a página).
+
 ### O teto de 16 MB, e por que o pacote é JPEG
 
 Quando as peças ganharam foto de verdade, o gargalo **mudou de lugar**. Medido
@@ -565,7 +589,7 @@ vezes antes de descobrir. Três limites, todos reais:
 3. `.zip` **não é entregável em nenhuma configuração**: a allowlist é
    `gif png jpg jpeg webp mp4 webm txt json md` mais
    `docx pptx epub csv ttf html svg pdf` quando habilitada. Zip não está em
-   nenhuma das duas.
+   nenhuma das duas — mas **`docx` está, e um .docx É um ZIP** (ver abaixo).
 
 Então a etapa Aprovação abre com o cartão **Publicar do celular**, que não
 baixa nada:
