@@ -1,10 +1,13 @@
 # DOSSIÊ — JANE QUEIROZ · JQL SEGUROS
 
 **Documento vivo.** Atualizar aqui; rodadas de análise viram arquivos novos.
-Última consolidação: **04/08/2026** · Fontes na seção 14.
+Última consolidação: **24/08/2026** · Fontes na seção 14.
 
-> ⏱️ **Ciclo em curso:** pagamento 24/07 → entrega desde 25/07 → **fecha 24/08 com
-> reunião de alinhamento.** Faltam **20 dias** para a decisão de renovação.
+> 🔴 **O ciclo 1 fechou hoje, 24/08, e fechou mal.** 4 posts publicados contra 12
+> planejados · 10 dias sem publicação · 9 reclamações de qualidade · aprovação travada
+> 5 dias · saída do social media e do tráfego em 20/08 · e a cliente perguntando em
+> 22/08 se *"devido estar no primeiro mês promocional este cronograma não existe"*.
+> Leitura completa em §15. Evidência em [ANEXOS-WHATSAPP-2026-08-24](ANEXOS-WHATSAPP-2026-08-24.md).
 
 ---
 
@@ -315,8 +318,8 @@ Situação em **04/08/2026**, a **20 dias** da reunião que fecha o ciclo (24/08
 | **Cronograma de agosto** — 12 posts sobre o material de 29 e 30/07 | [`CRONOGRAMA-2026-08.md`](CRONOGRAMA-2026-08.md) |
 | **9 roteiros novos** (06–14), padrão TACO(H) | [Google Doc "Jane Queiroz"](https://docs.google.com/document/d/1CRbq0PYHba0ZUNGuZpRz8OSy2_keGNz3MqTtx_BFzow/edit) na pasta dela |
 
-Isso responde à pergunta que ela fez em 28/07 — *"podem me passar o resumo do que terei
-neste primeiro mês?"*. **Falta enviar.**
+✅ **Enviado em 04/08 18:03 e aprovado por ela:** *"ótimo"* · *"ficou top"*.
+Fecha a pendência que estava aberta desde 28/07.
 
 ### ✅ Fechadas desde a última rodada
 
@@ -451,3 +454,62 @@ Dois templates estão lá em branco desde 26/07: o **briefing de cliente** e o *
 **Confirmado por Nicolas:** valor do plano teste — R$2.000 (29/07) · ciclo 24/07 a
 24/08 com reunião de alinhamento (03/08) · decisão sobre tráfego pago **segue em
 aberto**, não foi resolvida nos áudios (29/07).
+
+
+---
+
+## 15. FECHAMENTO DO CICLO 1 — 25/07 a 24/08
+
+### O placar
+
+| | Planejado | Entregue |
+|---|---|---|
+| Posts | 12 | **4** |
+| Dias sem publicar | — | **10** (15 a 24/08) |
+| Diárias de gravação | 2 | 3 *(29, 30 e 31/07)* |
+| Roteiros gravados | 5 | 5 |
+| Roteiros 06–14 gravados | 9 | **0** |
+| Reunião de fechamento | 24/08 | **não marcada** |
+
+**Não faltou material.** Faltou passar o material pela linha de produção.
+
+### A cadeia de causa
+
+1. **A ligação de alinhamento nunca aconteceu.** Ela pediu 15 minutos em 04/08, foi
+   remarcada três vezes e sumiu. A estratégia e o cronograma nunca foram aprovados de
+   viva-voz — ficaram no PDF.
+2. **Nove reclamações de qualidade em 14 dias**, seis delas de áudio. Cada uma virou
+   uma rodada de reedição, e cada rodada comeu um slot do cronograma.
+3. **A aprovação travou 5 dias** (13 a 18/08) por permissão de pasta do Drive e portal.
+   Foi aqui que a cadência morreu.
+4. **20/08 — saída do social media e do tráfego**, anunciada dentro do grupo do cliente.
+5. **22/08 — a cliente cobra**, e cobra com a frase do mês promocional.
+
+### O que isso significa
+
+O risco não é mais teórico. O gatilho declarado por ela na call era *"não transmitir o
+que eu espero que transmita"* — e o que aconteceu foi pior que isso: **o perfil parou.**
+
+Mas a leitura não é toda ruim, e isso importa para a conversa de renovação:
+
+- Ela **aprovou o plano** — *"ótimo"*, *"ficou top"*
+- Ela **aprovou posts** — *"Ah gostei"* (07/08), *"gostei"* (13/08)
+- Ela **continua engajada**: revisa, pede ajuste, manda áudio, responde no mesmo dia.
+  Cliente que desistiu não revisa vídeo às 21h22
+- Ela **viu o reposicionamento do perfil** e respondeu *"Cheguei sim"*
+
+Ela não saiu. Ela está pedindo para ser levada a sério.
+
+### O que muda no ciclo 2 — as três travas
+
+| Trava | Por quê |
+|---|---|
+| **Banco aprovado com antecedência.** Nunca publicar de material aprovado no mesmo dia | Foi a rodada de revisão que comeu o cronograma |
+| **Conferência de áudio antes de subir** — nível de música contra voz, ruído de fundo, áudio até o fim | 6 das 9 reclamações |
+| **Zero fricção de acesso.** Toda pasta e todo link de aprovação em "qualquer pessoa com o link", conferido antes de pedir aprovação | Custou 5 dias e o *"é chato"* |
+
+### 🔐 Terceira ocorrência de dado sensível no grupo
+
+Senha do Facebook (27/07) → CPF de terceiro (29/07) → CPF/CNPJ da cliente (14/08).
+**Nenhum foi versionado aqui.** O padrão é o canal: documento e credencial não trafegam
+em grupo de WhatsApp. Ver §12.
