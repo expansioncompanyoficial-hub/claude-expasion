@@ -399,7 +399,43 @@ O ZIP é `store` e não deflate porque PNG já vem comprimido: a compressão
 renderia quase nada e custaria o dobro de código. São ~50 linhas — tabela de
 CRC32, cabeçalho local por arquivo, diretório central e registro de fim.
 
-### O compactado que passa: `.docx`
+### Baixar as imagens, e a retomada
+
+O caminho principal é o simples: **um arquivo por slide, em JPEG**, que é o que
+se pediu e o que sempre passa — `jpg` está na lista base do canal. Um botão ao
+lado baixa em PNG, para quem quer sem perda.
+
+O problema não era o formato, era o **corte do navegador**: ele trava depois de
+seis confirmações seguidas. A versão anterior parava ali e mandava usar outro
+caminho, o que na prática significa recomeçar do zero.
+
+Agora ele **guarda onde parou**. Cinco tentativas com espera crescente (2 s a
+10 s) cobrem o caso de ser só ritmo; se for teto duro, `RETOMAR` grava o índice,
+o cartão se repinta e o botão vira **"Continuar do slide 7"**. A segunda leva
+termina o que faltava, e nenhum arquivo vem duas vezes.
+
+**Medido contra o limite real.** O dublê do teste reproduz a allowlist e corta
+em seis, como o navegador dele:
+
+```
+1ª leva : 6 arquivos · "O navegador bloqueou downloads seguidos.
+          6 de 9 salvos, faltam 3. Toque de novo para continuar do slide 7."
+botão   : "Continuar do slide 7"
+2ª leva : 9 arquivos · "Pronto: 9 JPG na sua pasta de downloads."
+```
+
+Os nove conferidos no disco: nomes distintos, conteúdos distintos, todos
+1080 × 1350, todos JPEG.
+
+### O erro que escondia o erro
+
+`paraAqui()` escrevia a mensagem e **depois** chamava `pintarAprovacao()`. O
+repinte refaz o cartão, então a mensagem ia para um nó que deixava de existir:
+o processo parava sem nenhuma explicação na tela. Repintar primeiro e escrever
+depois resolve — e foi o teste automatizado que pegou, porque ele espera pela
+mensagem que nunca chegava.
+
+## O compactado que passa: `.docx`
 
 O download recusa `.zip`. Mas aceita `docx`, e **um .docx é um pacote ZIP** — o
 formato Open XML é um zip com XML dentro. Então o pedido "me dá em zip" tem
