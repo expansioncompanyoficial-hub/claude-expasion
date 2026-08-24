@@ -30,14 +30,17 @@ Fonte principal: `OPERACAO-REAL-EXPANSION-2026-07-26.md` e os pareceres por cont
 | Custo por conversa | **R$ 3,85** (medido 31/07–02/08) |
 | Público | Mulheres 30–50, raio de Sumaré/Nova Veneza. Pico às 15h — **horário em que ela está no CLT** |
 | **Canal que mais converte** | **Perfil pessoal da Sabrina**, não o da marca. Produto mais vendido de julho saiu 100% orgânico dali. TikTok ~10 mil seguidores, um vídeo com ~500 mil views. Ativo validado e ocioso |
-| **Setembro** | Aniversário da loja + coleção nova + evento de lançamento. **Está fora do contrato**, que vence 26/08 |
+| **Dias de loja aberta** | **Só aos sábados** (Sabrina, 02/07: *"é o dia que estamos com a loja aberta"*). Na semana a venda é direct e online, com ela no CLT |
+| **Setembro** | Aniversário da loja + coleção nova + **evento de lançamento sábado 19/09**. **Fora do contrato**, que vence 26/08 |
+| **Promessa de renovação** | **26/05, Kauan:** *"dependendo do resultado, para setembro vamos renovar no preço da primeira proposta"*. Em **24/08** ele escreveu que agosto bateu a meta |
 | Histórico | **2 agências antes.** Da segunda: *"não deu resultado nenhum"*, *"vendem sonho mas não têm estrutura"*. Quase 1 ano sem tráfego antes da Expansion |
 | Objetivo pessoal dela | Sair do CLT e migrar para atacado |
 | Business Manager | ⚠️ Ainda no nome do gestor anterior. Equipe entra pelo login da Sabrina. Risco ativo |
 | Sazonalidade | Agosto = **fim do inverno**. Peça flanelada tem que girar antes da primavera (22/09) |
 | Régua da cliente | **Avisar as clientes com pelo menos 2 semanas** de antecedência para evento |
 | Ponto sensível | Filtros, tratamento de cor e "insta clean". Já gerou conflito em 16/07 |
-| Quem ela confia na Expansion | **Matheus** (tráfego) — citado por ela como o único com cuidado |
+| Quem ela confiava na Expansion | Era o **Matheus** (tráfego). ⚠️ **Ele e a Débora saíram da Expansion em 20/08**, dois dias antes do evento. Tráfego passou para Nicolas + Kauã Catini; cobertura com o Daniel |
+| **Quem fecha venda** | **Só a Sabrina.** O Kauan assumiu isso em 20/08: *"sou muito dependente dela na hora da venda com a disponibilidade de peças e tamanhos"*. É o teto duro de qualquer dia de evento |
 | Aberto | R$ 500 de comissão de indicação devidos ao Kauan |
 
 **Implicações que valem para toda campanha desta conta:**
@@ -47,7 +50,23 @@ Fonte principal: `OPERACAO-REAL-EXPANSION-2026-07-26.md` e os pareceres por cont
 - **Confecção própria é o maior diferencial da marca e não está comunicado nem precificado.** Uma coordenadora comparou a qualidade com uma loja conhecida de Campinas e disse que o preço está baixo. Subir posicionamento não custa uma peça a mais nem um real de mídia.
 - Projeção de faturamento sai de **R$ 260**, não dos R$ 350 de tabela.
 
-Recálculo do evento de 22/08 com estes dados: `MINI-LANCAMENTO-CIES-22-08-RECALCULO-2026-08-05.md`.
+**Sábado Delas, 22/08 — o que ficou:**
+- **A semana vendeu, o dia não teve pico.** 5 dias seguidos de conteúdo (o oposto
+  dos 2 vídeos em 6 dias da semana anterior) e vendas registradas em 19, 21 e
+  22/08. O dia do evento **não tinha oferta**: café, arara, aula e brinde são
+  motivo para aparecer, não para comprar.
+- **Leituras opostas dos dois decisores.** Kauan: *"atendeu as minhas
+  expectativas"*. Sabrina: *"pior resultado até o momento"* em vendas. A causa é
+  nossa: o objetivo do dia mudou em 17/08 (de aquisição para credibilidade) e
+  **nunca foi realinhado com a Sabrina**.
+- ⚠️ **Os dois números do dia nunca existiram** — pessoas que entraram e
+  faturamento. O Kauan assumiu por escrito em 17/08 e não entregou.
+- **Estilista fora do 19/09**, por decisão da Sabrina (compete com o tempo de
+  venda dela). Decisão correta pelo gargalo medido.
+
+Recálculo do evento de 22/08: `MINI-LANCAMENTO-CIES-22-08-RECALCULO-2026-08-05.md`.
+Leitura pós-evento e renovação: `LEITURA-POS-EVENTO-CIES-2026-08-24.md`.
+Plano de setembro: `PLANO-CIES-SETEMBRO-2026-08-24.md`.
 
 ---
 
