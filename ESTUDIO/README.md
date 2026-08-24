@@ -307,3 +307,64 @@ O `⋯` é um `<span role="button">` e não um `<button>`, porque o card inteiro
 botão e botão dentro de botão é HTML inválido — o navegador desmonta a estrutura e o
 clique passa para o card. O `stopPropagation` no `⋯` é o que impede que abrir o menu
 também abra o cliente.
+
+## Template por slide
+
+O template da **peça** é a base: é ele que define o ritmo e quantos slides
+existem. Mas o desenho é decidido **slide a slide**. Uma peça pode abrir numa
+capa sangrada e seguir na grade do meio de funil sem virar duas peças.
+
+A seção *Template*, no painel da esquerda, abre com o escopo do clique:
+
+```
+[ slide 2 ]  [ carrossel todo ]
+```
+
+Em **slide N**, clicar num template troca só o slide aberto — grava
+`ajustes[N].tpl`. Em **carrossel todo**, troca a peça inteira, que era o
+comportamento antigo. O rótulo do escopo mostra o número do slide aberto, então
+ele muda conforme se navega.
+
+Três detalhes que decidem se isso é usável ou confuso:
+
+1. **O slide fora do padrão se declara.** Uma faixa na cor da marca diz
+   *"slide N fora do padrão da peça"* e traz um `voltar ao da peça`. A barra do
+   palco também muda: `EXPANSION 01 · peça em EXPANSION 02`. Sem isso o
+   carrossel fica misturado e ninguém lembra por quê.
+2. **Escolher o mesmo template da peça apaga a exceção** em vez de gravar o
+   mesmo valor. Senão o slide ficaria marcado como fora do padrão sendo
+   idêntico a ele.
+3. **Aplicar em todos avisa antes de apagar exceções.** Fazer isso calado seria
+   pior: o clique pareceria não ter funcionado nos slides com desenho próprio,
+   porque a exceção venceria o template novo.
+
+No código, `render(i)` resolve o template por `tplDo(i)` e o sombreia
+localmente — daqui para baixo `tpl` é o do slide, e o resto da função continua
+lendo `tpl` como sempre leu. O segundo argumento, `render(0, t)`, existe só
+para as miniaturas da lista, que desenham o slide 0 em **cada** template para
+mostrar como ele é. A versão anterior trocava o global dentro do laço, e
+qualquer erro no meio deixava a página inteira no template errado.
+
+## Dez controles que não funcionavam
+
+Auditoria de agosto/2026, cinco varreduras independentes sobre o fonte, cada
+achado verificado por um segundo passe que tentava refutá-lo. Fica registrado
+porque metade não dá para achar clicando — o botão responde, e o defeito está
+no que ele grava.
+
+| Controle | O que acontecia |
+|---|---|
+| `#btn-encolher` | `.grade.encolhido .encolher{display:none}` apagava o próprio botão. Encolher o trilho era mão única até dar F5 |
+| Modal *Novo cliente* | logo e moldura escolhidos iam para `fLogo`/`fFundo` e o cliente nascia com `logo:null, logoFundo:'auto'` cravados. A vitrine mostrava o logo, o cliente saía sem |
+| Setas `‹ ›` do palco | continuavam clicáveis na etapa *Capas*, onde o palco está escondido: mudavam `atual` no escuro e sobrescreviam o cabeçalho |
+| `medeSlide()` | só procurava `.ft-h1`/`.ft-corpo`, classes do meio de funil. Capa e sangrados não tinham medição, então o aviso "encolhido para X" nunca aparecia neles |
+| Padrão do corpo | escrito em dois lugares que discordavam: em slide claro o render desenhava 36,6 e o painel dizia 45. Saíam um aviso falso de "encolhido para 37px" e um salto no `+`, de 36,6 para 47,4 |
+| Miniatura da peça | `montarPecas` trocava `tpl` e `blocos` e esquecia `peca` — toda mini saía com a imagem e os tamanhos da peça aberta. Nome de uma, pixels de outra |
+| *Vagas de imagem preenchidas* | `ck(false, ...)` cravado. Pendência eterna no checklist, ao lado de um botão habilitado |
+| Etapa *Desempenho* | travada por `status === 'publicado'`, valor que nada no arquivo escrevia. Botão permanentemente cinza e `pintarDesempenho()` como código morto |
+| `#info-tpl` | `trocaEtapa` reescrevia com `tpl.nome` depois de `pintar()` já ter posto o rótulo por slide. O cabeçalho mentia em slide com template próprio |
+| Sete handlers sem `marcaSujo()` | criar cliente, novo carrossel, *Exemplo*, upload de logo, moldura do logo, cores da marca e *Gerar link de aprovação*. Mudavam o estado calados: o `beforeunload` não avisava e o trabalho ia embora fechando a aba |
+
+O padrão por trás dos sete últimos: **atribuir `elemento.value` por código não
+dispara `oninput`**. Todo caminho que escreve no estado sem passar por digitação
+precisa chamar `marcaSujo()` na mão.

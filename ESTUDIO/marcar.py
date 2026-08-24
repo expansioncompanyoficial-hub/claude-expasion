@@ -1,15 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Aplica a régua de destaque nas peças da Expansion.
+"""Aplica a régua de destaque nas peças escritas, cliente a cliente.
 
     python3 marcar.py estado.json saida.json
 
-Este arquivo é o **exemplo trabalhado** da régua: as nove peças da Expansion,
+Este arquivo é o **exemplo trabalhado** da régua: as peças já escritas,
 marcadas à mão, com a garantia de que nenhuma palavra mudou — só entraram
 marcadores. O script recusa a gravar se qualquer linha tiver texto diferente
 do que está no estado.
 
-A régua, e ela vale para qualquer cliente:
+A régua vale para QUALQUER cliente, e a cor sai da ficha dele: quem tem
+`gradTexto` pinta a capa com o degradê da marca, quem não tem pinta com a
+própria cor de destaque, chapada. O que muda de cliente para cliente é a cor,
+nunca o critério do que merece destaque.
+
+A régua:
 
   capa      · UM trecho, sempre. O sujeito da tensão — o que faz a frase
               valer. Nunca a frase inteira, nunca dois.
@@ -32,8 +37,8 @@ import pathlib
 import sys
 
 # Uma lista por peça, na ordem em que elas estão no cliente. `None` deixa a
-# peça como está.
-PECAS = [
+# peça como está. Peça vazia não entra aqui — não há o que marcar.
+EXPANSION = [
  # ── 1 · As duas datas do 13º ───────────────────────────────────────────────
  [
   "texto 1 - COMO SUA LOJA COMPETE COM UMA BLUSINHA QUE CHEGA COM *OUTRA TRIBUTAÇÃO*?",
@@ -228,6 +233,40 @@ PECAS = [
 ]
 
 
+# ── PRIME ALPHAVILLE · crédito imobiliário ─────────────────────────────────
+# Template sangrado (EXPANSION 02): capa + oito slides, headline e linha de
+# apoio em cada um. Cor de destaque #E14414, sem degradê — a Prime não tem um.
+PRIME = [
+ [
+  "texto 1 - SELIC  14%:*ESPERAR PODE SER O ARGUMENTO ERRADO* PARA ADIAR A COMPRA",
+  "texto 2 - A queda ajuda, mas o cliente ainda precisa saber quanto consegue comprar hoje.",
+  "texto 3 - O CORTE DE AGOSTO *REABRIU UMA PERGUNTA NO MERCADO*",
+  "texto 4 - Em 5 de agosto, o Copom reduziu a Selic para *14% ao ano*, no *quarto corte seguido*. A notícia reacendeu uma dúvida comum entre compradores: vale esperar por juros ainda menores antes de financiar um imóvel?",
+  "texto 5 - A TAXA FINAL CARREGA *MAIS COMPONENTES ALÉM DA SELIC*",
+  "texto 6 - A Selic influencia o custo do dinheiro, mas o banco também considera *a captação, o risco da operação, os custos e a margem*. Por isso, uma queda na taxa básica melhora o cenário *sem garantir uma redução imediata na mesma proporção* para o financiamento.",
+  "texto 7 - RENDA, ENTRADA E BANCO *DEFINEM O QUE CABE NO CASO*",
+  "texto 8 - O comprador não controla a próxima decisão do Copom, mas consegue organizar *a renda, a entrada, o prazo e a documentação*. Quando o perfil é bem enquadrado, a análise mostra *quanto cabe no orçamento* e quais bancos fazem sentido para aquela operação.",
+  "texto 9 - O CUSTO DO CRÉDITO *VAI ALÉM DA TAXA BÁSICA*",
+  "texto 10 - O custo do crédito também considera a captação, a inadimplência, as despesas, os tributos e a margem financeira. Por isso, *acompanhar apenas a Selic deixa fatores importantes* da proposta de financiamento fora da análise.",
+  "texto 11 - EM ALPHAVILLE, O TICKET MAIOR *AUMENTA O PESO DA ESTRUTURA*",
+  "texto 12 - Quando o imóvel exige um financiamento maior, a renda, a entrada e as condições oferecidas pelo banco ganham ainda mais peso. Por isso, um enquadramento bem construído pode revelar *possibilidades de compra que uma simulação isolada deixaria passar*.",
+  "texto 13 - UMA BOA SIMULAÇÃO *COLOCA A DECISÃO EM NÚMEROS*",
+  "texto 14 - Com a renda, a entrada, o imóvel e o prazo definidos, a Prime compara cenários e busca o melhor enquadramento disponível. Aí o cliente entende *quanto consegue financiar hoje* e avalia a compra com números concretos, *em vez de depender apenas da expectativa sobre os juros*.",
+  "texto 15 - O CORRETOR PRECISA DE UMA RESPOSTA *MELHOR QUE “VAMOS ESPERAR”*",
+  "texto 16 - O corte da Selic abre a conversa, enquanto *a estrutura do crédito ajuda a responder à objeção*. O corretor mantém o foco no imóvel e na negociação, e a Prime analisa os caminhos para mostrar o que é viável para aquele cliente.",
+  "texto 17 - A DECISÃO DO CLIENTE COMEÇA ANTES DO PRÓXIMO COPOM",
+  "texto 18 - Saber quanto o cliente consegue financiar hoje coloca a decisão em números reais, enquanto a próxima Selic continua incerta. Quer entender qual estrutura pode fazer sentido para a sua operação? Comente PRIME e fale com a nossa equipe.",
+ ],
+]
+
+# id do cliente no estado -> peças marcadas, na ordem. Cliente que não está
+# aqui fica intocado; peça sem texto não precisa de entrada.
+MARCADAS = {
+    'expansion': EXPANSION,
+    'prime': PRIME,
+}
+
+
 def nu(s):
     """O texto sem marcador — é o que tem de bater com o estado."""
     return s.replace('*', '')
@@ -265,18 +304,25 @@ def aplica(peca, marcado, rotulo):
 
 def main(entrada, saida):
     est = json.loads(pathlib.Path(entrada).read_text(encoding='utf-8'))
-    exp = next(c for c in est['clientes'] if c['id'] == 'expansion')
-    if len(exp['pecas']) != len(PECAS):
-        raise SystemExit(f"{len(exp['pecas'])} peças no estado, {len(PECAS)} marcadas aqui")
-
     total = 0
-    for i, (peca, marcado) in enumerate(zip(exp['pecas'], PECAS), 1):
-        if marcado is None:
-            continue
-        rotulo = f"peça {i} ({peca.get('nome') or 'sem título'})"
-        linhas, trechos = aplica(peca, marcado, rotulo)
-        total += trechos
-        print(f'  {rotulo}: {linhas} linhas · {trechos} trechos')
+    for cid, pecas in MARCADAS.items():
+        cliente = next((c for c in est['clientes'] if c['id'] == cid), None)
+        if cliente is None:
+            raise SystemExit(f'cliente {cid} não está no estado')
+        # Marcar menos peças do que existem é normal: peça vazia não tem o que
+        # marcar. Marcar MAIS é erro — significa que a ordem saiu do lugar.
+        if len(pecas) > len(cliente['pecas']):
+            raise SystemExit(
+                f"{cid}: {len(cliente['pecas'])} peças no estado, {len(pecas)} marcadas aqui")
+        print(f"{cliente['nome']} · destaque em {cliente.get('accent')}"
+              + (' com degradê' if cliente.get('gradTexto') else ' chapado'))
+        for i, (peca, marcado) in enumerate(zip(cliente['pecas'], pecas), 1):
+            if marcado is None:
+                continue
+            rotulo = f"{cid} · peça {i} ({peca.get('nome') or 'sem título'})"
+            linhas, trechos = aplica(peca, marcado, rotulo)
+            total += trechos
+            print(f'  peça {i}: {linhas} linhas · {trechos} trechos')
 
     pathlib.Path(saida).write_text(json.dumps(est, ensure_ascii=False), encoding='utf-8')
     print(f'{total} trechos marcados · texto conferido linha a linha, nenhuma palavra mudou')
