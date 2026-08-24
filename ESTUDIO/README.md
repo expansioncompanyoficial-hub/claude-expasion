@@ -345,6 +345,47 @@ para as miniaturas da lista, que desenham o slide 0 em **cada** template para
 mostrar como ele é. A versão anterior trocava o global dentro do laço, e
 qualquer erro no meio deixava a página inteira no template errado.
 
+## As caixas de diálogo são da página, não do navegador
+
+`prompt()`, `confirm()` e `alert()` **não existem dentro do artefato publicado**.
+O iframe é sandbox sem `allow-modals`: a chamada volta `null` e nenhum erro
+aparece. Renomear carrossel, arquivar e excluir cliente pareciam botões mortos
+por isso — funcionavam em qualquer navegador aberto direto no arquivo, e só ali
+não. Foi um bug que passou por dois testes automatizados justamente porque o
+Chromium headless roda a página fora do sandbox.
+
+Hoje o Estúdio usa `caixa()`, que devolve `Promise`, e três atalhos em cima
+dela:
+
+```javascript
+await confirma('Excluir Expansion DE VEZ?', 'Isto não tem volta…', 'Excluir')
+await pergunta('Nome do carrossel', p.nome)   // devolve string ou null
+await avisa('Não excluí nada', 'O nome digitado não bate.')
+```
+
+Escape e clique fora cancelam; Enter confirma. Todo chamador virou `async` — é o
+preço de não usar as nativas, e o preço de usá-las era o recurso não existir no
+publicado.
+
+## Baixar: ZIP ou arquivos separados
+
+Dois caminhos, os mesmos bytes:
+
+| | |
+|---|---|
+| **ZIP** | uma confirmação só, um arquivo, os 9 PNGs numerados dentro |
+| **Separados** | vão direto pra pasta de downloads, mas o navegador pede confirmação a cada arquivo |
+
+O ZIP é escrito à mão, em `zipDe()`: a CSP do artefato bloqueia CDN e embutir um
+zipper inteiro por causa de nove PNGs não se paga. Método `store`, sem
+compressão — PNG já é comprimido, deflate aqui renderia quase nada e custaria o
+dobro de código. São ~50 linhas: tabela de CRC32, cabeçalho local por arquivo,
+diretório central e o registro de fim.
+
+O limite de 16 MB do canal de download vale para o ZIP inteiro, então uma peça
+com fundos pesados pode estourar. Nesse caso a mensagem manda usar os arquivos
+separados, que passam um a um.
+
 ## Dez controles que não funcionavam
 
 Auditoria de agosto/2026, cinco varreduras independentes sobre o fonte, cada
