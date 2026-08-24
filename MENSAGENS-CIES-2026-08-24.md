@@ -166,3 +166,36 @@ grupo** — corrige no template e segue.
 > E um combo por semana, 3 peças que se conversam, com preço de conjunto. Sem
 > desconto: desconto ensina a cliente a esperar promoção, preço de conjunto é
 > produto novo e sai com 3 peças de uma vez em vez de 1.
+
+---
+
+# 5 · PRIVADO COM A SABRINA · resposta aos áudios das 11h11
+
+Ela mandou quatro áudios propondo a minissérie das parceiras e terminou
+perguntando *"vocês acham válido?"*. **Resposta é sim, com dois ajustes e a
+solução do celular cheio.**
+
+> Sa, ouvi teus áudios. Tá aprovado, pode ir.
+
+> E a tua justificativa de não ter postado antes é a melhor parte. Não é desculpa,
+> é verdade. Divulgação de parceira no meio da semana de evento ia se perder.
+> Assim cada uma tem o dia dela e a cliente para para olhar.
+
+> Sobre o brinde que sobrou, tua leitura tá certa. Foi parceiro demais, não foi
+> gente de menos. Ai só põe data: vale até sábado 29. Brinde sem prazo vira brinde
+> parado, com prazo ele fecha o mês.
+
+> E tem uma coisa que vale mais que o brinde. Quando mandar o vídeo para a
+> parceira, já combina o repost dela junto. Ela ganha um vídeo inteiro só dela,
+> então reposta no perfil dela. São 5 públicos novos de graça.
+
+> Como fazer o vídeo: 40 segundos, no celular, você falando. Quem ela é, o que ela
+> faz, o que ela deu para as nossas clientes, e no fim manda seguir o perfil dela.
+> Não precisa de arte nem edição, é você apresentando uma amiga.
+
+> Do teu celular cheio, manda os brutos para o Drive que a gente confirma que
+> chegou e ai você apaga tranquila ✅
+
+> Te mandei um documento no grupo com três coisas. O que ficou do evento, a oferta
+> de todo dia e uma reunião de alinhamento essa semana. Quinta às 20h fica bom
+> para você?
