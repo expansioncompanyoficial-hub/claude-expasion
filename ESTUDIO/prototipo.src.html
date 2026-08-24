@@ -2000,7 +2000,21 @@ async function baixarPacote(estado){
     + '. Baixe em arquivos separados — PNG está na lista base e sempre passa.', 'ruim');
 }
 
-async function exportarPngs(estado){
+/* Baixa slide a slide, em JPEG, e SOBREVIVE ao corte do navegador.
+
+   O canal trava depois de algumas confirmações seguidas — na prática seis. A
+   versão anterior parava ali e mandava o operador para outro caminho, o que na
+   melhor das hipóteses significa recomeçar do zero.
+
+   Agora ele guarda ONDE parou. Quando destrava, o botão vira "Continuar do
+   slide 7" e termina o que faltava. Nenhum arquivo é baixado duas vezes.
+
+   JPEG e não PNG porque foi o que se pediu, porque é 20% do tamanho — e menos
+   bytes por confirmação é menos chance de esbarrar em limite. `jpg` está na
+   lista base do canal, então passa em qualquer visualização. */
+let RETOMAR = {peca: null, de: 0};
+
+async function exportarPngs(estado, forma){
   const dl = await (window.claude && window.claude.use
     ? window.claude.use('downloads') : Promise.resolve(null));
   if (!dl){
@@ -2008,15 +2022,28 @@ async function exportarPngs(estado){
       + 'Abra o Estúdio pelo link do artefato, na sua conta.', 'ruim');
     return;
   }
+  const f = FORMATOS[forma] || FORMATOS.jpeg;
   const base = nomeArquivo(peca.nome), n = nSlides();
+  const inicio = (RETOMAR.peca === peca.id && RETOMAR.de < n) ? RETOMAR.de : 0;
   let salvos = 0;
-  for (let i = 0; i < n; i++){
+
+  const paraAqui = (i, msg, nivel) => {
+    RETOMAR = {peca: peca.id, de: i};
+    // Repinta ANTES de escrever: `pintarAprovacao` refaz o cartão, e a
+    // mensagem escrita antes dele ia para um nó que deixava de existir —
+    // o operador via o processo parar sem nenhuma explicação na tela.
+    pintarAprovacao();
+    estado(`${msg} ${i} de ${n} salvos, faltam ${n - i}. `
+      + `Toque de novo para continuar do slide ${i + 1}.`, nivel);
+  };
+
+  for (let i = inicio; i < n; i++){
     estado(`Preparando slide ${i + 1} de ${n}…`);
     let blob;
-    try { blob = await pngDoSlide(i); }
+    try { blob = await pngDoSlide(i, forma); }
     catch (e){ estado('Não consegui gerar o slide ' + (i + 1) + ': ' + e.message, 'ruim'); return; }
 
-    const nome = `${base}-${String(i + 1).padStart(2, '0')}.png`;
+    const nome = `${base}-${String(i + 1).padStart(2, '0')}.${f.ext}`;
     estado(`Slide ${i + 1} de ${n} — confirme o download de ${nome}`);
     let tentou = 0;
     for (;;){
@@ -2024,23 +2051,18 @@ async function exportarPngs(estado){
       catch (e){
         const cod = e && e.code;
         // `declined` nunca é retentado: o operador disse não, e insistir com
-        // outra caixa de diálogo é a definição de ferramenta chata.
-        if (cod === 'declined'){
-          estado(`Parei no slide ${i + 1}. ${salvos} arquivo(s) salvo(s).`, 'aviso');
-          return;
+        // outra caixa é a definição de ferramenta chata. Mas guarda o ponto:
+        // recusar um arquivo não pode custar os que já vieram.
+        if (cod === 'declined'){ paraAqui(i, 'Você recusou este.', 'aviso'); return; }
+        // Espera crescente e generosa: o corte costuma ser janela de tempo, e
+        // 1,2 s não era suficiente. Cinco tentativas cobrem até ~30 s.
+        if (cod === 'rate_limited' && tentou < 5){
+          tentou++;
+          estado(`O navegador pediu uma pausa. Tentando o slide ${i + 1} de novo `
+            + `(${tentou}/5)…`, 'aviso');
+          await espera(2000 * tentou); continue;
         }
-        // O canal corta depois de algumas confirmações seguidas. Insistir três
-        // vezes com espera crescente resolve quando é só ritmo; quando é teto
-        // duro, a mensagem manda pro caminho do celular em vez de parar calada.
-        if (cod === 'rate_limited' && tentou < 3){
-          tentou++; estado(`Pausa do navegador no slide ${i + 1}. Tentando de novo…`, 'aviso');
-          await espera(1200 * tentou); continue;
-        }
-        if (cod === 'rate_limited'){
-          estado(`O navegador travou em ${salvos} arquivos — ele limita downloads seguidos. `
-            + 'Use "Publicar do celular" logo acima: as imagens ficam na tela, sem download.', 'ruim');
-          return;
-        }
+        if (cod === 'rate_limited'){ paraAqui(i, 'O navegador bloqueou downloads seguidos.', 'aviso'); return; }
         if (cod === 'too_large'){
           estado(`O slide ${i + 1} passou de 16 MB. Reduza a imagem de fundo dele.`, 'ruim');
           return;
@@ -2050,7 +2072,10 @@ async function exportarPngs(estado){
       }
     }
   }
-  estado(`${salvos} de ${n} slides salvos, em arquivos separados.`, 'bom');
+  RETOMAR = {peca: null, de: 0};
+  const nome = peca.nome;
+  pintarAprovacao();
+  estado(`Pronto: ${n} ${f.ext.toUpperCase()} de ${nome} na sua pasta de downloads.`, 'bom');
 }
 
 /* Slides com vaga de imagem aberta, pelo número. A regra vale por SLIDE, e
@@ -2136,23 +2161,28 @@ function pintarAprovacao(){
       </div>
       <p id="b-cel-estado" style="margin-top:10px;font-size:13px;color:var(--fraco)"></p>
       <div id="cel-tira"></div></div>
-    <div class="cartao-et"><h3>Baixar os PNGs</h3>
-      <p>Os ${nSlides()} slides em 1080 × 1350, na ordem de publicação. Dois caminhos,
-      mesmos arquivos:</p>
-      <p style="font-size:12px;color:var(--fraco)"><b>Tudo num arquivo</b> — uma
-      confirmação só, em JPEG a 95%. Vem como <b>.docx</b>, e isso é de propósito:
-      o download do artefato recusa <b>.zip</b> em qualquer configuração, e um .docx
-      <b>é um arquivo ZIP por dentro</b>. Renomeie para .zip e descompacte para ter as
-      ${nSlides()} imagens soltas — ou abra direto, que os slides estão lá, um por página.<br>
-      <b>Separados</b> — ${nSlides()} PNGs, qualidade máxima, direto na pasta de
-      downloads. O navegador pede confirmação a cada arquivo e costuma travar
-      depois de seis.</p>
-      <p style="font-size:12px;color:var(--fraco);margin-top:-4px">Teto de
-      <b>16 MB por arquivo</b>. Nove slides com foto dão ~13 MB em PNG; em JPEG o
-      pacote cai para cerca de 2 MB. A diferença medida contra o PNG é de 1 em 255.</p>
-      <div class="acoes"><button class="btn btn-forte" id="b-zip">
-        Baixar tudo num arquivo</button>
-        <button class="btn" id="b-baixar">${nSlides()} arquivos separados</button></div>
+    <div class="cartao-et"><h3>Baixar as imagens</h3>
+      ${(() => {
+        const n = nSlides();
+        const parou = RETOMAR.peca === peca?.id && RETOMAR.de > 0 && RETOMAR.de < n;
+        return `<p>${parou
+          ? `<b>${RETOMAR.de} de ${n} já baixados.</b> O navegador limita downloads
+             seguidos — toque para continuar do slide ${RETOMAR.de + 1}. Nenhum vem repetido.`
+          : `Os ${n} slides em JPEG, 1080 × 1350, um arquivo por slide, na ordem de
+             publicação. O navegador pede confirmação a cada um.`}</p>
+        <div class="acoes" style="margin-top:12px">
+          <button class="btn btn-forte" id="b-baixar" style="flex:1;padding:11px;font-size:13.5px">
+            ${parou ? `Continuar do slide ${RETOMAR.de + 1}` : `Baixar as ${n} imagens`}</button>
+        </div>
+        <div class="acoes" style="margin-top:7px">
+          <button class="btn" id="b-baixar-png" style="flex:1">Baixar em PNG</button>
+          <button class="btn" id="b-zip" style="flex:1">Tudo num arquivo</button>
+        </div>
+        <p style="font-size:12px;color:var(--fraco);margin-top:9px">
+          <b>PNG</b> é maior e sem perda; o <b>JPEG a 95%</b> tem diferença medida de
+          1 em 255 contra ele e baixa mais rápido. <b>Tudo num arquivo</b> vem como
+          .docx, que é um ZIP por dentro: renomeie para .zip e descompacte, ou abra
+          direto. O canal de download recusa .zip em qualquer configuração.</p>`; })()}
       <p id="b-baixar-estado" style="margin-top:10px;font-size:13px;color:var(--fraco)"></p></div>`;
   const est = (msg, nivel) => {
     const e = $('#b-baixar-estado'); if (!e) return;
@@ -2245,14 +2275,15 @@ function pintarAprovacao(){
     }
   };
 
-  const bz = $('#b-zip'), bb = $('#b-baixar');
+  const bz = $('#b-zip'), bb = $('#b-baixar'), bp = $('#b-baixar-png');
   const trava = async fn => {
-    if (bz) bz.disabled = true; if (bb) bb.disabled = true;
+    [bz, bb, bp].forEach(b => { if (b) b.disabled = true; });
     try { await fn(est); }
-    finally { if (bz) bz.disabled = false; if (bb) bb.disabled = false; }
+    finally { [bz, bb, bp].forEach(b => { if (b) b.disabled = false; }); }
   };
   if (bz) bz.onclick = () => trava(baixarPacote);
-  if (bb) bb.onclick = () => trava(exportarPngs);
+  if (bb) bb.onclick = () => trava(e => exportarPngs(e, 'jpeg'));
+  if (bp) bp.onclick = () => trava(e => exportarPngs(e, 'png'));
   const b = $('#b-enviar-cli');
   if (b && pronto) b.onclick = () => {
     registra('status', {para: 'revisao'});
