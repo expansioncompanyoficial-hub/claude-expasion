@@ -139,7 +139,11 @@ button{font-family:inherit}
 .etapa[aria-current="true"] .et-est{color:var(--pt-accent,var(--expansion))}
 .grade.encolhido{--trilho:58px}
 .grade.sem-editor{--editor:0px}
-.grade.encolhido .et-txt,.grade.encolhido .encolher{display:none}
+/* Só o TEXTO das etapas some ao encolher. Esconder também o `.encolher`
+   deixava o trilho sem volta: o botão que expande era apagado pela própria
+   regra que ele acionava, e só um F5 desfazia. */
+.grade.encolhido .et-txt{display:none}
+.grade.encolhido .encolher{transform:rotate(180deg)}
 .grade.encolhido .etapa{justify-content:center;padding:9px 0}
 
 /* painéis contextuais e telas de etapa */
@@ -294,6 +298,12 @@ label.rot{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1
 .tpl:focus-visible{outline:2px solid var(--expansion);outline-offset:1px}
 .tpl-mini{width:34px;height:43px;border-radius:3px;flex:none;overflow:hidden;position:relative;
   border:1px solid rgba(255,255,255,.10)}
+.excecao-tpl{display:flex;flex-direction:column;gap:6px;margin:0 0 9px;padding:8px 9px;
+  border-radius:7px;border:1px solid var(--pt-accent,var(--expansion));
+  background:color-mix(in srgb,var(--pt-accent,var(--expansion)) 12%,transparent)}
+.excecao-tpl span{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--texto)}
+.excecao-tpl .btn{padding:5px 8px;font-size:11px}
 .tpl-nome{display:block;font-size:12px;font-weight:550;line-height:1.25}
 .tpl-sub{display:block;font-family:var(--mono);font-size:9.5px;color:var(--fraco);
   letter-spacing:.05em;margin-top:2px}
@@ -737,8 +747,8 @@ function grad(){
 
    A palavra vem da ficha (`cta`), não do texto: ela pega mesmo que quem
    escreveu tenha esquecido de marcar. */
-function chamada(txt){
-  let html = RICO(txt, 'interno');
+function chamada(txt, modo){
+  let html = RICO(txt, modo || 'interno');
   const cta = (cli.cta || '').trim();
   if (!cta) return html;
   const re = new RegExp('(^|[^\\wÀ-ÿ])(' +
@@ -771,6 +781,13 @@ const gradTexto = () => cli.gradTexto || null;
                  não tem cor de marca no texto. Ali a ênfase é só peso — é o
                  que o renderizador em Python já faz em `.tw-texto em`.
      o resto   · accent chapado, sobre escuro e sobre claro. */
+/* Os modos, e o que cada um pinta:
+     capa      — degradê da marca se houver, senão a cor de destaque chapada
+     sang      — corpo dos templates sangrados (02/03/04): cor de destaque
+     destaque  — fundo laranja: branco em bold, porque laranja sobre laranja some
+     interno   — cor de destaque chapada
+     cartao    — só peso, sem cor: o cartão do Twitter empresta a credibilidade
+                 da rede e cor de marca ali denuncia que é anúncio */
 function RICO(txt, modo){
   const cru = esc(txt);
   if (modo === 'cartao') return cru
@@ -857,6 +874,19 @@ function tetos(pos){
   return out;
 }
 
+/* O tamanho padrão do corpo, num lugar só. Estava duplicado entre o render e
+   o painel, e os dois discordavam: em slide claro o render desenhava 36,6 e o
+   painel dizia 45. Daí saíam um aviso falso de "encolhido para 37px pra caber"
+   e um salto no `+`, que pulava de 36,6 direto para 47,4. */
+function padraoCorpo(i, t){
+  t = t || tplDo(i);
+  if (t.id === 'exp02' || t.id === 'exp03' || t.id === 'exp04') return 31;
+  if (t.id === 'twitter') return 41;
+  const f = t.ritmo ? (t.ritmo[i] || (i === 0 ? 'capa' : 'escuro')) : 'escuro';
+  if (f === 'cta') return 45.4;
+  return (f === 'claro' && posFoto(i) !== 'fundo') ? 36.6 : 45.4;
+}
+
 /* Ajustes por slide: imagem, enquadramento e tamanhos pedidos à mão. */
 function ajuste(i){
   if (!peca) return {foco:'50% 50%'};
@@ -894,7 +924,12 @@ function fitBlocos(raiz){
 /* Quanto o slide atual teve de encolher — é o que o painel mostra. */
 function medeSlide(){
   const s = $('#moldura .slide'); if (!s) return null;
-  const h = s.querySelector('.ft-h1'), c = s.querySelector('.ft-corpo');
+  // Cada template nomeia o título de um jeito: `.ft-h1` no meio de funil,
+  // `.capa-h1` na capa dele, `.sang-h1` nos sangrados. Procurar só o primeiro
+  // deixava capa, 02, 03 e 04 sem medição — e sem medição o aviso de
+  // "encolhido para X" nunca aparecia e o passo `−` não tinha de onde partir.
+  const h = s.querySelector('.ft-h1, .capa-h1, .sang-h1');
+  const c = s.querySelector('.ft-corpo, .sang-area > div:last-child');
   return {
     h1: h ? Math.round(parseFloat(getComputedStyle(h).fontSize)) : null,
     corpo: c ? Math.round(parseFloat(getComputedStyle(c).fontSize)) : null,
@@ -928,12 +963,36 @@ function fundoImagem(aj, escala, vaga){
   return `${base}<div style="position:absolute;inset:0;background:${veu}"></div>${aviso}`;
 }
 
-function render(i){
-  const {h,c} = par(i); const T = tpl.id;
+/* O template da PEÇA é a base: é ele que define o ritmo e quantos slides
+   existem. Mas o desenho é decidido slide a slide — `ajustes[i].tpl` é a
+   exceção, gravada no próprio slide. Assim uma peça pode abrir numa capa
+   sangrada e seguir na grade do meio de funil sem virar duas peças. */
+const tplDo = i => {
+  const a = (peca && peca.ajustes && peca.ajustes[i]) || {};
+  return a.tpl ? acha(a.tpl) : tpl;
+};
+/* Quais slides estão fora do template da peça. Serve para avisar antes de
+   aplicar um template em todos e apagar as exceções sem perguntar. */
+function foraDoPadrao(){
+  const a = (peca && peca.ajustes) || {};
+  return Object.keys(a).filter(k => a[k] && a[k].tpl).map(Number).sort((x,y) => x-y);
+}
+
+/* `forcado` existe para as miniaturas da lista de templates, que desenham o
+   slide 0 em CADA template para mostrar como ele é. Sem esse desvio a lista
+   mostraria cinco vezes o template do slide aberto, e não os cinco da casa. */
+function render(i, forcado){
+  const {h,c} = par(i);
+  // Sombra local do `tpl` global, de propósito: daqui para baixo o template é
+  // o do slide, e todo o resto da função continua lendo `tpl` como sempre leu.
+  const tpl = forcado || tplDo(i);
+  const T = tpl.id;
   const aj = ajuste(i);
 
   if (T === 'meio'){
-    const f = tpl.ritmo[i];
+    // O ritmo é do meio de funil. Um slide que virou meio de funil dentro de
+    // uma peça mais longa cai no padrão em vez de sair indefinido.
+    const f = tpl.ritmo[i] || (i === 0 ? 'capa' : 'escuro');
     if (f === 'capa') return `<div class="slide" style="background:${cli.escuro}">
       ${fundoImagem(aj, 'capa', true)}
       ${barra('rgba(255,255,255,.30)')}
@@ -984,10 +1043,11 @@ function render(i){
     // Vale o que está PINTADO, não o que o ritmo pediu: com imagem de fundo o
     // laranja saiu de cena, e aí o accent volta a ter contraste.
     const modo = (!eFundo && f==='destaque') ? 'destaque' : 'interno';
+    const tamC = aj.corpo || padraoCorpo(i, tpl);
     const corpoHtml = f==='cta'
-      ? `<div class="ft-corpo" style="font-size:${aj.corpo || 45.4}px;line-height:.96;
+      ? `<div class="ft-corpo" style="font-size:${tamC}px;line-height:.96;
           letter-spacing:-.033em;color:${corC}">${chamada(c||'Comenta a palavra.')}</div>`
-      : `<div class="ft-corpo" style="font-size:${aj.corpo || (cl?36.6:45.4)}px;line-height:.96;
+      : `<div class="ft-corpo" style="font-size:${tamC}px;line-height:.96;
           letter-spacing:-.033em;color:${corC}">${RICO(c||'Texto de apoio do slide.', modo)}</div>`;
 
     return `<div class="slide" style="background:${bg}">
@@ -1017,7 +1077,10 @@ function render(i){
           font-size:${aj.h1 || tpl.tam}px;line-height:${tpl.lh};letter-spacing:${tpl.tr};color:#fff">
           ${RICO(h||'Headline da capa', i === 0 ? 'capa' : 'sang')}</div>
         <div style="font-size:${aj.corpo || 31}px;line-height:1.18;letter-spacing:-.02em;color:#fff;
-          opacity:.86;max-width:92%">${esc(c||'Linha de apoio abaixo da headline.')}</div>
+          opacity:.86;max-width:92%">${
+          i === nSlides()-1
+            ? chamada(c||'Linha de apoio abaixo da headline.', 'sang')
+            : RICO(c||'Linha de apoio abaixo da headline.', 'sang')}</div>
       </div></div>`;
   }
 
@@ -1293,6 +1356,10 @@ function trocaEtapa(id){
   $('#tiras').classList.toggle('oculto', !noCarrossel);
   $('#pecas').classList.toggle('oculto', !(noCarrossel || nasCapas));
   $('.canvas-topo').classList.toggle('oculto', !(noCarrossel || nasCapas));
+  // As setas continuavam clicáveis em Capas, onde o palco está escondido:
+  // mudavam `atual` no escuro e ainda sobrescreviam o cabeçalho. Elas
+  // pertencem ao carrossel, então só existem lá.
+  $('.canvas-topo .acoes').classList.toggle('oculto', !noCarrossel);
   $('#grade-capas').classList.toggle('oculto', !nasCapas);
   ['legenda','aprovacao','desempenho'].forEach(k =>
     $('#c-'+k).classList.toggle('oculto', id !== k));
@@ -1313,7 +1380,10 @@ function trocaEtapa(id){
   else if (id === 'aprovacao') pintarAprovacao();
   else if (id === 'desempenho') pintarDesempenho();
   montarTrilho();
-  $('#info-tpl').textContent = nasCapas ? 'Capas virais' : tpl.nome;
+  // Só escreve aqui quando NÃO é o carrossel: no carrossel quem manda é o
+  // rótulo por slide que `pintar()` calculou, e sobrescrever com `tpl.nome`
+  // fazia o cabeçalho mentir sempre que o slide tinha template próprio.
+  if (!noCarrossel) $('#info-tpl').textContent = nasCapas ? 'Capas virais' : tpl.nome;
   $('#info-n').textContent = nasCapas ? `${(peca?.capas||[]).length} capas`
                                       : `slide ${atual+1} de ${nSlides()}`;
 }
@@ -1500,11 +1570,27 @@ async function exportarPngs(estado){
   estado(`${salvos} de ${n} slides salvos, em arquivos separados.`, 'bom');
 }
 
+/* Slides com vaga de imagem aberta, pelo número. A regra vale por SLIDE, e
+   por isso lê o template do slide: numa peça mista o slide 3 pode ser sangrado
+   (vaga sempre) e o 4 do meio de funil sem caixa nenhuma. */
+function vagasAbertas(){
+  const fora = [];
+  for (let i = 0; i < nSlides(); i++){
+    const t = tplDo(i);
+    const pos = t.id === 'meio' ? posFoto(i) : (t.id === 'twitter' ? 'caixa' : 'fundo');
+    if (pos !== 'nada' && !((peca.ajustes || {})[i] || {}).img) fora.push(i + 1);
+  }
+  return fora;
+}
+
 /* ── aprovação ─────────────────────────────────────────────────────────── */
 function pintarAprovacao(){
   const blocosOk = blocos.filter(Boolean).length;
   const palavra = (cli.cta || 'DIAGNÓSTICO').toUpperCase();
-  const pronto = peca?.capa && blocosOk >= 18 && peca?.legenda;
+  // O item de imagem vinha cravado em `false`: o checklist mostrava pendência
+  // eterna ao lado de um botão habilitado. Agora é calculado, e conta.
+  const vagas = vagasAbertas();
+  const pronto = peca?.capa && blocosOk >= 18 && peca?.legenda && !vagas.length;
   const semFoto = !peca?.capa;
   $('#c-aprovacao').innerHTML = `
     <div class="cartao-et"><h3>Antes de mandar pro cliente</h3>
@@ -1512,7 +1598,9 @@ function pintarAprovacao(){
         ${ck(!!peca?.capa, 'Capa escolhida', semFoto ? 'volte em Capas e clique em “usar esta capa”' : esc(semMarca(peca.capa)))}
         ${ck(blocosOk >= 18, `${blocosOk} de 18 blocos`, 'dois por slide, nove slides')}
         ${ck(!!peca?.legenda, 'Legenda escrita', `com a palavra ${esc(palavra)}`)}
-        ${ck(false, 'Vagas de imagem preenchidas', 'peça não vai pro cliente com vaga aberta')}
+        ${ck(!vagas.length, 'Vagas de imagem preenchidas', vagas.length
+          ? `sem imagem no slide ${vagas.join(', ')} — peça não vai pro cliente com vaga aberta`
+          : `${nSlides()} slides com imagem`)}
       </div></div>
     <div class="cartao-et"><h3>O link do cliente</h3>
       <p>Moldura de Instagram com os slides deslizáveis, a legenda e dois botões.
@@ -1522,6 +1610,14 @@ function pintarAprovacao(){
         ${pronto ? 'Gerar link de aprovação' : 'Faltam itens acima'}</button></div>
       <p style="margin-top:11px;font-size:12px;color:var(--fraco)">
       O aceite do cliente é o que dispara a publicação. Nunca a geração.</p></div>
+    ${peca?.status === 'revisao' || peca?.status === 'publicado' ? `
+    <div class="cartao-et"><h3>Depois do aceite</h3>
+      <p>Quando o cliente aprovar e a peça for ao ar, registre aqui. É o que
+      destrava <b>Desempenho</b> — sem esse registro a etapa fica travada para
+      sempre, porque nada mais no Estúdio sabe que a peça foi publicada.</p>
+      <div class="acoes"><button class="btn ${peca.status === 'publicado' ? '' : 'btn-forte'}"
+        id="b-publicada" ${peca.status === 'publicado' ? 'disabled' : ''}>
+        ${peca.status === 'publicado' ? 'Publicada ✓' : 'Marcar como publicada'}</button></div></div>` : ''}
     <div class="cartao-et"><h3>Baixar os PNGs</h3>
       <p>Os ${nSlides()} slides em <b>arquivos separados</b>, 1080 × 1350, na ordem de
       publicação. Sem ZIP: é assim que o Instagram pede na hora de subir.</p>
@@ -1545,9 +1641,21 @@ function pintarAprovacao(){
   };
   const b = $('#b-enviar-cli');
   if (b && pronto) b.onclick = () => {
+    marcaSujo();
     peca.status = 'revisao';
     b.textContent = 'Link gerado — /a/' + Math.random().toString(36).slice(2,12);
-    b.disabled = true; montarTrilho();
+    b.disabled = true; montarTrilho(); pintarAprovacao();
+  };
+  // Sem isto `publicado` não era escrito em lugar nenhum, e a etapa Desempenho
+  // ficava travada para sempre — botão eternamente cinza e `pintarDesempenho`
+  // como código morto. O aceite do cliente é o gatilho, então o registro dele
+  // mora aqui, ao lado do link, e não numa automação que não existe.
+  const pub = $('#b-publicada');
+  if (pub) pub.onclick = () => {
+    if (!confirm('Marcar como publicada? É o que abre a etapa Desempenho.')) return;
+    marcaSujo();
+    peca.status = 'publicado';
+    montarTrilho(); pintarAprovacao();
   };
 }
 
@@ -1574,7 +1682,11 @@ function pintar(){
   const d = escala(m.firstElementChild, largura);
   m.style.width = d.w+'px'; m.style.height = d.h+'px';
 
-  $('#info-tpl').textContent = tpl.nome;
+  // O rótulo mostra o template do SLIDE, com o da peça entre parênteses quando
+  // os dois divergem: sem isso a barra mentiria sobre o que está na tela.
+  const tSlide = tplDo(atual);
+  $('#info-tpl').textContent = tSlide.id === tpl.id
+    ? tpl.nome : `${tSlide.nome} · peça em ${tpl.nome}`;
   $('#info-n').textContent = `slide ${atual+1} de ${n}`;
   $('#nome-peca').textContent = peca ? '· ' + peca.nome : '';
 
@@ -1591,6 +1703,9 @@ function pintar(){
     const s = b.querySelector('.slide'); fitCapa(b); fitBlocos(b);
     escala(s,64); s.style.pointerEvents='none';
   }
+  // O seletor mostra "slide N" e qual template vale aqui, então tem de ser
+  // reconstruído junto com a navegação, não só quando se troca de template.
+  if ($('#tpls')) montarTpls();
   contar();
 }
 
@@ -1627,11 +1742,13 @@ function painelLogo(){
   c.querySelector('input[type=file]').onchange = e => {
     const f = e.target.files[0]; if(!f) return;
     const r = new FileReader();
-    r.onload = () => { cli.logo = r.result; painelLogo(); pintar(); };
+    r.onload = () => { marcaSujo(); cli.logo = r.result; painelLogo(); pintar(); };
     r.readAsDataURL(f);
   };
   c.querySelectorAll('.fundo-op').forEach(b => {
-    b.onclick = () => { cli.logoFundo = b.dataset.v; painelLogo(); pintar(); };
+    // (marcaSujo entra no onclick logo abaixo — a moldura do logo é ativo de
+    //  marca e sumia sem aviso junto com o resto.)
+    b.onclick = () => { marcaSujo(); cli.logoFundo = b.dataset.v; painelLogo(); pintar(); };
   });
 }
 
@@ -1645,6 +1762,7 @@ function camposMarca(){
       <div class="cor-txt"><div class="cor-nome">${nome}</div>
       <div class="cor-hex">${cli[k].toUpperCase()}</div></div>`;
     d.querySelector('input').oninput = e => {
+      marcaSujo();
       cli[k]=e.target.value; d.querySelector('.cor-hex').textContent=e.target.value.toUpperCase(); pintar();
     };
     c.appendChild(d);
@@ -1653,33 +1771,81 @@ function camposMarca(){
   $('#handle').value=cli.handle; $('#nome').value=cli.marca; $('#direito').value=cli.direito;
 }
 
+/* O escopo do clique no template. `slide` troca só o slide aberto, `peca`
+   troca o carrossel inteiro. Fica em memória, não no estado salvo: é modo de
+   trabalho de quem está editando agora, não propriedade da peça. */
+let escopoTpl = 'slide';
+
 function montarTpls(){
   const c = $('#tpls'); c.innerHTML='';
+  const doSlide = tplDo(atual), excecoes = foraDoPadrao();
+  const vale = escopoTpl === 'slide' ? doSlide.id : tpl.id;
+
+  const escopo = document.createElement('div');
+  escopo.className = 'opcoes'; escopo.id = 'tpl-escopo';
+  escopo.style.marginBottom = '9px';
+  escopo.innerHTML = [['slide', `slide ${atual+1}`], ['peca', 'carrossel todo']]
+    .map(([v, rot]) => `<button class="op" type="button" data-v="${v}"
+      aria-pressed="${escopoTpl === v}">${rot}</button>`).join('');
+  escopo.querySelectorAll('.op').forEach(b => b.onclick = () => {
+    escopoTpl = b.dataset.v; montarTpls();
+  });
+  c.appendChild(escopo);
+
+  // Quando o slide aberto está fora do template da peça, isso precisa aparecer
+  // — senão o carrossel fica misturado e ninguém lembra por quê.
+  if (escopoTpl === 'slide' && doSlide.id !== tpl.id){
+    const nota = document.createElement('div');
+    nota.className = 'excecao-tpl';
+    nota.innerHTML = `<span>slide ${atual+1} fora do padrão da peça</span>
+      <button class="btn" type="button" id="tpl-voltar">voltar ao da peça</button>`;
+    nota.querySelector('#tpl-voltar').onclick = () => {
+      delete ajuste(atual).tpl; marcaSujo(); pintar(); montarPecas();
+    };
+    c.appendChild(nota);
+  }
+
   TEMPLATES.forEach(t => {
     const b = document.createElement('button');
     b.className='tpl'; b.type='button';
-    b.setAttribute('aria-pressed', t.id===tpl.id);
+    b.setAttribute('aria-pressed', t.id === vale);
     b.innerHTML = `<span class="tpl-mini" id="mini-${t.id}"></span>
       <span><span class="tpl-nome">${t.nome}</span><span class="tpl-sub">${t.etapa}</span></span>`;
     b.onclick = () => {
-      tpl=t; peca.tpl=t.id; atual=0;
-      [...c.children].forEach(k=>k.setAttribute('aria-pressed','false'));
-      b.setAttribute('aria-pressed','true');
-      pintar(); miniaturas(); montarPecas();
+      if (escopoTpl === 'slide'){
+        // Igual ao da peça não é exceção: apaga em vez de gravar o mesmo valor,
+        // senão o slide fica marcado como fora do padrão sendo idêntico a ele.
+        if (t.id === tpl.id) delete ajuste(atual).tpl;
+        else ajuste(atual).tpl = t.id;
+      } else {
+        // Aplicar em todos apaga as exceções. Fazer isso calado seria pior:
+        // o clique pareceria não ter funcionado nos slides que tinham desenho
+        // próprio, porque a exceção venceria o template novo.
+        const perdidos = foraDoPadrao();
+        if (perdidos.length){
+          const quais = perdidos.map(k => k+1).join(', ');
+          if (!confirm(`${perdidos.length} slide(s) com template próprio: ${quais}.\n\n`
+            + `Aplicar ${t.nome} no carrossel todo apaga essas exceções. Continuar?`)) return;
+          perdidos.forEach(k => delete peca.ajustes[k].tpl);
+        }
+        tpl = t; peca.tpl = t.id; atual = 0;
+      }
+      marcaSujo(); pintar(); montarPecas();
     };
     c.appendChild(b);
   });
   miniaturas();
 }
 function miniaturas(){
-  const g = tpl;
   TEMPLATES.forEach(t => {
     const alvo = document.getElementById('mini-'+t.id); if(!alvo) return;
-    tpl = t; alvo.innerHTML = render(0);
+    // Cada mini desenha o slide 0 NO SEU template — por isso `render(0, t)` e
+    // não uma troca do global. Trocar o global aqui já custou um bug: qualquer
+    // erro no meio do laço deixava a página inteira no template errado.
+    alvo.innerHTML = render(0, t);
     fitCapa(alvo); fitBlocos(alvo);
     const s = alvo.querySelector('.slide'); escala(s,34); s.style.pointerEvents='none';
   });
-  tpl = g;
 }
 
 function montarPecas(){
@@ -1708,12 +1874,16 @@ function montarPecas(){
       montarTpls(); montarPecas(); trocaEtapa(alvo);
     };
     c.appendChild(b);
-    const g = tpl, gb = blocos;
-    tpl = acha(p.tpl); blocos = parse(p.txt);
+    // Trocava `tpl` e `blocos` e esquecia `peca` — então toda miniatura saía
+    // com a IMAGEM e os tamanhos da peça aberta: nome de uma, pixels de outra.
+    // `ajuste()` ainda escreve na peça, então sem trocar `peca` aqui a peça
+    // aberta ganhava ajustes fantasma a cada repintura da tira.
+    const g = tpl, gb = blocos, gp = peca;
+    tpl = acha(p.tpl); blocos = parse(p.txt); peca = p;
     const alvo = b.querySelector('.peca-mini'); alvo.innerHTML = render(0);
     fitCapa(alvo); fitBlocos(alvo);
     const s = alvo.querySelector('.slide'); escala(s,20); s.style.pointerEvents='none';
-    tpl = g; blocos = gb;
+    tpl = g; blocos = gb; peca = gp;
   });
   const n = document.createElement('button');
   n.className='peca peca-nova'; n.type='button'; n.textContent='+ Novo carrossel';
@@ -1721,6 +1891,7 @@ function montarPecas(){
     guardaEditor();
     etapa = null;
     const p = nova('Sem título', tpl.id, '');
+    marcaSujo();
     cli.pecas.push(p); peca = p; blocos = []; atual = 0;
     montarPecas(); trocaEtapa('capas');
   };
@@ -1853,7 +2024,9 @@ function painelSlide(){
   $('#sl-n').textContent = `${atual+1} de ${nSlides()}`;
 
   const aj = ajuste(atual), real = medeSlide() || {};
-  const T = tpl.id, ehCapa = T === 'meio' && atual === 0;
+  // O painel descreve o slide aberto, então lê o template DELE — não o da peça.
+  const tSlide = tplDo(atual);
+  const T = tSlide.id, ehCapa = T === 'meio' && atual === 0;
   const sangrado = T === 'exp02' || T === 'exp03' || T === 'exp04';
   const pos = T === 'meio' ? posFoto(atual) : null;
 
@@ -1864,8 +2037,8 @@ function painelSlide(){
   const temImagem = eFundo || T === 'twitter' || (pos && pos !== 'nada');
   const doseAtual = aj.scrim || peca.scrim || 'medio';
 
-  const padraoH1 = ehCapa ? 111.5 : sangrado ? tpl.tam : T === 'twitter' ? 41 : 75.7;
-  const padraoC  = sangrado ? 31 : T === 'twitter' ? 41 : 45.4;
+  const padraoH1 = ehCapa ? 111.5 : sangrado ? tSlide.tam : T === 'twitter' ? 41 : 75.7;
+  const padraoC  = padraoCorpo(atual, tSlide);
   const pedidoH1 = aj.h1 || padraoH1, pedidoC = aj.corpo || padraoC;
 
   cx.innerHTML = `
@@ -2088,6 +2261,10 @@ async function ligaPersistencia(){
 
 /* ============ eventos ============ */
 $('#btn-exemplo').onclick = () => {
+  // Os três ramos gravam no estado, e atribuir `#editor.value` por código não
+  // dispara o `oninput` — então nada aqui marcava sujo. Uma chamada no topo
+  // cobre os três.
+  marcaSujo();
   if (etapa === 'capas'){
     $('#editor').value = CAPAS_EXEMPLO; peca.capas = lerCapas(CAPAS_EXEMPLO);
     pintarCapas(); montarTrilho();
@@ -2168,8 +2345,12 @@ $('#f-criar').onclick = () => {
     marca:nome, handle:$('#f-handle').value.trim() || '@cliente',
     direito:'2026 ®', nicho:$('#f-nicho').value.trim() || 'Nicho a definir',
     escuro:$('#f-escuro').value, accent:$('#f-accent').value, claro:$('#f-claro').value,
-    head:'Montserrat', body:'Poppins', logo:null, logoFundo:'auto', pecas:[ nova('Primeiro carrossel','meio','') ] };
+    head:'Montserrat', body:'Poppins',
+    // Vinham fixos em null/'auto': o modal mostrava o logo na vitrine, o
+    // cliente nascia sem ele e nada avisava. Agora entram o que foi escolhido.
+    logo:fLogo, logoFundo:fFundo, pecas:[ nova('Primeiro carrossel','meio','') ] };
   CLIENTES.push(x);
+  marcaSujo();
   $('#modal-fundo').classList.add('oculto');
   ['f-nome','f-nicho','f-handle'].forEach(k => $('#'+k).value = '');
   fLogo = null; fFundo = 'auto';

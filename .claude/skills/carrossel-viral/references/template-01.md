@@ -139,10 +139,18 @@ Isso não é escolha, é contraste:
 
 | Fundo | Ênfase |
 |---|---|
-| capa | degradê da marca, para quem tem um |
+| capa | degradê da marca, para quem tem um; `accent` chapado para quem não tem |
+| corpo dos sangrados (02 · 03 · 04) | `accent` chapado |
 | **destaque** (laranja) | **branco em bold** — accent sobre accent some |
 | escuro · claro · foto de fundo | `accent` chapado |
 | EXPANSION TWITTER | **só peso**, sem cor — tweet não tem cor de marca no texto |
+
+**A régua é a mesma para todo cliente. O que muda é a cor, não o critério.**
+Quem tem `gradiente_texto` na ficha pinta a capa com o degradê da marca; quem
+não tem pinta com o próprio `accent`, chapado. Hoje só a Expansion tem degradê.
+Aplicar o laranja dela na capa da Prime seria invenção, não padrão — mas deixar
+a capa da Prime **sem destaque nenhum** também não é o padrão: é peça
+inacabada. Toda capa sai com um trecho pintado, na cor de quem assina.
 
 ### O último slide
 
@@ -155,6 +163,10 @@ mais visível.
 O Estúdio pinta a palavra do CTA a partir da **ficha** (`cta`), não do texto:
 ela pega mesmo quando quem escreveu esqueceu de marcar. E o título desse slide
 fica **sem nenhum destaque** — se ele também tiver laranja, volta o problema.
+
+Isso vale no **último slide de qualquer template**, não só no ritmo do meio de
+funil. Numa peça sangrada o último slide também é chamada, e antes ele era o
+único lugar onde a palavra de comando não ganhava realce nenhum.
 
 O slide de destaque é o que costuma passar batido: o fundo dele **já é** a cor
 da marca. E se aquele slide receber imagem de fundo, o laranja saiu de cena —
