@@ -1870,13 +1870,17 @@ const EMU_A = Math.round(EMU_L * 1350 / 1080);
 
 function docxDe(partes){
   const rel = i => `rIdImg${i + 1}`;
-  const arq = i => `slide${String(i + 1).padStart(2, '0')}.jpg`;
+  // A extensão de dentro segue o formato real das imagens. Fixar `.jpg` faria
+  // um pacote de PNGs abrir sem imagem nenhuma no Word.
+  const ext = (partes[0] && partes[0].mime === 'image/png') ? 'png' : 'jpg';
+  const arq = i => `slide${String(i + 1).padStart(2, '0')}.${ext}`;
 
   const tipos = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>`
     + `<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">`
     + `<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>`
     + `<Default Extension="xml" ContentType="application/xml"/>`
     + `<Default Extension="jpg" ContentType="image/jpeg"/>`
+    + `<Default Extension="png" ContentType="image/png"/>`
     + `<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>`
     + `</Types>`;
 
@@ -1950,16 +1954,29 @@ async function baixarPacote(estado){
       + 'Abra o Estúdio pelo link do artefato, na sua conta.', 'ruim');
     return;
   }
-  // JPEG no pacote, não PNG: o teto de 16 MB é do arquivo INTEIRO, e nove
-  // slides fotográficos em PNG dão 13 MB — a página de fallback ia a 18 MB e
-  // estourava. Em JPEG a 95% o mesmo pacote fica em torno de 3 MB.
-  const pngs = await pngsDaPeca(estado, 'jpeg');
-  if (!pngs) return;
-  const partes = [];
-  for (const a of pngs) partes.push({nome: a.nome, mime: a.mime,
-    bytes: new Uint8Array(await a.blob.arrayBuffer())});
-  const base = nomeArquivo(peca.nome);
+  // PNG primeiro, porque foi o que se pediu. Só cai para JPEG se o pacote em
+  // PNG não couber no teto de 16 MB — e nesse caso a mensagem diz que caiu.
   const mb = v => (v / 1024 / 1024).toFixed(1) + ' MB';
+  const junta = async forma => {
+    const fs = await pngsDaPeca(estado, forma);
+    if (!fs) return null;
+    const out = [];
+    for (const a of fs) out.push({nome: a.nome, mime: a.mime,
+      bytes: new Uint8Array(await a.blob.arrayBuffer())});
+    return out;
+  };
+  let partes = await junta('png');
+  if (!partes) return;
+  let formato = 'PNG';
+  const soma = partes.reduce((n, p) => n + p.bytes.length, 0);
+  if (soma > 15.4 * 1024 * 1024){
+    estado(`Em PNG o pacote daria ${mb(soma)} e o teto é 16 MB. Refazendo em JPEG…`, 'aviso');
+    partes = await junta('jpeg');
+    if (!partes) return;
+    formato = 'JPEG';
+  }
+  const pngs = partes;
+  const base = nomeArquivo(peca.nome);
 
   const recusadas = [];
   for (const p of PACOTES){
@@ -1974,8 +1991,8 @@ async function baixarPacote(estado){
       recusadas.push(`${p.ext}: ${mb(dados.size)}, acima do teto de 16 MB`); continue;
     }
     estado(`Confirme o download de ${nome} · ${mb(dados.size)}`);
-    const venceu = () => estado(`${pngs.length} slides num arquivo só: ${nome} (${mb(dados.size)})`
-      + (COMO_USAR[p.ext] || ''), 'bom');
+    const venceu = () => estado(`${pngs.length} slides em ${formato}, num arquivo só: `
+      + `${nome} (${mb(dados.size)})` + (COMO_USAR[p.ext] || ''), 'bom');
     try { await dl.save({filename: nome, data: dados}); venceu(); return; }
     catch (e){
       const cod = e && e.code;
@@ -2175,14 +2192,22 @@ function pintarAprovacao(){
             ${parou ? `Continuar do slide ${RETOMAR.de + 1}` : `Baixar as ${n} imagens`}</button>
         </div>
         <div class="acoes" style="margin-top:7px">
-          <button class="btn" id="b-baixar-png" style="flex:1">Baixar em PNG</button>
-          <button class="btn" id="b-zip" style="flex:1">Tudo num arquivo</button>
+          <button class="btn" id="b-baixar-png" style="flex:1">Os mesmos ${n}, em PNG</button>
         </div>
         <p style="font-size:12px;color:var(--fraco);margin-top:9px">
-          <b>PNG</b> é maior e sem perda; o <b>JPEG a 95%</b> tem diferença medida de
-          1 em 255 contra ele e baixa mais rápido. <b>Tudo num arquivo</b> vem como
-          .docx, que é um ZIP por dentro: renomeie para .zip e descompacte, ou abra
-          direto. O canal de download recusa .zip em qualquer configuração.</p>`; })()}
+          PNG é maior e sem perda; o JPEG a 95% tem diferença medida de 1 em 255 contra
+          ele. Os dois continuam de onde pararem, se o navegador cortar.</p>
+        <div style="border-top:1px solid var(--linha);margin:14px 0 0;padding-top:13px">
+          <p style="font-size:12px;color:var(--fraco);margin-bottom:9px">
+            <b style="color:var(--texto)">Compactado, tudo num arquivo.</b> O canal de
+            download do artefato <b>recusa a extensão .zip</b> — não existe configuração
+            que aceite. O que passa é <b>.docx</b>, que é um pacote ZIP por dentro:
+            baixe, <b style="color:var(--texto)">renomeie de .docx para .zip</b> e
+            descompacte para ter os ${n} PNGs soltos. Sem renomear, ele abre como
+            documento com os slides um por página.</p>
+          <div class="acoes"><button class="btn" id="b-zip" style="flex:1">
+            Baixar compactado (.docx)</button></div>
+        </div>`; })()}
       <p id="b-baixar-estado" style="margin-top:10px;font-size:13px;color:var(--fraco)"></p></div>`;
   const est = (msg, nivel) => {
     const e = $('#b-baixar-estado'); if (!e) return;

@@ -443,6 +443,12 @@ resposta: o arquivo baixa como `.docx`, e quem quer as imagens soltas renomeia
 para `.zip` e descompacta. Quem não quer renomear abre direto: são os nove
 slides, um por página.
 
+**O pacote leva PNG**, não JPEG — é o que se pediu. A extensão de dentro segue o
+formato real das imagens: fixar `.jpg` faria um pacote de PNGs abrir sem imagem
+nenhuma no Word. Se o pacote em PNG passar de 15,4 MB o código refaz em JPEG e
+**diz na mensagem** que caiu de formato, em vez de entregar outra coisa calado.
+Medido: a peça mais pesada (nove fotos) dá 13,4 MB em PNG e cabe.
+
 **Não é zip renomeado.** Um zip com outro nome faz o Word e o Pages recusarem
 abrir. `docxDe()` monta um documento válido: `[Content_Types].xml`, os
 relacionamentos da raiz e do documento, e um `word/document.xml` que declara
@@ -458,6 +464,17 @@ Conferido em três camadas, porque cada uma pega uma falha diferente:
 
 A ordem da cadeia é por proximidade do que se pediu: `zip` (se algum dia
 passar), `docx` (zip de verdade, passa hoje), `html` (a página).
+
+### O botão que enganava
+
+O cartão oferecia *Baixar as 9 imagens*, *Baixar em PNG* e *Tudo num arquivo*
+lado a lado, com o mesmo peso. Quem queria as imagens clicava no terceiro e
+recebia um `.docx` — três vezes seguidas, e com razão para se irritar.
+
+Botão que decepciona é defeito de desenho, não do usuário. Agora o compactado
+mora **abaixo de uma linha divisória**, com o nome do que ele é
+(`Baixar compactado (.docx)`) e a instrução do rename escrita antes do clique,
+não depois.
 
 ### O teto de 16 MB, e por que o pacote é JPEG
 
