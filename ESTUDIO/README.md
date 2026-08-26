@@ -675,3 +675,48 @@ coluna crescer. `minmax(0,1fr)` resolve.
 
 Abaixo de 700px o Estúdio deixa de ser mesa de trabalho e vira tela de
 publicar: `#cartao-cel` recebe `order:-1` e sobe para o topo da Aprovação.
+
+## Calibração por cliente
+
+O diário registra decisões; a calibração é o que **lê** essas decisões e as
+devolve como conclusão. Sem ela, corrigir o mesmo tamanho na mão quarenta vezes
+não ensina nada a ninguém.
+
+Fica na etapa **Marca**, porque a régua é ativo do cliente, não da peça. Lê o
+diário de todas as peças dele e mostra onde a régua e a mão discordam:
+
+```
+Expansion · 125 decisões registradas
+  capa · título          112 → 85px  (-27, n=8)
+  EXPANSION 02 · título   88 → 61px  (-27, n=11)
+  EXPANSION 02 · corpo    31 → 25px   (-6, n=9)
+```
+
+Três decisões de desenho que fazem a leitura confiável:
+
+1. **Só fala com base.** Menos de 4 ajustes no mesmo papel não aparece.
+   Apresentar ruído como conclusão é pior que ficar calado.
+2. **Reconstrói o template de cada slide na linha do tempo.** A peça troca de
+   template no meio; atribuir o papel pelo template *atual* daria conclusão
+   errada com cara de dado. A primeira versão desta análise errou exatamente
+   assim, e o número só ficou honesto depois de refazer.
+3. **Mediana, não média.** Um ajuste extremo não move a régua.
+
+### A primeira correção que saiu daí
+
+`EXPANSION 02` tinha `tam: 88.3` — **modelo meu, não medição do Canva**. Em 11
+ajustes à mão a mediana pedida foi 61px. E não era o auto-ajuste: medido sem
+nenhum tamanho pedido, ele desenhava nos 88 e a mão puxava para baixo todas as
+vezes. Agora nasce em **64**, e o corpo em **26** (era 31, mediana pedida 25).
+
+`EXPANSION 03` e `04` seguem no modelo antigo: não há medição deles ainda.
+`EXPANSION 01` também não muda — aquele é medido no Canva, e a discordância
+ali (capa 112 → 85) é conversa editorial, não erro de régua.
+
+### O cartão do Twitter não era medido
+
+`medeSlide()` procura `.ft-h1` / `.ft-corpo`, e o cartão do Twitter usava `div`
+sem classe. Resultado: `real.h1` sempre `null`, então o aviso *"encolhido para
+X"* nunca aparecia ali e o passo `−` não tinha de onde partir. Classes postas,
+e o diário passa a medir também esse template — onde, aliás, os dois únicos
+ajustes para **cima** do acervo apareceram (41 → 56 e 63).
