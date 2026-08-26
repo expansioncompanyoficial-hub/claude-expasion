@@ -486,6 +486,10 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
         <span class="mini" id="fontes-info"></span>
       </div>
       <div class="bloco">
+        <span class="rotulo">Calibração</span>
+        <div id="calibra"></div>
+      </div>
+      <div class="bloco">
         <span class="rotulo">Assinatura</span>
         <input class="campo" id="handle" aria-label="@ do Instagram">
         <div class="dupla" style="margin-top:8px">
@@ -681,8 +685,13 @@ textarea.editor:focus{outline:0;border-color:var(--linha-forte)}
 const TEMPLATES = [
   { id:'meio', nome:'EXPANSION 01', etapa:'MEIO DE FUNIL · 9 SLIDES',
     ritmo:['capa','claro','destaque','claro','escuro','escuro','claro','escuro','cta'] },
+  /* `tam` 88,3 era MODELO meu, não medição do Canva — e o diário mostrou que
+     estava 30% grande. Em 11 ajustes à mão a mediana pedida foi 61px, e o
+     auto-ajuste não tinha nada a ver: ele desenhava nos 88 e o operador puxava
+     para baixo toda vez. 64 é o valor que sai do uso, não do palpite.
+     EXPANSION 03 e 04 seguem no modelo antigo: não há medição deles ainda. */
   { id:'exp02', nome:'EXPANSION 02', etapa:'TOPO · TÍTULO À ESQUERDA', n:9,
-    align:'left',   fonte:"'Montserrat',var(--ui)", peso:700, tam:88.3, lh:.92, tr:'-.087em' },
+    align:'left',   fonte:"'Montserrat',var(--ui)", peso:700, tam:64, lh:.96, tr:'-.075em' },
   { id:'exp03', nome:'EXPANSION 03', etapa:'TOPO · SERIFA CENTRALIZADA', n:9,
     align:'center', fonte:"'Source Serif 4',Georgia,serif", peso:600, tam:84, lh:1.02, tr:'-.02em' },
   { id:'exp04', nome:'EXPANSION 04', etapa:'TOPO · TÍTULO CENTRALIZADO', n:9,
@@ -955,7 +964,9 @@ function tetos(pos){
    e um salto no `+`, que pulava de 36,6 direto para 47,4. */
 function padraoCorpo(i, t){
   t = t || tplDo(i);
-  if (t.id === 'exp02' || t.id === 'exp03' || t.id === 'exp04') return 31;
+  // Corpo do sangrado: 31 era modelo; em 9 ajustes a mediana pedida foi 25.
+  if (t.id === 'exp02') return 26;
+  if (t.id === 'exp03' || t.id === 'exp04') return 31;
   if (t.id === 'twitter') return 41;
   const f = t.ritmo ? (t.ritmo[i] || (i === 0 ? 'capa' : 'escuro')) : 'escuro';
   if (f === 'cta') return 45.4;
@@ -1234,8 +1245,9 @@ function render(i, forcado){
       </span></div>
     <div style="position:absolute;top:318px;left:108px;right:108px;bottom:108px;display:flex;
       flex-direction:column;gap:30px">
-      <div style="font-size:${aj.h1 || 41}px;font-weight:500;line-height:1.24;
-        letter-spacing:-.022em;color:#0F1419">${RICO(h||'A frase principal do post.', 'cartao')}</div>
+      <div class="ft-h1" style="font-family:inherit;font-size:${aj.h1 || 41}px;font-weight:500;
+        line-height:1.24;letter-spacing:-.022em;color:#0F1419">${
+        RICO(h||'A frase principal do post.', 'cartao')}</div>
       <div style="height:442.2px;border-radius:13px;overflow:hidden;flex:none;
         background:${aj.img ? 'none' : 'rgba(0,0,0,.04)'};
         border:${aj.img ? 'none' : '2px dashed ' + cli.accent};display:flex;
@@ -1244,8 +1256,9 @@ function render(i, forcado){
               ${estiloFoto(aj)}display:block">`
           : `<span style="font-family:var(--mono);font-size:15px;letter-spacing:.14em;
               text-transform:uppercase;color:${cli.accent}">imagem · a definir</span>`}</div>
-      <div style="font-size:${aj.corpo || 41}px;font-weight:500;line-height:1.24;
-        letter-spacing:-.022em;color:#0F1419">${RICO(c||'O parágrafo de apoio, logo abaixo.', 'cartao')}</div>
+      <div class="ft-corpo" style="font-size:${aj.corpo || 41}px;font-weight:500;
+        line-height:1.24;letter-spacing:-.022em;color:#0F1419">${
+        RICO(c||'O parágrafo de apoio, logo abaixo.', 'cartao')}</div>
     </div></div>`;
 }
 
@@ -2423,8 +2436,78 @@ function painelLogo(){
   });
 }
 
+/* ── calibração ────────────────────────────────────────────────────────
+   Lê o diário de TODAS as peças do cliente e compara o que a régua propõe
+   com o que a mão pediu. É o que transforma trabalho repetido em padrão:
+   sem isso, corrigir o mesmo tamanho na mão quarenta vezes não ensina nada
+   a ninguém.
+
+   Só fala quando tem base. Menos de 4 ajustes no mesmo papel é ruído, e
+   apresentar ruído como conclusão é pior do que ficar calado. */
+const MINIMO_CALIBRA = 4;
+const RITMO_PAPEL = ['capa','claro','destaque','claro','escuro','escuro','claro','escuro','cta'];
+
+function leCalibracao(x){
+  const balde = {};
+  (x.pecas || []).forEach(p => {
+    // Reconstrói qual template valia em cada slide no momento do ajuste: a
+    // peça pode ter trocado de template no meio, e atribuir o papel errado
+    // faria a conclusão sair errada com cara de dado.
+    const porSlide = {};
+    (p.diario || []).forEach(e => {
+      if (e.q === 'tpl'){
+        if (e.escopo === 'peca'){ for (const k in porSlide) delete porSlide[k]; }
+        else porSlide[e.s] = e.para;
+        return;
+      }
+      if (e.q !== 'tam' || !e.padrao) return;
+      const t = porSlide[e.s] || p.tpl;
+      const papel = (t === 'meio' && e.s < 9) ? RITMO_PAPEL[e.s] : t;
+      const k = papel + '·' + e.campo;
+      (balde[k] = balde[k] || {padrao: e.padrao, pedidos: []}).pedidos.push(e.para);
+    });
+  });
+  return Object.entries(balde)
+    .filter(([, v]) => v.pedidos.length >= MINIMO_CALIBRA)
+    .map(([k, v]) => {
+      const ord = [...v.pedidos].sort((a, b) => a - b);
+      const meio = ord.length % 2 ? ord[(ord.length-1)/2]
+                 : (ord[ord.length/2 - 1] + ord[ord.length/2]) / 2;
+      const [papel, campo] = k.split('·');
+      return {papel, campo, padrao: v.padrao, mediana: Math.round(meio),
+              n: ord.length, desvio: Math.round(meio - v.padrao)};
+    })
+    .sort((a, b) => Math.abs(b.desvio) - Math.abs(a.desvio));
+}
+
+function pintarCalibracao(){
+  const c = $('#calibra'); if (!c || !cli) return;
+  const linhas = leCalibracao(cli);
+  const total = (cli.pecas || []).reduce((n, p) => n + ((p.diario || []).length), 0);
+  if (!linhas.length){
+    c.innerHTML = `<span class="mini">${total} decisões registradas neste cliente.
+      A régua só é revista com ${MINIMO_CALIBRA} ajustes ou mais no mesmo lugar —
+      abaixo disso é ruído, não padrão.</span>`;
+    return;
+  }
+  const NOME = {capa:'capa', claro:'slide claro', escuro:'slide escuro',
+    destaque:'slide de destaque', cta:'último slide', exp02:'EXPANSION 02',
+    exp03:'EXPANSION 03', exp04:'EXPANSION 04', twitter:'TWITTER'};
+  c.innerHTML = `<span class="mini" style="margin-bottom:8px;display:block">
+      ${total} decisões registradas. Onde a régua e a sua mão discordam:</span>`
+    + linhas.map(l => `<div class="linha-c">
+        <span>${NOME[l.papel] || l.papel} · ${l.campo === 'h1' ? 'título' : 'corpo'}</span>
+        <span class="val ${Math.abs(l.desvio) >= 10 ? 'alerta' : ''}">${l.padrao} → ${l.mediana}px
+          <span style="opacity:.6">(${l.desvio > 0 ? '+' : ''}${l.desvio}, n=${l.n})</span></span>
+      </div>`).join('')
+    + `<span class="mini" style="margin-top:8px;display:block">Negativo é você achando
+      grande demais. Com base suficiente, o padrão passa a nascer daqui — e vale para
+      o cliente, não para todo mundo.</span>`;
+}
+
 function camposMarca(){
   painelLogo();
+  pintarCalibracao();
   const defs = [['escuro','Fundo'],['accent','Destaque'],['claro','Claro']];
   const c = $('#cores'); c.innerHTML='';
   defs.forEach(([k,nome]) => {
