@@ -1,0 +1,163 @@
+{
+  "titulo": "Clau Kids Store",
+  "subtitulo": "@claukidstore  •  Moda Infantil  •  Marília/SP  •  Setembro 2026",
+  "framework": "Framework: TACO(H)  |  9 roteiros + 3 carrosséis  |  Foco: a escada das idades, Dia do Cliente e a rampa para outubro",
+  "secoes": [
+    {
+      "cabecalho": "SÉRIE \"TODAS AS IDADES\" — 6 roteiros (o pedido da Clau: explorar produto e gerar desejo)",
+      "roteiros": [
+        {
+          "titulo": "ROTEIRO 24 — \"Do primeiro body até o 18\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: AUTORIDADE — AMPLITUDE DE ATENDIMENTO",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "\"Eu visto criança do primeiro body até o número dezoito. E isso não é força de expressão.\"", "destaque": "gancho"},
+            {"rotulo": "CONTEXTO", "tempo": "0:05 – 0:15", "texto": "\"A maioria das lojas infantis para no dez, no doze. Aí a mãe vira cliente por três anos e some — porque o filho cresceu e ela precisou procurar em outro lugar.\"  [Ela caminhando pela loja, passando a mão nas araras em ordem de tamanho]"},
+            {"rotulo": "ARGUMENTO", "tempo": "0:15 – 0:40", "texto": "\"Aqui não acontece isso. Essa arara aqui é enxoval, recém-nascido, tecido que não machuca. Essa é a fase de correr, cair e levantar. Essa é escola e festa na mesma semana. E essa aqui — essa é a que quase ninguém tem: a criança que já saiu do infantil e ainda não é adulta. Eu acompanho a mesma criança por dez anos. E é por isso que eu conheço o corpo dela melhor que qualquer tabela de tamanho.\""},
+            {"rotulo": "CTA", "tempo": "0:40 – 0:50", "texto": "\"Me conta a idade do seu filho no direct. Eu já te digo em que arara ele está — e o que chegou nela essa semana. 💛\"", "destaque": "cta"}
+          ],
+          "hashtags": "#claukidstore #modainfantil #marilia #modainfantilmarilia #dobebeaoadolescente #curadoria #lojainfantil"
+        },
+        {
+          "titulo": "ROTEIRO 25 — \"Enxoval não é sobre fofura\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: TÉCNICO — BEBÊ E ENXOVAL (0 a 2 anos)",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "\"Enxoval não é sobre fofura. É sobre as três da manhã.\"", "destaque": "gancho"},
+            {"rotulo": "CONTEXTO", "tempo": "0:05 – 0:15", "texto": "\"Toda mãe de primeira viagem monta o enxoval olhando o que é bonitinho. E aí descobre, na primeira semana, que bonitinho com sete botões nas costas às três da manhã é castigo.\"  [Close nas peças de enxoval, macro no tecido]"},
+            {"rotulo": "ARGUMENTO", "tempo": "0:15 – 0:40", "texto": "\"O que eu olho antes de comprar peça de bebê é sempre a mesma coisa: como abre, como fecha, e como o tecido se comporta depois da décima lavagem. Botão de pressão na frente, não atrás. Costura macia, porque a pele dele ainda não tem defesa nenhuma. Malha que amacia em vez de embolar. Fofura vem de graça — todo bebê é lindo de qualquer jeito. O que a mãe precisa é de peça que facilite a vida dela num momento em que nada é fácil.\""},
+            {"rotulo": "CTA", "tempo": "0:40 – 0:50", "texto": "\"Tá montando enxoval? Me chama no direct. Eu monto junto com você, peça por peça, sem você comprar o que não vai usar. 💛\"", "destaque": "cta"}
+          ],
+          "hashtags": "#claukidstore #enxovaldebebe #maedeprimeiraviagem #modainfantil #marilia #enxoval #gestante"
+        },
+        {
+          "titulo": "ROTEIRO 26 — \"Essa é a idade em que a roupa apanha\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: TÉCNICO — 2 A 4 ANOS",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "\"Tem uma idade em que a roupa apanha. E é essa aqui.\"", "destaque": "gancho"},
+            {"rotulo": "CONTEXTO", "tempo": "0:05 – 0:15", "texto": "\"Dois, três, quatro anos. A criança descobriu que corre, que sobe, que se joga no chão. E descobriu também que tem opinião — só que ainda não sabe explicar qual.\"  [Ela segurando duas peças, mostrando o tecido esticando]"},
+            {"rotulo": "ARGUMENTO", "tempo": "0:15 – 0:40", "texto": "\"Nessa fase eu escolho pensando em três coisas. Primeira: veste sozinha? Porque é a idade em que ela quer se vestir e você tem pressa. Segunda: aguenta? Não adianta ser linda e desfiar no segundo tombo. Terceira: ela vai deixar no corpo? Porque se apertar na barriga, se coçar no pescoço, ela tira — e não tem conversa que resolva. Roupa dessa idade tem que ser bonita pra você e confortável pra ela. Quando é só uma das duas, não sai de casa.\""},
+            {"rotulo": "CTA", "tempo": "0:40 – 0:50", "texto": "\"Seu filho tá nessa fase? Me manda a idade no direct que eu te mostro o que separei pra ela essa semana. 💛\"", "destaque": "cta"}
+          ],
+          "hashtags": "#claukidstore #modainfantil #maternidade #marilia #roupainfantil #conforto #modainfantilmarilia"
+        },
+        {
+          "titulo": "ROTEIRO 27 — \"Escola de manhã, festa às cinco\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: TÉCNICO — 5 A 8 ANOS",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "\"Escola de manhã, festinha às cinco da tarde. E uma mochila no meio do caminho.\"", "destaque": "gancho"},
+            {"rotulo": "CONTEXTO", "tempo": "0:05 – 0:15", "texto": "\"Essa é a rotina real de mãe de criança de cinco a oito anos. Não é uma ocasião por mês. É a semana inteira, com compromisso emendando um no outro.\"  [Ela montando dois looks lado a lado na arara]"},
+            {"rotulo": "ARGUMENTO", "tempo": "0:15 – 0:40", "texto": "\"Por isso nessa idade eu trabalho muito com peça que vira duas. Uma calça que serve pra escola e, com outra blusa, vai pra festa. Uma saia que aguenta o recreio e continua bonita na foto do aniversário. Não é sobre ter roupa pra tudo — é sobre ter a peça certa que resolve mais de uma coisa. Porque nessa fase o guarda-roupa dobra de tamanho e a mãe começa a sentir no bolso. Comprar bem aqui é comprar menos.\""},
+            {"rotulo": "CTA", "tempo": "0:40 – 0:50", "texto": "\"Me diz a idade e a rotina do seu filho no direct. Eu monto as combinações e te mando. 💛\"", "destaque": "cta"}
+          ],
+          "hashtags": "#claukidstore #modainfantil #voltaasaulas #marilia #lookinfantil #modainfantilmarilia #maedemenina"
+        },
+        {
+          "titulo": "ROTEIRO 28 — \"A arara que quase nenhuma loja tem\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: AUTORIDADE — 9 A 12 ANOS, O \"BETWEEN\"",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "\"Deixa eu te mostrar a arara que quase nenhuma loja da região tem.\"", "destaque": "gancho"},
+            {"rotulo": "CONTEXTO", "tempo": "0:05 – 0:15", "texto": "\"Essa aqui é a fase que o mercado esqueceu: nove, dez, onze, doze anos. Grande demais pro infantil, criança demais pro adulto.\"  [Ela caminha até a arara dos tamanhos maiores e vai mostrando peça por peça]"},
+            {"rotulo": "ARGUMENTO", "tempo": "0:15 – 0:40", "texto": "\"Olha o que tem aqui. Essa modelagem é feita pro corpo que já esticou, mas ainda não tem curva de adulto. Esse comprimento é pensado pra menina que cresceu de repente e não quer se sentir exposta. Essa estampa é a cara da idade dele — não é bicho de bebê nem é roupa de gente grande. É essa a parte que eu mais estudo e a que eu mais garimpo, porque marca boa nesse tamanho é rara. Quando eu acho, eu trago. E quando acaba, demora pra voltar.\""},
+            {"rotulo": "CTA", "tempo": "0:40 – 0:50", "texto": "\"Se o seu filho tá nessa fase, me chama no direct e me diz o número que ele veste hoje. Eu te digo na hora o que eu tenho. 💛\"", "destaque": "cta"}
+          ],
+          "hashtags": "#claukidstore #tamanhogrande #modainfantil #preadolescente #marilia #modainfantilmarilia #tween"
+        },
+        {
+          "titulo": "ROTEIRO 29 — \"Festa aos treze, sem parecer de adulta\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: TÉCNICO — 13 A 18 / OCASIÃO ESPECIAL (Pula Bula)",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "\"Vestido de festa que serve numa menina de treze e ainda parece de menina. Isso quase não existe.\"", "destaque": "gancho"},
+            {"rotulo": "CONTEXTO", "tempo": "0:05 – 0:15", "texto": "\"Quando chega o convite de casamento, formatura ou aniversário de quinze da prima, começa a novela: no infantil não serve mais, e no adulto tudo é decotado, justo, com fenda.\"  [Close nas peças da Pula Bula, macro no tecido e no acabamento]"},
+            {"rotulo": "ARGUMENTO", "tempo": "0:15 – 0:40", "texto": "\"Foi exatamente por isso que eu trouxe essa marca pra loja. Numeração que vai até o dezoito, com modelagem pensada pra menina — não é vestido de mulher encolhido. O caimento respeita o corpo dela, o comprimento é o certo, o acabamento é de peça boa mesmo. Ela se sente arrumada, bonita, e continua se sentindo ela. Isso é a diferença entre a menina que gosta da foto e a que pede pra tirar o vestido no meio da festa.\""},
+            {"rotulo": "CTA", "tempo": "0:40 – 0:50", "texto": "\"Tem festa chegando? Me chama no direct, me diz a idade e o número. A gente escolhe junto, com calma. 💛\"", "destaque": "cta"}
+          ],
+          "hashtags": "#claukidstore #pulabula #vestidodefesta #tamanhogrande #modainfantil #marilia #meninagrande"
+        }
+      ]
+    },
+    {
+      "cabecalho": "DATAS DO MÊS — 3 roteiros",
+      "roteiros": [
+        {
+          "titulo": "ROTEIRO 30 — \"Feriado de três dias e a mala vazia\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: HYPE — FERIADÃO E PEÇAS LEVES",
+          "data": "DATA SUGERIDA: 03/09 (quinta) — antes do feriadão de 05 a 07/09",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "\"Feriado de três dias começando e a mala do seu filho ainda vazia. Eu resolvo isso em dez minutos.\"", "destaque": "gancho"},
+            {"rotulo": "CONTEXTO", "tempo": "0:05 – 0:15", "texto": "\"Sexta, sábado, domingo e segunda. Se vocês vão pra chácara, pra praia, pra casa da avó — é muito mais roupa do que parece, e sempre falta alguma coisa.\"  [Ela separando peças e colocando numa mala ou sacola aberta]"},
+            {"rotulo": "ARGUMENTO", "tempo": "0:15 – 0:40", "texto": "\"Chegou moda praia e peça leve aqui essa semana. E olha o que eu escolheria pra um feriado desse: duas peças que combinam entre si, uma de manga pro fim da tarde que esfria, e uma que pode molhar e secar rápido. É o suficiente. Mala de criança não precisa ser grande — precisa ser bem pensada, senão você carrega peso que ninguém usa.\""},
+            {"rotulo": "CTA", "tempo": "0:40 – 0:50", "texto": "\"Me chama no direct até quinta que eu separo a mala do seu filho e você só busca. 💛\"", "destaque": "cta"}
+          ],
+          "hashtags": "#claukidstore #modapraia #feriado #modainfantil #marilia #7desetembro #modainfantilmarilia"
+        },
+        {
+          "titulo": "ROTEIRO 31 — \"Eu sei o nome das minhas clientes\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: CONEXÃO — DIA DO CLIENTE",
+          "data": "DATA SUGERIDA: 15/09 (terça) — Dia do Cliente",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "\"Hoje é o Dia do Cliente. E eu sei o nome dos meus.\"", "destaque": "gancho"},
+            {"rotulo": "CONTEXTO", "tempo": "0:05 – 0:15", "texto": "\"Não é força de expressão. Eu sei o nome da criança, sei o número que ela veste, sei se ela é do tipo que puxa a etiqueta e sei quando é o aniversário de muita gente que compra aqui.\"  [Ela em plano médio, tom mais baixo, olhando pra câmera]"},
+            {"rotulo": "ARGUMENTO", "tempo": "0:15 – 0:40", "texto": "\"Isso não é sistema. É porque sou eu que atendo, uma por uma. E hoje, no Dia do Cliente, eu não vou fazer o que todo mundo faz — eu não trabalho com desconto e nunca trabalhei. O que eu vou fazer é o contrário: essa semana, quem me chamar aqui vai ter a minha atenção inteira. Eu separo, mando vídeo real das peças, monto o look e guardo pra você. É o que eu tenho de mais valioso pra dar, que é o meu tempo.\""},
+            {"rotulo": "CTA", "tempo": "0:40 – 0:50", "texto": "\"Me chama no direct essa semana e me conta pra quem é. Eu cuido do resto. 💛\"", "destaque": "cta"}
+          ],
+          "hashtags": "#claukidstore #diadocliente #atendimento #modainfantil #marilia #curadoria #modainfantilmarilia"
+        },
+        {
+          "titulo": "ROTEIRO 32 — \"Outubro começa hoje\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: HYPE — RAMPA PARA O DIA DAS CRIANÇAS",
+          "data": "DATA SUGERIDA: 24/09 (quinta) — abre a temporada de outubro",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "\"Outubro começa hoje. Pelo menos aqui dentro.\"", "destaque": "gancho"},
+            {"rotulo": "CONTEXTO", "tempo": "0:05 – 0:15", "texto": "\"Todo ano é a mesma coisa: chega o dia oito, nove de outubro e a mãe lembra que precisa do presente. Aí já acabou o tamanho, já acabou a cor, e sobra o que ninguém quis.\"  [Ela abrindo caixa nova, peças ainda embaladas]"},
+            {"rotulo": "ARGUMENTO", "tempo": "0:15 – 0:40", "texto": "\"Eu já estou recebendo o que vai ser o Dia das Crianças aqui. E quem me acompanha sabe como funciona: eu compro pouco de cada tamanho, porque eu escolho peça por peça em vez de comprar grade fechada. Isso é ótimo pra qualidade e é péssimo pra quem deixa pra última hora. Então esse ano eu vou avisar antes. Quem quiser escolher com calma, no tamanho certo, vai poder — e vai ser antes de todo mundo.\""},
+            {"rotulo": "CTA", "tempo": "0:40 – 0:50", "texto": "\"Manda 'outubro' no meu direct que eu te aviso assim que chegar, antes de subir na arara. 💛\"", "destaque": "cta"}
+          ],
+          "hashtags": "#claukidstore #diadascriancas #outubro #modainfantil #marilia #presente #modainfantilmarilia"
+        }
+      ]
+    },
+    {
+      "cabecalho": "CARROSSÉIS — 3 peças (material que já existe, sem gravação nova)",
+      "roteiros": [
+        {
+          "titulo": "CARROSSEL 05 — \"O guia das idades\"",
+          "pilar": "🎯 Pilar: AUTORIDADE — RESUMO DA SÉRIE  |  Material: fotos das araras por faixa + peças em close",
+          "blocos": [
+            {"rotulo": "CARD 1 — CAPA", "tempo": "gancho", "texto": "\"O que muda na roupa a cada fase da criança — e o que ninguém te conta\"  [Foto da loja em plano aberto]", "destaque": "gancho"},
+            {"rotulo": "CARD 2", "tempo": "0 a 2 anos", "texto": "\"Bebê: o que importa é como abre e como fecha. Botão na frente, costura macia, malha que amacia depois de lavar. Fofura vem de graça.\""},
+            {"rotulo": "CARD 3", "tempo": "2 a 4 anos", "texto": "\"A idade em que a roupa apanha. Tem que vestir sozinha, aguentar tombo e não incomodar — senão ela tira.\""},
+            {"rotulo": "CARD 4", "tempo": "5 a 8 anos", "texto": "\"Escola de manhã, festa à tarde. Aqui a peça boa é a que resolve duas ocasiões — comprar bem é comprar menos.\""},
+            {"rotulo": "CARD 5", "tempo": "9 a 12 anos", "texto": "\"A fase que o mercado esqueceu. Grande pro infantil, criança pro adulto. É a arara que quase nenhuma loja da região tem.\""},
+            {"rotulo": "CARD 6", "tempo": "13 a 18", "texto": "\"Ocasião especial em numeração grande. Vestido que serve e ainda parece de menina, não de mulher encolhida.\""},
+            {"rotulo": "CARD 7 — CTA", "tempo": "fechamento", "texto": "\"Salva esse post pra quando precisar. E me manda a idade do seu filho no direct — eu te digo em que fase ele está e o que eu tenho. 💛\"", "destaque": "cta"}
+          ],
+          "hashtags": "#claukidstore #guiadetamanhos #modainfantil #marilia #maternidade #modainfantilmarilia #curadoria"
+        },
+        {
+          "titulo": "CARROSSEL 06 — \"Cinco peças, um feriado inteiro\"",
+          "pilar": "🎯 Pilar: TÉCNICO — MALA DO FERIADÃO  |  Material: fotos das peças leves e da moda praia que chegou",
+          "data": "DATA SUGERIDA: 04/09 (sexta) — véspera do feriadão",
+          "blocos": [
+            {"rotulo": "CARD 1 — CAPA", "tempo": "gancho", "texto": "\"Cinco peças que resolvem o feriado inteiro do seu filho\"  [Foto das 5 peças lado a lado]", "destaque": "gancho"},
+            {"rotulo": "CARD 2", "tempo": "peça 1", "texto": "\"A que pode molhar e seca rápido. Sem ela, o passeio acaba cedo.\""},
+            {"rotulo": "CARD 3", "tempo": "peça 2", "texto": "\"A de manga, pro fim da tarde que esfria. É a que todo mundo esquece e sempre falta.\""},
+            {"rotulo": "CARD 4", "tempo": "peça 3 e 4", "texto": "\"Duas que combinam entre si. Dobra as combinações sem dobrar o peso da mala.\""},
+            {"rotulo": "CARD 5", "tempo": "peça 5", "texto": "\"A de dormir. Parece óbvio — é a que mais fica em cima da cama.\""},
+            {"rotulo": "CARD 6 — CTA", "tempo": "fechamento", "texto": "\"Me chama no direct que eu separo essas cinco no tamanho do seu filho e deixo pronto pra buscar. 💛\"", "destaque": "cta"}
+          ],
+          "hashtags": "#claukidstore #modapraia #feriado #maladeviagem #modainfantil #marilia #7desetembro"
+        },
+        {
+          "titulo": "CARROSSEL 07 — \"O que as mães me contam depois\"",
+          "pilar": "🎯 Pilar: CONEXÃO — PROVA SOCIAL DO DIA DO CLIENTE  |  Material: prints de feedback já no Drive (pasta Feedback 29/07), com nome e telefone borrados",
+          "data": "DATA SUGERIDA: 17/09 (quinta) — na semana do Dia do Cliente",
+          "blocos": [
+            {"rotulo": "CARD 1 — CAPA", "tempo": "gancho", "texto": "\"Eu guardo todas. Essas são algumas.\"  [Foto dela olhando o celular, ou um print desfocado ao fundo]", "destaque": "gancho"},
+            {"rotulo": "CARDS 2 a 6", "tempo": "prints", "texto": "\"Um print por card, com nome e telefone borrados. Escolher os que falam de coisas diferentes: o tamanho que serviu, a peça que a criança não quis tirar, o atendimento de última hora, a mãe que voltou depois de um ano. Variedade prova mais que repetição.\""},
+            {"rotulo": "CARD 7 — CTA", "tempo": "fechamento", "texto": "\"É por isso que eu faço questão de atender uma por uma. Me chama no direct que eu cuido do seu também. 💛\"", "destaque": "cta"}
+          ],
+          "hashtags": "#claukidstore #depoimento #diadocliente #modainfantil #marilia #clientes #modainfantilmarilia"
+        }
+      ]
+    }
+  ]
+}

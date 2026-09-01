@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Clau Kids — Plano de Setembro</title>
+<style>
+  :root{
+    --paper:#FAF9F6; --ink:#1C1A17; --ink-soft:#5B5650; --ink-faint:#8A8478;
+    --line:#E4E0D8; --line-strong:#D2CCC0; --card:#FFFFFF;
+    --accent:#E67E22; --accent-ink:#7A3E0E; --accent-soft:#FBE7D2; --accent-line:#F0C393;
+    --verde:#6F8F35; --verde-ink:#3F5419; --verde-soft:#E7EEDA; --verde-line:#C4D6A0;
+    --critical:#B8442E; --critical-soft:#F6E1DC; --critical-line:#E7B4A4;
+    --amarelo-soft:#FBF3D9; --amarelo-line:#E8D69B; --amarelo-ink:#7A6212;
+    --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper); color:var(--ink); font-family:var(--font-body);
+    font-size:10.8px; line-height:1.55; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  @page{ size:A4; margin:0; }
+  .wrap{ max-width:780px; margin:0 auto; padding:14mm 13mm; }
+  h1,h2,h3{font-family:var(--font-display); margin:0; letter-spacing:-.01em;}
+
+  .cover{background:linear-gradient(160deg,#2A1B0E 0%,#4A2E14 55%,var(--accent) 135%);
+    color:#FBEEDD; padding:26mm 16mm 20mm 16mm; position:relative; overflow:hidden; page-break-after:always;}
+  .cover::after{content:""; position:absolute; right:-70px; bottom:-70px; width:290px; height:290px;
+    border-radius:50%; background:rgba(255,255,255,.06);}
+  .cover .brand{font-family:var(--font-mono); font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; opacity:.75; margin-bottom:50px;}
+  .cover h1{font-size:36px; color:#fff; font-weight:700; line-height:1.14; max-width:13ch;}
+  .cover .sub{font-size:13.5px; color:#F3D9B8; max-width:44ch; margin-top:15px; line-height:1.55;}
+  .cover .thesis{margin-top:30px; border-left:3px solid var(--accent); padding-left:14px; max-width:52ch;}
+  .cover .thesis p{font-size:12px; color:#F6E4CC; margin:0; line-height:1.6;}
+  .cover .foot{margin-top:46px; font-family:var(--font-mono); font-size:9.5px; color:#F3D9B8; opacity:.85; display:flex; gap:16px; flex-wrap:wrap;}
+
+  section{margin:17px 0; page-break-inside:avoid;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    margin-bottom:9px; border-bottom:1px solid var(--line); padding-bottom:5px;}
+  h2{font-size:14.5px; font-weight:700; color:var(--accent-ink);}
+  .num{font-family:var(--font-mono); font-size:11px; color:var(--accent); margin-right:7px;}
+  .section-note{font-family:var(--font-mono); font-size:8.5px; color:var(--ink-faint); white-space:nowrap;}
+  h3{font-size:11.5px; font-weight:700; margin:13px 0 6px 0;}
+  p{margin:0 0 7px 0;}
+
+  .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:9px 0;}
+  .kpi{background:var(--card); border:1px solid var(--line); border-radius:5px; padding:10px 11px;}
+  .kpi .n{font-family:var(--font-mono); font-weight:700; font-size:17px; color:var(--ink); line-height:1;}
+  .kpi .n small{font-size:11px; font-weight:400; color:var(--ink-faint);}
+  .kpi .l{font-size:8.8px; color:var(--ink-soft); margin-top:4px; line-height:1.35;}
+  .kpi.good{border-color:var(--verde-line); background:var(--verde-soft);}
+  .kpi.good .n{color:var(--verde-ink);}
+
+  table{border-collapse:collapse; width:100%; font-size:9.9px; margin-bottom:4px;}
+  th{text-align:left; font-family:var(--font-mono); font-size:8px; text-transform:uppercase;
+    letter-spacing:.05em; color:var(--ink-faint); font-weight:600; padding:5px 6px;
+    border-bottom:1px solid var(--line-strong);}
+  td{padding:6px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .mono{font-family:var(--font-mono); font-size:9.2px; color:var(--ink-soft);}
+  .cod{font-family:var(--font-mono); font-size:8.6px; font-weight:700; color:var(--accent-ink);
+    background:var(--accent-soft); border-radius:3px; padding:1px 5px; white-space:nowrap;}
+
+  .box{border-radius:5px; padding:11px 13px; margin:9px 0;}
+  .box .mark{font-family:var(--font-mono); font-weight:700; font-size:9px; text-transform:uppercase;
+    letter-spacing:.05em; margin-bottom:5px; display:block;}
+  .box p:last-child{margin-bottom:0;}
+  .box.red{border:1px solid var(--critical-line); background:var(--critical-soft);} .box.red .mark{color:var(--critical);}
+  .box.green{border:1px solid var(--verde-line); background:var(--verde-soft);} .box.green .mark{color:var(--verde-ink);}
+  .box.amber{border:1px solid var(--amarelo-line); background:var(--amarelo-soft);} .box.amber .mark{color:var(--amarelo-ink);}
+  .box.accent{border:1px dashed var(--accent-line); background:var(--accent-soft);} .box.accent .mark{color:var(--accent-ink);}
+
+  .rampa{display:flex; align-items:stretch; font-size:9px; margin:8px 0;}
+  .rampa-step{flex:1; border:1px solid var(--line); background:var(--card); padding:9px; position:relative; text-align:center;}
+  .rampa-step + .rampa-step{border-left:none;}
+  .rampa-step.big{background:#FFFCF8; border-color:var(--accent); border-width:2px;}
+  .rampa-step .k{font-family:var(--font-mono); color:var(--accent-ink); font-size:8px; font-weight:700; text-transform:uppercase;}
+  .rampa-step .v{margin-top:3px; line-height:1.35; color:var(--ink-soft);}
+  .rampa-step:not(:last-child)::after{content:"→"; position:absolute; right:-6px; top:50%;
+    transform:translateY(-50%); color:var(--ink-faint); font-size:11px; background:var(--paper); width:12px; text-align:center; z-index:2;}
+
+  .sem{margin-bottom:12px; page-break-inside:avoid;}
+  .sem-tit{font-family:var(--font-mono); font-size:9.3px; font-weight:700; color:var(--ink-faint);
+    text-transform:uppercase; letter-spacing:.05em; margin-bottom:5px; display:flex; align-items:center; gap:8px;}
+  .sem-tit .tag{color:var(--accent-ink);}
+  .sem-tit .line{flex:1; height:1px; background:var(--line);}
+
+  .pend{display:flex; gap:8px; padding:7px 0; border-bottom:1px dashed var(--line); align-items:flex-start;}
+  .pend:last-child{border-bottom:none;}
+  .pend .dono{font-family:var(--font-mono); font-size:8px; font-weight:700; border-radius:3px; padding:1px 5px;
+    white-space:nowrap; margin-top:1px; background:var(--card); border:1px solid var(--line-strong); color:var(--ink-soft);}
+  .pend .q{font-size:10px; line-height:1.45;}
+
+  ul.tight{margin:5px 0 8px 0; padding-left:16px;}
+  ul.tight li{margin-bottom:5px; font-size:10.2px; line-height:1.45;}
+
+  footer{margin-top:20px; border-top:1px solid var(--line); padding-top:9px;}
+  footer p{font-size:8.5px; color:var(--ink-faint); font-family:var(--font-mono); margin:0; line-height:1.55;}
+  .pb{page-break-before:always;}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="brand">Clau Kids × Expansion</div>
+  <h1>Plano de setembro</h1>
+  <p class="sub">A leitura do que agosto produziu, o que realinhar, e o calendário até o Dia das Crianças.</p>
+  <div class="thesis">
+    <p>Setembro não é o mês de vender. É o mês de encher o público que outubro vai colher — porque para loja infantil, outubro é o dezembro do varejo.</p>
+  </div>
+  <div class="foot"><span>Setembro / 2026</span><span>Preparado pela Expansion</span></div>
+</div>
+
+<div class="wrap">
+
+<section>
+  <div class="section-head"><h2><span class="num">01</span>O que agosto entregou</h2><span class="section-note">campanha no ar de 13 a 29/08</span></div>
+  <div class="kpis">
+    <div class="kpi good"><div class="n">R$ 10<small>–11</small></div><div class="l">por conversa nas duas melhores campanhas</div></div>
+    <div class="kpi good"><div class="n">R$ 800</div><div class="l">venda rastreada: R$ 300 + R$ 500 de indicação</div></div>
+    <div class="kpi"><div class="n">3</div><div class="l">campanhas: 4 Perguntas · Deserto · Pula Bula</div></div>
+    <div class="kpi"><div class="n">↑</div><div class="l">ticket médio e clientes/dia, segundo ela</div></div>
+  </div>
+  <p>O planejamento trabalhava com uma estimativa de <strong>R$ 25 por conversa</strong>. O real veio na metade disso. E houve venda rastreável: em 25/08 ela fechou R$ 300 de um lead, e desse lead veio indicação de mais R$ 500 — nas palavras dela, <em>"esse veio com ROI do ROI"</em>. Em 28/08 relatou que o ticket médio e o número de clientes por dia subiram, que apareceram seguidores novos e que a concorrência começou a copiar os posts.</p>
+  <div class="box green">
+    <span class="mark">O que isso prova</span>
+    <p>O mecanismo funciona: anúncio → conversa → venda → indicação. A cadeia inteira fechou pelo menos uma vez, com uma pessoa só operando. <strong>Era exatamente isso que agosto precisava provar.</strong></p>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">02</span>O que não funcionou</h2><span class="section-note">e nenhum problema é custo</span></div>
+  <table>
+    <thead><tr><th style="width:30%;">O problema</th><th>O que aconteceu, e o que fazer</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>O lead veio barato e errado</strong></td>
+        <td>Dos cinco leads de 18/08: dois lojistas elogiando, um pai <strong>de Minas Gerais</strong>, uma funcionária do próprio escritório e apenas um cliente real (Quatá). O algoritmo otimizou para conversa barata e entregou gente que não compra — inclusive fora do estado. <strong>É ajuste de raio, e custa zero.</strong></td>
+      </tr>
+      <tr>
+        <td><strong>A Pula Bula anunciou o que não tinha chegado</strong></td>
+        <td>R$ 38,20 por conversa, contra R$ 10–11 das outras — pausada em 20/08. Não foi criativo ruim: a transportadora atrasou e conversa sobre produto ausente morre. <strong>Agora a coleção chegou.</strong></td>
+      </tr>
+      <tr>
+        <td><strong>A campanha parou e a cliente não foi avisada</strong></td>
+        <td>Pausada no fim de semana de 29–30/08; ela descobriu na segunda, perguntando <em>"está rodando?"</em>. É pequeno e corrói exatamente a proximidade que ela mais valoriza. <strong>Toda pausa é comunicada no mesmo dia, com o motivo.</strong></td>
+      </tr>
+      <tr>
+        <td><strong>A conta de verba não fecha</strong></td>
+        <td>O Pix foi de <strong>R$ 280 para 20 dias</strong>, mas a verba configurada era R$ 28/dia por campanha — R$ 84/dia somando as três, o que esgota em pouco mais de três dias. Ou houve reabastecimento que não está registrado, ou o saldo acabou. <strong>Isso precisa ser confirmado antes de definir setembro</strong>, porque muda a leitura de tudo.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">03</span>A tese de setembro</h2><span class="section-note">rampa para outubro</span></div>
+  <p><strong>O Dia das Crianças cai numa segunda, 12 de outubro</strong> — então o pico real de compra é o fim de semana de 10 e 11. Para loja infantil, é o maior mês do ano.</p>
+  <p>Quem liga tráfego frio do zero em outubro paga caro, disputando leilão com o varejo inteiro. Quem chega em outubro com público quente já construído paga muito menos. <strong>É isso que setembro tem que fabricar.</strong></p>
+  <div class="rampa">
+    <div class="rampa-step"><div class="k">Set · semana 1</div><div class="v">Feriadão e peça leve. Retoma a campanha com o raio corrigido</div></div>
+    <div class="rampa-step"><div class="k">Set · 2 e 3</div><div class="v">Série das idades + Dia do Cliente. Constrói público e lista</div></div>
+    <div class="rampa-step"><div class="k">Set · 4</div><div class="v">"Outubro começa hoje" — abre a lista de interesse</div></div>
+    <div class="rampa-step big"><div class="k">10–12 out</div><div class="v"><strong>Dia das Crianças.</strong> Colhe, com público pronto e custo menor</div></div>
+  </div>
+  <div class="box accent">
+    <span class="mark">A vantagem que agosto deixou de graça</span>
+    <p>Quem assistiu os vídeos, interagiu com o perfil ou conversou no WhatsApp em agosto <strong>já é público quente</strong> e pode ser reimpactado por remarketing — que custa uma fração do público frio. Esse ativo não existia em agosto. Existe agora, e é o que faz setembro começar mais barato.</p>
+  </div>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">04</span>O calendário de conteúdo</h2><span class="section-note">9 roteiros + 3 carrosséis</span></div>
+  <p>A espinha do mês é a <strong>série "todas as idades"</strong> — o que a própria Clau pediu: <em>"explorar produtos, gerando muito desejo, roteiro para todas as idades onde quem chegar na página não resista"</em>. Cada roteiro é ela na loja, mostrando peça de verdade. Produção leve, no máximo duas gravações por semana.</p>
+
+  <div class="sem">
+    <div class="sem-tit"><span class="tag">Semana 1</span> · 01 a 07/09 — feriadão de 05 a 07<div class="line"></div></div>
+    <table><tbody>
+      <tr><td class="mono" style="width:66px;">Qui 03</td><td><span class="cod">R30</span> "Feriado de três dias e a mala vazia"</td><td class="mono">moda praia e peça leve</td></tr>
+      <tr><td class="mono">Sex 04</td><td><span class="cod">C06</span> Carrossel "Cinco peças, um feriado inteiro"</td><td class="mono">fotos, sem gravação</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="sem">
+    <div class="sem-tit"><span class="tag">Semana 2</span> · 08 a 14/09 — abre a série<div class="line"></div></div>
+    <table><tbody>
+      <tr><td class="mono" style="width:66px;">Ter 08</td><td><span class="cod">R24</span> "Do primeiro body até o 18"</td><td class="mono">abre a série</td></tr>
+      <tr><td class="mono">Qui 10</td><td><span class="cod">R25</span> "Enxoval não é sobre fofura"</td><td class="mono">0 a 2 anos</td></tr>
+      <tr><td class="mono">Sex 11</td><td><span class="cod">C05</span> Carrossel "O guia das idades"</td><td class="mono">o mais salvável do mês</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="sem">
+    <div class="sem-tit"><span class="tag">Semana 3</span> · 15 a 21/09 — Dia do Cliente<div class="line"></div></div>
+    <table><tbody>
+      <tr><td class="mono" style="width:66px;">Ter 15</td><td><span class="cod">R31</span> "Eu sei o nome das minhas clientes"</td><td class="mono">Dia do Cliente</td></tr>
+      <tr><td class="mono">Qui 17</td><td><span class="cod">C07</span> Carrossel "O que as mães me contam depois"</td><td class="mono">prova social</td></tr>
+      <tr><td class="mono">Sex 18</td><td><span class="cod">R26</span> "Essa é a idade em que a roupa apanha"</td><td class="mono">2 a 4 anos</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="sem">
+    <div class="sem-tit"><span class="tag">Semana 4</span> · 22 a 28/09 — abre outubro<div class="line"></div></div>
+    <table><tbody>
+      <tr><td class="mono" style="width:66px;">Ter 22</td><td><span class="cod">R27</span> "Escola de manhã, festa às cinco"</td><td class="mono">5 a 8 anos</td></tr>
+      <tr><td class="mono">Qui 24</td><td><span class="cod">R32</span> "Outubro começa hoje"</td><td class="mono">abre a lista de interesse</td></tr>
+      <tr><td class="mono">Sex 25</td><td><span class="cod">R28</span> "A arara que quase nenhuma loja tem"</td><td class="mono">9 a 12 — o diferencial</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="sem">
+    <div class="sem-tit"><span class="tag">Semana 5</span> · 29 e 30/09 — emenda com outubro<div class="line"></div></div>
+    <table><tbody>
+      <tr><td class="mono" style="width:66px;">Ter 29</td><td><span class="cod">R29</span> "Festa aos treze, sem parecer de adulta"</td><td class="mono">13 a 18 · Pula Bula</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="box green">
+    <span class="mark">Por que a série das idades é a peça mais valiosa do mês</span>
+    <p>Ela transforma o maior diferencial da loja — atender do enxoval ao número 18 — em conteúdo que a mãe salva e volta a consultar. E entrega, de graça, cinco públicos diferentes para o tráfego segmentar em outubro: quem assistiu o vídeo de bebê é outra pessoa de quem assistiu o de tamanho grande.</p>
+  </div>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">05</span>O tráfego de setembro</h2><span class="section-note">o que muda em relação a agosto</span></div>
+  <table>
+    <thead><tr><th style="width:26%;">Frente</th><th>O que fazer</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Raio</strong></td><td>Marília + 25 km, opção <em>"pessoas que moram neste local"</em>. Foi o que deixou entrar lead de Minas Gerais. Correção de um clique.</td></tr>
+      <tr><td><strong>Criativos que voltam</strong></td><td><strong>4 Perguntas</strong> e <strong>Deserto</strong> — foram os que renderam R$ 10–11 por conversa. Não se troca o que está funcionando.</td></tr>
+      <tr><td><strong>Pula Bula volta</strong></td><td>Agora com produto na loja e <strong>lista de espera já formada</strong>. O que matou o criativo em agosto era a ausência da mercadoria, não o anúncio.</td></tr>
+      <tr><td><strong>Remarketing</strong></td><td><strong>A novidade do mês.</strong> Público de quem assistiu os vídeos e conversou em agosto. Custo por conversa muito abaixo do frio — e é o que se leva pronto para outubro.</td></tr>
+      <tr><td><strong>Dia do Cliente</strong></td><td>15/09 é a janela de pico do mês. A mecânica é a dela: brinde, exclusividade e tempo. <strong>Nunca desconto.</strong></td></tr>
+      <tr><td><strong>Moda praia</strong></td><td><strong>Sem tráfego</strong>, por decisão dela e com razão: veio pouco e a base atual consome. Não se anuncia o que vai faltar. Fica no orgânico.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box amber">
+    <span class="mark">O teto de atendimento continua valendo</span>
+    <p>Em 31/08 a Clau disse, sobre a campanha ter parado: <em>"que bom, porque foi tão corrido com quem já é cliente da loja que eu não ia dar conta"</em>. Ela opera sozinha. A verba de setembro tem que sair da capacidade de atendimento dela, não da ambição de faturamento — e a subida real acontece em outubro, quando o público já estiver construído e a conversa for mais quente.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">06</span>O que trava, e de quem é</h2><span class="section-note">antes de subir</span></div>
+  <div class="pend"><span class="dono">Kauã</span><span class="q"><strong>Por que a campanha foi pausada em 29–30/08</strong> — performance ou saldo esgotado? E quanto do R$ 280 foi efetivamente gasto, com a curva por campanha</span></div>
+  <div class="pend"><span class="dono">Kauã</span><span class="q"><strong>Total de conversas de agosto por campanha</strong> — o custo por conversa é conhecido, o volume não. Sem isso não dá para calcular retorno</span></div>
+  <div class="pend"><span class="dono">Nicolas</span><span class="q"><strong>Verba de setembro</strong>, fechada com ela e com o teto de atendimento na mesa</span></div>
+  <div class="pend"><span class="dono">Clau</span><span class="q"><strong>Quantas peças da Pula Bula chegaram, por numeração</strong> — o anúncio não pode trazer mãe procurando o que já acabou</span></div>
+  <div class="pend"><span class="dono">Clau</span><span class="q"><strong>Ticket médio real</strong> — segue em aberto desde julho. É a peça que falta para saber se o tráfego se paga</span></div>
+  <div class="pend"><span class="dono">Expansion</span><span class="q"><strong>Relatório toda sexta</strong>, em quatro linhas: gasto, conversas, melhor anúncio, o que muda. E <strong>toda pausa comunicada no mesmo dia</strong></span></div>
+</section>
+
+<section>
+  <div class="box accent">
+    <span class="mark">O que fica de outubro já decidido</span>
+    <p>O roteiro <strong>"Outubro começa hoje" (24/09)</strong> abre uma lista de interesse: quem mandar <em>"outubro"</em> no direct é avisado antes de a mercadoria subir na arara. É lista própria, custo zero, construída um mês antes — e é o público que faz o Dia das Crianças começar vendido em vez de começar disputado.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Roteiros completos no documento "Clau Kids Store" no Drive da cliente — 9 roteiros e 3 carrosséis em formato TACO(H), com gancho, contexto, argumento, CTA e direção de cena. Leitura de agosto baseada nos números informados pelo gestor em 20/08 e nos relatos da cliente no grupo entre 18 e 31/08. Gerado em 01/09/2026.</p>
+</footer>
+
+</div>
+</body>
+</html>
