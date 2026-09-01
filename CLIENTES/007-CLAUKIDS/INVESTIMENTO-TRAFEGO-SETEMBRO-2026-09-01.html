@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Clau Kids — Investimento em Tráfego</title>
+<style>
+  :root{
+    --paper:#FAF9F6; --ink:#1C1A17; --ink-soft:#5B5650; --ink-faint:#8A8478;
+    --line:#E4E0D8; --line-strong:#D2CCC0; --card:#FFFFFF;
+    --accent:#E67E22; --accent-ink:#7A3E0E; --accent-soft:#FBE7D2; --accent-line:#F0C393;
+    --verde:#6F8F35; --verde-ink:#3F5419; --verde-soft:#E7EEDA; --verde-line:#C4D6A0;
+    --azul:#3B6E91; --azul-ink:#24455C; --azul-soft:#E4EEF4; --azul-line:#B4D0DF;
+    --amarelo-soft:#FBF3D9; --amarelo-line:#E8D69B; --amarelo-ink:#7A6212;
+    --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper); color:var(--ink); font-family:var(--font-body);
+    font-size:11px; line-height:1.55; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  @page{ size:A4; margin:0; }
+  .wrap{ max-width:775px; margin:0 auto; padding:15mm 14mm; }
+  h1,h2,h3{font-family:var(--font-display); margin:0; letter-spacing:-.01em;}
+
+  .cover{background:linear-gradient(160deg,#2A1B0E 0%,#4A2E14 55%,var(--accent) 135%);
+    color:#FBEEDD; padding:24mm 16mm 18mm 16mm; position:relative; overflow:hidden; page-break-after:always;}
+  .cover::after{content:""; position:absolute; right:-70px; bottom:-70px; width:280px; height:280px;
+    border-radius:50%; background:rgba(255,255,255,.06);}
+  .cover .brand{font-family:var(--font-mono); font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; opacity:.75; margin-bottom:48px;}
+  .cover h1{font-size:36px; color:#fff; font-weight:700; line-height:1.14; max-width:12ch;}
+  .cover .sub{font-size:13.5px; color:#F3D9B8; max-width:44ch; margin-top:15px; line-height:1.55;}
+  .cover .thesis{margin-top:30px; border-left:3px solid var(--accent); padding-left:14px; max-width:52ch;}
+  .cover .thesis p{font-size:12px; color:#F6E4CC; margin:0; line-height:1.6;}
+  .cover .foot{margin-top:44px; font-family:var(--font-mono); font-size:9.5px; color:#F3D9B8; opacity:.85;}
+
+  section{margin:17px 0; page-break-inside:avoid;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    margin-bottom:9px; border-bottom:1px solid var(--line); padding-bottom:5px;}
+  h2{font-size:15px; font-weight:700; color:var(--accent-ink);}
+  .num{font-family:var(--font-mono); font-size:11px; color:var(--accent); margin-right:7px;}
+  .section-note{font-family:var(--font-mono); font-size:8.5px; color:var(--ink-faint); white-space:nowrap;}
+  h3{font-size:11.8px; font-weight:700; margin:13px 0 5px 0;}
+  p{margin:0 0 7px 0;}
+  .lead{font-size:12px; color:var(--ink-soft); line-height:1.65; max-width:66ch;}
+  .pb{page-break-before:always;}
+
+  .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin:9px 0;}
+  .kpi{background:var(--card); border:1px solid var(--line); border-radius:5px; padding:11px 12px;}
+  .kpi .n{font-family:var(--font-mono); font-weight:700; font-size:18px; color:var(--ink); line-height:1;}
+  .kpi .l{font-size:9.2px; color:var(--ink-soft); margin-top:4px; line-height:1.4;}
+  .kpi.good{border-color:var(--verde-line); background:var(--verde-soft);} .kpi.good .n{color:var(--verde-ink);}
+
+  .ops{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:9px;}
+  .op{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 13px; position:relative;}
+  .op.rec{border:2px solid var(--accent); background:#FFFCF8;}
+  .op .tagrec{position:absolute; top:-8px; left:12px; background:var(--accent); color:#fff;
+    font-family:var(--font-mono); font-size:7.5px; font-weight:700; letter-spacing:.06em;
+    padding:2px 7px; border-radius:3px;}
+  .op .nome{font-family:var(--font-mono); font-size:9px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.05em; color:var(--ink-faint); margin-bottom:6px;}
+  .op.rec .nome{color:var(--accent-ink);}
+  .op .dia{font-family:var(--font-mono); font-size:22px; font-weight:700; color:var(--ink); line-height:1;}
+  .op .diaL{font-size:9px; color:var(--ink-faint); font-family:var(--font-mono); margin-top:3px;}
+  .op .linha{border-top:1px solid var(--line); margin:10px 0 8px 0;}
+  .op .row{display:flex; justify-content:space-between; font-size:9.6px; margin-bottom:4px;}
+  .op .row b{font-family:var(--font-mono); font-size:10.5px;}
+  .op .det{font-size:9.4px; color:var(--ink-soft); margin-top:8px; line-height:1.45;
+    border-top:1px solid var(--line); padding-top:7px;}
+
+  table{border-collapse:collapse; width:100%; font-size:10px; margin-bottom:4px;}
+  th{text-align:left; font-family:var(--font-mono); font-size:8px; text-transform:uppercase;
+    letter-spacing:.05em; color:var(--ink-faint); font-weight:600; padding:5px 6px;
+    border-bottom:1px solid var(--line-strong);}
+  td{padding:6px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .mono{font-family:var(--font-mono); font-size:9.2px; color:var(--ink-soft);}
+
+  .box{border-radius:5px; padding:11px 13px; margin:9px 0;}
+  .box .mark{font-family:var(--font-mono); font-weight:700; font-size:9px; text-transform:uppercase;
+    letter-spacing:.05em; margin-bottom:5px; display:block;}
+  .box p:last-child{margin-bottom:0;}
+  .box.green{border:1px solid var(--verde-line); background:var(--verde-soft);} .box.green .mark{color:var(--verde-ink);}
+  .box.amber{border:1px solid var(--amarelo-line); background:var(--amarelo-soft);} .box.amber .mark{color:var(--amarelo-ink);}
+  .box.accent{border:1px dashed var(--accent-line); background:var(--accent-soft);} .box.accent .mark{color:var(--accent-ink);}
+  .box.azul{border:1px solid var(--azul-line); background:var(--azul-soft);} .box.azul .mark{color:var(--azul-ink);}
+
+  .rampa{display:flex; align-items:stretch; font-size:9.2px; margin:9px 0;}
+  .rp{flex:1; border:1px solid var(--line); background:var(--card); padding:9px; position:relative; text-align:center;}
+  .rp + .rp{border-left:none;}
+  .rp.big{background:#FFFCF8; border-color:var(--accent); border-width:2px;}
+  .rp .k{font-family:var(--font-mono); color:var(--accent-ink); font-size:8px; font-weight:700; text-transform:uppercase;}
+  .rp .v{margin-top:3px; line-height:1.35; color:var(--ink-soft);}
+  .rp .val{font-family:var(--font-mono); font-weight:700; font-size:12px; color:var(--ink); margin-top:4px;}
+  .rp:not(:last-child)::after{content:"→"; position:absolute; right:-6px; top:50%;
+    transform:translateY(-50%); color:var(--ink-faint); font-size:11px; background:var(--paper); width:12px; text-align:center; z-index:2;}
+
+  ul.tight{margin:5px 0 8px 0; padding-left:16px;}
+  ul.tight li{margin-bottom:5px; font-size:10.3px; line-height:1.45;}
+
+  footer{margin-top:20px; border-top:1px solid var(--line); padding-top:9px;}
+  footer p{font-size:8.5px; color:var(--ink-faint); font-family:var(--font-mono); margin:0; line-height:1.55;}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="brand">Clau Kids × Expansion</div>
+  <h1>Investimento em tráfego</h1>
+  <p class="sub">As opções para setembro e o que muda em outubro — com os números reais de agosto.</p>
+  <div class="thesis">
+    <p>Você recebeu 1.200 peças em agosto. Elas precisam girar até dezembro. É esse o trabalho do tráfego agora — e a boa notícia é que agosto já mostrou o quanto custa cada conversa.</p>
+  </div>
+  <div class="foot">Setembro / 2026</div>
+</div>
+
+<div class="wrap">
+
+<section>
+  <div class="section-head"><h2><span class="num">01</span>O que agosto nos ensinou</h2><span class="section-note">números reais, não estimativa</span></div>
+  <div class="kpis">
+    <div class="kpi good"><div class="n">R$ 11</div><div class="l">custo médio por conversa nas duas melhores campanhas (variou de R$ 10,05 a R$ 11,41)</div></div>
+    <div class="kpi good"><div class="n">R$ 800</div><div class="l">de venda rastreada em um único lead: R$ 300 mais R$ 500 de indicação</div></div>
+    <div class="kpi"><div class="n">↑</div><div class="l">ticket médio e clientes por dia subiram, segundo você mesma</div></div>
+  </div>
+  <p>Todos os números deste documento usam <strong>R$ 11 por conversa</strong> como base — que é o que aconteceu de verdade, não uma projeção otimista. Com o alcance corrigido (em agosto entrou gente de fora do estado no meio), a tendência é melhorar um pouco, mas a gente prefere planejar pelo número conhecido.</p>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">02</span>O que mudou desde agosto</h2><span class="section-note">e por que dá para investir mais</span></div>
+  <table>
+    <thead><tr><th style="width:28%;">O que mudou</th><th>O que isso libera</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Estoque comprado</strong><br><span class="mono">1.200 peças em agosto</span></td>
+        <td>Antes a gente segurava o tráfego com medo de trazer mãe procurando o que já tinha acabado. <strong>Com a coleção inteira na loja e reposição em 5 dias, esse risco praticamente sumiu.</strong> O problema deixou de ser falta de produto e passou a ser fazer o produto girar.</td>
+      </tr>
+      <tr>
+        <td><strong>A estagiária</strong><br><span class="mono">em contratação</span></td>
+        <td>Essa foi a melhor decisão do mês. Com alguém cuidando da organização, <strong>você fica só no atendimento</strong> — que é onde você é insubstituível. Na prática, você passa a conseguir absorver bem mais conversas por dia do que antes.</td>
+      </tr>
+      <tr>
+        <td><strong>Público já formado</strong><br><span class="mono">de agosto</span></td>
+        <td>Quem viu seus vídeos e conversou com você em agosto pode ser reimpactado por bem menos que o custo de alcançar gente nova. É desconto de verdade no custo médio, e não existia no mês passado.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="box green">
+    <span class="mark">A conta que sustenta tudo</span>
+    <p>1.200 peças que precisam sair entre setembro e dezembro. Isso significa que <strong>cada um desses meses precisa vender acima da sua média</strong> — não é opcional, é o que o estoque exige. O tráfego é a alavanca mais rápida que existe para isso, e agora ele tem produto atrás.</p>
+  </div>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">03</span>As três opções para setembro</h2><span class="section-note">de 02 a 30/09 — 29 dias</span></div>
+
+  <div class="ops">
+    <div class="op">
+      <div class="nome">Opção A · Segurar</div>
+      <div class="dia">R$ 50</div>
+      <div class="diaL">por dia</div>
+      <div class="linha"></div>
+      <div class="row"><span>No mês</span><b>R$ 1.450</b></div>
+      <div class="row"><span>Conversas</span><b>~130</b></div>
+      <div class="row"><span>Por dia</span><b>~4 a 5</b></div>
+      <div class="det">Confortável e seguro. Mas com 1.200 peças na arara, é pouco para o tamanho do desafio.</div>
+    </div>
+
+    <div class="op rec">
+      <span class="tagrec">NOSSA SUGESTÃO</span>
+      <div class="nome">Opção B · Girar</div>
+      <div class="dia">R$ 90</div>
+      <div class="diaL">por dia</div>
+      <div class="linha"></div>
+      <div class="row"><span>No mês</span><b>R$ 2.610</b></div>
+      <div class="row"><span>Conversas</span><b>~235</b></div>
+      <div class="row"><span>Por dia</span><b>~8</b></div>
+      <div class="det">O ponto de equilíbrio: movimento real para começar a girar a coleção, e ainda dentro do que você atende com a estagiária na loja.</div>
+    </div>
+
+    <div class="op">
+      <div class="nome">Opção C · Acelerar</div>
+      <div class="dia">R$ 130</div>
+      <div class="diaL">por dia</div>
+      <div class="linha"></div>
+      <div class="row"><span>No mês</span><b>R$ 3.770</b></div>
+      <div class="row"><span>Conversas</span><b>~340</b></div>
+      <div class="row"><span>Por dia</span><b>~12</b></div>
+      <div class="det">Só faz sentido <strong>depois</strong> que a estagiária estiver rodando e a gente medir quantas conversas você realmente absorve.</div>
+    </div>
+  </div>
+
+  <div class="box amber">
+    <span class="mark">Como a gente sugere fazer, na prática</span>
+    <p>Começar na <strong>Opção B</strong> e subir só se os números pedirem. Se as conversas estiverem sobrando sem resposta, a gente reduz no mesmo dia — nunca deixamos o anúncio trazer mais gente do que você consegue atender, porque conversa sem resposta é dinheiro jogado fora e ainda deixa a pessoa com impressão errada da loja.</p>
+  </div>
+
+  <h3>A escada até o Dia das Crianças</h3>
+  <div class="rampa">
+    <div class="rp"><div class="k">Semanas 1 e 2</div><div class="v">Antes da estagiária entrar</div><div class="val">R$ 70/dia</div></div>
+    <div class="rp"><div class="k">Semanas 3 a 5</div><div class="v">Com a estagiária na loja</div><div class="val">R$ 100/dia</div></div>
+    <div class="rp big"><div class="k">1 a 12 de outubro</div><div class="v">Pico do Dia das Crianças</div><div class="val">a definir</div></div>
+  </div>
+  <p style="font-size:10.2px; color:var(--ink-soft);">Essa escada dá <strong>cerca de R$ 2.600 em setembro</strong> — o mesmo da Opção B, só que distribuído de forma inteligente: mais leve enquanto você ainda está sozinha, mais forte quando o apoio chegar. A verba de outubro a gente define no dia 30, com um mês inteiro de dados na mão em vez de chute.</p>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">04</span>O que a gente garante em troca</h2><span class="section-note">o combinado</span></div>
+  <ul class="tight">
+    <li><strong>Relatório toda sexta</strong>, em quatro linhas: quanto foi investido, quantas pessoas te chamaram, qual anúncio trouxe mais e o que muda na semana seguinte. Sem você precisar pedir.</li>
+    <li><strong>Aviso no mesmo dia</strong> se a campanha parar por qualquer motivo — seja saldo, seja desempenho. Isso falhou no fim de agosto e não se repete.</li>
+    <li><strong>Redução imediata</strong> se as conversas passarem do que você consegue atender. O limite é o seu atendimento, não o orçamento.</li>
+    <li><strong>Alcance corrigido</strong>: só quem mora em Marília e região. Em agosto entrou lead de outro estado, e isso é dinheiro que não volta.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">05</span>Duas coisas que precisamos de você</h2><span class="section-note">para fechar a conta</span></div>
+  <table>
+    <tbody>
+      <tr><td class="mono" style="width:26px;">1</td><td><strong>Seu ticket médio</strong> — mais ou menos quanto sai uma compra normal, a peça mais barata e a mais cara. Com esse número a gente consegue te dizer, em reais, quanto cada real investido está voltando. Hoje a gente sabe o custo, mas não o retorno.</td></tr>
+      <tr><td class="mono">2</td><td><strong>Quando a estagiária começa</strong> — é o que define quando a gente sobe de R$ 70 para R$ 100 por dia.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="box azul">
+    <span class="mark">Resumindo</span>
+    <p>Cada conversa custou <strong>R$ 11</strong> em agosto e uma delas virou <strong>R$ 800</strong>. Você tem <strong>1.200 peças</strong> para girar até dezembro e acabou de resolver o gargalo do seu tempo. A nossa recomendação é <strong>a escada: R$ 70/dia agora, R$ 100/dia quando a estagiária entrar</strong> — cerca de R$ 2.600 no mês. Mas a decisão é sua, e qualquer uma das três funciona. 💛</p>
+  </div>
+</section>
+
+<footer>
+  <p>Clau Kids × Expansion — opções de investimento em tráfego, setembro/2026. Números de custo por conversa apurados pela gestão de tráfego em 20/08/2026. As projeções de volume usam R$ 11 por conversa como base e podem variar conforme a concorrência do leilão.</p>
+</footer>
+
+</div>
+</body>
+</html>
