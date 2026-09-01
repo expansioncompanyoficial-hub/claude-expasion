@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Clau Kids — Vender Todo Dia</title>
+<style>
+  :root{
+    --paper:#FAF9F6; --ink:#1C1A17; --ink-soft:#5B5650; --ink-faint:#8A8478;
+    --line:#E4E0D8; --line-strong:#D2CCC0; --card:#FFFFFF;
+    --accent:#E67E22; --accent-ink:#7A3E0E; --accent-soft:#FBE7D2; --accent-line:#F0C393;
+    --verde:#6F8F35; --verde-ink:#3F5419; --verde-soft:#E7EEDA; --verde-line:#C4D6A0;
+    --zap:#1F7A5C; --zap-soft:#E0F0E9; --zap-line:#A9D3C3;
+    --amarelo-soft:#FBF3D9; --amarelo-line:#E8D69B; --amarelo-ink:#7A6212;
+    --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper); color:var(--ink); font-family:var(--font-body);
+    font-size:11px; line-height:1.55; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  @page{ size:A4; margin:0; }
+  .wrap{ max-width:775px; margin:0 auto; padding:15mm 14mm; }
+  h1,h2,h3{font-family:var(--font-display); margin:0; letter-spacing:-.01em;}
+
+  .cover{background:linear-gradient(160deg,#2A1B0E 0%,#4A2E14 55%,var(--accent) 135%);
+    color:#FBEEDD; padding:26mm 16mm 20mm 16mm; position:relative; overflow:hidden; page-break-after:always;}
+  .cover::after{content:""; position:absolute; right:-70px; bottom:-70px; width:290px; height:290px;
+    border-radius:50%; background:rgba(255,255,255,.06);}
+  .cover .brand{font-family:var(--font-mono); font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; opacity:.75; margin-bottom:50px;}
+  .cover h1{font-size:37px; color:#fff; font-weight:700; line-height:1.14; max-width:11ch;}
+  .cover .sub{font-size:13.5px; color:#F3D9B8; max-width:43ch; margin-top:15px; line-height:1.55;}
+  .cover .indice{margin-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:7px 20px; max-width:490px;}
+  .cover .indice div{font-size:11px; color:#F6E4CC; display:flex; gap:9px; align-items:baseline;
+    border-bottom:1px solid rgba(255,255,255,.14); padding-bottom:5px;}
+  .cover .indice span{font-family:var(--font-mono); font-size:9.5px; color:var(--accent-soft); opacity:.8;}
+  .cover .foot{margin-top:40px; font-family:var(--font-mono); font-size:9.5px; color:#F3D9B8; opacity:.85;}
+
+  section{margin:17px 0; page-break-inside:avoid;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    margin-bottom:9px; border-bottom:1px solid var(--line); padding-bottom:5px;}
+  h2{font-size:15px; font-weight:700; color:var(--accent-ink);}
+  .num{font-family:var(--font-mono); font-size:11px; color:var(--accent); margin-right:7px;}
+  .section-note{font-family:var(--font-mono); font-size:8.5px; color:var(--ink-faint); white-space:nowrap;}
+  h3{font-size:11.8px; font-weight:700; margin:14px 0 5px 0;}
+  p{margin:0 0 7px 0;}
+  .lead{font-size:12px; color:var(--ink-soft); line-height:1.65; max-width:65ch;}
+  .pb{page-break-before:always;}
+
+  .motores{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin:10px 0;}
+  .mot{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:12px 13px;}
+  .mot .n{font-family:var(--font-mono); font-size:8.5px; font-weight:700; color:var(--accent);
+    letter-spacing:.06em; text-transform:uppercase;}
+  .mot .t{font-family:var(--font-display); font-size:14px; font-weight:700; margin:4px 0 5px 0;}
+  .mot .d{font-size:9.8px; color:var(--ink-soft); line-height:1.45;}
+  .mot .q{font-size:9px; color:var(--accent-ink); font-family:var(--font-mono); margin-top:7px;
+    border-top:1px solid var(--line); padding-top:6px;}
+
+  .script{border:1.5px dashed var(--accent-line); background:#FFFCF8; border-radius:5px;
+    padding:12px 13px 11px 13px; margin:7px 0 12px 0; position:relative;}
+  .script .tag{position:absolute; top:-8px; left:11px; background:var(--accent); color:#fff;
+    font-family:var(--font-mono); font-size:7.5px; font-weight:700; letter-spacing:.06em;
+    text-transform:uppercase; padding:2px 7px; border-radius:3px;}
+  .script .txt{font-size:10.4px; line-height:1.62; margin-top:3px;}
+  .script .txt p{margin:0 0 5px 0;}
+  .script .txt p:last-child{margin:0;}
+  .quando{font-size:9.6px; color:var(--ink-soft); font-style:italic; margin:0 0 3px 0;}
+
+  .seg{margin-bottom:14px; page-break-inside:avoid;}
+  .seg-tit{display:flex; align-items:baseline; gap:8px; margin-bottom:2px;}
+  .seg-tit .bola{font-family:var(--font-mono); font-size:9.5px; font-weight:700; color:#fff;
+    background:var(--accent); border-radius:50%; width:18px; height:18px; display:inline-flex;
+    align-items:center; justify-content:center; flex-shrink:0;}
+  .seg-tit .nm{font-size:12px; font-weight:700;}
+  .seg-tit .quente{font-family:var(--font-mono); font-size:7.5px; font-weight:700; padding:1px 6px;
+    border-radius:3px; background:var(--verde-soft); color:var(--verde-ink); border:1px solid var(--verde-line);}
+
+  .box{border-radius:5px; padding:11px 13px; margin:9px 0;}
+  .box .mark{font-family:var(--font-mono); font-weight:700; font-size:9px; text-transform:uppercase;
+    letter-spacing:.05em; margin-bottom:5px; display:block;}
+  .box p:last-child{margin-bottom:0;}
+  .box.green{border:1px solid var(--verde-line); background:var(--verde-soft);} .box.green .mark{color:var(--verde-ink);}
+  .box.amber{border:1px solid var(--amarelo-line); background:var(--amarelo-soft);} .box.amber .mark{color:var(--amarelo-ink);}
+  .box.accent{border:1px dashed var(--accent-line); background:var(--accent-soft);} .box.accent .mark{color:var(--accent-ink);}
+  .box.zap{border:1px solid var(--zap-line); background:var(--zap-soft);} .box.zap .mark{color:var(--zap);}
+
+  .stories{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:8px 0;}
+  .st{background:var(--card); border:1px solid var(--line); border-radius:5px; padding:10px 11px; position:relative;}
+  .st .n{font-family:var(--font-mono); font-size:15px; font-weight:700; color:var(--accent-line); line-height:1;}
+  .st .t{font-size:10.5px; font-weight:700; margin:4px 0 3px 0;}
+  .st .d{font-size:9.3px; color:var(--ink-soft); line-height:1.4;}
+  .st .seg{font-family:var(--font-mono); font-size:8px; color:var(--ink-faint); margin-top:5px;}
+
+  table{border-collapse:collapse; width:100%; font-size:10px; margin-bottom:4px;}
+  th{text-align:left; font-family:var(--font-mono); font-size:8px; text-transform:uppercase;
+    letter-spacing:.05em; color:var(--ink-faint); font-weight:600; padding:5px 6px;
+    border-bottom:1px solid var(--line-strong);}
+  td{padding:6px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .mono{font-family:var(--font-mono); font-size:9.2px; color:var(--ink-soft);}
+  .dia{font-family:var(--font-mono); font-size:9px; font-weight:700; color:var(--accent-ink);
+    background:var(--accent-soft); border-radius:3px; padding:1px 6px; white-space:nowrap;}
+
+  ul.tight{margin:5px 0 8px 0; padding-left:16px;}
+  ul.tight li{margin-bottom:5px; font-size:10.3px; line-height:1.45;}
+
+  footer{margin-top:20px; border-top:1px solid var(--line); padding-top:9px;}
+  footer p{font-size:8.5px; color:var(--ink-faint); font-family:var(--font-mono); margin:0; line-height:1.55;}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="brand">Clau Kids × Expansion</div>
+  <h1>Vender todo dia, sem gravar todo dia</h1>
+  <p class="sub">Setembro: como trabalhar a sua base, o que postar nos stories e o que a gente faz no tráfego — com os textos prontos.</p>
+  <div class="indice">
+    <div><span>01</span> Os três motores do mês</div>
+    <div><span>02</span> Sua base: quem chamar e o que dizer</div>
+    <div><span>03</span> Os stories que vendem</div>
+    <div><span>04</span> A grade da semana</div>
+    <div><span>05</span> O tráfego: o que a gente faz</div>
+    <div><span>06</span> Outubro começa agora</div>
+  </div>
+  <div class="foot">Setembro / 2026 &nbsp;·&nbsp; Preparado pela Expansion</div>
+</div>
+
+<div class="wrap">
+
+<p class="lead" style="margin-bottom:16px;">Clau, esse documento responde a pergunta que você fez: <em>que caminho seguir agora</em>. A resposta curta é que setembro tem três motores rodando ao mesmo tempo, e só um deles depende de dinheiro. Os outros dois dependem de método — e um deles você já faz melhor que a maioria, só que sem sistema.</p>
+
+<section>
+  <div class="section-head"><h2><span class="num">01</span>Os três motores do mês</h2><span class="section-note">só um custa dinheiro</span></div>
+  <div class="motores">
+    <div class="mot">
+      <div class="n">Motor 1</div>
+      <div class="t">A sua base</div>
+      <div class="d">As clientes que você já tem. Você já faz isso uma a uma — o que falta é saber <strong>quem chamar primeiro</strong> e ter o texto pronto para não gastar tempo pensando.</div>
+      <div class="q">Custo: R$ 0 · Retorno: o mais rápido</div>
+    </div>
+    <div class="mot">
+      <div class="n">Motor 2</div>
+      <div class="t">Os stories</div>
+      <div class="d">Você já grava todo dia. A diferença agora é <strong>vender dentro deles</strong>: peça, preço, tamanho e um convite. Sem isso, o story informa mas não converte.</div>
+      <div class="q">Custo: R$ 0 · Retorno: diário</div>
+    </div>
+    <div class="mot">
+      <div class="n">Motor 3</div>
+      <div class="t">O tráfego</div>
+      <div class="d">Traz gente que ainda não te conhece. É o único que custa — e em setembro ele tem <strong>dois trabalhos</strong>: vender agora e preparar outubro.</div>
+      <div class="q">Custo: verba a definir · Retorno: outubro</div>
+    </div>
+  </div>
+  <div class="box green">
+    <span class="mark">Por que nessa ordem</span>
+    <p>Cliente que já comprou de você custa zero para voltar e converte muito mais que gente nova. Antes de pagar para atrair desconhecido, a gente colhe o que já está plantado. <strong>O tráfego é o terceiro motor, não o primeiro.</strong></p>
+  </div>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">02</span>Sua base: quem chamar e o que dizer</h2><span class="section-note">na ordem, do mais quente ao mais frio</span></div>
+  <p class="lead" style="margin-bottom:12px;">Os textos abaixo são <strong>esqueleto, não decoreba</strong>. Troca o nome, troca uma palavra, deixa do seu jeito — a sua voz é o ativo, não o texto. O que importa é a ordem: comece pelo grupo 1 e desça.</p>
+
+  <div class="seg">
+    <div class="seg-tit"><span class="bola">1</span><span class="nm">Quem pediu para ser avisada da Pula Bula</span><span class="quente">MAIS QUENTE</span></div>
+    <p class="quando">Sua lista de espera. Essas pessoas <em>pediram</em> para você avisar. É a venda mais fácil do mês — e é perecível: quem espera muito, esfria.</p>
+    <div class="script">
+      <span class="tag">copiar e colar</span>
+      <div class="txt">
+        <p>Oi [Nome]! Lembra que você me perguntou da Pula Bula? <strong>Chegou</strong> 💛</p>
+        <p>Separei antes de subir na arara porque você foi uma das primeiras a pedir.</p>
+        <p>Me diz o número que a [criança] veste hoje que eu já te mostro o que tem no tamanho dela.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="seg">
+    <div class="seg-tit"><span class="bola">2</span><span class="nm">Quem levou a Coleção Deserto</span><span class="quente">QUENTE</span></div>
+    <p class="quando">Comprou há pouco, está satisfeita, e ainda nem sabe que chegou coisa de festa. Pergunta primeiro, oferece depois.</p>
+    <div class="script">
+      <span class="tag">copiar e colar</span>
+      <div class="txt">
+        <p>Oi [Nome] 💛 Como ficou a [peça] na [criança]?</p>
+        <p>Se você tiver foto, me manda — eu adoro ver.</p>
+        <p>E ó: chegou a coleção de ocasião especial, com numeração até 18. Se tiver festa, casamento ou formatura chegando, me fala que eu já separo com calma.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="seg">
+    <div class="seg-tit"><span class="bola">3</span><span class="nm">Quem não compra há uns dois meses</span></div>
+    <p class="quando">Seu sistema lista quem está inativo há 60 dias. Essa lista existe e nunca foi usada. Em moda infantil ela é ouro, porque em dois meses a criança <strong>mudou de número</strong> — e esse é o motivo perfeito para voltar.</p>
+    <div class="script">
+      <span class="tag">copiar e colar</span>
+      <div class="txt">
+        <p>Oi [Nome], sou eu, da Clau Kids 💛</p>
+        <p>Fiquei pensando na [criança] esses dias — ela já deve ter mudado de número, né? Nessa idade troca rápido.</p>
+        <p>Me diz que número ela está vestindo agora que eu vejo o que eu tenho na medida dela.</p>
+      </div>
+    </div>
+    <div class="box amber" style="margin-top:2px;">
+      <span class="mark">Por que esse texto funciona</span>
+      <p>Ele não pede compra — pede <strong>uma informação</strong>. É fácil de responder, reabre a conversa e ainda te entrega o dado que você precisa para vender. É a sua primeira pergunta de atendimento virando reativação.</p>
+    </div>
+  </div>
+
+  <div class="seg">
+    <div class="seg-tit"><span class="bola">4</span><span class="nm">Criança fazendo aniversário nas próximas semanas</span></div>
+    <p class="quando">Você sabe os aniversários. Aniversário de criança é ocasião de compra garantida — e quem chega primeiro leva. Manda <strong>três semanas antes</strong>, não na véspera.</p>
+    <div class="script">
+      <span class="tag">copiar e colar</span>
+      <div class="txt">
+        <p>Oi [Nome] 💛 O aniversário da [criança] está chegando, né?</p>
+        <p>Já separei duas opções aqui pensando nela, no tamanho que ela veste.</p>
+        <p>Quer que eu te mande? Se não for a hora, sem problema nenhum — eu guardo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="seg">
+    <div class="seg-tit"><span class="bola">5</span><span class="nm">Quem te chamou pelo anúncio e não comprou</span></div>
+    <p class="quando">Conversou, achou legal e a vida atropelou. Não insista em cima — dê um motivo novo.</p>
+    <div class="script">
+      <span class="tag">copiar e colar</span>
+      <div class="txt">
+        <p>Oi [Nome]! Sou eu, da Clau Kids 💛</p>
+        <p>A gente conversou esses dias e eu não quis te encher.</p>
+        <p>Só passei pra avisar que chegou coisa nova no tamanho que você me falou. Quer dar uma olhada?</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="seg">
+    <div class="seg-tit"><span class="bola">6</span><span class="nm">Todo mundo — a lista de outubro</span></div>
+    <p class="quando">A partir da última semana de setembro. É o que faz o Dia das Crianças começar vendido em vez de começar disputado.</p>
+    <div class="script">
+      <span class="tag">copiar e colar</span>
+      <div class="txt">
+        <p>Oi [Nome] 💛 Estou montando a lista de quem quer ver as peças do Dia das Crianças <strong>antes</strong> de subirem na arara.</p>
+        <p>Como eu compro pouco de cada tamanho, quem está na lista escolhe primeiro — e no ano passado muita coisa acabou antes do dia 12.</p>
+        <p>Quer que eu te coloque?</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box zap">
+    <span class="mark">Três regras para não dar problema no WhatsApp</span>
+    <ul class="tight" style="margin-bottom:0;">
+      <li><strong>Nada de lista de transmissão para quem nunca comprou.</strong> Para a sua base de clientes, tudo bem. Para desconhecido, é o caminho mais rápido para o número ser bloqueado.</li>
+      <li><strong>Sempre com o nome da pessoa e da criança.</strong> Mensagem que parece disparo é denunciada; mensagem que parece você, não. E é você.</li>
+      <li><strong>Espalha ao longo do dia.</strong> Vinte mensagens em dez minutos chama atenção do sistema. Vinte ao longo da manhã, não.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">03</span>Os stories que vendem</h2><span class="section-note">o que muda a partir de agora</span></div>
+  <p>Você já faz stories todo dia — isso é mais do que a maioria das lojas consegue. O que falta é que eles <strong>peçam a venda</strong>. Story que só mostra é vitrine; story que mostra, informa e convida é balcão.</p>
+
+  <h3>A sequência de quatro que vende uma peça</h3>
+  <div class="stories">
+    <div class="st"><div class="n">1</div><div class="t">Movimento</div><div class="d">A peça balançando, saindo da arara, na sua mão. <strong>Nunca parada no cabide</strong> — parado ninguém para de rolar.</div><div class="seg">2 a 3 segundos</div></div>
+    <div class="st"><div class="n">2</div><div class="t">O detalhe</div><div class="d">Close no tecido, na costura, no acabamento. É aqui que aparece por que <em>você</em> escolheu essa peça.</div><div class="seg">3 a 5 segundos</div></div>
+    <div class="st"><div class="n">3</div><div class="t">Preço e números</div><div class="d">Valor em texto grande <strong>e os tamanhos que ainda tem</strong>. Os dois juntos, sempre.</div><div class="seg">5 segundos</div></div>
+    <div class="st"><div class="n">4</div><div class="t">O convite</div><div class="d">"Responde esse story que eu separo." Um passo só, sem link, sem "chama no direct que eu vejo".</div><div class="seg">3 segundos</div></div>
+  </div>
+
+  <div class="box accent">
+    <span class="mark">Sobre colocar o preço</span>
+    <p>Colocar preço te <strong>devolve tempo</strong>: hoje "quanto custa?" é a pergunta que mais consome o seu dia, e ela some quando o valor está na tela. E filtra — quem chega já sabe o que vai gastar.</p>
+    <p style="margin-top:6px;"><strong>Mas preço sem tamanho vira frustração.</strong> Mãe que se apaixona e descobre que não tem o número dela sai pior do que se não tivesse visto. Então a regra é uma só: <strong>onde tem preço, tem os números disponíveis do lado.</strong></p>
+    <p style="margin-top:6px;">E quando só sobrou um: isso não é problema, é o argumento. <em>"Nesse modelo eu só tenho um, no 12."</em> Isso é verdade, é escassez real e não é desconto.</p>
+  </div>
+
+  <h3>Duas coisas que multiplicam sem custar nada</h3>
+  <ul class="tight">
+    <li><strong>Caixinha de pergunta uma vez por semana.</strong> "Me diz a idade do seu filho que eu digo o que tenho pra ele." Quem responde vira conversa, e conversa vira venda. É o seu atendimento consultivo virando conteúdo.</li>
+    <li><strong>Enquete entre duas peças.</strong> "Qual desses dois vocês levariam?" Além de gerar interação, você descobre o que comprar mais na próxima vez — a sua cliente te dizendo o que quer, de graça.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">04</span>A grade da semana</h2><span class="section-note">para não decidir todo dia o que postar</span></div>
+  <p>O custo maior do story diário não é gravar — é <strong>pensar no que postar</strong>. Com um tema fixo por dia, isso acaba.</p>
+  <table>
+    <thead><tr><th style="width:70px;">Dia</th><th style="width:29%;">Tema</th><th>O que é</th></tr></thead>
+    <tbody>
+      <tr><td><span class="dia">Segunda</span></td><td><strong>Chegou</strong></td><td>O que entrou na loja. Caixa abrindo, peça saindo. Se não chegou nada, mostra o que voltou de estoque.</td></tr>
+      <tr><td><span class="dia">Terça</span></td><td><strong>Peça do dia</strong></td><td>A sequência de quatro, com preço e tamanhos. É o dia de vender direto.</td></tr>
+      <tr><td><span class="dia">Quarta</span></td><td><strong>Por que eu escolhi</strong></td><td>Uma peça e o motivo de ela estar na loja. É a sua curadoria aparecendo — o que ninguém copia.</td></tr>
+      <tr><td><span class="dia">Quinta</span></td><td><strong>Prova</strong></td><td>Cliente usando, print de mensagem, look montado. Prova social vale mais que qualquer descrição sua.</td></tr>
+      <tr><td><span class="dia">Sexta</span></td><td><strong>Vitrine da semana</strong></td><td>O que ainda tem, com preço e número. Fim de semana é quando a família decide sair.</td></tr>
+      <tr><td><span class="dia">Sábado</span></td><td><strong>Bastidor</strong></td><td>Você embalando, arrumando, a loja. É o dia de aparecer sem vender — o que faz as pessoas gostarem de você.</td></tr>
+    </tbody>
+  </table>
+  <div class="box green">
+    <span class="mark">Gravação: uma diária por mês</span>
+    <p>Os reels do mês (são nove) a gente grava <strong>todos num dia só</strong>, como fizemos em julho — deu certo e rendeu treze vídeos. Assim você não precisa parar a loja toda semana. <strong>Os stories continuam sendo você, todo dia, sozinha</strong>, do jeito que já faz. Fora a diária, no máximo duas gravações rápidas de celular por semana, e só se fizer sentido.</p>
+  </div>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">05</span>O tráfego: o que a gente faz</h2><span class="section-note">e o que muda em relação a agosto</span></div>
+  <p>Em agosto o tráfego custou entre <strong>R$ 10 e R$ 11 por conversa</strong> nas duas melhores campanhas — metade do que a gente estimava — e trouxe pelo menos uma venda de R$ 300 que gerou outra indicação de R$ 500. O mecanismo funciona.</p>
+  <table>
+    <thead><tr><th style="width:26%;">O que muda</th><th>Por quê</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Corrigir o alcance</strong></td><td>Entrou lead de Minas Gerais no meio. A campanha passa a alcançar só quem <em>mora</em> em Marília e região.</td></tr>
+      <tr><td><strong>Voltar com o que funcionou</strong></td><td>Os anúncios das "quatro perguntas" e da Deserto foram os mais baratos. Não se troca o que dá certo.</td></tr>
+      <tr><td><strong>Pula Bula volta</strong></td><td>Em agosto ela foi anunciada antes de a mercadoria chegar — por isso saiu cara. Agora a coleção está na loja.</td></tr>
+      <tr><td><strong>Reimpactar quem já viu</strong></td><td><strong>A novidade do mês.</strong> Quem assistiu seus vídeos em agosto pode ver de novo por uma fração do custo. É o público que a gente leva pronto para outubro.</td></tr>
+      <tr><td><strong>Aviso de pausa</strong></td><td>Se a campanha parar por qualquer motivo, você é avisada <strong>no mesmo dia</strong>, com o motivo. Em agosto isso falhou.</td></tr>
+      <tr><td><strong>Relatório toda sexta</strong></td><td>Quatro linhas: quanto foi investido, quantas pessoas chamaram, qual anúncio trouxe mais e o que muda na semana seguinte.</td></tr>
+    </tbody>
+  </table>
+  <div class="box amber">
+    <span class="mark">O objetivo de setembro é duplo</span>
+    <p>Metade do investimento trabalha para <strong>vender agora</strong> — Dia do Cliente em 15/09 e a Pula Bula que acabou de chegar. A outra metade trabalha para <strong>construir o público de outubro</strong>, que é quando a gente vai realmente acelerar. Investir tudo em venda imediata agora seria abrir mão do mês mais importante do ano.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">06</span>Outubro começa agora</h2><span class="section-note">três decisões deste mês</span></div>
+  <p>O Dia das Crianças cai numa <strong>segunda, 12 de outubro</strong> — então o pico de compra é o fim de semana de 10 e 11. Para loja infantil, é o maior mês do ano. Três coisas precisam ser resolvidas em setembro, e nenhuma delas é sobre anúncio:</p>
+  <table>
+    <tbody>
+      <tr>
+        <td class="mono" style="width:26px;">1</td>
+        <td><strong>Quanto você vai comprar, e quando chega.</strong> Você compra pouco de cada tamanho — é o que garante a qualidade. Só que se a gente acelerar em outubro em cima do estoque de hoje, vai chegar mãe procurando o que já acabou. <strong>A conversa de outubro começa na compra, não no anúncio.</strong></td>
+      </tr>
+      <tr>
+        <td class="mono">2</td>
+        <td><strong>Quem te ajuda no WhatsApp em outubro.</strong> Em agosto, com o movimento normal, você já disse que não daria conta. Outubro é várias vezes isso. Não precisa ser contratação — pode ser alguém por meio período, só nas duas semanas de pico. Mas precisa ser decidido agora, com calma.</td>
+      </tr>
+      <tr>
+        <td class="mono">3</td>
+        <td><strong>A lista de outubro.</strong> Começa na última semana de setembro (texto no grupo 6, página anterior). É o que faz o dia 12 chegar com gente já escolhida em vez de você disputando atenção com o varejo inteiro.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="box green">
+    <span class="mark">O resumo, se você só puder fazer três coisas</span>
+    <p><strong>1.</strong> Chamar hoje quem está na lista de espera da Pula Bula. <strong>2.</strong> Colocar preço e tamanho nos stories de terça e sexta. <strong>3.</strong> Começar a lista de outubro na última semana do mês. O resto é complemento — essas três já mudam o mês. 💛</p>
+  </div>
+</section>
+
+<footer>
+  <p>Clau Kids × Expansion — plano operacional de setembro/2026. Acompanha o plano estratégico e o documento de roteiros ("Clau Kids Store", no Drive).</p>
+</footer>
+
+</div>
+</body>
+</html>
