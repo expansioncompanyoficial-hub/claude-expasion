@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Clau Kids — Setembro, quem faz o quê</title>
+<style>
+  :root{
+    --paper:#FAF9F6; --ink:#1C1A17; --ink-soft:#5B5650; --ink-faint:#8A8478;
+    --line:#E4E0D8; --line-strong:#D2CCC0; --card:#FFFFFF;
+    --accent:#E67E22; --accent-ink:#7A3E0E; --accent-soft:#FBE7D2; --accent-line:#F0C393;
+    --verde:#6F8F35; --verde-ink:#3F5419; --verde-soft:#E7EEDA; --verde-line:#C4D6A0;
+    --azul:#3B6E91; --azul-ink:#24455C; --azul-soft:#E4EEF4; --azul-line:#B4D0DF;
+    --amarelo-soft:#FBF3D9; --amarelo-line:#E8D69B; --amarelo-ink:#7A6212;
+    --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper); color:var(--ink); font-family:var(--font-body);
+    font-size:11px; line-height:1.55; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  @page{ size:A4; margin:0; }
+  .wrap{ max-width:775px; margin:0 auto; padding:15mm 14mm; }
+  h1,h2,h3{font-family:var(--font-display); margin:0; letter-spacing:-.01em;}
+
+  .cover{background:linear-gradient(160deg,#2A1B0E 0%,#4A2E14 55%,var(--accent) 135%);
+    color:#FBEEDD; padding:26mm 16mm 20mm 16mm; position:relative; overflow:hidden; page-break-after:always;}
+  .cover::after{content:""; position:absolute; right:-70px; bottom:-70px; width:290px; height:290px;
+    border-radius:50%; background:rgba(255,255,255,.06);}
+  .cover .brand{font-family:var(--font-mono); font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; opacity:.75; margin-bottom:54px;}
+  .cover h1{font-size:38px; color:#fff; font-weight:700; line-height:1.13; max-width:11ch;}
+  .cover .sub{font-size:13.5px; color:#F3D9B8; max-width:44ch; margin-top:15px; line-height:1.55;}
+  .cover .thesis{margin-top:32px; border-left:3px solid var(--accent); padding-left:14px; max-width:50ch;}
+  .cover .thesis p{font-size:12px; color:#F6E4CC; margin:0; line-height:1.6;}
+  .cover .foot{margin-top:48px; font-family:var(--font-mono); font-size:9.5px; color:#F3D9B8; opacity:.85;}
+
+  section{margin:17px 0; page-break-inside:avoid;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    margin-bottom:10px; border-bottom:1px solid var(--line); padding-bottom:5px;}
+  h2{font-size:15px; font-weight:700; color:var(--accent-ink);}
+  .num{font-family:var(--font-mono); font-size:11px; color:var(--accent); margin-right:7px;}
+  .section-note{font-family:var(--font-mono); font-size:8.5px; color:var(--ink-faint); white-space:nowrap;}
+  h3{font-size:11.8px; font-weight:700; margin:13px 0 5px 0;}
+  p{margin:0 0 7px 0;}
+  .lead{font-size:12px; color:var(--ink-soft); line-height:1.65; max-width:66ch;}
+  .pb{page-break-before:always;}
+
+  /* raias */
+  .raias{display:grid; grid-template-columns:1fr 1fr; gap:11px; margin-top:8px;}
+  .raia{border-radius:6px; padding:0; overflow:hidden; border:1px solid var(--line);}
+  .raia .cab{padding:9px 12px; font-family:var(--font-mono); font-size:9.5px; font-weight:700;
+    letter-spacing:.06em; text-transform:uppercase; display:flex; align-items:center; gap:7px;}
+  .raia.exp{border-color:var(--azul-line);}
+  .raia.exp .cab{background:var(--azul-soft); color:var(--azul-ink); border-bottom:1px solid var(--azul-line);}
+  .raia.clau{border-color:var(--verde-line);}
+  .raia.clau .cab{background:var(--verde-soft); color:var(--verde-ink); border-bottom:1px solid var(--verde-line);}
+  .raia .corpo{background:var(--card); padding:10px 12px;}
+  .raia .item{padding:7px 0; border-bottom:1px dashed var(--line);}
+  .raia .item:last-child{border-bottom:none; padding-bottom:0;}
+  .raia .item:first-child{padding-top:0;}
+  .raia .it{font-size:10.6px; font-weight:700; margin-bottom:2px;}
+  .raia .id{font-size:9.7px; color:var(--ink-soft); line-height:1.45;}
+
+  .badge{font-family:var(--font-mono); font-size:7.5px; font-weight:700; padding:1px 5px;
+    border-radius:3px; white-space:nowrap; vertical-align:middle;}
+  .badge.exp{background:var(--azul-soft); color:var(--azul-ink); border:1px solid var(--azul-line);}
+  .badge.clau{background:var(--verde-soft); color:var(--verde-ink); border:1px solid var(--verde-line);}
+  .badge.dois{background:var(--accent-soft); color:var(--accent-ink); border:1px solid var(--accent-line);}
+
+  table{border-collapse:collapse; width:100%; font-size:10px; margin-bottom:4px;}
+  th{text-align:left; font-family:var(--font-mono); font-size:8px; text-transform:uppercase;
+    letter-spacing:.05em; color:var(--ink-faint); font-weight:600; padding:5px 6px;
+    border-bottom:1px solid var(--line-strong);}
+  td{padding:6px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .mono{font-family:var(--font-mono); font-size:9.2px; color:var(--ink-soft);}
+  .dia{font-family:var(--font-mono); font-size:9px; font-weight:700; color:var(--accent-ink);
+    background:var(--accent-soft); border-radius:3px; padding:1px 6px; white-space:nowrap;}
+
+  .sem{margin-bottom:12px; page-break-inside:avoid;}
+  .sem-tit{font-family:var(--font-mono); font-size:9.3px; font-weight:700; color:var(--ink-faint);
+    text-transform:uppercase; letter-spacing:.05em; margin-bottom:5px; display:flex; align-items:center; gap:8px;}
+  .sem-tit .tag{color:var(--accent-ink);}
+  .sem-tit .line{flex:1; height:1px; background:var(--line);}
+
+  .box{border-radius:5px; padding:11px 13px; margin:9px 0;}
+  .box .mark{font-family:var(--font-mono); font-weight:700; font-size:9px; text-transform:uppercase;
+    letter-spacing:.05em; margin-bottom:5px; display:block;}
+  .box p:last-child{margin-bottom:0;}
+  .box.green{border:1px solid var(--verde-line); background:var(--verde-soft);} .box.green .mark{color:var(--verde-ink);}
+  .box.amber{border:1px solid var(--amarelo-line); background:var(--amarelo-soft);} .box.amber .mark{color:var(--amarelo-ink);}
+  .box.accent{border:1px dashed var(--accent-line); background:var(--accent-soft);} .box.accent .mark{color:var(--accent-ink);}
+  .box.azul{border:1px solid var(--azul-line); background:var(--azul-soft);} .box.azul .mark{color:var(--azul-ink);}
+
+  .decisao{display:flex; gap:10px; padding:9px 0; border-bottom:1px dashed var(--line); align-items:flex-start;}
+  .decisao:last-child{border-bottom:none;}
+  .decisao .n{font-family:var(--font-mono); font-size:13px; font-weight:700; color:var(--accent-line); line-height:1; margin-top:1px;}
+  .decisao .t{font-size:11px; font-weight:700; margin-bottom:2px;}
+  .decisao .d{font-size:10px; color:var(--ink-soft); line-height:1.45;}
+
+  ul.tight{margin:5px 0 8px 0; padding-left:16px;}
+  ul.tight li{margin-bottom:5px; font-size:10.3px; line-height:1.45;}
+
+  footer{margin-top:20px; border-top:1px solid var(--line); padding-top:9px;}
+  footer p{font-size:8.5px; color:var(--ink-faint); font-family:var(--font-mono); margin:0; line-height:1.55;}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="brand">Clau Kids × Expansion</div>
+  <h1>Setembro: quem faz o quê</h1>
+  <p class="sub">O plano do mês com as responsabilidades separadas — o que é nosso, o que é seu, e o que a gente decide junto.</p>
+  <div class="thesis">
+    <p>Setembro tem dois trabalhos: vender agora e deixar outubro pronto. Porque o Dia das Crianças é o maior mês do ano para uma loja infantil — e ele se prepara agora, não no dia 10.</p>
+  </div>
+  <div class="foot">Setembro / 2026</div>
+</div>
+
+<div class="wrap">
+
+<p class="lead" style="margin-bottom:16px;">Clau, você pediu direção. Esse documento é a resposta em formato de combinado: cada linha tem um dono. O que está de azul é nosso e você não precisa se preocupar. O que está de verde é seu — e é pouca coisa, de propósito, porque quem vende e embala é você e o seu tempo é o recurso mais caro dessa operação.</p>
+
+<section>
+  <div class="section-head"><h2><span class="num">01</span>O mês em uma página</h2><span class="section-note">a lógica de setembro</span></div>
+  <p>O <strong>Dia das Crianças cai numa segunda, 12 de outubro</strong> — então o pico de compra é o fim de semana de 10 e 11. Para loja infantil, é o mês mais forte do ano.</p>
+  <p>Quem começa a se mover em outubro chega atrasado e caro, disputando espaço com o varejo inteiro. Então setembro trabalha em duas frentes ao mesmo tempo: <strong>vender agora</strong> — com a Pula Bula que acabou de chegar e o Dia do Cliente, dia 15 — e <strong>preparar o terreno</strong>, formando o público e a lista que vão sustentar outubro.</p>
+  <div class="box green">
+    <span class="mark">A boa notícia de agosto</span>
+    <p>O tráfego funcionou: cada conversa custou entre R$ 10 e R$ 11 nas melhores campanhas, e pelo menos uma delas virou uma venda de R$ 300 que ainda trouxe uma indicação de R$ 500. Você também notou o ticket médio e o número de clientes por dia subindo. <strong>O caminho está certo — setembro é para fazer isso de novo, com mais pontaria.</strong></p>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">02</span>As duas raias</h2><span class="section-note">nosso lado e o seu</span></div>
+  <div class="raias">
+
+    <div class="raia exp">
+      <div class="cab">🔵 Expansion faz</div>
+      <div class="corpo">
+        <div class="item"><div class="it">Escreve todo o conteúdo</div><div class="id">9 roteiros e 3 carrosséis do mês já estão prontos, com gancho, fala e direção de cena.</div></div>
+        <div class="item"><div class="it">Conduz a diária de gravação</div><div class="id">Agendamos, levamos a lista pronta e gravamos tudo de uma vez só.</div></div>
+        <div class="item"><div class="it">Edita, legenda e programa</div><div class="id">Corte, legenda e agendamento das publicações. Você só aprova.</div></div>
+        <div class="item"><div class="it">Monta os carrosséis</div><div class="id">Com as fotos que já existem — sem gravação nova.</div></div>
+        <div class="item"><div class="it">Roda o tráfego</div><div class="id">Cria as campanhas, corrige o alcance para só atingir Marília e região, acompanha todo dia e ajusta o que não render.</div></div>
+        <div class="item"><div class="it">Reimpacta quem já te viu</div><div class="id">Quem assistiu seus vídeos em agosto volta a ver, por uma fração do custo. É o que constrói o público de outubro.</div></div>
+        <div class="item"><div class="it">Relatório toda sexta</div><div class="id">Quatro linhas: quanto investimos, quantas pessoas chamaram, qual anúncio trouxe mais e o que muda na semana seguinte.</div></div>
+        <div class="item"><div class="it">Avisa se algo parar</div><div class="id">Se a campanha pausar por qualquer motivo, você é avisada no mesmo dia, com o motivo.</div></div>
+        <div class="item"><div class="it">Prepara outubro</div><div class="id">A estratégia do Dia das Crianças fica pronta ainda em setembro.</div></div>
+      </div>
+    </div>
+
+    <div class="raia clau">
+      <div class="cab">🟢 Você faz</div>
+      <div class="corpo">
+        <div class="item"><div class="it">Um dia de gravação no mês</div><div class="id">Só isso. Os 9 vídeos saem numa diária, como em julho — foram 13 num dia e deu certo.</div></div>
+        <div class="item"><div class="it">Stories, como você já faz</div><div class="id">Todo dia, sozinha, do seu jeito. A novidade é a grade de temas e colocar <strong>preço e tamanho</strong> juntos.</div></div>
+        <div class="item"><div class="it">Chamar a sua base</div><div class="id">Com os textos prontos que a gente te mandou: lista de espera da Pula Bula, quem sumiu há dois meses, aniversários.</div></div>
+        <div class="item"><div class="it">Aprovar vídeo e legenda</div><div class="id">Em até 24h. Se não der, a gente segue com o que já estava aprovado para não furar o calendário.</div></div>
+        <div class="item"><div class="it">Nos contar do estoque</div><div class="id">Quantas peças da Pula Bula por numeração. Sem isso o anúncio pode trazer mãe procurando o que já acabou.</div></div>
+        <div class="item"><div class="it">Comprar para outubro</div><div class="id">É a decisão mais importante do mês, e só você pode tomar.</div></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="box azul">
+    <span class="mark">A regra que organiza tudo</span>
+    <p>Se alguma tarefa não está na sua coluna, <strong>ela não é sua</strong>. Se aparecer algo pedindo seu tempo que não está aqui, pode nos chamar — provavelmente é coisa que a gente deveria estar fazendo.</p>
+  </div>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">03</span>O calendário do mês</h2><span class="section-note">com o dono de cada linha</span></div>
+
+  <div class="sem">
+    <div class="sem-tit"><span class="tag">Semana 1</span> · 01 a 07/09 — feriado de 05 a 07<div class="line"></div></div>
+    <table><tbody>
+      <tr><td class="mono" style="width:62px;">Hoje</td><td>Chamar quem está na <strong>lista de espera da Pula Bula</strong> — chegou e eles pediram para saber</td><td style="width:64px;"><span class="badge clau">VOCÊ</span></td></tr>
+      <tr><td class="mono">Qua 02</td><td>Campanhas de tráfego voltam ao ar, com o alcance corrigido</td><td><span class="badge exp">EXPANSION</span></td></tr>
+      <tr><td class="mono">Qui 03</td><td>Reel "Feriado de três dias e a mala vazia" — moda praia e peça leve</td><td><span class="badge dois">OS DOIS</span></td></tr>
+      <tr><td class="mono">Sex 04</td><td>Carrossel "Cinco peças, um feriado inteiro"</td><td><span class="badge exp">EXPANSION</span></td></tr>
+      <tr><td class="mono">Semana</td><td>Stories diários seguindo a grade, com preço e tamanho</td><td><span class="badge clau">VOCÊ</span></td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="sem">
+    <div class="sem-tit"><span class="tag">Semana 2</span> · 08 a 14/09 — a diária de gravação<div class="line"></div></div>
+    <table><tbody>
+      <tr><td class="mono" style="width:62px;">A combinar</td><td><strong>Diária de gravação</strong> — os 9 vídeos do mês de uma vez</td><td style="width:64px;"><span class="badge dois">OS DOIS</span></td></tr>
+      <tr><td class="mono">Ter 08</td><td>Reel "Do primeiro body até o 18" — abre a série das idades</td><td><span class="badge exp">EXPANSION</span></td></tr>
+      <tr><td class="mono">Qui 10</td><td>Reel "Enxoval não é sobre fofura" — bebê</td><td><span class="badge exp">EXPANSION</span></td></tr>
+      <tr><td class="mono">Sex 11</td><td>Carrossel "O guia das idades" — o post mais salvável do mês</td><td><span class="badge exp">EXPANSION</span></td></tr>
+      <tr><td class="mono">Semana</td><td>Chamar quem <strong>não compra há dois meses</strong> — a criança já mudou de número</td><td><span class="badge clau">VOCÊ</span></td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="sem">
+    <div class="sem-tit"><span class="tag">Semana 3</span> · 15 a 21/09 — Dia do Cliente<div class="line"></div></div>
+    <table><tbody>
+      <tr><td class="mono" style="width:62px;">Ter 15</td><td>Reel "Eu sei o nome das minhas clientes" — <strong>Dia do Cliente</strong></td><td style="width:64px;"><span class="badge exp">EXPANSION</span></td></tr>
+      <tr><td class="mono">Semana</td><td>Atenção redobrada no WhatsApp: é a semana de maior movimento do mês</td><td><span class="badge clau">VOCÊ</span></td></tr>
+      <tr><td class="mono">Qui 17</td><td>Carrossel "O que as mães me contam depois" — prova social</td><td><span class="badge exp">EXPANSION</span></td></tr>
+      <tr><td class="mono">Sex 18</td><td>Reel "A idade em que a roupa apanha" — 2 a 4 anos</td><td><span class="badge exp">EXPANSION</span></td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="sem">
+    <div class="sem-tit"><span class="tag">Semana 4</span> · 22 a 28/09 — abre outubro<div class="line"></div></div>
+    <table><tbody>
+      <tr><td class="mono" style="width:62px;">Ter 22</td><td>Reel "Escola de manhã, festa às cinco" — 5 a 8 anos</td><td style="width:64px;"><span class="badge exp">EXPANSION</span></td></tr>
+      <tr><td class="mono">Qui 24</td><td>Reel "Outubro começa hoje" — <strong>abre a lista do Dia das Crianças</strong></td><td><span class="badge exp">EXPANSION</span></td></tr>
+      <tr><td class="mono">Sex 25</td><td>Reel "A arara que quase nenhuma loja tem" — 9 a 12 anos</td><td><span class="badge exp">EXPANSION</span></td></tr>
+      <tr><td class="mono">Semana</td><td>Convidar a base para a <strong>lista de outubro</strong>, com o texto pronto</td><td><span class="badge clau">VOCÊ</span></td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="sem">
+    <div class="sem-tit"><span class="tag">Semana 5</span> · 29 e 30/09 — emenda com outubro<div class="line"></div></div>
+    <table><tbody>
+      <tr><td class="mono" style="width:62px;">Ter 29</td><td>Reel "Festa aos treze, sem parecer de adulta" — Pula Bula</td><td style="width:64px;"><span class="badge exp">EXPANSION</span></td></tr>
+      <tr><td class="mono">Qua 30</td><td>Fechamento do mês e apresentação do plano de outubro</td><td><span class="badge dois">OS DOIS</span></td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<section class="pb">
+  <div class="section-head"><h2><span class="num">04</span>As três decisões deste mês</h2><span class="section-note">precisam sair em setembro</span></div>
+  <p class="lead" style="margin-bottom:10px;">Essas três não são tarefa, são decisão — e as três valem para outubro. Se ficarem para depois do dia 30, outubro chega sem elas.</p>
+
+  <div class="decisao">
+    <div class="n">1</div>
+    <div>
+      <div class="t">Quanto investir por mês em anúncio</div>
+      <div class="d">Em agosto o teste rodou pequeno e mostrou que funciona. Agora vale definir um valor mensal fixo para setembro e outubro, para a gente planejar em vez de improvisar. <strong>A gente traz a recomendação com os números na mão; a decisão é sua.</strong></div>
+    </div>
+  </div>
+
+  <div class="decisao">
+    <div class="n">2</div>
+    <div>
+      <div class="t">Quanto você vai comprar para outubro, e quando chega</div>
+      <div class="d">Você compra pouco de cada tamanho — é o que garante a curadoria. Só que se a gente acelerar em outubro em cima do estoque de hoje, vai chegar mãe procurando o que já acabou, e isso machuca a sua marca mais do que a venda perdida. <strong>A conversa de outubro começa na compra, não no anúncio.</strong></div>
+    </div>
+  </div>
+
+  <div class="decisao">
+    <div class="n">3</div>
+    <div>
+      <div class="t">Quem te ajuda no WhatsApp nas duas semanas de pico</div>
+      <div class="d">Em agosto, com movimento normal, você já sentiu que não daria conta se apertasse. Outubro é bem mais que isso. Não precisa ser contratação — pode ser alguém por meio período só de 1 a 12 de outubro, só para responder mensagem enquanto você atende e embala. <strong>Mas isso se resolve agora, com calma, não no dia 8 no aperto.</strong></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><h2><span class="num">05</span>Como a gente se fala</h2><span class="section-note">o combinado do mês</span></div>
+  <table>
+    <thead><tr><th style="width:24%;">Quando</th><th>O quê</th></tr></thead>
+    <tbody>
+      <tr><td><span class="dia">Toda sexta</span></td><td><strong>Relatório nosso para você</strong>, em quatro linhas: quanto foi investido, quantas pessoas te chamaram, qual anúncio trouxe mais e o que muda na semana seguinte. Você não precisa pedir — chega.</td></tr>
+      <tr><td><span class="dia">Toda segunda</span></td><td>Mandamos os <strong>temas da semana</strong> para os seus stories, para você não gastar energia decidindo o que postar.</td></tr>
+      <tr><td><span class="dia">Sempre que parar</span></td><td>Se a campanha pausar por qualquer motivo, <strong>avisamos no mesmo dia</strong>, com o motivo. Isso falhou em agosto e não se repete.</td></tr>
+      <tr><td><span class="dia">Aprovação</span></td><td>Vídeo e legenda vão para você separadamente. <strong>Prazo de 24h</strong> — sem resposta, seguimos com o que já estava aprovado para não furar o calendário.</td></tr>
+      <tr><td><span class="dia">Dia 30</span></td><td>Fechamento do mês e apresentação do plano de outubro, já pronto.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="box green">
+    <span class="mark">Se você só fizer três coisas este mês</span>
+    <p><strong>1.</strong> Chamar hoje quem está na lista de espera da Pula Bula. <strong>2.</strong> Colocar preço e tamanho nos stories de terça e sexta. <strong>3.</strong> Decidir quanto vai comprar para outubro. O resto a gente carrega. 💛</p>
+  </div>
+</section>
+
+<footer>
+  <p>Clau Kids × Expansion — plano de setembro/2026. Acompanha o documento operacional com os textos prontos de WhatsApp e o documento de roteiros do mês.</p>
+</footer>
+
+</div>
+</body>
+</html>
