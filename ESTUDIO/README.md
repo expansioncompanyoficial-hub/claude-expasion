@@ -676,6 +676,32 @@ coluna crescer. `minmax(0,1fr)` resolve.
 Abaixo de 700px o Estúdio deixa de ser mesa de trabalho e vira tela de
 publicar: `#cartao-cel` recebe `order:-1` e sobe para o topo da Aprovação.
 
+## O padrão do corpo, num lugar só — de novo
+
+Já estava escrito aqui que número de layout em dois lugares volta a divergir. O
+conserto original roteou tudo por `padraoCorpo()` — **mas só no ramo do meio de
+funil.** A família sangrada e o cartão do Twitter continuaram com o número
+cravado no HTML (`aj.corpo || 31`, `aj.corpo || 41`).
+
+O sintoma apareceu meses depois, e foi silencioso: a calibração baixou o corpo
+do EXPANSION 02 de 31 para 26, o painel passou a mostrar 26 — **e o slide seguia
+desenhando 31**. Quem confia no painel não tem como perceber.
+
+Hoje os cinco templates leem `padraoCorpo()`. Conferido no navegador, painel
+contra render, sem tamanho pedido à mão:
+
+```
+exp02  padraoCorpo=26  render=26  painel=26px  ✓
+exp03  padraoCorpo=31  render=31  painel=31px  ✓
+exp04  padraoCorpo=31  render=31  painel=31px  ✓
+twitter padraoCorpo=41 render=41  painel=41px  ✓
+meio   padraoCorpo=37  render=37  painel=37px  ✓
+```
+
+**A lição não é "centralize o número" — isso já estava escrito.** É que
+centralizar pela metade é pior que não centralizar: cria a aparência de fonte
+única e mantém a divergência escondida atrás dela.
+
 ## Calibração por cliente
 
 O diário registra decisões; a calibração é o que **lê** essas decisões e as
@@ -701,6 +727,13 @@ Três decisões de desenho que fazem a leitura confiável:
    errada com cara de dado. A primeira versão desta análise errou exatamente
    assim, e o número só ficou honesto depois de refazer.
 3. **Mediana, não média.** Um ajuste extremo não move a régua.
+
+A reconstrução da linha do tempo cobre os dois escopos. A primeira versão só
+replicava exceções de slide e caía em `p.tpl` — o template **de agora** — para
+o resto, o que classificava eventos antigos no balde errado. Como todo evento
+`tpl` de escopo peça guarda o `de`, dá para recuar: o valor inicial é o `de` da
+primeira troca. E o id passa por `acha()`, senão a calibração mostrava
+`brands1`, um template que não existe mais.
 
 ### A primeira correção que saiu daí
 
