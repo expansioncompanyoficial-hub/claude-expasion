@@ -83,6 +83,32 @@ de análise* — um conjunto fixo de perguntas obrigatórias e um poder de veto.
 Nunca personas com biografia ou anos de experiência. Um papel só existe no
 AEOS se consegue reprovar alguma coisa.
 
+## Missões de Digital Twin — como usar
+
+`AEOS/<ALVO>/` guarda as missões de engenharia reversa de produto, no rito do
+Vol. III (PROMETHEUS): levantar o **Digital Twin** antes de propor qualquer
+coisa. Duas até agora:
+
+| Missão | Alvo | Estado |
+|---|---|---|
+| M001 | Organify (`app.organifybr.com`) | twin levantado, **portão do Art. 30 reprovado** — 4 de 10 critérios |
+| M003 | CarouselAI (`twobaddesigners.com`) | ficha escrita, twin **por levantar** |
+
+A M003 tem uma restrição própria: **o domínio é recusado pela política de
+egress deste ambiente** (403 no CONNECT, verificado em curl, WebFetch e
+Chromium local). O levantamento tem de ser feito pelo Claude da extensão do
+Chrome, na máquina do Nicolas. A ficha
+`AEOS/CAROUSELAI/FICHA-MISSAO-M003-CAROUSELAI.md` é o prompt pronto para isso.
+
+As sete camadas da M003 foram desenhadas para casar **uma a uma** com as seções
+de `docs/ESPECIFICACAO-INTEGRACAO-CARROSSEL-2026-09-01.md`, para que a
+comparação entre o produto deles e o nosso seja mecânica em vez de
+impressionista.
+
+A disciplina vale para toda missão: `Ø` no não observado, confiança por
+afirmação, limitações do instrumento antes de qualquer número, e hipótese
+refutada registrada de propósito.
+
 ## BRANDSDECODED — como usar
 
 Acervo de produto de terceiro (BrandsDecoded), recebido em 2026-08-06. **Ponto de
