@@ -958,10 +958,18 @@ function tetos(pos){
   return out;
 }
 
-/* O tamanho padrão do corpo, num lugar só. Estava duplicado entre o render e
-   o painel, e os dois discordavam: em slide claro o render desenhava 36,6 e o
-   painel dizia 45. Daí saíam um aviso falso de "encolhido para 37px pra caber"
-   e um salto no `+`, que pulava de 36,6 direto para 47,4. */
+/* O tamanho padrão do corpo, num lugar só, para TODOS os templates.
+
+   Estava duplicado entre o render e o painel, e os dois discordavam: em slide
+   claro o render desenhava 36,6 e o painel dizia 45. Daí saíam um aviso falso
+   de "encolhido para 37px pra caber" e um salto no `+`, que pulava de 36,6
+   direto para 47,4.
+
+   O conserto original só cobriu o ramo do meio de funil, e a família sangrada
+   e o cartão continuaram com o número cravado no HTML — então a calibração
+   que baixou o corpo do EXPANSION 02 para 26 mudava só o rótulo do painel e
+   o slide seguia desenhando 31. Mesma armadilha, dois meses depois: número de
+   layout escrito em dois lugares SEMPRE volta a divergir. */
 function padraoCorpo(i, t){
   t = t || tplDo(i);
   // Corpo do sangrado: 31 era modelo; em 9 ajustes a mediana pedida foi 25.
@@ -1222,7 +1230,7 @@ function render(i, forcado){
         <div class="sang-h1" style="font-family:${tpl.fonte};font-weight:${tpl.peso};
           font-size:${aj.h1 || tpl.tam}px;line-height:${tpl.lh};letter-spacing:${tpl.tr};color:#fff">
           ${RICO(h||'Headline da capa', i === 0 ? 'capa' : 'sang')}</div>
-        <div style="font-size:${aj.corpo || 31}px;line-height:1.18;letter-spacing:-.02em;color:#fff;
+        <div style="font-size:${aj.corpo || padraoCorpo(i, tpl)}px;line-height:1.18;letter-spacing:-.02em;color:#fff;
           opacity:.86;max-width:92%">${
           i === nSlides()-1
             ? chamada(c||'Linha de apoio abaixo da headline.', 'sang')
@@ -1256,7 +1264,7 @@ function render(i, forcado){
               ${estiloFoto(aj)}display:block">`
           : `<span style="font-family:var(--mono);font-size:15px;letter-spacing:.14em;
               text-transform:uppercase;color:${cli.accent}">imagem · a definir</span>`}</div>
-      <div class="ft-corpo" style="font-size:${aj.corpo || 41}px;font-weight:500;
+      <div class="ft-corpo" style="font-size:${aj.corpo || padraoCorpo(i, tpl)}px;font-weight:500;
         line-height:1.24;letter-spacing:-.022em;color:#0F1419">${
         RICO(c||'O parágrafo de apoio, logo abaixo.', 'cartao')}</div>
     </div></div>`;
@@ -2454,14 +2462,23 @@ function leCalibracao(x){
     // peça pode ter trocado de template no meio, e atribuir o papel errado
     // faria a conclusão sair errada com cara de dado.
     const porSlide = {};
+    // O template da PEÇA também muda no meio do caminho. Usar `p.tpl` — o de
+    // agora — para classificar um evento de ontem põe o ajuste no balde
+    // errado. Como todo evento `tpl` de escopo peça guarda o `de`, dá para
+    // recuar: o valor inicial é o `de` da PRIMEIRA troca, e só quando não
+    // houve troca nenhuma é que `p.tpl` vale para tudo.
+    const trocasPeca = (p.diario || []).filter(e => e.q === 'tpl' && e.escopo === 'peca');
+    let daPeca = trocasPeca.length ? trocasPeca[0].de : p.tpl;
     (p.diario || []).forEach(e => {
       if (e.q === 'tpl'){
-        if (e.escopo === 'peca'){ for (const k in porSlide) delete porSlide[k]; }
+        if (e.escopo === 'peca'){ daPeca = e.para; for (const k in porSlide) delete porSlide[k]; }
         else porSlide[e.s] = e.para;
         return;
       }
       if (e.q !== 'tam' || !e.padrao) return;
-      const t = porSlide[e.s] || p.tpl;
+      // `acha()` normaliza id legado (brands1/2/3) para o template vivo —
+      // sem isso a calibração mostrava um id que não existe mais.
+      const t = acha(porSlide[e.s] || daPeca).id;
       const papel = (t === 'meio' && e.s < 9) ? RITMO_PAPEL[e.s] : t;
       const k = papel + '·' + e.campo;
       (balde[k] = balde[k] || {padrao: e.padrao, pedidos: []}).pedidos.push(e.para);
