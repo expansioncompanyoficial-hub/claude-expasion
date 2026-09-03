@@ -1,0 +1,279 @@
+<title>Onboarding Estilo Menina</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#FFFFFF; --ink:#1a1a1a; --muted:#6b6259; --card:#f8f4f0; --line:#e8e0d8;
+    --accent:#E87A2F; --accent-ink:#9a4a10; --dark:#341100; --dark-ink:#f5ede6;
+    --green:#22c55e; --green-bg:#ecfaf1; --amber:#f59e0b; --amber-bg:#fdf6e7;
+    --red:#ef4444; --red-bg:#fdecec; --red-ink:#b91c1c; --green-ink:#15803d; --amber-ink:#92600a;
+    --quote:#7a4a22;
+  }
+  :root:not([data-theme="light"]){ }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#191008; --ink:#f0e7dd; --muted:#a99a8b; --card:#241811; --line:#3a2b1e;
+      --accent:#f0894a; --accent-ink:#f8b98a; --dark:#12314b00; --dark-ink:#f5ede6;
+      --green-bg:#122a1c; --amber-bg:#2c2110; --red-bg:#331516; --red-ink:#f19999;
+      --green-ink:#6fdd9a; --amber-ink:#f2c063; --quote:#d8a06c;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#191008; --ink:#f0e7dd; --muted:#a99a8b; --card:#241811; --line:#3a2b1e;
+    --accent:#f0894a; --accent-ink:#f8b98a; --dark:#12314b00; --dark-ink:#f5ede6;
+    --green-bg:#122a1c; --amber-bg:#2c2110; --red-bg:#331516; --red-ink:#f19999;
+    --green-ink:#6fdd9a; --amber-ink:#f2c063; --quote:#d8a06c;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',system-ui,-apple-system,sans-serif;
+    font-size:15px; line-height:1.6; margin:0; padding:0 20px 80px;}
+  .wrap{max-width:900px; margin:0 auto;}
+  header.hero{background:#341100; color:#f5ede6; border-radius:16px; padding:36px 36px 30px; margin:28px 0 36px;}
+  .eyebrow{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#e8a56f; font-weight:600; margin:0 0 10px;}
+  h1{font-size:30px; font-weight:800; letter-spacing:-.02em; margin:0 0 6px; line-height:1.2; text-wrap:balance;}
+  .hero .sub{color:#d9c6b6; font-size:14px; margin:0 0 20px;}
+  .hero a{color:#f0a56b}
+  .badge-risk{display:inline-flex; align-items:center; gap:10px; background:#4a1210; border:1px solid #ef4444;
+    color:#ffb3b3; font-weight:700; border-radius:999px; padding:8px 18px; font-size:14px;}
+  .badge-risk .dot{width:10px;height:10px;border-radius:50%;background:#ef4444; flex:none;}
+  .score{font-variant-numeric:tabular-nums; color:#ffd7d7; font-weight:800;}
+  h2{font-size:20px; font-weight:800; letter-spacing:-.01em; margin:52px 0 6px; text-wrap:balance;}
+  h2 .n{color:var(--accent); font-variant-numeric:tabular-nums; margin-right:6px;}
+  .lead{color:var(--muted); margin:0 0 20px; max-width:68ch;}
+  h3{font-size:15px; font-weight:700; margin:26px 0 10px;}
+  .grid{display:grid; gap:12px;}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  @media(max-width:720px){.g3,.g2{grid-template-columns:1fr;}}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px;}
+  .card .k{font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:600; margin:0 0 4px;}
+  .card .v{font-weight:600; font-size:14.5px; margin:0;}
+  .card .d{font-size:13px; color:var(--muted); margin:4px 0 0;}
+  q{quotes:'\201C' '\201D'; font-style:italic; color:var(--quote);}
+  .ts{font-size:11.5px; color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap;}
+  /* criteria rows */
+  .crit{display:flex; gap:14px; padding:14px 4px; border-bottom:1px solid var(--line); align-items:flex-start;}
+  .crit:last-child{border-bottom:none;}
+  .pill{flex:none; width:74px; text-align:center; font-size:11px; font-weight:700; border-radius:999px; padding:4px 0; margin-top:2px; letter-spacing:.04em;}
+  .p-ok{background:var(--green-bg); color:var(--green-ink);}
+  .p-warn{background:var(--amber-bg); color:var(--amber-ink);}
+  .p-fail{background:var(--red-bg); color:var(--red-ink);}
+  .crit .t{font-weight:700; font-size:14px; margin:0 0 2px;}
+  .crit .e{font-size:13px; color:var(--muted); margin:0; max-width:72ch;}
+  /* summary trio */
+  .trio .card{border-top:3px solid var(--line);}
+  .trio .good{border-top-color:var(--green);}
+  .trio .warn{border-top-color:var(--amber);}
+  .trio .bad{border-top-color:var(--red);}
+  .trio ul{margin:8px 0 0; padding-left:18px; font-size:13.5px;}
+  .trio li{margin:0 0 8px;}
+  table{border-collapse:collapse; width:100%; font-size:13.5px;}
+  .tblwrap{overflow-x:auto; border:1px solid var(--line); border-radius:12px;}
+  th{font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); text-align:left; font-weight:600;}
+  th,td{padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  thead tr{background:var(--card);}
+  td.num{font-variant-numeric:tabular-nums; font-weight:700; white-space:nowrap;}
+  .hl{background:var(--red-bg); color:var(--red-ink); font-weight:700;}
+  /* expectativas */
+  .exp{border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:0 0 12px; background:var(--card);}
+  .exp .t{font-weight:700; margin:0 0 6px; font-size:14.5px;}
+  .exp .row{font-size:13.5px; margin:0 0 5px;}
+  .exp .lbl{font-size:10.5px; text-transform:uppercase; letter-spacing:.1em; font-weight:700; color:var(--accent-ink); margin-right:6px;}
+  .tag{display:inline-block; font-size:10.5px; font-weight:700; border-radius:6px; padding:2px 8px; margin-left:8px; vertical-align:middle; letter-spacing:.04em;}
+  .tag-ok{background:var(--green-bg); color:var(--green-ink);}
+  .tag-warn{background:var(--amber-bg); color:var(--amber-ink);}
+  .tag-bad{background:var(--red-bg); color:var(--red-ink);}
+  /* timeline */
+  .phase{border-left:3px solid var(--accent); padding:2px 0 8px 20px; margin:0 0 26px;}
+  .phase h3{margin-top:0;}
+  .phase .period{font-size:12px; color:var(--muted); font-weight:600;}
+  .week{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 16px; margin:0 0 10px; font-size:13.5px;}
+  .week b{color:var(--accent-ink);}
+  .anti{background:var(--red-bg); border:1px solid var(--red); border-radius:10px; padding:12px 16px; margin:0 0 10px; font-size:13.5px;}
+  .anti b{color:var(--red-ink);}
+  .deliv{font-size:13px; color:var(--muted); margin:12px 0 0;}
+  .deliv b{color:var(--ink);}
+  .qw{background:var(--green-bg); border:1px solid var(--green); border-radius:12px; padding:18px 20px; margin:16px 0;}
+  .qw .t{font-weight:800; color:var(--green-ink); margin:0 0 6px;}
+  footer{margin-top:70px; padding-top:18px; border-top:1px solid var(--line); font-size:12px; color:var(--muted);}
+  .src{font-size:12px; color:var(--muted); margin-top:8px;}
+  @media print{ body{padding:0 8px;} header.hero{border-radius:0;} .phase{break-inside:avoid;} .exp{break-inside:avoid;} }
+</style>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Análise de Onboarding — Juiz Entrega vs Comercial</p>
+  <h1>Estilo Menina · Luciana Perfeito Pansani</h1>
+  <p class="sub">Moda infantil feminina · Vera Cruz/Marília-SP · Tray + Bling + Instagram · Onboarding em 03/09/2026 · <a href="https://fathom.video/calls/810032895">gravação (64 min)</a></p>
+  <span class="badge-risk"><span class="dot"></span> RISCO DE CHURN ANTECIPADO · score <span class="score">32/100</span></span>
+  <p class="sub" style="margin:14px 0 0">6 de 8 critérios reprovados. Não é recusa: é <strong style="color:#f5ede6">risco gerenciado</strong> — protocolo intensificado, estrategista liderando pessoalmente e meta repactuada por escrito em 48h. Veredicto submetido a contestação adversarial ("Aceitável") e mantido.</p>
+</header>
+
+<h2><span class="n">1</span>Dados extraídos da transcrição</h2>
+<p class="lead">Fonte: transcrição integral (159 falas) + documento de anotações do Nicolas. Minutagens entre colchetes.</p>
+<div class="grid g3">
+  <div class="card"><p class="k">Negócio</p><p class="v">8 anos de loja física, ~1 ano online</p><p class="d">Completa 1 ano em novembro [00:30]. Opera de casa — saiu do aluguel para liberar caixa [05:00].</p></div>
+  <div class="card"><p class="k">Ticket</p><p class="v">R$ 79,90 – 189,90</p><p class="d">Chamariz R$ 59,90 · 10% off no Pix (concorrência dá 3–5%) [42:36]</p></div>
+  <div class="card"><p class="k">Verba histórica</p><p class="v">R$ 1.200–1.300/mês (R$ 40/dia)</p><p class="d">[35:03–35:11] — abaixo do piso de R$ 1.500 do ICP. Verba do mês ficou em aberto.</p></div>
+  <div class="card"><p class="k">Meta declarada</p><p class="v">R$ 10.000 no mês 1</p><p class="d"><q>Uns 10 mil, para início</q> [34:34] — para pagar contas e liberar o cartão [33:23]</p></div>
+  <div class="card"><p class="k">Estoque das novidades</p><p class="v">Raso: 2 grades/modelo</p><p class="d">Salopete com numerações de 3 unidades [29:05]; <q>não tô comprando</q> [29:20]</p></div>
+  <div class="card"><p class="k">Histórico de agências</p><p class="v">4ª ou 5ª agência</p><p class="d">[52:10] — "apertadoras de botão"; tráfego p/ WhatsApp ingerível [55:31]. Rodrigo segue no site.</p></div>
+  <div class="card"><p class="k">Plataformas</p><p class="v">Tray + Bling · sem CRM</p><p class="d">Base de clientes na Tray/Bling [19:20]. BM travada, presa ao Facebook pessoal [21:42].</p></div>
+  <div class="card"><p class="k">Canais próprios</p><p class="v">Grupo VIP + Instagram ~4 mil</p><p class="d">Ritual próprio de lançamento: véspera → site 11h → redes 17h [37:19]</p></div>
+  <div class="card"><p class="k">Contrato</p><p class="v">3 meses (fechado c/ Cauã)</p><p class="d">Revisão de valor esperada no 4º mês — cai no início de dezembro [44:47]</p></div>
+</div>
+
+<h2><span class="n">2</span>Veredicto — critério a critério</h2>
+<div style="border:1px solid var(--line); border-radius:12px; padding:6px 16px;">
+  <div class="crit"><span class="pill p-fail">FALHOU</span><div><p class="t">1 · Investimento em mídia ≥ R$ 1.500/mês</p><p class="e">R$ 1.200–1.300/mês históricos [35:03]; verba do mês em aberto na call [34:40–34:54] e no doc. Benchmark interno: verba de R$ 1.000 da Ciés virou problema.</p></div></div>
+  <div class="crit"><span class="pill p-ok">PASSOU</span><div><p class="t">2 · Decisora direta, sem gargalo de criativos</p><p class="e"><q>Tudo eu... Meu feed, stories. Tudo eu</q> [25:15–25:21]; edita no CapCut/Edits [27:17]; executa o que a agência orienta [09:40].</p></div></div>
+  <div class="crit"><span class="pill p-fail">FALHOU</span><div><p class="t">3 · Expectativa realista</p><p class="e">A meta existe para salvar a empresa: <q>eu preciso... pagar essas contas. Eu liberar meu cartão</q> [33:23]; <q>não vai nem precisar esses três meses</q> [51:36].</p></div></div>
+  <div class="crit"><span class="pill p-warn">ALERTA</span><div><p class="t">4 · Estrutura mínima pronta</p><p class="e">Site Tray funcional (Nicolas simulou compra ao vivo [18:51]), base no Bling, grupo VIP ativo — mas a BM está travada e ela tem medo de mexer [21:42–22:30].</p></div></div>
+  <div class="crit"><span class="pill p-fail">FALHOU</span><div><p class="t">5 · Histórico de agências</p><p class="e"><q>Acho que é a quarta, quinta agência que eu já trabalhei</q> [52:10] — o dobro do limiar de red flag.</p></div></div>
+  <div class="crit"><span class="pill p-fail">FALHOU</span><div><p class="t">6 · Saúde financeira</p><p class="e"><q>Por isso que eu tô no vermelho</q> [04:18]; cartão estourado inclusive para pagar a Expansion [33:23]; <q>até pensei em fechar</q> [05:00].</p></div></div>
+  <div class="crit"><span class="pill p-fail">FALHOU</span><div><p class="t">7 · Estoque / capacidade para a meta</p><p class="e">R$ 10 mil ≈ 90 pedidos a ticket ~R$ 110 — com 2 grades por modelo e numerações de 3 unidades [29:05–29:20], o estoque não sustenta.</p></div></div>
+  <div class="crit"><span class="pill p-fail">FALHOU</span><div><p class="t">8 · Meta mês 1 vs benchmark ROAS 3–5</p><p class="e">R$ 10k <em>"através dos anúncios"</em> (doc) sobre ~R$ 1.040–1.080 de verba = ROAS implícito 9,3–9,6x — quase o dobro do teto.</p></div></div>
+</div>
+
+<div class="grid g3 trio" style="margin-top:18px;">
+  <div class="card good"><p class="k" style="color:var(--green-ink)">O que é bom</p><ul>
+    <li>Decisora-executora completa — produz todos os criativos sozinha, sem gargalo.</li>
+    <li>Infra pronta: site validado ao vivo, base no Bling, grupo VIP já rodando no formato exato do mini-lançamento.</li>
+    <li>Veio por indicação (Cláudia) e <b>já indicou a Expansion no dia do onboarding</b>. Rejeita achismo [39:42].</li>
+  </ul></div>
+  <div class="card warn"><p class="k" style="color:var(--amber-ink)">O que preocupa</p><ul>
+    <li>A matemática vendida não fecha: R$ 10k só de anúncios exige ROAS ~9x.</li>
+    <li>Tríade simultânea: vermelho + 4ª/5ª agência + estoque raso sem caixa para repor.</li>
+    <li>Limite emocional com régua externa irreal (o primo que <q>tá arrebentando</q>) — desânimo declarado 3x.</li>
+  </ul></div>
+  <div class="card bad"><p class="k" style="color:var(--red-ink)">O que fazer</p><ul>
+    <li>Repactuar a meta <b>por escrito em 48h</b>: R$ 10k = operação inteira, nunca "via anúncios".</li>
+    <li>Destravar a BM como tarefa <b>da Expansion</b> (sessão guiada + plano B de conta nova).</li>
+    <li>Caixa visível na semana 1 sem verba: mini-lançamento no grupo + recompra na base Bling.</li>
+  </ul></div>
+</div>
+<p class="lead" style="margin-top:16px"><strong style="color:var(--ink)">Por que não é "Aceitável":</strong> Aceitável comporta um red flag compensável; aqui são quatro ativos ao mesmo tempo, nenhum sanável no mês 1. Se a Expansion entregar um ROAS 4 tecnicamente excelente (~R$ 4.300), a cliente — que precisa de R$ 10k para liberar o cartão — lerá como fracasso e não terá caixa para os meses 2 e 3. <strong style="color:var(--ink)">O risco de churn é estrutural, não depende da qualidade da mídia.</strong> A régua dela, porém, é controlável: <q>não ser aquilo que a gente combinou</q> [44:47] — quem escreve o combinado controla a régua.</p>
+
+<h2><span class="n">3</span>A conta que precisa estar no papel dia 04/09</h2>
+<p class="lead">Cenário-base: veiculação a partir de 05/09 (BM travada + pagamento compensando "talvez amanhã") → 26 dias × R$ 40/dia = <strong style="color:var(--ink)">R$ 1.040 no mês</strong>.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th>Cenário</th><th>Conta</th><th>Faturamento via tráfego</th></tr></thead>
+  <tbody>
+    <tr><td>Piso — ROAS 3</td><td>3 × R$ 1.040–1.080</td><td class="num">R$ 3.120 – 3.240</td></tr>
+    <tr><td>Teto — ROAS 5</td><td>5 × R$ 1.040–1.080</td><td class="num">R$ 5.200 – 5.400</td></tr>
+    <tr><td class="hl">Meta do doc ("R$ 10k via anúncios")</td><td class="hl">10.000 ÷ 1.040–1.080</td><td class="num hl">ROAS 9,3–9,6x — irreal</td></tr>
+  </tbody>
+</table></div>
+<p class="lead" style="margin-top:14px">Em pedidos (ticket a validar no Bling): R$ 80 → 39–68 · R$ 110 → 28–49 · R$ 135 → 23–40. <strong style="color:var(--ink)">Acima de ~30 pedidos o estoque atual já é pressionado.</strong> Gap até R$ 10.000: <strong style="color:var(--ink)">R$ 4.600–6.900 (46–69% da meta) têm de vir de base + grupo + orgânico</strong> — viável, mas só se estiver escrito e aceito como composição por canal.</p>
+
+<h2><span class="n">4</span>Expectativas da Luciana — e o que cada uma exige</h2>
+<p class="lead">As 5 do doc do Nicolas + 5 que a transcrição revelou. Etiqueta = realismo da promessa como foi feita.</p>
+
+<div class="exp"><p class="t">R$ 10.000 este mês <span class="tag tag-bad">IRREAL VIA ANÚNCIOS</span></p>
+  <p class="row"><span class="lbl">Ela</span><q>Eu preciso... pagar essas contas. Eu liberar meu cartão</q> [33:23] · <q>Uns 10 mil, para início</q> [34:34] — meta de sobrevivência de caixa.</p>
+  <p class="row"><span class="lbl">Call</span>Nicolas aceitou sem contraprojeção (<q>Tá, fechou</q> [34:39]) e prometeu <q>bastante resultado até o final do mês</q> [22:44].</p>
+  <p class="row"><span class="lbl">Fazer</span>Projeção escrita em 04/09 com composição por canal + aceite dela registrado no grupo.</p></div>
+
+<div class="exp"><p class="t">Direcionamento claro <span class="tag tag-ok">REALISTA</span></p>
+  <p class="row"><span class="lbl">Ela</span><q>Eu vou ser sincera, eu tô perdida, não sei o que fazer</q> [09:36] · <q>já era pra mim ter parâmetro aí</q> [09:40].</p>
+  <p class="row"><span class="lbl">Call</span><q>Vou falar termos técnicos e depois eu explico... eu gosto de ensinar</q> [24:03].</p>
+  <p class="row"><span class="lbl">Fazer</span>Estratégia + cronograma em 04/09 dizendo o quê, quando e por quê; toda orientação com dado.</p></div>
+
+<div class="exp"><p class="t">Comunicação assertiva <span class="tag tag-ok">REALISTA</span></p>
+  <p class="row"><span class="lbl">Ela</span>Padrão dela: <q>você só me avisa para me programar certinho... em cima da hora, não dá</q> [47:45].</p>
+  <p class="row"><span class="lbl">Call</span>Grupo de WhatsApp fixado como canal oficial — <b>mas a cadência não foi fixada</b>.</p>
+  <p class="row"><span class="lbl">Fazer</span>Cadência escrita: diária na semana 1, 3x/semana nas semanas 2–4; resumo semanal com números. Silêncio = repetir o trauma.</p></div>
+
+<div class="exp"><p class="t">Equipe de verdade, nunca mais "apertador de botão" <span class="tag tag-warn">RISCO EMOCIONAL</span></p>
+  <p class="row"><span class="lbl">Ela</span><q>Eu queria que a gente trabalhasse tipo com uma equipe mesmo</q> [54:16]; trauma: <q>Era só apertava o botão ali... do que era parceiro</q> [02:21].</p>
+  <p class="row"><span class="lbl">Call</span><q>Não é ser uma terceirizada da Luciana, é a gente ser parceiro</q> [20:06].</p>
+  <p class="row"><span class="lbl">Fazer</span>Cronograma com colunas "Expansion faz" / "Luciana faz"; envolvê-la nas decisões de segmentação, criativo e verba.</p></div>
+
+<div class="exp"><p class="t">Crescimento mútuo <span class="tag tag-warn">DEPENDE DO CAIXA</span></p>
+  <p class="row"><span class="lbl">Ela</span><q>Se eu crescer, vocês crescerem também</q> [54:16] · revisão de valor no 4º mês [44:47].</p>
+  <p class="row"><span class="lbl">Atenção</span>A revisão cai no <b>início de dezembro, em plena alta de Natal</b>. Com resultado: renegociação para cima. Sem: churn.</p>
+  <p class="row"><span class="lbl">Fazer</span>Marco registrado no cronograma + dossiê dos 3 meses pronto antes da call de dezembro.</p></div>
+
+<div class="exp"><p class="t">Reveladas na call (fora do doc)</p>
+  <p class="row">· <b>Tráfego qualificado, nunca enxurrada de WhatsApp</b> [55:31] → conversão no site + remarketing na base + segmentação regional documentada.</p>
+  <p class="row">· <b>Parâmetro de retorno</b> (<q>Qual que é o normal de retorno pra mim saber se tá legal?</q> [35:11]) → projeção escrita + critério de escala dos R$ 40/dia.</p>
+  <p class="row">· <b>Dia das Crianças e Natal</b> (<q>tem que vender o dobro, porque chega janeiro, vai vender pouco</q> [23:02]) → campanha da data no ar até 20/09.</p>
+  <p class="row">· <b>Aprender grupo VIP e orgânico</b> [36:19] → playbook do grupo + direcionamento semanal.</p>
+  <p class="row">· <b>Velocidade — "eles fazem acontecer"</b> [54:13] → marcos de 03 e 04/09 cumpridos + movimento visível na semana 1. A barra é a experiência da Cláudia.</p></div>
+
+<h2><span class="n">5</span>Plano 12 semanas — protocolo Risco</h2>
+<p class="lead">Estrategista (Nicolas) lidera pessoalmente. Cadência: diária na semana 1, 3x/semana nas semanas 2–4.</p>
+
+<div class="qw"><p class="t">⚡ Quick win — sábado 06/09, custo zero</p>
+Mini-lançamento no grupo VIP com a <b>malha canelada suede 2–8 anos</b>: já está no Bling e ainda não subiu ao site [29:27] (lançamento genuíno), vídeo <b>já gravado e editado por ela</b> [28:38], R$ 79,90 + 10% no Pix, ritual que ela domina (véspera → site 11h → redes 17h), escassez real ("últimas unidades"). <b>Não depende da BM travada nem do pagamento compensar.</b> Meta: ≥ 5 pedidos, print do painel Tray no grupo até 18h — prova de "fazer acontecer" em 72h de contrato.</div>
+
+<div class="phase">
+  <h3>Fase 1 — Fundação <span class="period">· semanas 1–4 · 03–30/09</span></h3>
+  <div class="tblwrap" style="margin-bottom:12px"><table>
+    <thead><tr><th>Dia</th><th>Ação</th><th>Responsável</th></tr></thead>
+    <tbody>
+      <tr><td class="num">Qua 03/09</td><td>Lista de acessos + Drive no grupo; acessos dela; <b>destravamento da BM em chamada assistida</b> (falhou → chamado no suporte Meta + plano B: conta nova na BM da Expansion); início do estudo da base</td><td>Nicolas + Luciana</td></tr>
+      <tr><td class="num">Qui 04/09</td><td><b>Estratégia + cronograma + projeção escrita</b> (prazo prometido na call): colunas Expansion/Luciana, conta verba × retorno, meta reenquadrada; confirmar pagamento</td><td>Nicolas</td></tr>
+      <tr><td class="num">Sex 05/09</td><td><b>Call extra de expectativa (30 min)</b>: conta aberta, "sim" verbal à faixa R$ 3,1–5,4 mil via tráfego + meta composta; ticket real no Bling; Luciana exporta malha canelada → Tray; aviso de véspera no grupo</td><td>Nicolas + Luciana</td></tr>
+      <tr><td class="num">Sáb 06/09</td><td><b>Quick win — mini-lançamento 1</b> (acima)</td><td>Luciana executa · Expansion roteiriza</td></tr>
+      <tr><td class="num">Dom 07/09</td><td>Criativos Salopete/Sofia (manequim — restrição legal da filha [25:26]) + públicos: base Bling, Marília/Bauru + SP/RJ/Campinas, régua de frete</td><td>Luciana + Expansion</td></tr>
+      <tr><td class="num">Seg 08/09</td><td><b>Campanhas no ar — R$ 40/dia</b>: remarketing na base + aquisição para o SITE (nunca WhatsApp como destino). BM não destravou → plano B comunicado <b>antes que ela pergunte</b></td><td>Expansion</td></tr>
+      <tr><td class="num">Ter 09/09</td><td>Fechamento da semana no grupo: números, não adjetivos. Entra cadência 3x/semana</td><td>Nicolas</td></tr>
+    </tbody>
+  </table></div>
+  <div class="week"><b>S2 (10–16/09)</b> · Check-in extra 15–20 min: métricas + termômetro emocional. Mini-lançamento 2 (Salopete, "últimas unidades por numeração") com remarketing pago. Início do playbook do grupo.</div>
+  <div class="week"><b>S3 (17–23/09)</b> · <b>Campanha Dia das Crianças no ar até 20/09</b> (3 semanas de maturação antes de 12/10). Mini-lançamento 3 (Sofia). Primeira leitura de ROAS. Decisão de reposição com o caixa das primeiras vendas.</div>
+  <div class="week"><b>S4 (24–30/09)</b> · <b>Relatório antecipado ~26/09</b> — antes do fechamento e da fatura do mês 2. Call de fechamento: dentro do realista → propor verba de outubro (≥ R$ 50/dia); abaixo → plano corretivo escrito no mesmo dia. Teste de <b>live diurna</b> com aquecimento pago (a noturna já falhou [31:34]). Plano Dia das Crianças 100% fechado.</div>
+  <p class="deliv"><b>Aos 30 dias:</b> estratégia entregue dia 4 · projeção aceita · BM destravada ou plano B rodando · 3 mini-lançamentos com playbook · remarketing + aquisição ativos · campanha do Dia das Crianças no ar · relatório antecipado · decisão de reposição tomada · nenhuma janela &gt;24h de silêncio na semana 1.</p>
+</div>
+
+<div class="phase">
+  <h3>Fase 2 — Escala <span class="period">· semanas 5–8 · outubro</span></h3>
+  <div class="week"><b>S5–6 (01–14/10)</b> · Aceleração Dia das Crianças: verba concentrada, mini-lançamento temático na semana do 12/10, remarketing sobre visitantes de setembro + base, frete regional/motoboy como argumento final. <b>É a janela onde a meta de caixa dela tem mais chance real do que em setembro.</b></div>
+  <div class="week"><b>S7–8 (15–28/10)</b> · Escalar só o que provou: verba sobe apenas onde ROAS ≥ 3, com critério por escrito (antídoto do achismo). Lookalike da base. Reposição com profundidade para o Natal. Live diurna na rotina, se validada.</div>
+  <div class="week"><b>Governança</b> · Reporte 2x/semana + call quinzenal. Planejamento de Natal inicia na S7 (compras via Pix + datas-limite logísticas). <b>Revisão do contrato no início de dezembro — os números de outubro são o dossiê dessa conversa.</b></div>
+  <p class="deliv"><b>Aos 60 dias:</b> Dia das Crianças lido por completo · outubro &gt; setembro · escala com critério · lookalike rodando · estoque de Natal reposto · playbook autônomo · mensalidade em dia desde 04/09.</p>
+</div>
+
+<div class="phase">
+  <h3>Fase 3 — Otimização <span class="period">· semanas 9–12 · novembro → dezembro</span></h3>
+  <div class="week"><b>S9–10</b> · Campanha de aniversário de 1 ano do site (novembro) engordando a base pré-Natal. Estrutura de Natal no ar: catálogo, criativos de presente/festa (até R$ 189,90), aquisição alimentando o funil que dezembro colhe.</div>
+  <div class="week"><b>S11–12</b> · Máquina de Natal ("vender o dobro") + <b>defesa de janeiro construída em novembro</b>: provisão de caixa + liquidação na base a custo ~zero via grupo — janeiro fraco não pode virar gatilho de cancelamento.</div>
+  <div class="week"><b>Fechamento</b> · <b>Dossiê dos 3 meses pronto ANTES da call do 4º mês</b>: faturamento por canal, ROAS médio, custo por pedido, ativos construídos. Cliente que já saiu de 4–5 agências decide rápido — chegar sem dossiê é entregar a decisão ao feeling.</div>
+  <p class="deliv"><b>Aos 90 dias:</b> aniversário executado · Natal no ar com meta em número · defesa de janeiro entregue · dossiê antes da revisão · renegociação com dados em plena alta de Natal.</p>
+</div>
+
+<h3 style="color:var(--red-ink)">Checkpoints anti-churn</h3>
+<div class="anti"><b>04/09 fim do dia</b> · Estratégia no prazo? Funciona se: documento no grupo até 23h59 <b>ou</b> reagendamento proativo com causa e nova data — antes de ela perguntar.</div>
+<div class="anti"><b>05/09</b> · Call de expectativa. Funciona se: aceite verbal da faixa realista + registro escrito no grupo com confirmação dela.</div>
+<div class="anti"><b>09/09</b> · Semana 1. Funciona se: ≥ 5 pedidos no mini-lançamento 1 <b>e</b> campanhas ativas (ou plano B comunicado) <b>e</b> resumo postado. Abaixo: diagnóstico escrito em 24h.</div>
+<div class="anti"><b>~12/09</b> · Check-in S2. Funciona se: ≥ 1 venda do tráfego <b>ou</b> CTR/CPC na faixa, e pendências dela entregues. Sinal amarelo: ela citar o primo ou "fechar" → responder com dado no mesmo dia.</div>
+<div class="anti"><b>20/09</b> · Portão Dia das Crianças. Funciona se: campanha ativa + lista de reposição com fornecedor e valor. Sem caixa: replanejar pelo estoque existente e comunicar o teto <b>antes</b> de 12/10.</div>
+<div class="anti"><b>~26/09</b> · Relatório antecipado. Funciona se: ROAS ≥ 3 <b>e</b> total ≥ R$ 4,5–6 mil somados os canais. Abaixo: realinhamento no mesmo dia — <b>nunca deixar a fatura do mês 2 chegar antes da explicação</b>.</div>
+<div class="anti"><b>~15/10</b> · Pós-data. Funciona se: semana do Dia das Crianças &gt; melhor semana de setembro <b>e</b> ROAS da campanha ≥ 3. Se não: causa com dado e plano de Natal ajustado em 48h.</div>
+<div class="anti"><b>Fim de novembro</b> · Pré-revisão. Funciona se: dossiê enviado antes da call <b>e</b> ROAS trimestral ≥ 3 <b>e</b> tendência set→out→nov crescente. Se não sustenta: plano corretivo de 30 dias em vez de esperar o cancelamento.</div>
+
+<h2><span class="n">6</span>Alertas para a entrega — o que o comercial não registrou</h2>
+<div class="grid g2">
+  <div class="card"><p class="k">Doc vs call — a divergência mais perigosa</p><p class="d">O doc diz "R$ 10.000 <b>através dos anúncios</b>"; na call a meta nasceu como necessidade de caixa e o próprio Nicolas combinou compor com base + grupo + orgânico. É essa linha que arma a frustração do mês 1.</p></div>
+  <div class="card"><p class="k">Critério de cancelamento</p><p class="d">Doc: "não ter resultados". Fala completa: <q>não ser aquilo que a gente combinou</q> [44:47] — a régua é o combinado, e o combinado pode (deve) ser escrito pela Expansion.</p></div>
+  <div class="card"><p class="k">Fora do doc</p><p class="d">Situação financeira (vermelho, cartão, "pensei em fechar") · estoque raso · BM travada · contrato de 3 meses e revisão em dezembro · histórico de 4–5 agências · Rodrigo permanece no fluxo do site.</p></div>
+  <div class="card"><p class="k">Aprendizados que evitam erro</p><p class="d">Live noturna com patrocinado já falhou [31:34] — testar diurna · criativos com a filha limitados por lei [25:26] — manequim · tráfego para WhatsApp foi o trauma da 1ª agência — destino é o site.</p></div>
+  <div class="card"><p class="k">Dependência externa</p><p class="d">Rodrigo (site): liberar páginas no horário dos mini-lançamentos [36:55]. A exportação Bling → Tray é pendência <b>da Luciana</b> [29:27].</p></div>
+  <div class="card"><p class="k">Pagamento pendente</p><p class="d">A 1ª mensalidade depende de o cartão liberar "talvez amanhã" [33:23]. Confirmar compensação antes de comprometer verba de mídia.</p></div>
+</div>
+
+<h2><span class="n">7</span>Meta do mês 1 — dupla, por escrito</h2>
+<div class="grid g2">
+  <div class="card" style="border-top:3px solid var(--green)"><p class="k" style="color:var(--green-ink)">Meta realista</p>
+    <p class="v" style="font-size:20px">R$ 5.000 – 7.000 <span style="font-weight:500;font-size:13px;color:var(--muted)">operação inteira</span></p>
+    <p class="d">R$ 3.100–5.400 via tráfego (ROAS 3–5 sobre R$ 1.040–1.080) = 28–49 pedidos a ticket ~R$ 110 + ações de custo ~zero (grupo, recompra na base, orgânico). A verba abaixo do piso do ICP já está embutida.</p></div>
+  <div class="card" style="border-top:3px solid var(--amber)"><p class="k" style="color:var(--amber-ink)">Meta otimista</p>
+    <p class="v" style="font-size:20px">R$ 10.000 <span style="font-weight:500;font-size:13px;color:var(--muted)">operação inteira</span></p>
+    <p class="d">Só fecha se o tráfego bater o teto (~R$ 5.400) <b>e</b> base + grupo + orgânico entregarem R$ 4.600–6.900 (46–69% da meta). Entra no documento de 04/09 como composição por canal, com aceite dela registrado.</p></div>
+</div>
+
+<footer>
+  Gerado por Análise de Onboarding IA — Workshop Agência com I.A 5ª Ed. · Análise sobre transcrição integral (159 falas, Fathom) + doc de anotações · Veredicto verificado adversarialmente (contestação "Aceitável" não se sustentou; 7 imprecisões de citação corrigidas) · Par documental: <b>PARECER</b> + <b>ANEXOS</b> de 2026-09-03 no repositório · Critérios ICP v0.1 — validar pisos com o Nicolas.
+</footer>
+</div>
