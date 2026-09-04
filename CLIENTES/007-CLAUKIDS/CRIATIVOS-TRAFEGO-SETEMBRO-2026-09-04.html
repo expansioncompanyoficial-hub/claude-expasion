@@ -1,0 +1,381 @@
+<title>O Cofre da Bianca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap">
+<style>
+:root{
+  --papel:#F3F4F2; --superficie:#FFFFFF; --tinta:#16191A; --tinta-2:#5B6467;
+  --linha:#DDE0DC; --linha-forte:#BEC4BF;
+  --alta:#8F6410; --alta-fraca:#F0E6CD;
+  --celular:#526169; --celular-fraca:#E1E7E9;
+  --entra:#235C45; --entra-fraca:#D6E6DE;
+  --fora:#96382A; --fora-fraca:#F0DBD6;
+  --sombra:0 1px 2px rgba(22,25,26,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papel:#101312; --superficie:#191D1D; --tinta:#E7EAE7; --tinta-2:#96A09F;
+    --linha:#262C2B; --linha-forte:#3A4241;
+    --alta:#D9A63F; --alta-fraca:#332913;
+    --celular:#8FA3AC; --celular-fraca:#1E2629;
+    --entra:#5DBE97; --entra-fraca:#15291F;
+    --fora:#DE7660; --fora-fraca:#301B16;
+    --sombra:0 1px 2px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#101312; --superficie:#191D1D; --tinta:#E7EAE7; --tinta-2:#96A09F;
+  --linha:#262C2B; --linha-forte:#3A4241;
+  --alta:#D9A63F; --alta-fraca:#332913;
+  --celular:#8FA3AC; --celular-fraca:#1E2629;
+  --entra:#5DBE97; --entra-fraca:#15291F;
+  --fora:#DE7660; --fora-fraca:#301B16;
+  --sombra:0 1px 2px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{background:var(--papel);color:var(--tinta);margin:0;
+  font:400 17px/1.62 "Newsreader",Georgia,serif;-webkit-font-smoothing:antialiased}
+.folha{max-width:860px;margin:0 auto;padding:56px 26px 96px;
+  display:flex;flex-direction:column;gap:54px}
+h1,h2,h3,.rot,.chip,th,.quem{font-family:"Instrument Sans",system-ui,sans-serif}
+.mono,td.n,.cod,.num{font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums}
+
+.rot{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--tinta-2)}
+h1{font-size:clamp(31px,5.6vw,46px);font-weight:700;line-height:1.06;
+  letter-spacing:-.025em;margin:14px 0 0;text-wrap:balance}
+.sub{color:var(--tinta-2);margin:16px 0 0;max-width:62ch}
+p{margin:0;max-width:66ch}
+.fino{color:var(--tinta-2);font-size:15.5px}
+section{display:flex;flex-direction:column;gap:20px}
+h2{font-size:11.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--tinta-2);margin:0;padding-bottom:10px;border-bottom:1px solid var(--linha)}
+h3{font-size:19px;font-weight:600;letter-spacing:-.012em;margin:0;text-wrap:balance}
+
+/* tese */
+.tese{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--linha-forte);
+  border:1px solid var(--linha-forte);border-radius:3px;overflow:hidden}
+.tese > div{background:var(--superficie);padding:22px}
+.tese .quem{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:10px}
+.tese .a .quem{color:var(--alta)}
+.tese .c .quem{color:var(--celular)}
+.tese p{font-size:16px}
+.tese .onde{margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:12px;
+  font-weight:500;padding:6px 10px;border-radius:2px;display:inline-block}
+.tese .a .onde{background:var(--alta-fraca);color:var(--alta)}
+.tese .c .onde{background:var(--celular-fraca);color:var(--celular)}
+@media(max-width:600px){.tese{grid-template-columns:1fr}}
+
+/* ranking de peças */
+.pecas{display:flex;flex-direction:column;gap:10px}
+.peca{background:var(--superficie);border:1px solid var(--linha);border-radius:3px;
+  box-shadow:var(--sombra);display:grid;
+  grid-template-columns:52px 1fr 96px;gap:16px;padding:16px 18px;align-items:start}
+.peca .cod{font-size:13px;font-weight:700;color:var(--tinta-2);padding-top:2px}
+.peca .nome{font-family:"Instrument Sans",sans-serif;font-weight:600;font-size:16.5px;
+  letter-spacing:-.01em}
+.peca .por{font-size:15px;color:var(--tinta-2);margin-top:5px}
+.chip{font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  padding:5px 8px;border-radius:2px;text-align:center;white-space:nowrap;
+  justify-self:end;margin-top:1px}
+.c-entra{background:var(--entra-fraca);color:var(--entra)}
+.c-res{background:var(--celular-fraca);color:var(--celular)}
+.c-fora{background:var(--fora-fraca);color:var(--fora)}
+.peca.top{border-left:3px solid var(--entra)}
+@media(max-width:600px){
+  .peca{grid-template-columns:44px 1fr;}
+  .chip{grid-column:2;justify-self:start;margin-top:8px}
+  .folha{padding:36px 18px 72px;gap:44px}
+}
+
+/* ordem de entrada */
+.ordem{display:grid;gap:10px}
+.passo{display:grid;grid-template-columns:104px 1fr;gap:16px;
+  border-top:1px solid var(--linha);padding-top:12px;align-items:start}
+.passo .dia{font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:500;
+  color:var(--tinta-2);padding-top:3px}
+.passo .txt{font-size:15.5px}
+.passo .txt b{font-family:"Instrument Sans",sans-serif;font-weight:600}
+
+/* tabela retorno */
+.rolo{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:15px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--linha)}
+th{font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--tinta-2);border-bottom:1px solid var(--linha-forte)}
+td.n{font-size:14px;white-space:nowrap}
+tr.meio td{background:var(--entra-fraca)}
+tr.meio td.n{color:var(--entra);font-weight:700}
+tbody tr:last-child td{border-bottom:1px solid var(--linha-forte)}
+
+/* aviso */
+.aviso{background:var(--alta-fraca);border:1px solid var(--alta);border-radius:3px;
+  padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.aviso .rot{color:var(--alta)}
+.aviso p{font-size:16px}
+
+ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;max-width:66ch}
+li::before{content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--linha-forte);margin-top:10px}
+li.sim::before{background:var(--entra)}
+li.nao::before{background:var(--fora)}
+li b{font-family:"Instrument Sans",sans-serif;font-weight:600}
+
+footer{border-top:1px solid var(--linha);padding-top:20px;font-size:13.5px;
+  color:var(--tinta-2);max-width:68ch}
+a{color:var(--alta)}
+:focus-visible{outline:2px solid var(--alta);outline-offset:2px}
+</style>
+
+<div class="folha">
+
+<header>
+  <div class="rot">Clau Kids × Expansion · Criativos de tráfego · setembro 2026</div>
+  <h1>O cofre da Bianca</h1>
+  <p class="sub">Doze pastas gravadas em 29/07 com videomaker estão paradas no Drive.
+  Elas são o ativo mais caro que a conta tem, já pago, e nenhuma delas rodou como anúncio
+  ainda. Este documento decide quais entram, em que ordem, e o que isso muda no retorno.</p>
+</header>
+
+<section>
+  <h2>A regra que separa as duas câmeras</h2>
+  <div class="tese">
+    <div class="a">
+      <div class="quem">Gravação presencial · 29/07</div>
+      <p>Um anúncio é o mesmo vídeo mostrado milhares de vezes para gente que nunca ouviu
+      falar da Clau Kids. É a primeira impressão da loja, e primeira impressão de loja de
+      roupa infantil é percepção de preço. Grão, luz ruim e áudio de celular não custam
+      alcance — custam o <em>tipo</em> de mãe que responde.</p>
+      <div class="onde">→ vai para o tráfego pago</div>
+    </div>
+    <div class="c">
+      <div class="quem">Celular da Clau · diário</div>
+      <p>No orgânico e no story, a mesma imagem crua vira vantagem: quem já segue quer ver a
+      loja de verdade, não um comercial. É lá que ela é insubstituível, é grátis, e é o que
+      trouxe a cliente sumida de volta no dia 02 — R$ 300 sem um centavo de mídia.</p>
+      <div class="onde">→ fica no orgânico e nos stories</div>
+    </div>
+  </div>
+  <p class="fino">Isso não é preciosismo com resolução. Na ordem do que move custo por
+  conversa, resolução é o quinto item: primeiro vem o gancho dos 3 segundos, depois o
+  <strong>áudio</strong>, depois a oferta, depois a legenda legível. Áudio ruim mata um
+  anúncio; imagem crua só encarece. Por isso a regra tem uma exceção e só uma — material
+  de celular pode virar anúncio se tiver lapela e for entregue pelo Drive, nunca pelo
+  WhatsApp, que recomprime e derruba metade da qualidade no caminho.</p>
+</section>
+
+<section>
+  <h2>O que entra, o que fica de reserva</h2>
+  <div class="pecas">
+
+    <div class="peca top">
+      <div class="cod">A09</div>
+      <div>
+        <div class="nome">“Seu filho tem 9 anos e não cabe mais”</div>
+        <div class="por">O melhor anúncio frio do acervo inteiro. Não fala da loja, fala de
+        um problema que a mãe tem hoje — e a faixa de 9 a 12 anos é a mais mal atendida e
+        menos disputada no leilão de Marília. Anúncio que começa com a dor da pessoa custa
+        menos que anúncio que começa com a marca.</div>
+      </div>
+      <span class="chip c-entra">Principal</span>
+    </div>
+
+    <div class="peca top">
+      <div class="cod">A10</div>
+      <div>
+        <div class="nome">“Eu não vendo pra todo mundo”</div>
+        <div class="por">Gancho polarizador segura a retenção nos primeiros segundos, que é
+        o que o algoritmo lê. E faz um trabalho que nenhum outro faz: filtra antes da
+        conversa. Quem chama depois desse vídeo já aceitou a régua de curadoria — conversa
+        mais curta, menos “qual o mais barato”.</div>
+      </div>
+      <span class="chip c-entra">Entra</span>
+    </div>
+
+    <div class="peca top">
+      <div class="cod">A05</div>
+      <div>
+        <div class="nome">“As quatro perguntas”</div>
+        <div class="por">É o único que vende a <em>conversa</em>, não a roupa — e conversa é
+        literalmente o que a campanha compra. Mostra como é ser atendida antes de a pessoa
+        precisar arriscar o primeiro “oi”. Casa melhor que qualquer outro com o botão de
+        WhatsApp.</div>
+      </div>
+      <span class="chip c-entra">Entra</span>
+    </div>
+
+    <div class="peca">
+      <div class="cod">A08</div>
+      <div>
+        <div class="nome">“Entra comigo” — tour da loja</div>
+        <div class="por">A prova física. Em negócio local, ver o espaço real derruba a
+        dúvida de “isso existe mesmo?” melhor que qualquer depoimento. Entra na segunda
+        rodada, quando um dos três de cima cansar — e algum vai cansar antes do dia 20.</div>
+      </div>
+      <span class="chip c-res">Reserva 1</span>
+    </div>
+
+    <div class="peca">
+      <div class="cod">A13</div>
+      <div>
+        <div class="nome">Lançamento Pula Bula</div>
+        <div class="por">Destravou: a coleção chegou em 31/08 e existe lista de espera
+        formada durante o atraso. Vira anúncio bom quando houver verba para separar público
+        quente. <strong>Antes de usar, resolver o QC</strong> — na gravação ela corrigiu a
+        fala para ocasião especial e numeração até 18, e a legenda não pode sair pelo texto
+        antigo.</div>
+      </div>
+      <span class="chip c-res">Reserva 2</span>
+    </div>
+
+    <div class="peca">
+      <div class="cod">A11</div>
+      <div>
+        <div class="nome">“O grupo onde tudo chega primeiro”</div>
+        <div class="por">Converte bem, mas pede que a pessoa já queira entrar num grupo —
+        pedido grande para quem nunca ouviu falar da loja. É criativo de público quente.
+        Guardar para outubro, quando os públicos personalizados estiverem cheios.</div>
+      </div>
+      <span class="chip c-res">Outubro</span>
+    </div>
+
+    <div class="peca">
+      <div class="cod">A01 · A02</div>
+      <div>
+        <div class="nome">A história — o quarto do filho, a logo que é uma mãe</div>
+        <div class="por">São as melhores peças de marca do acervo e as piores de aquisição
+        fria: história constrói afeto em quem já presta atenção, não interrompe estranho.
+        No remarketing de outubro elas valem muito. <strong>A02 tem erro conhecido</strong>
+        (“duas lojas”) — checar contra o que foi realmente falado.</div>
+      </div>
+      <span class="chip c-res">Outubro</span>
+    </div>
+
+    <div class="peca">
+      <div class="cod">A12</div>
+      <div>
+        <div class="nome">Lançamento Coleção Deserto</div>
+        <div class="por">Já rodou no feed em 11/08 e é a coleção que o brinde do lagarto
+        acompanha. Como anúncio novo em setembro chega velho — a não ser que entre só como
+        peça de apoio dentro de outro criativo.</div>
+      </div>
+      <span class="chip c-fora">Não entra</span>
+    </div>
+
+    <div class="peca">
+      <div class="cod">A06 · A07</div>
+      <div>
+        <div class="nome">Vestir menino · Vestir meninas</div>
+        <div class="por">Foram feitos para serem destaque fixo do perfil, e é lá que
+        trabalham melhor: respondem “serve pro meu filho?” para quem chegou pelo anúncio.
+        Tirar do perfil para virar anúncio é trocar uma função boa por uma medíocre.</div>
+      </div>
+      <span class="chip c-fora">Fica no perfil</span>
+    </div>
+
+    <div class="peca">
+      <div class="cod">Brutos</div>
+      <div>
+        <div class="nome">Fachada + detalhes de produto</div>
+        <div class="por"><strong>O ativo escondido.</strong> Com esse B-roll e os áudios já
+        gravados dá para montar dois ou três criativos <em>novos</em> sem a Clau gravar mais
+        nada. É a saída para o problema de qualidade sem custo de produção e sem pedir mais
+        um dia dela.</div>
+      </div>
+      <span class="chip c-entra">Matéria-prima</span>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>A ordem de entrada</h2>
+  <div class="ordem">
+    <div class="passo">
+      <div class="dia">04/09</div>
+      <div class="txt"><b>Sobe o conjunto com quatro anúncios juntos:</b> A09, A10, A05 e a
+      Mala do Feriado. Um conjunto só, orçamento único, sem separar por criativo — o Meta
+      distribui melhor do que a gente distribuiria.</div>
+    </div>
+    <div class="passo">
+      <div class="dia">07/09</div>
+      <div class="txt"><b>Pausa só o anúncio da Mala</b>, mantendo o conjunto de pé. É por
+      isso que ela entra dentro do mesmo conjunto e não sozinha: aproveita os três dias de
+      feriado sem gastar aprendizado, e no dia 07 sai sem derrubar nada.</div>
+    </div>
+    <div class="passo">
+      <div class="dia">~13/09</div>
+      <div class="txt"><b>Entra A08</b> no lugar do criativo mais caro dos três. Trocar um
+      anúncio de cada vez preserva o histórico do conjunto; trocar todos de uma vez reinicia
+      o aprendizado e encarece a semana inteira.</div>
+    </div>
+    <div class="passo">
+      <div class="dia">~20/09</div>
+      <div class="txt"><b>Entra o primeiro criativo remontado</b> com o B-roll da fachada e
+      dos detalhes. Se A13 estiver com o QC resolvido, ela é a alternativa.</div>
+    </div>
+  </div>
+  <p class="fino">Corte: o anúncio que passar de <span class="mono">R$ 15</span> por conversa
+  depois de <span class="mono">R$ 60</span> gastos sai no mesmo dia. Com R$ 33/dia não há
+  espaço para carregar criativo caro por gosto.</p>
+</section>
+
+<section>
+  <h2>O que isso muda no retorno</h2>
+  <div class="aviso">
+    <div class="rot">O ponto que sustenta o plano inteiro</div>
+    <p>Os R$ 900 foram vendidos para ela em cima de <strong>R$ 11 por conversa</strong> —
+    o custo real apurado em agosto, quando o que rodava era material dessa mesma gravação.
+    Trocar para criativo de celular não é economia: é mexer justamente na premissa que
+    segura o orçamento. Manter o padrão presencial é o que faz o número prometido continuar
+    honesto.</p>
+  </div>
+  <p>Com R$ 891 a R$ 11 por conversa, a faixa é de <strong>60 a 100 conversas</strong> no
+  mês. Quantas viram venda ninguém mediu ainda — setembro é o primeiro mês em que esse
+  número existe. Usando os R$ 300 da venda do dia 02 como âncora provisória, a régua para
+  ler o dia 30 fica assim:</p>
+  <div class="rolo">
+  <table>
+    <thead>
+      <tr><th>Se converter</th><th>Vendas em 80 conversas</th><th>Receita</th><th>Sobre R$ 891</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="n">5%</td><td class="n">4</td><td class="n">R$ 1.200</td><td class="n">1,3×</td></tr>
+      <tr class="meio"><td class="n">10%</td><td class="n">8</td><td class="n">R$ 2.400</td><td class="n">2,7×</td></tr>
+      <tr><td class="n">15%</td><td class="n">12</td><td class="n">R$ 3.600</td><td class="n">4,0×</td></tr>
+      <tr><td class="n">20%</td><td class="n">16</td><td class="n">R$ 4.800</td><td class="n">5,4×</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <ul>
+    <li class="nao"><span>Isto <b>não é previsão</b> — é a régua para ler o resultado no dia 30. A linha destacada é só a mais comum em atendimento consultivo por WhatsApp, não uma promessa.</span></li>
+    <li class="sim"><span>O ticket de R$ 300 é <b>âncora provisória</b>, tirada de uma venda única. O ticket médio real segue pendente desde 01/09 e é ele que transforma esta tabela em conta de verdade.</span></li>
+    <li class="sim"><span>A cauda existe e já apareceu: uma conversa de agosto virou <b>R$ 800</b> — R$ 300 na hora e R$ 500 de indicação. Indicação não entra em nenhuma linha desta tabela e é o que mais rende nesse negócio.</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>O que precisa acontecer antes do dia 20</h2>
+  <p>O acervo de 29/07 aguenta setembro com folga. Não aguenta outubro — o Dia das Crianças
+  pede verba maior, e verba maior queima criativo mais rápido. A próxima diária com a
+  videomaker precisa estar marcada antes do fim de setembro, e com um briefing diferente
+  do de julho:</p>
+  <ul>
+    <li class="sim"><span><b>Gravar para anúncio, não para feed.</b> São coisas diferentes: anúncio precisa de 4 ou 5 ganchos distintos para o mesmo corpo de vídeo, para trocar o começo sem refilmar tudo quando o custo subir.</span></li>
+    <li class="sim"><span><b>Nada datado.</b> Nenhuma menção a feriado, mês ou coleção específica no áudio principal — datado morre em três dias e leva o aprendizado junto.</span></li>
+    <li class="sim"><span><b>Vertical de verdade e lapela em toda fala.</b> É o item que mais separa o material da Bianca do material de celular, e é o mais barato de garantir.</span></li>
+    <li class="sim"><span><b>Um bloco só de B-roll silencioso</b> — mãos, tecido, arara, fachada, embalagem. É o que permite montar criativo novo em outubro sem novo dia de gravação.</span></li>
+  </ul>
+</section>
+
+<footer>
+  Seleção de criativos para o tráfego de setembro/2026 · Clau Kids (007) × Expansion.
+  Inventário conforme as 12 pastas organizadas pela videomaker após a gravação presencial de
+  29/07/2026. Custo por conversa de R$ 11 apurado pela gestão de tráfego em 20/08/2026.
+  Percentuais de conversão são cenários de leitura, não projeção de resultado.
+</footer>
+
+</div>
