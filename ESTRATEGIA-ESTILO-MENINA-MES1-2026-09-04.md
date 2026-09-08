@@ -120,9 +120,31 @@ Cadência de comunicação (canal: grupo WhatsApp): **diária na semana 1,
 |-----------|--------|------------|
 | BM travada (dispositivo novo, 2FA) | 🔒 bloqueio Meta em 03/09 | Guia de parceria enviado à cliente (ID 872664594580801). **Plano B se a parceria não sair em 48h:** conta de anúncios nova na BM Expansion + pixel novo instalado na Tray |
 | Pixel/API de conversões na Tray | ⏳ verificar no D2 | Sem Purchase disparando → primeira campanha sai como tráfego/remarketing e migra para conversão quando o evento validar |
-| Export de pedidos (RFM) | ⏳ Bling → Vendas → Pedidos | Define a lista de inativas da ação de recompra e o ticket por região |
+| Export de pedidos (RFM) | ✅ resolvido em 04/09 via export de clientes da Tray | RFM-lite abaixo; falta só o valor por pedido (Bling → Vendas) para o "M" completo |
 | Auditoria do site | ⏳ rodando na extensão | Fricções de conversão e confirmação de tags entram como anexo |
 | Histórico de campanhas da BM (junina) | 🔒 depende do acesso | Ao destravar: replicar públicos/criativos do que já funcionou |
+
+## 5.1 RFM-lite da base (export Tray de 04/09 — 132 clientes reais)
+
+Tray registra **137 pedidos** vs 213 do Bling 12m → **~76 vendas (36%) foram
+manuais/WhatsApp** — o canal humano dela é maior do que parecia e a ação na
+base tem tração comprovada. Taxa cadastro→compra no site: 79%.
+
+| Segmento | Qtde | Ação na semana 1–2 |
+|----------|------|--------------------|
+| 🥇 VIP recorrente (2+ pedidos; 5 clientes com 4!) | **20** | Primeiras a receber o mini-lançamento; tratamento nominal; quase todas Vera Cruz/Marília |
+| 🎯 Recompra 91–180d (o alvo de ouro) | **40** | **Ação de recompra da semana 1**: mensagem pessoal + oferta do kit campeão (calcinhas/laços) |
+| 🌡️ Esfriando 61–90d | **15** | Entram no remarketing pago + convite pro grupo VIP |
+| 🧊 Perdida 180d+ | **27** | Campanha de "sentimos sua falta" na semana 3 (pré-Dia das Crianças) |
+| 📝 Cadastro sem compra | **28** (7 recentes) | Oferta de primeira compra (chamariz R$ 59,90 + 10% Pix) |
+| ✅ Ativa ≤60d | 16 | Só conteúdo — não queimar com oferta |
+
+**64% das compradoras (67 de 104) não compram há mais de 90 dias** — é daí
+que sai o caixa rápido sem verba. Meta da ação de recompra: reativar 10–15%
+das 40 do alvo de ouro = 4–6 pedidos ≈ R$ 700–1.000 já na semana 1.
+Newsletter opt-in: 86 (canal de e-mail disponível). Arquivos operacionais
+(lista segmentada + CSV de upload da Meta) entregues ao Nicolas fora do
+repositório (dados pessoais).
 
 ## 6. Critérios de "está funcionando" (resumo dos checkpoints do parecer)
 
