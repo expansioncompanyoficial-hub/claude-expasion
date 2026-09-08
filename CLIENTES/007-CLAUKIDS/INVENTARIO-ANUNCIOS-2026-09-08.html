@@ -1,0 +1,408 @@
+<title>Inventário de Anúncios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --papel:#F1F3F4; --superficie:#FFFFFF; --tinta:#0E1216; --tinta-2:#59636B;
+  --linha:#DCE0E3; --linha-forte:#B9C1C6;
+  --pronto:#12508C; --pronto-fraca:#D9E6F2;
+  --falta:#A03621; --falta-fraca:#F3DCD6;
+  --sombra:0 1px 2px rgba(14,18,22,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papel:#0D1114; --superficie:#161B1F; --tinta:#E5E9EC; --tinta-2:#94A0A8;
+    --linha:#242B30; --linha-forte:#39434A;
+    --pronto:#6FB0E8; --pronto-fraca:#122431;
+    --falta:#E8836A; --falta-fraca:#2E1A15;
+    --sombra:0 1px 2px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#0D1114; --superficie:#161B1F; --tinta:#E5E9EC; --tinta-2:#94A0A8;
+  --linha:#242B30; --linha-forte:#39434A;
+  --pronto:#6FB0E8; --pronto-fraca:#122431;
+  --falta:#E8836A; --falta-fraca:#2E1A15;
+  --sombra:0 1px 2px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{background:var(--papel);color:var(--tinta);margin:0;
+  font:400 17px/1.62 "Literata",Georgia,serif;-webkit-font-smoothing:antialiased}
+.folha{max-width:880px;margin:0 auto;padding:56px 26px 96px;
+  display:flex;flex-direction:column;gap:54px}
+h1,h2,h3,.rot,.tag,th,.passo-n{font-family:"Public Sans",system-ui,sans-serif}
+.mono,td.n,.arq{font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums}
+.rot{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--tinta-2)}
+h1{font-size:clamp(31px,5.6vw,45px);font-weight:700;line-height:1.06;
+  letter-spacing:-.024em;margin:14px 0 0;text-wrap:balance}
+.sub{color:var(--tinta-2);margin:16px 0 0;max-width:62ch}
+p{margin:0;max-width:66ch}
+.fino{color:var(--tinta-2);font-size:15.5px}
+section{display:flex;flex-direction:column;gap:20px}
+h2{font-size:11.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--tinta-2);margin:0;padding-bottom:10px;border-bottom:1px solid var(--linha)}
+h3{font-size:18.5px;font-weight:600;letter-spacing:-.012em;margin:0;text-wrap:balance}
+
+.rolo{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--linha);
+  vertical-align:top}
+th{font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--tinta-2);border-bottom:1px solid var(--linha-forte);white-space:nowrap}
+td.arq{font-size:13px;color:var(--tinta-2)}
+tbody tr:last-child td{border-bottom:1px solid var(--linha-forte)}
+.tag{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 7px;border-radius:2px;white-space:nowrap;display:inline-block}
+.t-pronto{background:var(--pronto-fraca);color:var(--pronto)}
+.t-falta{background:var(--falta-fraca);color:var(--falta)}
+.t-neutro{background:var(--linha);color:var(--tinta-2)}
+
+.alerta{background:var(--falta-fraca);border:1px solid var(--falta);border-radius:3px;
+  padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.alerta .rot{color:var(--falta)}
+.alerta p{font-size:16px}
+
+.cartoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.cartao{background:var(--superficie);border:1px solid var(--linha);border-radius:3px;
+  padding:16px 18px;box-shadow:var(--sombra);display:flex;flex-direction:column;gap:6px}
+.cartao .n{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;
+  color:var(--pronto);letter-spacing:.04em}
+.cartao .t{font-family:"Public Sans",sans-serif;font-weight:600;font-size:16px}
+.cartao .d{font-size:14.5px;color:var(--tinta-2)}
+
+.passos{display:grid;gap:12px}
+.passo{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;
+  border-top:1px solid var(--linha);padding-top:13px}
+.passo-n{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;
+  color:var(--tinta-2);padding-top:3px}
+.passo .txt{font-size:15.5px}
+.passo .txt b{font-family:"Public Sans",sans-serif;font-weight:600}
+
+.msg{background:var(--superficie);border:1px solid var(--linha);border-radius:3px;
+  box-shadow:var(--sombra);overflow:hidden}
+.msg-linha{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:13px 16px;
+  border-bottom:1px solid var(--linha);align-items:start}
+.msg-linha:last-child{border-bottom:0}
+.msg-de{font-family:"Public Sans",sans-serif;font-weight:600;font-size:14px}
+.msg-txt{font-family:"IBM Plex Mono",monospace;font-size:13.5px;line-height:1.5;
+  color:var(--pronto)}
+@media(max-width:600px){
+  .msg-linha{grid-template-columns:1fr;gap:5px}
+  .folha{padding:36px 18px 72px;gap:44px}
+}
+
+ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;max-width:66ch}
+li::before{content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--linha-forte);margin-top:10px}
+li.sim::before{background:var(--pronto)}
+li.nao::before{background:var(--falta)}
+li b{font-family:"Public Sans",sans-serif;font-weight:600}
+
+.perf{border-collapse:collapse;width:100%;min-width:600px;font-size:15px}
+.perf th,.perf td{padding:12px 13px;border-bottom:1px solid var(--linha);text-align:left}
+.perf td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+  font-size:15px;white-space:nowrap;text-align:right}
+.perf tr.bom td.num{color:var(--pronto);font-weight:600}
+.perf tr.ruim td.num{color:var(--falta);font-weight:600}
+.perf .peca-nome{font-family:"Public Sans",sans-serif;font-weight:600;font-size:15px}
+.perf .peca-obs{font-size:14px;color:var(--tinta-2);margin-top:3px;max-width:38ch}
+.perf tfoot td{border-bottom:0;padding-top:14px;font-family:"IBM Plex Mono",monospace;
+  font-size:14px;font-weight:600}
+.conta{background:var(--superficie);border:1px solid var(--linha-forte);border-radius:3px;
+  padding:20px 22px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--sombra)}
+.conta .linha{display:flex;justify-content:space-between;gap:16px;
+  font-family:"IBM Plex Mono",monospace;font-size:14.5px;
+  padding-bottom:10px;border-bottom:1px solid var(--linha)}
+.conta .linha:last-of-type{border-bottom:0;padding-bottom:0}
+.conta .linha span:first-child{color:var(--tinta-2)}
+.conta .linha.forte span{color:var(--falta);font-weight:600}
+footer{border-top:1px solid var(--linha);padding-top:20px;font-size:13.5px;
+  color:var(--tinta-2);max-width:68ch}
+a{color:var(--pronto)}
+:focus-visible{outline:2px solid var(--pronto);outline-offset:2px}
+</style>
+
+<div class="folha">
+
+<header>
+  <div class="rot">Clau Kids × Expansion · Material de anúncio · 08/09/2026</div>
+  <h1>Inventário de anúncios</h1>
+  <p class="sub">Conferi arquivo por arquivo, no Drive, o que existe da gravação de 29/07 e
+  o que já saiu da edição — e cruzei com o desempenho real dos três anúncios que rodaram em
+  agosto. Duas peças que eu recomendei ontem já estão prontas e paradas, uma eu não
+  encontrei, e uma que eu descartei era a que mais trouxe conversa.</p>
+</header>
+
+<section>
+  <h2>Pronto para virar anúncio hoje — pasta “Editados”</h2>
+  <p>São arquivos finalizados, com legenda, esperando na pasta. Custo de produção zero
+  para colocá-los no ar.</p>
+  <div class="rolo">
+  <table>
+    <thead>
+      <tr><th>Peça</th><th>Arquivo no Drive</th><th>Papel no anúncio</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>A10</strong> — “Eu não vendo pra todo mundo”</td>
+        <td class="arq">video clau kids 10. nao vendo pra todo mundo .mp4 · 179 MB</td>
+        <td>Principal. Gancho polarizador e filtra antes da conversa.</td>
+        <td><span class="tag t-pronto">Editado</span></td>
+      </tr>
+      <tr>
+        <td><strong>A05</strong> — “As quatro perguntas”</td>
+        <td class="arq">video clau 4 perguntas .mp4 · 213 MB</td>
+        <td>Vende a conversa, não a roupa. Casa com o botão de WhatsApp.</td>
+        <td><span class="tag t-pronto">Editado</span></td>
+      </tr>
+      <tr>
+        <td><strong>A11</strong> — “O grupo onde tudo chega primeiro”</td>
+        <td class="arq">Clau Kids grupo chega tudo .mp4 · 178 MB · em “Postado”</td>
+        <td>Já rodou no orgânico. Serve de terceiro, com desempenho conhecido.</td>
+        <td><span class="tag t-pronto">Editado</span></td>
+      </tr>
+      <tr>
+        <td><strong>A12</strong> — Coleção Deserto</td>
+        <td class="arq">criativo deserto .mp4 · 295 MB</td>
+        <td>Reserva. Já foi ao feed em 11/08.</td>
+        <td><span class="tag t-neutro">Editado, envelhecido</span></td>
+      </tr>
+      <tr>
+        <td>Brinquedo lagarto</td>
+        <td class="arq">Tráfego Finalizado - Brinquedos · 182 MB</td>
+        <td>É o material do brinde. Vira a tarja e o gancho de brinde.</td>
+        <td><span class="tag t-pronto">Editado</span></td>
+      </tr>
+      <tr>
+        <td>Cinco versões legendadas</td>
+        <td class="arq">Captions_8336E5 · C11A1C · 70E140 · 807A22 · 14A6B4 .mp4</td>
+        <td>Já com legenda queimada — conferir a qual roteiro cada uma pertence.</td>
+        <td><span class="tag t-neutro">Sem nome</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>O que eu errei ontem</h2>
+  <div class="alerta">
+    <div class="rot">Correção</div>
+    <p><strong>Eu recomendei A09 (“Seu filho tem 9 anos e não cabe mais”) como o anúncio
+    principal. Não achei esse material no Drive.</strong> Não existe pasta com esse nome em
+    “Captação 29.07.26 / Vídeos”, e não existe arquivo editado com esse nome em “Editados”.
+    Pode estar dentro dos onze brutos sem nome da pasta “Destaques” — mas até alguém abrir e
+    confirmar, não dá para contar com ele. <strong>O principal passa a ser A10</strong>, que
+    está editado e pronto.</p>
+    <p>Também escrevi que o B-roll de detalhes de produto era o ativo escondido da conta.
+    <strong>A pasta “Vídeos detalhes produtos” aparece vazia</strong>, assim como a pasta
+    “Backup”. Ou não subiram, ou não foram compartilhadas com a conta da agência — a Bianca
+    precisa confirmar qual dos dois.</p>
+  </div>
+</section>
+
+<section>
+  <h2>O ativo escondido é outro: as fotos</h2>
+  <p>O que existe em volume, em alta resolução e ninguém está usando em anúncio são as
+  <strong>fotos profissionais do mesmo dia</strong>, já separadas por categoria. São JPGs de
+  3 a 4,5 MB cada — resolução de sobra para estático e carrossel.</p>
+  <div class="cartoes">
+    <div class="cartao"><div class="n">Roupas Meninas</div><div class="t">Peça a peça</div><div class="d">A base para o carrossel por faixa etária e para o estático de arara.</div></div>
+    <div class="cartao"><div class="n">Roupas Bebês</div><div class="t">Enxoval</div><div class="d">Casa direto com o roteiro 25, “Enxoval não é sobre fofura”.</div></div>
+    <div class="cartao"><div class="n">Calçados</div><div class="t">Categoria inteira</div><div class="d">Nunca apareceu em anúncio nenhum. É oferta nova sem produção nova.</div></div>
+    <div class="cartao"><div class="n">Provador</div><div class="t">O espaço</div><div class="d">Prova física da loja sem precisar do vídeo de tour.</div></div>
+    <div class="cartao"><div class="n">Fachada Loja</div><div class="t">Onde é</div><div class="d">Fecha o anúncio local: a mãe vê o lugar que ela já passou de carro.</div></div>
+    <div class="cartao"><div class="n">Fotos Clau</div><div class="t">Ela</div><div class="d">Rosto conhecido no anúncio rende mais que peça sozinha em loja de bairro.</div></div>
+  </div>
+  <p class="fino">Isso responde direto o ponto do “mesmos produtos”: como o estoque de julho
+  é o estoque de hoje, essas fotos não estão vencidas. O que fotografamos ainda está na
+  arara — então elas podem virar anúncio sem risco de trazer mãe atrás do que acabou.</p>
+</section>
+
+<section>
+  <h2>Como um vídeo de feed vira anúncio</h2>
+  <p>Não é o mesmo objeto. O que está editado hoje foi montado para o feed, onde a pessoa
+  já escolheu assistir. No anúncio ela não escolheu — e o corte tem que refletir isso.
+  A conversão de cada peça leva alguns minutos no editor:</p>
+  <div class="passos">
+    <div class="passo"><div class="passo-n">01</div><div class="txt"><b>Cortar a respiração inicial.</b> Reel abre com meio segundo de nada. No anúncio, a primeira palavra cai no primeiro quadro.</div></div>
+    <div class="passo"><div class="passo-n">02</div><div class="txt"><b>Tirar qualquer trilha da biblioteca do Instagram.</b> Música licenciada só para orgânico derruba o anúncio na revisão. Se precisar de som, faixa livre ou nenhuma.</div></div>
+    <div class="passo"><div class="passo-n">03</div><div class="txt"><b>Legenda queimada do começo ao fim.</b> A maioria assiste sem som, e no anúncio ela não vai desbloquear o áudio por curiosidade.</div></div>
+    <div class="passo"><div class="passo-n">04</div><div class="txt"><b>Trocar o CTA falado.</b> No feed é “me chama no direct”. No anúncio o botão já leva para o WhatsApp — a fala tem que apontar para o botão, não para o direct.</div></div>
+    <div class="passo"><div class="passo-n">05</div><div class="txt"><b>Cortar em 35 a 45 segundos.</b> O que sobra do minuto do feed é onde a audiência cai. Guardar a versão longa para remarketing em outubro.</div></div>
+    <div class="passo"><div class="passo-n">06</div><div class="txt"><b>9:16 nativo, sem barra.</b> E deixar os 14% de cima e de baixo livres de texto — é onde a interface do Reels cobre.</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>A multiplicação dos ganchos</h2>
+  <p>Este é o maior ganho disponível sem gravar nada. De cada vídeo editado saem três
+  anúncios trocando <strong>só os três primeiros segundos</strong> — o corpo permanece
+  idêntico. O Meta trata cada um como anúncio distinto, então em vez de um teste caro de
+  vídeos inteiros, você descobre qual <em>gancho</em> funciona, que é o que de fato move o
+  custo por conversa.</p>
+  <p class="fino">Com R$ 33 por dia não dá para testar vídeos. Dá para testar aberturas, e é
+  quase de graça: três variações da mesma peça custam o tempo de renderizar três vezes.</p>
+  <ul>
+    <li class="sim"><span><b>Variação 1 — a fala original.</b> Como está no corte de feed.</span></li>
+    <li class="sim"><span><b>Variação 2 — pergunta na tela.</b> O mesmo primeiro quadro com uma pergunta escrita por cima: “quantas lojas em Marília vestem até o 18?”</span></li>
+    <li class="sim"><span><b>Variação 3 — abre no objeto.</b> Começar num plano de peça ou de arara antes do rosto. Objeto antes de rosto segura meio segundo a mais, e meio segundo é o jogo inteiro.</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Atribuição de graça: a mensagem que já vem escrita</h2>
+  <p>No anúncio de clique para o WhatsApp dá para definir a mensagem que já aparece digitada
+  quando a pessoa abre a conversa. Ninguém está usando isso, e ele resolve dois problemas de
+  uma vez sem custo nenhum: a Clau passa a saber <strong>qual anúncio trouxe cada pessoa</strong>,
+  e a conversa já chega segmentada em vez de começar num “oi”.</p>
+  <div class="msg">
+    <div class="msg-linha">
+      <div class="msg-de">A10 · curadoria</div>
+      <div class="msg-txt">Oi Clau! Vi seu vídeo sobre como você escolhe as peças. Meu filho tem ___ anos.</div>
+    </div>
+    <div class="msg-linha">
+      <div class="msg-de">A05 · as 4 perguntas</div>
+      <div class="msg-txt">Oi Clau! Vi o vídeo das quatro perguntas e queria que você me ajudasse a escolher.</div>
+    </div>
+    <div class="msg-linha">
+      <div class="msg-de">A11 · o grupo</div>
+      <div class="msg-txt">Oi Clau! Quero entrar no grupo que recebe as novidades primeiro.</div>
+    </div>
+    <div class="msg-linha">
+      <div class="msg-de">Estático · calçados</div>
+      <div class="msg-txt">Oi Clau! Vi o anúncio dos calçados. Meu filho calça ___.</div>
+    </div>
+  </div>
+  <p class="fino">O campo em branco faz a mãe já mandar a idade ou o número na primeira
+  mensagem — que é exatamente a informação de que a Clau precisa para atender. Encurta o
+  atendimento dela, que é o recurso mais escasso da operação.</p>
+</section>
+
+<section>
+  <h2>Salvando o material que ela grava sozinha</h2>
+  <p>Ele não vai para o tráfego enquanto houver material da videomaker. Mas ele sustenta o
+  orgânico inteiro, então vale arrumar — e a maior parte do problema não é a câmera.</p>
+  <ul>
+    <li class="nao"><span><b>O WhatsApp é o principal suspeito.</b> Qualquer arquivo que passe por lá é recomprimido e perde boa parte da taxa de bits. Se algum bruto ou corte final trafega por WhatsApp em vez do Drive, é aí que a qualidade morre — e nenhuma edição recupera.</span></li>
+    <li class="nao"><span><b>Luz, não sensor.</b> O celular dela filma bem com luz. Gravar de manhã perto da vitrine, com a luz vindo de frente e não das costas, resolve mais que qualquer correção depois.</span></li>
+    <li class="sim"><span><b>O que a edição recupera de verdade:</b> equilíbrio de branco (o automático do celular vira em ambiente de loja e é o que dá o aspecto “amador”), exposição, redução leve de ruído seguida de nitidez leve, e corte no movimento para o olho não descansar num quadro mole.</span></li>
+    <li class="sim"><span><b>Áudio separado resolve metade.</b> Se ela gravar a fala no gravador de voz do celular, perto da boca, e a gente casar com a imagem, o vídeo sobe uma categoria inteira. Áudio limpo compensa imagem crua; o contrário não é verdade.</span></li>
+    <li class="nao"><span><b>O que não funciona:</b> aumentar resolução por IA, adicionar grão, nitidez pesada. Tudo isso piora depois que o Instagram recomprime.</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>O que fazer nesta ordem</h2>
+  <div class="passos">
+    <div class="passo"><div class="passo-n">01</div><div class="txt">Kauã sobe <b>A10, A05 e A11</b> num conjunto só, com a mensagem pré-preenchida diferente em cada um. É o que já existe editado — pode ir hoje.</div></div>
+    <div class="passo"><div class="passo-n">02</div><div class="txt">Alguém abre os <b>onze brutos da pasta “Destaques”</b> e nomeia cada um. É meia hora de trabalho que resolve o mistério do A09 e o das cinco Captions sem nome.</div></div>
+    <div class="passo"><div class="passo-n">03</div><div class="txt">Perguntar à Bianca se o <b>B-roll de detalhes de produto</b> existe. Se existir, ele é o que abastece outubro.</div></div>
+    <div class="passo"><div class="passo-n">04</div><div class="txt">Montar <b>um estático de calçados</b> com as fotos que já estão lá. É categoria que nunca foi anunciada, com material pronto e produto em estoque.</div></div>
+    <div class="passo"><div class="passo-n">05</div><div class="txt">Só depois disso, as <b>variações de gancho</b> — quando já houver uma semana de dados dizendo qual peça merece ser multiplicada.</div></div>
+  </div>
+</section>
+
+
+<section>
+  <h2>O que agosto realmente mediu — os três anúncios que rodaram</h2>
+  <p>Estes são os números do gerenciador, e eles corrigem duas coisas que eu escrevi acima.
+  Só três criativos chegaram a rodar, todos em 12/08:</p>
+  <div class="rolo">
+  <table class="perf">
+    <thead>
+      <tr><th>Anúncio</th><th style="text-align:right">Conversas</th><th style="text-align:right">Por conversa</th><th style="text-align:right">Gasto estimado</th></tr>
+    </thead>
+    <tbody>
+      <tr class="bom">
+        <td>
+          <div class="peca-nome">4 PERGUNTAS 12.08 &nbsp;<span class="tag t-pronto">o mais barato</span></div>
+          <div class="peca-obs">A05. Já está editado no Drive e pode subir hoje.</div>
+        </td>
+        <td class="num">8</td><td class="num">R$ 7,54</td><td class="num">R$ 60</td>
+      </tr>
+      <tr class="bom">
+        <td>
+          <div class="peca-nome">DESERTO 12.08 &nbsp;<span class="tag t-pronto">mais volume</span></div>
+          <div class="peca-obs">A12. Trouxe metade de todas as conversas do mês.</div>
+        </td>
+        <td class="num">12</td><td class="num">R$ 7,92</td><td class="num">R$ 95</td>
+      </tr>
+      <tr class="ruim">
+        <td>
+          <div class="peca-nome">PULA BULA 12.08 &nbsp;<span class="tag t-falta">2,6× mais caro</span></div>
+          <div class="peca-obs">A13. Já estava desligado no gerenciador — decisão certa.</div>
+        </td>
+        <td class="num">5</td><td class="num">R$ 19,89</td><td class="num">R$ 99</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr><td>Total</td><td class="num">25</td><td class="num">R$ 10,19</td><td class="num">R$ 255</td></tr>
+    </tfoot>
+  </table>
+  </div>
+  <p class="fino">A coluna de gasto é conversas × custo por conversa, porque o valor total
+  aparece cortado no print. Os R$ 255 batem com os R$ 290 que a Clau disse ter sido o
+  investimento real de agosto — a diferença é o que sobrou em campanhas sem conversa.</p>
+</section>
+
+<section>
+  <h2>A segunda coisa que eu errei</h2>
+  <div class="alerta">
+    <div class="rot">Correção</div>
+    <p><strong>Eu classifiquei o Deserto como “não entra, envelhecido”. Os números dizem o
+    contrário:</strong> ele trouxe 12 das 25 conversas do mês, a R$ 7,92 — o maior volume da
+    conta. Julguei por idade de conteúdo quando havia dado disponível, e dado ganha de
+    opinião. Ele volta, e volta forte: a coleção continua em estoque e agora existe a tarja
+    do brinde do lagarto, que em agosto ainda não existia.</p>
+    <p>O A10 (“não vendo pra todo mundo”), que eu tinha posto como principal, <strong>nunca
+    rodou — não tem número nenhum.</strong> Ele continua sendo uma boa hipótese, mas entra
+    como aposta ao lado de dois criativos com histórico, não na frente deles.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Por que os R$ 850 de agosto viraram R$ 290</h2>
+  <p>O print responde a pergunta que estava em aberto desde o começo do mês, e a resposta
+  não é dinheiro — é estrutura de conta. Foram <strong>três campanhas separadas</strong>,
+  cada uma com sua própria verba diária. O saldo não foi gasto ao longo de um mês: ele foi
+  consumido em cerca de dois dias.</p>
+  <div class="conta">
+    <div class="linha"><span>Três campanhas rodando em paralelo</span><span>~R$ 126 / dia</span></div>
+    <div class="linha"><span>Verba disponível</span><span>R$ 850</span></div>
+    <div class="linha forte"><span>Duração real antes de zerar</span><span>~2 dias</span></div>
+    <div class="linha"><span>Nenhuma delas saiu da fase de aprendizado</span><span>25 conversas no total</span></div>
+  </div>
+  <p>Isso fecha o diagnóstico: a campanha não parou por desempenho nem por decisão. Ela
+  parou porque a estrutura queimava a verba do mês inteiro em dois dias. É exatamente o que
+  o plano de setembro corrige — <strong>uma campanha, um conjunto, R$ 33 por dia, os três
+  criativos dentro dele</strong>. Mesma verba, trinta vezes mais tempo no ar.</p>
+</section>
+
+<section>
+  <h2>Como fica o conjunto de setembro</h2>
+  <div class="passos">
+    <div class="passo"><div class="passo-n">01</div><div class="txt"><b>A05 — “As quatro perguntas”.</b> R$ 7,54 em agosto e já editado. Principal.</div></div>
+    <div class="passo"><div class="passo-n">02</div><div class="txt"><b>Deserto.</b> R$ 7,92 e o maior volume da conta. Volta com a tarja do brinde, que é oferta nova sobre criativo testado.</div></div>
+    <div class="passo"><div class="passo-n">03</div><div class="txt"><b>A10 — “Não vendo pra todo mundo”.</b> A aposta do mês. Sem histórico, mas editado e com a hipótese mais forte de filtrar antes da conversa.</div></div>
+    <div class="passo"><div class="passo-n">04</div><div class="txt"><b>Pula Bula fica fora do público frio.</b> A R$ 19,89 não se paga na aquisição — mas existe lista de espera formada durante o atraso da coleção. É lá que ele fica barato, em outubro.</div></div>
+  </div>
+  <p class="fino">Uma ressalva honesta sobre os números: 8, 12 e 5 conversas é amostra
+  pequena, e nenhuma campanha saiu do aprendizado em dois dias. A diferença entre R$ 7,54 e
+  R$ 7,92 não significa nada; a diferença para os R$ 19,89 provavelmente significa. E como
+  a base de planejamento com a Clau é R$ 11 por conversa, esses números são <strong>folga,
+  não motivo para prometer mais</strong>. A faixa dita a ela continua 60 a 100 conversas.</p>
+</section>
+
+<footer>
+  Inventário conferido diretamente no Google Drive da conta em 08/09/2026: pastas
+  “007 - CLAUKIDS / Editados”, “007 - CLAUKIDS / Brutos” e “Captação 29.07.26” (Vídeos e
+  Fotos). Pastas relatadas como vazias podem estar apenas não compartilhadas com a conta da
+  agência — carecem de confirmação com a videomaker antes de qualquer conclusão definitiva. Números de desempenho lidos do gerenciador de anúncios (campanhas de 12/08/2026); o gasto por campanha é calculado a partir de conversas × custo por conversa, e a verba diária de ~R$ 42 por campanha é leitura de uma coluna truncada no print — confirmar com a gestão de tráfego.
+</footer>
+
+</div>
