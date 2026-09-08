@@ -1,0 +1,323 @@
+<title>Briefing de Tráfego</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --papel:#F2F3F5; --superficie:#FFFFFF; --tinta:#0F1419; --tinta-2:#5A6572;
+  --linha:#DCDFE4; --linha-forte:#B7BDC6;
+  --acento:#3B3DA8; --acento-fraco:#E0E1F4;
+  --faz:#1D6B4A; --faz-fraco:#DAEBE2;
+  --nao:#A32F26; --nao-fraco:#F4DCD9;
+  --sombra:0 1px 2px rgba(15,20,25,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papel:#0E1116; --superficie:#171B21; --tinta:#E6E9ED; --tinta-2:#98A2AF;
+    --linha:#252B33; --linha-forte:#3A424C;
+    --acento:#9698EE; --acento-fraco:#1B1C3A;
+    --faz:#5CC194; --faz-fraco:#122B20;
+    --nao:#E58072; --nao-fraco:#301813;
+    --sombra:0 1px 2px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#0E1116; --superficie:#171B21; --tinta:#E6E9ED; --tinta-2:#98A2AF;
+  --linha:#252B33; --linha-forte:#3A424C;
+  --acento:#9698EE; --acento-fraco:#1B1C3A;
+  --faz:#5CC194; --faz-fraco:#122B20;
+  --nao:#E58072; --nao-fraco:#301813;
+  --sombra:0 1px 2px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{background:var(--papel);color:var(--tinta);margin:0;
+  font:400 16px/1.6 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.folha{max-width:840px;margin:0 auto;padding:52px 24px 88px;
+  display:flex;flex-direction:column;gap:46px}
+.mono,td.n,.cod,.val{font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums}
+.rot{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--tinta-2)}
+h1{font-size:clamp(29px,5.2vw,42px);font-weight:700;line-height:1.06;
+  letter-spacing:-.026em;margin:12px 0 0;text-wrap:balance}
+.sub{color:var(--tinta-2);margin:14px 0 0;max-width:62ch}
+p{margin:0;max-width:70ch}
+.fino{color:var(--tinta-2);font-size:14.5px}
+section{display:flex;flex-direction:column;gap:16px;break-inside:avoid}
+h2{font-size:11.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--acento);margin:0;padding-bottom:9px;border-bottom:1.5px solid var(--acento)}
+h3{font-size:17px;font-weight:600;letter-spacing:-.01em;margin:0}
+
+/* ficha de parâmetros */
+.ficha{background:var(--superficie);border:1px solid var(--linha);border-radius:3px;
+  box-shadow:var(--sombra);overflow:hidden}
+.ficha .l{display:grid;grid-template-columns:210px 1fr;gap:14px;padding:11px 16px;
+  border-bottom:1px solid var(--linha);align-items:baseline}
+.ficha .l:last-child{border-bottom:0}
+.ficha .k{font-size:13px;font-weight:600;color:var(--tinta-2);letter-spacing:.01em}
+.ficha .v{font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--tinta)}
+.ficha .v em{font-style:normal;color:var(--tinta-2);font-size:13px}
+@media(max-width:600px){.ficha .l{grid-template-columns:1fr;gap:3px}
+  .folha{padding:34px 16px 68px;gap:38px}}
+
+.rolo{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:580px;font-size:14.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--linha);vertical-align:top}
+th{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--tinta-2);border-bottom:1.5px solid var(--linha-forte);white-space:nowrap}
+td.n{text-align:right;white-space:nowrap;font-size:14px}
+tbody tr:last-child td{border-bottom:1.5px solid var(--linha-forte)}
+tr.destaque td{background:var(--acento-fraco)}
+tr.destaque td.n{color:var(--acento);font-weight:600}
+
+/* anúncios */
+.anuncio{background:var(--superficie);border:1px solid var(--linha);border-radius:3px;
+  box-shadow:var(--sombra);padding:0;overflow:hidden;break-inside:avoid}
+.anuncio .cab{display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+  padding:14px 18px;background:var(--acento-fraco);border-bottom:1px solid var(--linha)}
+.anuncio .cab .t{font-weight:600;font-size:16.5px;letter-spacing:-.01em}
+.anuncio .cab .p{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--acento);
+  font-weight:600;white-space:nowrap}
+.anuncio .corpo{padding:14px 18px;display:flex;flex-direction:column;gap:11px}
+.anuncio .campo{display:grid;grid-template-columns:132px 1fr;gap:12px;align-items:start}
+.anuncio .campo .k{font-size:12px;font-weight:600;color:var(--tinta-2);
+  text-transform:uppercase;letter-spacing:.06em;padding-top:3px}
+.anuncio .campo .v{font-size:15px}
+.anuncio .campo .v.mono{font-family:"IBM Plex Mono",monospace;font-size:13px;
+  word-break:break-all;line-height:1.5}
+.anuncio .campo .v.msg{font-family:"IBM Plex Mono",monospace;font-size:13.5px;
+  color:var(--acento);line-height:1.5}
+@media(max-width:600px){.anuncio .campo{grid-template-columns:1fr;gap:3px}}
+
+/* faz / não faz */
+.regras{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.col{border-radius:3px;padding:18px 20px;display:flex;flex-direction:column;gap:11px}
+.col.sim{background:var(--faz-fraco);border:1px solid var(--faz)}
+.col.nao{background:var(--nao-fraco);border:1px solid var(--nao)}
+.col .cab{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.col.sim .cab{color:var(--faz)}
+.col.nao .cab{color:var(--nao)}
+.col ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.col li{font-size:15px;line-height:1.5;display:grid;grid-template-columns:auto 1fr;gap:9px}
+.col li::before{content:"";width:5px;height:5px;border-radius:50%;margin-top:9px}
+.col.sim li::before{background:var(--faz)}
+.col.nao li::before{background:var(--nao)}
+.col b{font-weight:600}
+@media(max-width:640px){.regras{grid-template-columns:1fr}}
+
+.passos{display:grid;gap:11px}
+.passo{display:grid;grid-template-columns:30px 1fr;gap:13px;align-items:start;
+  border-top:1px solid var(--linha);padding-top:11px}
+.passo .n{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;
+  color:var(--acento);padding-top:3px}
+.passo .txt{font-size:15px}
+.passo .txt b{font-weight:600}
+
+.cal{background:var(--superficie);border:1px solid var(--linha-forte);border-radius:3px;
+  overflow:hidden;box-shadow:var(--sombra)}
+.cal .l{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:12px 16px;
+  border-bottom:1px solid var(--linha);align-items:baseline}
+.cal .l:last-child{border-bottom:0}
+.cal .d{font-family:"IBM Plex Mono",monospace;font-size:13.5px;font-weight:600;
+  color:var(--acento)}
+.cal .t{font-size:15px}
+@media(max-width:600px){.cal .l{grid-template-columns:1fr;gap:3px}}
+
+.pend{border-left:3px solid var(--nao);padding-left:16px;display:flex;
+  flex-direction:column;gap:10px}
+.pend p{font-size:15px}
+.pend b{font-weight:600}
+
+footer{border-top:1px solid var(--linha);padding-top:20px;font-size:13px;
+  color:var(--tinta-2);max-width:70ch}
+a{color:var(--acento)}
+:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+@media print{body{background:#fff}.folha{padding:0 0 20px}}
+</style>
+
+<div class="folha">
+
+<header>
+  <div class="rot">Clau Kids · Conta 1059582889165858 · BM litll.ekids</div>
+  <h1>Briefing de tráfego — setembro</h1>
+  <p class="sub">Kauã, isto é o que roda de 09 a 30/09 com os R$ 891 fracionados, e o
+  porquê de cada decisão. O diagnóstico de agosto mudou depois do print completo: a
+  estrutura da conta estava certa, o problema era outro.</p>
+</header>
+
+<section>
+  <h2>1 · O que agosto realmente disse</h2>
+  <p>Três anúncios, todos no conjunto <span class="mono">LOCAL - MULHER 20 A 58 -
+  DIRECIONADO</span>, orçamento de R$ 42/dia <strong>do conjunto</strong>. Período apurado:
+  09/08 a 07/09.</p>
+  <div class="rolo">
+  <table>
+    <thead>
+      <tr><th>Anúncio</th><th>Conv.</th><th>R$/conv</th><th>Gasto</th><th>CPM</th><th>Freq.</th><th>Conv/alcance</th></tr>
+    </thead>
+    <tbody>
+      <tr class="destaque">
+        <td>4 PERGUNTAS 12.08</td><td class="n">8</td><td class="n">7,54</td>
+        <td class="n">60,29</td><td class="n">15,33</td><td class="n">1,71</td><td class="n">0,35%</td>
+      </tr>
+      <tr>
+        <td>DESERTO 12.08</td><td class="n">12</td><td class="n">7,92</td>
+        <td class="n">95,05</td><td class="n">6,70</td><td class="n">1,12</td><td class="n">0,09%</td>
+      </tr>
+      <tr>
+        <td>PULA BULA 12.08</td><td class="n">5</td><td class="n">19,89</td>
+        <td class="n">99,43</td><td class="n">30,31</td><td class="n">2,07</td><td class="n">0,32%</td>
+      </tr>
+      <tr>
+        <td><strong>Total</strong></td><td class="n">25</td><td class="n">10,19</td>
+        <td class="n">254,77</td><td class="n">11,91</td><td class="n">—</td><td class="n">—</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>Três leituras que mudam o que fazemos</h3>
+  <div class="passos">
+    <div class="passo"><div class="n">01</div><div class="txt"><b>A causa da entrega de 30% foi tempo no ar, não estrutura.</b> R$ 254,77 ÷ R$ 42/dia = <span class="mono">~6 dias</span> de veiculação. O conjunto estava montado certo; ele só passou o mês desligado. Corrigir é calendário, não arquitetura.</div></div>
+    <div class="passo"><div class="n">02</div><div class="txt"><b>O Deserto venceu por distribuição, não por persuasão.</b> CPM de R$ 6,70 e 12.678 pessoas alcançadas por R$ 95 — mas 0,09% de conversa por pessoa alcançada, quatro vezes pior que o 4 Perguntas. Volume comprado barato, não convencimento.</div></div>
+    <div class="passo"><div class="n">03</div><div class="txt"><b>O problema do Pula Bula foi CPM, não o criativo.</b> Converteu 0,32%, praticamente igual ao 4 Perguntas, mas custou R$ 30,31 de CPM. Bate com o registro de 20/08: o anúncio subiu antes de o produto chegar.</div></div>
+  </div>
+  <p class="fino">Frequência entre 1,12 e 2,07 confirma que desgaste de criativo não é
+  gargalo neste orçamento — o acervo de julho carrega setembro inteiro.</p>
+</section>
+
+<section>
+  <h2>2 · Estrutura da campanha</h2>
+  <div class="ficha">
+    <div class="l"><div class="k">Campanhas</div><div class="v">1 <em>— nunca uma por criativo</em></div></div>
+    <div class="l"><div class="k">Conjuntos</div><div class="v">1 <em>— reaproveitar LOCAL - MULHER 20 A 58 - DIRECIONADO, que já tem histórico</em></div></div>
+    <div class="l"><div class="k">Anúncios no conjunto</div><div class="v">3 <em>— teto rígido, ver seção 5</em></div></div>
+    <div class="l"><div class="k">Objetivo</div><div class="v">Mensagens no WhatsApp <em>(clique para o WhatsApp)</em></div></div>
+    <div class="l"><div class="k">Otimização</div><div class="v">Conversas iniciadas</div></div>
+    <div class="l"><div class="k">Estratégia de lance</div><div class="v">Volume mais alto <em>— manter, foi o que rodou</em></div></div>
+    <div class="l"><div class="k">Atribuição</div><div class="v">Clique de 7 dias · todas as conversas <em>— manter</em></div></div>
+    <div class="l"><div class="k">Orçamento</div><div class="v">R$ 33,00 / dia <em>— no CONJUNTO, não na campanha</em></div></div>
+    <div class="l"><div class="k">Período</div><div class="v">09/09 a 30/09 <em>— 22 dias · R$ 726 nesta janela</em></div></div>
+    <div class="l"><div class="k">Localização</div><div class="v">Marília + 30 km <em>— pessoas que moram no local, nunca "recentemente nesta região"</em></div></div>
+    <div class="l"><div class="k">Idade e gênero</div><div class="v">Mulheres, 20 a 58 <em>— não estreitar agora, ver seção 5</em></div></div>
+    <div class="l"><div class="k">Posicionamentos</div><div class="v">Automáticos <em>— com R$ 33/dia, restringir só encarece o CPM</em></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>3 · Os três anúncios</h2>
+
+  <div class="anuncio">
+    <div class="cab"><span class="t">A05 — “As quatro perguntas”</span><span class="p">R$ 7,54 · 0,35%</span></div>
+    <div class="corpo">
+      <div class="campo"><div class="k">Vídeo</div><div class="v">Já está na biblioteca da conta — reaproveitar o de agosto, não subir de novo.</div></div>
+      <div class="campo"><div class="k">Papel</div><div class="v">Principal. Melhor persuasor da conta e o único com histórico.</div></div>
+      <div class="campo"><div class="k">Mensagem</div><div class="v msg">Oi Clau! Vi o vídeo das quatro perguntas e queria que você me ajudasse a escolher.</div></div>
+      <div class="campo"><div class="k">Texto do anúncio</div><div class="v">Antes de escolher a roupa eu preciso conhecer a criança: se é agitada ou tranquila, se sente frio ou calor, que horas é a festa. Roupa de criança não é tamanho, é encaixe. Me chama que eu monto o look 💛 Clau Kids, Marília.</div></div>
+    </div>
+  </div>
+
+  <div class="anuncio">
+    <div class="cab"><span class="t">A09 — “Seu filho tem 9 anos e não cabe mais”</span><span class="p">estreia</span></div>
+    <div class="corpo">
+      <div class="campo"><div class="k">Vídeo</div><div class="v mono">drive.google.com/file/d/1ud7yweZu-ZByDe4RQuL3dPlz76j2qS5m</div></div>
+      <div class="campo"><div class="k">Papel</div><div class="v">A dor mais específica e menos disputada do nicho. Independe de estação — vale mais agora, com o clima fresco.</div></div>
+      <div class="campo"><div class="k">Mensagem</div><div class="v msg">Oi Clau! Vi seu vídeo sobre o 9 anos. Meu filho tem ___ e não está cabendo mais nada.</div></div>
+      <div class="campo"><div class="k">Texto do anúncio</div><div class="v">Chega uma idade em que a loja infantil não serve mais e a loja de adulto não é adequada. É essa arara que quase nenhuma loja de Marília tem, e é a que eu faço questão de manter. Me diz a idade do seu filho 💛 Clau Kids, Marília.</div></div>
+    </div>
+  </div>
+
+  <div class="anuncio">
+    <div class="cab"><span class="t">A10 — “Eu não vendo pra todo mundo”</span><span class="p">estreia</span></div>
+    <div class="corpo">
+      <div class="campo"><div class="k">Vídeo</div><div class="v mono">drive.google.com/file/d/17QKz_6wcmgpkYgMTunMfFx4U0M329nBJ</div></div>
+      <div class="campo"><div class="k">Papel</div><div class="v">Gancho polarizador. Filtra antes da conversa, o que encurta o atendimento da Clau.</div></div>
+      <div class="campo"><div class="k">Mensagem</div><div class="v msg">Oi Clau! Vi seu vídeo sobre como você escolhe as peças. Meu filho tem ___ anos.</div></div>
+      <div class="campo"><div class="k">Texto do anúncio</div><div class="v">Eu compro pouco de cada tamanho, escolhendo peça por peça — é o que faz a roupa do seu filho não estar em outras cinco crianças. Não serve pra todo mundo, e tudo bem. Me chama e eu te mostro 💛 Clau Kids, Marília.</div></div>
+    </div>
+  </div>
+
+  <p class="fino">A mensagem pré-preenchida diferente em cada anúncio é o que dá atribuição
+  sem CRM: a Clau vê pela saudação qual anúncio trouxe cada pessoa, e a conversa já chega
+  com a idade. É gratuito e ninguém está usando.</p>
+</section>
+
+<section>
+  <h2>4 · Preparação dos vídeos antes de subir</h2>
+  <p>Os três foram montados para o feed, onde a pessoa já escolheu assistir. No anúncio ela
+  não escolheu. Cada um leva poucos minutos de ajuste:</p>
+  <div class="passos">
+    <div class="passo"><div class="n">01</div><div class="txt"><b>Cortar a respiração inicial.</b> A primeira palavra tem que cair no primeiro quadro.</div></div>
+    <div class="passo"><div class="n">02</div><div class="txt"><b>Remover qualquer trilha da biblioteca do Instagram.</b> Música licenciada só para orgânico derruba o anúncio na revisão.</div></div>
+    <div class="passo"><div class="n">03</div><div class="txt"><b>Legenda queimada do começo ao fim.</b> No anúncio ninguém desbloqueia o som por curiosidade.</div></div>
+    <div class="passo"><div class="n">04</div><div class="txt"><b>Trocar o CTA falado</b> de “me chama no direct” para algo que aponte ao botão do WhatsApp.</div></div>
+    <div class="passo"><div class="n">05</div><div class="txt"><b>Cortar em 35 a 45 segundos</b> e guardar a versão longa para o remarketing de outubro.</div></div>
+    <div class="passo"><div class="n">06</div><div class="txt"><b>9:16 nativo</b>, com os 14% de cima e de baixo livres de texto — é onde a interface cobre.</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>5 · Regras de operação</h2>
+  <div class="regras">
+    <div class="col sim">
+      <div class="cab">Faz</div>
+      <ul>
+        <li><b>Deixa quieto nos 4 primeiros dias.</b> Qualquer edição significativa reinicia o aprendizado.</li>
+        <li><b>Corta anúncio caro:</b> passou de R$ 15 por conversa depois de R$ 60 gastos, desliga no mesmo dia.</li>
+        <li><b>Troca um anúncio por vez</b>, mantendo o conjunto de pé — preserva o histórico.</li>
+        <li><b>Reduz a diária se o Pix atrasar.</b> Campanha desacelerada continua aprendendo; parada recomeça do zero.</li>
+        <li><b>Cria hoje os públicos personalizados</b> da seção 6. Não custa verba e é o que barateia outubro.</li>
+      </ul>
+    </div>
+    <div class="col nao">
+      <div class="cab">Não faz</div>
+      <ul>
+        <li><b>Não sobe um quarto vídeo.</b> A R$ 33/dia saem 3 a 4 conversas por dia — 21 a 28 por semana, abaixo dos ~50 que o conjunto precisa para sair do aprendizado. Cada anúncio a mais divide um sinal que já é fino. Um quarto só se for <em>formato</em> diferente (estático).</li>
+        <li><b>Não estreita o público.</b> O CPM está bom justamente porque está largo. Revisar só no dia 30.</li>
+        <li><b>Não cria conjunto de remarketing agora.</b> Com essa verba ele passa fome e rouba do que traz gente nova.</li>
+        <li><b>Não usa Deserto nem Pula Bula.</b> Deserto: estoque não confirmado e a fala é “roupa leve pro calor”, contra o clima atual. Pula Bula: CPM de R$ 30 no frio.</li>
+        <li><b>Não desliga e religa o conjunto.</b> Se precisar segurar, reduz a diária.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>6 · Públicos a criar hoje — custo zero</h2>
+  <div class="passos">
+    <div class="passo"><div class="n">01</div><div class="txt"><b>Envolvimento no Instagram</b>, janela de 365 dias.</div></div>
+    <div class="passo"><div class="n">02</div><div class="txt"><b>Assistiram 50% ou mais</b> de qualquer vídeo dos anúncios, 365 dias.</div></div>
+    <div class="passo"><div class="n">03</div><div class="txt"><b>Lista de quem conversou no WhatsApp</b> desde agosto, exportada agora antes de sumir.</div></div>
+  </div>
+  <p class="fino">Nenhum deles recebe verba em setembro. São o combustível do Dia das
+  Crianças, quando reimpactar sai por uma fração do custo de alcançar gente nova.</p>
+</section>
+
+<section>
+  <h2>7 · Calendário de recarga</h2>
+  <div class="cal">
+    <div class="l"><div class="d">03/09</div><div class="t">Fatia 1 — R$ 300 · <strong>pago</strong></div></div>
+    <div class="l"><div class="d">11/09 · qui</div><div class="t">Fatia 2 — R$ 300. Cobrar dois dias antes de o saldo acabar; quem lembra somos nós, não a Clau.</div></div>
+    <div class="l"><div class="d">20/09 · dom</div><div class="t">Fatia 3 — R$ 300. Se o caixa dela apertar, esta pode não vir — o plano tem que ficar de pé com duas.</div></div>
+    <div class="l"><div class="d">11, 18 e 25/09</div><div class="t">Relatório de sexta, quatro linhas: investido · conversas · qual anúncio trouxe mais · o que muda na semana.</div></div>
+    <div class="l"><div class="d">30/09</div><div class="t">Fechamento e leitura do mês. Primeira vez que existe número de conversa que virou venda.</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>8 · Pendências que travam a leitura</h2>
+  <div class="pend">
+    <p><b>Ticket médio da Clau.</b> Pedido em 01/09, não veio. Sem ele o relatório do dia 30 entrega custo por conversa e nenhum retorno. Âncora provisória: a venda de R$ 300 do dia 02/09.</p>
+    <p><b>Estoque da Coleção Deserto.</b> Confirmar se ainda há peça na arara antes de qualquer decisão sobre ele. O Roteiro 18 anunciou publicamente que a coleção não seria reposta, e anúncio no ar sem produto é o que custou R$ 38,20 por conversa na Pula Bula em 20/08.</p>
+    <p><b>Data da diária de gravação.</b> Não é urgência de setembro — o acervo aguenta. É urgência de outubro, quando a verba sobe e queima criativo mais rápido.</p>
+  </div>
+</section>
+
+<footer>
+  Briefing operacional de tráfego · Clau Kids × Expansion · 08/09/2026. Números de agosto
+  lidos no gerenciador de anúncios, período de 09/08 a 07/09/2026; CPM, frequência e
+  conversa por pessoa alcançada calculados a partir de gasto, impressões, alcance e
+  resultados da mesma tabela. Projeções de volume são estimativa sobre o custo conhecido,
+  não garantia.
+</footer>
+
+</div>
