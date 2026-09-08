@@ -1,0 +1,257 @@
+<title>O Tráfego de Setembro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Karla:wght@400;500;600&display=swap">
+<style>
+:root{
+  --papel:#FBFAF7; --superficie:#FFFFFF; --tinta:#17201C; --tinta-2:#68716B;
+  --linha:#E3E2DC; --linha-forte:#C6C7BF;
+  --verde:#1F4D3D; --verde-fraco:#E0EAE5;
+  --mel:#A8761A; --mel-fraco:#F6EBD7;
+  --sombra:0 1px 3px rgba(23,32,28,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papel:#111512; --superficie:#1A1F1B; --tinta:#E9EBE6; --tinta-2:#9BA49C;
+    --linha:#28302A; --linha-forte:#3D473F;
+    --verde:#6FC4A5; --verde-fraco:#152A22;
+    --mel:#DCA94B; --mel-fraco:#32270F;
+    --sombra:0 1px 3px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#111512; --superficie:#1A1F1B; --tinta:#E9EBE6; --tinta-2:#9BA49C;
+  --linha:#28302A; --linha-forte:#3D473F;
+  --verde:#6FC4A5; --verde-fraco:#152A22;
+  --mel:#DCA94B; --mel-fraco:#32270F;
+  --sombra:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{background:var(--papel);color:var(--tinta);margin:0;
+  font:400 17.5px/1.62 "Karla",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.folha{max-width:760px;margin:0 auto;padding:56px 24px 96px;
+  display:flex;flex-direction:column;gap:52px}
+h1,h2,h3,.rot,.num,.nome{font-family:"Bricolage Grotesque","Karla",sans-serif}
+.num{font-variant-numeric:tabular-nums}
+.rot{font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mel)}
+h1{font-size:clamp(32px,6vw,48px);font-weight:700;line-height:1.03;
+  letter-spacing:-.03em;margin:14px 0 0;text-wrap:balance;color:var(--verde)}
+.sub{color:var(--tinta-2);margin:18px 0 0;max-width:56ch;font-size:18px}
+p{margin:0;max-width:60ch}
+.fino{color:var(--tinta-2);font-size:16px}
+section{display:flex;flex-direction:column;gap:18px}
+h2{font-size:23px;font-weight:600;letter-spacing:-.018em;margin:0;text-wrap:balance}
+h2 .conta{color:var(--mel);font-weight:600}
+
+/* três criativos */
+.criativos{display:flex;flex-direction:column;gap:12px}
+.cr{background:var(--superficie);border:1px solid var(--linha);border-radius:5px;
+  box-shadow:var(--sombra);padding:18px 20px;display:grid;
+  grid-template-columns:1fr auto;gap:14px;align-items:center}
+.cr .nome{font-weight:600;font-size:17.5px;letter-spacing:-.01em}
+.cr .desc{font-size:15.5px;color:var(--tinta-2);margin-top:4px;max-width:44ch}
+.cr .val{text-align:right;white-space:nowrap}
+.cr .val .n{font-family:"Bricolage Grotesque",sans-serif;font-variant-numeric:tabular-nums;
+  font-size:24px;font-weight:700;color:var(--verde);letter-spacing:-.02em;display:block}
+.cr .val .l{font-size:12px;color:var(--tinta-2);letter-spacing:.02em}
+.cr.fora{opacity:.72}
+.cr.fora .val .n{color:var(--tinta-2)}
+@media(max-width:520px){
+  .cr{grid-template-columns:1fr;gap:10px}
+  .cr .val{text-align:left}
+  .folha{padding:36px 18px 72px;gap:42px}
+}
+
+/* faixa de números */
+.faixa{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--linha-forte);border:1px solid var(--linha-forte);
+  border-radius:5px;overflow:hidden}
+.faixa > div{background:var(--superficie);padding:20px 18px;text-align:center}
+.faixa .n{font-family:"Bricolage Grotesque",sans-serif;font-variant-numeric:tabular-nums;
+  font-size:30px;font-weight:700;color:var(--verde);letter-spacing:-.025em;
+  display:block;line-height:1.1}
+.faixa .l{font-size:13.5px;color:var(--tinta-2);margin-top:6px;display:block;line-height:1.35}
+@media(max-width:520px){.faixa{grid-template-columns:1fr}}
+
+/* antes e depois */
+.troca{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--linha-forte);
+  border:1px solid var(--linha-forte);border-radius:5px;overflow:hidden}
+.troca > div{background:var(--superficie);padding:20px}
+.troca .q{font-family:"Bricolage Grotesque",sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.troca .antes .q{color:var(--tinta-2)}
+.troca .agora .q{color:var(--verde)}
+.troca p{font-size:16px}
+@media(max-width:520px){.troca{grid-template-columns:1fr}}
+
+/* combinado */
+.combinado{background:var(--verde-fraco);border-radius:5px;padding:22px 24px;
+  display:flex;flex-direction:column;gap:14px}
+.combinado .item{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.combinado .item::before{content:"";width:7px;height:7px;border-radius:50%;
+  background:var(--verde);margin-top:10px}
+.combinado p{font-size:16.5px;max-width:52ch}
+.combinado b{font-family:"Bricolage Grotesque",sans-serif;font-weight:600}
+
+/* pedido */
+.pedido{border:1.5px solid var(--mel);background:var(--mel-fraco);border-radius:5px;
+  padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+.pedido .item{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start}
+.pedido .n{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;color:var(--mel);
+  font-size:17px;line-height:1.5}
+.pedido p{font-size:16.5px;max-width:50ch}
+.pedido b{font-family:"Bricolage Grotesque",sans-serif;font-weight:600}
+
+.honesto{border-left:3px solid var(--linha-forte);padding-left:18px;
+  display:flex;flex-direction:column;gap:10px}
+.honesto p{font-size:16.5px;color:var(--tinta-2)}
+.honesto b{color:var(--tinta);font-family:"Bricolage Grotesque",sans-serif;font-weight:600}
+
+footer{border-top:1px solid var(--linha);padding-top:22px;font-size:14px;
+  color:var(--tinta-2);max-width:60ch}
+:focus-visible{outline:2px solid var(--mel);outline-offset:2px}
+</style>
+
+<div class="folha">
+
+<header>
+  <div class="rot">Clau Kids × Expansion · Setembro 2026</div>
+  <h1>O tráfego de setembro</h1>
+  <p class="sub">Clau, esse é o resumo do que a gente está fazendo com o seu investimento
+  em anúncio este mês — o que aprendemos em agosto, o que muda agora, e o que você vai ver
+  acontecer. 💛</p>
+</header>
+
+<section>
+  <h2>Agosto foi um teste, e ele deu certo</h2>
+  <p>A gente rodou três vídeos seus. Cada pessoa que te chamou no WhatsApp custou, em
+  média, <strong>dez reais e dezenove centavos</strong>. Para uma loja de bairro, isso é um
+  número bom — e é o número real, apurado no relatório, não estimativa.</p>
+  <div class="faixa">
+    <div><span class="n">25</span><span class="l">conversas no WhatsApp</span></div>
+    <div><span class="n">R$ 255</span><span class="l">investidos de verdade</span></div>
+    <div><span class="n">R$ 10,19</span><span class="l">por conversa</span></div>
+  </div>
+  <p class="fino">Uma dessas conversas virou uma venda de R$ 300 e ainda trouxe uma
+  indicação de R$ 500. Uma só. Mas mostra o tamanho que a coisa pode tomar.</p>
+</section>
+
+<section>
+  <h2>O que deu errado não foi o anúncio. <span class="conta">Foi o tempo no ar.</span></h2>
+  <p>O plano era investir R$ 850 ao longo do mês. Só que o anúncio ficou ligado uns
+  <strong>seis dias</strong> — o resto do mês ele passou desligado, e a gente entregou
+  menos de um terço do que tinha combinado. Não foi o vídeo, não foi o público. Foi o
+  anúncio parado.</p>
+  <div class="troca">
+    <div class="antes">
+      <div class="q">Agosto</div>
+      <p>R$ 42 por dia, num ritmo que gastava rápido e parava. Seis dias no ar em um mês
+      inteiro. E teve uma pausa em que a gente não te avisou — você descobriu perguntando.</p>
+    </div>
+    <div class="agora">
+      <div class="q">Setembro</div>
+      <p>R$ 33 por dia, todo dia, de hoje até o dia 30. Recarga com data marcada, e quem
+      lembra somos nós. Se qualquer coisa parar, você é avisada no mesmo dia, com o motivo.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Os vídeos que vão rodar</h2>
+  <p>Todos já estão gravados — são os da diária que a gente fez com a filmmaker em julho.
+  Você não precisa gravar nada novo para o tráfego deste mês.</p>
+  <div class="criativos">
+    <div class="cr">
+      <div>
+        <div class="nome">“As quatro perguntas”</div>
+        <div class="desc">O que mais convenceu em agosto. De cada 100 mães que viram, quase
+        4 vezes mais gente te chamou do que nos outros. É o vídeo que mostra como você atende.</div>
+      </div>
+      <div class="val"><span class="n">R$ 7,54</span><span class="l">por conversa</span></div>
+    </div>
+    <div class="cr">
+      <div>
+        <div class="nome">“Seu filho tem 9 anos e não cabe mais”</div>
+        <div class="desc">Estreia agora. É a arara que quase nenhuma loja de Marília tem, e
+        é uma dor que a mãe sente hoje — não depende de calor nem de frio para funcionar.</div>
+      </div>
+      <div class="val"><span class="n">novo</span><span class="l">nunca rodou</span></div>
+    </div>
+    <div class="cr">
+      <div>
+        <div class="nome">“Eu não vendo pra todo mundo”</div>
+        <div class="desc">Estreia agora. Ele explica sua curadoria logo de cara, então quem
+        te chama depois dele já chega sabendo como você trabalha.</div>
+      </div>
+      <div class="val"><span class="n">novo</span><span class="l">nunca rodou</span></div>
+    </div>
+    <div class="cr fora">
+      <div>
+        <div class="nome">“Coleção Deserto”</div>
+        <div class="desc">Fica de fora por enquanto. Ele fala de roupa leve pro calor, e
+        você acabou de dizer que o clima esfriou. Volta quando o tempo virar.</div>
+      </div>
+      <div class="val"><span class="n">pausado</span><span class="l">espera o calor</span></div>
+    </div>
+  </div>
+  <p class="fino">São três de cada vez, de propósito. Anúncio precisa de gente vendo para a
+  ferramenta aprender qual funciona — se a gente colocar dez vídeos com esse investimento,
+  nenhum recebe gente suficiente e a gente não aprende nada sobre nenhum.</p>
+</section>
+
+<section>
+  <h2>O que você vai ver acontecer</h2>
+  <div class="combinado">
+    <div class="item"><p><b>Relatório toda sexta</b>, em quatro linhas: quanto investimos,
+    quantas pessoas te chamaram, qual vídeo trouxe mais e o que muda na semana seguinte.
+    Você não precisa pedir — chega.</p></div>
+    <div class="item"><p><b>Aviso no mesmo dia se parar</b>, por qualquer motivo, com o
+    motivo junto. Isso falhou em agosto e não se repete.</p></div>
+    <div class="item"><p><b>A gente reduz na hora se sobrar conversa.</b> O limite é o seu
+    atendimento, nunca o orçamento. Conversa sem resposta é pior do que conversa que não veio.</p></div>
+    <div class="item"><p><b>Cada vídeo com uma mensagem diferente já escrita.</b> Quando a
+    mãe clica, a conversa já abre com “meu filho tem ___ anos” — assim você sabe de onde ela
+    veio e já começa sabendo a idade.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Duas coisas que eu preciso de você</h2>
+  <div class="pedido">
+    <div class="item">
+      <div class="n">1</div>
+      <p><b>Seu ticket médio.</b> Mais ou menos quanto sai uma compra normal. Com esse
+      número eu consigo te dizer, em reais, quanto cada real investido está voltando. Hoje
+      eu sei o custo, mas não o retorno.</p>
+    </div>
+    <div class="item">
+      <div class="n">2</div>
+      <p><b>Anota a idade de quem te chamar.</b> Só a idade e o número que a criança veste.
+      É essa lista que vai fazer o Dia das Crianças, em outubro, custar muito menos.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>E o que eu não vou te prometer</h2>
+  <div class="honesto">
+    <p><b>Conversa não é venda.</b> O que a gente compra com o anúncio é gente te chamando
+    no WhatsApp. Quantas dessas viram compra, ninguém mediu ainda — nem em agosto. Setembro
+    é o primeiro mês em que esse número vai existir, e ele sai no dia 30.</p>
+    <p><b>Trabalho com faixa, não com número cravado.</b> A conta aponta para algo entre
+    <strong>60 e 100 conversas</strong> no mês. Prefiro te dizer isso do que prometer cem e
+    te frustrar.</p>
+    <p><b>O gargalo é o seu tempo, não o dinheiro.</b> Se as conversas passarem do que você
+    consegue responder bem, a gente diminui o anúncio no mesmo dia. Melhor atender vinte
+    mães direito do que quarenta pela metade.</p>
+  </div>
+</section>
+
+<footer>
+  Clau Kids × Expansion — resumo do tráfego pago de setembro/2026. Números de agosto
+  apurados no gerenciador de anúncios, período de 9 de agosto a 7 de setembro de 2026.
+  As faixas de conversa são estimativa sobre o custo já conhecido, não garantia de resultado. 💛
+</footer>
+
+</div>
