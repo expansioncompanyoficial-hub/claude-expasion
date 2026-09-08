@@ -1,0 +1,79 @@
+{
+  "titulo": "Clau Kids — Criativos de Tráfego",
+  "subtitulo": "@claukidstore  •  Moda Infantil  •  Marília/SP",
+  "framework": "Framework: TACO(H)  |  6 criativos  |  Público frio — Marília e 30 km  |  Objetivo único: conversa no WhatsApp",
+  "roteiros": [
+    {
+      "titulo": "TRÁFEGO 05 — \"Nesse eu só tenho um. E é no 12.\"",
+      "pilar": "🎯 Pilar: HYPE — ESCASSEZ REAL POR NUMERAÇÃO  •  O criativo que mais gera conversa, e o único que ela grava sozinha",
+      "blocos": [
+        {"rotulo": "GANCHO", "tempo": "0:00 – 0:04", "texto": "\"Nesse modelo aqui eu só tenho um. E ele é no 12.\"  [Abre no close da peça na mão dela, com a etiqueta do número aparecendo. Sem rosto nos primeiros segundos — o número na tela é o gancho]", "destaque": "gancho"},
+        {"rotulo": "DESENVOLVIMENTO", "tempo": "0:04 – 0:28", "texto": "\"Eu compro pouquinho de cada tamanho, e isso é de propósito. É o que faz o seu filho não encontrar a mesma roupa em outras três crianças na mesma festa. Só que tem um efeito: toda semana sobra um número solto de alguma peça. Esse aqui sobrou no 12. Tem um vestido que sobrou no 6, e uma camisa que ficou só no 4. Não é queima, não é ponta de estoque — é o último da grade. Quando sai, some do mapa, porque eu não reponho a mesma peça.\""},
+        {"rotulo": "CTA", "tempo": "0:28 – 0:38", "texto": "\"Me chama aqui no WhatsApp e me diz o número que o seu filho veste. Eu te falo na hora o que sobrou no tamanho dele. 💛\"", "destaque": "cta"},
+        {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "texto do anúncio", "texto": "Eu compro pouco de cada tamanho — de propósito. O efeito é que sempre sobra um número solto de alguma peça, e quando sai, não volta. Me manda o número que seu filho veste que eu te digo o que ainda tem no tamanho dele 💛 Clau Kids, Marília."},
+        {"rotulo": "📹 COMO GRAVAR", "tempo": "direção", "texto": "É o único dos seis que ela grava sozinha, no celular, e deve ser regravado toda semana com a peça e o número da vez. O formato protege a qualidade: é close de mão e produto, luz da vitrine, sem plano aberto e sem rosto em foco. Áudio gravado à parte no gravador de voz, colado por cima. Legenda queimada com o NÚMERO em corpo grande — é o número que faz a mãe parar, não a peça."}
+      ],
+      "hashtags": "Mensagem pré-preenchida no anúncio: \"Oi Clau! Meu filho veste ___. O que sobrou no tamanho dele?\""
+    },
+    {
+      "titulo": "TRÁFEGO 06 — \"Me manda a foto da criança, não a do vestido\"",
+      "pilar": "🎯 Pilar: TÉCNICO — O MÉTODO DA CURADORIA  •  O CTA é a própria demonstração do serviço",
+      "blocos": [
+        {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "\"Não me manda a foto do vestido que você quer. Me manda a foto da criança.\"  [Ela em plano médio, olhando na lente. A frase inteira sai antes de qualquer corte]", "destaque": "gancho"},
+        {"rotulo": "DESENVOLVIMENTO", "tempo": "0:05 – 0:32", "texto": "\"Porque o vestido que você viu foi feito pra outra criança. Eu preciso saber como é a sua. Se ela é agitada ou tranquila, se sente mais frio ou mais calor, se é baixinha, se é grandona. Que horas é a festa, e como é a decoração. Eu já tirei um vermelho da mão de uma mãe porque a festa inteira era vermelha e a filha dela ia sumir na parede. Ela agradeceu depois. Roupa de criança não é tamanho, é encaixe.\""},
+        {"rotulo": "CTA", "tempo": "0:32 – 0:42", "texto": "\"Me chama no WhatsApp e me manda uma foto do seu filho. Eu monto o look e te mando aqui. 💛\"", "destaque": "cta"},
+        {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "texto do anúncio", "texto": "Antes de escolher a roupa eu preciso conhecer a criança: se é agitada ou tranquila, se sente frio ou calor, que horas é a festa e como é a decoração. Roupa de criança não é tamanho, é encaixe. Me manda uma foto do seu filho que eu monto o look 💛 Clau Kids, Marília."},
+        {"rotulo": "📹 COMO GRAVAR", "tempo": "direção", "texto": "Videomaker. Plano médio, lapela, olhar na lente do começo ao fim — é fala direta, não narração. Cortes de apoio só depois de 0:12, para o gancho chegar inteiro no rosto dela. Sem trilha da biblioteca do Instagram."}
+      ],
+      "hashtags": "Mensagem pré-preenchida no anúncio: \"Oi Clau! Vou te mandar a foto do meu filho. Ele tem ___ anos.\""
+    },
+    {
+      "titulo": "TRÁFEGO 07 — \"A festa é sábado\"",
+      "pilar": "🎯 Pilar: CONEXÃO — O ESPELHO COM PRAZO  •  Urgência que existe de verdade, sem inventar oferta",
+      "blocos": [
+        {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "\"A festa é sábado. Você lembrou hoje. E não tem nada no armário que sirva.\"  [Ela já falando quando o vídeo começa, sem respiro inicial]", "destaque": "gancho"},
+        {"rotulo": "DESENVOLVIMENTO", "tempo": "0:05 – 0:30", "texto": "\"Acontece toda semana, e eu já sei como termina: você entra em quatro lojas, prova em três, e leva a peça que serviu, não a que você queria. Aqui não funciona assim. Você me conta que festa é, a idade e o número, e eu separo. Quando você chegar já está na mão, no provador, e se não servir eu já tenho a segunda opção do lado. Você não vai caçar roupa numa sexta à noite.\""},
+        {"rotulo": "CTA", "tempo": "0:30 – 0:40", "texto": "\"Me chama agora e me diz que festa é e a idade do seu filho. Eu deixo separado pra você buscar. 💛\"", "destaque": "cta"},
+        {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "texto do anúncio", "texto": "A festa é sábado e você lembrou hoje. Me conta que festa é, a idade e o número do seu filho — eu separo aqui e deixo pronto pra você buscar, com a segunda opção do lado 💛 Clau Kids, Marília."},
+        {"rotulo": "📹 COMO GRAVAR", "tempo": "direção", "texto": "Videomaker. Começa nela e termina na arara com as peças separadas em cima do balcão — o plano final tem que MOSTRAR a peça já separada, senão o CTA vira promessa abstrata. Gravar duas versões do gancho: uma com \"sábado\" e outra com \"esse fim de semana\", para poder rodar o ano inteiro."}
+      ],
+      "hashtags": "Mensagem pré-preenchida no anúncio: \"Oi Clau! Tenho uma festa esse fim de semana. Meu filho tem ___ anos.\""
+    },
+    {
+      "titulo": "TRÁFEGO 08 — \"Uma mãe me pediu um vestido vermelho. Eu disse não.\"",
+      "pilar": "🎯 Pilar: AUTORIDADE — A CURADORIA COMO RECUSA  •  Gancho polarizador, filtra antes da conversa",
+      "blocos": [
+        {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "\"Uma mãe entrou aqui pedindo um vestido vermelho. Eu disse não.\"  [Plano médio, ela séria. A pausa depois do \"não\" é o que segura]", "destaque": "gancho"},
+        {"rotulo": "DESENVOLVIMENTO", "tempo": "0:05 – 0:33", "texto": "\"A festa era da Minnie. Decoração vermelha da parede ao chão. A filha dela ia entrar naquela sala e desaparecer no cenário — e ainda por cima o vermelho não caía bem nela. Eu podia ter vendido o vestido e ficado com o dinheiro. Só que a foto daquela festa ia durar a vida inteira, e a mãe ia olhar depois e não ia saber explicar por que não ficou legal. Eu tirei o vermelho da mão dela e mostrei outra coisa. Ela me agradeceu na saída.\""},
+        {"rotulo": "CTA", "tempo": "0:33 – 0:43", "texto": "\"Se você tem uma festa chegando, me chama e me conta como ela é. Eu te digo o que funciona — mesmo que não seja o que você foi procurar. 💛\"", "destaque": "cta"},
+        {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "texto do anúncio", "texto": "Eu já tirei um vestido vermelho da mão de uma mãe. A festa era da Minnie, decoração vermelha inteira, e a filha dela ia sumir no cenário. Vendi outra coisa e ela me agradeceu. Me conta como é a festa do seu filho que eu te digo o que funciona 💛 Clau Kids, Marília."},
+        {"rotulo": "📹 COMO GRAVAR", "tempo": "direção", "texto": "Videomaker. Take único, sem corte, com ela contando como quem conta um caso — não decorado. Deixar a câmera rodando e usar a terceira ou quarta tomada, que é quando a fala solta. Sem música."}
+      ],
+      "hashtags": "Mensagem pré-preenchida no anúncio: \"Oi Clau! Tenho uma festa chegando e queria sua opinião.\""
+    },
+    {
+      "titulo": "TRÁFEGO 09 — \"Você achou caro. Deixa eu te explicar de onde vem o preço.\"",
+      "pilar": "🎯 Pilar: OBJEÇÃO — O PREÇO DEFENDIDO, NUNCA CORTADO  •  Confirmar com a Clau antes de gravar",
+      "blocos": [
+        {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "\"Você olhou o preço e achou caro. Eu vou te explicar de onde ele vem.\"  [Ela olhando na lente, tom calmo. Nenhum número na tela em nenhum momento do vídeo]", "destaque": "gancho"},
+        {"rotulo": "DESENVOLVIMENTO", "tempo": "0:05 – 0:35", "texto": "\"Eu compro pouquinho de cada tamanho, escolhendo peça por peça, e não pego a arara inteira do fornecedor. Isso custa mais caro pra mim, e é o que faz a roupa do seu filho não estar em outras cinco crianças. Eu também não trabalho com liquidação, e o motivo é simples: se eu fizesse queima, era porque eu tinha te cobrado a mais antes. O preço que está lá é o preço. Não sobe pra depois descer. Você não paga a etiqueta bonita — você paga a peça certa, escolhida pro seu filho.\""},
+        {"rotulo": "CTA", "tempo": "0:35 – 0:45", "texto": "\"Me chama no WhatsApp e me diz o que você procura. Eu te falo o preço antes de você precisar perguntar. 💛\"", "destaque": "cta"},
+        {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "texto do anúncio", "texto": "Eu não faço liquidação, e o motivo é simples: se eu fizesse, era porque tinha cobrado a mais antes. Compro pouco de cada tamanho, escolhendo peça por peça — é o que faz a roupa do seu filho não estar em outras cinco crianças. Me diz o que você procura que eu te falo o preço antes de você perguntar 💛 Clau Kids, Marília."},
+        {"rotulo": "📹 COMO GRAVAR", "tempo": "direção", "texto": "Videomaker, e este passa pela aprovação dela ANTES de gravar — é o único dos seis que fala de preço, e ainda que defenda o preço em vez de cortá-lo, é ela quem decide se quer tocar no assunto. Nenhum valor aparece na tela nem na fala. Plano fixo, take único."}
+      ],
+      "hashtags": "Mensagem pré-preenchida no anúncio: \"Oi Clau! Queria ver o que você tem pro meu filho de ___ anos.\""
+    },
+    {
+      "titulo": "TRÁFEGO 10 — \"Pode me chamar sem saber o que você quer\"",
+      "pilar": "🎯 Pilar: OBJEÇÃO — REMOVE O ATRITO DE COMEÇAR A CONVERSA  •  Ataca o motivo nº 1 de a pessoa não mandar mensagem",
+      "blocos": [
+        {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "\"A maioria das mães me chama sem saber o que quer. E é o meu tipo preferido de conversa.\"  [Ela em plano médio, sorrindo, tom de quem está tranquilizando alguém]", "destaque": "gancho"},
+        {"rotulo": "DESENVOLVIMENTO", "tempo": "0:05 – 0:32", "texto": "\"Você não precisa chegar aqui com a peça na cabeça, nem com print, nem sabendo o número certo. Chega com o problema: 'tenho um casamento', 'ele cresceu e não serve mais nada', 'não faço ideia do que comprar'. A partir dali é comigo. Eu vou te perguntar da criança, do momento, do horário — e eu monto. Tem mãe que me chama só pra desabafar que o filho cresceu rápido demais. Essa conversa também vale.\""},
+        {"rotulo": "CTA", "tempo": "0:32 – 0:42", "texto": "\"Me chama aqui sem saber o que quer. É assim que começa. 💛\"", "destaque": "cta"},
+        {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "texto do anúncio", "texto": "Você não precisa saber o que quer pra me chamar. Chega com o problema — \"tenho um casamento\", \"ele cresceu e não serve mais nada\", \"não faço ideia\" — que a partir dali é comigo 💛 Clau Kids, Marília."},
+        {"rotulo": "📹 COMO GRAVAR", "tempo": "direção", "texto": "Videomaker. É o mais quente dos seis e o que mais depende do rosto dela: tem que soar acolhedor, não vendedor. Plano médio um pouco mais fechado que os outros, luz suave da vitrine. Sem corte nos primeiros 8 segundos."}
+      ],
+      "hashtags": "Mensagem pré-preenchida no anúncio: \"Oi Clau! Não sei bem o que eu preciso, pode me ajudar?\""
+    }
+  ]
+}
