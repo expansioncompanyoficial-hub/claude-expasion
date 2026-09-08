@@ -1,0 +1,121 @@
+<title>Plano Estilo Menina Setembro</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#fffdfa; --ink:#231a12; --muted:#8a7a6a; --card:#fff; --line:#eee2d4;
+    --accent:#E67E22; --accent-soft:#fdf0e3; --accent-ink:#a4560f;
+    --ok:#1e9e5a; --ok-bg:#e9f9f0; --gold-bg:#fdf6e7; --gold-ink:#8a5a06;
+    --dark:#341100; --dark-ink:#f5ede6;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1c130b; --ink:#f4ebe2; --muted:#b3a190; --card:#271b10; --line:#3f2e1d;
+      --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877;
+      --ok:#4ecb87; --ok-bg:#15301f; --gold-bg:#332508; --gold-ink:#f0c05e;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1c130b; --ink:#f4ebe2; --muted:#b3a190; --card:#271b10; --line:#3f2e1d;
+    --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877;
+    --ok:#4ecb87; --ok-bg:#15301f; --gold-bg:#332508; --gold-ink:#f0c05e;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif; font-size:16px; line-height:1.6; padding:0 16px 70px;}
+  .wrap{max-width:640px; margin:0 auto;}
+  header.hero{background:#341100; color:#f5ede6; border-radius:18px; padding:30px 26px; margin:22px 0 26px;}
+  .brand{font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; font-weight:800; color:#f0a56b; margin:0 0 8px;}
+  h1{font-size:26px; font-weight:800; letter-spacing:-.02em; line-height:1.2; margin:0 0 8px; text-wrap:balance;}
+  .hero p{color:#dcc9b8; font-size:15px; margin:0;}
+  h2{font-size:19px; font-weight:800; letter-spacing:-.01em; margin:38px 0 6px;}
+  h2 .n{color:var(--accent); margin-right:6px;}
+  .lead{color:var(--muted); font-size:14.5px; margin:0 0 16px; max-width:62ch;}
+  .grid{display:grid; gap:10px; grid-template-columns:repeat(2,1fr);}
+  @media(max-width:560px){.grid{grid-template-columns:1fr 1fr;}}
+  .stat{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px;}
+  .stat .k{font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:700; margin:0 0 3px;}
+  .stat .v{font-weight:800; font-size:19px; margin:0; font-variant-numeric:tabular-nums;}
+  .stat .d{font-size:12.5px; color:var(--muted); margin:3px 0 0;}
+  .meta-cards{display:grid; gap:12px; grid-template-columns:1fr 1fr; margin-top:12px;}
+  @media(max-width:560px){.meta-cards{grid-template-columns:1fr;}}
+  .meta{border-radius:14px; padding:18px;}
+  .meta.real{background:var(--ok-bg); border:2px solid var(--ok);}
+  .meta.otim{background:var(--gold-bg); border:2px dashed var(--gold-ink);}
+  .meta .t{font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:800; margin:0 0 6px;}
+  .meta.real .t{color:var(--ok);}
+  .meta.otim .t{color:var(--gold-ink);}
+  .meta .v{font-size:24px; font-weight:800; margin:0; font-variant-numeric:tabular-nums;}
+  .meta p{font-size:13.5px; margin:6px 0 0; color:var(--muted);}
+  .conta{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; font-size:14px; margin-top:12px;}
+  .conta b{color:var(--accent-ink);}
+  .frente{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:12px; padding:14px 18px; margin:0 0 10px;}
+  .frente b{display:block; margin-bottom:2px;}
+  .frente span{font-size:14px; color:var(--muted);}
+  .tblwrap{overflow-x:auto; border:1px solid var(--line); border-radius:14px;}
+  table{border-collapse:collapse; width:100%; font-size:13.5px; min-width:520px;}
+  th{font-size:10.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); text-align:left; font-weight:700; background:var(--card);}
+  th,td{padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  td.dia{font-weight:800; white-space:nowrap; color:var(--accent-ink); font-variant-numeric:tabular-nums;}
+  .marco{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 16px; margin:0 0 10px; font-size:14.5px;}
+  .marco b{color:var(--accent-ink);}
+  .comms{background:var(--accent-soft); border-radius:14px; padding:16px 20px; margin-top:14px; font-size:14.5px;}
+  .comms b{color:var(--accent-ink);}
+  footer{margin-top:46px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:12.5px; text-align:center;}
+</style>
+<div class="wrap">
+
+<header class="hero">
+  <p class="brand">Expansion × Estilo Menina</p>
+  <h1>Plano de Crescimento — Setembro</h1>
+  <p>Lu, aqui está o que combinamos na reunião: a estratégia, o cronograma com o papel de cada uma das partes, e as metas com a conta aberta — tudo baseado nos <b style="color:#f5ede6">seus números reais</b>, não em achismo. 🧡</p>
+</header>
+
+<h2><span class="n">1</span>O que os seus números contam</h2>
+<p class="lead">Estudamos sua base e seu histórico de 12 meses no Bling. A sua loja tem mais força do que parece:</p>
+<div class="grid">
+  <div class="stat"><p class="k">Ticket médio real</p><p class="v">R$ 169</p><p class="d">acima do que estimávamos</p></div>
+  <div class="stat"><p class="k">Melhor mês (recorde)</p><p class="v">R$ 7 mil</p><p class="d">maio e junho — a coleção junina</p></div>
+  <div class="stat"><p class="k">Clientes fiéis</p><p class="v">1,65×</p><p class="d">pedidos por cliente no ano — recompra existe</p></div>
+  <div class="stat"><p class="k">Base regional</p><p class="v">57%</p><p class="d">das clientes em Marília/Vera Cruz e região</p></div>
+</div>
+<div class="conta">O padrão que os dados mostram: <b>quando tem campanha + novidade + vídeo seu, a loja vende</b> (a junina provou — foi seu recorde). Quando não tem, o mês seca. Nosso trabalho é transformar esse padrão em rotina semanal.</div>
+
+<h2><span class="n">2</span>A meta de setembro — com a conta aberta</h2>
+<p class="lead">Você pediu parâmetro, e parâmetro honesto se dá com número na mesa:</p>
+<div class="conta" style="margin-top:0">Verba de tráfego: <b>R$ 40/dia ≈ R$ 1.040 no mês</b>. Com o retorno saudável do mercado para loja começando (3 a 5 vezes o investido), o tráfego pago entrega <b>R$ 3.100 a R$ 5.400</b>. O restante vem do que não custa nada: grupo VIP, ações na sua base de clientes e conteúdo — onde você é forte.</div>
+<div class="meta-cards">
+  <div class="meta real"><p class="t">Meta combinada</p><p class="v">R$ 5–7 mil</p><p>Empatar ou <b>bater o seu recorde histórico</b> já no primeiro mês de parceria.</p></div>
+  <div class="meta otim"><p class="t">Meta desafio</p><p class="v">R$ 10 mil</p><p>Novo recorde absoluto da loja (+43%). Possível se todas as frentes performarem juntas.</p></div>
+</div>
+
+<h2><span class="n">3</span>Como vamos chegar lá — 5 frentes</h2>
+<div class="frente"><b>🚀 Mini-lançamentos semanais</b><span>O ritual que você já faz, agora com método: aviso no grupo na véspera → site libera 11h com exclusividade → redes 17h. Setembro: malha canelada (já neste sábado!), Conjunto Salopete e Conjunto Sofia.</span></div>
+<div class="frente"><b>💛 Sua base primeiro</b><span>Suas 129 clientes viram público de anúncio, e as que estão sumidas recebem uma ação especial de recompra — venda que não gasta verba.</span></div>
+<div class="frente"><b>📍 Região como prioridade</b><span>Mais da metade das suas clientes está em Marília/Vera Cruz — campanha constante na região usando seu frete grátis e motoboy como diferencial. Brasil inteiro entra nas semanas de lançamento.</span></div>
+<div class="frente"><b>📱 Você aprende junto</b><span>Playbook do grupo VIP por escrito + direcionamento semanal de conteúdo. E teste de live de dia (a de noite já vimos que não funciona).</span></div>
+<div class="frente"><b>🎁 Dia das Crianças no alvo</b><span>Campanha da data no ar até 20/09 para "esquentar" com 3 semanas de antecedência — é em outubro que vem o pico de vendas do ano até o Natal.</span></div>
+
+<h2><span class="n">4</span>Semana 1 — quem faz o quê</h2>
+<div class="tblwrap"><table>
+  <thead><tr><th>Dia</th><th>Expansion faz</th><th>Você faz</th></tr></thead>
+  <tbody>
+    <tr><td class="dia">Qua</td><td>Lista de acessos + Drive + guia da BM; começa o estudo da sua base</td><td>Acessos (Bling, Tray, Instagram, BM pelo guia) + logos no Drive</td></tr>
+    <tr><td class="dia">Qui</td><td>Entrega deste plano + projeção; confere o pixel do site</td><td>Sobe a malha canelada para o site; valida o plano</td></tr>
+    <tr><td class="dia">Sex</td><td>Call rápida de alinhamento + roteiro do lançamento nº 1</td><td>Posta o aviso de véspera no grupo à noite</td></tr>
+    <tr><td class="dia">Sáb</td><td>Acompanha ao vivo e lê os números com você</td><td><b>Mini-lançamento nº 1</b> — site 11h, redes 17h 🎉</td></tr>
+    <tr><td class="dia">Dom</td><td>Monta os públicos e as campanhas</td><td>Grava os vídeos da Salopete e do Sofia</td></tr>
+    <tr><td class="dia">Seg</td><td><b>Campanhas no ar</b> (R$ 40/dia)</td><td>Aprova criativos e textos no grupo</td></tr>
+    <tr><td class="dia">Ter</td><td>Resumo da semana com números no grupo</td><td>Feedback + pendências</td></tr>
+  </tbody>
+</table></div>
+
+<h2><span class="n">5</span>Semanas 2 a 4 — os marcos</h2>
+<div class="marco"><b>Semana 2</b> · Lançamento nº 2 (Salopete — últimas unidades por numeração) + call rápida para ler os primeiros números juntas + começa o playbook do grupo.</div>
+<div class="marco"><b>Semana 3</b> · Campanha do <b>Dia das Crianças no ar até 20/09</b> + lançamento nº 3 (Sofia) + primeira leitura de retorno + decisão de reposição das peças campeãs.</div>
+<div class="marco"><b>Semana 4</b> · <b>Relatório completo do mês (~26/09)</b> — venda por canal, retorno sobre a verba, aprendizados — + call de fechamento + plano do Dia das Crianças fechado + teste de live diurna.</div>
+
+<div class="comms"><b>Nossa comunicação:</b> tudo pelo grupo do WhatsApp. Semana 1: contato todo dia. Depois: 3× por semana + resumo semanal com números do painel. Mudou algo? A gente avisa <b>antes</b>, nunca em cima da hora. E vale o combinado das duas partes: se você vir algo estranho ou tiver dúvida, fala na hora — é assim que time funciona. 🤝</div>
+
+<footer>Expansion · Plano Setembro/2026 · Estilo Menina — construído sobre os dados reais da loja (Bling, 12 meses)</footer>
+</div>
