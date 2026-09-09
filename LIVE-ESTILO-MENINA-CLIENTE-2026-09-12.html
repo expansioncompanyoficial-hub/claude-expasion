@@ -1,0 +1,257 @@
+<title>Live das Caneladas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#fffdfa; --ink:#231a12; --muted:#857566; --card:#ffffff; --line:#eee2d4;
+    --accent:#E67E22; --accent-soft:#fdf0e3; --accent-ink:#a4560f;
+    --ok:#1e9e5a; --ok-bg:#e9f9f0; --ok-ink:#14713f;
+    --red-bg:#fdeceb; --red-ink:#b3261e; --red:#d93a2b;
+    --gold-bg:#fdf6e7; --gold-ink:#8a5a06;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1a1209; --ink:#f4ebe2; --muted:#b0a091; --card:#261a10; --line:#3d2d1d;
+      --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877;
+      --ok:#4ecb87; --ok-bg:#14301f; --ok-ink:#6fdd9a;
+      --red-bg:#331614; --red-ink:#f2a099; --red:#e8695c;
+      --gold-bg:#332508; --gold-ink:#f0c063;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1a1209; --ink:#f4ebe2; --muted:#b0a091; --card:#261a10; --line:#3d2d1d;
+    --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877;
+    --ok:#4ecb87; --ok-bg:#14301f; --ok-ink:#6fdd9a;
+    --red-bg:#331614; --red-ink:#f2a099; --red:#e8695c;
+    --gold-bg:#332508; --gold-ink:#f0c063;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif; font-size:16px; line-height:1.6; padding:0 16px 80px;}
+  .wrap{max-width:640px; margin:0 auto;}
+
+  header.hero{background:#341100; color:#f5ede6; border-radius:20px; padding:32px 26px; margin:22px 0 10px;}
+  .brand{font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:800; color:#f0a56b; margin:0 0 10px;}
+  h1{font-size:29px; font-weight:800; letter-spacing:-.025em; line-height:1.15; margin:0 0 6px;}
+  .quando{font-size:17px; font-weight:700; color:#ffc998; margin:0 0 12px;}
+  header.hero p{color:#dcc9b8; font-size:15px; margin:0;}
+  header.hero b{color:#f5ede6;}
+
+  h2{font-size:20px; font-weight:800; letter-spacing:-.015em; margin:44px 0 4px;}
+  h2 .n{display:inline-block; min-width:28px; color:var(--accent); font-variant-numeric:tabular-nums;}
+  .lead{color:var(--muted); font-size:14.5px; margin:0 0 16px; max-width:60ch;}
+
+  .alerta{background:var(--red-bg); border-radius:14px; padding:16px 20px; margin:14px 0; font-size:14.5px;}
+  .alerta b{color:var(--red-ink);}
+  .nota{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; font-size:14.5px; margin:14px 0;}
+  .nota b{color:var(--accent-ink);}
+  .destaque{background:var(--ok-bg); border-radius:14px; padding:18px 22px; margin:14px 0;}
+  .destaque .t{font-weight:800; color:var(--ok-ink); margin:0 0 6px; font-size:16px;}
+  .destaque p{margin:0; font-size:15px;}
+
+  /* oferta */
+  .oferta{background:var(--accent-soft); border-radius:16px; padding:20px 22px; margin:14px 0;}
+  .of-linha{display:flex; justify-content:space-between; gap:14px; padding:9px 0; border-bottom:1px solid rgba(230,126,34,.22); font-size:15px; align-items:baseline;}
+  .of-linha:last-child{border-bottom:none;}
+  .of-linha .v{font-weight:800; color:var(--accent-ink); white-space:nowrap; font-variant-numeric:tabular-nums;}
+  .conta{background:var(--card); border:2px dashed var(--accent); border-radius:12px; padding:16px 18px; margin:14px 0 0; text-align:center;}
+  .conta .big{font-size:24px; font-weight:800; color:var(--accent-ink); font-variant-numeric:tabular-nums; letter-spacing:-.02em; display:block; margin:6px 0 4px;}
+  .conta small{color:var(--muted); font-size:13.5px;}
+
+  /* timeline */
+  .bloco{display:flex; gap:14px; margin:0 0 4px;}
+  .bloco .rail{flex:none; width:62px; text-align:right; padding-top:16px;}
+  .bloco .rail span{font-weight:800; font-size:13px; color:var(--accent-ink); font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .bloco .corpo{flex:1; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin-bottom:10px;}
+  .bloco .corpo h3{font-size:15.5px; font-weight:800; margin:0 0 6px;}
+  .bloco .corpo p{margin:0 0 6px; font-size:14.5px;}
+  .bloco .corpo p:last-child{margin-bottom:0;}
+  .fala{background:var(--accent-soft); border-radius:10px; padding:12px 15px; margin:9px 0 0; font-size:14px; font-style:italic; color:var(--accent-ink); line-height:1.55;}
+  .fala::before{content:"🗣 "; font-style:normal;}
+
+  ul.check{list-style:none; padding:0; margin:10px 0 0; display:grid; gap:7px;}
+  ul.check li{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 14px; font-size:14.5px; display:flex; gap:10px; align-items:flex-start;}
+  ul.check li::before{content:"☐"; color:var(--accent); font-weight:800; font-size:16px; flex:none; line-height:1.4;}
+
+  .dia{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:12px; padding:14px 18px; margin:0 0 10px;}
+  .dia .d{font-weight:800; font-size:15px; color:var(--accent-ink); margin:0 0 6px;}
+  .dia p{margin:0 0 5px; font-size:14.5px;}
+  .dia p:last-child{margin-bottom:0;}
+  .msg{background:var(--accent-soft); border-radius:10px; padding:12px 15px; margin:8px 0 0; font-size:14px; color:var(--accent-ink); line-height:1.55; white-space:pre-line;}
+
+  .folha{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:0 0 10px;}
+  .folha .t{font-weight:800; font-size:15px; margin:0 0 4px;}
+  .folha p{margin:0; font-size:14px; color:var(--muted);}
+  .folha p b{color:var(--ink);}
+
+  .frase{background:#341100; color:#f5ede6; border-radius:16px; padding:24px 26px; margin:18px 0; text-align:center;}
+  .frase .q{font-size:19px; font-weight:800; line-height:1.35; margin:0 0 10px;}
+  .frase p{margin:0; color:#dcc9b8; font-size:14px;}
+
+  footer{margin-top:50px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12.5px; text-align:center;}
+  @media print{body{padding:0} header.hero,.frase{border-radius:0} .bloco,.dia,.folha{break-inside:avoid}}
+</style>
+<div class="wrap">
+
+<header class="hero">
+  <p class="brand">Expansion × Estilo Menina</p>
+  <h1>A sua live das caneladas</h1>
+  <p class="quando">Sábado, 12 de setembro · 11h00 às 11h35</p>
+  <p>Lu, você teve a ideia e ela é boa — então aqui está tudo pronto: <b>o que falar, quando falar e o que preparar antes</b>. Não é pra decorar nada. É pra você ter chão e poder ser você, que é o que funciona. 💛</p>
+</header>
+
+<h2><span class="n">1.</span> Por que 11h da manhã</h2>
+<p class="lead">Escolhemos junto com o seu jeito de trabalhar, não contra ele:</p>
+<div class="nota">
+<b>É o seu horário de sempre.</b> Você já libera o site por volta das 11h nos lançamentos — então a live não é evento novo, ela <b>vira</b> a abertura do site.<br><br>
+<b>Sábado 11h é a hora da mãe.</b> Antes das 10h ela está resolvendo casa e mercado. Depois do meio-dia é almoço e soneca. Às 17h a família sai. 11h é a única janela larga do dia.<br><br>
+<b>E o mais importante:</b> terminando 11h35, você tem a tarde inteira para separar, embalar e o motoboy sair. Isso vira o melhor argumento da live inteira — e a Shopee não consegue fazer.
+</div>
+<div class="destaque"><p class="t">A frase que vende sozinha</p><p>"Fechou comigo até meio-dia? Aqui em Marília e Vera Cruz <b>chega hoje à tarde na sua casa</b>."</p></div>
+<div class="alerta"><b>Fala isso ao vivo, sem esconder:</b> quem for de fora da região vai receber com postagem na <b>segunda</b>, porque Correios não abre sábado à tarde. Cliente que sabe do prazo não reclama depois.</div>
+
+<h2><span class="n">2.</span> A oferta do dia</h2>
+<div class="oferta">
+  <div class="of-linha"><span>Peça avulsa</span><span class="v">R$ 79,90</span></div>
+  <div class="of-linha"><span><b>Os dois looks juntos</b> (o segundo sai por R$ 70)</span><span class="v">R$ 149,90</span></div>
+  <div class="of-linha"><span>Desconto no Pix (o de sempre)</span><span class="v">10%</span></div>
+  <div class="of-linha"><span>Par de laço combinando</span><span class="v">brinde</span></div>
+  <div class="of-linha"><span>Reserva de numeração ao vivo</span><span class="v">20 min</span></div>
+  <div class="of-linha"><span>Marília e Vera Cruz, fechando até 12h</span><span class="v">hoje à tarde</span></div>
+  <div class="conta">
+    A conta que você faz na frente delas:
+    <span class="big">R$ 149,90 ÷ 4 looks = R$ 37,48</span>
+    <small>dois looks que viram <b>quatro combinações</b> — é o argumento mais forte da peça</small>
+  </div>
+</div>
+<div class="nota"><b>Sem cupom nesta live.</b> Quanto menos coisa nova no site, menos chance de dar erro na hora H. Cupom fica pra próxima.<br><br><b>Separa 12 pares de laço numa caixa</b> do lado da bancada antes de começar. Acabou a caixa, acabou o brinde — assim você não se perde na conta.</div>
+
+<h2><span class="n">3.</span> O roteiro, minuto a minuto</h2>
+<p class="lead">As falas são exemplo, no seu tom. Fala do seu jeito — o que importa é a ordem.</p>
+
+<div class="bloco"><div class="rail"><span>10h15</span></div><div class="corpo">
+<h3>Antes de ligar</h3>
+<p>Celular no tripé <b>e no carregador</b>, com a <b>capa tirada</b> (esquenta e derruba a live). <b>Não Perturbe LIGADO</b> — uma ligação recebida derruba tudo.</p>
+<p>Testa a internet postando um story de 15s. Se o Wi-Fi estiver oscilando, desliga e usa o 4G — e fica nele.</p>
+<p>Conta as peças <b>na mão, uma por uma</b>. Não confia no sistema. E a luz da janela tem que estar <b>na sua frente</b>, nunca atrás.</p>
+</div></div>
+
+<div class="bloco"><div class="rail"><span>0 – 2:30</span></div><div class="corpo">
+<h3>Abertura — fala a oferta inteira já</h3>
+<p>Cola o link no comentário e <b>fixa</b>, logo nos primeiros segundos. Não espera juntar gente — metade entra depois do minuto 10 e nunca volta atrás pra descobrir a regra.</p>
+<p>Mostra um cartaz escrito à mão: <b>R$ 79,90 · do 2 ao 8</b> (muita gente assiste sem som).</p>
+<p class="fala">"Oi meninas, bom dia! Aqui é a Lu, da Estilo Menina, de Vera Cruz. Já vou avisando tudo logo no comecinho pra quem chegar depois não ficar perdida. Hoje eu tenho uma malha só: a canelada suede, do 2 ao 8. São duas peças — e essas duas peças fazem <b>quatro looks diferentes</b>. Eu vou montar os quatro aqui no manequim, ao vivo. Cada peça R$ 79,90, com 10% no Pix. Quem fechar comigo agora leva um par de laço de brinde. E quem é de Marília ou Vera Cruz e fechar até meio-dia, o motoboy leva hoje à tarde. O link tá fixado no primeiro comentário 💛"</p>
+</div></div>
+
+<div class="bloco"><div class="rail"><span>2:30 – 5</span></div><div class="corpo">
+<h3>Prova antes de vender</h3>
+<p>Mostra <b>um pedido de verdade já embalado</b>, esperando o motoboy. Nenhuma peça nova aqui. Quem chegou pelo Instagram e nunca comprou precisa ver que tem uma pessoa de verdade do outro lado — foi você mesma que disse que live dá segurança pra cliente nova.</p>
+</div></div>
+
+<div class="bloco"><div class="rail"><span>5 – 11</span></div><div class="corpo">
+<h3>Combinação 1</h3>
+<p>Veste no manequim, <b>mede com a fita na frente delas</b>, e diz as numerações que <b>tem</b> e as que <b>já acabaram</b> — com o número real. Abre a tela do site mostrando a peça.</p>
+</div></div>
+
+<div class="bloco"><div class="rail"><span>11 – 13</span></div><div class="corpo">
+<h3>⭐ Pausa — só lendo comentário</h3>
+<p>Dois minutos <b>sem mostrar peça nenhuma</b>, só respondendo e <b>chamando cada uma pelo nome</b>. É o bloco que mais vende e é o que todo mundo pula.</p>
+</div></div>
+
+<div class="bloco"><div class="rail"><span>13 – 22</span></div><div class="corpo">
+<h3>Combinações 2 e 3</h3>
+<p>Mesma coisa, com uma pausinha de comentário entre elas. <b>Peça que você não falou o preço em voz alta não conta como peça mostrada.</b></p>
+</div></div>
+
+<div class="bloco"><div class="rail"><span>22 – 27</span></div><div class="corpo">
+<h3>Combinação 4 + a conta</h3>
+<p>Monta a última e faz a conta na frente delas:</p>
+<p class="fala">"Olha só: são R$ 149,90 pelos dois. E com os dois você monta quatro looks diferentes. Dá R$ 37,48 cada roupinha montada. É por isso que eu gosto tanto dessa malha."</p>
+</div></div>
+
+<div class="bloco"><div class="rail"><span>27 – 30</span></div><div class="corpo">
+<h3>Numeração, escassez e reservas</h3>
+<p>Lê o que <b>acabou durante a live</b>, com número real. Abre as reservas: <b>20 minutos</b>, cronometrado, dizendo a hora que vence.</p>
+<p class="fala">"Ó, o 6 anos do primeiro modelo acabou agorinha, era o último. Quem quiser eu seguro por 20 minutinhos — até 11h50 — e você decide com calma, sem compromisso."</p>
+</div></div>
+
+<div class="bloco"><div class="rail"><span>30 – 33</span></div><div class="corpo">
+<h3>Repete tudo</h3>
+<p>Preço, os dois juntos, o laço, o motoboy até meio-dia e o prazo dos Correios. <b>Metade de quem está assistindo entrou depois do minuto 10 e nunca ouviu a oferta.</b></p>
+</div></div>
+
+<div class="bloco"><div class="rail"><span>33 – 35</span></div><div class="corpo">
+<h3>Fechamento</h3>
+<p>Agradece <b>pelo nome</b> quem comprou ao vivo (lendo do painel), avisa que o que sobrou fica no site até 23h59 e que amanhã você recolhe.</p>
+</div></div>
+
+<div class="nota"><b>Se der problema:</b> caiu a internet → volta e fala "caiu aqui, voltei" sem se desculpar muito · não apareceu ninguém nos 5 primeiros minutos → segue normal, a gravação vende depois · perguntaram peça que acabou → fala o número real e oferece a outra · veio muita gente de uma vez → responde de três em três, pelo nome, e avisa "vou pegando aos pouquinhos" 😊</div>
+
+<h2><span class="n">4.</span> As 4 folhas — o pedido que você me fez</h2>
+<p class="lead">Você falou que "o tempo está oscilando e fica difícil ter um parâmetro". A live resolve isso — mas só se a gente anotar. E anotar durante a live é impossível, então a gente inverteu: <b>você não escreve, você só risca.</b></p>
+<p class="lead">Imprime as 4 folhas na sexta. Ao vivo, o trabalho todo dá menos de 90 segundos somados.</p>
+
+<div class="folha"><p class="t">Folha 1 · GRADE</p><p>Risca o que sai <b>e anota a hora que cada numeração zerou</b>. Zerou 11h32 = só vendeu. Zerou 11h12 <b>e continuaram pedindo</b> = tem mercado esperando.</p></div>
+<div class="folha"><p class="t">Folha 2 · "PEDIU E EU NÃO TINHA"</p><p>Nome · idade da menina · o que pediu · <b>já era cliente?</b> Essa última coluna muda tudo: cliente antiga é reposição, gente nova é mercado novo.</p></div>
+<div class="folha"><p class="t">Folha 3 · IDADE DA AUDIÊNCIA</p><p>Os números de 1 a 12 escritos grandes. Cada vez que alguém disser a idade da filha, um risquinho embaixo. No fim você tem a idade real do seu público — que pode não ser a que você imagina.</p></div>
+<div class="folha"><p class="t">Folha 4 · COR E MODELO</p><p>Cada modelo com três caixinhas: <b>perguntaram · reservaram · levaram</b>. Cor errada é o erro de compra mais caro que existe em roupa infantil.</p></div>
+<div class="folha"><p class="t">No rodapé da folha 3 · O CLIMA</p><p><b>manga longa ___ / manga curta ___</b> — a virada de estação não se lê no termômetro. Se lê no que a mãe <b>vestiu na filha hoje de manhã</b>.</p></div>
+
+<h2><span class="n">5.</span> Perguntas pra fazer ao vivo</h2>
+<p class="lead">Não parecem pesquisa, e valem ouro na hora de comprar dia 22:</p>
+<div class="nota">
+<b>"Tem alguém aí com menina maior de 8 anos? Escreve a idade."</b><br><span style="color:var(--muted);font-size:14px">Mostra a grade que você não tem. Se aparecerem 3 ou mais, vale testar.</span><br><br>
+<b>"Dessas duas cores, se eu só pudesse trazer UMA da próxima, qual você quer?"</b><br><span style="color:var(--muted);font-size:14px">E quem votou vira compradora da próxima — porque já se sente dona.</span><br><br>
+<b>"Quem ficou SEM o tamanho hoje? Escreve SEM com a idade dela."</b><br><span style="color:var(--muted);font-size:14px">Essa é a mais importante do dia. E vira sua lista de espera.</span><br><br>
+<b>"Você já sabe o que vai dar de presente no Dia das Crianças? Roupa entra na sua lista?"</b><br><span style="color:var(--muted);font-size:14px">Essa resposta sozinha pode mudar metade da sua compra de outubro.</span><br><br>
+<b>"O que você precisa comprar pra ela agora e não achou em lugar nenhum?"</b><br><span style="color:var(--muted);font-size:14px">Não é o que ela acha bonito — é o que ela já está procurando com dinheiro na mão.</span>
+</div>
+
+<div class="frase">
+  <p class="q">"Live não se lê pelo que vendeu — se lê pelo que te pediram e você não tinha."</p>
+  <p>O que vendeu mede o tamanho da sua prateleira. O que pediram e você não tinha mede o tamanho do seu mercado. Escreve essa frase no alto da folha. 💛</p>
+</div>
+
+<h2><span class="n">6.</span> Os três dias até lá</h2>
+
+<div class="dia"><p class="d">Quinta 10/09</p>
+<p><b>A gente faz:</b> subir a malha canelada no site (ela está no seu sistema mas nunca foi pro site — são umas 20 peças que hoje ninguém consegue comprar) e te mandar o link.</p>
+<p><b>Você faz:</b> publicar o vídeo que você já editou, como Reels, avisando a live. E agendar a live no Instagram — quem tocar no sininho recebe aviso automático, de graça.</p></div>
+
+<div class="dia"><p class="d">Sexta 11/09</p>
+<p><b>Até 10h da manhã</b> a peça precisa estar comprável no site — esse é nosso prazo, não o seu.</p>
+<p><b>Você faz:</b> testa comprando de verdade, uma peça de cada numeração, até a tela de pagamento (sem finalizar). Se algum tamanho der erro, dá tempo de arrumar.</p>
+<p><b>11h — mensagem no grupo VIP:</b></p>
+<p class="msg">Meninas, amanhã 11h eu vou entrar ao vivo aqui pra mostrar a malha canelada suede que chegou 💛 São 2 peças que fazem 4 looks diferentes — eu monto os quatro ao vivo pra vocês verem.
+Peguei só 2 grades de cada, tem numeração com 3 unidades. Quem tá ao vivo escolhe primeiro.
+Quem for de Marília ou Vera Cruz e fechar até meio-dia, eu mando de motoboy no mesmo sábado 🛵
+11h em ponto. Deixei o lembrete no story, é só clicar 😊</p>
+<p style="margin-top:8px"><b>À noite:</b> monta a bancada, veste o manequim com o primeiro look e imprime as 4 folhas. Sábado de manhã você só liga o celular.</p></div>
+
+<div class="dia"><p class="d">Sábado 12/09</p>
+<p><b>9h</b> — story de bom dia na bancada. <b>10h</b> — story de contagem, falta 1 hora.</p>
+<p><b>10h45 — grupo VIP:</b></p>
+<p class="msg">Tô entrando ao vivo daqui a pouquinho, meninas! Vem que eu vou mostrar o tecido de pertinho e falar tamanho por tamanho o que eu tenho 💛</p>
+<p style="margin-top:8px"><b>11h00 — entra no ar no minuto.</b> Não às 11h07: a notificação que o Instagram manda pros seus 4 mil seguidores sai na hora que você entra.</p>
+<p><b>11h50</b> — story mostrando o que sobrou, com número real. <b>17h</b> — o primeiro corte da live vira Reels.</p>
+<p><b>Seu expediente encerra 18h</b>, com recado automático: "respondo tudo amanhã de manhã 💛". Ninguém desiste de comprar roupa infantil porque a resposta veio no domingo — e você precisa chegar inteira na segunda.</p></div>
+
+<h2><span class="n">7.</span> O combinado sobre o resultado</h2>
+<div class="destaque"><p class="t">A meta de sábado é: 3 pedidos</p>
+<p>E olha por que essa e não outra: <b>audiência você não controla</b>. O que você controla é a live acontecer inteira, as folhas preenchidas e os pedidos. Se der mais, ótimo — a gente comemora. Mas o combinado é esse.</p></div>
+<div class="alerta"><b>Uma coisa importante pra você não se assustar:</b> o número que aparece na tela durante a live são as pessoas <b>naquele exato momento</b> — e isso costuma ser só um terço de quem assiste no total. Se você vir "9 assistindo" lá pelo minuto 12, <b>está tudo normal</b>. Não deixa esse número te desanimar no meio, porque aí ele aparece na sua voz.</div>
+
+<h2><span class="n">8.</span> O dinheiro de sábado tem dono</h2>
+<div class="nota" style="border-left:4px solid var(--accent)">
+O que entrar no sábado <b>não é dinheiro solto</b>. Combinado: <b>de 40% a 50% fica separado pra compra do dia 22</b>, que é a que garante o seu Dia das Crianças.<br><br>
+Lembra que o 12/10 cai numa <b>segunda-feira feriado</b>? A compra das mães acontece na semana de 05 a 11/10. Se o fornecedor não for pago dia 22, essa semana chega com a prateleira do jeito que está hoje.<br><br>
+<b>É o dinheiro de sábado que compra outubro.</b>
+</div>
+
+<h2><span class="n">9.</span> Duas perguntinhas pra você</h2>
+<ul class="check">
+  <li><b>Quem fica com a Manu das 10h45 às 11h45?</b> Combina isso antes — é o que mais atrapalha uma live.</li>
+  <li><b>Quantas pessoas tem no grupo VIP hoje?</b> É o seu canal mais forte e a gente ainda não sabe o número.</li>
+</ul>
+
+<footer>Expansion · Live das Caneladas · sábado 12 de setembro de 2026, 11h<br>Qualquer dúvida antes de sábado, chama no grupo. A gente acompanha ao vivo com você. 💛</footer>
+</div>
