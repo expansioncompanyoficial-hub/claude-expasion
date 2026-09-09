@@ -99,21 +99,44 @@ no checkout. Cupom fica para a live de 01/10.
 **Teto de laços:** separar **12 pares** numa caixa ao lado da bancada antes da live.
 Acabou a caixa, acabou o brinde. Isso trava o custo em R$ 60.
 
-**Meta de faturamento** (janela sábado + rescaldo até segunda):
+**Meta de faturamento — RECALCULADA com o grupo VIP real de 124 membros**
+(a projeção anterior assumia ~80). Janela sábado + rescaldo até segunda:
+
+Universo de pessoas distintas expostas à oferta: grupo VIP 124 × 75% de leitura ≈ **93**
+· espectadores da live que não são do grupo ≈ 38 · alcançadas por story/feed/direct fora
+dos dois ≈ 40 → **≈ 171 pessoas** (eram ~138).
 
 | Cenário | Pedidos | Faturamento |
 |---------|---------|-------------|
-| Pessimista | 4–5 | R$ 310 |
-| **Base** | **8–10** | **R$ 700–800** |
-| Otimista (truncado pelo estoque) | 13 | R$ 1.260 |
+| Pessimista | 4–5 | R$ 365 |
+| **Base** | **8–9** | **R$ 850–950** |
+| Otimista | 13 | **R$ 1.260 — teto da prateleira** |
 
-**A live satura em ~13 pedidos** se o estoque for 18 peças (11 se forem 16). O limite
-não é audiência, é prateleira.
+**A live satura em ~13 pedidos** se o estoque for 18 peças (11 se forem 16). Com 124
+pessoas no grupo, **a prateleira agora é atingida no cenário-base, não só no otimista.**
+O limite deixou de ser audiência há muito tempo: é prateleira.
 
 **⚠️ Meta pública ≠ meta interna.** O que se combina com ela na quinta é
-**≥ 3 pedidos**. A faixa de R$ 700–800 fica interna. Explicação na seção 5.
+**≥ 3 pedidos**. A faixa de R$ 850–950 fica interna. Explicação na seção 5.
 
 ---
+
+## 2.1 🔴 Risco novo que os 124 membros criam: a live pode vender antes de começar
+
+O ritual dela é soltar o link no grupo por volta das **11h**. Com **93 pessoas lendo** e
+**~18 peças na prateleira**, o grupo sozinho pode zerar o estoque **antes ou durante** a
+transmissão. Isso parece bom e não é: mata a live pela metade (ela fica mostrando peça
+esgotada), frustra quem entrou ao vivo esperando escolher primeiro, e **destrói a
+leitura de demanda**, que é exatamente o que a Luciana pediu.
+
+**Regra, e ela precisa estar dita na quinta:** neste sábado **o link não vai para o
+grupo antes da live**. As mensagens de sexta 11h e sábado 10h45 chamam para a
+transmissão — **sem link**. O link entra no comentário fixado **no segundo 10 da live**,
+e é dito no ar: *"quem tá ao vivo escolhe primeiro"*.
+
+Isso converte os 124 membros de risco em ativo: em vez de comprarem sozinhos pelo
+celular, eles **vão para a live** — que é onde a escassez, a fita métrica e as quatro
+combinações fazem o ticket subir, e onde as perguntas de leitura de demanda acontecem.
 
 ## 3. Roteiro — sábado 11h00 às 11h35
 
@@ -215,7 +238,7 @@ Três coisas ditas no grupo **na quinta, antes de qualquer número**:
 
 ## 6. 🔴 O dinheiro da live é do fornecedor
 
-**A omissão mais cara do material, e ninguém tinha escrito:** entram R$ 700–800 no
+**A omissão mais cara do material, e ninguém tinha escrito:** entram R$ 850–950 no
 sábado, o caixa dela está no vermelho, e **nenhum documento diz o que fazer com esse
 dinheiro**. Sem regra, ele evapora em contas atrasadas — e em **22/09** não há Pix
 para o fornecedor, o que mata o Dia das Crianças.
@@ -270,10 +293,13 @@ da canelada libera ~R$ 1.438 de estoque morto), mas **precisa estar dito ao Nico
 
 ---
 
-## 9. Duas perguntas ainda sem resposta
+## 9. Pendências fechadas em 09/09
 
-1. **Quem fica com a filha das 10h45 às 11h45?** Ela opera sozinha, é sábado de manhã,
-   e há uma criança de 10 anos em casa que, por restrição legal, não pode aparecer.
-   Isso precisa ser combinado — não é detalhe, é o que pode interromper a live.
-2. **Qual o tamanho real do grupo VIP?** A projeção assume ~80 pessoas. É o canal mais
-   forte da operação e não temos o número. Pergunta de 30 segundos.
+- **Grupo VIP: 124 membros** (confirmado pelo Nicolas). A projeção assumia ~80 — as
+  metas da seção 2 já estão recalculadas, e o risco que esse tamanho cria está na
+  seção 2.1.
+- **A filha durante a live:** resolvido internamente, não é assunto para o grupo.
+
+**O que fica aberto e é da Expansion:** o número exato de peças da malha canelada
+(16? 18? 24?). Todo o teto da live depende disso, e ele sai da contagem física de
+sexta. Sem esse número, a saturação de 13 pedidos é estimativa.
