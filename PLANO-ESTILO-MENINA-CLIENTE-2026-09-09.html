@@ -1,0 +1,334 @@
+<title>Plano Estilo Menina</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#fffdfa; --ink:#231a12; --muted:#857566; --card:#ffffff; --line:#eee2d4;
+    --accent:#E67E22; --accent-soft:#fdf0e3; --accent-ink:#a4560f;
+    --ok-bg:#e9f9f0; --ok-ink:#14713f; --ok:#1e9e5a;
+    --red-bg:#fdeceb; --red-ink:#b3261e; --red:#d93a2b;
+    --hero:#341100; --hero-ink:#f5ede6; --hero-eyebrow:#f0a56b; --hero-soft:#dcc9b8; --hero-hi:#ffc998;
+    --rule:rgba(0,0,0,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1a1209; --ink:#f4ebe2; --muted:#b0a091; --card:#261a10; --line:#3d2d1d;
+      --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877;
+      --ok-bg:#14301f; --ok-ink:#6fdd9a; --ok:#4ecb87;
+      --red-bg:#331614; --red-ink:#f2a099; --red:#e8695c;
+      --hero:#250f00; --hero-soft:#cbb6a3;
+      --rule:rgba(255,255,255,.08);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1a1209; --ink:#f4ebe2; --muted:#b0a091; --card:#261a10; --line:#3d2d1d;
+    --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877;
+    --ok-bg:#14301f; --ok-ink:#6fdd9a; --ok:#4ecb87;
+    --red-bg:#331614; --red-ink:#f2a099; --red:#e8695c;
+    --hero:#250f00; --hero-soft:#cbb6a3;
+    --rule:rgba(255,255,255,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif; font-size:16px; line-height:1.6;
+    padding:0 16px 72px;}
+  .wrap{max-width:640px; margin:0 auto;}
+
+  header.hero{background:var(--hero); color:var(--hero-ink); border-radius:20px;
+    padding:32px 26px 28px; margin:22px 0 0;}
+  .eyebrow{font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:800;
+    color:var(--hero-eyebrow); margin:0 0 14px;}
+  h1{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:30px; line-height:1.16;
+    letter-spacing:-.015em; text-wrap:balance; margin:0 0 12px;}
+  header.hero .sub{color:var(--hero-soft); font-size:15px; margin:0; max-width:46ch;}
+  header.hero .sub b{color:var(--hero-hi); font-weight:600;}
+
+  h2{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:22px; line-height:1.25;
+    letter-spacing:-.01em; text-wrap:balance; margin:44px 0 6px;}
+  .lead{color:var(--muted); font-size:14.5px; margin:0 0 16px; max-width:62ch;}
+  p{margin:0 0 14px; max-width:64ch;}
+  p:last-child{margin-bottom:0;}
+
+  .feito{display:flex; flex-direction:column; gap:9px; margin:16px 0;}
+  .feito div{display:grid; grid-template-columns:auto 1fr; gap:10px; font-size:14.5px; align-items:start;}
+  .feito .ck{color:var(--ok); font-weight:800;}
+
+  .numeros{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px;}
+  .num{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:15px 16px;}
+  .num .v{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:24px; line-height:1.1;
+    color:var(--accent-ink); font-variant-numeric:tabular-nums; display:block; margin:0 0 5px; letter-spacing:-.02em;}
+  .num .l{font-size:13px; color:var(--muted); line-height:1.45; display:block;}
+
+  .conta{background:var(--card); border:2px dashed var(--accent); border-radius:14px;
+    padding:20px 18px; margin:18px 0; text-align:center;}
+  .conta .peq{font-size:14px; color:var(--muted); display:block; line-height:1.45;}
+  .conta .big{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:27px;
+    color:var(--accent-ink); font-variant-numeric:tabular-nums; letter-spacing:-.02em;
+    display:block; margin:8px 0 6px; line-height:1.15;}
+
+  .frase{background:var(--ok-bg); border-radius:14px; padding:18px 20px; margin:18px 0; font-size:15.5px; line-height:1.5;}
+  .frase b{color:var(--ok-ink);}
+  .alerta{background:var(--red-bg); border-radius:14px; padding:18px 20px; margin:18px 0; font-size:15px; line-height:1.5;}
+  .alerta b{color:var(--red-ink);}
+
+  .tw{overflow-x:auto; margin:16px 0;}
+  table{border-collapse:collapse; width:100%; font-size:14.5px; min-width:320px;}
+  th,td{text-align:left; padding:11px 10px; border-bottom:1px solid var(--line); vertical-align:top;}
+  th{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:800;}
+  td.n{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:600;}
+  tr.total td{border-bottom:none; border-top:2px solid var(--accent); font-weight:800; color:var(--accent-ink);
+    font-size:16px; padding-top:13px;}
+
+  .frentes{display:flex; flex-direction:column; gap:10px; margin:18px 0;}
+  .frente{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent);
+    border-radius:0 12px 12px 0; padding:15px 18px;}
+  .frente .f-top{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; margin:0 0 6px;}
+  .frente .f-nome{font-weight:800; font-size:16px;}
+  .frente .f-val{font-size:13.5px; font-weight:700; color:var(--accent-ink);
+    font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .frente p{font-size:14.5px; margin:0;}
+
+  .crono{display:flex; flex-direction:column;}
+  .lin{display:grid; grid-template-columns:74px 1fr; gap:14px; padding:12px 0;
+    border-bottom:1px solid var(--line); align-items:start;}
+  .lin:last-child{border-bottom:none;}
+  .lin .d{font-size:13px; font-weight:800; color:var(--accent-ink); font-variant-numeric:tabular-nums; line-height:1.35;}
+  .lin .d small{display:block; font-weight:600; color:var(--muted); font-size:11.5px;
+    text-transform:uppercase; letter-spacing:.06em;}
+  .lin .t{font-size:14.5px; line-height:1.5;}
+  .lin .t b{font-weight:700;}
+  .lin.marco{background:var(--accent-soft); border-radius:10px; padding:12px 12px; border-bottom:none; margin:4px 0;}
+  .lin.critica{background:var(--red-bg); border-radius:10px; padding:12px 12px; border-bottom:none; margin:4px 0;}
+  .lin.critica .d{color:var(--red-ink);}
+  .lin.critica .t b{color:var(--red-ink);}
+
+  .quem{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:18px 0;}
+  .quem .col{border-radius:14px; padding:16px 16px 14px; background:var(--card); border:1px solid var(--line);}
+  .quem .col.dela{background:var(--accent-soft); border-color:var(--accent);}
+  .quem h3{font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; margin:0 0 12px; color:var(--muted);}
+  .quem .col.dela h3{color:var(--accent-ink);}
+  .quem ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px;}
+  .quem li{font-size:14px; line-height:1.45;}
+
+  footer{margin:50px 0 0; padding-top:22px; border-top:1px solid var(--line); color:var(--muted); font-size:13px;}
+  footer b{color:var(--ink);}
+
+  @media (max-width:420px){
+    h1{font-size:26px;}
+    .numeros,.quem{grid-template-columns:1fr;}
+    .lin{grid-template-columns:64px 1fr; gap:10px;}
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Estilo Menina × Expansion</p>
+    <h1>O plano até o Dia das Crianças</h1>
+    <p class="sub">Feito em cima dos seus 12 meses no Bling, da sua base inteira na Tray
+    e da nossa call. <b>Sem número tirado da cabeça.</b> Aqui está o que a gente
+    descobriu, o que vamos fazer e quem faz o quê.</p>
+  </header>
+
+  <section>
+    <h2>O que a gente já fez</h2>
+    <div class="feito">
+      <div><span class="ck">✓</span><span>Lemos seus <b>12 meses de vendas</b> no Bling — 213 pedidos, um a um.</span></div>
+      <div><span class="ck">✓</span><span>Lemos sua <b>base inteira de clientes</b> na Tray — quem comprou, quando, quantas vezes.</span></div>
+      <div><span class="ck">✓</span><span>Separamos sua base em <b>4 grupos</b>, cada um com uma abordagem diferente.</span></div>
+      <div><span class="ck">✓</span><span>Contamos a sua <b>prateleira</b> antes de te pedir qualquer verba a mais.</span></div>
+      <div><span class="ck">✓</span><span>Montamos o <b>roteiro da live</b>, os textos das mensagens e o plano de gravação.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Os seus números</h2>
+    <p class="lead">Três deles mudaram completamente o plano.</p>
+    <div class="numeros">
+      <div class="num"><span class="v">R$ 169</span><span class="l">Seu ticket médio real. Sua cliente já leva quase 2 peças por pedido</span></div>
+      <div class="num"><span class="v">79%</span><span class="l">De quem se cadastra no site, compra. O normal é 2% a 10%</span></div>
+      <div class="num"><span class="v">57%</span><span class="l">Da sua base está na região — no raio do seu motoboy</span></div>
+      <div class="num"><span class="v">64%</span><span class="l">Das suas clientes não compram há mais de 90 dias. É caixa parado</span></div>
+    </div>
+    <p style="margin-top:18px">Aquele <b>79%</b> é o mais importante: ele não diz que o site
+    é bom, diz que <b>quem chega nele já confia em você antes de chegar</b>. Por isso 36%
+    dos seus pedidos nem passam pelo site — acontecem no WhatsApp, no grupo, na loja.</p>
+  </section>
+
+  <section>
+    <h2>A descoberta que mudou tudo</h2>
+    <p class="lead">Antes de pedir mais verba, a gente foi contar quantas peças existem
+    de verdade para vender.</p>
+
+    <div class="conta">
+      <span class="peq">R$ 10.000 dividido pelo seu preço médio por peça</span>
+      <span class="big">113 peças</span>
+      <span class="peq">Você tem hoje <b>~31 peças de giro rápido</b></span>
+    </div>
+
+    <div class="frase"><b>Não falta anúncio. Faltam peças.</b> R$ 10 mil em setembro não é
+    difícil — é fisicamente impossível. E é exatamente por isso que dinheiro em tráfego
+    já foi embora antes sem voltar: comprou visita para uma prateleira sem o que entregar.</div>
+
+    <p>Daí sai a verba do mês: <b>R$ 40 por dia</b>. Não é contenção — é o que 31 peças
+    autorizam. E tem uma regra simples para o futuro:</p>
+    <div class="conta">
+      <span class="peq">Regra de crescimento</span>
+      <span class="big">+40 peças = +R$ 50/dia</span>
+      <span class="peq">Cada reposição de ~40 peças libera ~R$ 50/dia de verba com segurança</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>A meta de setembro</h2>
+    <p class="lead">Recomposta em cima do que a prateleira comporta, com cada frente separada.</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>De onde vem</th><th class="n">Setembro</th></tr></thead>
+        <tbody>
+          <tr><td>Já vendido de 01 a 07/09</td><td class="n">~R$ 700</td></tr>
+          <tr><td>Reativação da base — mensagens, custo zero</td><td class="n">R$ 1.500–1.850</td></tr>
+          <tr><td>Grupo VIP, live e orgânico</td><td class="n">R$ 900–1.100</td></tr>
+          <tr><td>Tráfego pago (R$ 40/dia)</td><td class="n">R$ 350–570</td></tr>
+          <tr class="total"><td>Meta do mês</td><td class="n">R$ 4.500–5.500</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Sua média histórica é R$ 3.000/mês. Isso é <b>50% a 83% acima</b> — e dentro do que
+    a prateleira aguenta. O maior pedaço não vem de anúncio: vem das clientes que você já tem.</p>
+
+    <div class="frase"><b>E os R$ 10 mil?</b> Não morreram — <b>mudaram de mês</b>.
+    Novembro tem o aniversário de 1 ano do site, a Black Friday (27/11) e o estoque
+    reposto. Lá os R$ 10 mil têm mecanismo, não torcida. Outubro é a ponte:
+    <b>R$ 6.000 a 8.000</b>, se — e só se — o fornecedor for pago até 22/09.</div>
+  </section>
+
+  <section>
+    <h2>As quatro frentes</h2>
+    <div class="frentes">
+      <div class="frente">
+        <div class="f-top"><span class="f-nome">1 · Sua base de clientes</span><span class="f-val">R$ 1.500–1.850</span></div>
+        <p>É onde está o caixa do mês, e não custa nada. <b>74 mensagens</b> ao longo de
+        setembro, escritas uma a uma com nome, mês da última compra e a peça que ela levou.
+        Nunca lista de transmissão com texto igual. Para as VIPs, <b>acesso antecipado e
+        reserva — nunca desconto</b>.</p>
+      </div>
+      <div class="frente">
+        <div class="f-top"><span class="f-nome">2 · Tráfego pago</span><span class="f-val">R$ 40/dia</span></div>
+        <p>Uma campanha só, <b>regional</b>, destino <b>site</b> — nunca enxurrada de
+        WhatsApp. Em setembro o anúncio ainda não é caixa: ele monta o público que em
+        outubro custa <b>4× menos</b> por venda. Motoboy e "chega hoje" ditos dentro do
+        vídeo, nos 3 primeiros segundos.</p>
+      </div>
+      <div class="frente">
+        <div class="f-top"><span class="f-nome">3 · Conteúdo</span><span class="f-val">2–3 vídeos/semana</span></div>
+        <p>Uma bateria de gravação por semana, com a pauta fechada por nós na véspera.
+        Todo vídeo nasce em duas versões: uma para o feed e um corte para anúncio.
+        Manequim, detalhe de tecido, mãos e bastidor resolvem a questão da Manu.</p>
+      </div>
+      <div class="frente">
+        <div class="f-top"><span class="f-nome">4 · Grupo VIP e lives</span><span class="f-val">124 pessoas</span></div>
+        <p>É o seu canal mais forte e o mais barato. Regra que não se quebra:
+        <b>o grupo sempre vê primeiro</b>, e nunca existe oferta pública melhor que a de
+        lá — é a única razão de alguém continuar no grupo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Sábado, 12/09 — a live</h2>
+    <p class="lead">11h00, 35 minutos. É o piloto: a gente aprende com ela e repete melhor
+    nas próximas.</p>
+
+    <div class="frase"><b>Meta de sábado: 3 pedidos.</b> É de propósito que ela é baixa.
+    O que a gente mais quer dessa live não é faturamento — é <b>descobrir por que a mãe
+    decide</b>: numeração, prazo ou preço. Essa resposta vale mais que a venda do dia, porque
+    é ela que decide a reposição do dia 17.</div>
+
+    <div class="conta">
+      <span class="peq">A conta que você fala em voz alta ao vivo</span>
+      <span class="big">R$ 37,48</span>
+      <span class="peq">Combo de 2 peças por R$ 149,90 ÷ 4 combinações = o preço por roupa montada</span>
+    </div>
+
+    <div class="alerta"><b>A regra mais importante do sábado:</b> o link <b>não vai para o
+    grupo antes da live</b>. Com 124 pessoas e ~18 peças, o grupo esgota a prateleira antes
+    de você abrir a transmissão — e você fica mostrando peça esgotada ao vivo. Sexta e
+    sábado a gente chama para a live <b>sem link</b>. O link entra no comentário fixado no
+    primeiro minuto: <i>"quem tá ao vivo escolhe primeiro."</i></div>
+
+    <p>Brinde de laço para todo pedido feito ao vivo, reserva de numeração por 20 minutos,
+    e motoboy no mesmo sábado à tarde para quem é da região. <b>Sem cupom</b> — desconto
+    empilhado come o lucro e complica o checkout.</p>
+  </section>
+
+  <section>
+    <h2>O cronograma até 12 de outubro</h2>
+    <div class="crono">
+      <div class="lin"><div class="d">09/09<small>Quarta</small></div><div class="t"><b>Hoje:</b> áudios para as 18 clientes VIP, com reserva no nome delas</div></div>
+      <div class="lin"><div class="d">10/09<small>Quinta</small></div><div class="t">Campanha no ar (R$ 40/dia) · malha canelada cadastrada na Tray até 18h · primeiras mensagens de recompra</div></div>
+      <div class="lin"><div class="d">11/09<small>Sexta</small></div><div class="t"><b>Contagem física</b> da malha canelada · às 10h a gente fecha o que vai ao ar e não mexe mais</div></div>
+      <div class="lin marco"><div class="d">12/09<small>Sábado</small></div><div class="t"><b>🔴 LIVE — 11h00.</b> É o lançamento da semana; nada empilha em cima dela</div></div>
+      <div class="lin"><div class="d">16/09<small>Terça</small></div><div class="t">Mensagens para quem se cadastrou e não comprou — pergunta de objeção, sem oferta</div></div>
+      <div class="lin"><div class="d">17/09<small>Quarta</small></div><div class="t">Leitura da semana + <b>ranking de giro</b>: o que repor, com dado da live</div></div>
+      <div class="lin critica"><div class="d">22/09<small>Terça</small></div><div class="t"><b>🔴 PAGAR O FORNECEDOR.</b> É a decisão que destrava outubro inteiro</div></div>
+      <div class="lin"><div class="d">22–23/09<small>Ter–Qua</small></div><div class="t">Mensagens para as clientes perdidas há mais de 6 meses</div></div>
+      <div class="lin"><div class="d">26/09<small>Sábado</small></div><div class="t">Mini-lançamento da Salopete · <b>relatório do mês</b> entregue antes da sua próxima fatura</div></div>
+      <div class="lin"><div class="d">30/09<small>Terça</small></div><div class="t">Campanha de <b>Dia das Crianças</b> no ar</div></div>
+      <div class="lin"><div class="d">01/10<small>Quinta</small></div><div class="t">Live 2 — 12h</div></div>
+      <div class="lin marco"><div class="d">08/10<small>Quinta</small></div><div class="t"><b>Live do Dia das Crianças</b> — a que precisa faturar</div></div>
+      <div class="lin"><div class="d">10/10<small>Sábado</small></div><div class="t">Última compra com entrega garantida de motoboy antes da data</div></div>
+      <div class="lin marco"><div class="d">12/10<small>Segunda</small></div><div class="t"><b>Dia das Crianças</b> 🎈</div></div>
+    </div>
+    <p style="margin-top:18px">Cadência: <b>uma call por semana, toda terça, 30 minutos</b>,
+    e um resumo escrito no grupo no mesmo dia. Sem reunião surpresa.</p>
+  </section>
+
+  <section>
+    <h2>Quem faz o quê</h2>
+    <p class="lead">Você não vai fazer isso sozinha — essa é a diferença entre parceiro e
+    prestador.</p>
+    <div class="quem">
+      <div class="col">
+        <h3>A Expansion faz</h3>
+        <ul>
+          <li>Escreve a fila de mensagens, nome a nome</li>
+          <li>Cadastra a malha canelada na Tray</li>
+          <li>Configura pixel, campanha e criativos</li>
+          <li>Monta o roteiro da live e as folhas de leitura</li>
+          <li>Fecha a pauta de gravação toda semana</li>
+          <li>Entrega leitura com dado toda terça</li>
+        </ul>
+      </div>
+      <div class="col dela">
+        <h3>Você faz</h3>
+        <ul>
+          <li>Grava — 1 bateria por semana, 2–3 vídeos</li>
+          <li>Manda as mensagens e responde as clientes</li>
+          <li>Conta o estoque físico</li>
+          <li>Faz a live</li>
+          <li>Paga o fornecedor até 22/09</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>As duas coisas que só você resolve</h2>
+    <div class="alerta"><b>1. Pagar o fornecedor até 22/09.</b> É a decisão mais importante
+    do mês, e não é de marketing. Sem peça nova, outubro — que é o melhor mês do trimestre —
+    acontece pela metade. Parte do caixa de sábado já pode ir para isso.</div>
+    <div class="alerta"><b>2. Contar a malha canelada na sexta.</b> 16? 18? 24? Esse número
+    define quanto a live pode vender e quanto a gente pode investir. Enquanto ele não existe,
+    a gente está trabalhando com estimativa.</div>
+
+    <div class="frase"><b>O combinado, em uma linha:</b> setembro é para provar o método e
+    reabastecer. Outubro é para vender a data. <b>Novembro é onde os R$ 10 mil moram</b> —
+    e a gente chega lá com prateleira cheia e público construído, não com sorte.</div>
+  </section>
+
+  <footer>
+    <p><b>Expansion</b> · Plano Estilo Menina · setembro de 2026<br>
+    Toda projeção aqui sai dos seus dados reais de Bling e Tray. Onde é estimativa, está dito.</p>
+  </footer>
+
+</div>
