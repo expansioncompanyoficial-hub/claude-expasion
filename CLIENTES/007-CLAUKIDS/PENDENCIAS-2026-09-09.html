@@ -1,0 +1,309 @@
+<title>O Que Está Devendo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Roboto+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{
+  --papel:#F1F3F5; --superficie:#FFFFFF; --tinta:#131820; --tinta-2:#5C6673;
+  --linha:#DBDFE4; --linha-forte:#B6BDC6;
+  --atraso:#AB3D26; --atraso-fraco:#F5DED7;
+  --semana:#9A6A0C; --semana-fraco:#F7EAD1;
+  --aberto:#2F5C8F; --aberto-fraco:#DEE8F3;
+  --ok:#1E6647; --ok-fraco:#D9EAE1;
+  --sombra:0 1px 2px rgba(19,24,32,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papel:#0D1116; --superficie:#161B22; --tinta:#E5E9EE; --tinta-2:#98A2AE;
+    --linha:#242A33; --linha-forte:#39414C;
+    --atraso:#E58165; --atraso-fraco:#331B14;
+    --semana:#DBA842; --semana-fraco:#33280F;
+    --aberto:#77AEE4; --aberto-fraco:#152435;
+    --ok:#5CBE93; --ok-fraco:#12291F;
+    --sombra:0 1px 2px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#0D1116; --superficie:#161B22; --tinta:#E5E9EE; --tinta-2:#98A2AE;
+  --linha:#242A33; --linha-forte:#39414C;
+  --atraso:#E58165; --atraso-fraco:#331B14;
+  --semana:#DBA842; --semana-fraco:#33280F;
+  --aberto:#77AEE4; --aberto-fraco:#152435;
+  --ok:#5CBE93; --ok-fraco:#12291F;
+  --sombra:0 1px 2px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{background:var(--papel);color:var(--tinta);margin:0;
+  font:400 16.5px/1.6 "Source Sans 3",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.folha{max-width:860px;margin:0 auto;padding:52px 24px 88px;
+  display:flex;flex-direction:column;gap:46px}
+h1,h2,h3,.tag,.dono{font-family:"Outfit",system-ui,sans-serif}
+.mono,.quando{font-family:"Roboto Mono",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums}
+.rot{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--tinta-2);font-family:"Outfit",sans-serif}
+h1{font-size:clamp(30px,5.4vw,44px);font-weight:700;line-height:1.05;
+  letter-spacing:-.028em;margin:12px 0 0;text-wrap:balance}
+.sub{color:var(--tinta-2);margin:15px 0 0;max-width:62ch}
+p{margin:0;max-width:68ch}
+.fino{color:var(--tinta-2);font-size:15px}
+section{display:flex;flex-direction:column;gap:15px}
+h2{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  margin:0;padding-bottom:9px;border-bottom:1.5px solid currentColor;display:flex;
+  justify-content:space-between;align-items:baseline;gap:12px}
+h2 .c{font-family:"Roboto Mono",monospace;font-size:13px;font-weight:500;letter-spacing:0;
+  text-transform:none}
+.s-atraso h2{color:var(--atraso)} .s-semana h2{color:var(--semana)}
+.s-aberto h2{color:var(--aberto)} .s-ok h2{color:var(--ok)}
+
+.itens{display:flex;flex-direction:column;gap:9px}
+.item{background:var(--superficie);border:1px solid var(--linha);border-radius:3px;
+  box-shadow:var(--sombra);padding:14px 16px;display:grid;
+  grid-template-columns:1fr 104px;gap:14px;align-items:start}
+.item.forte{border-left:3px solid var(--atraso)}
+.item .t{font-family:"Outfit",sans-serif;font-weight:600;font-size:16.5px;
+  letter-spacing:-.008em}
+.item .d{font-size:15px;color:var(--tinta-2);margin-top:4px;max-width:56ch}
+.item .meta{display:flex;flex-direction:column;gap:5px;align-items:flex-end;text-align:right}
+.tag{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 7px;border-radius:2px;white-space:nowrap}
+.t-nos{background:var(--aberto-fraco);color:var(--aberto)}
+.t-clau{background:var(--ok-fraco);color:var(--ok)}
+.t-kaua{background:var(--semana-fraco);color:var(--semana)}
+.t-dois{background:var(--linha);color:var(--tinta-2)}
+.quando{font-size:11.5px;color:var(--tinta-2);white-space:nowrap}
+@media(max-width:600px){
+  .item{grid-template-columns:1fr}
+  .item .meta{flex-direction:row;align-items:center;justify-content:flex-start;
+    text-align:left;margin-top:8px}
+  .folha{padding:34px 16px 68px;gap:38px}
+}
+
+.alerta{background:var(--atraso-fraco);border:1.5px solid var(--atraso);border-radius:3px;
+  padding:18px 20px;display:flex;flex-direction:column;gap:9px}
+.alerta .rot{color:var(--atraso)}
+.alerta p{font-size:16px}
+.alerta .mono{font-size:14.5px;background:var(--superficie);padding:2px 6px;border-radius:2px}
+
+.bloco{background:var(--superficie);border:1px solid var(--linha-forte);border-radius:3px;
+  padding:20px 22px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--sombra)}
+.bloco h3{font-size:18px;font-weight:600;margin:0;letter-spacing:-.012em}
+.bloco p{font-size:16px}
+.bloco .lista{display:flex;flex-direction:column;gap:9px;margin-top:2px}
+.bloco .li{display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:start;
+  font-size:15.5px;max-width:62ch}
+.bloco .li::before{content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--linha-forte);margin-top:9px}
+.bloco .li.x::before{background:var(--atraso)}
+.bloco .li.v::before{background:var(--ok)}
+.bloco b{font-family:"Outfit",sans-serif;font-weight:600}
+
+footer{border-top:1px solid var(--linha);padding-top:20px;font-size:13.5px;
+  color:var(--tinta-2);max-width:68ch}
+:focus-visible{outline:2px solid var(--aberto);outline-offset:2px}
+</style>
+
+<div class="folha">
+
+<header>
+  <div class="rot">Clau Kids × Expansion · 09/09/2026</div>
+  <h1>O que está devendo</h1>
+  <p class="sub">Cruzei a conversa do grupo com o calendário de setembro. Tem uma pendência
+  que segura oito das nove entregas do mês, e um ponto na conta de anúncio que vale conferir
+  hoje ainda.</p>
+</header>
+
+<section>
+  <h2>Antes de tudo <span class="c">o gargalo</span></h2>
+  <div class="bloco">
+    <h3>A diária de gravação está parada desde 01/09 — e é ela que trava o mês</h3>
+    <p>A Clau perguntou, com essas palavras: <em>“Sobre dia de gravação eu decido dia, ou
+    alinham com a filmaker e eu me programo?”</em> Isso foi em 01/09 às 17h30 e não foi
+    respondido. Em 04/09 veio um <em>“já te posiciono para a gravação da videomaker”</em>
+    que também não teve sequência.</p>
+    <div class="lista">
+      <div class="li x"><span><b>Oito dos nove reels de setembro dependem dela.</b> Só o Roteiro 30, a Mala do Feriado, foi gravado — e no celular da Clau, não com a videomaker.</span></div>
+      <div class="li x"><span><b>O feed está sem reel desde 04/09.</b> Cinco dias. O reel de terça 08/09, “Do primeiro body até o 18”, não saiu porque o material não existe.</span></div>
+      <div class="li v"><span><b>A pergunta dela já traz a resposta:</b> ela aceita que a gente alinhe com a videomaker e depois avise a data. É uma mensagem para a videomaker e uma para a Clau.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="s-atraso">
+  <h2>Atrasado <span class="c">já venceu</span></h2>
+  <div class="itens">
+    <div class="item forte">
+      <div>
+        <div class="t">Marcar a diária com a videomaker</div>
+        <div class="d">Alinhar a data com ela e passar para a Clau. Destrava tudo o que está abaixo.</div>
+      </div>
+      <div class="meta"><span class="tag t-nos">Expansion</span><span class="quando">desde 01/09</span></div>
+    </div>
+    <div class="item forte">
+      <div>
+        <div class="t">Enviar o documento de roteiros de setembro</div>
+        <div class="d">Está pronto no Drive da cliente — roteiros 24 a 32 e carrosséis 05 a 07 — e nunca foi mandado no grupo. Ela grava melhor lendo antes.</div>
+      </div>
+      <div class="meta"><span class="tag t-nos">Expansion</span><span class="quando">desde 01/09</span></div>
+    </div>
+    <div class="item forte">
+      <div>
+        <div class="t">Reel “Do primeiro body até o 18”</div>
+        <div class="d">Era terça 08/09 e abre a série das idades. Não tem material. Ou entra na diária, ou o carrossel de sexta cobre o tema e o reel é remarcado.</div>
+      </div>
+      <div class="meta"><span class="tag t-nos">Expansion</span><span class="quando">08/09</span></div>
+    </div>
+    <div class="item">
+      <div>
+        <div class="t">Temas da semana para os stories</div>
+        <div class="d">O combinado é toda segunda. 07/09 foi feriado e não foi — e a pergunta dela de terça sobre as peças de frio é exatamente o sintoma disso.</div>
+      </div>
+      <div class="meta"><span class="tag t-nos">Expansion</span><span class="quando">07/09</span></div>
+    </div>
+    <div class="item">
+      <div>
+        <div class="t">Ticket médio da Clau</div>
+        <div class="d">Pedido em 01/09. Sem ele, o fechamento do dia 30 entrega custo por conversa e nenhum retorno em reais.</div>
+      </div>
+      <div class="meta"><span class="tag t-clau">Clau</span><span class="quando">desde 01/09</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="s-semana">
+  <h2>Vence esta semana <span class="c">10 a 14/09</span></h2>
+  <div class="itens">
+    <div class="item">
+      <div>
+        <div class="t">Reel “Enxoval não é sobre fofura”</div>
+        <div class="d">Quinta 10/09. Também depende da diária. Se ela não acontecer até lá, cai junto com o de terça.</div>
+      </div>
+      <div class="meta"><span class="tag t-nos">Expansion</span><span class="quando">qui 10/09</span></div>
+    </div>
+    <div class="item">
+      <div>
+        <div class="t">Carrossel “O guia das idades”</div>
+        <div class="d">Sexta 11/09, e é o post mais salvável do mês. O carrossel aprovado hoje pode ser esse antecipado — confirmar qual é qual para não furar a sexta.</div>
+      </div>
+      <div class="meta"><span class="tag t-nos">Expansion</span><span class="quando">sex 11/09</span></div>
+    </div>
+    <div class="item forte">
+      <div>
+        <div class="t">Pix da fatia 2 — R$ 300</div>
+        <div class="d">Cobrar quinta 11/09, dois dias antes de o saldo acabar. Quem lembra somos nós. Se atrasar, reduzir a diária em vez de deixar zerar.</div>
+      </div>
+      <div class="meta"><span class="tag t-nos">Expansion</span><span class="quando">qui 11/09</span></div>
+    </div>
+    <div class="item">
+      <div>
+        <div class="t">Primeiro relatório de sexta</div>
+        <div class="d">11/09, quatro linhas: investido, conversas, qual anúncio trouxe mais, o que muda. Chega sem ela pedir — é o combinado que mais pesa depois do que aconteceu em agosto.</div>
+      </div>
+      <div class="meta"><span class="tag t-kaua">Kauã</span><span class="quando">sex 11/09</span></div>
+    </div>
+    <div class="item">
+      <div>
+        <div class="t">Chamar quem não compra há dois meses</div>
+        <div class="d">Tarefa da semana 2 na raia dela, com o texto já pronto no documento operacional. Vale lembrar sem cobrar.</div>
+      </div>
+      <div class="meta"><span class="tag t-clau">Clau</span><span class="quando">semana</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="s-aberto">
+  <h2>Para conferir na conta <span class="c">hoje</span></h2>
+  <div class="alerta">
+    <div class="rot">O que o Kauã escreveu</div>
+    <p><span class="mono">“Todos 3 anúncios acabaram de ser subidos”</span> · <span class="mono">“3 criativos a 11 reais cada um!”</span></p>
+    <p><strong>“R$ 11 cada um” pode significar três conjuntos de R$ 11/dia</strong> — e aí é
+    exatamente a fragmentação que o briefing veta. A R$ 11/dia nenhum conjunto junta sinal
+    para aprender. O certo é <strong>um conjunto de R$ 33/dia com os três anúncios dentro</strong>,
+    deixando o Meta distribuir. Se ele quis dizer “R$ 33 divididos entre três criativos pelo
+    algoritmo”, está certo — mas vale confirmar antes de a verba correr o dia inteiro.</p>
+  </div>
+  <div class="itens">
+    <div class="item">
+      <div>
+        <div class="t">Quais três anúncios subiram</div>
+        <div class="d">A conversa cita A09, A10, Deserto e Pula Bula — são quatro candidatos para três vagas. Se o “4 Perguntas” ficou de fora, saiu o melhor da conta: R$ 7,54 por conversa e o maior poder de convencimento por pessoa alcançada.</div>
+      </div>
+      <div class="meta"><span class="tag t-kaua">Kauã</span></div>
+    </div>
+    <div class="item">
+      <div>
+        <div class="t">Mensagem pré-preenchida diferente em cada anúncio</div>
+        <div class="d">É o que dá atribuição sem CRM. Se os três abrirem com a mesma saudação, a Clau não sabe de onde veio ninguém.</div>
+      </div>
+      <div class="meta"><span class="tag t-kaua">Kauã</span></div>
+    </div>
+    <div class="item">
+      <div>
+        <div class="t">Públicos personalizados criados</div>
+        <div class="d">Envolvimento no Instagram 365 dias, quem assistiu 50% dos vídeos, e a lista de quem conversou no WhatsApp. Custo zero e é o que barateia outubro.</div>
+      </div>
+      <div class="meta"><span class="tag t-kaua">Kauã</span></div>
+    </div>
+    <div class="item">
+      <div>
+        <div class="t">Deserto no ar precisa sair sem a tarja do brinde</div>
+        <div class="d">O lagarto acabou — ela confirmou ontem: <em>“não, esgotou, foi sucesso”</em>. Anunciar brinde que não existe é o pior erro possível numa conta que vive de confiança.</div>
+      </div>
+      <div class="meta"><span class="tag t-kaua">Kauã</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="s-ok">
+  <h2>Resolvido ontem <span class="c">muda o plano</span></h2>
+  <div class="bloco">
+    <div class="lista">
+      <div class="li v"><span><b>Estoque destravado, os dois.</b> <em>“A Pulla bulla tem estoque em todas numeração”</em> e <em>“A deserto também”</em>. Cai o meu bloqueio ao Deserto por estoque não confirmado.</span></div>
+      <div class="li v"><span><b>E ela explicou uma coisa que muda a leitura:</b> <em>“como trabalho com coleção programada para todo verão, são coleções para trabalhar durante todo o verão”</em>. A Deserto não é janela fechada — roda o verão inteiro. O “eu não vou repor” do Roteiro 18 era recurso de roteiro, não regra de estoque, e a gente não deve repetir isso em anúncio.</span></div>
+      <div class="li v"><span><b>O Pula Bula fica testável de novo.</b> O CPM de R$ 30 em agosto foi com o produto ainda não entregue. Com grade cheia, o número de agosto não vale mais como veredito — mas ele ainda ocupa uma das três vagas, então só entra no lugar de alguém.</span></div>
+      <div class="li x"><span><b>O brinde acabou.</b> Some a tarja do lagarto de qualquer criativo, e some também de qualquer roteiro futuro até ela fazer mais.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="s-aberto">
+  <h2>Aberto sem data <span class="c">não urgente, mas some se ninguém anotar</span></h2>
+  <div class="itens">
+    <div class="item">
+      <div>
+        <div class="t">Anotar idade e número de quem chega pelo anúncio</div>
+        <div class="d">Pedido ontem. É o insumo da lista de outubro, e ela não tem CRM para recuperar isso depois.</div>
+      </div>
+      <div class="meta"><span class="tag t-clau">Clau</span></div>
+    </div>
+    <div class="item">
+      <div>
+        <div class="t">Compra de outubro</div>
+        <div class="d">Uma das três decisões do mês. Ela já disse que só repõe, mas outubro é a compra de fim de ano e social — precisa sair antes do dia 30.</div>
+      </div>
+      <div class="meta"><span class="tag t-clau">Clau</span></div>
+    </div>
+    <div class="item">
+      <div>
+        <div class="t">Quem ajuda no WhatsApp no pico de 1 a 12/10</div>
+        <div class="d">A estagiária foi contratada para a loja, não para o atendimento. Nas duas semanas de pico o gargalo volta a ser o tempo dela.</div>
+      </div>
+      <div class="meta"><span class="tag t-dois">Os dois</span></div>
+    </div>
+    <div class="item">
+      <div>
+        <div class="t">Fechamento do mês e plano de outubro</div>
+        <div class="d">30/09. É quando existe, pela primeira vez, o número de quantas conversas viraram venda.</div>
+      </div>
+      <div class="meta"><span class="tag t-nos">Expansion</span><span class="quando">30/09</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Levantamento feito em 09/09/2026 cruzando o histórico do grupo de WhatsApp com o
+  calendário do documento “Setembro: quem faz o quê” e com o diário de bordo da conta.
+  Itens marcados como atrasados têm data no calendário já vencida.
+</footer>
+
+</div>
