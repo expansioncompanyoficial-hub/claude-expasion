@@ -1,0 +1,151 @@
+<title>Liberar acesso — Meta Business</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#fffdfa; --ink:#231a12; --muted:#8a7a6a; --card:#fff; --line:#eee2d4;
+    --accent:#E67E22; --accent-soft:#fdf0e3; --accent-ink:#a4560f;
+    --ok:#1e9e5a; --ok-bg:#e9f9f0; --warn-bg:#fdf6e7; --warn-ink:#8a5a06;
+    --step:#E67E22; --btncopy:#231a12; --btncopy-ink:#fff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1c130b; --ink:#f4ebe2; --muted:#b3a190; --card:#271b10; --line:#3f2e1d;
+      --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877;
+      --ok:#4ecb87; --ok-bg:#15301f; --warn-bg:#332508; --warn-ink:#f0c05e;
+      --btncopy:#f4ebe2; --btncopy-ink:#1c130b;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1c130b; --ink:#f4ebe2; --muted:#b3a190; --card:#271b10; --line:#3f2e1d;
+    --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877;
+    --ok:#4ecb87; --ok-bg:#15301f; --warn-bg:#332508; --warn-ink:#f0c05e;
+    --btncopy:#f4ebe2; --btncopy-ink:#1c130b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif; font-size:16.5px; line-height:1.55; padding:0 16px 70px;}
+  .wrap{max-width:560px; margin:0 auto;}
+  header{padding:30px 4px 6px;}
+  .brand{font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:800; color:var(--accent);}
+  h1{font-size:26px; font-weight:800; letter-spacing:-.02em; line-height:1.2; margin:8px 0 8px; text-wrap:balance;}
+  .sub{color:var(--muted); font-size:15px; margin:0 0 4px;}
+  .note{background:var(--ok-bg); border-radius:12px; padding:12px 16px; font-size:14.5px; margin:16px 0 0;}
+  .note b{color:var(--ok);}
+  .prep{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 0;}
+  .chip{background:var(--accent-soft); color:var(--accent-ink); font-size:13px; font-weight:700; border-radius:999px; padding:7px 14px;}
+  .step{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 18px 16px; margin:14px 0; position:relative;}
+  .num{position:absolute; top:-12px; left:16px; background:var(--step); color:#fff; font-weight:800; font-size:14px;
+    width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center;}
+  .step h2{font-size:17px; font-weight:800; margin:4px 0 8px;}
+  .step p{margin:0 0 8px; font-size:15.5px;}
+  .step p:last-child{margin-bottom:0;}
+  .path{background:var(--accent-soft); color:var(--accent-ink); border-radius:8px; padding:2px 8px; font-weight:700; font-size:14.5px; white-space:nowrap;}
+  .idbox{display:flex; gap:10px; align-items:center; background:var(--accent-soft); border:2px dashed var(--accent);
+    border-radius:12px; padding:14px; margin:10px 0 6px; flex-wrap:wrap;}
+  .idbox code{font-size:21px; font-weight:800; letter-spacing:.04em; color:var(--accent-ink); font-family:'Inter',monospace; font-variant-numeric:tabular-nums; word-break:break-all;}
+  .copy{background:var(--btncopy); color:var(--btncopy-ink); border:none; border-radius:10px; font-family:inherit;
+    font-weight:700; font-size:14px; padding:10px 16px; cursor:pointer;}
+  .copy:focus-visible{outline:3px solid var(--accent); outline-offset:2px;}
+  ul.assets{list-style:none; padding:0; margin:8px 0 0; display:grid; gap:8px;}
+  ul.assets li{background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:10px 14px; font-weight:600; font-size:15px; display:flex; gap:10px; align-items:center;}
+  ul.assets li::before{content:"✓"; color:var(--ok); font-weight:800; font-size:16px;}
+  ul.assets small{display:block; font-weight:400; color:var(--muted); font-size:13px;}
+  .video{display:flex; gap:14px; align-items:center; background:var(--card); border:1px solid var(--line);
+    border-radius:14px; padding:14px 16px; margin:10px 0; text-decoration:none; color:var(--ink);}
+  .video:hover{border-color:var(--accent);}
+  .play{flex:none; width:46px; height:46px; border-radius:12px; background:var(--accent); display:flex; align-items:center; justify-content:center;}
+  .play svg{display:block;}
+  .video .t{font-weight:700; font-size:15px; line-height:1.3;}
+  .video .d{color:var(--muted); font-size:13px; margin-top:2px;}
+  .warn{background:var(--warn-bg); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:18px 0 0;}
+  .warn b{color:var(--warn-ink);}
+  h3{font-size:14px; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); font-weight:800; margin:30px 4px 10px;}
+  footer{margin-top:40px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; text-align:center;}
+</style>
+<div class="wrap">
+<header>
+  <p class="brand">Expansion</p>
+  <h1>Liberar o acesso da Expansion aos seus anúncios</h1>
+  <p class="sub">Leva uns 5 minutinhos — e você <b>não passa nenhuma senha</b>: você só autoriza a nossa empresa dentro da sua conta, do jeito oficial que a Meta recomenda. 🧡</p>
+  <p class="note"><b>Importante:</b> faça tudo pelo <b>SEU celular de sempre</b> (onde o Facebook já fica logado). Se fizer de um aparelho novo, a Meta trava por segurança.</p>
+  <div class="prep">
+    <span class="chip">📱 Celular de sempre</span>
+    <span class="chip">⏱️ ~5 minutos</span>
+    <span class="chip">🔒 Sem passar senha</span>
+  </div>
+</header>
+
+<div class="step">
+  <span class="num">1</span>
+  <h2>Abra o Gerenciador de Negócios</h2>
+  <p>No navegador do celular (Chrome ou Safari), entre em <span class="path">business.facebook.com</span> e faça login com o seu Facebook, se ele pedir.</p>
+</div>
+
+<div class="step">
+  <span class="num">2</span>
+  <h2>Vá em Configurações do negócio</h2>
+  <p>Toque no menu (☰ ou a engrenagem ⚙️) e escolha <span class="path">Configurações do negócio</span>.</p>
+  <p>Se aparecer pedindo para <b>ativar a autenticação de dois fatores</b>: pode ativar sem medo (Configurações → Segurança → Autenticação de dois fatores, escolhendo SMS no seu número). É uma exigência da Meta e protege a sua conta.</p>
+</div>
+
+<div class="step">
+  <span class="num">3</span>
+  <h2>Toque em Parceiros → Adicionar</h2>
+  <p>No menu lateral, em <b>Usuários</b>, toque em <span class="path">Parceiros</span> e depois em <span class="path">Adicionar</span> → <b>Dar acesso a ativos a um parceiro</b>.</p>
+  <p>Ele vai pedir o <b>ID do parceiro</b>. É este (toque para copiar):</p>
+  <div class="idbox">
+    <code id="bmid">872664594580801</code>
+    <button class="copy" onclick="copiarId(this)">Copiar ID</button>
+  </div>
+</div>
+
+<div class="step">
+  <span class="num">4</span>
+  <h2>Marque os 4 acessos para a Expansion</h2>
+  <p>Na tela seguinte, selecione estes ativos e dê o acesso mais completo que aparecer (gerenciar/controle total):</p>
+  <ul class="assets">
+    <li>Conta de anúncios <small>é onde vamos criar as suas campanhas</small></li>
+    <li>Página do Facebook <small>a página da sua empresa</small></li>
+    <li>Conta do Instagram <small>o @ da sua empresa</small></li>
+    <li>Pixel / Conjunto de dados <small>é o que mede as vendas do site — se não aparecer, pode pular</small></li>
+  </ul>
+</div>
+
+<div class="step">
+  <span class="num">5</span>
+  <h2>Confirme e nos avise no grupo 🎉</h2>
+  <p>Toque em <b>Salvar/Confirmar</b>. Pronto! Aparecendo a confirmação, manda um "feito ✅" no grupo que a gente já começa a preparar tudo do nosso lado — sem mexer em mais nada da sua conta.</p>
+</div>
+
+<h3>Prefere ver em vídeo?</h3>
+<a class="video" href="https://www.youtube.com/watch?v=_coVUjWC4pg">
+  <span class="play"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M5 3.5v11l9-5.5z" fill="#fff"/></svg></span>
+  <span><span class="t">Como adicionar um Parceiro (agência) no Meta Business</span><span class="d">YouTube · direto ao ponto, o mesmo caminho deste guia</span></span>
+</a>
+<a class="video" href="https://www.youtube.com/watch?v=jcI1JO98qks">
+  <span class="play"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M5 3.5v11l9-5.5z" fill="#fff"/></svg></span>
+  <span><span class="t">Pessoas e parceiros no Gerenciador de Negócios — passo a passo completo</span><span class="d">YouTube · versão mais detalhada, se quiser entender cada tela</span></span>
+</a>
+
+<div class="warn">
+  <b>Deu alguma mensagem de erro ou não achou "Parceiros"?</b><br>
+  Sem estresse: tira um print da tela e manda no grupo. A gente faz junto com você numa chamada rapidinha de 5 minutos, com você no comando do seu celular. Nada de tentar várias vezes — se travar, para e nos chama. 😉
+</div>
+
+<footer>Expansion · Guia de acesso — Meta Business</footer>
+</div>
+<script>
+function copiarId(btn){
+  var id = document.getElementById('bmid').textContent.trim();
+  function ok(){ btn.textContent = 'Copiado ✓'; setTimeout(function(){ btn.textContent = 'Copiar ID'; }, 2500); }
+  try{
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(id).then(ok, fallback); }
+    else fallback();
+  }catch(e){ fallback(); }
+  function fallback(){
+    var r = document.createRange(); r.selectNodeContents(document.getElementById('bmid'));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    try{ document.execCommand('copy'); ok(); }catch(e){ btn.textContent = 'Segure e copie o número'; }
+  }
+}
+</script>
