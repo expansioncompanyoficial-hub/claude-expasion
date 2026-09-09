@@ -1,0 +1,183 @@
+<!--
+  APRESENTAÇÃO 16:9 — esqueleto EXPANSION
+  Copie para a pasta do material, troque o que está entre [COLCHETES] e
+  apague os slides que não usar.
+
+  Renderizar:
+    node .claude/skills/designer-expansion/bin/gerar-pdf.mjs deck.html --html --previa
+
+  Regras deste formato:
+  · Uma ideia por slide. Se precisa de duas respirações para explicar, são
+    dois slides.
+  · Slide é apoio de fala, não documento. Texto longo vai para o A4.
+  · O slide é uma caixa de 1280x720: o que não couber vira erro, não fonte 12.
+-->
+<meta charset="utf-8">
+<title>[NOME DA APRESENTAÇÃO] — [CLIENTE]</title>
+<link rel="stylesheet" href="{{RAIZ}}/.claude/skills/designer-expansion/templates/expansion.css">
+<style>
+  /* 1280x720 px a 96dpi = 13,333in x 7,5in. É o 16:9 que o PowerPoint,
+     o Keynote e o Google Slides usam. */
+  @page { size: 338.667mm 190.5mm; margin: 0; }
+
+  /* Cor do cliente — tirar da logo oficial. Sem cor confirmada, apague. */
+  :root {
+    --cliente-primaria: [#HEX DO CLIENTE];
+    --cliente-contraste: #FFFFFF;
+  }
+</style>
+
+<!-- =========================================================== CAPA -->
+<div class="slide escuro">
+  <div class="sangria"><div class="aneis aneis--capa"></div></div>
+  <div class="empilha">
+    <div class="marca-cliente">
+      <img src="[caminho/logo-cliente-branco.png]" alt="[CLIENTE]">
+    </div>
+
+    <div class="cresce"></div>
+
+    <p class="olho">[TIPO DE MATERIAL]</p>
+    <h1 class="titulo-capa">[TÍTULO<br>CURTO E FORTE]</h1>
+
+    <div class="cresce"></div>
+
+    <div class="faixa-marcas">
+      <p class="assinatura mb-0">[PERÍODO]</p>
+      <div class="marca-expansion">
+        <p class="assinatura">Estratégia e desenvolvimento</p>
+        <img src="{{RAIZ}}/assets/marca-expansion/derivados/letreiro-branco.png" alt="EXPANSION">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================ SLIDE DE CARDS -->
+<div class="slide">
+  <div class="empilha">
+    <p class="olho">[Seção]</p>
+    <h2 class="titulo">[Título objetivo do slide]</h2>
+
+    <div class="grade grade-3" style="margin-top:8px">
+      <div class="card card--laranja">
+        <span class="card-num">01</span>
+        <h3 class="card-titulo">[Item]</h3>
+        <p class="card-texto">[Uma frase.]</p>
+      </div>
+      <div class="card card--laranja">
+        <span class="card-num">02</span>
+        <h3 class="card-titulo">[Item]</h3>
+        <p class="card-texto">[Uma frase.]</p>
+      </div>
+      <div class="card card--laranja">
+        <span class="card-num">03</span>
+        <h3 class="card-titulo">[Item]</h3>
+        <p class="card-texto">[Uma frase.]</p>
+      </div>
+    </div>
+
+    <div class="cresce"></div>
+    <div class="rodape">
+      <span>[CLIENTE] · [MATERIAL]</span>
+      <span class="rodape-pagina">02</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================ SLIDE DE DADOS -->
+<div class="slide">
+  <div class="empilha">
+    <p class="olho">[Seção]</p>
+    <h2 class="titulo">[O número que importa]</h2>
+
+    <div class="grade grade-3" style="margin-top:16px">
+      <div class="kpi"><div class="kpi-valor">[00]</div><div class="kpi-rotulo">[Indicador]</div></div>
+      <div class="kpi"><div class="kpi-valor">[00]</div><div class="kpi-rotulo">[Indicador]</div></div>
+      <div class="kpi kpi--laranja"><div class="kpi-valor">[00]</div><div class="kpi-rotulo">[Indicador]</div></div>
+    </div>
+
+    <div class="destaque" style="margin-top:32px">
+      <span class="destaque-rotulo">Leitura</span>
+      <p class="mb-0">[O que esse número quer dizer para a decisão de agora.]</p>
+    </div>
+
+    <div class="cresce"></div>
+    <div class="rodape">
+      <span>[CLIENTE] · [MATERIAL]</span>
+      <span class="rodape-pagina">03</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ SLIDE DE CRONOGRAMA -->
+<div class="slide">
+  <div class="empilha">
+    <p class="olho">Cronograma</p>
+    <h2 class="titulo">[Do quê até quê]</h2>
+
+    <div class="trilho" style="margin-top:24px">
+      <div class="trilho-etapa trilho-etapa--feita">
+        <p class="card-num mb-0">[SEMANA 1]</p>
+        <h3 class="card-titulo">[Etapa]</h3>
+        <p class="card-texto">[Entrega.]</p>
+      </div>
+      <div class="trilho-etapa trilho-etapa--ativa">
+        <p class="card-num mb-0">[SEMANA 2]</p>
+        <h3 class="card-titulo">[Etapa]</h3>
+        <p class="card-texto">[Entrega.]</p>
+      </div>
+      <div class="trilho-etapa">
+        <p class="card-num mb-0">[SEMANA 3]</p>
+        <h3 class="card-titulo">[Etapa]</h3>
+        <p class="card-texto">[Entrega.]</p>
+      </div>
+      <div class="trilho-etapa">
+        <p class="card-num mb-0">[SEMANA 4]</p>
+        <h3 class="card-titulo">[Etapa]</h3>
+        <p class="card-texto">[Entrega.]</p>
+      </div>
+    </div>
+
+    <div class="cresce"></div>
+    <div class="rodape">
+      <span>[CLIENTE] · [MATERIAL]</span>
+      <span class="rodape-pagina">04</span>
+    </div>
+  </div>
+</div>
+
+<!-- =============================================== FECHAMENTO / CTA -->
+<div class="slide escuro">
+  <div class="sangria"><div class="aneis aneis--capa" style="right:-160px;top:auto;bottom:-120px"></div></div>
+  <div class="empilha">
+    <div class="regua-laranja"></div>
+    <h2 class="titulo">Próximos passos</h2>
+
+    <div class="passos" style="margin-top:24px;max-width:820px">
+      <div class="passo">
+        <div>
+          <h3 class="passo-titulo">[Ação]</h3>
+          <p class="passo-texto">[Responsável e prazo.]</p>
+        </div>
+      </div>
+      <div class="passo">
+        <div>
+          <h3 class="passo-titulo">[Ação]</h3>
+          <p class="passo-texto">[Responsável e prazo.]</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cresce"></div>
+
+    <div class="faixa-marcas">
+      <div class="marca-cliente">
+        <img src="[caminho/logo-cliente-branco.png]" alt="[CLIENTE]">
+      </div>
+      <div class="marca-expansion">
+        <p class="assinatura">Estratégia e desenvolvimento</p>
+        <img src="{{RAIZ}}/assets/marca-expansion/derivados/letreiro-branco.png" alt="EXPANSION">
+      </div>
+    </div>
+  </div>
+</div>

@@ -23,9 +23,14 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
 _audios/              Transcrições de áudios e reuniões
+assets/
+  marca-expansion/    Arquivos oficiais da marca + derivados de recorte
+  tipografia/         Open Sans embutida em base64
+materiais/            Materiais de cliente — HTML fonte e PDF entregue
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
   settings.json       Permissões versionadas — sincroniza entre máquinas
+  skills/             Skills do repositório (viajam com o repo)
   reference/          Originais preservados da migração
 ```
 
@@ -53,6 +58,22 @@ Três portões travam entrega de propósito:
 de análise* — um conjunto fixo de perguntas obrigatórias e um poder de veto.
 Nunca personas com biografia ou anos de experiência. Um papel só existe no
 AEOS se consegue reprovar alguma coisa.
+
+## Materiais de cliente
+
+Proposta, cronograma, planejamento, apresentação, roteiro, relatório, onboarding
+— tudo isso passa pela skill `designer-expansion`
+(`.claude/skills/designer-expansion/SKILL.md`), que é do repositório e viaja com
+ele, ao contrário das skills da conta.
+
+Ela traz a identidade já resolvida (paleta oficial, Open Sans embutida, marca
+recortada), esqueletos A4 e 16:9, e um renderizador que **mede o layout antes
+de gerar o PDF**: conteúdo estourando a página, elemento fora da margem, imagem
+quebrada ou logo fora de proporção reprovam a peça.
+
+Regra que não se dobra: número, prazo, preço, resultado, depoimento e case
+**não se inventam**. Sem confirmação, o campo é marcado como pendente e a
+pendência vai junto com a entrega.
 
 ## Convenções
 

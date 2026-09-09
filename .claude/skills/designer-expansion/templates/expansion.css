@@ -1,0 +1,676 @@
+/* ==========================================================================
+   SISTEMA VISUAL EXPANSION — materiais de cliente
+   Documentos A4 e apresentações 16:9, renderizados em PDF pelo Chromium.
+
+   Cores e tipografia vêm dos arquivos oficiais da marca
+   (assets/marca-expansion/expansion-cores-e-escrita.png). Não trocar sem
+   passar pela identidade.
+
+   Como funciona: cada página é uma caixa fechada (.pagina / .slide) de
+   tamanho fixo. Nada flui de uma página para a outra — quem distribui o
+   conteúdo é quem monta o material. Em troca, não existe surpresa de
+   quebra, viúva ou título órfão, e o verificador consegue medir estouro.
+   ========================================================================== */
+
+/* Caminho relativo ao próprio CSS: resolve certo de onde quer que o HTML
+   seja aberto. */
+@import url("../../../../assets/tipografia/open-sans.css");
+
+/* --------------------------------------------------------------------------
+   1. TOKENS
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* Oficiais — paleta da marca */
+  --preto: #000000;
+  --laranja: #F3A33B;
+  --branco: #FFFFFF;
+
+  /* Derivadas do próprio material oficial de identidade */
+  --cinza-painel: #D9D9D9;        /* fundo do painel de cores da marca */
+  --laranja-profundo: #9D350B;    /* extremo escuro do gradiente do símbolo */
+  --laranja-medio: #C2622A;       /* meio do gradiente do símbolo */
+
+  /* Neutros funcionais — estrutura, não identidade */
+  --grafite: #111111;
+  --carvao: #1C1C1C;
+  --fumaca: #2E2E2E;
+  --cinza-linha: #E4E4E4;
+  --cinza-fundo: #F5F5F5;
+  --cinza-texto: #6B6B6B;
+  --cinza-claro: #9B9B9B;
+
+  /* Cliente — sobrescrever no material. Sem valor, tudo cai na identidade
+     EXPANSION e nada finge ser a cor de uma marca que não foi informada. */
+  --cliente-primaria: var(--preto);
+  --cliente-secundaria: var(--cinza-texto);
+  --cliente-contraste: var(--branco);   /* texto sobre a cor primária */
+
+  /* Tipografia */
+  --fonte: "Open Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  /* Malha */
+  --margem-a4: 18mm;
+  --margem-slide: 64px;
+  --respiro: 8mm;
+  --raio: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   2. BASE
+   -------------------------------------------------------------------------- */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--fonte);
+  color: var(--preto);
+  background: var(--branco);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+strong, b { font-weight: 700; }
+em { font-style: italic; }
+ul, ol { margin: 0 0 1em; padding-left: 1.15em; }
+li { margin-bottom: 0.4em; }
+li:last-child { margin-bottom: 0; }
+a { color: inherit; }
+
+/* --------------------------------------------------------------------------
+   3. PÁGINAS
+   -------------------------------------------------------------------------- */
+
+@page { size: A4; margin: 0; }
+
+.pagina,
+.slide {
+  position: relative;
+  overflow: hidden;                /* corte visível = erro de montagem */
+  isolation: isolate;              /* segura a camada de sangria por baixo */
+  background: var(--branco);
+  break-after: page;
+  page-break-after: always;
+}
+
+/* Camada de sangria: onde mora o que sai de propósito pela borda (anéis,
+   faixas, foto de fundo). Fica recortada e por baixo do conteúdo, então não
+   conta como estouro na conferência de layout. */
+.sangria {
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.pagina:last-child,
+.slide:last-child { break-after: auto; page-break-after: auto; }
+
+.pagina {
+  width: 210mm;
+  height: 296.8mm;                 /* 0,2mm a menos evita página fantasma */
+  padding: var(--margem-a4) var(--margem-a4) 22mm;
+  font-size: 10.5pt;
+  line-height: 1.55;
+}
+
+.slide {
+  width: 1280px;
+  height: 720px;
+  padding: var(--margem-slide) var(--margem-slide) 56px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Fundo escuro — capas, aberturas de seção, fechamento */
+.escuro { background: var(--preto); color: var(--branco); }
+.escuro .titulo,
+.escuro .secao-titulo { color: var(--branco); }
+.escuro .texto-apoio { color: var(--cinza-claro); }
+.escuro .tabela th { background: var(--branco); color: var(--preto); }
+
+/* Preview em tela: mesa de trabalho. No PDF isto some. */
+@media screen {
+  body { background: #8A8A8A; padding: 32px 0; }
+  .pagina, .slide {
+    margin: 0 auto 32px;
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. TIPOGRAFIA DE PÁGINA
+   -------------------------------------------------------------------------- */
+
+/* Olho: rótulo curto acima do título. Sempre caixa-alta, sempre discreto. */
+.olho {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--laranja);
+  margin-bottom: 3mm;
+}
+.slide .olho { font-size: 12px; margin-bottom: 12px; }
+
+.titulo {
+  font-size: 26pt;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin: 0 0 4mm;
+  text-transform: uppercase;
+}
+.slide .titulo { font-size: 46px; margin-bottom: 16px; }
+
+.titulo-capa {
+  font-size: 38pt;
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.slide .titulo-capa { font-size: 68px; }
+
+.subtitulo {
+  font-size: 13pt;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--cinza-texto);
+  margin: 0 0 6mm;
+  max-width: 62ch;
+}
+.slide .subtitulo { font-size: 22px; margin-bottom: 24px; }
+.escuro .subtitulo { color: var(--cinza-claro); }
+
+.texto-apoio { color: var(--cinza-texto); }
+
+.lead {
+  font-size: 12pt;
+  line-height: 1.5;
+  font-weight: 600;
+  max-width: 68ch;
+}
+.slide .lead { font-size: 21px; }
+
+/* Regra de contraste: laranja é acento gráfico e display.
+   Nunca texto corrido sobre branco — a leitura cai. */
+.destaque-texto { color: var(--laranja-profundo); font-weight: 700; }
+.escuro .destaque-texto { color: var(--laranja); }
+
+/* --------------------------------------------------------------------------
+   5. SEÇÕES
+   -------------------------------------------------------------------------- */
+
+.secao { margin-bottom: var(--respiro); }
+.slide .secao { margin-bottom: 28px; }
+
+.secao-cabecalho {
+  display: flex;
+  align-items: baseline;
+  gap: 4mm;
+  border-bottom: 1.5px solid var(--preto);
+  padding-bottom: 2.5mm;
+  margin-bottom: 5mm;
+}
+.slide .secao-cabecalho { gap: 16px; padding-bottom: 10px; margin-bottom: 20px; }
+.escuro .secao-cabecalho { border-bottom-color: var(--fumaca); }
+
+.secao-num {
+  font-size: 9pt;
+  font-weight: 800;
+  color: var(--laranja);
+  letter-spacing: 0.05em;
+  flex: none;
+}
+.slide .secao-num { font-size: 15px; }
+
+.secao-titulo {
+  font-size: 13pt;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.slide .secao-titulo { font-size: 24px; }
+
+/* --------------------------------------------------------------------------
+   6. GRADES
+   -------------------------------------------------------------------------- */
+
+.grade { display: grid; gap: 5mm; }
+.slide .grade { gap: 20px; }
+.grade-2 { grid-template-columns: repeat(2, 1fr); }
+.grade-3 { grid-template-columns: repeat(3, 1fr); }
+.grade-4 { grid-template-columns: repeat(4, 1fr); }
+.grade-lateral { grid-template-columns: 1fr 2fr; }
+
+/* --------------------------------------------------------------------------
+   7. CARDS
+   -------------------------------------------------------------------------- */
+
+.card {
+  border: 1px solid var(--cinza-linha);
+  border-top: 3px solid var(--preto);
+  padding: 5mm;
+  background: var(--branco);
+  break-inside: avoid;
+}
+.slide .card { padding: 20px; }
+.card--laranja { border-top-color: var(--laranja); }
+.card--cliente { border-top-color: var(--cliente-primaria); }
+.escuro .card {
+  background: var(--carvao);
+  border-color: var(--fumaca);
+  border-top-color: var(--laranja);
+}
+
+.card-num {
+  font-size: 8pt;
+  font-weight: 800;
+  color: var(--laranja);
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 2mm;
+}
+.slide .card-num { font-size: 13px; margin-bottom: 8px; }
+
+.card-titulo {
+  font-size: 10.5pt;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin: 0 0 2mm;
+  line-height: 1.25;
+}
+.slide .card-titulo { font-size: 18px; margin-bottom: 8px; }
+
+.card-texto { font-size: 9.5pt; color: var(--cinza-texto); margin: 0; }
+.slide .card-texto { font-size: 16px; }
+.escuro .card-texto { color: var(--cinza-claro); }
+
+/* --------------------------------------------------------------------------
+   8. TABELAS
+   -------------------------------------------------------------------------- */
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.5pt;
+  line-height: 1.4;
+}
+.slide .tabela { font-size: 14px; }
+
+.tabela th {
+  background: var(--preto);
+  color: var(--branco);
+  font-weight: 700;
+  font-size: 7.5pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 2.5mm 3mm;
+  vertical-align: bottom;
+}
+.slide .tabela th { font-size: 12px; padding: 10px 12px; }
+
+.tabela td {
+  padding: 2.5mm 3mm;
+  border-bottom: 1px solid var(--cinza-linha);
+  vertical-align: top;
+}
+.slide .tabela td { padding: 10px 12px; }
+
+.tabela tbody tr:nth-child(even) td { background: var(--cinza-fundo); }
+.tabela tbody tr:last-child td { border-bottom: 1px solid var(--preto); }
+.tabela .num { text-align: right; font-variant-numeric: tabular-nums; }
+/* Linha em evidência. Nome próprio: .destaque é o bloco de callout e as duas
+   regras se atropelavam quando dividiam o mesmo nome. */
+.tabela .linha-destaque td {
+  background: rgba(243, 163, 59, 0.18) !important;
+  box-shadow: inset 3px 0 0 var(--laranja);
+}
+
+.escuro .tabela td { border-bottom-color: var(--fumaca); }
+.escuro .tabela tbody tr:nth-child(even) td { background: var(--carvao); }
+
+/* --------------------------------------------------------------------------
+   9. ETIQUETAS DE RESPONSABILIDADE E STATUS
+   Cronograma tem que responder "de quem é isso" antes de "quando é isso".
+   -------------------------------------------------------------------------- */
+
+.etiqueta {
+  display: inline-block;
+  font-size: 6.8pt;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1mm 2mm;
+  border-radius: var(--raio);
+  white-space: nowrap;
+  line-height: 1.3;
+}
+.slide .etiqueta { font-size: 11px; padding: 4px 8px; }
+
+.etiqueta--expansion { background: var(--preto); color: var(--branco); }
+.etiqueta--cliente   { background: var(--cliente-primaria); color: var(--cliente-contraste); }
+.etiqueta--aprovacao { background: var(--laranja); color: var(--preto); }
+.etiqueta--concluido { background: var(--branco); color: var(--cinza-texto); border: 1px solid var(--cinza-linha); }
+.etiqueta--pendente  { background: transparent; color: var(--laranja-profundo); border: 1px dashed var(--laranja-profundo); }
+
+/* --------------------------------------------------------------------------
+   10. DESTAQUES E AVISOS
+   -------------------------------------------------------------------------- */
+
+.destaque {
+  background: var(--preto);
+  color: var(--branco);
+  padding: 5mm 6mm;
+  border-left: 4px solid var(--laranja);
+  break-inside: avoid;
+}
+.slide .destaque { padding: 20px 24px; border-left-width: 6px; }
+.destaque .destaque-rotulo {
+  font-size: 7pt;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--laranja);
+  display: block;
+  margin-bottom: 2mm;
+}
+.slide .destaque .destaque-rotulo { font-size: 12px; margin-bottom: 8px; }
+
+/* Informação que ainda não foi confirmada. Nunca some no meio do texto:
+   ou está validada, ou está marcada. */
+.pendente {
+  border: 1px dashed var(--laranja-profundo);
+  background: rgba(243, 163, 59, 0.08);
+  padding: 4mm 5mm;
+  font-size: 9pt;
+  break-inside: avoid;
+}
+.slide .pendente { padding: 16px 20px; font-size: 15px; }
+.pendente::before {
+  content: "PENDENTE DE VALIDAÇÃO";
+  display: block;
+  font-size: 6.8pt;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--laranja-profundo);
+  margin-bottom: 1.5mm;
+}
+.slide .pendente::before { font-size: 11px; margin-bottom: 6px; }
+
+/* --------------------------------------------------------------------------
+   11. INDICADORES
+   -------------------------------------------------------------------------- */
+
+.kpi { break-inside: avoid; }
+.kpi-valor {
+  font-size: 24pt;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.slide .kpi-valor { font-size: 44px; }
+.kpi-rotulo {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cinza-texto);
+  margin-top: 1.5mm;
+}
+.slide .kpi-rotulo { font-size: 12px; margin-top: 8px; }
+.escuro .kpi-rotulo { color: var(--cinza-claro); }
+.kpi--laranja .kpi-valor { color: var(--laranja-profundo); }
+.escuro .kpi--laranja .kpi-valor { color: var(--laranja); }
+
+/* --------------------------------------------------------------------------
+   12. LINHA DO TEMPO
+   -------------------------------------------------------------------------- */
+
+.linha-tempo { display: grid; gap: 0; }
+.linha-tempo-item {
+  display: grid;
+  grid-template-columns: 26mm 1fr;
+  gap: 5mm;
+  padding: 4mm 0;
+  border-top: 1px solid var(--cinza-linha);
+  break-inside: avoid;
+}
+.slide .linha-tempo-item { grid-template-columns: 120px 1fr; gap: 20px; padding: 16px 0; }
+.linha-tempo-item:last-child { border-bottom: 1px solid var(--cinza-linha); }
+
+.linha-tempo-periodo {
+  font-size: 8pt;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-top: 0.4mm;
+}
+.slide .linha-tempo-periodo { font-size: 13px; }
+.linha-tempo-periodo span {
+  display: block;
+  font-weight: 400;
+  color: var(--cinza-texto);
+  letter-spacing: 0;
+  text-transform: none;
+  margin-top: 0.8mm;
+}
+.linha-tempo-titulo { font-size: 10pt; font-weight: 700; margin: 0 0 1.5mm; }
+.slide .linha-tempo-titulo { font-size: 17px; }
+.linha-tempo-texto { font-size: 9pt; color: var(--cinza-texto); margin: 0 0 2mm; }
+.slide .linha-tempo-texto { font-size: 15px; }
+
+/* Trilho horizontal, para cronogramas curtos em slide */
+.trilho { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0; }
+.trilho-etapa {
+  padding: 0 16px 0 0;
+  border-top: 3px solid var(--cinza-linha);
+  padding-top: 14px;
+}
+.trilho-etapa--ativa { border-top-color: var(--laranja); }
+.trilho-etapa--feita { border-top-color: var(--preto); }
+
+/* --------------------------------------------------------------------------
+   13. PASSO A PASSO
+   -------------------------------------------------------------------------- */
+
+.passos { counter-reset: passo; display: grid; gap: 4mm; }
+.slide .passos { gap: 16px; }
+.passo {
+  display: grid;
+  grid-template-columns: 9mm 1fr;
+  gap: 4mm;
+  break-inside: avoid;
+}
+.slide .passo { grid-template-columns: 40px 1fr; gap: 18px; }
+.passo::before {
+  counter-increment: passo;
+  content: counter(passo, decimal-leading-zero);
+  font-size: 10pt;
+  font-weight: 800;
+  color: var(--branco);
+  background: var(--preto);
+  width: 9mm;
+  height: 9mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide .passo::before { font-size: 17px; width: 40px; height: 40px; }
+.passo-titulo { font-size: 10pt; font-weight: 800; margin: 0 0 1.5mm; text-transform: uppercase; }
+.slide .passo-titulo { font-size: 18px; }
+.passo-texto { font-size: 9.5pt; color: var(--cinza-texto); margin: 0; }
+.slide .passo-texto { font-size: 16px; }
+
+/* --------------------------------------------------------------------------
+   14. ROTEIRO
+   -------------------------------------------------------------------------- */
+
+.bloco-roteiro {
+  border-left: 3px solid var(--cinza-linha);
+  padding: 0 0 4mm 5mm;
+  margin-bottom: 4mm;
+  break-inside: avoid;
+}
+.bloco-roteiro--gancho { border-left-color: var(--laranja); }
+.bloco-roteiro--cta { border-left-color: var(--preto); }
+.bloco-roteiro-rotulo {
+  font-size: 7pt;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cinza-texto);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5mm;
+}
+.bloco-roteiro--gancho .bloco-roteiro-rotulo { color: var(--laranja-profundo); }
+.bloco-roteiro-fala { font-size: 10pt; line-height: 1.5; margin: 0 0 2mm; }
+.bloco-roteiro-nota { font-size: 8.5pt; color: var(--cinza-texto); margin: 0; }
+
+/* --------------------------------------------------------------------------
+   15. MARCA — capa, assinatura, rodapé
+   Regra fixa: as duas marcas convivem, nunca se sobrepõem, nunca se fundem.
+   No material entregue ao cliente, a marca do cliente vem primeiro.
+   -------------------------------------------------------------------------- */
+
+/* Trava de proporção: dentro de um flex column, a imagem esticaria na
+   largura e a marca sairia deformada. Logo esticada é erro de marca, não
+   de gosto — então a regra vale para qualquer imagem solta em .empilha. */
+.marca-cliente img,
+.marca-expansion img,
+.empilha > img,
+img.marca {
+  width: auto;
+  flex: none;
+  align-self: flex-start;
+  object-fit: contain;
+}
+.marca-expansion img { align-self: flex-end; }
+
+.faixa-marcas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12mm;
+  padding-top: 5mm;
+  border-top: 1px solid var(--fumaca);
+}
+.slide .faixa-marcas { gap: 48px; padding-top: 24px; }
+.escuro .faixa-marcas { border-top-color: var(--fumaca); }
+
+.marca-cliente img { display: block; max-height: 16mm; max-width: 62mm; width: auto; }
+.slide .marca-cliente img { max-height: 72px; max-width: 280px; }
+
+.marca-expansion { text-align: right; flex: none; }
+.marca-expansion img { display: block; height: 6.5mm; width: auto; margin-left: auto; }
+.slide .marca-expansion img { height: 30px; }
+
+.assinatura {
+  font-size: 6.8pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cinza-texto);
+  margin-bottom: 2mm;
+}
+.slide .assinatura { font-size: 11px; margin-bottom: 10px; }
+.escuro .assinatura { color: var(--cinza-claro); }
+
+/* Cabeçalho e rodapé correntes das páginas internas */
+.cabecalho {
+  position: absolute;
+  top: 10mm;
+  left: var(--margem-a4);
+  right: var(--margem-a4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 6.8pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cinza-claro);
+}
+.cabecalho img { height: 4mm; width: auto; opacity: 0.9; }
+
+.rodape {
+  position: absolute;
+  bottom: 10mm;
+  left: var(--margem-a4);
+  right: var(--margem-a4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6mm;
+  padding-top: 2.5mm;
+  border-top: 1px solid var(--cinza-linha);
+  font-size: 6.8pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cinza-claro);
+}
+.escuro .rodape { border-top-color: var(--fumaca); }
+.rodape-pagina { font-weight: 800; color: var(--preto); font-variant-numeric: tabular-nums; }
+.escuro .rodape-pagina { color: var(--branco); }
+
+.slide .rodape {
+  bottom: 24px;
+  left: var(--margem-slide);
+  right: var(--margem-slide);
+  font-size: 11px;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* Anéis: eco do símbolo oficial como elemento gráfico de fundo.
+   É ornamento estrutural, não assinatura — nunca ocupa lugar de logo. */
+.aneis {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 1.5px solid rgba(243, 163, 59, 0.55);
+  /* Cada sombra é um disco pintado atrás da anterior. Os discos pretos
+     recortam o interior e só sobra o anel — sem isso o laranja translúcido
+     empoça e vira mancha marrom. Por isso este ornamento é de fundo escuro. */
+  box-shadow:
+    0 0 0 40px var(--preto),
+    0 0 0 41.5px rgba(243, 163, 59, 0.38),
+    0 0 0 104px var(--preto),
+    0 0 0 105.5px rgba(243, 163, 59, 0.22);
+}
+.aneis--capa { width: 300px; height: 300px; right: -120px; top: 90px; }
+.slide .aneis--capa { width: 380px; height: 380px; right: -140px; top: 120px; }
+
+.regua-laranja { height: 3px; background: var(--laranja); width: 28mm; margin-bottom: 6mm; }
+.slide .regua-laranja { width: 120px; height: 4px; margin-bottom: 24px; }
+
+/* --------------------------------------------------------------------------
+   16. UTILITÁRIOS
+   -------------------------------------------------------------------------- */
+
+.centro { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+.fim { margin-top: auto; }
+.empilha { display: flex; flex-direction: column; height: 100%; }
+.cresce { flex: 1 1 auto; min-height: 0; }
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mb-2 { margin-bottom: 2mm; }
+.mb-4 { margin-bottom: 4mm; }
+.mb-6 { margin-bottom: 6mm; }
+.mb-8 { margin-bottom: 8mm; }
+.slide .mb-4 { margin-bottom: 16px; }
+.slide .mb-6 { margin-bottom: 24px; }
+.slide .mb-8 { margin-bottom: 32px; }
+.sem-quebra { break-inside: avoid; }

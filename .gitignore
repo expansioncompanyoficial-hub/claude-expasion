@@ -15,6 +15,10 @@
 .claude/statsig/
 .claude/.last-cleanup
 
+# Materiais — saídas de conferência, não versionar
+materiais/**/previa/
+.render-*
+
 # Scratch / temporários
 scratchpad/
 *.tmp
