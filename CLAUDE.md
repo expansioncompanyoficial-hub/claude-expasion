@@ -23,7 +23,9 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
 _audios/              Transcrições de áudios, reuniões e conversas
-_clientes/            Anexos originais por cliente (logo, planilhas, guias)
+CLIENTES/             Um diretório por cliente: `<CLIENTE>-CONTEXTO.md` (regras
+                      editoriais, lidas antes de qualquer roteiro) e os anexos
+                      originais — logo, planilhas, guias
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
   settings.json       Permissões versionadas — sincroniza entre máquinas
