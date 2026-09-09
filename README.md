@@ -18,12 +18,22 @@ de nenhuma máquina em particular.
 | `POSICIONAMENTO-CONTEUDO-NICOLAS-*` | Posicionamento e estratégia de conteúdo |
 | `POP-SOCIAL-MEDIA-v0.1.md` | POP de social media |
 | [`_audios/`](_audios/) | Transcrições de áudios e reuniões |
+| [`assets/`](assets/) | Arquivos oficiais da marca EXPANSION e a tipografia embutida |
+| [`materiais/`](materiais/) | Materiais de cliente prontos — HTML fonte e PDF |
 
 ## Por onde começar
 
 Para usar o AEOS numa missão nova, abra
 [`AEOS/VOL-XII-FORGE-MANUAL-DE-OPERACAO.md`](AEOS/VOL-XII-FORGE-MANUAL-DE-OPERACAO.md).
 É o manual de operação; os outros volumes são consultados sob demanda.
+
+Para montar um material de cliente — proposta, cronograma, planejamento,
+apresentação, roteiro —, a skill
+[`designer-expansion`](.claude/skills/designer-expansion/SKILL.md) já traz a
+identidade, os esqueletos A4 e 16:9 e a geração de PDF com conferência de
+layout. O
+[manual do sistema visual](materiais/EXPANSION-SISTEMA-VISUAL/EXPANSION-SISTEMA-VISUAL-2026-09-09.pdf)
+mostra como uma peça fica pronta.
 
 Para entender as convenções do acervo e como o Claude deve trabalhar aqui,
 veja [`CLAUDE.md`](CLAUDE.md).

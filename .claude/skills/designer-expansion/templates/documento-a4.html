@@ -1,0 +1,238 @@
+<!--
+  DOCUMENTO A4 — esqueleto EXPANSION
+  Copie este arquivo para a pasta do material, troque o que está entre
+  [COLCHETES] e apague as páginas que não usar.
+
+  Renderizar:
+    node .claude/skills/designer-expansion/bin/gerar-pdf.mjs material.html --html --previa
+
+  Regras que não se negociam neste arquivo:
+  · {{RAIZ}} é substituído na renderização — não troque por caminho fixo.
+  · Cada .pagina é uma caixa fechada: conteúdo que não cabe vira erro na
+    conferência. Sobrou texto? Abra outra página, não diminua a fonte.
+  · A logo do cliente entra por <img>, nunca redesenhada, nunca dentro de
+    caixa colorida que não seja a dela.
+  · Número que não foi confirmado vai dentro de .pendente, não no texto.
+-->
+<meta charset="utf-8">
+<title>[NOME DO MATERIAL] — [CLIENTE]</title>
+<link rel="stylesheet" href="{{RAIZ}}/.claude/skills/designer-expansion/templates/expansion.css">
+<style>
+  /* Cor do cliente. Tirar da logo oficial dele — não chutar.
+     Sem cor informada, apague este bloco e o material sai na identidade
+     EXPANSION pura, que é melhor do que uma cor inventada. */
+  :root {
+    --cliente-primaria: [#HEX DO CLIENTE];
+    --cliente-contraste: #FFFFFF;   /* texto legível sobre a cor acima */
+  }
+</style>
+
+<!-- ============================================================ CAPA -->
+<div class="pagina escuro">
+  <div class="sangria"><div class="aneis aneis--capa"></div></div>
+  <div class="empilha">
+
+    <!-- Marca do cliente no alto: é o material dele -->
+    <div class="marca-cliente">
+      <img src="[caminho/logo-cliente-branco.png]" alt="[CLIENTE]">
+    </div>
+
+    <div class="cresce"></div>
+
+    <p class="olho">[TIPO DE MATERIAL · ex: Planejamento de conteúdo]</p>
+    <h1 class="titulo-capa">[TÍTULO<br>CURTO E FORTE]</h1>
+    <p class="subtitulo" style="margin-top:6mm">[Uma linha dizendo a que veio. Sem adjetivo solto.]</p>
+
+    <div class="cresce"></div>
+
+    <div class="faixa-marcas">
+      <div>
+        <p class="assinatura mb-0">[PERÍODO · ex: Outubro 2026]</p>
+      </div>
+      <div class="marca-expansion">
+        <p class="assinatura">Estratégia e desenvolvimento</p>
+        <img src="{{RAIZ}}/assets/marca-expansion/derivados/letreiro-branco.png" alt="EXPANSION">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================ RESUMO EXECUTIVO -->
+<div class="pagina">
+  <div class="cabecalho">
+    <span>[CLIENTE] · [NOME DO MATERIAL]</span>
+    <img src="{{RAIZ}}/assets/marca-expansion/derivados/simbolo-anel.png" alt="">
+  </div>
+
+  <div class="secao" style="margin-top:8mm">
+    <div class="secao-cabecalho">
+      <span class="secao-num">01</span>
+      <h2 class="secao-titulo">Resumo executivo</h2>
+    </div>
+    <p class="lead mb-6">[O material inteiro em três a quatro linhas: o que está
+      em jogo, o que foi decidido, o que acontece agora.]</p>
+
+    <div class="grade grade-3 mb-6">
+      <div class="kpi">
+        <div class="kpi-valor">[00]</div>
+        <div class="kpi-rotulo">[Indicador]</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-valor">[00]</div>
+        <div class="kpi-rotulo">[Indicador]</div>
+      </div>
+      <div class="kpi kpi--laranja">
+        <div class="kpi-valor">[00]</div>
+        <div class="kpi-rotulo">[Indicador]</div>
+      </div>
+    </div>
+
+    <div class="destaque">
+      <span class="destaque-rotulo">A decisão</span>
+      <p class="mb-0">[A frase que o cliente precisa levar da reunião.]</p>
+    </div>
+  </div>
+
+  <div class="rodape">
+    <span>Estratégia e desenvolvimento: EXPANSION</span>
+    <span class="rodape-pagina">02</span>
+  </div>
+</div>
+
+<!-- ============================================ SEÇÃO COM CARDS -->
+<div class="pagina">
+  <div class="cabecalho">
+    <span>[CLIENTE] · [NOME DO MATERIAL]</span>
+    <img src="{{RAIZ}}/assets/marca-expansion/derivados/simbolo-anel.png" alt="">
+  </div>
+
+  <div class="secao" style="margin-top:8mm">
+    <div class="secao-cabecalho">
+      <span class="secao-num">02</span>
+      <h2 class="secao-titulo">[Pilares / Etapas / Frentes]</h2>
+    </div>
+
+    <div class="grade grade-2">
+      <div class="card card--laranja">
+        <span class="card-num">01</span>
+        <h3 class="card-titulo">[Nome do pilar]</h3>
+        <p class="card-texto">[O que é, em duas linhas. Verbo na frente.]</p>
+      </div>
+      <div class="card card--laranja">
+        <span class="card-num">02</span>
+        <h3 class="card-titulo">[Nome do pilar]</h3>
+        <p class="card-texto">[O que é, em duas linhas.]</p>
+      </div>
+      <div class="card card--laranja">
+        <span class="card-num">03</span>
+        <h3 class="card-titulo">[Nome do pilar]</h3>
+        <p class="card-texto">[O que é, em duas linhas.]</p>
+      </div>
+      <div class="card card--laranja">
+        <span class="card-num">04</span>
+        <h3 class="card-titulo">[Nome do pilar]</h3>
+        <p class="card-texto">[O que é, em duas linhas.]</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rodape">
+    <span>Estratégia e desenvolvimento: EXPANSION</span>
+    <span class="rodape-pagina">03</span>
+  </div>
+</div>
+
+<!-- ================================================== CRONOGRAMA -->
+<div class="pagina">
+  <div class="cabecalho">
+    <span>[CLIENTE] · [NOME DO MATERIAL]</span>
+    <img src="{{RAIZ}}/assets/marca-expansion/derivados/simbolo-anel.png" alt="">
+  </div>
+
+  <div class="secao" style="margin-top:8mm">
+    <div class="secao-cabecalho">
+      <span class="secao-num">03</span>
+      <h2 class="secao-titulo">Cronograma e responsabilidades</h2>
+    </div>
+
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th style="width:16mm">Semana</th>
+          <th style="width:20mm">Data</th>
+          <th>Ação</th>
+          <th style="width:24mm">Formato</th>
+          <th style="width:26mm">Responsável</th>
+          <th style="width:26mm">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[S1]</td>
+          <td>[00/00]</td>
+          <td>[O que será feito]</td>
+          <td>[Canal/formato]</td>
+          <td><span class="etiqueta etiqueta--expansion">Expansion</span></td>
+          <td><span class="etiqueta etiqueta--concluido">Concluído</span></td>
+        </tr>
+        <tr>
+          <td>[S1]</td>
+          <td>[00/00]</td>
+          <td>[O que será feito]</td>
+          <td>[Canal/formato]</td>
+          <td><span class="etiqueta etiqueta--cliente">[Cliente]</span></td>
+          <td><span class="etiqueta etiqueta--aprovacao">Aguarda aprovação</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="card-texto" style="margin-top:4mm">
+      Legenda —
+      <span class="etiqueta etiqueta--expansion">Expansion</span> executa ·
+      <span class="etiqueta etiqueta--cliente">[Cliente]</span> depende do cliente ·
+      <span class="etiqueta etiqueta--aprovacao">Aguarda aprovação</span> parado até aprovar ·
+      <span class="etiqueta etiqueta--concluido">Concluído</span> entregue
+    </p>
+  </div>
+
+  <div class="rodape">
+    <span>Estratégia e desenvolvimento: EXPANSION</span>
+    <span class="rodape-pagina">04</span>
+  </div>
+</div>
+
+<!-- =============================================== PRÓXIMOS PASSOS -->
+<div class="pagina escuro">
+  <div class="sangria"><div class="aneis aneis--capa" style="right:-160px;top:auto;bottom:-90px"></div></div>
+  <div class="empilha">
+    <div class="regua-laranja"></div>
+    <h2 class="titulo">Próximos passos</h2>
+
+    <div class="passos" style="margin-top:6mm">
+      <div class="passo">
+        <div>
+          <h3 class="passo-titulo">[Ação]</h3>
+          <p class="passo-texto">[Quem faz, até quando, e o que destrava.]</p>
+        </div>
+      </div>
+      <div class="passo">
+        <div>
+          <h3 class="passo-titulo">[Ação]</h3>
+          <p class="passo-texto">[Quem faz, até quando, e o que destrava.]</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cresce"></div>
+
+    <div class="faixa-marcas">
+      <div class="marca-cliente">
+        <img src="[caminho/logo-cliente-branco.png]" alt="[CLIENTE]">
+      </div>
+      <div class="marca-expansion">
+        <p class="assinatura">Estratégia e desenvolvimento</p>
+        <img src="{{RAIZ}}/assets/marca-expansion/derivados/letreiro-branco.png" alt="EXPANSION">
+      </div>
+    </div>
+  </div>
+</div>
