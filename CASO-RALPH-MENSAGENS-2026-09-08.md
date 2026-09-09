@@ -43,13 +43,32 @@ ID de transação) ficam só lá, não neste repositório.
 
 ---
 
-## MENSAGEM 2 — se ele ameaçar ou xingar de volta
+## RESPOSTA DELE — 08/09/2026, 21:49 (quatro minutos depois)
 
-> Ralph, minha posição está na mensagem anterior e não muda por pressão.
+> Ótimo não vão devolver / Ok / Amanhã eu tomo minhas providências / Fica tranquilo /
+> Não quero contato / Mas o dinheiro eu não vou perder / Te garanto !
+
+Recusou a ligação, cortou o contato e anunciou providências. O convite para conversar
+está encerrado por decisão dele — e isso, por escrito, é bom para o registro.
+
+---
+
+## MENSAGEM DE ENCERRAMENTO — a última que o Nicolas escreve
+
+> Entendido, Ralph. Respeito e não vou mais te procurar.
 >
-> Continua de pé a ligação amanhã à tarde comigo e com o Kauã, no horário que você escolher.
+> Deixo só registrado que a porta continua aberta da minha parte, e que a entrega da frente de Encapsulados segue à sua disposição, sem custo, quando você quiser.
 >
-> O que você decidir fazer é direito seu. Eu não vou discutir por mensagem.
+> Se você preferir seguir por outro caminho, tudo bem — eu respondo o que for preciso, onde for preciso.
+
+**Por que assim:**
+
+- **Não comentar o "te garanto".** Não chamar de ameaça, não responder à altura, não perguntar
+  o que ele vai fazer. Quem escreve a ameaça é ele; quem fica educado no registro é o Nicolas.
+- **A oferta de Encapsulados entra aqui, por escrito** — foi retirada da mensagem principal e
+  custa R$ 0. Se isso for para Procon, juizado ou Instagram, o último registro da conversa é a
+  Expansion oferecendo resolver sem custo e ele respondendo "não quero contato".
+- **Depois disso, silêncio.** Se ele mandar mais dez mensagens, nenhuma é respondida.
 
 ---
 
@@ -92,30 +111,36 @@ agressor e expõe dados de cliente.
 
 ---
 
-## Roteiro da ligação de amanhã (tarde)
+## Se ele voltar a procurar
 
-1. **Abrir por Encapsulados, assumindo sem ressalva.** "Essa parte é nossa, não andou, e eu
-   quero entregar sem custo." É o que desarma e o que faltou na mensagem escrita.
-2. **Depois a linha do tempo**, com data, projeto por projeto. Não discutir de memória.
-3. **Não repetir a palavra estelionato.** Não citar o que ele escreveu.
-4. **Não fechar valor na ligação.** Se ele propuser acordo financeiro, ouvir e responder
-   depois, por escrito, e só com termo de quitação.
-5. Quem entra: Nicolas, Ralph, Kauã. Thairony só se o Ralph pedir.
+A ligação com Nicolas e Kauã continua de pé, e a entrega de Encapsulados sem custo também.
+Mas quem reabre é ele. Não insistir, não mandar lembrete, não perguntar se ele pensou melhor.
+
+Se ele reabrir e propuser acordo financeiro: ouvir, não fechar valor na hora, responder
+depois por escrito e **só com termo de quitação assinado**.
 
 ---
 
-## Ações
+## Ações — hoje
 
-- [ ] **Mandar a Mensagem 3 para o Thairony, hoje.**
-- [ ] Avisar o Kauã hoje que a ligação é amanhã à tarde.
-- [ ] Não apagar NADA: conversas, grupos, pastas, arquivos. Não sair de grupo nenhum.
-- [ ] Exportar todas as conversas e guardar em duas cópias.
+- [ ] **Mandar a mensagem de encerramento e parar de responder.**
+- [ ] **Mandar a Mensagem 3 para o Thairony agora**, antes que o Ralph fale com ele. Sem falar
+      mal do Ralph — só o lado da Expansion.
+- [ ] **Exportar a conversa com o Ralph inteira**, incluindo as mensagens de 21:49. Duas cópias.
+- [ ] Avisar o Kauã do que aconteceu.
+- [ ] Não apagar NADA: conversas, grupos, pastas, arquivos. Não bloquear. Não sair de grupo.
+
+## Ações — amanhã de manhã
+
+- [ ] **Advogado.** Ele anunciou providências para amanhã; deixou de ser assunto "desta semana".
+      Levar o dossiê do Drive. Mencionar que o pagamento saiu de conta de terceiro e que ele
+      exige devolução na chave PIX dele — ponto que foi retirado da mensagem, com razão, mas
+      que é relevante juridicamente.
 - [ ] Procurar registro das calls de instrução com a irmã dele (agenda, histórico de chamada,
       gravação) — é a prova do suporte dado, foi afirmado na mensagem e hoje não está no dossiê.
 - [ ] Conferir a lixeira do Drive (mídia de Nipponflex e Baruc).
 - [ ] Verificar o que sobrou do @aguiarealpy.
 - [ ] Kauã liga para a base ativa esta semana e checa "está fluindo?" — por causa do
       "tem outros clientes insatisfeitos".
-- [ ] Consulta com advogado esta semana. Não para processar — para conhecer o terreno.
 
 > Nada aqui é parecer jurídico. Estorno, quitação e responsabilidade exigem revisão de advogado.
