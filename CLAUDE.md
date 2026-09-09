@@ -22,7 +22,8 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 ```
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
-_audios/              Transcrições de áudios e reuniões
+_audios/              Transcrições de áudios, reuniões e conversas
+_clientes/            Anexos originais por cliente (logo, planilhas, guias)
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
   settings.json       Permissões versionadas — sincroniza entre máquinas
@@ -61,6 +62,9 @@ AEOS se consegue reprovar alguma coisa.
 - Rodadas de análise viram arquivos novos (`-RODADA2`, `-RODADA3`), não
   edições destrutivas do anterior. O histórico é o valor.
 - Pares `PARECER` (a análise) + `ANEXOS` (as evidências brutas).
+- **Credencial de cliente não entra aqui.** Senha, token e chave ficam fora do
+  repositório — em export de WhatsApp, redija antes de commitar e registre só
+  onde o acesso está guardado.
 
 ## Ambiente (Claude Code na web)
 
