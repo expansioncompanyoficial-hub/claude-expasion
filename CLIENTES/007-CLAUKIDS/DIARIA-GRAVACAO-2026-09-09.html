@@ -1,0 +1,262 @@
+<title>A Diária de Gravação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --papel:#F7F6F2; --superficie:#FFFFFF; --tinta:#191713; --tinta-2:#665F55;
+  --linha:#E2DFD7; --linha-forte:#C2BCB0;
+  --azul:#14554F; --azul-fraco:#DCE9E7;
+  --brasa:#9C4A2E; --brasa-fraco:#F2DFD6;
+  --sombra:0 1px 2px rgba(25,23,19,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papel:#131211; --superficie:#1C1A18; --tinta:#EDEAE4; --tinta-2:#A29A8E;
+    --linha:#2B2825; --linha-forte:#413C36;
+    --azul:#63BDB2; --azul-fraco:#122A28;
+    --brasa:#E08B67; --brasa-fraco:#2E1A12;
+    --sombra:0 1px 2px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#131211; --superficie:#1C1A18; --tinta:#EDEAE4; --tinta-2:#A29A8E;
+  --linha:#2B2825; --linha-forte:#413C36;
+  --azul:#63BDB2; --azul-fraco:#122A28;
+  --brasa:#E08B67; --brasa-fraco:#2E1A12;
+  --sombra:0 1px 2px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+body{background:var(--papel);color:var(--tinta);margin:0;
+  font:400 17.5px/1.62 "Newsreader",Georgia,serif;-webkit-font-smoothing:antialiased}
+.folha{max-width:800px;margin:0 auto;padding:54px 24px 92px;
+  display:flex;flex-direction:column;gap:48px}
+h1,h2,h3,.rot,.cod,.dono{font-family:"Epilogue",system-ui,sans-serif}
+.hora,.mono{font-family:"Space Mono",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums}
+.rot{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--azul)}
+h1{font-size:clamp(31px,5.6vw,46px);font-weight:700;line-height:1.04;
+  letter-spacing:-.03em;margin:13px 0 0;text-wrap:balance}
+.sub{color:var(--tinta-2);margin:16px 0 0;max-width:58ch;font-size:18px}
+p{margin:0;max-width:62ch}
+.fino{color:var(--tinta-2);font-size:16px}
+section{display:flex;flex-direction:column;gap:17px}
+h2{font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--tinta-2);margin:0;padding-bottom:9px;border-bottom:1px solid var(--linha)}
+h3{font-size:19px;font-weight:600;letter-spacing:-.015em;margin:0}
+
+/* blocos do dia */
+.bloco{background:var(--superficie);border:1px solid var(--linha);border-radius:4px;
+  box-shadow:var(--sombra);overflow:hidden;break-inside:avoid}
+.bloco .cab{padding:14px 18px;background:var(--azul-fraco);
+  border-bottom:1px solid var(--linha);display:flex;justify-content:space-between;
+  align-items:baseline;gap:12px;flex-wrap:wrap}
+.bloco .cab .t{font-family:"Epilogue",sans-serif;font-weight:600;font-size:17px;
+  letter-spacing:-.01em;color:var(--azul)}
+.bloco .cab .h{font-family:"Space Mono",monospace;font-size:13px;color:var(--azul);
+  font-weight:700;white-space:nowrap}
+.bloco .porque{padding:12px 18px 0;font-size:15.5px;color:var(--tinta-2)}
+.bloco .lista{padding:12px 18px 16px;display:flex;flex-direction:column;gap:0}
+.bloco .v{display:grid;grid-template-columns:66px 1fr;gap:14px;padding:10px 0;
+  border-bottom:1px solid var(--linha);align-items:start}
+.bloco .v:last-child{border-bottom:0}
+.bloco .cod{font-family:"Space Mono",monospace;font-size:12px;font-weight:700;
+  color:var(--tinta-2);padding-top:4px;letter-spacing:-.02em}
+.bloco .nome{font-family:"Epilogue",sans-serif;font-weight:600;font-size:16.5px;
+  letter-spacing:-.008em}
+.bloco .cena{font-size:15.5px;color:var(--tinta-2);margin-top:3px;max-width:50ch}
+@media(max-width:560px){
+  .bloco .v{grid-template-columns:1fr;gap:2px}
+  .folha{padding:34px 17px 70px;gap:38px}
+}
+
+/* preparar */
+.prep{background:var(--brasa-fraco);border:1.5px solid var(--brasa);border-radius:4px;
+  padding:20px 22px;display:flex;flex-direction:column;gap:13px}
+.prep .rot{color:var(--brasa)}
+.prep .li{display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:start;
+  font-size:16.5px;max-width:56ch}
+.prep .li::before{content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--brasa);margin-top:10px}
+.prep b{font-family:"Epilogue",sans-serif;font-weight:600}
+
+/* datas */
+.datas{display:flex;flex-direction:column;gap:11px}
+.data{background:var(--superficie);border:1px solid var(--linha);border-radius:4px;
+  box-shadow:var(--sombra);padding:16px 18px;display:grid;
+  grid-template-columns:1fr auto;gap:14px;align-items:center}
+.data.top{border-left:3px solid var(--azul)}
+.data .d{font-family:"Epilogue",sans-serif;font-weight:600;font-size:17.5px;
+  letter-spacing:-.01em}
+.data .p{font-size:15.5px;color:var(--tinta-2);margin-top:4px;max-width:48ch}
+.data .sel{font-family:"Space Mono",monospace;font-size:11px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:2px;
+  white-space:nowrap}
+.sel.a{background:var(--azul-fraco);color:var(--azul)}
+.sel.b{background:var(--linha);color:var(--tinta-2)}
+.sel.c{background:var(--brasa-fraco);color:var(--brasa)}
+@media(max-width:560px){.data{grid-template-columns:1fr}.data .sel{justify-self:start}}
+
+ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;max-width:62ch}
+li::before{content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--linha-forte);margin-top:10px}
+li b{font-family:"Epilogue",sans-serif;font-weight:600}
+
+footer{border-top:1px solid var(--linha);padding-top:21px;font-size:14px;
+  color:var(--tinta-2);max-width:62ch}
+:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+</style>
+
+<div class="folha">
+
+<header>
+  <div class="rot">Clau Kids × Expansion · Setembro 2026</div>
+  <h1>A diária de gravação</h1>
+  <p class="sub">Clau, é a gravação que resolve o mês inteiro de uma vez — como a de julho,
+  que rendeu treze vídeos num dia só. Aqui está a data que a gente sugere, o que você
+  precisa separar antes, e a ordem do dia. 💛</p>
+</header>
+
+<section>
+  <h2>As datas — a nossa sugestão</h2>
+  <div class="datas">
+    <div class="data top">
+      <div>
+        <div class="d">Segunda, 14/09 · das 7h40 às 12h</div>
+        <div class="p">Segunda é o dia mais calmo da semana na loja, você já chega 7h40, e a
+        loja está arrumada do fim de semana. Grava com a loja vazia e a luz da manhã, e o
+        material fica pronto <em>antes</em> da semana do Dia do Cliente.</div>
+      </div>
+      <span class="sel a">1ª opção</span>
+    </div>
+    <div class="data">
+      <div>
+        <div class="d">Quinta, 10/09 · das 7h40 às 12h</div>
+        <div class="p">É amanhã. Resolve mais rápido, mas te dá só hoje para separar as
+        peças — e separar as araras por idade é a parte que mais leva tempo.</div>
+      </div>
+      <span class="sel b">2ª opção</span>
+    </div>
+    <div class="data">
+      <div>
+        <div class="d">Sexta, 11/09 · das 7h40 às 11h</div>
+        <div class="p">Funciona, mas sexta costuma entrar cliente mais cedo e a janela de
+        loja vazia fica menor.</div>
+      </div>
+      <span class="sel b">3ª opção</span>
+    </div>
+    <div class="data">
+      <div>
+        <div class="d">De 15 a 21/09 — a gente não recomenda</div>
+        <div class="p">É a semana do Dia do Cliente, a de maior movimento do mês. Você mesma
+        já marcou essa semana como a de atenção redobrada no WhatsApp. Gravar aí tira você
+        justamente de onde você mais rende.</div>
+      </div>
+      <span class="sel c">evitar</span>
+    </div>
+  </div>
+  <p class="fino">A janela começa cedo de propósito: das 7h40 até a loja abrir é o único
+  momento em que dá para gravar fala longa sem interrupção. Depois das 9h a gente segue com
+  os vídeos que não dependem de silêncio.</p>
+</section>
+
+<section>
+  <h2>O que separar antes — é a parte que só você pode fazer</h2>
+  <div class="prep">
+    <div class="rot">Na véspera</div>
+    <div class="li"><span><b>Uma arara montada por faixa de idade:</b> enxoval e recém-nascido · 2 a 4 · 5 a 8 · 9 a 12 · 13 a 18 com a Pula Bula. Não precisa ser arara de verdade — pode ser um trecho da arara, desde que estejam separadas e na ordem.</span></div>
+    <div class="li"><span><b>Uma peça campeã de cada faixa</b> — aquela que você mostraria primeiro se a mãe entrasse hoje. É a que vai para o close.</span></div>
+    <div class="li"><span><b>A peça de manga</b>, a do fim da tarde que esfria. Ela aparece em dois vídeos.</span></div>
+    <div class="li"><span><b>Uma peça em que sobrou um número só</b>, com a etiqueta à vista. Serve para o vídeo de anúncio que você vai regravar toda semana.</span></div>
+    <div class="li"><span><b>Roupa sua: uma só, o dia inteiro.</b> De preferência lisa, sem estampa forte. Isso é importante — se você troca de roupa no meio, os vídeos ficam presos a uma ordem de publicação e a gente perde a liberdade de encaixar cada um no melhor dia.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>A ordem do dia — treze vídeos</h2>
+  <p class="fino">A ordem não é a de publicação: é a que gasta menos tempo seu. A gente
+  agrupa por cenário, então você percorre cada arara uma vez só.</p>
+
+  <div class="bloco">
+    <div class="cab"><span class="t">1 · Loja vazia, você falando</span><span class="h">7h40 — 9h00</span></div>
+    <div class="porque">São falas longas, olhando na câmera. Precisam de silêncio, e é o
+    único momento do dia que tem isso.</div>
+    <div class="lista">
+      <div class="v"><span class="cod">R31</span><div><div class="nome">“Eu sei o nome das minhas clientes”</div><div class="cena">Dia do Cliente. Grava primeiro porque é o que vai ao ar dia 15.</div></div></div>
+      <div class="v"><span class="cod">TR08</span><div><div class="nome">“Uma mãe me pediu um vestido vermelho. Eu disse não.”</div><div class="cena">A festa da Minnie. Conta como quem conta um caso, sem decorar.</div></div></div>
+      <div class="v"><span class="cod">TR10</span><div><div class="nome">“Pode me chamar sem saber o que você quer”</div><div class="cena">Tom de quem tranquiliza. É o mais quentinho dos treze.</div></div></div>
+      <div class="v"><span class="cod">TR09</span><div><div class="nome">“Você achou caro. Deixa eu explicar de onde vem o preço.”</div><div class="cena">Só grava se você aprovar — é o único que fala de preço, e nenhum valor aparece.</div></div></div>
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="cab"><span class="t">2 · A escada das araras</span><span class="h">9h00 — 10h30</span></div>
+    <div class="porque">A série das idades, que foi ideia sua. Grava o primeiro percorrendo
+    todas as araras; depois volta em cada uma para o vídeo daquela faixa.</div>
+    <div class="lista">
+      <div class="v"><span class="cod">R24</span><div><div class="nome">“Do primeiro body até o 18”</div><div class="cena">Você percorre todas as araras. É o que abre a série.</div></div></div>
+      <div class="v"><span class="cod">R25</span><div><div class="nome">“Enxoval não é sobre fofura”</div><div class="cena">Na arara de bebê. Close nas peças de enxoval.</div></div></div>
+      <div class="v"><span class="cod">R26</span><div><div class="nome">“Essa é a idade em que a roupa apanha”</div><div class="cena">2 a 4 anos.</div></div></div>
+      <div class="v"><span class="cod">R27</span><div><div class="nome">“Escola de manhã, festa às cinco”</div><div class="cena">5 a 8. Mostrando a peça que vira duas.</div></div></div>
+      <div class="v"><span class="cod">R28</span><div><div class="nome">“A arara que quase nenhuma loja tem”</div><div class="cena">9 a 12, o “between”. É a sua bandeira.</div></div></div>
+      <div class="v"><span class="cod">R29</span><div><div class="nome">“Festa aos treze, sem parecer de adulta”</div><div class="cena">Pula Bula, com ênfase na numeração 18.</div></div></div>
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="cab"><span class="t">3 · O seu método</span><span class="h">10h30 — 11h15</span></div>
+    <div class="porque">Os dois que explicam como você atende. São os que mais fazem mãe
+    mandar mensagem.</div>
+    <div class="lista">
+      <div class="v"><span class="cod">TR06</span><div><div class="nome">“Me manda a foto da criança, não a do vestido”</div><div class="cena">Falando na câmera, direto.</div></div></div>
+      <div class="v"><span class="cod">TR07</span><div><div class="nome">“A festa é sábado”</div><div class="cena">Termina na arara com as peças já separadas no balcão. Grava duas aberturas: uma com “sábado”, outra com “esse fim de semana”.</div></div></div>
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="cab"><span class="t">4 · O que vem depois</span><span class="h">11h15 — 11h30</span></div>
+    <div class="lista">
+      <div class="v"><span class="cod">R32</span><div><div class="nome">“Outubro começa hoje”</div><div class="cena">Abre a lista do Dia das Crianças. É o que prepara o maior mês do ano.</div></div></div>
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="cab"><span class="t">5 · Sem fala nenhuma</span><span class="h">11h30 — 12h00</span></div>
+    <div class="porque">Meia hora sem você falar, só imagem. É o bloco que faltou em julho,
+    e é o que permite a gente montar vídeo novo em outubro sem te pedir outro dia de gravação.</div>
+    <div class="lista">
+      <div class="v"><span class="cod">B-roll</span><div><div class="nome">Mãos, tecido, etiqueta, embalagem</div><div class="cena">Sua mão passando na arara · tecido em movimento · a etiqueta da numeração em close · peça sendo dobrada · sacola sendo fechada · a vitrine · a fachada · o provador.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Combinados técnicos</h2>
+  <ul>
+    <li><span><b>Microfone de lapela em toda fala.</b> Áudio limpo compensa muita coisa; o contrário não é verdade.</span></li>
+    <li><span><b>Câmera rodando entre os takes.</b> A terceira ou quarta tomada é quando a fala solta — e é quase sempre a que a gente usa.</span></li>
+    <li><span><b>Sem música da biblioteca do Instagram.</b> Vários desses vão virar anúncio, e música licenciada só para orgânico derruba o anúncio na revisão.</span></li>
+    <li><span><b>Vertical, e sem criança em cena com rosto.</b> Como sempre.</span></li>
+    <li><span><b>Sem tarja do brinde do lagarto</b> em nada — ele esgotou, e a gente não anuncia o que não tem.</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Por que agora, sem rodeio</h2>
+  <p>O feed está sem reel desde o dia 4, e o reel de terça não saiu porque não existe
+  material. A gente tem oito reels do mês esperando essa gravação, mais cinco vídeos que
+  vão para o anúncio. Um dia seu resolve os treze — e depois disso você só grava story,
+  do seu jeito, como já faz.</p>
+  <p class="fino">Se nenhuma das três datas servir, me diz qual dia da sua semana é o mais
+  parado que a gente alinha com a videomaker em cima do seu calendário, não do nosso.</p>
+</section>
+
+<footer>
+  Plano da diária de gravação · Clau Kids × Expansion, setembro/2026. Os roteiros completos
+  de cada vídeo, com fala e direção de cena, estão no documento “Clau Kids Store” na sua
+  pasta do Drive — vale ler antes do dia, não precisa decorar. 💛
+</footer>
+
+</div>
