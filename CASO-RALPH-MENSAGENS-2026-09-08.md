@@ -34,7 +34,7 @@ ID de transação) ficam só lá, não neste repositório.
 >
 > A gente entregou. Perfil criado do zero, identidade visual, bio e link de atendimento, vídeos editados e publicados, 15 roteiros completos da Nipponflex e 15 roteiros completos da Baruc. Colocamos automação de comentários e montamos funil de venda orgânica para gerar lead — e gerou: chegou gente interessada na Nipponflex, e quem atendia era o comercial do Pablo na época. Isso não é "criar um Instagram e postar quatro vídeos".
 >
-> O que travou não foi falta de trabalho nosso. Foi não ter quem gravasse. Você não queria aparecer, a gente alinhou com a sua irmã para ela gravar e não aconteceu. Você mesmo me ligou para me apresentar a moça que ia tocar o projeto, e a gente foi junto, animado. Em 24/04 você pediu, por escrito, para apagar tudo do Instagram, e depois disso o Pablo encerrou a parte dele. Conteúdo é via de mão dupla, Ralph: a gente escreve, produz e edita, mas alguém precisa gravar.
+> O que travou não foi falta de trabalho nosso. Foi não ter quem gravasse. Você não queria aparecer, e a gente foi atrás: fizemos call com a sua irmã, instruímos ela, passamos o roteiro e demos todo o suporte para ela conseguir gravar. A gente esteve presente. Mesmo assim a gravação não aconteceu. Você mesmo me ligou para me apresentar a moça que ia tocar o projeto, e a gente foi junto, animado. Em 24/04 você pediu, por escrito, para apagar tudo do Instagram, e depois disso o Pablo encerrou a parte dele. Conteúdo é via de mão dupla, Ralph: a gente escreve, produz, edita e ensina, mas alguém precisa gravar.
 >
 > Depois disso o trabalho seguiu na Reino, que você pediu para a gente tocar e onde você ficou dentro do grupo o tempo todo, de maio a agosto: roteiros toda semana, artes, edição e oito publicações. Em 17/06 você perguntou o que tinha sido feito e cinco minutos depois eu te mandei o link do vídeo editado, no grupo e aqui no privado. No dia seguinte perguntei se você tinha visto. Você não respondeu.
 >
@@ -98,6 +98,8 @@ agressor e expõe dados de cliente.
 - [ ] Não apagar NADA: conversas, grupos, pastas, arquivos. Não sair de grupo nenhum.
 - [ ] Exportar todas as conversas e guardar em duas cópias.
 - [ ] Conferir a lixeira do Drive (mídia de Nipponflex e Baruc).
+- [ ] Procurar registro das calls de instrução com a irmã dele (agenda, histórico de chamada,
+      gravação) — é a prova do suporte dado, e hoje não está no dossiê.
 - [ ] Verificar o que sobrou do @aguiarealpy.
 - [ ] Avisar o Kauã hoje que a ligação de amanhã pode cair a qualquer hora.
 - [ ] Kauã liga para a base ativa esta semana e checa "está fluindo?" — por causa do
