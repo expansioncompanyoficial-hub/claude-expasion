@@ -72,7 +72,7 @@ está encerrado por decisão dele — e isso, por escrito, é bom para o registr
 
 ---
 
-## MENSAGEM 3 — para o Thairony (separado, ainda hoje)
+## ENVIADO ao Thairony — 08/09/2026, 21:49
 
 > Thairony, falei com o Ralph e dei a posição por escrito.
 >
@@ -82,11 +82,42 @@ está encerrado por decisão dele — e isso, por escrito, é bom para o registr
 >
 > Me liga quando puder hoje.
 
-**Por que ela importa:** em 24/08 o Ralph escreveu que "o Thairony também quer o dinheiro de
-volta" — e na mesma manhã, 10h45, o Thairony conversava normal com o Nicolas, falando de obra
-e pedindo lance no consórcio, sem uma palavra sobre estorno. Em 08/07 ele já tinha discordado
-do Ralph por escrito ("eu fui e mandei a grana, deixa ele"). Uma resposta dele hoje, em
-qualquer direção, fica registrada. Não mencionar estorno, valor, nem o que o Ralph falou dele.
+### RESPOSTA DELE — 08/09/2026, 21:57
+
+> Irmao / Coisa da minha empresa e da reino eu so quero que alavanquemos /
+> Somente isso nao pedir nada a voces de volta / Somente que possamos alavancar
+
+**É a prova mais forte do caso.** Em 24/08 o Ralph escreveu que "o Thairony também quer o
+dinheiro de volta". Oito minutos depois de uma pergunta aberta, sem indução e sem que o
+assunto estorno fosse mencionado, o Thairony escreveu espontaneamente o contrário. Somado ao
+08/07 ("eu fui e mandei a grana, deixa ele") e à manhã de 24/08 — quando ele conversava normal
+com o Nicolas sobre obra e lance de consórcio na mesma hora em que o Ralph exigia o estorno em
+nome dele — a afirmação central do Ralph fica desmontada por escrito.
+
+**Não mandar esse print para o Ralph.** Nem como resposta ao "te garanto". É prova para
+advogado, Procon ou juizado, não munição de discussão. Usar agora queima a confiança do
+Thairony e transforma um aliado em alguém que virou peça de um conflito que não é dele.
+
+---
+
+## RESPOSTA AO THAIRONY — mandar em seguida
+
+> Thairony, obrigado, irmão. Isso vale muito pra mim.
+>
+> Alavancar é o que eu quero também. E pra acontecer eu preciso ser direto contigo sobre o que travou: roteiro, arte e edição sempre estiveram prontos do nosso lado. O gargalo sempre foi a gravação — e enquanto isso não destravar, o resto não sai do lugar.
+>
+> Minha proposta: essa semana eu e o Kauã sentamos contigo, uma hora, e a gente resolve isso de vez. Dia fixo de gravação no mês, lote de vídeo gravado de uma vez só pra render semanas, e alguém do nosso time indo até você se for preciso.
+>
+> Me diz um dia e um horário que funciona e eu travo aqui.
+
+**Por que assim:**
+
+- **Nomeia o gargalo real.** Entre 21/05 e 29/06 houve nove cobranças de gravação ao Thairony.
+  Responder só "boa, vamos alavancar" repõe o mesmo ciclo e em três semanas o problema volta —
+  aí o churn é por causa da Expansion, não do Ralph.
+- **Não fala de dinheiro.** Ele acabou de dizer que não quer nada de volta; levantar
+  mensalidade agora transforma boa-fé em negociação. Isso se resolve na reunião.
+- **Não pede que ele tome partido** nem que fale com o Ralph. O registro já existe sozinho.
 
 ---
 
