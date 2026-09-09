@@ -1,0 +1,363 @@
+<title>Posicionamento Estilo Menina</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#fffdfa; --ink:#231a12; --muted:#857566; --card:#ffffff; --line:#eee2d4;
+    --accent:#E67E22; --accent-soft:#fdf0e3; --accent-ink:#a4560f;
+    --frio-bg:#f3f0eb; --frio-ink:#6f6659; --frio-line:#e2ddd4;
+    --ok-bg:#e9f9f0; --ok-ink:#14713f;
+    --hero:#341100; --hero-ink:#f5ede6; --hero-eyebrow:#f0a56b; --hero-soft:#dcc9b8; --hero-hi:#ffc998;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1a1209; --ink:#f4ebe2; --muted:#b0a091; --card:#261a10; --line:#3d2d1d;
+      --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877;
+      --frio-bg:#231d16; --frio-ink:#9a8f81; --frio-line:#3a3128;
+      --ok-bg:#14301f; --ok-ink:#6fdd9a;
+      --hero:#250f00; --hero-ink:#f5ede6; --hero-eyebrow:#f0a56b; --hero-soft:#cbb6a3; --hero-hi:#ffc998;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1a1209; --ink:#f4ebe2; --muted:#b0a091; --card:#261a10; --line:#3d2d1d;
+    --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877;
+    --frio-bg:#231d16; --frio-ink:#9a8f81; --frio-line:#3a3128;
+    --ok-bg:#14301f; --ok-ink:#6fdd9a;
+    --hero:#250f00; --hero-ink:#f5ede6; --hero-eyebrow:#f0a56b; --hero-soft:#cbb6a3; --hero-hi:#ffc998;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif; font-size:16px; line-height:1.6;
+    padding:0 16px 72px;}
+  .wrap{max-width:640px; margin:0 auto; display:flex; flex-direction:column;}
+
+  /* ---- hero ---- */
+  header.hero{background:var(--hero); color:var(--hero-ink); border-radius:20px;
+    padding:34px 26px 30px; margin:22px 0 0;}
+  .eyebrow{font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:800;
+    color:var(--hero-eyebrow); margin:0 0 16px;}
+  h1{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:31px; line-height:1.18;
+    letter-spacing:-.015em; text-wrap:balance; margin:0 0 14px;}
+  header.hero .sub{color:var(--hero-soft); font-size:15px; margin:0; max-width:44ch;}
+  header.hero .sub b{color:var(--hero-hi); font-weight:600;}
+  .datalinha{margin:20px 0 0; padding-top:16px; border-top:1px solid rgba(255,255,255,.14);
+    font-size:12.5px; letter-spacing:.04em; color:var(--hero-soft); text-transform:uppercase; font-weight:600;}
+
+  /* ---- seções ---- */
+  section{margin:0;}
+  h2{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:23px; line-height:1.25;
+    letter-spacing:-.01em; text-wrap:balance; margin:46px 0 6px;}
+  .lead{color:var(--muted); font-size:14.5px; margin:0 0 18px; max-width:62ch;}
+  p{margin:0 0 14px; max-width:64ch;}
+  p:last-child{margin-bottom:0;}
+  strong{font-weight:700;}
+
+  /* ---- números ---- */
+  .numeros{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:0 0 6px;}
+  .num{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:15px 16px;}
+  .num .v{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:25px; line-height:1.1;
+    color:var(--accent-ink); font-variant-numeric:tabular-nums; display:block; margin:0 0 5px;
+    letter-spacing:-.02em;}
+  .num .l{font-size:13px; color:var(--muted); line-height:1.45; display:block;}
+
+  /* ---- duelo (aqui × marketplace) ---- */
+  .duelo{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:18px 0;}
+  .duelo .col{border-radius:14px; padding:16px 16px 14px;}
+  .duelo .aqui{background:var(--accent-soft); border:1px solid var(--accent);}
+  .duelo .la{background:var(--frio-bg); border:1px solid var(--frio-line);}
+  .duelo h3{font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:800;
+    margin:0 0 12px;}
+  .duelo .aqui h3{color:var(--accent-ink);}
+  .duelo .la h3{color:var(--frio-ink);}
+  .duelo ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px;}
+  .duelo li{font-size:14px; line-height:1.45;}
+  .duelo .la li{color:var(--frio-ink);}
+
+  /* ---- tabela de custo ---- */
+  .tw{overflow-x:auto; margin:16px 0;}
+  table{border-collapse:collapse; width:100%; font-size:14px; min-width:340px;}
+  th,td{text-align:left; padding:11px 10px; border-bottom:1px solid var(--line); vertical-align:top;}
+  th{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:800;}
+  td.n{font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:700;}
+  tr.copia td{color:var(--frio-ink);}
+  tr.nao-copia td{color:var(--accent-ink); font-weight:600;}
+  tr:last-child td{border-bottom:none;}
+
+  /* ---- pilares ---- */
+  .pilares{display:flex; flex-direction:column; gap:10px; margin:18px 0;}
+  .pilar{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent);
+    border-radius:0 12px 12px 0; padding:16px 18px;}
+  .pilar .p-nome{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:19px;
+    color:var(--accent-ink); margin:0 0 5px; letter-spacing:.01em;}
+  .pilar p{font-size:14.5px; margin:0;}
+  .pilar .prova{display:block; margin-top:9px; font-size:13px; color:var(--muted);}
+
+  /* ---- destaque ---- */
+  .conta{background:var(--card); border:2px dashed var(--accent); border-radius:14px;
+    padding:20px 18px; margin:18px 0; text-align:center;}
+  .conta .peq{font-size:14px; color:var(--muted); display:block;}
+  .conta .big{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:30px;
+    color:var(--accent-ink); font-variant-numeric:tabular-nums; letter-spacing:-.02em;
+    display:block; margin:8px 0 6px; line-height:1.1;}
+  .frase{background:var(--ok-bg); border-radius:14px; padding:18px 20px; margin:18px 0;
+    font-size:15.5px; line-height:1.5;}
+  .frase b{color:var(--ok-ink);}
+
+  /* ---- listas de parar/começar ---- */
+  .troca{display:flex; flex-direction:column; gap:12px; margin:18px 0;}
+  .troca .item{display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start;}
+  .troca .marca{font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
+    padding:4px 8px; border-radius:6px; white-space:nowrap; margin-top:2px;}
+  .troca .para{background:var(--frio-bg); color:var(--frio-ink);}
+  .troca .comeca{background:var(--accent-soft); color:var(--accent-ink);}
+  .troca .txt{font-size:14.5px; line-height:1.5;}
+
+  /* ---- canais ---- */
+  .canais{display:flex; flex-direction:column; gap:0;}
+  .canal{display:grid; grid-template-columns:118px 1fr; gap:14px; padding:14px 0;
+    border-bottom:1px solid var(--line); align-items:start;}
+  .canal:last-child{border-bottom:none;}
+  .canal .c-nome{font-size:13px; font-weight:800; color:var(--accent-ink); line-height:1.35;}
+  .canal .c-txt{font-size:14.5px; line-height:1.5;}
+
+  /* ---- arco ---- */
+  .arco{display:flex; flex-direction:column; gap:10px; margin:18px 0;}
+  .mes{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:15px 18px;}
+  .mes .m-top{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin:0 0 6px;}
+  .mes .m-nome{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:18px; color:var(--ink);}
+  .mes .m-verbo{font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--accent-ink); background:var(--accent-soft); padding:3px 8px; border-radius:5px;}
+  .mes p{font-size:14.5px; margin:0;}
+  .mes.destaque-mes{border-color:var(--accent); border-width:2px;}
+
+  /* ---- voz ---- */
+  .voz{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0;}
+  .voz span{background:var(--accent-soft); color:var(--accent-ink); border-radius:20px;
+    padding:7px 14px; font-size:14px; font-weight:500;}
+
+  footer{margin:52px 0 0; padding-top:22px; border-top:1px solid var(--line);
+    color:var(--muted); font-size:13px;}
+  footer b{color:var(--ink);}
+
+  @media (max-width:420px){
+    h1{font-size:27px;}
+    .numeros{grid-template-columns:1fr;}
+    .canal{grid-template-columns:1fr; gap:4px;}
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Estilo Menina × Expansion</p>
+    <h1>“Aqui eu já sei o número da sua filha, escolho pensando nela, e entrego hoje.”</h1>
+    <p class="sub">Este é o documento que responde uma pergunta só: <b>por que uma mãe compra
+    de você e não do marketplace.</b> Tudo o que a gente vai fazer daqui pra frente — anúncio,
+    live, grupo, conteúdo — sai daqui.</p>
+    <p class="datalinha">Posicionamento · Setembro de 2026</p>
+  </header>
+
+  <section>
+    <h2>O que os seus próprios números contaram</h2>
+    <p class="lead">Nada aqui é achismo. Saiu dos seus 12 meses no Bling e da sua base
+    inteira na Tray, cliente por cliente.</p>
+
+    <div class="numeros">
+      <div class="num"><span class="v">R$ 169</span><span class="l">Seu ticket médio real — bem acima do preço de uma peça</span></div>
+      <div class="num"><span class="v">79%</span><span class="l">De quem se cadastra no seu site, compra. O normal no e-commerce é 2% a 10%</span></div>
+      <div class="num"><span class="v">57%</span><span class="l">Da sua base está aqui na região — Vera Cruz, Marília e volta</span></div>
+      <div class="num"><span class="v">1,91</span><span class="l">Peças por pedido. Sua cliente já compra em dupla, sem ninguém pedir</span></div>
+    </div>
+
+    <p style="margin-top:18px">Esse 79% é o número mais importante de todos, e ele não diz que
+    o site é bom. Ele diz que <strong>quem chega no seu site já confia em você antes de
+    chegar</strong>. Oito anos de loja física, seu rosto, seu nome. Por isso 36% dos seus
+    pedidos nem passam pelo site: acontecem no WhatsApp, no grupo, na loja.</p>
+    <p><strong>O seu site não é a sua vitrine. É o caixa de uma relação que já existe.</strong>
+    Isso muda tudo o que a gente vai fazer com ele.</p>
+  </section>
+
+  <section>
+    <h2>A briga que não dá pra ganhar</h2>
+    <p class="lead">Você baixou a malha canelada para R$&nbsp;79,90 por causa da Shopee.
+    Faz total sentido — e é exatamente aí que a gente precisa mexer.</p>
+
+    <p>Marketplace tem estoque infinito, frete subsidiado e nenhum aluguel. Numa briga de
+    preço, no melhor cenário, você perde mais devagar. E o pior: <strong>o desconto sai
+    justamente do dinheiro que paga a vantagem que eles não conseguem copiar.</strong></p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>O que você oferece</th><th>Custa por pedido</th><th>Eles copiam?</th></tr></thead>
+        <tbody>
+          <tr class="copia"><td>Desconto de 10% no Pix</td><td class="n">~R$ 16,90</td><td>Sim, e melhor</td></tr>
+          <tr class="copia"><td>Frete grátis</td><td class="n">variável</td><td>Sim, subsidiado</td></tr>
+          <tr class="nao-copia"><td>Motoboy no mesmo dia</td><td class="n">~R$ 4,00</td><td>Não. Nunca.</td></tr>
+          <tr class="nao-copia"><td>Saber a numeração da filha</td><td class="n">R$ 0,00</td><td>Não. Nunca.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="frase"><b>Leitura em uma linha:</b> o item mais caro da sua oferta é o único
+    que qualquer um copia. E os dois que ninguém copia custam quase nada. A gente não vai
+    gastar mais — vai <b>trocar o que você fala primeiro</b>.</div>
+
+    <p>O desconto do Pix continua. Ele resolve o seu caixa e isso importa. O que muda é o
+    lugar dele: sai da primeira linha do anúncio e vira condição de fechamento.
+    <strong>A primeira linha, agora, é a entrega.</strong></p>
+  </section>
+
+  <section>
+    <h2>Os três pilares</h2>
+    <p class="lead">Todo anúncio, mensagem e bloco de live tem que ativar pelo menos um.
+    Se não ativa nenhum, é conteúdo bonito — não é a marca.</p>
+
+    <div class="pilares">
+      <div class="pilar">
+        <p class="p-nome">CONHECE</p>
+        <p>Você sabe a numeração, o estilo e o histórico. O marketplace não sabe quem é a
+        cliente. Aquela pergunta — <em>“ela ainda tá no 6 ou já subiu?”</em> — não é uma
+        técnica de mensagem. É a marca inteira numa frase.</p>
+        <span class="prova">Prova: suas clientes voltam 1,65 vez por ano, sem nenhum método aplicado ainda.</span>
+      </div>
+      <div class="pilar">
+        <p class="p-nome">ESCOLHE</p>
+        <p>Você separa, monta o look e manda só o que serve. Lá, a mãe garimpa sozinha entre
+        mil anúncios iguais. Curadoria e peça que ninguém da escola vai ter — esse é o
+        argumento pra quem é de fora da região.</p>
+        <span class="prova">Prova: R$ 169 de ticket médio com peças de R$ 79,90 — a cliente confia na sua escolha.</span>
+      </div>
+      <div class="pilar">
+        <p class="p-nome">ENTREGA HOJE</p>
+        <p>Pediu de manhã, sai de motoboy à tarde. O piso do marketplace é de 3 a 7 dias.
+        Isso não é um detalhe: é outro produto. <strong>Ninguém compra na Shopee, na sexta,
+        o vestido da festa de sábado.</strong></p>
+        <span class="prova">Prova: 57% da sua base está no raio do seu motoboy.</span>
+      </div>
+    </div>
+
+    <div class="duelo">
+      <div class="col aqui">
+        <h3>Na Estilo Menina</h3>
+        <ul>
+          <li>Sabe o número da filha</li>
+          <li>Separa e monta o look</li>
+          <li>Chega hoje à tarde</li>
+          <li>Tem nome, rosto e 8 anos</li>
+        </ul>
+      </div>
+      <div class="col la">
+        <h3>No marketplace</h3>
+        <ul>
+          <li>Não sabe quem é você</li>
+          <li>Você garimpa sozinha</li>
+          <li>Chega em 3 a 7 dias</li>
+          <li>Reclamou? Fala com um chat</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>O preço muda de métrica</h2>
+    <p class="lead">A gente não vai brigar no preço da peça. Vai brigar no preço do look montado —
+    onde eles simplesmente não jogam.</p>
+
+    <p>Sua cliente já leva quase duas peças por pedido. Ela já compra em composição, sozinha.
+    O combo não inventa nada: <strong>dá nome ao que ela já faz</strong> e puxa pra cima quem
+    ia levar só uma.</p>
+
+    <div class="conta">
+      <span class="peq">Combo de 2 peças por R$ 149,90, que rendem 4 combinações diferentes</span>
+      <span class="big">R$ 37,48</span>
+      <span class="peq">por roupa montada</span>
+    </div>
+
+    <p>Essa é a conta que você fala em voz alta na live e no grupo. É verdadeira, é sua, e é
+    a única métrica de preço em que o marketplace não tem resposta.</p>
+  </section>
+
+  <section>
+    <h2>O que a marca para de fazer</h2>
+    <p class="lead">Posicionamento é mais sobre o que a gente tira do que sobre o que
+    a gente acrescenta.</p>
+
+    <div class="troca">
+      <div class="item"><span class="marca para">Para</span><span class="txt">Precificar peça nova olhando pro preço da Shopee.</span></div>
+      <div class="item"><span class="marca comeca">Começa</span><span class="txt">Precificar olhando pro serviço que vem junto: escolha, numeração certa e entrega hoje.</span></div>
+      <div class="item"><span class="marca para">Para</span><span class="txt">Vender peça.</span></div>
+      <div class="item"><span class="marca comeca">Começa</span><span class="txt">Vender <strong>look montado</strong>. Mesmo estoque, outro cardápio.</span></div>
+      <div class="item"><span class="marca para">Para</span><span class="txt">Gritar “frete grátis” pro Brasil inteiro.</span></div>
+      <div class="item"><span class="marca comeca">Começa</span><span class="txt">Gritar entrega <strong>na região</strong>, alto e repetido. Pra fora, o argumento é peça exclusiva — nunca preço.</span></div>
+      <div class="item"><span class="marca para">Para</span><span class="txt">Dar promoção pública melhor que a do grupo.</span></div>
+      <div class="item"><span class="marca comeca">Começa</span><span class="txt">Grupo VIP vê primeiro, sempre. É a única razão de alguém continuar lá dentro.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Como isso aparece no dia a dia</h2>
+    <div class="canais">
+      <div class="canal">
+        <div class="c-nome">Anúncio</div>
+        <div class="c-txt">Motoboy e “chega hoje” <strong>ditos dentro do vídeo</strong>, nos 3 primeiros segundos — não na legenda. É o que separa o seu anúncio do de qualquer loja.</div>
+      </div>
+      <div class="canal">
+        <div class="c-nome">Conteúdo</div>
+        <div class="c-txt">Todo vídeo de produto termina com um dos três pilares dito em voz. “Mãe falando com mãe” é o pilar mais barato de produzir e o que mais te diferencia.</div>
+      </div>
+      <div class="canal">
+        <div class="c-nome">Live</div>
+        <div class="c-txt">Fita métrica na mão, numeração conferida ao vivo, reserva no nome da pessoa, motoboy à tarde. <strong>A live é o posicionamento funcionando</strong> — por isso ela é o nosso piloto.</div>
+      </div>
+      <div class="canal">
+        <div class="c-nome">WhatsApp</div>
+        <div class="c-txt">Pergunta antes de oferta. “Ela ainda tá no 6 ou já subiu?” vende mais do que foto de peça — e não custa margem nenhuma.</div>
+      </div>
+      <div class="canal">
+        <div class="c-nome">Grupo VIP</div>
+        <div class="c-txt">Acesso antecipado e reserva com nome. <strong>Nunca desconto.</strong> É o canal do pilar CONHECE.</div>
+      </div>
+      <div class="canal">
+        <div class="c-nome">Site</div>
+        <div class="c-txt">Tratado como caixa do grupo, não como vitrine. Toda melhoria que encurta o caminho entre a mensagem e o pagamento vem antes de qualquer outra.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Aonde isso leva até novembro</h2>
+    <div class="arco">
+      <div class="mes">
+        <div class="m-top"><span class="m-nome">Setembro</span><span class="m-verbo">Provar</span></div>
+        <p>A live e as mensagens pra base geram a evidência: quantas mães decidem por numeração, quantas por prazo, quantas por preço. A gente sai de setembro sabendo, não achando.</p>
+      </div>
+      <div class="mes">
+        <div class="m-top"><span class="m-nome">Outubro</span><span class="m-verbo">Escalar</span></div>
+        <p>Dia das Crianças com o único argumento que marketplace nenhum entrega no dia 12: <strong>o presente que chega hoje.</strong></p>
+      </div>
+      <div class="mes destaque-mes">
+        <div class="m-top"><span class="m-nome">Novembro</span><span class="m-verbo">Capitalizar</span></div>
+        <p>1 ano do site + Black Friday + estoque reposto. E aqui está o motivo de fazer tudo isso agora: <strong>na Black Friday todo mundo desconta.</strong> É o único mês do ano em que o marketplace joga o jogo dele no melhor nível. Quem só sabe competir por preço entra em novembro sem arma. Você vai entrar com uma oferta que ninguém consegue igualar — e sem cavar a sua margem.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Uma última coisa: a voz é sua</h2>
+    <p class="lead">A gente não vai escrever “como agência”. Vai escrever como você.</p>
+    <div class="voz">
+      <span>“É a Lu”</span><span>“viu?”</span><span>“sem compromisso nenhum”</span>
+      <span>“pouquinhas peças”</span><span>💛</span>
+      <span>“detesto mandar foto de coisa que não serve”</span>
+    </div>
+    <p>Numa loja em que a marca <strong>é a pessoa</strong>, texto de agência destrói o
+    ativo. Se soar como loja, está errado. Tem que soar como você.</p>
+    <div class="frase"><b>Sua frase, do jeito que você já falou pra gente:</b><br>
+    “Eu faço o que eu queria que fizessem comigo.” É isso. O resto é execução.</div>
+  </section>
+
+  <footer>
+    <p><b>Expansion</b> · Posicionamento Estilo Menina · setembro de 2026<br>
+    Baseado nos seus 12 meses de Bling, na sua base completa da Tray e na nossa call de onboarding.</p>
+  </footer>
+
+</div>
