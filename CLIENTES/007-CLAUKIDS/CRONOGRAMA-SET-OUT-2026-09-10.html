@@ -1,0 +1,226 @@
+<title>Setembro Emenda Outubro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Source+Sans+3:wght@400;600&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --papel:#F2F4F4; --superficie:#FFFFFF; --tinta:#111A19; --tinta-2:#586462;
+  --linha:#DCE1E0; --linha-forte:#B8C0BE;
+  --org:#0F5049; --org-fraco:#DCEAE8;
+  --tra:#B4611A; --tra-fraco:#F7E7D5;
+  --pico:#8E2F3F; --pico-fraco:#F4DDE1;
+  --sombra:0 1px 2px rgba(17,26,25,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papel:#0D1211; --superficie:#161C1B; --tinta:#E6EBEA; --tinta-2:#96A29F;
+    --linha:#232B2A; --linha-forte:#39433F;
+    --org:#5FBFB0; --org-fraco:#0F2825;
+    --tra:#E09B54; --e:0; --tra-fraco:#31210F;
+    --pico:#E0808F; --pico-fraco:#331419;
+    --sombra:0 1px 2px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#0D1211; --superficie:#161C1B; --tinta:#E6EBEA; --tinta-2:#96A29F;
+  --linha:#232B2A; --linha-forte:#39433F;
+  --org:#5FBFB0; --org-fraco:#0F2825;
+  --tra:#E09B54; --tra-fraco:#31210F;
+  --pico:#E0808F; --pico-fraco:#331419;
+  --sombra:0 1px 2px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+body{background:var(--papel);color:var(--tinta);margin:0;
+  font:400 16.5px/1.6 "Source Sans 3",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.folha{max-width:880px;margin:0 auto;padding:52px 24px 88px;
+  display:flex;flex-direction:column;gap:44px}
+h1,h2,h3,.rot,.cod,.sel{font-family:"Manrope",system-ui,sans-serif}
+.dia,.mono{font-family:"Space Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.rot{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--tinta-2)}
+h1{font-size:clamp(30px,5.4vw,44px);font-weight:800;line-height:1.04;
+  letter-spacing:-.032em;margin:12px 0 0;text-wrap:balance}
+.sub{color:var(--tinta-2);margin:15px 0 0;max-width:60ch}
+p{margin:0;max-width:66ch}
+.fino{color:var(--tinta-2);font-size:15px}
+section{display:flex;flex-direction:column;gap:16px}
+h2{font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--tinta-2);margin:0;padding-bottom:9px;border-bottom:1px solid var(--linha)}
+h3{font-size:19px;font-weight:700;letter-spacing:-.018em;margin:0}
+
+.legenda{display:flex;gap:10px;flex-wrap:wrap}
+.chip{font-family:"Manrope",sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.05em;
+  text-transform:uppercase;padding:5px 10px;border-radius:2px}
+.c-org{background:var(--org-fraco);color:var(--org)}
+.c-tra{background:var(--tra-fraco);color:var(--tra)}
+.c-pico{background:var(--pico-fraco);color:var(--pico)}
+
+.semana{background:var(--superficie);border:1px solid var(--linha);border-radius:4px;
+  box-shadow:var(--sombra);overflow:hidden;break-inside:avoid}
+.semana .cab{padding:12px 17px;border-bottom:1px solid var(--linha);
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;
+  background:var(--org-fraco)}
+.semana .cab .t{font-family:"Manrope",sans-serif;font-weight:700;font-size:15.5px;
+  color:var(--org);letter-spacing:-.01em}
+.semana .cab .n{font-family:"Space Mono",monospace;font-size:12px;color:var(--org)}
+.semana.p .cab{background:var(--pico-fraco)}
+.semana.p .cab .t,.semana.p .cab .n{color:var(--pico)}
+.linhas{padding:6px 17px 13px}
+.l{display:grid;grid-template-columns:78px 1fr auto;gap:13px;padding:10px 0;
+  border-bottom:1px solid var(--linha);align-items:start}
+.l:last-child{border-bottom:0}
+.dia{font-size:12.5px;font-weight:700;color:var(--tinta-2);padding-top:3px;white-space:nowrap}
+.l .o{font-family:"Manrope",sans-serif;font-weight:600;font-size:16px;letter-spacing:-.008em}
+.l .q{font-size:14.5px;color:var(--tinta-2);margin-top:3px;max-width:46ch}
+.sel{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  padding:3px 7px;border-radius:2px;white-space:nowrap;margin-top:2px}
+.s-org{background:var(--org-fraco);color:var(--org)}
+.s-tra{background:var(--tra-fraco);color:var(--tra)}
+.s-pico{background:var(--pico-fraco);color:var(--pico)}
+@media(max-width:620px){
+  .l{grid-template-columns:1fr;gap:3px}
+  .sel{justify-self:start;margin-top:6px}
+  .folha{padding:34px 16px 68px;gap:36px}
+}
+
+.nota{background:var(--tra-fraco);border:1.5px solid var(--tra);border-radius:4px;
+  padding:18px 20px;display:flex;flex-direction:column;gap:9px}
+.nota .rot{color:var(--tra)}
+.nota p{font-size:16px}
+ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+li{display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:start;max-width:66ch;
+  font-size:15.5px}
+li::before{content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--linha-forte);margin-top:9px}
+li b{font-family:"Manrope",sans-serif;font-weight:700}
+footer{border-top:1px solid var(--linha);padding-top:20px;font-size:13.5px;
+  color:var(--tinta-2);max-width:66ch}
+</style>
+
+<div class="folha">
+
+<header>
+  <div class="rot">Clau Kids × Expansion · Cronograma</div>
+  <h1>Setembro emenda outubro</h1>
+  <p class="sub">Tudo abaixo sai de uma diária só, dia 14/09. Trinta vídeos: quinze para
+  publicar até o fim de setembro e quinze para outubro inteiro, com orgânico e tráfego
+  andando lado a lado nos dois meses.</p>
+  <div class="legenda" style="margin-top:20px">
+    <span class="chip c-org">Orgânico · 20 reels</span>
+    <span class="chip c-tra">Tráfego · 10 criativos</span>
+    <span class="chip c-pico">Pico do Dia das Crianças</span>
+  </div>
+</header>
+
+<section>
+  <h2>Setembro · 15 a 30</h2>
+
+  <div class="semana">
+    <div class="cab"><span class="t">Semana de 15 a 21/09 — Dia do Cliente</span><span class="n">4 reels · 1 troca no tráfego</span></div>
+    <div class="linhas">
+      <div class="l"><span class="dia">Ter 15</span><div><div class="o">R31 · “Eu sei o nome das minhas clientes”</div><div class="q">Dia do Cliente. É o único com data cravada — grava primeiro na diária.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">Qua 16</span><div><div class="o">R24 · “Do primeiro body até o 18”</div><div class="q">Abre a série das idades, que ficou represada desde o dia 8.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">Qui 17</span><div><div class="o">R25 · “Enxoval não é sobre fofura”</div><div class="q">Bebê e enxoval. Traz gestante, que é público novo pro perfil.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">Sex 18</span><div><div class="o">R26 · “A idade em que a roupa apanha”</div><div class="q">2 a 4 anos.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">~19/09</span><div><div class="o">TR08 · “Uma mãe me pediu um vestido vermelho”</div><div class="q">Entra no lugar do anúncio de pior custo. Troca um por vez, mantendo o conjunto de pé.</div></div><span class="sel s-tra">Tráfego</span></div>
+    </div>
+  </div>
+
+  <div class="semana">
+    <div class="cab"><span class="t">Semana de 22 a 28/09</span><span class="n">4 reels · 1 troca no tráfego</span></div>
+    <div class="linhas">
+      <div class="l"><span class="dia">Ter 22</span><div><div class="o">R27 · “Escola de manhã, festa às cinco”</div><div class="q">5 a 8 anos, a peça que vira duas.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">Qua 23</span><div><div class="o">R48 · “Quando a criança odeia se vestir”</div><div class="q">Etiqueta que coça, costura que aperta. É dor real e ninguém no nicho fala disso.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">Qui 24</span><div><div class="o">R28 · “A arara que quase nenhuma loja tem”</div><div class="q">9 a 12, o “between”. A bandeira dela.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">Sex 25</span><div><div class="o">R49 · “Por que eu pergunto que horas é a festa”</div><div class="q">O detalhe do método que explica a curadoria melhor que qualquer discurso.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">~23/09</span><div><div class="o">TR06 · “Me manda a foto da criança”</div><div class="q">Segunda troca. O CTA é a própria demonstração do serviço.</div></div><span class="sel s-tra">Tráfego</span></div>
+    </div>
+  </div>
+
+  <div class="semana">
+    <div class="cab"><span class="t">29 e 30/09 — vira o mês</span><span class="n">2 reels · fechamento</span></div>
+    <div class="linhas">
+      <div class="l"><span class="dia">Ter 29</span><div><div class="o">R29 · “Festa aos treze, sem parecer de adulta”</div><div class="q">Pula Bula, com ênfase na numeração 18.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">Qua 30</span><div><div class="o">R32 · “Outubro começa hoje”</div><div class="q">Abre a lista do Dia das Crianças. É o post que forma o público que outubro vai colher.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">Qua 30</span><div><div class="o">Fechamento do mês e verba de outubro</div><div class="q">Primeira vez que existe número de quantas conversas viraram venda. É o que define quanto entra em outubro.</div></div><span class="sel s-tra">Reunião</span></div>
+    </div>
+  </div>
+  <p class="fino">Sobram <strong>TR07, TR09 e TR10</strong> de setembro sem entrar no ar — são
+  reserva para trocar qualquer anúncio que canse, e reforço para outubro. O
+  <strong>TRÁFEGO 05</strong>, o do número que sobrou, ela regrava sozinha toda semana e
+  entra fora dessa conta.</p>
+</section>
+
+<section>
+  <h2>Outubro · a rampa, o pico e o depois</h2>
+
+  <div class="semana">
+    <div class="cab"><span class="t">01 a 09/10 — a rampa</span><span class="n">3 reels · 3 criativos no ar</span></div>
+    <div class="linhas">
+      <div class="l"><span class="dia">Qui 01</span><div><div class="o">R33 · “Roupa de presente é sem graça? Eu discordo”</div><div class="q">Abre o mês pela objeção que trava metade das compras.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">01/10</span><div><div class="o">TR11 · “No dia dez sobra tamanho 2 e tamanho 16”</div><div class="q">O melhor criativo frio de outubro: escassez real por numeração, sem uma palavra de desconto.</div></div><span class="sel s-tra">Tráfego</span></div>
+      <div class="l"><span class="dia">01/10</span><div><div class="o">TR13 · “Me manda a idade. Eu te devolvo três.”</div><div class="q">Mecânica pura de conversa. Sobe junto com o TR11.</div></div><span class="sel s-tra">Tráfego</span></div>
+      <div class="l"><span class="dia">Ter 06</span><div><div class="o">R34 · “O que ele pediu e o que ele vai usar”</div><div class="q">Dá permissão pra mãe comprar os dois, e explica qual é qual.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">Qui 08</span><div><div class="o">R35 · “Esse vídeo não é pra mãe”</div><div class="q">Avó, dinda e madrinha. Público que ela já atende e que nunca virou conteúdo.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">05/10</span><div><div class="o">TR12 · “Esse anúncio não é pra mãe” · TR14 · “Você não vai precisar embrulhar nada”</div><div class="q">Entram no lugar dos dois de setembro. Segmentar avó e madrinha é onde quase ninguém põe verba.</div></div><span class="sel s-tra">Tráfego</span></div>
+    </div>
+  </div>
+
+  <div class="semana p">
+    <div class="cab"><span class="t">10 a 12/10 — o pico</span><span class="n">Dia das Crianças cai na segunda 12</span></div>
+    <div class="linhas">
+      <div class="l"><span class="dia">Sáb 10</span><div><div class="o">R39 · “É hoje e você não comprou. Respira.”</div><div class="q">O espelho de quem deixou pra última hora. Sai sábado de manhã, que é quando bate.</div></div><span class="sel s-pico">Reel</span></div>
+      <div class="l"><span class="dia">09 a 12/10</span><div><div class="o">TR15 · “O que ainda tem, e em que número”</div><div class="q">Inventário dito em voz alta na arara. É o criativo mais perecível e o mais eficiente do ano.</div></div><span class="sel s-pico">Tráfego</span></div>
+      <div class="l"><span class="dia">Dom 11</span><div><div class="o">Stories de plantão</div><div class="q">Sem post pesado. O domingo antes do feriado é dia de responder, não de publicar.</div></div><span class="sel s-pico">Stories</span></div>
+      <div class="l"><span class="dia">Seg 12</span><div><div class="o">Dia das Crianças — loja e atendimento</div><div class="q">Nada de conteúdo novo. É o dia de entregar o que foi vendido.</div></div><span class="sel s-pico">Operação</span></div>
+    </div>
+  </div>
+
+  <div class="semana">
+    <div class="cab"><span class="t">13 a 31/10 — o depois</span><span class="n">6 reels · tráfego volta ao perene</span></div>
+    <div class="linhas">
+      <div class="l"><span class="dia">Qua 14</span><div><div class="o">R41 · “Não serviu? Isso aqui não é problema.”</div><div class="q">A troca sem constrangimento. Gera conversa e tira o medo de dar roupa de presente.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">Sex 16</span><div><div class="o">R42 · “O que as mães me falaram essa semana”</div><div class="q">Prova social do pós-festa, que é quando o retorno é real.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">~13/10</span><div><div class="o">Tráfego volta aos perenes</div><div class="q">Saem os criativos de presente, voltam A05 e TR06. Os de outubro ficam guardados para o ano que vem — são reaproveitáveis.</div></div><span class="sel s-tra">Tráfego</span></div>
+      <div class="l"><span class="dia">Ter 20</span><div><div class="o">R43 · “Fim de ano começa em outubro”</div><div class="q">Emenda formatura, apresentação e festa. É o que faz o estoque de verão girar até dezembro.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">Qui 22</span><div><div class="o">R44 · “A formatura do maternal é festa de gente grande”</div><div class="q">Nicho específico, alta intenção, e ninguém em Marília fala disso.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">Ter 27</span><div><div class="o">R45 · “Cinco peças que resolvem o verão inteiro”</div><div class="q">Guarda-roupa que rende. É o roteiro que ataca diretamente as 1.200 peças.</div></div><span class="sel s-org">Reel</span></div>
+      <div class="l"><span class="dia">Qui 29</span><div><div class="o">R47 · “A mãe que voltou trazendo a irmã”</div><div class="q">Indicação como prova. Fecha o mês no ativo mais forte que a loja tem.</div></div><span class="sel s-org">Reel</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Como as duas raias conversam</h2>
+  <div class="nota">
+    <div class="rot">A regra que evita retrabalho</div>
+    <p>Quando o tema serve nos dois lugares, <strong>grava as duas versões no mesmo
+    cenário, uma logo depois da outra</strong> — muda só o começo e o final. A do feed é
+    mais longa e termina em “me chama no direct”; a do anúncio é de 35 a 45 segundos, com
+    legenda queimada e o CTA apontando para o botão do WhatsApp. São dois minutos a mais na
+    diária e economiza um dia de gravação depois.</p>
+  </div>
+  <ul>
+    <li><span><b>Teto de três anúncios no conjunto</b> enquanto a verba for R$ 33/dia. Em outubro, se subir, sobe também o número de anúncios — mas só aí.</span></li>
+    <li><span><b>Troca um anúncio por vez.</b> Trocar todos reinicia o aprendizado do conjunto e a semana inteira sai mais cara.</span></li>
+    <li><span><b>O orgânico abre o tema, o tráfego amplia.</b> Repare que R33, R34 e R35 saem no feed antes de o assunto virar anúncio: quem já viu no perfil converte mais barato quando o anúncio chega.</span></li>
+    <li><span><b>Os cinco criativos de outubro são reaproveitáveis.</b> Escassez por numeração, presente de avó, embrulho e inventário ao vivo funcionam em todo Dia das Crianças e em todo Natal. Grava uma vez, usa por anos.</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>O que ainda depende de decisão</h2>
+  <ul>
+    <li><span><b>A verba de outubro</b> sai no fechamento do dia 30, com um mês inteiro de dados. O pico de 01 a 12/10 pede concentração, não distribuição — é melhor investir forte em doze dias do que espalhar no mês.</span></li>
+    <li><span><b>Quem ajuda no WhatsApp de 1 a 12/10.</b> A estagiária foi contratada para a loja, não para o atendimento. Nas duas semanas de pico o gargalo volta a ser o tempo dela, e isso se resolve agora, não no dia 8.</span></li>
+    <li><span><b>A compra de outubro.</b> Ela já disse que só repõe — mas a compra de fim de ano e social precisa sair antes do dia 30, porque é o que sustenta o R43 e o R44.</span></li>
+  </ul>
+</section>
+
+<footer>
+  Cronograma de 15/09 a 31/10 de 2026 · Clau Kids × Expansion. Todos os trinta vídeos saem
+  da diária de 14/09. Datas de publicação podem deslizar um dia sem prejuízo, exceto o R31
+  (Dia do Cliente, 15/09) e o bloco de 10 a 12/10, que são presos à data.
+</footer>
+
+</div>

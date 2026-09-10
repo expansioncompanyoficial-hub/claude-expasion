@@ -1,0 +1,152 @@
+[
+ {
+  "titulo": "TRÁFEGO 11 — \"No dia dez sobra tamanho 2 e tamanho 16\"",
+  "pilar": "🎯 Público frio  •  Marília e 30 km  •  Objetivo: conversa no WhatsApp  •  Escassez real por numeração",
+  "data": "NO AR: 01 a 09/10",
+  "blocos": [
+   {
+    "rotulo": "GANCHO",
+    "tempo": "0:00 – 0:05",
+    "texto": "\"Todo ano é a mesma coisa: chega o dia dez de outubro e o que sobrou é tamanho 2 e tamanho 16.\"  [Abre no close da arara com poucos cabides. Sem rosto nos primeiros segundos]",
+    "destaque": "gancho"
+   },
+   {
+    "rotulo": "DESENVOLVIMENTO",
+    "tempo": "0:05 – 0:30",
+    "texto": "\"Eu sou a Clau, tenho uma loja de moda infantil aqui em Marília. Eu compro pouquinho de cada tamanho, e isso é de propósito — é o que faz a roupa do seu filho não estar em outras cinco crianças na mesma festa. Só que o efeito é esse: os números do meio saem primeiro. O 4, o 6, o 8, o 10. E eu não reponho a tempo, porque reposição aqui leva cinco dias e o Dia das Crianças não espera ninguém. Quem resolve agora escolhe entre tudo. Quem deixa pro fim escolhe entre o resto.\""
+   },
+   {
+    "rotulo": "CTA",
+    "tempo": "0:30 – 0:40",
+    "texto": "\"Clica aqui embaixo e me diz o número que o seu filho veste. Eu te falo na hora o que ainda tem no tamanho dele. 💛\"",
+    "destaque": "cta"
+   },
+   {
+    "rotulo": "DESCRIÇÃO DO ANÚNCIO",
+    "tempo": "texto do anúncio",
+    "texto": "Eu compro pouco de cada tamanho — de propósito. O efeito é que os números do meio saem primeiro, e eu não reponho a tempo pro Dia das Crianças. Me manda o número que seu filho veste que eu te digo o que ainda tem 💛 Clau Kids, Marília."
+   }
+  ],
+  "hashtags": "Mensagem pré-preenchida no anúncio: \"Oi Clau! Meu filho veste ___. O que ainda tem no tamanho dele?\""
+ },
+ {
+  "titulo": "TRÁFEGO 12 — \"Esse anúncio não é pra mãe\"",
+  "pilar": "🎯 Público frio  •  Marília e 30 km  •  Objetivo: conversa no WhatsApp  •  Avó, dinda e madrinha — público que ninguém segmenta",
+  "data": "NO AR: 01 a 11/10",
+  "blocos": [
+   {
+    "rotulo": "GANCHO",
+    "tempo": "0:00 – 0:05",
+    "texto": "\"Esse anúncio aqui não é pra mãe. É pra vó, pra dinda e pra madrinha.\"  [Ela olhando na lente, tom de cumplicidade]",
+    "destaque": "gancho"
+   },
+   {
+    "rotulo": "DESENVOLVIMENTO",
+    "tempo": "0:05 – 0:30",
+    "texto": "\"Eu sou a Clau, da Clau Kids, aqui em Marília. E eu vou falar uma verdade: vocês são as que mais erram tamanho no Dia das Crianças. É justo — não é você que veste essa criança todo dia. Só que você não precisa saber o número. Me diz a idade, mais ou menos a altura, e se a criança é magrinha ou mais forte. Eu acerto, porque é o que eu faço o dia inteiro. E se ainda assim não servir, a mãe traz aqui e a gente resolve, sem estragar o presente de ninguém e sem constrangimento nenhum.\""
+   },
+   {
+    "rotulo": "CTA",
+    "tempo": "0:30 – 0:40",
+    "texto": "\"Clica aqui e me conta de quem é o presente. A gente resolve junto. 💛\"",
+    "destaque": "cta"
+   },
+   {
+    "rotulo": "DESCRIÇÃO DO ANÚNCIO",
+    "tempo": "texto do anúncio",
+    "texto": "Presente de vó tem que ser alegria, não perrengue. Você não precisa saber o número: me diz a idade, a altura mais ou menos, e se a criança é magrinha ou mais forte. Eu acerto — e se não servir, a gente troca 💛 Clau Kids, Marília."
+   }
+  ],
+  "hashtags": "Mensagem pré-preenchida no anúncio: \"Oi Clau! Quero um presente pra uma criança de ___ anos.\""
+ },
+ {
+  "titulo": "TRÁFEGO 13 — \"Me manda a idade. Eu te devolvo três.\"",
+  "pilar": "🎯 Público frio  •  Marília e 30 km  •  Objetivo: conversa no WhatsApp  •  A mecânica da conversa é a própria oferta",
+  "data": "NO AR: 01 a 12/10",
+  "blocos": [
+   {
+    "rotulo": "GANCHO",
+    "tempo": "0:00 – 0:05",
+    "texto": "\"Você não precisa passar a tarde escolhendo presente. Me manda a idade que eu te devolvo três opções.\"",
+    "destaque": "gancho"
+   },
+   {
+    "rotulo": "DESENVOLVIMENTO",
+    "tempo": "0:05 – 0:30",
+    "texto": "\"Sou a Clau, da Clau Kids, em Marília. Em outubro a mãe abre dez perfis, salva quarenta fotos e continua sem decidir — porque quanto mais opção, mais difícil fica. Aqui funciona ao contrário. Você me diz a idade, o número se souber, e pra que é o presente. Eu separo três peças, só três, e te mando foto de cada uma no cabide, com o preço e os tamanhos que eu tenho. Você escolhe uma e acabou. Se nenhuma servir, eu troco as três e a gente faz de novo.\""
+   },
+   {
+    "rotulo": "CTA",
+    "tempo": "0:30 – 0:40",
+    "texto": "\"Clica aqui embaixo e me manda a idade do seu filho. Eu já começo a separar. 💛\"",
+    "destaque": "cta"
+   },
+   {
+    "rotulo": "DESCRIÇÃO DO ANÚNCIO",
+    "tempo": "texto do anúncio",
+    "texto": "Quanto mais opção, mais difícil decidir. Me diz a idade e pra que é o presente que eu te devolvo três peças — só três — com foto, preço e os tamanhos que eu tenho. Você escolhe uma e acabou 💛 Clau Kids, Marília."
+   }
+  ],
+  "hashtags": "Mensagem pré-preenchida no anúncio: \"Oi Clau! Meu filho tem ___ anos. Me manda as três opções?\""
+ },
+ {
+  "titulo": "TRÁFEGO 14 — \"Você não vai precisar embrulhar nada\"",
+  "pilar": "🎯 Público frio  •  Marília e 30 km  •  Objetivo: conversa no WhatsApp  •  O serviço como oferta — o que loja grande não faz",
+  "data": "NO AR: 05 a 12/10",
+  "blocos": [
+   {
+    "rotulo": "GANCHO",
+    "tempo": "0:00 – 0:05",
+    "texto": "\"Você não vai precisar embrulhar nada. Nem escrever o cartãozinho.\"",
+    "destaque": "gancho"
+   },
+   {
+    "rotulo": "DESENVOLVIMENTO",
+    "tempo": "0:05 – 0:30",
+    "texto": "\"Eu sou a Clau e eu sei exatamente como é a semana do Dia das Crianças na casa de quem tem filho, porque eu tenho três: trabalho, escola, jantar, e o presente ainda dentro da sacola em cima da máquina de lavar. Aqui a peça sai embrulhada, com laço, e com o cartão escrito à mão — você me diz o que quer que esteja escrito e eu escrevo. Se for pra entregar direto pra outra pessoa, eu deixo separado com o nome. Eu não estou te vendendo uma roupa, estou te tirando uma tarefa da cabeça numa semana que já tem tarefa demais.\""
+   },
+   {
+    "rotulo": "CTA",
+    "tempo": "0:30 – 0:40",
+    "texto": "\"Me chama aqui embaixo e me conta pra quem é. Eu deixo pronto pra você só passar e pegar. 💛\"",
+    "destaque": "cta"
+   },
+   {
+    "rotulo": "DESCRIÇÃO DO ANÚNCIO",
+    "tempo": "texto do anúncio",
+    "texto": "A peça sai embrulhada, com laço e com o cartão escrito à mão — você me diz o que escrever. Se for pra entregar pra outra pessoa, deixo separado com o nome. Me chama e me conta pra quem é 💛 Clau Kids, Marília."
+   }
+  ],
+  "hashtags": "Mensagem pré-preenchida no anúncio: \"Oi Clau! Queria um presente já embrulhado pra uma criança de ___ anos.\""
+ },
+ {
+  "titulo": "TRÁFEGO 15 — \"O que ainda tem, e em que número\"",
+  "pilar": "🎯 Público frio  •  Marília e 30 km  •  Objetivo: conversa no WhatsApp  •  Inventário ao vivo — o criativo do pico",
+  "data": "NO AR: 09 a 12/10",
+  "blocos": [
+   {
+    "rotulo": "GANCHO",
+    "tempo": "0:00 – 0:04",
+    "texto": "\"Deixa eu te falar exatamente o que ainda tem aqui, e em que número.\"  [Abre já andando pela arara, câmera na mão]",
+    "destaque": "gancho"
+   },
+   {
+    "rotulo": "DESENVOLVIMENTO",
+    "tempo": "0:04 – 0:32",
+    "texto": "\"Porque a essa altura não adianta eu te mostrar coleção bonita. Adianta eu te falar o que serve no seu filho. [Ela percorre a arara dizendo em voz alta o que restou por faixa: o que tem no 2, no 4, no 6, no 8, no 10, no 12 e acima.] Isso é o que existe agora, nesse minuto. Amanhã já é outra história, porque eu não reponho antes do dia doze. Se o número do seu filho está aí no meio, é agora.\""
+   },
+   {
+    "rotulo": "CTA",
+    "tempo": "0:32 – 0:42",
+    "texto": "\"Me manda o número aqui embaixo que eu separo e guardo até você vir buscar. 💛\"",
+    "destaque": "cta"
+   },
+   {
+    "rotulo": "DESCRIÇÃO DO ANÚNCIO",
+    "tempo": "texto do anúncio",
+    "texto": "Não adianta mostrar coleção bonita a essa altura — adianta falar o que serve no seu filho. Me manda o número que eu separo e guardo até você vir 💛 Clau Kids, Marília."
+   }
+  ],
+  "hashtags": "Mensagem pré-preenchida no anúncio: \"Oi Clau! Meu filho veste ___. Consegue separar pra mim?\""
+ }
+]
