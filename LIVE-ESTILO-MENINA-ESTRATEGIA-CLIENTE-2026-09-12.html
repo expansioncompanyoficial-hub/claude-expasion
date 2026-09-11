@@ -1,0 +1,163 @@
+<title>Estratégia da Live</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#fffdfa; --ink:#231a12; --muted:#857566; --card:#ffffff; --line:#eee2d4;
+    --accent:#E67E22; --accent-soft:#fdf0e3; --accent-ink:#a4560f;
+    --ok-bg:#e9f9f0; --ok-ink:#14713f;
+    --red-bg:#fdeceb; --red-ink:#b3261e;
+    --hero:#341100; --hero-ink:#f5ede6; --hero-eyebrow:#f0a56b; --hero-soft:#dcc9b8; --hero-hi:#ffc998;
+  }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+    --bg:#1a1209; --ink:#f4ebe2; --muted:#b0a091; --card:#261a10; --line:#3d2d1d;
+    --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877;
+    --ok-bg:#14301f; --ok-ink:#6fdd9a; --red-bg:#331614; --red-ink:#f2a099;
+    --hero:#250f00; --hero-soft:#cbb6a3; } }
+  :root[data-theme="dark"]{
+    --bg:#1a1209; --ink:#f4ebe2; --muted:#b0a091; --card:#261a10; --line:#3d2d1d;
+    --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877;
+    --ok-bg:#14301f; --ok-ink:#6fdd9a; --red-bg:#331614; --red-ink:#f2a099;
+    --hero:#250f00; --hero-soft:#cbb6a3; }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif; font-size:16px; line-height:1.6; padding:0 16px 72px;}
+  .wrap{max-width:640px; margin:0 auto;}
+  header.hero{background:var(--hero); color:var(--hero-ink); border-radius:20px; padding:32px 26px 28px; margin:22px 0 0;}
+  .eyebrow{font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:800; color:var(--hero-eyebrow); margin:0 0 14px;}
+  h1{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:30px; line-height:1.16; text-wrap:balance; margin:0 0 8px;}
+  .quando{font-size:17px; font-weight:700; color:var(--hero-hi); margin:0 0 12px;}
+  header.hero p{color:var(--hero-soft); font-size:15px; margin:0;}
+  header.hero b{color:var(--hero-hi);}
+  h2{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:22px; line-height:1.25; text-wrap:balance; margin:44px 0 6px;}
+  .lead{color:var(--muted); font-size:14.5px; margin:0 0 16px; max-width:62ch;}
+  p{margin:0 0 14px; max-width:64ch;} p:last-child{margin-bottom:0;}
+  .frase{background:var(--ok-bg); border-radius:14px; padding:18px 20px; margin:18px 0; font-size:15.5px; line-height:1.5;}
+  .frase b{color:var(--ok-ink);}
+  .alerta{background:var(--red-bg); border-radius:14px; padding:18px 20px; margin:18px 0; font-size:15px; line-height:1.5;}
+  .alerta b{color:var(--red-ink);}
+  .fala{background:var(--accent-soft); border-radius:12px; padding:14px 17px; margin:10px 0; font-size:15px;
+    font-style:italic; color:var(--accent-ink); line-height:1.55;}
+  .fala::before{content:"🗣 "; font-style:normal;}
+  .bloco{display:grid; grid-template-columns:78px 1fr; gap:14px; padding:13px 0; border-bottom:1px solid var(--line); align-items:start;}
+  .bloco:last-child{border-bottom:none;}
+  .bloco .h{font-size:13.5px; font-weight:800; color:var(--accent-ink); font-variant-numeric:tabular-nums; line-height:1.35;}
+  .bloco .h small{display:block; font-weight:600; color:var(--muted); font-size:11.5px; text-transform:uppercase; letter-spacing:.06em;}
+  .bloco .c{font-size:14.5px; line-height:1.5;}
+  .bloco .c b{font-weight:700;}
+  .bloco.pausa{background:var(--accent-soft); border-radius:10px; padding:13px 12px; border-bottom:none; margin:4px 0;}
+  .est{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:16px 0;}
+  .est div{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px;}
+  .est .v{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:23px; color:var(--accent-ink);
+    display:block; margin:0 0 4px; font-variant-numeric:tabular-nums;}
+  .est .l{font-size:13px; color:var(--muted); line-height:1.45; display:block;}
+  ol.perg{padding-left:20px; margin:14px 0;} ol.perg li{margin:0 0 10px; font-size:15px;}
+  ol.perg b{color:var(--accent-ink);}
+  .depois{display:flex; flex-direction:column; gap:9px; margin:16px 0;}
+  .depois div{display:grid; grid-template-columns:64px 1fr; gap:12px; font-size:14.5px; align-items:start;}
+  .depois .q{font-weight:800; color:var(--accent-ink); font-size:13px;}
+  footer{margin:50px 0 0; padding-top:22px; border-top:1px solid var(--line); color:var(--muted); font-size:13px;}
+  footer b{color:var(--ink);}
+  @media (max-width:420px){ h1{font-size:26px;} .est{grid-template-columns:1fr;} .bloco{grid-template-columns:66px 1fr; gap:10px;} }
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Estilo Menina × Expansion</p>
+    <h1>A live é uma ferramenta de leitura</h1>
+    <p class="quando">Sábado, 12/09 · 11h00 às 11h35</p>
+    <p>Essa primeira é piloto. <b>Três pedidos já é sucesso</b> — e eu falo isso de propósito.
+    O que eu mais quero de sábado não é faturamento: é descobrir <b>por que a mãe decide</b>.
+    Essa resposta define o que a gente repõe e o que o anúncio vai falar.</p>
+  </header>
+
+  <section>
+    <h2>O que você tem na prateleira</h2>
+    <div class="est">
+      <div><span class="v">16</span><span class="l">conjuntos de malha canelada (2 por numeração, de cada cor)</span></div>
+      <div><span class="v">29</span><span class="l">peças de jardineira, nas 3 variações de cor e estampa</span></div>
+      <div><span class="v">2 ao 8</span><span class="l">as numerações que existem nessa coleção</span></div>
+      <div><span class="v">~3</span><span class="l">peças por numeração — a escassez é real, e é o seu melhor argumento</span></div>
+    </div>
+    <p>Separe tudo <b>por numeração, não por cor</b>, antes das 11h. Na live você vai ser
+    perguntada por tamanho o tempo todo — e cada segundo procurando peça é gente saindo.</p>
+  </section>
+
+  <section>
+    <h2>Duas regras que não podem escapar</h2>
+    <div class="alerta"><b>1. Não prometa entrega no sábado.</b> Seu motoboy passa 11h–11h30,
+    ou seja, junto com a live. Se alguém de Marília fechar às 11h20, não dá tempo. O jeito certo
+    de falar:
+    <div class="fala">"Quem é de Marília e fechar hoje, eu já separo e mando na primeira saída
+    do motoboy."</div>
+    Sem data cravada. Ninguém fica frustrado e você não precisa pagar motoboy extra.</div>
+    <div class="alerta"><b>2. Não junte o desconto do combo com os 10% do Pix.</b> Os dois somados
+    passam de 19%, e aí a peça sai quase no custo. Na live é um ou outro — e quem escolhe é você,
+    na hora, olhando a peça.</div>
+  </section>
+
+  <section>
+    <h2>Como correr os 35 minutos</h2>
+    <p class="lead">Dois blocos de produto e duas pausas. As pausas são onde a venda acontece.</p>
+    <div class="bloco"><div class="h">11h00<small>3 min</small></div><div class="c">
+      <b>Entra já mostrando peça.</b> Nada de "oi gente, esperando encher". Fala a frase e solta o
+      link no comentário fixado:
+      <div class="fala">"Quem tá ao vivo escolhe primeiro. O link tá fixado aqui no comentário."</div>
+    </div></div>
+    <div class="bloco"><div class="h">11h03<small>7 min</small></div><div class="c">
+      <b>Bloco 1 — as jardineiras.</b> As 3 cores. Fita métrica na mão, fala a numeração em voz alta.
+      Diga quantas existem de cada tamanho.</div></div>
+    <div class="bloco pausa"><div class="h">11h10<small>3 min</small></div><div class="c">
+      <b>PAUSA 1 — lê os comentários pelo nome.</b> "A Camila perguntou do 6…". Oferece reserva:
+      <div class="fala">"Quem quiser, eu seguro no seu nome por 20 minutos, sem compromisso nenhum."</div>
+    </div></div>
+    <div class="bloco"><div class="h">11h13<small>9 min</small></div><div class="c">
+      <b>Bloco 2 — os conjuntos de canelada.</b> Aqui você monta looks: mostra as combinações que
+      dá para fazer com duas peças. É o bloco que sobe o ticket.</div></div>
+    <div class="bloco pausa"><div class="h">11h22<small>3 min</small></div><div class="c">
+      <b>PAUSA 2 — reserva de novo</b> e faz as 4 perguntas da próxima seção.</div></div>
+    <div class="bloco"><div class="h">11h25<small>5 min</small></div><div class="c">
+      <b>Bloco 3 — "como funciona o site".</b> Esse bloco foi ideia sua e é o mais importante:
+      mostra a tela, a tabela de medidas, o 6× sem juros, o Pix, a entrega. Quem chega novo
+      compra porque viu você explicando, não porque viu a roupa.</div></div>
+    <div class="bloco"><div class="h">11h30<small>5 min</small></div><div class="c">
+      <b>Fechamento.</b> Recapitula o que ainda tem, reforça a reserva e avisa que a live fica
+      salva no perfil para quem não conseguiu ver.</div></div>
+  </section>
+
+  <section>
+    <h2>As 4 perguntas — isso é o que a live tem que trazer</h2>
+    <p class="lead">Faça ao vivo, na pausa 2, e anote as respostas num papel do lado. É esse papel
+    que decide a reposição do dia 17 e o que o anúncio vai falar.</p>
+    <ol class="perg">
+      <li><b>"Você tá procurando qual numeração?"</b> → mostra onde a grade está furada</li>
+      <li><b>"Você é daqui de Vera Cruz, de Marília, ou de fora?"</b> → define para onde o anúncio vai</li>
+      <li><b>"Prefere o conjunto ou a jardineira?"</b> → define o que repor</li>
+      <li><b>"É pra usar agora ou é presente?"</b> → define o discurso do Dia das Crianças</li>
+    </ol>
+    <div class="frase"><b>Se acabar peça no meio da live, isso é vitória, não problema.</b>
+    Quer dizer que a demanda é maior que a prateleira — e é exatamente essa a informação que
+    libera investir mais.</div>
+  </section>
+
+  <section>
+    <h2>Depois que acabar</h2>
+    <div class="depois">
+      <div><span class="q">SÁBADO</span><span>Responda quem reservou e não fechou, um por um, pelo nome. É onde sai metade do pedido.</span></div>
+      <div><span class="q">DOMINGO</span><span>Me manda o papel das 4 perguntas e o print do painel. Com isso eu monto o anúncio.</span></div>
+      <div><span class="q">SEGUNDA</span><span>Os melhores 15 segundos da live viram corte de anúncio. Não precisa gravar nada novo.</span></div>
+      <div><span class="q">DIA 17</span><span>Eu te trago o ranking de giro: o que repor, em qual numeração, e se os combos ficam ou saem.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>E depois dessa?</h2>
+    <p>Você falou em fazer uma ou duas por mês. Concordo, e acho que é o seu maior ativo — mas só
+    se virar <b>rotina com dia fixo</b>, porque aí a cliente aprende a esperar. A partir de outubro:
+    <b>quinta, 12h</b>, que é o horário que você já dominava.</p>
+    <p>A de <b>08/10</b> é a que precisa faturar — é a do Dia das Crianças, com estoque reposto.
+    Essa de sábado existe para a gente chegar lá sabendo o que fazer.</p>
+  </section>
+
+  <footer><p><b>Expansion</b> · Estratégia da Live · Estilo Menina · setembro de 2026<br>
+  Meta pública: 3 pedidos. Meta real: sair de sábado sabendo por que a mãe decide.</p></footer>
+</div>

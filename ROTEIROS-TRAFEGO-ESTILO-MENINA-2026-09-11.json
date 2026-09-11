@@ -1,0 +1,94 @@
+{
+  "titulo": "Estilo Menina — Roteiros de Tráfego",
+  "subtitulo": "@estilodemenina_veracruz  •  Moda infantil feminina  •  Vera Cruz e Marília / SP",
+  "framework": "Framework: TACO(H)  |  6 criativos  |  Campanha regional • destino SITE • R$ 40/dia  |  Grave tudo numa bateria só (~40 min)",
+  "secoes": [
+    {
+      "cabecalho": "COMO GRAVAR — leia antes",
+      "roteiros": [
+        {
+          "titulo": "REGRAS DA BATERIA — valem para os 6",
+          "pilar": "🎯 Uma gravação só, 40 minutos, no mesmo dia e na mesma luz",
+          "blocos": [
+            {"rotulo": "FORMATO", "tempo": "todos", "texto": "Celular em pé (9:16), luz natural de frente, celular apoiado. Nada de música de fundo — anúncio com música licenciada é derrubado. Fale olhando para a lente, não para a sua imagem na tela.", "destaque": "gancho"},
+            {"rotulo": "OS 3 PRIMEIROS SEGUNDOS", "tempo": "0:00 – 0:03", "texto": "A peça tem que estar NA TELA já no primeiro segundo. Sem introdução, sem \"oi gente, tudo bem\". A pessoa está rolando o feed: ou ela vê a roupa, ou ela passa."},
+            {"rotulo": "O QUE APARECE", "tempo": "cena", "texto": "Manequim, detalhe do tecido, suas mãos mexendo na peça, a fita métrica, a bancada, o pacote sendo embalado. A Manu não precisa aparecer em nenhum destes."},
+            {"rotulo": "O QUE NUNCA FALAR", "tempo": "—", "texto": "Não prometa \"chega hoje\" — o motoboy vai de terça a sexta, e no sábado só de manhã. Não fale de frete grátis para o Brasil: é Marília. Não cite preço de peça que ainda não está no site.", "destaque": "cta"}
+          ],
+          "hashtags": "Grave os 6 de uma vez • Mande os brutos • A edição e os cortes de anúncio são nossos"
+        }
+      ]
+    },
+    {
+      "cabecalho": "OS 6 CRIATIVOS",
+      "roteiros": [
+        {
+          "titulo": "ROTEIRO 1 — \"Quem entrega é eu mesma\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: OBJEÇÃO — PRAZO DE ENTREGA",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:03", "texto": "[Peça na mão, já enquadrada] \"Se você é de Vera Cruz, quem entrega essa roupa aqui na sua casa sou eu.\"", "destaque": "gancho"},
+            {"rotulo": "DESENVOLVIMENTO", "tempo": "0:03 – 0:22", "texto": "\"Sério. Vera Cruz eu mesma levo, ou você passa aqui e retira comigo. Marília eu mando de motoboy, e acima de cem reais o frete fica por minha conta. E se você é de Garça, de Bauru, de qualquer outro lugar, eu envio e chega rapidinho, viu?\" [mostrar o pacote fechado, com o nome escrito] \"Aqui não é um galpão. Sou eu que separo, eu que embalo e eu que escrevo o nome da sua filha.\""},
+            {"rotulo": "CTA", "tempo": "0:22 – 0:28", "texto": "\"Dá uma olhada no site — o link tá aqui embaixo.\"", "destaque": "cta"},
+            {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "legenda", "texto": "Vera Cruz eu entrego. Marília vai de motoboy, e acima de R$ 100 o frete é por minha conta. 💛 Moda infantil feminina do 2 ao 8."}
+          ],
+          "hashtags": "#modainfantil #modainfantilfeminina #veracruzsp #marilia #lojinhainfantil #meninas"
+        },
+        {
+          "titulo": "ROTEIRO 2 — \"Detesto mandar foto de coisa que não serve\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: TÉCNICO — NUMERAÇÃO",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:03", "texto": "[Fita métrica na peça, close] \"Eu detesto mandar foto de roupa que não vai servir na sua filha.\"", "destaque": "gancho"},
+            {"rotulo": "DESENVOLVIMENTO", "tempo": "0:03 – 0:22", "texto": "\"Por isso eu meço peça por peça. Olha aqui.\" [medir a cintura, mostrar o número] \"Nessa idade elas mudam de numeração numa velocidade, né? Aí a mãe compra o oito achando que serve e chega apertado.\" [mostrar a tabela de medidas na tela] \"Tem tabela de medida em toda peça do site. É só você conferir antes, e se ficar na dúvida me chama que eu te falo qual é.\""},
+            {"rotulo": "CTA", "tempo": "0:22 – 0:28", "texto": "\"Confere a tabela no site, link aqui embaixo.\"", "destaque": "cta"},
+            {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "legenda", "texto": "Toda peça com tabela de medidas. Do 2 ao 8. Assim você não erra o tamanho — e não precisa trocar. 💛"}
+          ],
+          "hashtags": "#modainfantil #tabeladomedidas #roupainfantil #meninas #veracruzsp #marilia"
+        },
+        {
+          "titulo": "ROTEIRO 3 — \"Três por numeração\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: HYPE — ESCASSEZ REAL",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:03", "texto": "[Mão passando pela arara, contando as peças] \"Dessa aqui eu tenho três. Três por numeração.\"", "destaque": "gancho"},
+            {"rotulo": "DESENVOLVIMENTO", "tempo": "0:03 – 0:22", "texto": "\"Não é estratégia de venda, é como eu compro mesmo.\" [mostrar as peças penduradas, contando] \"Eu prefiro trazer pouquinho de cada e variado, do que encher a loja de uma coisa só e sua filha encontrar outra menina com a mesma roupa na festa.\" [close no tecido] \"Então quando acaba, acabou — e às vezes não volta.\""},
+            {"rotulo": "CTA", "tempo": "0:22 – 0:28", "texto": "\"Vê as numerações que ainda tem no site.\"", "destaque": "cta"},
+            {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "legenda", "texto": "3 peças por numeração. É pouco de propósito — assim sua filha não encontra outra igual na festa. 💛"}
+          ],
+          "hashtags": "#modainfantil #pecasexclusivas #modainfantilfeminina #meninas #veracruzsp #marilia"
+        },
+        {
+          "titulo": "ROTEIRO 4 — \"Eu faço o que eu queria que fizessem comigo\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: CONEXÃO — MÃE FALANDO COM MÃE",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:03", "texto": "[Você em frente à câmera, peça na mão] \"Eu escolho essas roupas do jeito que eu queria que escolhessem pra minha filha.\"", "destaque": "gancho"},
+            {"rotulo": "DESENVOLVIMENTO", "tempo": "0:03 – 0:22", "texto": "\"Eu pego o tecido, eu sinto, eu vejo se coça, se desbota, se a barra tá bem feita.\" [mexer no tecido, mostrar o acabamento] \"Porque eu sei o que é comprar roupa pela internet e chegar uma coisa que a menina põe uma vez e não quer mais.\" \"São oito anos fazendo isso aqui em Vera Cruz. Se eu não vestiria na minha, eu não vendo pra sua.\""},
+            {"rotulo": "CTA", "tempo": "0:22 – 0:28", "texto": "\"Dá uma olhada no que chegou — link aqui embaixo.\"", "destaque": "cta"},
+            {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "legenda", "texto": "8 anos escolhendo peça por peça, do jeito que eu queria que escolhessem pra minha filha. 💛"}
+          ],
+          "hashtags": "#maedemenina #modainfantil #lojadebairro #veracruzsp #meninas #feitocomcarinho"
+        },
+        {
+          "titulo": "ROTEIRO 5 — \"Cabe no seu mês\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: OBJEÇÃO — PREÇO",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:03", "texto": "[Duas peças lado a lado no manequim] \"Se o valor tá apertando esse mês, olha o que dá pra fazer.\"", "destaque": "gancho"},
+            {"rotulo": "DESENVOLVIMENTO", "tempo": "0:03 – 0:22", "texto": "\"No site você parcela em até seis vezes sem juros. Sem juros mesmo, viu?\" [mostrar a tela do checkout] \"E se você preferir pagar no Pix, tem dez por cento de desconto na hora.\" \"Aí você escolhe: ou divide e cabe no mês, ou paga à vista e leva mais barato. As duas são boas.\""},
+            {"rotulo": "CTA", "tempo": "0:22 – 0:28", "texto": "\"Escolhe do seu jeito lá no site.\"", "destaque": "cta"},
+            {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "legenda", "texto": "6x sem juros, ou 10% de desconto no Pix. Você escolhe o que cabe melhor no seu mês. 💛"}
+          ],
+          "hashtags": "#modainfantil #parcelado #pix #meninas #veracruzsp #marilia"
+        },
+        {
+          "titulo": "ROTEIRO 6 — \"O pedido saindo\"",
+          "pilar": "🎯 TACO(H)  |  Pilar: AUTORIDADE — BASTIDOR",
+          "blocos": [
+            {"rotulo": "GANCHO", "tempo": "0:00 – 0:03", "texto": "[Suas mãos dobrando a peça e colocando no pacote, sem falar nada nos 2 primeiros segundos] \"Esse aqui é o pedido da Fulana.\"", "destaque": "gancho"},
+            {"rotulo": "DESENVOLVIMENTO", "tempo": "0:03 – 0:22", "texto": "[continuar embalando durante toda a fala] \"Ela pediu ontem à noite. Eu separei, conferi a numeração, dobrei, escrevi o nome dela aqui, ó.\" [mostrar o nome escrito] \"Porque quando chega na casa da mãe, não é uma encomenda. É a roupa que a filha dela vai estrear.\" \"É assim que sai todo pedido daqui.\""},
+            {"rotulo": "CTA", "tempo": "0:22 – 0:28", "texto": "\"Faz o seu no site, que o próximo pacote é o seu.\"", "destaque": "cta"},
+            {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "legenda", "texto": "Todo pedido sai daqui separado, conferido e com o nome escrito à mão. 💛"}
+          ],
+          "hashtags": "#bastidores #modainfantil #pedidopronto #veracruzsp #marilia #meninas"
+        }
+      ]
+    }
+  ]
+}
