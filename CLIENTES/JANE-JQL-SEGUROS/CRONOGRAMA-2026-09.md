@@ -29,11 +29,21 @@ a empresa. Fica no banco, com prioridade baixa.
 | 13 O curativo de dez mil reais | Concierge | ✅ |
 | 14 Não trocar de plano | Concierge | ✅ |
 
-**Falta escrever:** 2 roteiros de **saúde internacional** (pilar novo do contrato) e o
-**roteiro da cláusula da Amil**, que o contrato diz já integrar o banco da semana 1.
+✅ **Escritos em 14/09:** roteiros **15** (*o seu plano vale fora do Brasil?*) e **16**
+(*quem realmente precisa de saúde internacional*), mais o **roteiro de stories da semana 1**.
+Tudo no doc [`JQL Seguros`](https://docs.google.com/document/d/1WDMh-g3-z69o3KbiXl-I3Dy2OfmpdBBCFc6K3MrTzLU/edit),
+em `Documentos › Roteiros`, compartilhado com ela como comentarista.
+
+⚠️ **Falta o roteiro da cláusula da Amil** — o contrato diz que ele foi enviado com a
+proposta e já integra o banco da semana 1. Não temos o texto original, e o conteúdo é
+regulado: **precisa vir do Nicolas ou ser validado pela Jane**, não pode ser inventado.
 
 **Material bruto:** campanha Agrotools de 29–31/07 (3 sessões, ~32 takes, 100+ fotos) e
 o banco de imagens da própria Jane. Serve para apoio e carrossel, não para vídeo novo.
+
+**Onde ela sobe o bruto:** [`Brutos › Ciclo 2 (set-out) — SUBIR BRUTOS AQUI`](https://drive.google.com/drive/folders/1KHRd3l6LJMZ7S5Mx7hOSSmBzMp9u06Dp) —
+compartilhada com `jqlseguros@gmail.com` como editora, sem tela de solicitar acesso.
+Nomear os arquivos `[Data] — [Tema]`, como manda o contrato.
 
 ---
 
@@ -52,8 +62,8 @@ o banco de imagens da própria Jane. Serve para apoio e carrossel, não para ví
 |---|---|
 | **antes de qualquer post** | Nome, bio e destaques **validados com ela** (§2 da estratégia) |
 | **antes de qualquer post** | Teste de gravação e edição com **som e imagem aprovados por ela** |
-| **imediato** | **Guia de gravação pelo iPhone** entregue — a peça crítica do ciclo |
-| **16/09** | ⏰ Jane informa local, acesso e restrições do EVA — prazo das **72 h** |
+| **imediato** | **Guia de gravação pelo iPhone** — enquadramento, luz e ambiente. **Sem capítulo de microfone: ela já tem equipamento bom** |
+| **16/09** | ⏰ **Credenciamento do filmmaker no EVA** — endereço e horário já confirmados por ela (Expo Boulevard Iguatemi, Campinas, 13h–17h). Falta o que o filmmaker precisa para entrar |
 | **17/09 (qua)** | Primeiro envio de bruto. **Toda quarta** é a data de corte |
 
 > ⚠️ **O vídeo da premiação foi publicado antes dessas travas.** Pelo contrato, nome,
@@ -68,7 +78,7 @@ o banco de imagens da própria Jane. Serve para apoio e carrossel, não para ví
 | Dia | Entrega | Origem |
 |---|---|---|
 | Qui 18 | **Vídeo:** Todo corretor tem o mesmo preço | Roteiro 08 |
-| **Sex 19 · 13h–17h** | 🎬 **DIÁRIA NO EVA EXPERIENCE** — única do ciclo | Filmmaker |
+| **Sex 19 · 13h–17h** | 🎬 **DIÁRIA NO EVA EXPERIENCE** — única do ciclo<br>**Expo Boulevard Iguatemi · Campinas/SP** | Filmmaker |
 | Seg 22 | **Apoio:** carrossel — carência e portabilidade | Novo |
 | Qua 24 | **Vídeo:** o EVA por dentro | Bruto do EVA |
 | **Qua 24** | 📞 **Conversa de alinhamento de 15 min** — contratual | — |
@@ -133,9 +143,11 @@ Por pilar, nos 10 vídeos: **4 saúde empresarial · 3 concierge · 2 internacio
 
 ## REGRAS DE EXECUÇÃO — as que o ciclo 1 quebrou
 
-**Conferência de áudio antes de subir para aprovação.** Nível de música contra voz,
-ruído de fundo, áudio até o fim. Seis das nove reclamações do ciclo 1 foram disso, e
-agora a captação é dela — o risco subiu, não caiu.
+**Conferência de mixagem antes de subir para aprovação.** Nível de música contra voz,
+ruído de fundo, áudio íntegro até o último segundo. Seis das nove reclamações do ciclo 1
+foram de áudio — e a maioria era **edição nossa**, não captação: música alta demais sobre
+a voz, áudio faltando no fim, trecho removido sem querer. O microfone do ciclo 1 era do
+filmmaker e **ela tem equipamento bom**, então equipamento não é o risco. A conferência é.
 
 **Ela em cena, de frente.** *"Não gostei de costas."* · *"Achei a entrada meio escura."*
 

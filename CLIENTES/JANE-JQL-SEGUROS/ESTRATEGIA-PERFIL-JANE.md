@@ -164,28 +164,43 @@ que gerou conversa orienta a semana seguinte.
 
 ## 6 · A PRODUÇÃO AGORA DEPENDE DELA
 
-A mudança operacional mais importante do contrato: **ela grava no próprio iPhone**, com
-guia nosso. A única diária é o **EVA Experience, 19/09**.
+A mudança operacional mais importante do contrato: **ela grava no próprio iPhone**. A
+única diária é o **EVA Experience, 19/09**. Isso destrava o problema que matou o ciclo 1
+— o feed não depende mais de diária paga.
 
-Isso destrava o problema que matou o ciclo 1 — o feed não depende mais de diária paga.
-E cria um risco novo, que precisa ser tratado de frente:
+### Onde estava o problema de áudio, de verdade
 
-> **Seis das nove reclamações do ciclo 1 foram de áudio.** Música alta sobre a voz, som
-> abafado, gente falando ao fundo, áudio faltando no fim. Agora a captação é dela.
+Confirmado em 14/09: **o microfone do ciclo 1 era do filmmaker, e a Jane tem um bom
+equipamento.** Isso muda o diagnóstico, e para melhor.
 
-Por isso o **guia de gravação é a peça crítica da semana 1**, não uma cortesia:
+Revendo as nove reclamações do ciclo 1, a maioria **não era captação — era mixagem
+nossa**:
 
-- **Microfone de lapela** — é obrigação dela pelo contrato, mas quem indica o modelo
-  somos nós. Sem lapela, o ciclo 2 repete o ciclo 1
-- **Enquadramento** — ela em cena, de frente. Em 05/08 ela reprovou: *"eu entrando
-  andando na primeira parte, não gostei de costas"*
+| Reclamação | De quem é |
+|---|---|
+| *"a música de fundo muito alta, irrita com a minha voz junto"* | **Edição** |
+| *"tá sem áudio no final"* | **Edição** |
+| *"tinha um texto, um áudio… depois não sei se tirou"* | **Edição** |
+| *"o som tá meio abafado ou tem gente atrás?"* | Captação ou mixagem |
+| *"alguém tá falando ao fundo estranho"* | Captação ou mixagem |
+
+**Três das cinco são puramente nossas.** O risco do ciclo 2 não é ela gravar mal — é a
+gente entregar mal o que ela gravar bem.
+
+> **A trava que importa é a conferência de mixagem antes de subir para aprovação:**
+> nível de música contra voz, ruído de fundo, e áudio íntegro até o último segundo.
+> Isso é checklist de editor, não equipamento de cliente.
+
+### O guia de gravação — o que realmente precisa ter
+
+Sai o capítulo de microfone. Fica o que depende de direção:
+
+- **Ela em cena, de frente.** Em 05/08 ela reprovou: *"eu entrando andando na primeira
+  parte, não gostei de costas"*
 - **Luz** — *"achei a entrada meio escura"*, 29/07
-- **Gravar em lote** — o contrato prevê isso, e resolve a agenda dela
-
-E do nosso lado, a trava que faltava: **conferência de áudio antes de subir para
-aprovação** — nível de música contra voz, ruído de fundo, áudio até o fim.
-
----
+- **Enquadramento vertical** e distância, para o rosto ocupar o quadro
+- **Ambiente silencioso** — é o único ponto de captação que ainda gera ruído de fundo
+- **Gravar em lote**, como o contrato prevê: resolve a agenda dela e enche o banco
 
 ## 7 · A CARTEIRA CONTINUA SENDO A MÍDIA
 
