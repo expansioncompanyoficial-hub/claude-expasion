@@ -420,9 +420,14 @@ A conversa certa não é "faz ou não faz". É: **a conta de anúncio que já es
 
 ```
 Jane JQL Seguros/
-├── Jane SQL SEGUROS - ONBOARDING       ← doc bruto do onboarding (íntegra nos anexos)
-├── Cópia de MOD - BRIEFING DE CLIENTE  ← template em branco, NÃO preenchido
-├── Cópia de ROTEIRO SEMANAL - MODELO   ← template em branco, NÃO preenchido
+├── Documentos/                         ← criada em 14/09; tudo que é documento mora aqui
+│   ├── Contrato EXP-2026-JQL-AS-02 (assinado)   ← PDF Clicksign
+│   ├── Contrato EXP-2026-JQL-AS-02 — prazos e obrigações
+│   ├── Plano de 30 dias — Ciclo 1 (agosto)
+│   ├── Jane Queiroz                    ← roteiros 06–14, padrão TACO(H)
+│   ├── Jane SQL SEGUROS - ONBOARDING   ← doc bruto do onboarding (íntegra nos anexos)
+│   ├── Cópia de MOD - BRIEFING DE CLIENTE  ← template em branco, NÃO preenchido
+│   └── Cópia de ROTEIRO SEMANAL - MODELO   ← template em branco, NÃO preenchido
 ├── Brutos/
 │   └── Campanha 29-07/ (Fotos ~100 JPGs · Takes · criativos)
 ├── Editados (Organico & tráfego)/
