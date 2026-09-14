@@ -1,305 +1,231 @@
-# ESTRUTURAÇÃO DE PERFIL E ESTRATÉGIA — JANE QUEIROZ
+# ESTRATÉGIA DE PERFIL — JQL SEGUROS · CICLO 2
 
-**Documento vivo.** Base: [dossiê](DOSSIE-JANE-JQL-SEGUROS.md) e
-[banco de conteúdo](BANCO-DE-CONTEUDO-JANE.md).
-Decisões travadas com o Nicolas em 04/08/2026.
-
----
-
-## 0 · AS TRÊS DECISÕES QUE ORGANIZAM O RESTO
-
-| Decisão | Escolha |
-|---|---|
-| **Identidade do perfil** | Nome + categoria — sai o "JQL" |
-| **Captação** | **Só diária contratada.** Nada de captação avulsa |
-| **Mix da grade** | **40% Jane pessoa · 60% Jane especialista** |
-
-A segunda é a que mais molda a operação: **a diária é a única fonte de matéria-prima.**
-Isso não é limitação se a diária for tratada como fábrica — mas exige planejamento
-antes, e obriga metade da grade a viver de formatos que não precisam de câmera
-(carrossel, estático, comentário). Está desenhado assim na §5 e §6.
+**Documento vivo.** Reescrito em **14/09/2026** sobre o contrato
+[`EXP-2026-JQL-AS-02`](CONTRATO-2026-09-11.md). A versão do ciclo 1 — que trabalhava a
+marca pessoal — está no histórico do git.
+Base: [dossiê](DOSSIE-JANE-JQL-SEGUROS.md) · [banco de conteúdo](BANCO-DE-CONTEUDO-JANE.md)
 
 ---
 
-## 1 · A RÉGUA — o filtro antes de tudo
+## 0 · O QUE MUDOU, E POR QUE IMPORTA
 
-A pergunta é dela, feita no primeiro minuto do onboarding:
+O contrato virou a chave do posicionamento:
 
-> *"Plano de saúde é tabelado, todo corretor tem o mesmo preço. O que faz você fechar
-> comigo e não com outro?"*
+| | Ciclo 1 | **Ciclo 2 (contratado)** |
+|---|---|---|
+| Marca | Jane Queiroz (pessoa) | **JQL Seguros (empresa)** |
+| Papel dela | Centro de um ecossistema | **Especialista dentro da marca** |
+| Conteúdo principal | Saúde empresarial | **Saúde corporativa + internacional** |
+| Captação | Diária paga de filmmaker | **Ela grava no iPhone** · 1 diária no ciclo |
+| Tráfego | Em aberto | **Fora do escopo** |
+| Novo no escopo | — | Stories de venda · playbook orgânico · leitura semanal |
 
-Se o produto é idêntico e o preço é idêntico, **conteúdo sobre o produto não diferencia
-nada** — qualquer concorrente publica igual amanhã. O que diferencia é o que acontece
-**depois** da assinatura.
+**A tese de ecossistema pessoal morreu.** Aquele plano — audiência da Jane monetizável
+em vários negócios, podcast e palestras sob o nome dela — não é mais o que está
+contratado. Fica registrado aqui para não voltar por engano.
 
-Daí a régua, que vale para todo post:
+---
 
-> ### Se este post pudesse ser assinado por outro corretor, ele não vai.
+## 1 · A TESE DO CICLO 2
 
-Cinco checagens antes de subir:
+> ### A marca é a JQL. O rosto é a Jane. As duas coisas ao mesmo tempo.
 
-1. **Passa na régua?** Um concorrente conseguiria publicar isso? Se sim, refaz.
-2. **A Jane aparece como pessoa** ou está só locutando informação?
-3. **Tem piada, gíria, tom durão ou maçante?** Corta. (§3 do dossiê)
-4. **Cita cliente?** Tem autorização escrita? (§9 deste doc)
-5. **Fecha com CTA** ou morre sem porta de saída?
+Não é contradição, e a reconciliação é o ponto:
+
+**Por que empresa funciona melhor aqui.** O funil é 30 a 99 vidas. Quem decide é dono
+ou RH. Um RH pesquisando plano empresarial confia mais numa corretora estabelecida do
+que numa pessoa física — é compra corporativa, passa por comparação e por
+justificativa interna. `JQL Seguros` no perfil dá esse lastro.
+
+**Por que sem rosto não funciona.** Corretora sem cara é commodity, e o produto já é
+tabelado. A Jane é exatamente o que impede a JQL de virar mais uma na lista.
+
+**Então:** o perfil é da JQL, e **todo conteúdo tem a Jane na frente**, falando como a
+especialista da casa. Nada de conteúdo institucional sem gente.
+
+### A régua continua a mesma
+
+> **Se um outro corretor pudesse assinar esse conteúdo, ele não vai.**
+
+Isso não dependia da marca ser pessoa ou empresa. Dependia do produto ser tabelado — e
+continua sendo.
 
 ---
 
 ## 2 · IDENTIDADE DO PERFIL
 
-**Handle:** `@janequeirozseguros`
-*Sai o "JQL" — sigla não decodificável por quem não é cliente. Confirmar disponibilidade.*
+Semana 1 do contrato exige nome, bio e destaques **validados com ela antes do primeiro
+post**.
 
-**Nome** (campo buscável do Instagram — é aqui que mora o SEO):
+**Nome** (campo buscável — é ele que a busca do Instagram indexa, não a bio):
 ```
-Jane Queiroz | Plano de Saúde Empresarial
-```
-
-**Bio** — proposta:
-```
-Plano de saúde empresarial, sem susto no reajuste.
-Corretora desde 2012 · +5.000 vidas protegidas
-Cuido da apólice depois da assinatura, não só antes.
-📍 SP · RJ · BH
+JQL Seguros | Plano de Saúde Empresarial
 ```
 
-> *"Sem susto no reajuste"* é fala dela, do onboarding: *"você não precisa tomar susto
-> no seu boleto"*. E a terceira linha é o diferencial inteiro em oito palavras.
-
-**Alternativa mais direta ao ICP**, se a preferência for qualificar antes de conectar:
+**Bio — método 3L, agora nomeando a Jane dentro da marca:**
 ```
-Plano de saúde empresarial · 30 a 99 vidas
-Corretora desde 2012 · SUSEP plena · +5.000 vidas
-O que a operadora nega, a gente resolve.
+Plano de saúde empresarial e internacional, sem susto no reajuste.
+Com Jane Queiroz · corretora desde 2012 · +5 mil vidas
+Peça sua análise 👇
 ```
+134 de 150 caracteres. *"Sem susto no reajuste"* é fala dela na call de onboarding.
 
-**Link:** WhatsApp com mensagem pré-preenchida por origem
-(`?text=Vim pelo Instagram e queria entender sobre...`). Sem isso, não há como medir
-a escada de KPI da §8.
+> 🏆 **Se a premiação recente for de entidade reconhecível, ela sobe para a linha 2.**
+> Credencial externa é o **2º nível** da hierarquia de autoridade — acima de tempo de
+> mercado e de volume. Trocaria *"corretora desde 2012"* pelo nome do prêmio.
 
-**Foto:** ela gosta de estar arrumada e maquiada — é parte da identidade declarada, não
-vaidade. Usar foto da diária, fundo limpo, enquadramento de rosto.
+**Link:** WhatsApp com mensagem pré-preenchida. Sem isso não há como saber quem chegou
+pelo perfil — e o KPI do ciclo 2 (§5) depende disso.
 
-⚠️ **Antes de publicar qualquer número:** confirmar com ela "+5.000 vidas" e a âncora
-2012. São dados declarados e não auditados (§6 do dossiê) e vão virar bio permanente.
+### Os cinco destaques
 
----
-
-## 3 · DESTAQUES
-
-Começar com quatro. Os dois últimos entram quando houver material.
-
-| # | Destaque | O que vai dentro |
+| # | Destaque | Conteúdo |
 |---|---|---|
-| 1 | **Quem sou** | Recepcionista → gerente em 6 meses → Marinha do Brasil → a foto no submarino → 2012 vira corretora. Mineira, família, o dia real da empreendedora |
-| 2 | **Casos reais** | Os seis cases de concierge (§7 do dossiê). **É o destaque mais importante do perfil** |
-| 3 | **Dúvidas** | Carência · portabilidade · falsos coletivos · reajuste · rol da ANS · remissão · MEI × Ltda · os 59 anos |
-| 4 | **Depoimentos** | Vídeo do dono da Medi, depoimento da FW, prints do Google 5★ |
-| 5 | *Empresas* | Carteira citável — **só com autorização escrita** |
-| 6 | *Bastidores* | Dia de gravação, campanha de vacinação, os erros de gravação |
+| 1 | **A JQL** | Quem somos, desde 2012, +5 mil vidas, SUSEP plena. A Jane aparece como a especialista |
+| 2 | **Casos reais** | O que o concierge resolveu. **O mais importante do perfil** |
+| 3 | **Dúvidas** | Carência, portabilidade, reajuste, remissão, falsos coletivos |
+| 4 | **Internacional** | 🆕 Pilar novo — quem precisa, como funciona, o que o plano nacional não cobre |
+| 5 | **Prova** | Prêmio, depoimentos, avaliações 5★ no Google |
 
 ---
 
-## 4 · A GRADE — 40 pessoa / 60 especialista
+## 3 · A GRADE
 
-Base de **3 posts por semana** (meta do [POP](../../POP-SOCIAL-MEDIA-v0.1.md)) ≈ 12 por mês.
+O contrato não fixa proporção, só o volume. A proporção é decisão nossa.
 
-### 40% — Jane pessoa · ~5 posts/mês
+**O pilar "pessoa" não sumiu — mudou de natureza.** Com a marca na empresa, a Jane
+aparece como **profissional**, não como personagem de lifestyle. Entram: a história de
+origem, os eventos do setor, o prêmio, o bastidor do atendimento. Saem: família, bike,
+rotina doméstica.
 
-| Tema | Formato |
+| Pilar | Peso | O que é |
+|---|---|---|
+| **Saúde empresarial** | 40% | Educação e objeção: carência, portabilidade, falsos coletivos, reajuste, rol da ANS, MEI × Ltda, NR-1 |
+| **Concierge / casos reais** | 25% | O que ela resolveu. É o pilar que nenhum concorrente copia — **nunca sai da grade** |
+| **Jane profissional** | 20% | Origem, eventos, prêmio, bastidor do atendimento |
+| **Saúde internacional** | 15% | 🆕 Pilar novo do contrato |
+
+### O pilar internacional — por que vale mais do que parece
+
+Quase nenhum corretor do segmento dela fala disso. Atrai cliente de ticket mais alto:
+executivo que viaja, empresa com expatriado, família que estuda fora.
+
+⚠️ Ela disse na call de onboarding que **não pode citar nomes de operadoras
+internacionais**. Então o conteúdo é sobre o **problema e o mecanismo**, nunca sobre
+marca: *"o seu plano cobre se você passar mal fora do Brasil?"*, *"o que acontece com
+uma internação nos Estados Unidos"*, *"quem realmente precisa de saúde internacional"*.
+
+Confirmar com ela o que pode ser dito — pela cláusula 6 a exatidão é responsabilidade dela.
+
+### Mapa do volume contratado
+
+| Entrega | Contrato | Distribuição |
+|---|---|---|
+| **Até 10 vídeos** | 2/sem nas semanas 1–2 · 3/sem nas 3–4 | 4 saúde empresarial · 3 concierge · 2 internacional · 1 Jane profissional |
+| **Até 6 apoios** | 1/sem nas 1–2 · 2/sem nas 3–4 | Carrossel destrinchando a pauta que o vídeo resumiu |
+| **4 roteiros de stories** | 1 por semana | §4 |
+
+---
+
+## 4 · OS STORIES DE VENDA — o mecanismo novo
+
+Entrou no contrato e é **onde a venda efetivamente acontece**. Feed constrói
+autoridade; story abre conversa.
+
+Estrutura semanal, sempre os três:
+
+| Bloco | O que é | Por que funciona |
+|---|---|---|
+| **Caixinha** | *"Me manda sua dúvida sobre plano empresarial"* | Gera pergunta, e pergunta é lead. Cada resposta vira conteúdo depois |
+| **Bastidor** | O atendimento do dia, a negociação de reajuste, o caso resolvido | É a prova do concierge em tempo real, sem produção |
+| **Chamada direta** | Convite para o WhatsApp, com o link | Converte a atenção do dia |
+
+A caixinha alimenta os dois lados: responde a dúvida no story **e** vira roteiro de
+vídeo na semana seguinte. É a máquina de pauta que resolve o *"tenho ideia mas não tenho
+tempo"* que ela disse na call.
+
+---
+
+## 5 · COMO MEDIMOS — o ciclo 2 sobe um degrau
+
+O ciclo 1 media **reconhecimento**, e isso foi atingido: ela aprovou, elogiou e disse
+*"eu estou falando mesmo"*. Não faz sentido medir de novo a mesma coisa.
+
+| Ciclo | Métrica |
 |---|---|
-| História de origem (submarino, recepcionista → gerente) | Vídeo falado |
-| O dia real da empreendedora | B-roll + legenda |
-| Família, valores, filhos, o marido sírio | Vídeo ou carrossel de foto |
-| Eventos: Mulheres Empreendedoras, Grupo Eva (setembro) | Foto + legenda |
-| Saúde: bike, academia | B-roll |
+| 1 — feito | Reconhecimento: ela se vê no perfil |
+| **2 — agora** | **Conversa: direct e comentário com pergunta real.** Nunca seguidor |
+| 3 | Origem declarada: cliente que chega dizendo *"vi seu vídeo"* |
 
-### 60% — Jane especialista · ~7 posts/mês
-
-| Sub-pilar | Qtd | Exemplos |
-|---|---|---|
-| **Concierge / caso real** | 3 | O curativo de R$10 mil · a remissão de R$6 · o app errado do Bradesco |
-| **Educação** | 2 | Falsos coletivos · portabilidade de carência · reajuste · rol da ANS |
-| **Custo e benefício oculto** | 1 | R$70 mil a diária no São Luiz · o que vem junto na Porto Seguro |
-| **Autoridade empresa** | 1 | NR-1 · gestão de risco · mapeamento de saúde |
-
-> **O sub-pilar de concierge é o coração.** É o único que prova a régua da §1 — nenhum
-> concorrente tem esses casos. Se algum mês tiver que cortar, corta educação, nunca
-> concierge.
-
-> **Autoridade empresa é o que fala com o ICP** (dono e RH de 30–99 vidas). Um por mês é
-> o mínimo; se a conta migrar para meta de lead no ciclo 2, esse é o sub-pilar que sobe.
+A leitura semanal de resultados (contratada) é o instrumento: ao fim de cada semana, o
+que gerou conversa orienta a semana seguinte.
 
 ---
 
-## 5 · FORMATOS — e quais sobrevivem sem câmera
+## 6 · A PRODUÇÃO AGORA DEPENDE DELA
 
-Com captação só em diária, metade da grade precisa rodar sem gravação nova.
+A mudança operacional mais importante do contrato: **ela grava no próprio iPhone**, com
+guia nosso. A única diária é o **EVA Experience, 19/09**.
 
-| Formato | Precisa de diária? | Uso |
-|---|---|---|
-| **Vídeo falado (Reels)** | ✅ sim | O principal. Sai todo do banco da diária |
-| **B-roll com legenda** | ✅ sim | Lifestyle, bastidor, cotidiano |
-| **Carrossel** | ❌ não | Educação densa: carência, portabilidade, reajuste. Só design |
-| **Estático** | ❌ não | Número de impacto: *"R$70 mil a diária"*, *"R$6 por mês viraram R$70 mil"* |
-| **Comentário estratégico** | ❌ não | Ver abaixo — custo zero e ROI já provado |
-| **Collab** | depende | Quando envolver empresa da carteira. Regra na §7 |
+Isso destrava o problema que matou o ciclo 1 — o feed não depende mais de diária paga.
+E cria um risco novo, que precisa ser tratado de frente:
 
-### O comentário estratégico — o formato mais barato que ela tem
+> **Seis das nove reclamações do ciclo 1 foram de áudio.** Música alta sobre a voz, som
+> abafado, gente falando ao fundo, áudio faltando no fim. Agora a captação é dela.
 
-A tática que **já gerou três clientes** não foi um post: foi **um comentário** no vídeo
-do Dr. Elton sobre portabilidade de carência. Custo de produção: zero. Não precisa de
-diária, de editor, de aprovação.
+Por isso o **guia de gravação é a peça crítica da semana 1**, não uma cortesia:
 
-**Rotina proposta:** uma varredura semanal de perfis grandes que tocam em saúde,
-finanças pessoais e direito (Primo Rico, Dr. Elton e afins). Quando alguém falar de
-plano de saúde de forma genérica, ela comenta acrescentando o que faltou — não
-corrigindo, complementando. É assim que ela fez e funcionou.
+- **Microfone de lapela** — é obrigação dela pelo contrato, mas quem indica o modelo
+  somos nós. Sem lapela, o ciclo 2 repete o ciclo 1
+- **Enquadramento** — ela em cena, de frente. Em 05/08 ela reprovou: *"eu entrando
+  andando na primeira parte, não gostei de costas"*
+- **Luz** — *"achei a entrada meio escura"*, 29/07
+- **Gravar em lote** — o contrato prevê isso, e resolve a agenda dela
 
-⏱️ Isso é perecível. Ela mesma disse: *"tem coisas que é momento"*. Um alerta que demora
-uma semana já perdeu.
+E do nosso lado, a trava que faltava: **conferência de áudio antes de subir para
+aprovação** — nível de música contra voz, ruído de fundo, áudio até o fim.
 
 ---
 
-## 6 · A DIÁRIA COMO FÁBRICA
+## 7 · A CARTEIRA CONTINUA SENDO A MÍDIA
 
-Como a diária é a única fonte, ela tem que sair com banco cheio.
+Não mudou com o contrato e segue valendo. Ela entra em empresas grandes fazendo
+palestra, vacinação e mapeamento de saúde. Cada entrada rende conteúdo, prova social,
+**Collab no feed da empresa** e retenção.
 
-### A conta
+Alvos: Agrotools · JBQ Global · Delende · Rede OK · Osas · FW Transportes · Medi.
 
-| | |
-|---|---|
-| 1 diária bem planejada | **8–10 vídeos falados** + 30–60 fotos + b-roll para 4–6 cortes |
-| A 3 posts/semana, com 60% de vídeo | Cobre **4 a 5 semanas de feed** |
-| **Conclusão** | **1 diária/mês sustenta a cadência.** É o número da conversa de 24/08 |
-
-### D-3 — antes
-
-- Roteiros escritos e **aprovados pela Jane** (SLA na §7)
-- Locação definida. Preferência: **dentro de um cliente da carteira** — ver §7
-- Figurino combinado. Ela gosta de estar arrumada; isso é identidade, não capricho
-- Lista de tomadas fechada: quantos vídeos, quais b-rolls, quais fotos
-- Se for em cliente: **autorização de imagem assinada** antes, não depois
-
-### No dia
-
-- Os 8–10 vídeos falados, bloco a bloco
-- B-roll: ela chegando, atendendo, no telefone, andando, o escritório
-- Fotos: rosto para bio e destaques, corpo inteiro, ambiente
-- Se houver cliente no local: **depoimento captado ali** — é o ativo mais escasso
-- **Ela em cena, sempre.** Em 29/07 ela apontou: *"só tem estas? porque não vou mudar
-  minhas fotos não"*. E a iluminação: *"achei a entrada meio escura"*
-
-### Depois
-
-- Banco organizado no Drive por pilar, não por data
-- Cada peça etiquetada com o sub-pilar da §4, para a grade se montar sozinha
+**Regra do Collab** — postar → enviar convite → **confirmar o aceite**. O terceiro passo
+faltou no ciclo 1 e o post pode nunca ter chegado ao feed da Agrotools.
 
 ---
 
-## 7 · A CARTEIRA COMO MÍDIA — o maior atalho disponível
+## 8 · A PREMIAÇÃO — não deixar morrer no post
 
-Ela não precisa construir audiência do zero. Ela **entra** em empresas grandes fazendo
-palestra, campanha de vacinação e mapeamento de saúde. Cada entrada rende quatro coisas
-de uma vez:
+Um prêmio de terceiro independente é **prova social mais forte que depoimento**, porque
+ninguém pode dizer que foi encomendado. Já está postado — mas um post é o menor uso
+possível dele.
 
-1. Conteúdo gravado em ambiente real
-2. Prova social — ela dentro do cliente
-3. **Collab**, que põe o post no feed da empresa
-4. Relacionamento com o cliente atual, ou seja, retenção
+O que fazer com ele ainda nesse ciclo:
 
-Ela sacou isso sozinha em 30/07: *"quando você coloca como colaborador, aparece no feed
-da empresa"*.
-
-**Alvos da carteira:** Agrotools (~300 funcionários, atende Google e Sadia) · JBQ Global
-· Delende · Rede OK · Osas Tecnologia · FW Transportes · Medi.
-
-**Uma por mês já é um ano de pauta** — e cada uma é exatamente a diária mensal da §6.
-
-### Regra de Collab — o furo de 30/07 não pode repetir
-
-```
-postar  →  enviar convite de colaboração  →  CONFIRMAR O ACEITE
-```
-
-O terceiro passo é o que faltou. Sem aceite, o post não entra no feed da empresa e o
-Collab não serviu para nada. **Verificar se o convite da Agrotools do primeiro Reels foi
-aceito** — está aberto desde 30/07.
-
----
-
-## 8 · A ESCADA DE KPI
-
-Ela disse, com todas as letras: *"eu não falo de engajamento, eu não falo de gerar
-leads"*. Isso é verdadeiro para o ciclo 1 — e não pode virar uma conta sem meta nenhuma.
-A saída que honra as duas coisas:
-
-| Ciclo | Métrica | Como se mede |
-|---|---|---|
-| **1 — até 24/08** | **Reconhecimento** | Ela aprova sem ressalva · ela reposta por conta própria · ela diz que se viu |
-| **2** | **Conversa** | Direct e comentário com pergunta real. **Nunca seguidor** |
-| **3** | **Origem declarada** | Cliente que chega dizendo *"vi seu vídeo"* |
-
-> **O ciclo 1 já tem resultado, e é dela:**
-> *"Amei. Gostei muito do vídeo."* (29/07)
-> *"Você vai amar. Tô muito feliz, fiquei muito empolgada. (…) Ele tá aqui do meu lado,
-> mas não está pondo a arma na minha cabeça — eu estou falando mesmo."* (30/07)
->
-> Essa segunda fala é o melhor argumento de renovação que existe, porque ela mesma
-> antecipa e desarma a desconfiança de que estaria sendo gentil. **É com ela que a
-> reunião de 24/08 abre.**
-
-Levar essa escada pronta no dia 24 resolve exatamente o buraco que ela apontou em 28/07
-— até hoje ela não sabe o que contratou.
+1. **Bio** — se a entidade for reconhecível, sobe para a linha 2 (§2)
+2. **Destaque "Prova"** — fixo, junto com depoimentos e Google 5★
+3. **Carrossel** — não sobre o prêmio, mas sobre **o que ele significa para quem é
+   cliente dela**. Prêmio que fala de si é vaidade; prêmio que fala do cliente é
+   argumento
+4. **Story de bastidor** — o dia da premiação
+5. **Assinatura de proposta comercial** — fora do Instagram, mas é onde mais converte
 
 ---
 
 ## 9 · PROTOCOLO DE TERCEIROS
 
-O conteúdo mais forte dela envolve dado de saúde de gente identificável. Isso não pode
-virar medo, mas precisa virar checklist.
+Inalterado, e agora com respaldo contratual (cláusula 6: ela valida o conteúdo técnico e
+responde pela exatidão).
 
-1. **Despersonalizar por padrão.** *"Um cliente de 95 anos"*, não *"o pai do Francisco,
-   da FW"*
-2. **Nomear só com autorização escrita.** Vale para empresa e pessoa
-3. **Nunca** dado de saúde ligado a pessoa identificável
-4. **Nunca** o caso do médico investigado por fraude — nem anonimizado
-5. **Nunca** nome de operadora de saúde internacional — ela disse que não pode citar
-6. **Guardar** as autorizações. A da Agrotools ela pediu em 29/07; o documento tem que
-   estar em mãos
-
----
-
-## 10 · OS PRÓXIMOS 20 DIAS
-
-Até 24/08. Em ordem de urgência.
-
-| Prazo | O quê | Dono |
-|---|---|---|
-| **Agora** | **Enviar o resumo do projeto e o cronograma.** Pedido em 28/07, prometido duas vezes. É a pendência mais cara da conta | Nicolas |
-| **Agora** | Verificar se o **Collab da Agrotools** foi aceito | Expansion |
-| **Agora** | Confirmar se o **nome de empresa errado** no primeiro Reels foi corrigido | Expansion |
-| **Agora** | Responder **"esses pagamentos"** — no plural, e com *"para não ter problema"* | Nicolas |
-| **Agora** | **Trocar a senha do Facebook** e migrar para convite no Meta Business Suite | Nicolas |
-| Semana 1 | Fechar `@`, nome, bio, foto e os 4 destaques com a Jane | Nicolas + Jane |
-| Semana 1 | Confirmar os números da bio (+5.000 vidas, desde 2012) | Jane |
-| Semana 1 | Coletar **Google 5★ e os depoimentos da Medi e da FW** — prova pronta, parada desde o início | Expansion |
-| Semana 2 | Agendar a próxima diária **dentro de um cliente da carteira** | Nicolas + Jane |
-| Semana 2 | Ligar a rotina de **comentário estratégico** — custo zero, ROI já provado | Social media |
-| Semana 3 | Montar a pauta do bastidor da campanha de vacinação — **ideia dela**, material já gravado | Expansion |
-| **24/08** | Reunião de fechamento: o que foi entregue, **as falas dela**, a escada de KPI, e 1 diária/mês | Nicolas |
-
----
-
-## 11 · O QUE AINDA PRECISA DE DECISÃO
-
-- **Tráfego pago.** Aberto desde 25/07. A conversa não é "faz ou não faz": a conta que
-  ela já roda sozinha traz lead de R$1.000 para um produto de R$5.000. Ou entra no
-  escopo, ou é desligada
-- **Acesso ao Instagram** — veio só a senha do Facebook
-- **Disponibilidade do `@`** `janequeirozseguros`
-- **Quantas diárias** entram no próximo ciclo — a §6 diz que 1/mês sustenta a cadência
-- **SLA de aprovação de roteiro.** Hoje não existe, e o POP já aponta a aprovação do
-  cliente como gargalo. Proposta: 48 h, com combinado explícito de que o silêncio
-  aprova
+- Despersonalizar por padrão — *"um cliente de 95 anos"*, não o nome
+- Nomear empresa ou pessoa **só com autorização escrita**, guardada
+- **Nunca** dado de saúde ou financeiro ligado a pessoa identificável
+- **Nunca** nome de operadora internacional
+- **Nunca** o caso do médico investigado por fraude
+- Todo conteúdo técnico **submetido à validação dela antes da gravação** — é obrigação nossa

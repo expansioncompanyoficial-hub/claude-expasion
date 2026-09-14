@@ -5,8 +5,10 @@
 
 > ✅ **Ciclo 2 contratado.** `EXP-2026-JQL-AS-02`, assinado por ela em **11/09**, R$1.850,
 > vigência até **11/10**. Termos, mudanças de escopo e datas críticas em
-> [CONTRATO-2026-09-11](CONTRATO-2026-09-11.md). **Atenção: o contrato mantém a marca
-> JQL Seguros — reverte a decisão de pessoa-primeiro que orienta a §9 e a estratégia.**
+> [CONTRATO-2026-09-11](CONTRATO-2026-09-11.md). A [estratégia](ESTRATEGIA-PERFIL-JANE.md)
+> foi reescrita na chave **JQL Seguros como marca, Jane como a voz** — o §9 deste dossiê
+> descreve a tese do ciclo 1 e está superado nesse ponto.
+> Status atual: [360 de 14/09](360-JANE-2026-09-14.md) · [cronograma](CRONOGRAMA-2026-09.md).
 
 > 🔴 **O ciclo 1 fechou hoje, 24/08, e fechou mal.** 4 posts publicados contra 12
 > planejados · 10 dias sem publicação · 9 reclamações de qualidade · aprovação travada

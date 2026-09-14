@@ -11,7 +11,7 @@ travado.
 
 | Cliente | Nicho | Entrada | Documentos |
 |---|---|---|---|
-| **Jane Queiroz · JQL Seguros** | Seguros · plano de saúde empresarial |  24/07/2026 | [dossiê](JANE-JQL-SEGUROS/DOSSIE-JANE-JQL-SEGUROS.md) · [estratégia](JANE-JQL-SEGUROS/ESTRATEGIA-PERFIL-JANE.md) · [banco de conteúdo](JANE-JQL-SEGUROS/BANCO-DE-CONTEUDO-JANE.md) · [cronograma](JANE-JQL-SEGUROS/CRONOGRAMA-2026-08.md) · [contrato](JANE-JQL-SEGUROS/CONTRATO-2026-09-11.md) |
+| **Jane Queiroz · JQL Seguros** | Seguros · plano de saúde empresarial |  24/07/2026 | [dossiê](JANE-JQL-SEGUROS/DOSSIE-JANE-JQL-SEGUROS.md) · [estratégia](JANE-JQL-SEGUROS/ESTRATEGIA-PERFIL-JANE.md) · [banco de conteúdo](JANE-JQL-SEGUROS/BANCO-DE-CONTEUDO-JANE.md) · [cronograma](JANE-JQL-SEGUROS/CRONOGRAMA-2026-09.md) · [contrato](JANE-JQL-SEGUROS/CONTRATO-2026-09-11.md) · [360](JANE-JQL-SEGUROS/360-JANE-2026-09-14.md) |
 
 ## Estrutura de cada cliente
 
