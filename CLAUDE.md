@@ -22,6 +22,8 @@ Tudo em **português do Brasil**. Documentos, commits e respostas.
 ```
 AEOS/                 Sistema normativo de engenharia de produto (12 volumes)
   ORGANIFY/           Fichas das missões M001 e M002
+CLIENTES/             Contexto por cliente — regras editoriais lidas pelas skills
+  <CLIENTE>/          `<CLIENTE>-CONTEXTO.md`, lido pela skill `roteiro-expansion`
 _audios/              Transcrições de áudios e reuniões
 *.md                  Documentos de estratégia e operação (raiz)
 .claude/
