@@ -135,3 +135,35 @@ novo.
 | 16/09 | **A causa do recorde é método, e vale institucionalizar.** Com a Bianca: gravava, cortava e voltava. Com a Letícia: *"ela foi falando em voz alta mesmo e eu fui repetindo... decorava e depois fazia"* — a filmmaker soprando a fala em voz alta e a Clau repetindo na sequência | **Passar isso como padrão para as próximas diárias**, com qualquer filmmaker. Dobra o rendimento do dia | Ana Cláudia |
 | 16/09 | **Clau recomenda manter a Letícia:** *"de repente, para os próximos, eu acredito que fique legal a gente fazer com ela"*. Agenda mais flexível que a da Bianca (que tem clientes e mentorias); a Letícia tem bebê de 6 meses e horários restritos, porém mais disponibilidade | Detalhe a considerar no agendamento: **ela é doula e faz partos** — uma paciente entrou em trabalho de parto durante a gravação e ela poderia ter precisado sair no meio. Não saiu, mas o risco existe e a maternidade fica a 2 km da loja | Ana Cláudia |
 | 16/09 | Contexto humano registrado: ela chegou insegura com a troca (*"eu me identifiquei muito com a Bianca... nossa, gente, outra pessoa, não sei como vai ser"*) e terminou satisfeita — *"depois gostei muito dela, gostei da forma como a gente fez"*, *"foi uma superação. Gostamos"* | A ressalva dela de não ter feito sondagem com a Letícia é sobre **não ter conferido o material**, não sobre a relação | Ana Cláudia |
+
+## 16/09 · 22h40 — Brutos da diária no Drive, confirmação do R31 e a escolha do reel de 17/09
+
+A Letícia subiu o bruto da diária em `Brutos / Gravação 16/09`
+(`1DXW0mrvge_FYaLZ1CjR4-iaW6Pzf7CoZ`), organizado em três sub-pastas:
+`Roteiros`, `Tráfego` e um arquivo único `CTAs` (840 MB, todas as tomadas de
+CTA numa gravação só).
+
+Orgânico entregue (14): R24, R25, R26, R27, R28, R29, R32, R33, R34, R35,
+R39, R41, R48, R49.
+Tráfego entregue (5): TR06, TR07, TR08, TR09, TR10.
+Mais o bloco de CTAs. Total: 20, como a Clau relatou no áudio.
+
+**R31 ("Eu sei o nome das minhas clientes" — Dia do Cliente) não está na
+pasta.** Isso fecha a dúvida aberta desde o áudio da Clau ("o do cliente não
+fizemos por ser igual o de o tempo"): o pulado foi o R31, e o R49 ("que horas
+é a festa") foi gravado. Como a Semana do Cliente termina em 21/09 e a diária
+já passou, **o R31 morre neste mês** — não tem como reencaixar.
+
+Faltam de outubro, que ficaram para a próxima diária: R42, R43, R44, R45, R47.
+
+**Decisão do post de 17/09.** O cronograma "quem faz o que" previa carrossel
+de prova social na quinta. O Nicolas optou por reel. Escolhido o **ROTEIRO 28
+— "A arara que quase nenhuma loja tem" (9 a 12 anos, o between)**, e não o
+próximo em ordem crescente (R24), por um motivo de demanda: no áudio de hoje
+a Clau diz que a dor que mais converte agora é a da criança grande — "seu
+filho tem 9 anos" — e que as vendas da semana foram de numeração grande. O
+R28 é o roteiro que fala exatamente com essa demanda, com estoque e prova na
+loja hoje.
+
+Sexta 18/09 segue como estava: **R26 — "Essa é a idade em que a roupa
+apanha"** (2 a 4 anos).
