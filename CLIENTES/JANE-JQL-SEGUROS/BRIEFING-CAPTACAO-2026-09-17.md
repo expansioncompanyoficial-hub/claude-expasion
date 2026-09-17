@@ -162,3 +162,31 @@ empregado CLT (Portaria MTE 1.419/2024).
 > ([protocolo de terceiros](ESTRATEGIA-PERFIL-JANE.md#9--protocolo-de-terceiros)).
 > A regra do Collab tem três passos: postar → convidar → **confirmar o aceite**.
 > O terceiro faltou no ciclo 1.
+
+---
+
+## 4 · A PASTA DO DIA NO DRIVE
+
+Criada em 17/09 às 15h19, dentro de
+`Brutos › Ciclo 2 (set-out)`. A subpasta por tema existe para que o bruto chegue
+já separado — material solto na raiz é o que trava a edição no mesmo dia.
+
+**[17-09 — Alphaville — Evento](https://drive.google.com/drive/folders/1qYyr7Gu5RUz__MDM2_Z62I8ULSgC1qW5)** · `1qYyr7Gu5RUz__MDM2_Z62I8ULSgC1qW5`
+
+| Pasta | ID |
+|---|---|
+| 01 — Fotos | `1xHA31JGJ_qo2WTxoS61mfHOKPQqwAzRK` |
+| 02 — Evento e ambiente | `15LmgJKTM5QsXIQKucfmOaxQTHCTGIiG-` |
+| 03 — Tema · Visita ao cliente | `1rrA6m9lPrM14074l8-btAGwCWf6nyO_b` |
+| 04 — Tema · Melhores hospitais | `12Esd_6bglVHHbrqctnh9Gti7y22tl6YH` |
+| 05 — Tema · Plano empresarial errado | `1Yh_zt9cOdade0dYjcDYGb6zFBb6mPACs` |
+| 06 — Tema · Atendimento diferente | `13bXJQvSWy_yqDNVOFwhuN1boxXCMmpJm` |
+| 07 — Tema · NR-1 e saúde mental | `1Yb9Xvki7epqdSaD6DGdCGwwWZebuf_aX` |
+
+Regra passada ao videomaker: **gravou algo fora da lista, cria pasta nova com o
+nome do tema.** A permissão é herdada da pasta de brutos do ciclo, que está
+liberada para o e-mail da Jane — **o videomaker ainda não tem acesso.**
+
+O documento entregue aos dois está em
+[`entregaveis/captacao-17-09-alphaville.html`](entregaveis/captacao-17-09-alphaville.html)
+e no PDF ao lado.

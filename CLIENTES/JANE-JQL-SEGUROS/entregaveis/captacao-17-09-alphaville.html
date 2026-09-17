@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Captação 17-09 — Alphaville</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root{
+    --paper:#F3F4F0; --paper2:#E8ECE6; --ink:#22282A; --soft:#4E5955;
+    --stone:#6E7A74; --rule:#CCD4CA; --brass:#9C6B33; --brassL:#C09A62;
+    --deep:#26362E; --onDeep:#EDF0EA;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:11pt; line-height:1.5; -webkit-font-smoothing:antialiased;
+  }
+  .serif{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;}
+  .pg{padding:0 15mm 10mm;}
+
+  header{
+    background:var(--deep); color:var(--onDeep);
+    padding:13mm 15mm 10mm; border-bottom:3pt solid var(--brass);
+    margin-bottom:8mm;
+  }
+  .eyebrow{font-size:7.6pt; letter-spacing:.2em; text-transform:uppercase;
+           color:var(--brassL); margin:0 0 5mm;}
+  h1{font-size:26pt; line-height:1.06; font-weight:400; margin:0 0 4mm; letter-spacing:-.01em;}
+  h1 em{font-style:italic; color:var(--brassL);}
+  header p{margin:0; opacity:.86; font-size:10.6pt; max-width:125mm;}
+  .perio{
+    margin-top:6mm; padding-top:4.5mm; border-top:1px solid rgba(192,154,98,.3);
+    font-size:9.6pt; letter-spacing:.03em; color:var(--brassL);
+    font-variant-numeric:tabular-nums;
+  }
+
+  h2{
+    font-size:8pt; letter-spacing:.17em; text-transform:uppercase;
+    color:var(--brass); font-weight:600; margin:0 0 4mm;
+    padding-bottom:2mm; border-bottom:1px solid var(--rule);
+  }
+  section{margin-bottom:7mm;}
+  .quem{
+    display:inline-block; font-size:7.2pt; letter-spacing:.14em; text-transform:uppercase;
+    background:var(--brass); color:#fff; padding:1mm 2.5mm; border-radius:1mm;
+    vertical-align:2.2mm; margin-left:2mm; font-weight:600;
+  }
+
+  /* prioridade */
+  .prio{background:var(--paper2); border-left:2.5pt solid var(--brass);
+        padding:4mm 5mm; border-radius:1mm; break-inside:avoid;}
+  .prio p{margin:0 0 2mm;}
+  .prio p:last-child{margin:0;}
+  .prio b{color:var(--deep);}
+
+  /* temas */
+  .tema{
+    background:#fff; border:1px solid var(--rule); border-radius:2mm;
+    padding:4.5mm 5mm; margin-bottom:4mm; break-inside:avoid;
+  }
+  .tema .cab{display:flex; justify-content:space-between; align-items:baseline;
+             gap:4mm; margin-bottom:1mm;}
+  .tema h3{font-size:12.5pt; font-weight:600; margin:0; color:var(--deep); line-height:1.2;}
+  .tema .meta{font-size:7.4pt; letter-spacing:.12em; text-transform:uppercase;
+              color:var(--brass); white-space:nowrap; font-weight:600;}
+  .tema .porque{font-size:9.4pt; color:var(--stone); font-style:italic; margin:0 0 3mm;}
+  .tema ul{margin:0; padding-left:5mm; list-style:none;}
+  .tema ul li{position:relative; padding:0 0 1.6mm 0; font-size:10.2pt;}
+  .tema ul li::before{content:"—"; position:absolute; left:-5mm; color:var(--brassL);}
+  .tema .cuidado{
+    margin-top:3mm; padding-top:2.5mm; border-top:1px dashed var(--rule);
+    font-size:9.2pt; color:var(--soft);
+  }
+  .tema .cuidado b{color:var(--brass);}
+  .tema .dado{
+    margin-top:3mm; background:var(--paper2); border-radius:1mm;
+    padding:3mm 3.5mm; font-size:9.4pt;
+  }
+  .tema .dado b{color:var(--deep);}
+  .tema .dado .fonte{display:block; color:var(--stone); font-size:8.2pt; margin-top:1.5mm;}
+
+  /* captação */
+  .rows{border-top:1px solid var(--rule);}
+  .row{
+    display:grid; grid-template-columns:36mm 1fr; gap:2mm 5mm;
+    padding:3mm 0; border-bottom:1px solid var(--rule); break-inside:avoid;
+  }
+  .row .k{font-weight:600; font-size:10.2pt;}
+  .row .k small{display:block; font-weight:400; font-size:8.4pt; color:var(--stone);}
+  .row .v{color:var(--soft); font-size:9.8pt;}
+  .row .v ul{margin:0; padding-left:4mm;}
+  .row .v li{padding-bottom:.8mm;}
+
+  /* link */
+  .link{
+    display:block; text-decoration:none; color:inherit;
+    border:1.4pt solid var(--brass); border-radius:2mm;
+    padding:4.5mm 5mm; margin-bottom:3mm; background:#fff; break-inside:avoid;
+  }
+  .link .lbl{font-size:12.5pt; font-weight:600; color:var(--deep); display:block; margin-bottom:1.2mm;}
+  .link .lbl::after{content:" ›"; color:var(--brass); font-weight:400;}
+  .link .desc{font-size:9.4pt; color:var(--soft); display:block; margin-bottom:2mm;}
+  .link .url{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+             font-size:7.2pt; color:var(--stone); word-break:break-all; display:block;}
+
+  .arv{
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    font-size:8.6pt; line-height:1.65; color:var(--soft);
+    background:var(--paper2); border-radius:1mm; padding:4mm 5mm; break-inside:avoid;
+  }
+  .arv b{color:var(--deep);}
+
+  footer{
+    margin-top:3mm; padding-top:4mm; border-top:1px solid var(--rule);
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size:8.2pt; color:var(--stone); flex-wrap:wrap; gap:2mm;
+  }
+  footer .marca{letter-spacing:.16em; text-transform:uppercase; color:var(--brass);}
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">JQL Seguros &nbsp;×&nbsp; Expansion Assessoria</p>
+  <h1 class="serif">Captação de hoje,<br><em>Alphaville</em></h1>
+  <p>Os temas que a Jane grava, o que o videomaker capta e onde o material sobe. Para os dois lerem em cinco minutos.</p>
+  <p class="perio">17 de setembro de 2026 &nbsp;·&nbsp; 15h30 → 17h00 &nbsp;·&nbsp; evento de cliente</p>
+</header>
+
+<div class="pg">
+
+  <section>
+    <h2>A ordem do dia</h2>
+    <div class="prio">
+      <p><b>Primeiro o que só existe hoje.</b> A Jane no evento, o ambiente, a conversa com o pessoal do cliente. Se perder, não volta.</p>
+      <p><b>Depois o tema 1</b>, que precisa do evento no fundo.</p>
+      <p><b>Por último os temas 2 a 5.</b> Esses ela grava no celular em qualquer outro dia. Se o tempo apertar, são eles que caem — nunca o material do evento.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Os temas <span class="quem">Jane</span></h2>
+
+    <div class="tema">
+      <div class="cab"><h3>1 · Por que eu vou até a empresa do cliente</h3><span class="meta">Meio · 30 s</span></div>
+      <p class="porque">Grava esse primeiro, com o evento aparecendo no fundo.</p>
+      <ul>
+        <li>Por que você faz questão de estar presente num dia como hoje</li>
+        <li>O que você entende da empresa estando dentro dela, e que não aparece em planilha nem em proposta</li>
+        <li>O que muda para o cliente ter alguém que acompanha, em vez de alguém que só aparece na renovação</li>
+      </ul>
+      <p class="cuidado"><b>Cuidado:</b> não diga o nome da empresa nem mostre marca dela sem autorização. Fale &ldquo;um cliente meu&rdquo;.</p>
+    </div>
+
+    <div class="tema">
+      <div class="cab"><h3>2 · Os melhores hospitais do Brasil</h3><span class="meta">Topo · 45 s</span></div>
+      <p class="porque">É o tema de maior alcance. Serve para quem ainda nem pensa em trocar de plano.</p>
+      <ul>
+        <li>O ranking saiu, e alguns hospitais brasileiros estão entre os melhores do mundo</li>
+        <li>A pergunta que quase ninguém faz antes de contratar: o meu plano me atende nesses hospitais?</li>
+        <li>Plano não se compara por preço, se compara por rede credenciada</li>
+        <li>Duas empresas podem pagar parecido e ter acesso completamente diferente</li>
+      </ul>
+      <div class="dado">
+        <b>Os sete hospitais brasileiros do ranking:</b> Albert Einstein — o melhor colocado do país, em 16º no mundo —, Sírio-Libanês, Oswaldo Cruz, Moinhos de Vento, HCor, Santa Catarina Paulista e o HC da USP.
+        <span class="fonte">World's Best Hospitals 2026, Newsweek com a Statista</span>
+      </div>
+      <p class="cuidado"><b>Cuidado:</b> o ranking é público e você pode citar à vontade. Dizer que um desses hospitais está na rede de um produto que você vende é outra coisa — isso só com certeza. Na dúvida, fale do ranking e não fale de rede.</p>
+    </div>
+
+    <div class="tema">
+      <div class="cab"><h3>3 · Três prejuízos do plano empresarial errado</h3><span class="meta">Meio · 60 s</span></div>
+      <p class="porque">É o tema que mais gera pergunta no direct, porque o dono de empresa se reconhece.</p>
+      <ul>
+        <li><b>Reajuste sem teto.</b> Plano individual tem limite da ANS. Coletivo empresarial não tem</li>
+        <li><b>Falso coletivo.</b> CNPJ aberto só para conseguir o plano. Contrato coletivo pode ser rescindido pela operadora por conveniência comercial — e a pessoa descobre no meio de um tratamento</li>
+        <li><b>Rede que não atende.</b> Descobre na urgência que o hospital que queria nunca esteve na rede</li>
+        <li>O fio que amarra os três: nenhum aparece na proposta, todos aparecem na hora de usar</li>
+      </ul>
+      <div class="dado">
+        <b>Os números de 2026:</b> o teto da ANS para plano individual ficou em 5,11%. Coletivo empresarial não tem teto — nos primeiros meses do ano, contrato de 30 vidas ou mais subiu cerca de 8,7%, e contrato de até 29 vidas passou de 13%.
+        <span class="fonte">ANS · reajuste de contratos coletivos, 2026</span>
+      </div>
+      <p class="cuidado"><b>Cuidado:</b> confira esses percentuais antes de gravar. É o seu nome que assina o número.</p>
+    </div>
+
+    <div class="tema">
+      <div class="cab"><h3>4 · Por que o meu atendimento é diferente</h3><span class="meta">Fundo · 45 s</span></div>
+      <p class="porque">Todo corretor se diz personalizado. A palavra não prova nada — o caso prova.</p>
+      <ul>
+        <li>Não afirme que o atendimento é personalizado. Conte um caso que você resolveu</li>
+        <li>O caso precisa de três coisas: o problema que apareceu, o que você fez, e o que teria acontecido se não tivesse você</li>
+        <li>O que você faz que a central 0800 da operadora não faz</li>
+        <li>Fecha convidando para o WhatsApp — esse é o tema que traz conversa</li>
+      </ul>
+      <p class="cuidado"><b>Cuidado:</b> sem nome de pessoa e sem nome de empresa. &ldquo;Um cliente de 95 anos&rdquo;, &ldquo;uma transportadora com 40 vidas&rdquo;. E nada de informação de saúde que identifique alguém.</p>
+    </div>
+
+    <div class="tema">
+      <div class="cab"><h3>5 · A NR-1 e a saúde mental na empresa</h3><span class="meta">Topo · 40 s &nbsp;·&nbsp; bônus</span></div>
+      <p class="porque">Só se sobrar tempo. Também dá para gravar em casa outro dia.</p>
+      <ul>
+        <li>A norma mudou e a empresa passou a ter que cuidar dos riscos psicossociais de quem trabalha nela</li>
+        <li>A maioria dos donos de empresa ainda não sabe disso</li>
+        <li>A responsabilidade da empresa pela saúde de quem trabalha nela cresceu — e plano de saúde é uma das ferramentas para dar conta disso</li>
+      </ul>
+      <div class="dado">
+        <b>O que mudou:</b> desde maio de 2026 a fiscalização do trabalho cobra riscos psicossociais no programa de gerenciamento de riscos das empresas com empregado CLT.
+        <span class="fonte">NR-1 · Portaria MTE 1.419, de 27/08/2024</span>
+      </div>
+      <p class="cuidado"><b>Cuidado, esse é importante:</b> a NR-1 <b>não</b> obriga ninguém a contratar plano de saúde. Não dê a entender que obriga. A ponte honesta é a responsabilidade da empresa, não uma exigência da norma.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>O que captar <span class="quem">Videomaker</span></h2>
+    <div class="rows">
+      <div class="row">
+        <span class="k">Antes da palestra<small>~15 min</small></span>
+        <span class="v"><ul>
+          <li>Chegada dela: entrando, cumprimentando, circulando</li>
+          <li>Interação com o pessoal do cliente — conversa real, não pose</li>
+          <li>B-roll do ambiente: fachada, recepção, o espaço montado, detalhes</li>
+          <li>3 fotos verticais dela em pé: corpo inteiro e meio corpo</li>
+        </ul></span>
+      </div>
+      <div class="row">
+        <span class="k">Durante a palestra</span>
+        <span class="v"><ul>
+          <li>Ela sentada, assistindo, anotando</li>
+          <li>Sala cheia em plano aberto</li>
+          <li>Reação: aplaudindo, atenta, comentando com quem está do lado</li>
+          <li>Palco em plano aberto, sem focar slide nem conteúdo da palestra</li>
+        </ul></span>
+      </div>
+      <div class="row">
+        <span class="k">Depois da palestra<small>bloco falado, ~35 min</small></span>
+        <span class="v"><ul>
+          <li>Os cinco temas em lote, mesmo enquadramento, um take atrás do outro</li>
+          <li><b>Ela em pé, de frente para a câmera.</b> Nada de costas nem andando</li>
+          <li>Fundo com o evento reconhecível, desfocado</li>
+          <li>Dois takes por tema — o segundo sai mais solto</li>
+        </ul></span>
+      </div>
+      <div class="row">
+        <span class="k">Padrão técnico</span>
+        <span class="v"><ul>
+          <li>Vertical 9:16, 4K se a câmera der</li>
+          <li>Lapela. Ruído de evento é o maior risco do dia</li>
+          <li>Áudio em pista separada no bruto. Sem música, sem tratamento, sem corte</li>
+          <li>Rosto dela bem iluminado</li>
+          <li>Conferir o áudio do primeiro take antes de seguir</li>
+        </ul></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Onde subir o material <span class="quem">Videomaker</span></h2>
+
+    <a class="link" href="https://drive.google.com/drive/folders/1qYyr7Gu5RUz__MDM2_Z62I8ULSgC1qW5">
+      <span class="lbl">Pasta de hoje — 17-09 Alphaville Evento</span>
+      <span class="desc">As pastas já estão criadas, por tema. Sobe cada arquivo dentro da pasta do tema que ele pertence — é isso que faz a edição sair no mesmo dia.</span>
+      <span class="url">drive.google.com/drive/folders/1qYyr7Gu5RUz__MDM2_Z62I8ULSgC1qW5</span>
+    </a>
+
+    <div class="arv">
+<b>17-09 — Alphaville — Evento/</b><br>
+&nbsp;├── 01 — Fotos<br>
+&nbsp;├── 02 — Evento e ambiente &nbsp;&nbsp;<span style="font-family:inherit">← chegada, palestra, B-roll, interação</span><br>
+&nbsp;├── 03 — Tema · Visita ao cliente<br>
+&nbsp;├── 04 — Tema · Melhores hospitais<br>
+&nbsp;├── 05 — Tema · Plano empresarial errado<br>
+&nbsp;├── 06 — Tema · Atendimento diferente<br>
+&nbsp;└── 07 — Tema · NR-1 e saúde mental
+    </div>
+    <p style="font-size:9.6pt; color:var(--soft); margin:3mm 0 0;">
+      Gravou algo que não está na lista? Cria uma pasta nova com o nome do tema e sobe lá.
+      Material solto na raiz da pasta atrasa a edição, porque ninguém sabe de que tema ele é.
+      Bruto no mesmo dia.
+    </p>
+  </section>
+
+  <footer>
+    <span class="marca">Expansion Assessoria</span>
+    <span>Dúvida no dia, chama no grupo &nbsp;·&nbsp; expansionassessoria.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
