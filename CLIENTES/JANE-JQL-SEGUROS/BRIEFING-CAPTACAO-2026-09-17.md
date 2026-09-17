@@ -190,3 +190,30 @@ liberada para o e-mail da Jane — **o videomaker ainda não tem acesso.**
 O documento entregue aos dois está em
 [`entregaveis/captacao-17-09-alphaville.html`](entregaveis/captacao-17-09-alphaville.html)
 e no PDF ao lado.
+
+---
+
+## 5 · CONFERÊNCIA DOS DADOS — o que estava errado na v1
+
+A v1 do documento saiu às 15h21, antes da conferência fechar. Quatro correções
+entraram na v2, e **duas delas mudavam o que ela diria na câmera**:
+
+| # | A v1 dizia | O correto | Fonte |
+|---|---|---|---|
+| 1 | *"a fiscalização do trabalho cobra riscos psicossociais"* | A obrigação está em vigor desde 26/05/2026, mas **o STF suspendeu as multas** desses itens por 90 dias a partir de 26/06/2026 — liminar na ADPF 1316, confirmada pelo Plenário em agosto. A norma não caiu, o fiscal notifica, a penalidade é que está suspensa. **O prazo vence no fim de setembro** | STF · ADPF 1316 |
+| 2 | *"contrato coletivo pode ser rescindido pela operadora por conveniência comercial"* | Abaixo de 30 vidas, só com **motivação idônea** — e **nunca** durante internação ou tratamento essencial à sobrevivência | STJ · Tema Repetitivo 1.047, mar/2026 |
+| 3 | *"o teto da ANS para plano individual ficou em 5,11%"* | É de individual **e familiar**, e só para contratos com aniversário entre **maio/2026 e abril/2027** | ANS |
+| 4 | *"nos primeiros meses do ano … cerca de 8,7% … passou de 13%"* | **8,71%** para 30 vidas ou mais e **13,48%** para até 29 — média do mercado em **janeiro e fevereiro de 2026**, não previsão | ANS · Painel de Reajustes de Planos Coletivos |
+
+**O pilar "falso coletivo" saiu do tema 3.** Dois motivos: o ângulo é família
+contratando por CNPJ, e quem decide aqui é dono de 30 a 99 vidas; e já há
+entrega agendada sobre isso — roteiro 10 e carrossel de 30/09. No lugar entrou
+**cláusula de rescisão**, que morde no público certo e ganhou dado novo (item 2).
+
+> ⚠️ **O tema da NR-1 é perecível.** A liminar vence por volta de 24/09 e há
+> conciliação em curso no STF. Se ela gravar depois de hoje, reconferir o
+> andamento **antes de publicar** — o cronograma prevê NR-1 em 02/10, depois do
+> vencimento.
+
+Número de norma ficou num rodapé de referência do documento, fora do corpo:
+ninguém fala *"RN 565/2022, artigo 42"* num Reels.
