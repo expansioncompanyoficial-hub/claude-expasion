@@ -69,17 +69,36 @@
   .cadeia b{color:var(--accent-ink);}
   footer{margin:50px 0 0; padding-top:22px; border-top:1px solid var(--line); color:var(--muted); font-size:13px;}
   footer b{color:var(--ink);}
+  header.hero .tema{color:var(--hero-soft); font-size:15.5px; margin:0;}
+  .decisao{background:var(--accent-soft); border:2px solid var(--accent); border-radius:16px;
+    padding:20px 22px 18px; margin:14px 0 0;}
+  .decisao .dt{font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:800;
+    color:var(--accent-ink); margin:0 0 14px;}
+  .decisao .di{display:grid; grid-template-columns:26px 1fr; gap:11px; align-items:start;
+    font-size:14.5px; line-height:1.5; margin:0 0 11px;}
+  .decisao .di .n{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:17px;
+    color:var(--accent-ink); line-height:1.3;}
+  .decisao .dr{margin:14px 0 0; padding-top:13px; border-top:1px solid rgba(230,126,34,.3);
+    font-size:13.5px; color:var(--muted);}
   @media (max-width:420px){ h1{font-size:26px;} .mercado{grid-template-columns:1fr;} }
 </style>
 
 <div class="wrap">
   <header class="hero">
-    <p class="eyebrow">Estilo Menina × Expansion</p>
-    <h1>Três caminhos para o tráfego</h1>
-    <p>Mesmos seis vídeos que você gravou, mesma loja, mesmo público. O que muda é
-    <b>quanto a gente investe e o que cada valor compra</b>. Escolha um — e eu subo a campanha
-    com ele. Janela desta conta: <b>17/09 a 12/10</b>, 26 dias, fechando no Dia das Crianças.</p>
+    <p class="eyebrow">Estilo Menina × Expansion · Decisão de verba</p>
+    <h1>Quanto investir em anúncio até o Dia das Crianças</h1>
+    <p class="tema">O tema deste documento é <b>um número só</b>: a verba diária do seu anúncio
+    de <b>17/09 a 12/10</b>. Três opções, mesma loja, mesmos seis vídeos que você gravou. O que
+    muda é quanto entra por dia — e o que cada valor compra.</p>
   </header>
+
+  <div class="decisao">
+    <p class="dt">O que você está decidindo</p>
+    <div class="di"><span class="n">1</span><span><b>Quanto por dia:</b> R$ 40, R$ 70 ou R$ 120. É a única escolha que eu preciso de você.</span></div>
+    <div class="di"><span class="n">2</span><span><b>Até quando:</b> me responde <b>até segunda, 22/09</b>. Depois disso a janela do Dia das Crianças começa a ficar curta demais para valer a pena.</span></div>
+    <div class="di"><span class="n">3</span><span><b>O que acontece depois:</b> eu monto a campanha, subo os vídeos e te mando o print no dia que entrar no ar. Você não precisa mexer em nada.</span></div>
+    <p class="dr">Você <b>não</b> está decidindo preço de peça, promoção, nem nada do site. Só a verba.</p>
+  </div>
 
   <section>
     <h2>Como está o mercado agora</h2>
