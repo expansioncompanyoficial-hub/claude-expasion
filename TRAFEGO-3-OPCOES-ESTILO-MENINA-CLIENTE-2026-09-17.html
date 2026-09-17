@@ -1,0 +1,242 @@
+<title>Três Caminhos de Tráfego</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#fffdfa; --ink:#231a12; --muted:#857566; --card:#ffffff; --line:#eee2d4;
+    --accent:#E67E22; --accent-soft:#fdf0e3; --accent-ink:#a4560f;
+    --ok-bg:#e9f9f0; --ok-ink:#14713f; --red-bg:#fdeceb; --red-ink:#b3261e;
+    --frio-bg:#f3f0eb; --frio-ink:#6f6659; --frio-line:#e2ddd4;
+    --hero:#341100; --hero-ink:#f5ede6; --hero-eyebrow:#f0a56b; --hero-soft:#dcc9b8; --hero-hi:#ffc998;
+  }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+    --bg:#1a1209; --ink:#f4ebe2; --muted:#b0a091; --card:#261a10; --line:#3d2d1d;
+    --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877;
+    --ok-bg:#14301f; --ok-ink:#6fdd9a; --red-bg:#331614; --red-ink:#f2a099;
+    --frio-bg:#231d16; --frio-ink:#9a8f81; --frio-line:#3a3128;
+    --hero:#250f00; --hero-soft:#cbb6a3; } }
+  :root[data-theme="dark"]{
+    --bg:#1a1209; --ink:#f4ebe2; --muted:#b0a091; --card:#261a10; --line:#3d2d1d;
+    --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877;
+    --ok-bg:#14301f; --ok-ink:#6fdd9a; --red-bg:#331614; --red-ink:#f2a099;
+    --frio-bg:#231d16; --frio-ink:#9a8f81; --frio-line:#3a3128;
+    --hero:#250f00; --hero-soft:#cbb6a3; }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif; font-size:16px; line-height:1.6; padding:0 16px 72px;}
+  .wrap{max-width:660px; margin:0 auto;}
+  header.hero{background:var(--hero); color:var(--hero-ink); border-radius:20px; padding:32px 26px 28px; margin:22px 0 0;}
+  .eyebrow{font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:800; color:var(--hero-eyebrow); margin:0 0 14px;}
+  h1{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:30px; line-height:1.16; text-wrap:balance; margin:0 0 10px;}
+  header.hero p{color:var(--hero-soft); font-size:15px; margin:0;}
+  header.hero b{color:var(--hero-hi);}
+  h2{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:22px; line-height:1.25; text-wrap:balance; margin:46px 0 6px;}
+  .lead{color:var(--muted); font-size:14.5px; margin:0 0 18px; max-width:62ch;}
+  p{margin:0 0 14px; max-width:64ch;} p:last-child{margin-bottom:0;}
+  .frase{background:var(--ok-bg); border-radius:14px; padding:18px 20px; margin:18px 0; font-size:15.5px; line-height:1.5;}
+  .frase b{color:var(--ok-ink);}
+  .alerta{background:var(--red-bg); border-radius:14px; padding:18px 20px; margin:18px 0; font-size:15px; line-height:1.5;}
+  .alerta b{color:var(--red-ink);}
+  .mercado{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:16px 0;}
+  .mercado div{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px;}
+  .mercado .v{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:21px; color:var(--accent-ink);
+    display:block; margin:0 0 4px; font-variant-numeric:tabular-nums;}
+  .mercado .l{font-size:12.5px; color:var(--muted); line-height:1.45; display:block;}
+  .opc{border-radius:16px; padding:20px 20px 18px; margin:14px 0; background:var(--card); border:1px solid var(--line);}
+  .opc.rec{border:2px solid var(--accent); background:var(--accent-soft);}
+  .opc .tag{font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; color:var(--muted); margin:0 0 6px;}
+  .opc.rec .tag{color:var(--accent-ink);}
+  .opc h3{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:21px; margin:0 0 4px;}
+  .opc .verba{font-size:15px; font-weight:700; color:var(--accent-ink); margin:0 0 12px; font-variant-numeric:tabular-nums;}
+  .opc p{font-size:14.5px; margin:0 0 12px;}
+  .opc .linha{display:flex; justify-content:space-between; gap:12px; padding:7px 0;
+    border-bottom:1px solid var(--line); font-size:14px; align-items:baseline;}
+  .opc.rec .linha{border-bottom-color:rgba(230,126,34,.25);}
+  .opc .linha:last-of-type{border-bottom:none;}
+  .opc .linha span:last-child{font-weight:700; white-space:nowrap; font-variant-numeric:tabular-nums; color:var(--accent-ink);}
+  .opc .rot{background:var(--bg); border-radius:10px; padding:11px 14px; margin:12px 0 0; font-size:13.5px; color:var(--muted);}
+  .opc .rot b{color:var(--ink);}
+  .opc .exige{font-size:13.5px; color:var(--muted); margin:10px 0 0;}
+  .opc .exige b{color:var(--red-ink);}
+  .tw{overflow-x:auto; margin:18px 0;}
+  table{border-collapse:collapse; width:100%; font-size:14px; min-width:420px;}
+  th,td{text-align:left; padding:10px 9px; border-bottom:1px solid var(--line); vertical-align:top;}
+  th{font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); font-weight:800;}
+  td.n{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap;}
+  td.dest{font-weight:700; color:var(--accent-ink);}
+  tr:last-child td{border-bottom:none;}
+  .cadeia{background:var(--frio-bg); border:1px solid var(--frio-line); border-radius:12px; padding:15px 18px;
+    margin:16px 0; font-size:14px; color:var(--frio-ink); line-height:1.7;}
+  .cadeia b{color:var(--accent-ink);}
+  footer{margin:50px 0 0; padding-top:22px; border-top:1px solid var(--line); color:var(--muted); font-size:13px;}
+  footer b{color:var(--ink);}
+  @media (max-width:420px){ h1{font-size:26px;} .mercado{grid-template-columns:1fr;} }
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Estilo Menina × Expansion</p>
+    <h1>Três caminhos para o tráfego</h1>
+    <p>Mesmos seis vídeos que você gravou, mesma loja, mesmo público. O que muda é
+    <b>quanto a gente investe e o que cada valor compra</b>. Escolha um — e eu subo a campanha
+    com ele. Janela desta conta: <b>17/09 a 12/10</b>, 26 dias, fechando no Dia das Crianças.</p>
+  </header>
+
+  <section>
+    <h2>Como está o mercado agora</h2>
+    <p class="lead">Isso não é opinião minha — são as referências de setembro de 2026 no Brasil,
+    e elas mudaram desde o começo do ano.</p>
+    <div class="mercado">
+      <div><span class="v">+12,15%</span><span class="l">É quanto o anúncio na Meta encareceu em 2026, por repasse de imposto. Seus R$ 40 de hoje compram o que R$ 35,67 compravam no ano passado</span></div>
+      <div><span class="v">R$ 22</span><span class="l">CPM médio de moda no Brasil — o que se paga por mil pessoas alcançadas. No seu caso é mais alto, e eu explico já</span></div>
+      <div><span class="v">0,9 a 1,2%</span><span class="l">Das pessoas que veem o anúncio, quantas clicam. É a faixa de e-commerce</span></div>
+      <div><span class="v">2,18</span><span class="l">ROAS mediano de moda em 2026: cada R$ 1 investido volta R$ 2,18 em venda</span></div>
+    </div>
+    <div class="alerta"><b>O número que mais pesa no seu caso: o CPM.</b> Anunciar só para Vera Cruz
+    e Marília sai mais caro por pessoa do que anunciar para o Brasil — é gente demais disputando
+    um público pequeno. Nas suas cidades eu trabalho com <b>R$ 28 a R$ 42</b>, não com os R$ 22
+    da média. Isso está embutido em todas as contas abaixo.</div>
+  </section>
+
+  <section>
+    <h2>A conta, à mostra</h2>
+    <p class="lead">A mesma cadeia vale para as três opções. Nada aqui é chute — cada etapa tem
+    um número que dá para conferir depois.</p>
+    <div class="cadeia">
+      verba ÷ CPM × 1.000 = <b>pessoas alcançadas</b> → × taxa de clique = <b>cliques</b>
+      → × 75% (nem todo clique vira visita) = <b>visitas no site</b>
+      → × taxa de conversão = <b>pedidos</b> → × R$ 169 (seu ticket) = <b>venda</b>
+    </div>
+    <div class="frase"><b>Uma verdade que eu preciso te falar antes de você escolher:</b>
+    seu ponto de equilíbrio é ROAS <b>2,33</b> — cada R$ 1 de anúncio precisaria voltar R$ 2,33
+    em venda só para empatar. A mediana do mercado de moda é <b>2,18</b>. Ou seja: mesmo uma
+    loja mediana do Brasil inteiro <b>não paga o tráfego com a primeira venda.</b> Quem paga é a
+    segunda compra da mesma cliente — e o público que a gente constrói agora para novembro.</div>
+    <p>Por isso, o que muda entre as três opções <b>não é quanto você vai vender neste mês</b>.
+    É <b>o tamanho da máquina que você leva para o Dia das Crianças, para a Black Friday e para
+    o aniversário de 1 ano do site.</b></p>
+  </section>
+
+  <section>
+    <h2>As três opções</h2>
+
+    <div class="opc">
+      <p class="tag">Opção 1</p>
+      <h3>Raiz</h3>
+      <p class="verba">R$ 40/dia · R$ 1.040 nos 26 dias</p>
+      <p>Só o núcleo: <b>Vera Cruz e Marília</b>, onde o seu motoboy chega e o seu nome já é
+      conhecido. Uma campanha, um público, destino site. É o menor risco possível — e cabe no
+      estoque que você tem hoje, sem depender de reposição.</p>
+      <div class="linha"><span>Pedidos esperados</span><span>1 a 5 · base 2</span></div>
+      <div class="linha"><span>Venda vinda do anúncio</span><span>R$ 141 a 791</span></div>
+      <div class="linha"><span>Custo por pedido</span><span>~R$ 515</span></div>
+      <div class="linha"><span>Peças que consome</span><span>~4</span></div>
+      <div class="linha"><span>Público construído</span><span>~250 visitantes</span></div>
+      <div class="rot"><b>Vídeos que entram:</b> 1 (quem entrega é eu mesma) · 2 (detesto mandar
+      foto de coisa que não serve) · 6 (o pedido saindo)</div>
+      <p class="exige"><b>Exige de você:</b> nada de novo. Os três vídeos já estão gravados.</p>
+    </div>
+
+    <div class="opc rec">
+      <p class="tag">Opção 2 · minha recomendação</p>
+      <h3>Data</h3>
+      <p class="verba">R$ 70/dia · R$ 1.820 nos 26 dias</p>
+      <p>O núcleo continua, e entra uma <b>segunda campanha só de Dia das Crianças</b>, aberta
+      para a região inteira — porque presente as pessoas compram de longe e aceitam esperar o
+      envio. É a única janela do trimestre em que a mãe já entra no site querendo comprar.</p>
+      <div class="linha"><span>Pedidos esperados</span><span>2 a 11 · base 5</span></div>
+      <div class="linha"><span>Venda vinda do anúncio</span><span>R$ 311 a 1.801</span></div>
+      <div class="linha"><span>Custo por pedido</span><span>~R$ 391</span></div>
+      <div class="linha"><span>Peças que consome</span><span>~9</span></div>
+      <div class="linha"><span>Público construído</span><span>~490 visitantes</span></div>
+      <div class="rot"><b>Vídeos que entram:</b> os <b>6 que você já gravou</b> + 1 novo, de
+      Dia das Crianças ("o presente que ela vai querer usar"). Uma bateria de 15 minutos.</div>
+      <p class="exige"><b>Exige de você:</b> fornecedor pago e peças repostas até o fim de
+      setembro — senão o anúncio traz gente para prateleira vazia.</p>
+    </div>
+
+    <div class="opc">
+      <p class="tag">Opção 3</p>
+      <h3>Temporada</h3>
+      <p class="verba">R$ 120/dia · R$ 3.120 nos 26 dias</p>
+      <p>As duas de cima, mais uma <b>campanha de relembrar</b>: quem visitou o site e não
+      comprou volta a ver você. Essa é a que converte melhor, e é a que monta o público que a
+      Black Friday e o aniversário de 1 ano do site vão usar em novembro.</p>
+      <div class="linha"><span>Pedidos esperados</span><span>4 a 23 · base 11</span></div>
+      <div class="linha"><span>Venda vinda do anúncio</span><span>R$ 731 a 3.955</span></div>
+      <div class="linha"><span>Custo por pedido</span><span>~R$ 293</span></div>
+      <div class="linha"><span>Peças que consome</span><span>~20</span></div>
+      <div class="linha"><span>Público construído</span><span>~970 visitantes</span></div>
+      <div class="rot"><b>Vídeos que entram:</b> os 6 + 2 novos (Dia das Crianças e aniversário
+      de 1 ano). Duas baterias de gravação.</div>
+      <p class="exige"><b>Exige de você:</b> reposição cheia e <b>dinheiro de venda já recebida,
+      nunca de cartão.</b> Só faz sentido se novembro for para valer.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Lado a lado</h2>
+    <div class="tw">
+      <table>
+        <thead><tr><th>&nbsp;</th><th class="n">1 · Raiz</th><th class="n">2 · Data</th><th class="n">3 · Temporada</th></tr></thead>
+        <tbody>
+          <tr><td>Por dia</td><td class="n">R$ 40</td><td class="n dest">R$ 70</td><td class="n">R$ 120</td></tr>
+          <tr><td>Total (26 dias)</td><td class="n">R$ 1.040</td><td class="n dest">R$ 1.820</td><td class="n">R$ 3.120</td></tr>
+          <tr><td>Pedidos (cenário base)</td><td class="n">2</td><td class="n dest">5</td><td class="n">11</td></tr>
+          <tr><td>Venda do anúncio</td><td class="n">R$ 341</td><td class="n dest">R$ 788</td><td class="n">R$ 1.800</td></tr>
+          <tr><td>Custo por pedido</td><td class="n">R$ 515</td><td class="n dest">R$ 391</td><td class="n">R$ 293</td></tr>
+          <tr><td>Onde anuncia</td><td class="n">núcleo</td><td class="n dest">núcleo + região</td><td class="n">região + relembrar</td></tr>
+          <tr><td>Vídeos usados</td><td class="n">3 dos 6</td><td class="n dest">6 + 1</td><td class="n">6 + 2</td></tr>
+          <tr><td>Peças consumidas</td><td class="n">~4</td><td class="n dest">~9</td><td class="n">~20</td></tr>
+          <tr><td>Público p/ novembro</td><td class="n">~250</td><td class="n dest">~490</td><td class="n">~970</td></tr>
+          <tr><td>Precisa repor estoque?</td><td class="n">não</td><td class="n dest">sim</td><td class="n">sim, cheio</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13.5px; color:var(--muted)">Repare que o <b>custo por pedido cai</b>
+    conforme a verba sobe. Não é mágica: é o público de relembrar entrando na conta e o algoritmo
+    tendo volume para aprender. Abaixo de R$ 30 a R$ 50 por dia ele simplesmente não aprende —
+    é o piso que o mercado inteiro pratica.</p>
+  </section>
+
+  <section>
+    <h2>De onde vem o seu caixa neste mês</h2>
+    <p>Do jeito que a conta acima mostra, <b>o anúncio não é o seu caixa de setembro</b> — ele
+    custa mais por pedido do que traz. Seu caixa vem de três lugares que não custam verba:</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Frente</th><th class="n">Setembro</th><th>Custo de mídia</th></tr></thead>
+        <tbody>
+          <tr><td>Suas clientes antigas (mensagens 1 a 1)</td><td class="n dest">R$ 1.500–1.850</td><td>zero</td></tr>
+          <tr><td>Grupo VIP e lives</td><td class="n dest">R$ 900–1.100</td><td>zero</td></tr>
+          <tr><td>Anúncio</td><td class="n">R$ 341–788</td><td>a verba escolhida</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="frase"><b>O anúncio compra outra coisa:</b> o público. Em novembro, falar com
+    quem já visitou o seu site custa cerca de <b>4× menos por venda</b> do que falar com quem
+    nunca ouviu falar de você. É esse desconto que a gente está comprando agora — e ele só
+    existe se o público for construído antes.</div>
+  </section>
+
+  <section>
+    <h2>A trava — vale para qualquer opção</h2>
+    <p>Combinei isso com você e mantenho, mesmo que o resultado venha bom: <b>a verba só sobe
+    quando as três coisas forem verdade ao mesmo tempo</b> — estoque reposto, retorno observado
+    acima de 2,0, e o dinheiro saindo de venda já recebida, nunca de cartão. Se uma faltar,
+    a gente segura. Anúncio bom com prateleira vazia é dinheiro no lixo.</p>
+  </section>
+
+  <section>
+    <h2>O que eu faria</h2>
+    <div class="frase"><b>Opção 2</b>, com uma condição: o fornecedor pago e as peças chegando
+    até o fim de setembro. O Dia das Crianças é a melhor janela do trimestre e ela não se repete
+    — mas se a prateleira não estiver reposta no dia 5 de outubro, eu prefiro a Opção 1 e a gente
+    guarda o dinheiro para novembro, que é onde os R$ 10 mil moram.
+    <br><br>A Opção 3 é a certa se você já estiver decidida a fazer novembro grande e tiver caixa
+    de venda realizada para bancar. Não é hoje — mas pode ser dia 20 de outubro.</div>
+  </section>
+
+  <footer><p><b>Expansion</b> · Três caminhos de tráfego · Estilo Menina · 17 de setembro de 2026<br>
+  Projeções em cima do seu ticket real de R$ 169 e das referências de mercado de setembro/2026.
+  Onde é estimativa, está dito.</p></footer>
+</div>
