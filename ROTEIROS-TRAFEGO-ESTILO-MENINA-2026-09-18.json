@@ -1,0 +1,41 @@
+{
+  "titulo": "Estilo Menina — Roteiros de Tráfego",
+  "subtitulo": "@estilodemenina_veracruz  •  Moda infantil feminina  •  Vera Cruz e Marília / SP",
+  "framework": "Framework: TACO(H)  |  3 criativos  |  Campanha regional • destino SITE • R$ 40/dia  |  Falas 100% escritas — 35 a 40 segundos cada",
+  "roteiros": [
+    {
+      "titulo": "ROTEIRO 1 — \"Qual é o tamanho dela?\"",
+      "pilar": "🎯 TACO(H)  |  Pilar: OBJEÇÃO — NUMERAÇÃO",
+      "blocos": [
+        {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "[Peça na mão já no primeiro segundo] \"Você já comprou roupa pra sua filha pela internet e chegou apertada?\"", "destaque": "gancho"},
+        {"rotulo": "DESENVOLVIMENTO", "tempo": "0:05 – 0:30", "texto": "[Fita medindo a cintura, bem de perto] \"Eu não gosto disso. Por isso eu meço peça por peça, com a fita, antes de colocar no site. Menina de dois a oito muda de numeração num piscar de olhos. Então em cada peça lá tem a medida certinha: o busto, a cintura e o comprimento.\""},
+        {"rotulo": "CTA", "tempo": "0:30 – 0:38", "texto": "\"O link do site tá aqui embaixo. Se bater dúvida na numeração, me chama que eu te falo qual é a certinha.\"", "destaque": "cta"},
+        {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "legenda", "texto": "Toda peça com a medida certinha: busto, cintura e comprimento. Do 2 ao 8. Assim você não erra o tamanho da sua filha. 💛"}
+      ],
+      "hashtags": "#modainfantil #tabeladomedidas #roupainfantil #meninas #veracruzsp #marilia"
+    },
+    {
+      "titulo": "ROTEIRO 2 — \"O presente do Dia das Crianças\"",
+      "pilar": "🎯 TACO(H)  |  Pilar: HYPE — DATA COMEMORATIVA",
+      "data": "DATA SUGERIDA: no ar até 30/09, para a janela de 12/10",
+      "blocos": [
+        {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "[Peça nova na mão] \"Já pensou no presente do Dia das Crianças?\"", "destaque": "gancho"},
+        {"rotulo": "DESENVOLVIMENTO", "tempo": "0:05 – 0:30", "texto": "[Peças uma de cada vez; depois o conjuntinho montado lado a lado] \"Chegaram essas pecinhas que eu escolhi pensando na data. É a Lu, da Estilo Menina. São peças escolhidas uma a uma, para a sua filha não encontrar outra menina com a mesma roupa na festa. No site dá pra dividir em seis vezes sem juros, ou dez por cento de desconto no Pix.\""},
+        {"rotulo": "CTA", "tempo": "0:30 – 0:38", "texto": "\"Me chama e me fala a idade dela, que eu monto o look e te mostro. O link tá aqui embaixo.\"", "destaque": "cta"},
+        {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "legenda", "texto": "Presente de Dia das Crianças escolhido peça por peça. 6x sem juros ou 10% de desconto no Pix. 💛"}
+      ],
+      "hashtags": "#diadascriancas #modainfantil #presente #meninas #veracruzsp #marilia"
+    },
+    {
+      "titulo": "ROTEIRO 3 — \"Quem embala é eu\"",
+      "pilar": "🎯 TACO(H)  |  Pilar: AUTORIDADE — BASTIDOR",
+      "blocos": [
+        {"rotulo": "GANCHO", "tempo": "0:00 – 0:05", "texto": "[Mãos dobrando a peça, sem falar nos 2 primeiros segundos] \"Esse pacotinho aqui é de uma cliente que pediu ontem à noite.\"", "destaque": "gancho"},
+        {"rotulo": "DESENVOLVIMENTO", "tempo": "0:05 – 0:30", "texto": "[Nome escrito à mão no pacote; sacola de presente ao lado do envelope] \"É a Lu. Aqui não é galpão: sou eu que separo, confiro a numeração e escrevo o nome da menina. Em Vera Cruz eu mesma levo, em Marília vai de motoboy, e para fora vai no envelope de segurança. Porque na casa da mãe não é encomenda: é a roupa que a filha vai estrear.\""},
+        {"rotulo": "CTA", "tempo": "0:30 – 0:38", "texto": "\"O link tá aqui embaixo. Qualquer dúvida você me chama, que quem responde sou eu mesma.\"", "destaque": "cta"},
+        {"rotulo": "DESCRIÇÃO DO ANÚNCIO", "tempo": "legenda", "texto": "Aqui quem separa, confere e escreve o nome é a Lu. Vera Cruz entrego eu mesma, Marília vai de motoboy. 💛"}
+      ],
+      "hashtags": "#bastidores #modainfantil #pedidopronto #veracruzsp #marilia #meninas"
+    }
+  ]
+}
