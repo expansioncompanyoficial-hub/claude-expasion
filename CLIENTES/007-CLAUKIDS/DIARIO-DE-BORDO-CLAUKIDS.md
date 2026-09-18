@@ -217,3 +217,49 @@ Agora são **quatro** documentos "Clau Kids Store" na pasta. Segue de pé a
 recomendação de arquivar os dois de setembro que já foram absorvidos
 (`1zn3Fop...` roteiros 24-32 e `1CKgtLB...` criativos de tráfego) —
 aguardando o ok do Nicolas.
+
+## 18/09 — Figurino: a roupa é a mesma nos 20, e é assim de propósito
+
+Levantado pelo Nicolas: na fila de edição a Clau aparece com a mesma roupa em
+todos. Confere — a diária foi corrida das 8h30 às 11h10 sem troca de figurino,
+e o **briefing pedia isso explicitamente**: *"mesmo enquadramento, mesma roupa
+e mesmo fundo nas dez"*, regra do banco de CTA. É a roupa idêntica que permite
+cortar o CTA de qualquer um dos 20 e colar a versão de tráfego sem regravar.
+Variar o figurino teria dado variedade no feed e custado a máquina de
+converter orgânico em anúncio.
+
+**Não foi possível conferir os frames.** O conector do Drive não lê vídeo
+(só documento, planilha, PDF e imagem) e `drive.google.com` está bloqueado
+pela política de egress — testado o endpoint de thumbnail, 403 no túnel.
+Pedido ao Nicolas: print do primeiro frame dos 13 orgânicos, ou a lista de
+qual foi gravado em qual canto da loja, para escalonar cenários na fila.
+
+**Decisão para o lote de 16/09: mantém como está.** A variação vem da edição,
+não do figurino — capa própria por reel (foto de peça ou arara, nunca frame
+dela), abertura em B-roll em 3 ou 4 dos 13, espaçamento dos que dividem o
+mesmo fundo, e peso de texto diferente entre eles. A repetição de roupa é
+visível na grade do perfil, não na distribuição dos reels; a capa resolve a
+grade.
+
+**No tráfego a roupa igual é vantagem:** cinco criativos coerentes constroem
+reconhecimento, e a frequência do conjunto (1,12 a 2,07) está longe de cansar
+alguém.
+
+### Regra para a meia diária de outubro
+
+Proposta inicial era dois blocos com dois bancos de CTA completos. **Revista e
+reduzida** — cara demais para o que entrega:
+
+1. **Bloco 1, roupa do dia 16/09 (se ela ainda tiver): os 5 de tráfego**
+   (TR11 a TR15). Rodam em outubro junto com TR06 a TR10, então a coerência
+   visual vale, **e o banco de CTA existente continua colando neles**.
+2. **Bloco 2, roupa nova: os 5 orgânicos** (R42, 43, 44, 45, 47), que publicam
+   de 17 a 31/10 — a quinzena hoje descoberta. É onde a variação aparece.
+3. **Sem segundo banco completo: só 3 tomadas de CTA** na roupa nova, as três
+   de visita à loja. Quatro minutos, não quinze.
+
+**A troca de roupa fica no fim da manhã, nunca no meio.** A meia diária tem
+risco de ser cortada (a Letícia é doula e pode ser chamada; a Clau atende no
+balcão), e já está definido que se o dia cortar pela metade grava-se primeiro
+o tráfego. Com a troca no meio, ela seria justamente o ponto de quebra. No
+fim, se o dia acabar antes, perde-se a variação — não a entrega.
