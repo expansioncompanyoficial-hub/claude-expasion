@@ -1,0 +1,210 @@
+<title>Três Vídeos para Gravar</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --fundo:#f3ede5; --folha:#ffffff; --ink:#231a12; --muted:#7b6b5c; --line:#e6dbcc;
+    --accent:#E67E22; --accent-soft:#fdf0e3; --accent-ink:#a4560f; --accent-line:#f0c79b;
+    --cena-bg:#f4f1ec; --cena-line:#ddd5c8; --cena-ink:#6f6659;
+    --red-bg:#fdeceb; --red-ink:#b3261e;
+    --hero:#341100; --hero-ink:#f5ede6; --hero-eyebrow:#f0a56b; --hero-soft:#dcc9b8;
+  }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+    --fundo:#140e07; --folha:#211609; --ink:#f4ebe2; --muted:#a8998a; --line:#3a2b1c;
+    --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877; --accent-line:#5c3d18;
+    --cena-bg:#231d16; --cena-line:#3a3128; --cena-ink:#a2988a;
+    --red-bg:#331614; --red-ink:#f2a099;
+    --hero:#250f00; --hero-soft:#cbb6a3; } }
+  :root[data-theme="dark"]{
+    --fundo:#140e07; --folha:#211609; --ink:#f4ebe2; --muted:#a8998a; --line:#3a2b1c;
+    --accent:#f2933e; --accent-soft:#33220f; --accent-ink:#f7b877; --accent-line:#5c3d18;
+    --cena-bg:#231d16; --cena-line:#3a3128; --cena-ink:#a2988a;
+    --red-bg:#331614; --red-ink:#f2a099;
+    --hero:#250f00; --hero-soft:#cbb6a3; }
+
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--fundo); color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif; font-size:17px; line-height:1.55;
+    padding:0 16px 40px;}
+  .folha{background:var(--folha); border:1px solid var(--line); border-radius:16px;
+    max-width:720px; margin:20px auto; padding:32px 30px 28px;}
+
+  .tag{display:inline-block; background:var(--accent); color:#fff; font-size:13px; font-weight:800;
+    letter-spacing:.09em; text-transform:uppercase; padding:5px 12px; border-radius:20px; margin:0 0 14px;}
+  .tempo{float:right; background:var(--hero); color:var(--hero-ink); font-size:14px; font-weight:700;
+    padding:5px 13px; border-radius:20px; margin-left:10px;}
+  h1{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:32px; line-height:1.15;
+    text-wrap:balance; margin:0 0 6px;}
+  h2{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:27px; line-height:1.2;
+    text-wrap:balance; margin:0 0 6px; clear:none;}
+  h3{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:22px; margin:30px 0 10px;}
+  .sub{color:var(--muted); font-size:16px; margin:0 0 22px;}
+  p{margin:0 0 14px;} p:last-child{margin-bottom:0;}
+
+  .aviso{background:var(--accent-soft); border-left:6px solid var(--accent); border-radius:0 12px 12px 0;
+    padding:18px 20px; margin:0 0 26px; font-size:16px;}
+  .aviso b{color:var(--accent-ink);}
+  .objetivo{font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:21px; line-height:1.4;
+    margin:0 0 16px; color:var(--accent-ink);}
+
+  .regra{display:grid; grid-template-columns:40px 1fr; gap:14px; align-items:start; margin:0 0 15px;}
+  .regra .n{width:36px; height:36px; border-radius:50%; background:var(--accent); color:#fff;
+    font-weight:800; font-size:17px; display:flex; align-items:center; justify-content:center;}
+  .regra p{margin:5px 0 0;}
+
+  .bloco{border:2px solid var(--line); border-radius:12px; padding:16px 18px; margin:0 0 14px;}
+  .bloco .rot{font-size:13px; letter-spacing:.07em; text-transform:uppercase; font-weight:800;
+    color:var(--muted); margin:0 0 9px;}
+  .bloco ul{margin:0; padding-left:20px;} .bloco li{margin:0 0 9px;} .bloco li:last-child{margin-bottom:0;}
+  .fixa{background:var(--accent-soft); border-color:var(--accent);}
+  .fixa .rot{color:var(--accent-ink);}
+  .fala{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:22px; line-height:1.4; margin:0;}
+  .cena{background:var(--cena-bg); border-color:var(--cena-line);}
+  .cena .rot{color:var(--cena-ink);}
+
+  .pe{border-top:2px solid var(--line); margin-top:20px; padding-top:14px; font-size:15px; color:var(--muted);}
+  .pe b{color:var(--ink);}
+  .alerta{background:var(--red-bg); border-radius:10px; padding:13px 16px; margin:12px 0 0; font-size:15px;}
+  .alerta b{color:var(--red-ink);}
+  .rodape{max-width:720px; margin:0 auto; text-align:center; color:var(--muted); font-size:14px; padding:6px 0 0;}
+
+  @media print{
+    body{background:#fff; padding:0; font-size:12pt;}
+    .folha{border:none; border-radius:0; margin:0; padding:0 0 12pt; max-width:none;
+      page-break-after:always; break-after:page;}
+    .rodape{display:none;}
+  }
+  @media (max-width:420px){
+    .folha{padding:24px 20px 22px;} h1{font-size:27px;} h2{font-size:23px;} .fala{font-size:20px;}
+    .tempo{float:none; display:inline-block; margin:0 0 12px;}
+  }
+</style>
+
+<div class="folha">
+  <span class="tag">Estilo Menina × Expansion · 18 de setembro</span>
+  <h1>Três vídeos para gravar</h1>
+  <p class="sub">São três, e só três. Uma página para cada um. Cada vídeo tem <b>até 40 segundos</b>.</p>
+
+  <div class="aviso">
+    <p><b>Lu, primeiro uma coisa sobre a semana passada.</b></p>
+    <p>O roteiro que a gente te mandou dizia “28 segundos” em cima, mas o texto escrito ali dava uns
+    41 segundos de fala. Isso foi <b>erro nosso</b> e você não tinha como adivinhar. E a gente também
+    nunca te falou a coisa mais importante: era para ser <b>um arquivo por vídeo</b>, e não uma fala
+    de cada vez. Você chegou a avisar no dia 14 que estava gravando em partes e a gente respondeu
+    “ficou top” em vez de te corrigir. Desculpa.</p>
+    <p>E mais uma: <b>você estava certa sobre o roteiro da escassez</b>, aquele de “tenho três por
+    numeração”. Ele saiu. Ele brigava com o vídeo da numeração — um dizia “tem do 2 ao 8, você não
+    erra o tamanho” e o outro dizia “é pouquinho”. Quem ia ouvir os dois ficava achando que o tamanho
+    da filha dela não tem. Você viu isso antes da gente.</p>
+    <p style="margin-bottom:0"><b>Agora é diferente:</b> esses três foram lidos em voz alta com
+    cronômetro aqui antes de te mandar.</p>
+  </div>
+
+  <h3>Para que servem esses três vídeos</h3>
+  <p class="objetivo">Para a mãe que ainda não te conhece descobrir a sua loja, entrar no site — e,
+  quando bater dúvida, te chamar no WhatsApp, que é onde você fecha melhor do que qualquer site.</p>
+  <p>O anúncio leva para o <b>site</b>, como a gente combinou no dia 9. Ninguém vai cair no seu
+  WhatsApp do nada. Quem te chamar já viu a peça, já viu o preço e já viu a sua cara — é o contrário
+  daquelas 300 mensagens de “olá” que você recebeu com a outra agência.</p>
+
+  <h3>Antes de gravar — 6 combinados</h3>
+  <div class="regra"><div class="n">1</div><p>Celular <b>em pé e apoiado</b>, luz na sua frente, sem música. Fale olhando para a bolinha da câmera, não para você na tela.</p></div>
+  <div class="regra"><div class="n">2</div><p>Comece falando <b>“Vídeo 1”</b> olhando para a câmera, conte até um e aí começa. O Dani corta isso fora — é só para ele saber qual é qual.</p></div>
+  <div class="regra"><div class="n">3</div><p><b>Um vídeo, um arquivo só</b>, do começo ao fim. Errou no meio? Bate uma palma, respira e recomeça a frase — o Dani corta na palma. Não precisa gravar cada fala separada.</p></div>
+  <div class="regra"><div class="n">4</div><p>A <b>frase de cima</b> e a <b>frase de baixo</b> você fala igualzinho. <b>O meio é seu</b> — conte do seu jeito, como você conta para a cliente no balcão. Semana passada você trocou “detesto” por “não gosto”: <b>você acertou</b>, ficou melhor na sua boca.</p></div>
+  <div class="regra"><div class="n">5</div><p><b>Até 40 segundos.</b> Deixe o cronômetro do celular ligado do lado. Passou? <b>Tire um assunto do meio — nunca o começo nem o fim.</b> Lembrou de um assunto novo? Guarda: ele vira o próximo vídeo.</p></div>
+  <div class="regra"><div class="n">6</div><p>Me manda <b>aqui no grupo mesmo</b>, do jeitinho que você mandou sábado, escrevendo “Vídeo 1”, “Vídeo 2”, “Vídeo 3” antes de cada um. <b>O Drive é problema nosso, não seu.</b></p></div>
+
+  <div class="pe">Qualquer dúvida, me chama <b>antes</b> de gravar. Melhor perguntar do que gravar duas vezes. 💛</div>
+</div>
+
+<div class="folha">
+  <span class="tempo">até 40 segundos</span>
+  <span class="tag">Vídeo 1 de 3</span>
+  <h2>“Qual é o tamanho dela?”</h2>
+  <p class="sub">Para a mãe que já comprou roupa pela internet e chegou errada.</p>
+
+  <div class="bloco cena"><p class="rot">O que precisa estar na mão</p>
+    <ul><li>uma peça bonita da arara</li><li>a fita métrica</li><li>o cronômetro do celular ligado</li></ul></div>
+
+  <div class="bloco fixa"><p class="rot">Comece assim — fale igualzinho</p>
+    <p class="fala">“Você já comprou roupa pra sua filha pela internet e chegou apertada? Eu não gosto disso.”</p></div>
+
+  <div class="bloco"><p class="rot">Agora conte do seu jeito — três coisas</p>
+    <ul>
+      <li>É a Lu. Eu meço peça por peça, com a fita, antes de colocar no site</li>
+      <li>Menina de dois a oito muda de numeração num piscar de olhos, né?</li>
+      <li>Por isso cada peça tem a medida certinha ali</li>
+    </ul></div>
+
+  <div class="bloco fixa"><p class="rot">Termine assim — fale igualzinho</p>
+    <p class="fala">“Dá uma olhada no site, o link tá aqui embaixo. E se bater dúvida na numeração, me chama que eu te falo qual é a certinha — sem compromisso nenhum, viu?”</p></div>
+
+  <div class="bloco cena"><p class="rot">O que aparece na tela</p>
+    <ul><li>a peça na mão já no primeiro segundo</li><li>a fita medindo a cintura, bem de perto</li></ul></div>
+
+  <div class="pe">✓ até 40s &nbsp; ✓ um arquivo só &nbsp; ✓ mandar no grupo escrevendo <b>“Vídeo 1”</b></div>
+</div>
+
+<div class="folha">
+  <span class="tempo">até 40 segundos</span>
+  <span class="tag">Vídeo 2 de 3</span>
+  <h2>“O presente do Dia das Crianças”</h2>
+  <p class="sub">Para a mãe que já está procurando presente. Use as peças novas que chegaram.</p>
+
+  <div class="bloco cena"><p class="rot">O que precisa estar na mão</p>
+    <ul><li>duas ou três peças novas do Dia das Crianças</li><li>a sacola de presente</li><li>o cronômetro ligado</li></ul></div>
+
+  <div class="bloco fixa"><p class="rot">Comece assim — fale igualzinho</p>
+    <p class="fala">“Já pensou no presente do Dia das Crianças? Chegaram umas pecinhas aqui que eu escolhi pensando nisso.”</p></div>
+
+  <div class="bloco"><p class="rot">Agora conte do seu jeito — três coisas</p>
+    <ul>
+      <li>É a Lu. São pouquinhas peças, escolhidas uma a uma</li>
+      <li>Eu gosto que a sua filha não encontre outra menina com a mesma roupa na festa</li>
+      <li>No site dá pra dividir em seis vezes sem juros, ou pagar no Pix com dez por cento de desconto</li>
+    </ul></div>
+
+  <div class="bloco fixa"><p class="rot">Termine assim — fale igualzinho</p>
+    <p class="fala">“Me chama e me fala a idade dela, que eu monto o look e te mostro. Sem compromisso nenhum. O site tá aqui embaixo.”</p></div>
+
+  <div class="bloco cena"><p class="rot">O que aparece na tela</p>
+    <ul><li>as peças novas, uma de cada vez, na mão</li><li>o conjuntinho montado lado a lado</li></ul></div>
+
+  <div class="pe">✓ até 40s &nbsp; ✓ um arquivo só &nbsp; ✓ mandar no grupo escrevendo <b>“Vídeo 2”</b>
+    <div class="alerta"><b>Não fale data de entrega neste vídeo</b> — nada de “chega a tempo” ou “chega
+    até dia 12”. Assim que eu confirmar o prazo dos Correios eu te falo, e a gente grava só essa frase.</div>
+  </div>
+</div>
+
+<div class="folha">
+  <span class="tempo">até 40 segundos</span>
+  <span class="tag">Vídeo 3 de 3</span>
+  <h2>“Quem embala é eu”</h2>
+  <p class="sub">Para a mãe que tem medo de comprar de loja pequena na internet.</p>
+
+  <div class="bloco cena"><p class="rot">O que precisa estar na mão</p>
+    <ul><li>um pedido de verdade sendo embalado</li><li>a sacola de presente e o envelope de segurança</li><li>a canetinha para escrever o nome</li></ul></div>
+
+  <div class="bloco fixa"><p class="rot">Comece assim — fale igualzinho</p>
+    <p class="fala">“Esse pacotinho aqui é de uma cliente que pediu ontem à noite.”</p></div>
+
+  <div class="bloco"><p class="rot">Agora conte do seu jeito — três coisas</p>
+    <ul>
+      <li>É a Lu. Aqui não é galpão, não: sou eu que separo, eu que confiro a numeração e eu que escrevo o nome da menina</li>
+      <li>Vera Cruz eu mesma levo, Marília vai de motoboy, e pra fora vai no envelope de segurança</li>
+      <li>Porque quando chega na casa da mãe não é encomenda — é a roupa que a filha vai estrear</li>
+    </ul></div>
+
+  <div class="bloco fixa"><p class="rot">Termine assim — fale igualzinho</p>
+    <p class="fala">“O site tá aqui embaixo. Qualquer dúvida você me chama, que quem responde sou eu mesma, viu?”</p></div>
+
+  <div class="bloco cena"><p class="rot">O que aparece na tela</p>
+    <ul><li>suas mãos dobrando a peça, sem falar nos dois primeiros segundos</li><li>o nome escrito à mão no pacote</li><li>a sacola de presente ao lado do envelope</li></ul></div>
+
+  <div class="pe">✓ até 40s &nbsp; ✓ um arquivo só &nbsp; ✓ mandar no grupo escrevendo <b>“Vídeo 3”</b>
+    <div class="alerta"><b>Não prometa “chega hoje”</b> — o motoboy sai de terça a sexta à tarde, e no
+    sábado só das 11h às 11h30.</div>
+  </div>
+</div>
+
+<p class="rodape">Expansion · Estilo Menina · 18 de setembro de 2026</p>
