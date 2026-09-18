@@ -206,3 +206,14 @@ campanha — tráfego para loja física não se sustenta a R$ 33/dia.
 aceita), stories de prova social em 18 e 19/09 para salvar a Semana do Cliente
 sem gravação, ok no TR09, confirmação da meia diária e o **ticket médio**, que
 segue pendente desde 01/09.
+
+**Cronograma no Drive da cliente:** `1hyDQf2Vl3CVJMYQtYN33yo1DWBW_ATPL7XRAFP8layo`
+— "Clau Kids Store", na pasta 007, no padrão visual da casa (laranja #E67E22,
+caixas laranja nos blocos-chave, caixa vermelha nos dois avisos de material
+faltante). Conferido depois de subir: texto inteiro, acentuação certa, sem
+emoji de 4 bytes.
+
+Agora são **quatro** documentos "Clau Kids Store" na pasta. Segue de pé a
+recomendação de arquivar os dois de setembro que já foram absorvidos
+(`1zn3Fop...` roteiros 24-32 e `1CKgtLB...` criativos de tráfego) —
+aguardando o ok do Nicolas.
