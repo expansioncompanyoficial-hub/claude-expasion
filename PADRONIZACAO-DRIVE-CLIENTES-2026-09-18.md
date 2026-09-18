@@ -4,8 +4,8 @@
 **Objetivo:** deixar cada `Brutos` pronto para receber upload num padrão que a
 automação do OS Expansion consiga ler (cliente · data · tipo) direto da pasta.
 
-**Executado:** 13 renomeações · 43 itens criados (37 pastas + 6 documentos) ·
-**1 arquivo movido** (o único autorizado). Nada foi apagado.
+**Executado em duas rodadas:** 39 renomeações · 43 itens criados (37 pastas +
+6 documentos) · 5 arquivos movidos. Nada foi apagado.
 
 ---
 
@@ -97,7 +97,49 @@ regras de nome escritas dentro, para quem grava consultar na hora de subir.
 
 `PONTUAL — Contrato EXP-2026-PONT-AS-01 (para assinatura)` saiu de
 `00 - Interno` e foi para `Documentos/Contrato`. Foi a única movimentação
-autorizada. Os outros 4 documentos daquela pasta ficaram onde estavam.
+da primeira rodada. Os outros 4 documentos daquela pasta ficaram onde estavam.
+
+## 3.4 Segunda rodada — nomes e onboarding
+
+### Prefixo numérico nas três pastas sem número
+
+Numeração atribuída por ordem de entrada do cliente. O maior número em uso
+era `014`, então a sequência continua de `015`.
+
+| De | Para | Entrou em |
+|---|---|---|
+| `Estilo Menina ` | `015 - ESTILO MENINA` | 03/09 |
+| `Pontual Uniformes ` | `016 - PONTUAL UNIFORMES` | 04/09 |
+| `MAISON GALERIA` | `017 - MAISON GALERIA` | 14/09 |
+| `011 -  EXPANSION ` | `011 - EXPANSION` | — (pasta da própria casa) |
+
+### Espaço sobrando no fim do nome (6)
+
+`PRIME SÃO JOSÉ ` · `ORGANIFY DEMANDA ` · `ROTEIROS - Prime Sao José dos
+Campos ` (Prime) · `Roteiros ` (ClauKids) · `(29.07) Campanha de Vacinação
+AgroTools ` e `30.07 - Gravação EVENTO ` (Jane).
+
+### Barra no nome — 16 pastas
+
+Todas as 14 pastas com `/` em `Brutos` da ClauKids passaram para o padrão
+`AAAA-MM-DD Tema`, mantendo o assunto: `Gravação 16/09` → `2026-09-16
+Gravação`, `Mala viagem 2/9/26` → `2026-09-02 Mala viagem`, `Tráfego 3. 18/7`
+→ `2026-07-18 Tráfego 03`, e assim por diante. **São pastas criadas pela
+própria cliente** (`thegirlclaudinha@gmail.com`) — ela vai ver os nomes
+mudarem. Na Pontual: `Editados/video organico 15/09` → `2026-09-15 vídeo
+orgânico` e `Editados/tráfego 01` → `Tráfego 01`.
+
+Barra no nome quebra caminho em automação, quebra o sync do Drive para
+desktop e quebra qualquer regra que leia o caminho. Era o achado mais grave
+de nomenclatura.
+
+### Documentos de onboarding para dentro de `Documentos/Onboarding` (4)
+
+`Onboarding_PrimeAlphaville` · `Onboarding - ClauKids` · `Onboarding -
+ClauKids (Atualizado - call 10-07)` · `Onboarding - Estilo Menina`.
+
+Movidos só estes: são os únicos cuja pasta de destino é inequívoca. Roteiros,
+acessos, inspirações e demais documentos soltos continuam onde estavam.
 
 ---
 
@@ -155,21 +197,21 @@ Mover exige confirmação sua, caso a caso:
 - **Pontual — `CAMADAS`** dentro de `ROTEIROS 2026-09`, e `Documentos` com
   `Roteiros`, `Base de Clientes` e `Tráfego Estratégia` além do padrão.
 
-## 5.4 Nomes que quebram a automação
+## 5.4 Nomes — resolvido na segunda rodada, menos o que segue
 
-- **3 clientes sem prefixo numérico**: Pontual Uniformes, MAISON GALERIA,
-  Estilo Menina. O maior número em uso é `014`, então os próximos livres são
-  `015`, `016`, `017`.
-- **Espaço no fim do nome da própria pasta do cliente**: `Pontual Uniformes `,
-  `Estilo Menina `, `011 -  EXPANSION ` (este com dois espaços após o hífen).
-- **Barra no nome**: `Editados/video organico 15/09` na Pontual;
-  `Brutos/Gravação 16/09`, `Dia cliente 14/9/26`, `Mala viagem 2/9/26` e outras
-  na ClauKids.
-- Espaço no fim em pastas de `Brutos` da Jane, da Prime e da Maison.
+Prefixo numérico, espaços sobrando no nível 1 e **todas** as barras foram
+corrigidos (ver 3.4). Continuam abertos:
+
 - **ClauKids: 4 documentos com o título idêntico `Clau Kids Store`**, criados em
   01/09, 08/09, 15/09 e 18/09. Impossível saber qual é o vigente sem abrir.
 - **Pontual**: dois docs `Pontual Uniformes` iguais em `Documentos/Roteiros`, e
   dois `PONTUAL × EXPANSION — Estratégia e Cronograma` em `Documentos/Onboarding`.
+- Espaço no fim em pastas fundas de `Brutos` da Maison (`Roteiro 3 - trinta
+  peças, três combinações `, entre outras) e em `Banco de Imagens/Takes &
+  Fotos (Geral)`.
+- **Maison**: numeração de um dígito (`Roteiro 6`) onde o padrão pede dois.
+- **ClauKids**: `Gravação 29.07.2026` e `Oi` (vazias, a segunda criada pela
+  cliente) e `TRAFÉGO PAGO` (vazia, com o acento no lugar errado).
 
 ## 5.5 Estruturais
 
