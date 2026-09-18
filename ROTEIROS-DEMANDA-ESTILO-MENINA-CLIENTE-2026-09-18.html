@@ -66,6 +66,13 @@
   .tempoBloco{float:right; font-size:13px; font-weight:800; color:var(--muted);
     letter-spacing:.04em;}
 
+  .drive{background:var(--cena-bg); border:2px solid var(--cena-line); border-radius:12px;
+    padding:18px 20px; margin:20px 0 0; font-size:16px;}
+  .drive .dtit{font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:20px;
+    color:var(--accent-ink); margin:0 0 10px;}
+  .passo{display:grid; grid-template-columns:30px 1fr; gap:12px; align-items:start; margin:0 0 10px;}
+  .passo .pn{width:26px; height:26px; border-radius:50%; background:var(--accent-ink); color:var(--folha);
+    font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center; margin-top:2px;}
   .pe{border-top:2px solid var(--line); margin-top:20px; padding-top:14px; font-size:15px; color:var(--muted);}
   .pe b{color:var(--ink);}
   .alerta{background:var(--red-bg); border-radius:10px; padding:13px 16px; margin:12px 0 0; font-size:15px;}
@@ -73,9 +80,32 @@
   .rodape{max-width:720px; margin:0 auto; text-align:center; color:var(--muted); font-size:14px; padding:6px 0 0;}
 
   @media print{
-    body{background:#fff; padding:0; font-size:12pt;}
-    .folha{border:none; border-radius:0; margin:0; padding:0 0 12pt; max-width:none;
-      page-break-after:always; break-after:page;}
+    body{background:#fff !important; padding:0; font-size:10pt; line-height:1.4;}
+    .folha{background:transparent !important; border:none !important; border-radius:0;
+      margin:0; padding:0; max-width:none;}
+    .folha + .folha{page-break-before:always; break-before:page;}
+    .bloco, .regra, .passo, .drive, .aviso{page-break-inside:avoid; break-inside:avoid;}
+    h1{font-size:21pt; margin-bottom:3pt;} h2{font-size:17pt; margin-bottom:2pt;}
+    h3{font-size:13pt; margin:14pt 0 6pt;}
+    .fala{font-size:12.5pt; line-height:1.33;}
+    .sub{font-size:10pt; margin-bottom:9pt;} .pilar{font-size:8.5pt; margin-bottom:2pt;}
+    .aviso{font-size:9.5pt; padding:10pt 12pt; margin-bottom:12pt;}
+    .aviso p{margin-bottom:6pt;}
+    .objetivo{font-size:12pt; margin-bottom:8pt;}
+    .bloco{padding:8pt 11pt; margin-bottom:7pt;}
+    .bloco .rot{font-size:8pt; margin-bottom:4pt;}
+    .bloco li{margin-bottom:3pt;} .cena p, .cena li{font-size:9.5pt;}
+    .regra{margin-bottom:7pt; gap:9pt; grid-template-columns:26pt 1fr;}
+    .regra .n{width:22pt; height:22pt; font-size:10pt;}
+    .drive{padding:10pt 12pt; margin-top:12pt; font-size:9.5pt;}
+    .drive .dtit{font-size:12pt; margin-bottom:6pt;}
+    .passo{margin-bottom:5pt; gap:8pt; grid-template-columns:20pt 1fr;}
+    .passo .pn{width:17pt; height:17pt; font-size:9pt;}
+    .pe{margin-top:10pt; padding-top:8pt; font-size:9pt;}
+    .alerta{padding:7pt 10pt; margin-top:7pt; font-size:9pt;}
+    .tag{font-size:8pt; padding:3pt 8pt; margin-bottom:7pt;}
+    .tempo{font-size:9pt; padding:3pt 9pt;}
+    p{margin-bottom:7pt;}
     .rodape{display:none;}
   }
   @media (max-width:420px){
@@ -120,7 +150,18 @@
   <div class="regra"><div class="n">3</div><p><b>Um vídeo, um arquivo só</b>, do começo ao fim. Errou no meio? Bate uma palma, respira e recomeça a frase — o Dani corta na palma. Não precisa gravar cada fala separada.</p></div>
   <div class="regra"><div class="n">4</div><p><b>Fale exatamente o que está escrito.</b> Cada palavra foi contada e cronometrada para caber nos 40 segundos. Se alguma palavra não for do seu jeito, <b>me fala antes de gravar</b> que eu troco e te devolvo na hora. Repare no Vídeo 1: o “não gosto” já é a <b>sua</b> troca da semana passada — ela entrou no roteiro.</p></div>
   <div class="regra"><div class="n">5</div><p><b>Não acrescente assunto.</b> Frete, parcelamento, promoção: só o que está escrito, e só onde está escrito. Lembrou de uma coisa boa no meio da gravação? <b>Guarda — ela vira o próximo vídeo.</b> Cronômetro do celular ligado do lado.</p></div>
-  <div class="regra"><div class="n">6</div><p>Me manda <b>aqui no grupo mesmo</b>, do jeitinho que você mandou sábado, escrevendo “Vídeo 1”, “Vídeo 2”, “Vídeo 3” antes de cada um. <b>O Drive é problema nosso, não seu.</b></p></div>
+  <div class="regra"><div class="n">6</div><p>Me manda <b>aqui no grupo mesmo</b>, escrevendo “Vídeo 1”, “Vídeo 2”, “Vídeo 3” antes de cada um. Foi o que você fez sábado e chegou perfeito. <b>Se quiser aprender o Drive também, o passo a passo está logo abaixo</b> — mas pelo grupo já está ótimo.</p></div>
+
+  <div class="drive">
+    <p class="dtit">E o Drive, com calma</p>
+    <p>Semana passada você tentou pelo <b>“Arquivos”</b> do iPhone. Vídeo gravado na câmera <b>não aparece ali</b> — por isso você não achou. <b>Não era você.</b> O caminho certo é outro:</p>
+    <div class="passo"><span class="pn">1</span><span>Abra o <b>aplicativo do Google Drive</b> no celular. Pelo navegador não funciona bem.</span></div>
+    <div class="passo"><span class="pn">2</span><span>Toque no <b>+</b> colorido, no canto de baixo à direita.</span></div>
+    <div class="passo"><span class="pn">3</span><span>Toque em <b>Fazer upload</b>.</span></div>
+    <div class="passo"><span class="pn">4</span><span>Escolha <b>Fotos e vídeos</b>. <b>Não</b> escolha “Procurar” nem “Arquivos” — é ali que trava.</span></div>
+    <div class="passo"><span class="pn">5</span><span>Marque os três vídeos e toque em <b>Fazer upload</b>. Pronto.</span></div>
+    <p style="margin-bottom:0">Deu errado em algum passo? Tira um print da tela e me manda. A gente resolve junto, sem pressa — e <b>enquanto isso o grupo continua valendo</b>.</p>
+  </div>
 
   <div class="pe">Qualquer dúvida, me chama <b>antes</b> de gravar. Melhor perguntar do que gravar duas vezes. 💛</div>
 </div>
