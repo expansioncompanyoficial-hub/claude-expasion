@@ -167,3 +167,42 @@ loja hoje.
 
 Sexta 18/09 segue como estava: **R26 — "Essa é a idade em que a roupa
 apanha"** (2 a 4 anos).
+
+## 18/09 — Cronograma refeito sobre o que existe gravado
+
+Criado `CRONOGRAMA-POS-DIARIA-2026-09-18.html` (artefato
+`PAM1ZfEDPndgzvFP3pQfqj`), de 18/09 a 31/10, montado só com material que está
+no Drive. Regra adotada: **nenhuma data reservada para vídeo que não existe.**
+
+**Setembro (5 reels, 2 por semana):** 18/09 R26 · 22/09 R24 · 24/09 R32 (data
+presa, abre outubro) · 25/09 R49 · 29/09 R25.
+
+**Guardados de propósito para outubro:** R27, R29 e R48. São os três evergreen
+de setembro. Sem eles outubro teria só 5 reels para o mês inteiro, porque a
+diária cobriu apenas R33, R34, R35, R39 e R41 do bloco de outubro.
+
+**Outubro (8 reels):** 01/10 R33 · 03/10 R35 · 06/10 R34 · 08/10 R27 ·
+09/10 R48 · 10/10 R39 (o do pico) · 11 e 12/10 sem post · 14/10 R41 ·
+16/10 R29.
+
+**O buraco, declarado no documento:** de 17 a 31/10 não há material. Os cinco
+roteiros que cobriam a quinzena (R42, R43, R44, R45, R47) e os cinco criativos
+de tráfego de outubro (TR11 a TR15) ficaram de fora da diária. Proposta levada
+à Clau: **meia diária, só de manhã, entre 29/09 e 02/10** — e, se render só
+metade, gravar primeiro os de tráfego, que entram no ar em 01/10.
+
+**Tráfego:** TR06 a TR10 entram trocando, nunca somando — teto de três
+anúncios simultâneos no conjunto com a verba atual. Ordem: TR10 em 22/09 ·
+TR06 em 29/09 · TR07 em 01/10 · TR08 em 06/10. **TR09 (o de preço) só sobe
+depois de a Clau assistir e aprovar** — é o único que fala de valor.
+
+**Mudança de CTA registrada no documento**, atendendo ao pedido dela de ter
+gente dentro da loja: de *"me manda a idade que eu te mostro"* para *"me manda
+a idade que eu separo e deixo separado pra você vir ver"*. A conversa vira
+visita marcada em vez de catálogo por WhatsApp. Não muda o objetivo da
+campanha — tráfego para loja física não se sustenta a R$ 33/dia.
+
+**Pedidos à Clau no documento:** fotos da loja feitas por ela (oferta dela,
+aceita), stories de prova social em 18 e 19/09 para salvar a Semana do Cliente
+sem gravação, ok no TR09, confirmação da meia diária e o **ticket médio**, que
+segue pendente desde 01/09.

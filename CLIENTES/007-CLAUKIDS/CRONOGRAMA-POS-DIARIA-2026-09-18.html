@@ -1,0 +1,292 @@
+<title>Clau Kids · Setembro e Outubro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+  :root{
+    --papel:#FDFBF8; --bloco:#FFFFFF; --tinta:#1B1714; --tinta-2:#6E6259;
+    --laranja:#E67E22; --laranja-fundo:#FBEDE0; --linha:#EADFD3;
+    --ok:#5F7D43; --ok-fundo:#EDF2E6; --falta:#B03A2E; --falta-fundo:#FBEAE8;
+    --neutro-fundo:#F3EEE8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --papel:#17140F; --bloco:#201B16; --tinta:#F4EEE6; --tinta-2:#B0A396;
+      --laranja:#F0954A; --laranja-fundo:#3A2917; --linha:#332A22;
+      --ok:#9DBE7A; --ok-fundo:#25301C; --falta:#E8776A; --falta-fundo:#3A1F1C;
+      --neutro-fundo:#262019;
+    }
+  }
+  :root[data-theme="dark"]{
+    --papel:#17140F; --bloco:#201B16; --tinta:#F4EEE6; --tinta-2:#B0A396;
+    --laranja:#F0954A; --laranja-fundo:#3A2917; --linha:#332A22;
+    --ok:#9DBE7A; --ok-fundo:#25301C; --falta:#E8776A; --falta-fundo:#3A1F1C;
+    --neutro-fundo:#262019;
+  }
+  body{
+    background:var(--papel); color:var(--tinta);
+    font-family:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:16px; line-height:1.55; margin:0;
+  }
+  .env{max-width:880px; margin:0 auto; padding-inline:20px; padding-block:40px 64px;}
+  h1,h2,h3,.rotulo,.chip,.dia{font-family:Archivo,"Helvetica Neue",Arial,sans-serif;}
+  h1{font-size:clamp(28px,6vw,40px); font-weight:700; line-height:1.1; margin:0 0 10px; text-wrap:balance; letter-spacing:-.015em;}
+  .sub{color:var(--tinta-2); font-size:17px; margin:0; max-width:60ch;}
+  .marca{font-family:Archivo,sans-serif; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--laranja); margin:0 0 14px;}
+
+  .resumo{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--linha); border:1px solid var(--linha); border-radius:4px; overflow:hidden; margin:32px 0 8px;}
+  .resumo div{background:var(--bloco); padding:14px 16px;}
+  .resumo b{display:block; font-family:Archivo,sans-serif; font-size:26px; font-weight:700; line-height:1.1; font-variant-numeric:tabular-nums;}
+  .resumo span{font-size:13px; color:var(--tinta-2);}
+
+  h2{font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--laranja);
+     border-top:2px solid var(--laranja); padding-top:10px; margin:52px 0 4px;}
+  h2 + .nota{color:var(--tinta-2); font-size:15px; margin:0 0 20px; max-width:62ch;}
+
+  .semana{font-family:Archivo,sans-serif; font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+          color:var(--tinta-2); margin:26px 0 8px; display:flex; align-items:baseline; gap:10px;}
+  .semana::after{content:""; flex:1; height:1px; background:var(--linha);}
+
+  .lista{display:flex; flex-direction:column; gap:1px; background:var(--linha); border:1px solid var(--linha); border-radius:4px; overflow:hidden;}
+  .item{background:var(--bloco); display:grid; grid-template-columns:82px 1fr auto; gap:4px 16px; align-items:baseline; padding:13px 16px;}
+  .dia{font-size:14px; font-weight:600; color:var(--tinta); font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .dia small{display:block; font-weight:500; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--tinta-2);}
+  .peca{min-width:0;}
+  .peca b{font-weight:600;}
+  .peca .cod{color:var(--laranja); font-family:Archivo,sans-serif; font-size:13px; font-weight:600; letter-spacing:.03em;}
+  .peca p{margin:2px 0 0; font-size:14px; color:var(--tinta-2);}
+  .chip{font-size:11px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; padding:3px 8px; border-radius:3px; white-space:nowrap;}
+  .c-ok{background:var(--ok-fundo); color:var(--ok);}
+  .c-falta{background:var(--falta-fundo); color:var(--falta);}
+  .c-nota{background:var(--laranja-fundo); color:var(--laranja);}
+  .c-pausa{background:var(--neutro-fundo); color:var(--tinta-2);}
+  .item.pausa{background:var(--neutro-fundo);}
+  .item.pausa .peca p{color:var(--tinta-2);}
+
+  .aviso{border-left:3px solid var(--falta); background:var(--falta-fundo); padding:16px 18px; border-radius:0 4px 4px 0; margin:24px 0;}
+  .aviso h3{font-size:16px; margin:0 0 6px; color:var(--falta);}
+  .aviso p{margin:0 0 8px; font-size:15px;}
+  .aviso p:last-child{margin-bottom:0;}
+  .destaque{border-left:3px solid var(--laranja); background:var(--laranja-fundo); padding:16px 18px; border-radius:0 4px 4px 0; margin:24px 0;}
+  .destaque h3{font-size:16px; margin:0 0 6px;}
+  .destaque p{margin:0 0 8px; font-size:15px;} .destaque p:last-child{margin-bottom:0;}
+  .destaque .fala{font-style:italic; color:var(--tinta-2);}
+
+  .traf{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin-top:8px;}
+  .traf article{border:1px solid var(--linha); border-radius:4px; padding:14px 16px; background:var(--bloco);}
+  .traf .quando{font-family:Archivo,sans-serif; font-size:12px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:var(--laranja); margin:0 0 6px;}
+  .traf h4{font-size:15px; margin:0 0 4px; font-weight:600;}
+  .traf p{margin:0; font-size:14px; color:var(--tinta-2);}
+
+  ul.limpa{margin:10px 0 0; padding-left:20px;}
+  ul.limpa li{margin-bottom:6px; font-size:15px;}
+
+  footer{margin-top:56px; padding-top:18px; border-top:1px solid var(--linha); color:var(--tinta-2); font-size:13px;}
+
+  @media (max-width:520px){
+    .item{grid-template-columns:1fr auto;}
+    .dia{grid-column:1/-1;}
+  }
+</style>
+
+<div class="env">
+
+  <p class="marca">Clau Kids Store · @claukidstore</p>
+  <h1>O que vai ao ar até 31 de outubro</h1>
+  <p class="sub">Cronograma refeito depois da gravação de 16/09 com a Letícia. Só entra aqui o que <b>já está gravado e no Drive</b> — nada de data reservada para vídeo que não existe.</p>
+
+  <div class="resumo">
+    <div><b>20</b><span>gravados em 16/09</span></div>
+    <div><b>14</b><span>reels de feed</span></div>
+    <div><b>5</b><span>criativos de anúncio</span></div>
+    <div><b>10</b><span>CTAs avulsos</span></div>
+  </div>
+
+  <div class="destaque">
+    <h3>A mudança de rota deste mês</h3>
+    <p>Você disse no áudio: <span class="fala">“eu preciso de cliente que chegue aqui pronto pra comprar, e preciso também que ele esteja dentro da loja — no WhatsApp às vezes eu paro, vou fazer outra coisa, e aí dá uma esfriada”.</span></p>
+    <p>A partir de agora o fechamento dos vídeos muda de <b>“me manda a idade que eu te mostro”</b> para <b>“me manda a idade que eu separo e deixo separado pra você vir ver”</b>. A conversa deixa de ser catálogo por WhatsApp e vira visita marcada. É a mesma verba, o mesmo vídeo — muda só a última frase.</p>
+  </div>
+
+  <h2>Setembro · 18 a 30</h2>
+  <p class="nota">Cinco reels. Cadência de dois por semana, para não queimar o material antes de outubro.</p>
+
+  <div class="semana">Já publicado</div>
+  <div class="lista">
+    <div class="item">
+      <div class="dia">17/09<small>quinta</small></div>
+      <div class="peca"><span class="cod">R28</span> <b>A arara que quase nenhuma loja tem</b><p>9 a 12 anos — a fase que o mercado esqueceu</p></div>
+      <span class="chip c-ok">no ar</span>
+    </div>
+  </div>
+
+  <div class="semana">Semana de 18 a 20</div>
+  <div class="lista">
+    <div class="item">
+      <div class="dia">18/09<small>sexta</small></div>
+      <div class="peca"><span class="cod">R26</span> <b>Essa é a idade em que a roupa apanha</b><p>2 a 4 anos — tecido que aguenta parquinho</p></div>
+      <span class="chip c-ok">gravado</span>
+    </div>
+  </div>
+
+  <div class="semana">Semana de 21 a 27 · Semana do Cliente</div>
+  <div class="lista">
+    <div class="item">
+      <div class="dia">22/09<small>terça</small></div>
+      <div class="peca"><span class="cod">R24</span> <b>Do primeiro body até o 18</b><p>A amplitude inteira da loja. Dobra no assunto que está vendendo agora</p></div>
+      <span class="chip c-ok">gravado</span>
+    </div>
+    <div class="item">
+      <div class="dia">24/09<small>quinta</small></div>
+      <div class="peca"><span class="cod">R32</span> <b>Outubro começa hoje</b><p>Abre a temporada do Dia das Crianças — esta data não pode andar</p></div>
+      <span class="chip c-nota">data presa</span>
+    </div>
+    <div class="item">
+      <div class="dia">25/09<small>sexta</small></div>
+      <div class="peca"><span class="cod">R49</span> <b>Por que eu pergunto que horas é a festa</b><p>O detalhe da curadoria que ninguém mais faz</p></div>
+      <span class="chip c-ok">gravado</span>
+    </div>
+  </div>
+
+  <div class="semana">Semana de 28 a 30</div>
+  <div class="lista">
+    <div class="item">
+      <div class="dia">29/09<small>terça</small></div>
+      <div class="peca"><span class="cod">R25</span> <b>Enxoval não é sobre fofura</b><p>0 a 2 anos — abre a ponta de baixo antes do mês do presente</p></div>
+      <span class="chip c-ok">gravado</span>
+    </div>
+  </div>
+
+  <div class="aviso">
+    <h3>O vídeo do Dia do Cliente não foi gravado</h3>
+    <p>O <b>R31 — “Eu sei o nome das minhas clientes”</b> ficou de fora da diária (foi ele o que pareceu repetido, não o “que horas é a festa”). A Semana do Cliente termina no dia 21 e a próxima gravação é só em outubro, então <b>esse a gente perde neste mês</b>.</p>
+    <p>Dá para salvar o assunto sem gravar nada: <b>stories</b> nos dias 18 e 19 com print das conversas de clientes antigas, você falando por cima. Prova social sai de conversa arquivada, não de câmera.</p>
+  </div>
+
+  <h2>Outubro · a rampa, o pico e o depois</h2>
+  <p class="nota">Dia das Crianças cai na segunda 12/10, mas o pico de compra é o fim de semana de 10 e 11. Domingo 11 e segunda 12 não levam post novo — é dia de atender, não de publicar.</p>
+
+  <div class="semana">Rampa · 01 a 09</div>
+  <div class="lista">
+    <div class="item">
+      <div class="dia">01/10<small>quinta</small></div>
+      <div class="peca"><span class="cod">R33</span> <b>Roupa de presente é sem graça? Eu discordo</b><p>Quebra a objeção antes de todo mundo começar a anunciar</p></div>
+      <span class="chip c-ok">gravado</span>
+    </div>
+    <div class="item">
+      <div class="dia">03/10<small>sábado</small></div>
+      <div class="peca"><span class="cod">R35</span> <b>Esse vídeo não é pra mãe</b><p>Vó, dinda e madrinha — quem compra presente e mais erra o tamanho</p></div>
+      <span class="chip c-ok">gravado</span>
+    </div>
+    <div class="item">
+      <div class="dia">06/10<small>terça</small></div>
+      <div class="peca"><span class="cod">R34</span> <b>O que ele pediu e o que ele vai usar</b><p>A curadoria aplicada à escolha do presente</p></div>
+      <span class="chip c-ok">gravado</span>
+    </div>
+    <div class="item">
+      <div class="dia">08/10<small>quinta</small></div>
+      <div class="peca"><span class="cod">R27</span> <b>Escola de manhã, festa às cinco</b><p>Guardado de setembro de propósito — peça que resolve o dia inteiro</p></div>
+      <span class="chip c-ok">gravado</span>
+    </div>
+    <div class="item">
+      <div class="dia">09/10<small>sexta</small></div>
+      <div class="peca"><span class="cod">R48</span> <b>Quando a criança odeia se vestir</b><p>Guardado de setembro — conforto decide a compra de última hora</p></div>
+      <span class="chip c-ok">gravado</span>
+    </div>
+  </div>
+
+  <div class="semana">Pico · 10 a 12</div>
+  <div class="lista">
+    <div class="item">
+      <div class="dia">10/10<small>sábado</small></div>
+      <div class="peca"><span class="cod">R39</span> <b>É hoje e você não comprou. Respira.</b><p>O vídeo do desespero. É o mais importante do mês inteiro</p></div>
+      <span class="chip c-nota">data presa</span>
+    </div>
+    <div class="item pausa">
+      <div class="dia">11 e 12<small>dom e seg</small></div>
+      <div class="peca"><b>Sem post novo</b><p>Dia de responder, separar e entregar. Publicar aqui só rouba a sua atenção do balcão</p></div>
+      <span class="chip c-pausa">atender</span>
+    </div>
+  </div>
+
+  <div class="semana">Depois · 13 a 16</div>
+  <div class="lista">
+    <div class="item">
+      <div class="dia">14/10<small>quarta</small></div>
+      <div class="peca"><span class="cod">R41</span> <b>Não serviu? Isso aqui não é problema.</b><p>A troca sem constrangimento — segura quem comprou no aperto</p></div>
+      <span class="chip c-ok">gravado</span>
+    </div>
+    <div class="item">
+      <div class="dia">16/10<small>sexta</small></div>
+      <div class="peca"><span class="cod">R29</span> <b>Festa aos treze, sem parecer de adulta</b><p>Guardado de setembro — abre a temporada de formatura e fim de ano</p></div>
+      <span class="chip c-ok">gravado</span>
+    </div>
+  </div>
+
+  <div class="semana">17 a 31 de outubro</div>
+  <div class="lista">
+    <div class="item">
+      <div class="dia">—<small>quinze dias</small></div>
+      <div class="peca"><b>Sem material gravado</b><p>Os cinco roteiros que cobriam essa quinzena — prova social do pós-festa, fim de ano começa em outubro, formatura do maternal, cinco peças do verão e a cliente que voltou com a irmã — ficaram para a próxima diária</p></div>
+      <span class="chip c-falta">descoberto</span>
+    </div>
+  </div>
+
+  <div class="aviso">
+    <h3>Precisamos de meia diária no começo de outubro</h3>
+    <p>Na gravação de 16/09 saíram <b>20 dos 30</b> roteiros — um recorde, e ainda assim ficaram 10 de fora. Os que faltam são justamente os da <b>segunda quinzena de outubro</b> e os <b>cinco criativos de anúncio do Dia das Crianças</b>.</p>
+    <p>Proposta: uma <b>meia diária, de manhã só</b>, entre 29/09 e 02/10. No ritmo que vocês duas acharam, dez roteiros saem em menos de duas horas. Se der para gravar só metade, <b>grava primeiro os de anúncio</b> — eles entram no ar dia 1º; os de feed só a partir do dia 17.</p>
+  </div>
+
+  <h2>Anúncios · o que entra e quando</h2>
+  <p class="nota">Cinco criativos novos gravados. O conjunto roda com <b>no máximo três anúncios ao mesmo tempo</b> — com a verba atual, mais que isso divide o orçamento e nenhum aprende. Então eles entram trocando, não somando.</p>
+
+  <div class="traf">
+    <article>
+      <p class="quando">Entra 22/09</p>
+      <h4>TR10 · Pode me chamar sem saber o que você quer</h4>
+      <p>Tira o medo de puxar conversa. É o que mais deve gerar volume.</p>
+    </article>
+    <article>
+      <p class="quando">Entra 29/09</p>
+      <h4>TR06 · Me manda a foto da criança, não a do vestido</h4>
+      <p>O método da curadoria virando o próprio convite.</p>
+    </article>
+    <article>
+      <p class="quando">Entra 01/10</p>
+      <h4>TR07 · A festa é sábado</h4>
+      <p>Urgência que existe de verdade. Abre a temporada de presente.</p>
+    </article>
+    <article>
+      <p class="quando">Entra 06/10</p>
+      <h4>TR08 · Uma mãe me pediu um vestido vermelho. Eu disse não.</h4>
+      <p>Autoridade pela recusa. Divide opinião de propósito.</p>
+    </article>
+    <article>
+      <p class="quando">Aguarda seu ok</p>
+      <h4>TR09 · De onde vem o preço</h4>
+      <p>É o único que fala de valor. Só sobe depois de você assistir e aprovar.</p>
+    </article>
+  </div>
+
+  <div class="destaque">
+    <h3>Sobre os leads deste mês</h3>
+    <p>Você contou que vieram <b>cinco ou seis</b> conversas, e muita curtida de quem já conhece a loja. Está abaixo do que a verba deveria entregar, e a gente vai atrás do motivo no gerenciador antes de mexer em qualquer coisa — dias efetivamente no ar, gasto e conversas por anúncio.</p>
+    <p>O que já dá para dizer: o ângulo do <b>“seu filho tem 9 anos”</b> é o que está convertendo, e você confirmou isso pelo lado da loja. É nele que a gente dobra — no feed e no anúncio.</p>
+  </div>
+
+  <h2>O que fica com você</h2>
+  <ul class="limpa">
+    <li><b>Fotos da loja.</b> Você se ofereceu e a gente aceita: a loja está organizada, faz umas fotos das araras e das vitrines e manda. Elas viram os carrosséis do mês inteiro — na diária sobrou pouca foto porque o foco foi nas falas.</li>
+    <li><b>Stories de prova social, 18 e 19/09.</b> Print de conversa de cliente antiga, você falando por cima. É o que salva a Semana do Cliente sem gravação.</li>
+    <li><b>Assistir o TR09</b> (o de preço) e dizer se pode subir.</li>
+    <li><b>Confirmar a meia diária</b> entre 29/09 e 02/10, com a Letícia.</li>
+    <li><b>Ticket médio.</b> Continua pendente desde 1º de setembro — sem ele a gente não consegue dizer se o custo por conversa está bom ou ruim.</li>
+  </ul>
+
+  <footer>
+    Expansion Assessoria · cronograma atualizado em 18/09/2026, depois da gravação de 16/09.<br>
+    Todo reel listado aqui já está gravado e no Drive, exceto onde está marcado em vermelho.
+  </footer>
+
+</div>
