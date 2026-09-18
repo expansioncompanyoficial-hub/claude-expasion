@@ -231,3 +231,45 @@ corrigidos (ver 3.4). Continuam abertos:
 (`20 CLIENTES › 2X NOME › 21.3 Brutos`, `10 COMERCIAL › 12 Contratos ATIVOS`),
 que nunca foi implementada. A estrutura deste documento a substitui. Fica o
 registro para não se tentar seguir as duas.
+
+---
+
+# 7. TERCEIRA RODADA — VERIFICAÇÃO (execução autônoma)
+
+Rodada pedida em modo autônomo, com a regra "só criar, nunca mover, renomear
+ou apagar".
+
+**Resultado: zero pastas criadas.** A verificação ao vivo dos 6 clientes
+mostrou a estrutura-alvo já completa, com a grafia exata — as duas rodadas
+anteriores já tinham entregue tudo. Criar qualquer item teria gerado pasta
+duplicada, que é o oposto do objetivo.
+
+Conferido ao vivo, por consulta direta ao Drive:
+
+| Verificação | Resultado |
+|---|---|
+| 5 pastas de nível 1 nos 6 clientes | 30/30 presentes |
+| `Documentos/Contrato` e `Documentos/Onboarding` | 12/12 presentes |
+| `Brutos/ROTEIROS 2026-09` e `Brutos/AVULSOS 2026-09` | 12/12 presentes |
+| `Orgânico` e `Tráfego` dentro de cada mês | 12/12 presentes |
+
+**Nada foi movido, renomeado ou apagado nesta rodada.**
+
+## Entregue: o mapa como Google Doc
+
+`MAPA DO DRIVE — Clientes — 2026-09-18`, salvo dentro da pasta `Clientes`
+(ID `1aTelw5o3McpxeUnAFApyXLWr2yGtVI6HAXm-r8Yidqs`). Traz o padrão como
+manual da casa, os IDs de cada cliente — pasta, `Brutos`, `Documentos`,
+`ROTEIROS 2026-09` e `AVULSOS 2026-09`, que é o que a automação do
+OS Expansion precisa para casar por ID e não por nome — e a seção
+"PRECISA DE MÃO HUMANA".
+
+## Uma divergência que o documento registra
+
+A regra desta rodada pedia, para estrutura divergente, criar a pasta padrão
+**vazia ao lado**. Isso vale para a Maison, e foi o que aconteceu. **Não vale
+para a Pontual:** o `ROTEIROS 2026-09` dela não é pasta nova — é a antiga
+`Roteiros SET/09 (GERAL)` renomeada na primeira rodada, e já tem material
+dentro. Criar uma segunda pasta com o mesmo nome no mesmo `Brutos` seria
+duplicata, então não foi criada. O `CAMADAS` que mora lá dentro segue
+pendente de migração manual.
